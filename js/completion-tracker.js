@@ -11,23 +11,42 @@ class CompletionTracker {
 
   // Initialize the tracker
   initialize() {
+    // Load from localStorage first (for offline or unauthenticated users)
+    this.loadFromLocalStorage();
+
+    // Update UI on page load
+    this.updateAllUI();
+
     // Try to initialize Firebase, but gracefully handle if it's not available (e.g., file:// protocol)
     try {
       this.db = firebase.firestore();
       this.auth = firebase.auth();
 
+      let isInitialAuth = true;
+
       // Listen for auth changes
       this.auth.onAuthStateChanged((user) => {
-        if (user) {
-          // User signed in - clear localStorage and load from Firestore
-          this.completedCases = {};
-          localStorage.removeItem('scp_completedCases');
-          this.syncWithFirestore();
+        if (isInitialAuth) {
+          // First auth state check - user is already signed in or not
+          isInitialAuth = false;
+          if (user) {
+            // User already signed in - load from Firestore
+            this.syncWithFirestore();
+          }
+          // If no user, keep localStorage data (already loaded above)
         } else {
-          // User signed out - clear all data
-          this.completedCases = {};
-          localStorage.removeItem('scp_completedCases');
-          this.updateAllUI();
+          // Subsequent auth changes - user signing in/out
+          if (user) {
+            // User just signed in - clear localStorage and load from Firestore
+            this.completedCases = {};
+            localStorage.removeItem('scp_completedCases');
+            this.syncWithFirestore();
+          } else {
+            // User just signed out - clear all data
+            this.completedCases = {};
+            localStorage.removeItem('scp_completedCases');
+            this.updateAllUI();
+          }
         }
       });
     } catch (error) {
@@ -35,12 +54,6 @@ class CompletionTracker {
       this.db = null;
       this.auth = null;
     }
-
-    // Load from localStorage first (for offline or unauthenticated users)
-    this.loadFromLocalStorage();
-
-    // Update UI on page load
-    this.updateAllUI();
   }
 
   // Load completed cases from localStorage
