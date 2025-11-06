@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 18.4 - Endometriosis</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 18.4 - Endometriosis | MD3 SCP Cases">
+  <meta name="description" content="A 29-year-old with severe dysmenorrhoea, chronic pelvic pain, and subfertility. Learn about endometriosis diagnosis (clinical vs laparoscopy), staging, medical management (NSAIDs, COCP, GnRH analogues), surgical options, and fertility preservation.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://md3-scp.netlify.app/cases/case18_4.html">
+  <meta property="og:title" content="Case 18.4 - Endometriosis">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="A 29-year-old with severe dysmenorrhoea, chronic pelvic pain, and subfertility. Learn about endometriosis diagnosis (clinical vs laparoscopy), staging, medical management (NSAIDs, COCP, GnRH analogues), surgical options, and fertility preservation.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Case 18.4 - Endometriosis">
+  <meta property="twitter:description" content="A 29-year-old with severe dysmenorrhoea, chronic pelvic pain, and subfertility. Learn about endometriosis diagnosis (clinical vs laparoscopy), staging, medical management (NSAIDs, COCP, GnRH analogues), surgical options, and fertility preservation.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 18.4 – Endometriosis</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Obstetrics & Gynaecology | <strong>Setting:</strong> GP Surgery</p>
+
+    <h2>Case</h2>
+    <p>Miss Rachel Thompson, a 29-year-old graphic designer, presents to her GP with a 4-year history of increasingly severe period pain. She describes cramping lower abdominal pain starting 2-3 days before her period and lasting throughout menstruation (days 1-5). The pain is rated 7-8/10 at its worst and significantly affects her ability to work, often requiring her to take 2-3 days off each month. Over-the-counter ibuprofen and paracetamol provide minimal relief.</p>
+
+    <p>She also reports chronic pelvic pain throughout the month (dull ache, 3-4/10 severity), worse on the right side. She experiences deep dyspareunia (pain during intercourse, particularly in certain positions), which has affected her relationship with her partner. She occasionally has painful bowel movements during her periods but no PR bleeding. She denies urinary symptoms.</p>
+
+    <p>Rachel and her partner have been trying to conceive for 18 months without success. Her menstrual cycles are regular (28-30 days) with moderate flow (5-6 days). She has never used hormonal contraception. She denies vaginal discharge or intermenstrual/postcoital bleeding.</p>
+
+    <p>Past medical history is unremarkable. She is a non-smoker, drinks alcohol socially, and has no known allergies. Her mother had a hysterectomy aged 42 for "severe period problems" (details unknown).</p>
+
+    <div class="vital-signs">
+      <strong>On Examination:</strong>
+      <ul>
+        <li>General: Appears well, not in acute distress</li>
+        <li>Vital signs: BP 118/72 mmHg, HR 68 bpm, Temperature 36.6°C</li>
+        <li>Abdominal examination: Soft, mild tenderness in lower abdomen bilaterally, no masses, no organomegaly</li>
+        <li>Per speculum: Cervix appears healthy, no visible lesions, no discharge</li>
+        <li>Bimanual examination:
+          <ul>
+            <li>Uterus retroverted, slightly bulky, reduced mobility, mildly tender</li>
+            <li>Cervical excitation positive (tender on movement)</li>
+            <li>Right adnexal fullness/tenderness, possible nodularity in pouch of Douglas</li>
+            <li>Left adnexa unremarkable</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <h2>Questions</h2>
+
+        <div class="question">
+      <strong>Question 1: What is endometriosis, what are the typical clinical features, and how is it diagnosed?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Definition:</strong> Endometriosis is the presence of endometrial-like tissue (glands and stroma) outside the uterine cavity. This ectopic tissue responds to hormonal changes during the menstrual cycle, causing inflammation, scarring, and pain.</p>
+
+        <p><strong>Epidemiology:</strong></p>
+        <ul>
+          <li>Affects 10% of women of reproductive age</li>
+          <li>30-50% of women with subfertility have endometriosis</li>
+          <li>Peak incidence 25-35 years</li>
+          <li>Often delayed diagnosis (average 7-10 years from symptom onset)</li>
+        </ul>
+
+        <p><strong>Pathophysiology - Theories:</strong></p>
+        <ul>
+          <li><strong>Retrograde menstruation (Sampson's theory):</strong> Menstrual blood flows backwards through fallopian tubes → implants on pelvic organs</li>
+          <li><strong>Metaplasia:</strong> Coelomic epithelium transforms into endometrial tissue</li>
+          <li><strong>Haematogenous/lymphatic spread:</strong> Explains distant sites (lungs, brain)</li>
+          <li>Genetic and immune factors also play a role</li>
+        </ul>
+
+        <p><strong>Common Sites of Endometriosis:</strong></p>
+        <ul>
+          <li><strong>Ovaries (most common)</strong> - endometriomas ("chocolate cysts" filled with old blood)</li>
+          <li><strong>Pouch of Douglas</strong> - causes deep dyspareunia, nodularity</li>
+          <li><strong>Uterosacral ligaments</strong> - nodularity, fixed retroverted uterus</li>
+          <li><strong>Peritoneum</strong> - pelvic sidewalls, bladder, bowel</li>
+          <li><strong>Rectovaginal septum</strong> - deep infiltrating disease</li>
+          <li><strong>Bladder</strong> - cyclical haematuria</li>
+          <li><strong>Bowel (rectum/sigmoid)</strong> - cyclical PR bleeding, dyschezia</li>
+          <li><strong>Rare sites:</strong> Lungs (cyclical haemoptysis), surgical scars, umbilicus</li>
+        </ul>
+
+        <p><strong>Classic Triad of Symptoms:</strong></p>
+        <ul>
+          <li><strong>Dysmenorrhoea</strong> (painful periods) - progressive, severe, starts before period</li>
+          <li><strong>Dyspareunia</strong> (painful intercourse) - deep pain, worse with deep penetration</li>
+          <li><strong>Subfertility/infertility</strong> - 30-50% of cases</li>
+        </ul>
+
+        <p><strong>Other Symptoms:</strong></p>
+        <ul>
+          <li><strong>Chronic pelvic pain</strong> - non-cyclical, dull ache</li>
+          <li><strong>Dyschezia</strong> - painful bowel movements (especially during menses)</li>
+          <li><strong>Dysuria</strong> - cyclical bladder pain</li>
+          <li><strong>Cyclical bleeding:</strong> Haematuria, PR bleeding, haemoptysis (rare)</li>
+          <li><strong>Fatigue, bloating</strong></li>
+          <li>Symptoms often worsen over time</li>
+        </ul>
+
+        <p><strong>Examination Findings:</strong></p>
+        <ul>
+          <li><strong>Retroverted, fixed uterus</strong> - reduced mobility due to adhesions</li>
+          <li><strong>Cervical excitation</strong> - tenderness on moving cervix</li>
+          <li><strong>Adnexal masses</strong> - endometriomas (ovarian cysts)</li>
+          <li><strong>Nodularity in pouch of Douglas</strong> or uterosacral ligaments - palpable on bimanual</li>
+          <li><strong>Tenderness</strong> - especially in posterior fornix</li>
+          <li>Note: Normal examination does NOT exclude endometriosis (50% have no findings)</li>
+        </ul>
+
+        <p><strong>Diagnosis:</strong></p>
+        <ul>
+          <li><strong>Clinical diagnosis (NICE/ESHRE 2022 guidelines):</strong>
+            <ul>
+              <li>Diagnosis based on <strong>symptoms and examination alone</strong> is sufficient to start empirical treatment</li>
+              <li>Laparoscopy NOT required for diagnosis in most cases</li>
+              <li>Treat symptomatically without imaging/surgery if symptoms suggestive</li>
+            </ul>
+          </li>
+          <li><strong>Imaging (if considering surgery or uncertain diagnosis):</strong>
+            <ul>
+              <li><strong>Transvaginal ultrasound:</strong> Detects endometriomas, deep infiltrating disease</li>
+              <li><strong>MRI pelvis:</strong> Gold standard imaging for deep endometriosis, rectovaginal disease</li>
+              <li>Normal imaging does NOT exclude endometriosis (peritoneal disease not visible)</li>
+            </ul>
+          </li>
+          <li><strong>Laparoscopy + biopsy (gold standard for confirmation):</strong>
+            <ul>
+              <li>Direct visualization of lesions (black/brown "powder-burn" spots, red vesicles, white scarring)</li>
+              <li>Histological confirmation</li>
+              <li>Staging (revised ASRM classification: Stage I-IV)</li>
+              <li>Reserved for: Uncertain diagnosis, planning surgery, subfertility investigations</li>
+            </ul>
+          </li>
+          <li><strong>Bloods:</strong> CA-125 may be mildly elevated (non-specific) - NOT diagnostic</li>
+        </ul>
+
+        <p><strong>This patient's features suggestive of endometriosis:</strong></p>
+        <ul>
+          <li>Classic triad: Dysmenorrhoea + dyspareunia + subfertility (18 months)</li>
+          <li>Chronic pelvic pain</li>
+          <li>Dyschezia (painful bowel movements during menses)</li>
+          <li>Examination: Retroverted uterus with reduced mobility, cervical excitation, adnexal fullness, nodularity in pouch of Douglas</li>
+          <li>Family history (mother with severe period problems)</li>
+        </ul>
+      </div>
+    </div>
+
+        <div class="question">
+      <strong>Question 2: What are the management options for endometriosis, including medical and surgical treatments?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Goals of Treatment:</strong></p>
+        <ul>
+          <li>Pain relief (primary goal if not trying to conceive)</li>
+          <li>Improve quality of life</li>
+          <li>Preserve/restore fertility</li>
+          <li>Prevent disease progression</li>
+        </ul>
+
+        <p><strong>Medical Management (for pain, NOT for fertility):</strong></p>
+
+        <p><strong>First-Line Options:</strong></p>
+        <ul>
+          <li><strong>NSAIDs (mefenamic acid 500mg TDS, ibuprofen 400mg TDS)</strong>
+            <ul>
+              <li>For dysmenorrhoea</li>
+              <li>Often inadequate as monotherapy</li>
+            </ul>
+          </li>
+          <li><strong>Combined Oral Contraceptive Pill (COCP)</strong>
+            <ul>
+              <li>Continuous use (back-to-back, no pill-free interval) more effective than cyclical</li>
+              <li>Suppresses ovulation and endometrial proliferation</li>
+              <li>First-line hormonal treatment</li>
+            </ul>
+          </li>
+          <li><strong>Progestogens:</strong>
+            <ul>
+              <li><strong>LNG-IUS (Mirena):</strong> Local progesterone, 80-90% pain reduction, 5-year duration</li>
+              <li><strong>Oral progestogens:</strong> Norethisterone 10-15mg daily, desogestrel 75mcg daily</li>
+              <li><strong>Depot medroxyprogesterone acetate (DMPA):</strong> IM injection every 12 weeks</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Second-Line (if first-line inadequate):</strong></p>
+        <ul>
+          <li><strong>GnRH analogues (goserelin, leuprorelin)</strong>
+            <ul>
+              <li>Induces temporary medical menopause (suppresses ovarian function)</li>
+              <li>Very effective for pain (70-80% improvement)</li>
+              <li>SC injection monthly or 3-monthly implant</li>
+              <li><strong>Add-back HRT</strong> (low-dose oestrogen + progestogen) to reduce menopausal side effects (hot flushes, osteoporosis)</li>
+              <li>Maximum duration 6 months (12 months with add-back HRT) - due to bone density loss</li>
+              <li>NOT suitable if trying to conceive</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Medical Treatment Limitations:</strong></p>
+        <ul>
+          <li>Suppresses symptoms but does NOT cure disease</li>
+          <li>Symptoms often recur after stopping treatment (50% within 5 years)</li>
+          <li><strong>Does NOT improve fertility</strong> - medical treatment should be stopped if trying to conceive</li>
+        </ul>
+
+        <p><strong>Surgical Management:</strong></p>
+
+        <p><strong>Indications for surgery:</strong></p>
+        <ul>
+          <li>Failed medical management (inadequate pain relief)</li>
+          <li>Subfertility (improves pregnancy rates if moderate-severe disease)</li>
+          <li>Endometriomas >3-4cm (consider if symptomatic or affecting fertility)</li>
+          <li>Deep infiltrating endometriosis (rectovaginal, bladder, bowel)</li>
+          <li>Patient preference</li>
+        </ul>
+
+        <p><strong>Surgical Options:</strong></p>
+        <ul>
+          <li><strong>Laparoscopic ablation/excision of endometriotic deposits</strong>
+            <ul>
+              <li>Ablation (burn/laser) or excision (cut out) lesions</li>
+              <li>Excision preferred for deep disease (lower recurrence)</li>
+              <li>Division of adhesions (adhesiolysis)</li>
+              <li>Pain relief in 60-80%</li>
+            </ul>
+          </li>
+          <li><strong>Ovarian cystectomy</strong> - for endometriomas >3cm
+            <ul>
+              <li>Removes cyst wall (better than drainage alone)</li>
+              <li>Risk of reduced ovarian reserve (especially if bilateral)</li>
+            </ul>
+          </li>
+          <li><strong>Deep excision surgery</strong>
+            <ul>
+              <li>For rectovaginal, bowel, bladder disease</li>
+              <li>May require bowel resection (colorectal input)</li>
+              <li>Complex surgery, specialist centres</li>
+            </ul>
+          </li>
+          <li><strong>Hysterectomy ± bilateral salpingo-oophorectomy (BSO)</strong>
+            <ul>
+              <li>Definitive treatment (but not curative - disease can recur)</li>
+              <li>Reserved for severe, refractory disease in women who have completed their family</li>
+              <li>BSO reduces recurrence but causes surgical menopause (requires HRT)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Fertility Management:</strong></p>
+        <ul>
+          <li><strong>If trying to conceive:</strong>
+            <ul>
+              <li>Stop hormonal treatments (suppress ovulation)</li>
+              <li>Consider laparoscopic excision/ablation if moderate-severe disease (improves pregnancy rates)</li>
+              <li>Refer to fertility clinic if not pregnant after 6-12 months of trying</li>
+            </ul>
+          </li>
+          <li><strong>Assisted conception:</strong>
+            <ul>
+              <li>Ovulation induction + IUI (intrauterine insemination)</li>
+              <li>IVF - very effective (bypasses pelvic disease)</li>
+            </ul>
+          </li>
+          <li><strong>Surgery improves natural conception</strong> in moderate-severe disease (Stage III-IV)</li>
+        </ul>
+
+        <p><strong>Holistic/Supportive Management:</strong></p>
+        <ul>
+          <li>Multidisciplinary team (gynaecology, pain clinic, psychology, physiotherapy)</li>
+          <li>Pelvic physiotherapy for chronic pain</li>
+          <li>Psychological support (chronic pain, impact on relationships, fertility concerns)</li>
+          <li>Patient support groups (Endometriosis UK)</li>
+        </ul>
+
+        <p><strong>This patient's management plan:</strong></p>
+        <ol>
+          <li><strong>Clinical diagnosis of endometriosis</strong> based on symptoms and examination (laparoscopy not essential)</li>
+          <li><strong>Discuss fertility plans:</strong> She is currently trying to conceive
+            <ul>
+              <li>Medical treatment (COCP/progestogens) NOT appropriate as suppresses ovulation</li>
+              <li>Analgesia (NSAIDs) for pain during conception attempts</li>
+            </ul>
+          </li>
+          <li><strong>Investigations:</strong>
+            <ul>
+              <li>Transvaginal ultrasound - assess for endometriomas</li>
+              <li>Fertility screen (Day 2-5 FSH/LH/oestradiol, AMH, partner semen analysis)</li>
+            </ul>
+          </li>
+          <li><strong>Refer to gynaecology for:</strong>
+            <ul>
+              <li>Possible diagnostic laparoscopy + excision/ablation of endometriosis (may improve fertility)</li>
+              <li>Fertility clinic referral (18 months trying, likely endometriosis)</li>
+            </ul>
+          </li>
+          <li><strong>If not trying to conceive in future:</strong> Options would include continuous COCP, LNG-IUS, or GnRH analogues</li>
+        </ol>
+      </div>
+    </div>
+
+    <h2>Key Learning Points</h2>
+    <div class="key-points">
+      <ul>
+        <li><strong>Endometriosis</strong> = presence of endometrial-like tissue outside the uterus → inflammation, scarring, pain</li>
+        <li><strong>Classic triad:</strong> Dysmenorrhoea (painful periods) + dyspareunia (deep pain during sex) + subfertility</li>
+        <li><strong>Affects 10% women of reproductive age</strong>, 30-50% of subfertile women</li>
+        <li><strong>Common sites:</strong> Ovaries (endometriomas), pouch of Douglas, uterosacral ligaments, peritoneum, bladder, bowel</li>
+        <li><strong>Diagnosis:</strong> Clinical (symptoms + examination) sufficient to start treatment - laparoscopy NOT required in most cases (NICE 2022)</li>
+        <li><strong>Examination findings:</strong> Retroverted fixed uterus, cervical excitation, adnexal masses, nodularity in pouch of Douglas (but 50% have normal examination)</li>
+        <li><strong>Medical management (for pain):</strong> NSAIDs, COCP (continuous), LNG-IUS, progestogens, GnRH analogues (second-line)</li>
+        <li><strong>Medical treatment does NOT improve fertility</strong> - stop hormonal treatments if trying to conceive</li>
+        <li><strong>Surgical management:</strong> Laparoscopic excision/ablation (improves pain + fertility), cystectomy for endometriomas, hysterectomy for refractory cases</li>
+        <li><strong>Fertility:</strong> IVF very effective, laparoscopic surgery improves natural conception in moderate-severe disease</li>
+        <li><strong>Chronic condition:</strong> Requires long-term management, multidisciplinary approach, psychological support</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

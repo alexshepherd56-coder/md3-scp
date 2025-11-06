@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 23.5 - Laryngomalacia</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 23.5 - Laryngomalacia | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 23.5 - Laryngomalacia">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 23.5 – Laryngomalacia</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine | <strong>Setting:</strong> Urban General Practice</p>
+
+    <h2>Case</h2>
+    <p>Emily Jane is 5 weeks old and her mother Melinda is concerned because she is making a noisy breathing noise.</p>
+    <p>You note that Emily's breathing is noisier when she lies flat and that it improves when you place her in a more upright position.</p>
+    <p>When you ask Melinda to describe the noise, she is not sure whether it occurs during inspiration or expiration, but says that it sounds "high pitched".</p>
+    <p>Emily is feeding well and has normal growth and development. There is no history of choking or breathing difficulties.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the key components of your history and examination of Emily?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>History:</strong></p>
+        <ul>
+          <li>The current problem</li>
+          <li>Past history</li>
+          <li>Social history</li>
+          <li>Family history</li>
+          <li>Systems review</li>
+          <li>Growth and development</li>
+          <li>Immunisations</li>
+          <li>Behaviour</li>
+          <li>Medications</li>
+          <li>Allergies</li>
+        </ul>
+
+        <p><strong>Examination:</strong></p>
+        <ul>
+          <li>General observation and behaviour</li>
+          <li>Measurements</li>
+          <li>Specific examination:
+            <ul>
+              <li>Vital signs (heart rate, respiratory rate, oxygen saturation, temperature)</li>
+              <li>Respiratory system - listen for stridor, assess work of breathing, auscultate chest</li>
+              <li>Cardiovascular system</li>
+              <li>ENT examination - assess oropharynx, nose</li>
+              <li>Hydration status</li>
+              <li>Assess if positional (worse when lying flat vs upright)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Emily's mother describes the noise as a high pitched "squeak", you determine that this occurs during inspiration (stridor). Briefly outline the causes of stridor in infants and what features on history and clinical examination would help you narrow down the differential diagnosis.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Definition:</strong></p>
+        <p>Stridor is a harsh, high-pitched respiratory sound that is usually heard during inspiration. It indicates partial obstruction of the airway, usually at the level of the larynx or trachea.</p>
+
+        <p><strong>Common Causes of Stridor in Infants:</strong></p>
+
+        <table>
+          <tr>
+            <th>Cause</th>
+            <th>Key Features</th>
+          </tr>
+          <tr>
+            <td><strong>Foreign Body</strong></td>
+            <td>Sudden onset, history of choking, may have unilateral wheeze, variable presentation depending on location</td>
+          </tr>
+          <tr>
+            <td><strong>Anaphylaxis</strong></td>
+            <td>Acute onset, associated with exposure to allergen, urticaria, angioedema, respiratory distress, cardiovascular compromise</td>
+          </tr>
+          <tr>
+            <td><strong>Croup (Laryngotracheobronchitis)</strong></td>
+            <td>Viral infection, barking cough, fever, preceded by coryzal symptoms, worse at night, age 6 months - 3 years</td>
+          </tr>
+          <tr>
+            <td><strong>Vocal Cord Paralysis</strong></td>
+            <td>Present from birth, weak cry, aspiration, may be bilateral or unilateral</td>
+          </tr>
+          <tr>
+            <td><strong>Laryngomalacia</strong></td>
+            <td>Most common cause of stridor in infants, present from first few weeks, positional (worse when supine), improves with growth, feeding usually normal</td>
+          </tr>
+          <tr>
+            <td><strong>Burns/Inhalation Injury</strong></td>
+            <td>History of fire, smoke exposure, chemical exposure, facial burns, singed nasal hairs</td>
+          </tr>
+          <tr>
+            <td><strong>Epiglottitis</strong></td>
+            <td>Rare since Hib vaccination, acute onset, high fever, toxic appearance, drooling, reluctance to lie flat (tripod position), medical emergency</td>
+          </tr>
+        </table>
+
+        <p><strong>Other Causes:</strong> Subglottic stenosis, laryngeal web, vascular ring, hemangioma, bacterial tracheitis</p>
+
+        <p><strong>Red Flags Requiring Urgent Assessment:</strong></p>
+        <ul>
+          <li>Acute onset stridor</li>
+          <li>Severe respiratory distress (tachypnea, retractions, cyanosis)</li>
+          <li>Drooling or difficulty swallowing</li>
+          <li>Toxic appearance or high fever</li>
+          <li>History of choking or foreign body</li>
+          <li>Rapidly progressive symptoms</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. You determine that Emily's stridor is positional and improves when she is placed in a more upright position. You suspect that Emily has laryngomalacia. Explain the underlying pathophysiology of this condition and the natural history.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Definition:</strong></p>
+        <p>Laryngomalacia is a congenital softening of the tissues of the larynx (voice box) above the vocal cords. It is the most common cause of stridor in infants.</p>
+
+        <p><strong>Pathophysiology:</strong></p>
+        <p>The exact cause is not fully understood, but involves immature development of the laryngeal cartilage and supporting structures. The supraglottic structures (arytenoid cartilages, aryepiglottic folds, and epiglottis) are abnormally shaped or floppy.</p>
+
+        <p>During inspiration, negative pressure causes these floppy structures to collapse inward and partially obstruct the airway, producing the characteristic inspiratory stridor. The "omega-shaped" epiglottis may curl on itself, and the arytenoid cartilages may prolapse anteriorly into the airway.</p>
+
+        <p><strong>Clinical Features:</strong></p>
+        <ul>
+          <li>Onset: Usually within first 2-4 weeks of life</li>
+          <li>Stridor: High-pitched, inspiratory, intermittent</li>
+          <li>Positional: Worse when supine, improves when prone or upright</li>
+          <li>Worse with: Crying, feeding, excitement, upper respiratory infections</li>
+          <li>Better with: Calm state, sleep</li>
+          <li>Feeding: Usually normal, though may be slower in severe cases</li>
+          <li>Growth: Typically normal</li>
+        </ul>
+
+        <p><strong>Natural History:</strong></p>
+        <p>Laryngomalacia is a self-limiting condition in the vast majority of cases. As the infant grows and the laryngeal structures mature and become more rigid, the symptoms gradually improve.</p>
+
+        <ul>
+          <li><strong>Peak symptoms:</strong> Usually around 6-8 months of age</li>
+          <li><strong>Resolution:</strong> Most cases resolve by 12-18 months of age (typically by 2 years)</li>
+          <li><strong>Prognosis:</strong> Excellent - 90-95% of cases resolve spontaneously without intervention</li>
+        </ul>
+
+        <p><strong>Management:</strong></p>
+        <p><strong>Conservative (Most Cases):</strong></p>
+        <ul>
+          <li>Reassurance and education of parents</li>
+          <li>Positioning: Keep upright during and after feeds</li>
+          <li>Small, frequent feeds if needed</li>
+          <li>Monitor growth and development</li>
+          <li>Regular follow-up</li>
+        </ul>
+
+        <p><strong>Indications for Referral to ENT:</strong></p>
+        <ul>
+          <li>Severe respiratory distress or apneic episodes</li>
+          <li>Feeding difficulties with failure to thrive</li>
+          <li>Significant obstructive sleep apnea</li>
+          <li>Cor pulmonale (rare)</li>
+          <li>Uncertainty about diagnosis</li>
+        </ul>
+
+        <p><strong>Surgical Intervention (Rare - &lt;10% of cases):</strong></p>
+        <p>Supraglottoplasty may be required in severe cases. This involves surgical division or removal of redundant supraglottic tissue to enlarge the airway opening.</p>
+
+        <p><strong>Diagnosis:</strong></p>
+        <p>Usually clinical. Flexible laryngoscopy can confirm the diagnosis by visualizing the collapse of supraglottic structures during inspiration. This is typically reserved for atypical presentations or severe cases.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

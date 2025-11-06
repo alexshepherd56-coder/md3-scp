@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 11.7 - Electrolyte Management [SDL]</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 11.7 - Electrolyte Management [SDL] | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 11.7 - Electrolyte Management [SDL]">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 11.7 – Electrolyte Management [SDL]</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - General</p>
+
+    <h2>Case</h2>
+    <p>Arthur Lewis is a 52 year old man who underwent resection of sigmoid colon for cancer three days ago. He is otherwise fit and well. He has a nasogastric tube on free drainage. You are the on-call intern and are called to review his IV fluid orders.</p>
+
+    <h2>Questions</h2>
+    <div class="question">
+      <strong>1. Outline the steps you would take in assessing the appropriateness of Mr Lewis' current IV fluid prescription.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Systematic Assessment of IV Fluid Prescription</h3>
+
+        <h3>1. Review Patient History and Current Status</h3>
+        <ul>
+          <li><strong>Type of surgery:</strong> Sigmoid colon resection – major abdominal surgery with potential for significant fluid shifts</li>
+          <li><strong>Time since surgery:</strong> Post-operative day 3</li>
+          <li><strong>Co-morbidities:</strong> Otherwise fit and well (no cardiac, renal, or liver disease)</li>
+          <li><strong>Current losses:</strong> Nasogastric tube on free drainage</li>
+          <li><strong>Oral intake:</strong> Likely minimal or nil by mouth</li>
+          <li><strong>Medications:</strong> Any drugs affecting fluid/electrolyte balance</li>
+        </ul>
+
+        <h3>2. Clinical Assessment</h3>
+
+        <h3>Assess Volume Status</h3>
+        <table>
+          <tr>
+            <th>Clinical Feature</th>
+            <th>Volume Depletion</th>
+            <th>Volume Overload</th>
+          </tr>
+          <tr>
+            <td><strong>Vital signs</strong></td>
+            <td>
+              • Tachycardia<br>
+              • Hypotension<br>
+              • Postural drop ≥20mmHg systolic<br>
+              • Low urine output
+            </td>
+            <td>
+              • Hypertension<br>
+              • Tachypnoea
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Examination</strong></td>
+            <td>
+              • Dry mucous membranes<br>
+              • Reduced skin turgor<br>
+              • Sunken eyes<br>
+              • Reduced JVP<br>
+              • Weak/thready pulse<br>
+              • Prolonged capillary refill
+            </td>
+            <td>
+              • Raised JVP<br>
+              • Peripheral oedema<br>
+              • Pulmonary oedema (crackles)<br>
+              • Third heart sound (S3)<br>
+              • Ascites
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Weight</strong></td>
+            <td>Decreased from baseline</td>
+            <td>Increased from baseline</td>
+          </tr>
+        </table>
+
+        <h3>Assess for Complications</h3>
+        <ul>
+          <li><strong>Surgical complications:</strong> Anastomotic leak, bleeding, ileus</li>
+          <li><strong>Respiratory status:</strong> Signs of pulmonary oedema or chest infection</li>
+          <li><strong>Mental status:</strong> Confusion (hyponatremia, dehydration, sepsis)</li>
+          <li><strong>Abdominal examination:</strong> Distension, tenderness, bowel sounds</li>
+        </ul>
+
+        <h3>3. Review Fluid Balance Chart</h3>
+        <ul>
+          <li><strong>Input:</strong> All IV fluids, oral intake, enteral feeds</li>
+          <li><strong>Output:</strong>
+            <ul>
+              <li>Urine output (should be >0.5mL/kg/hr or >30mL/hr)</li>
+              <li>NG tube drainage</li>
+              <li>Drain output</li>
+              <li>Stoma output</li>
+            </ul>
+          </li>
+          <li><strong>Insensible losses:</strong> ~500-800mL/day normally; increased with fever (10mL/kg/day per °C above 37°C)</li>
+          <li><strong>Daily balance:</strong> Calculate cumulative fluid balance</li>
+        </ul>
+
+        <h3>4. Review Laboratory Results</h3>
+        <table>
+          <tr>
+            <th>Test</th>
+            <th>Why Important</th>
+            <th>Action if Abnormal</th>
+          </tr>
+          <tr>
+            <td><strong>Sodium</strong></td>
+            <td>Hyponatremia common post-op due to ADH secretion and hypotonic fluids</td>
+            <td>Adjust fluid type; consider fluid restriction if dilutional</td>
+          </tr>
+          <tr>
+            <td><strong>Potassium</strong></td>
+            <td>May be depleted (NG losses, inadequate replacement); may be elevated (renal impairment, cell lysis)</td>
+            <td>Supplement or restrict as needed</td>
+          </tr>
+          <tr>
+            <td><strong>Urea & Creatinine</strong></td>
+            <td>Assess renal function and hydration status</td>
+            <td>↑ Urea:Cr ratio suggests dehydration; ↑ both suggests renal impairment</td>
+          </tr>
+          <tr>
+            <td><strong>Chloride</strong></td>
+            <td>May be depleted with NG losses</td>
+            <td>Replace with 0.9% saline if deficient</td>
+          </tr>
+          <tr>
+            <td><strong>Bicarbonate/Blood gas</strong></td>
+            <td>Assess acid-base status</td>
+            <td>May indicate metabolic alkalosis (NG losses) or acidosis (sepsis, renal failure)</td>
+          </tr>
+          <tr>
+            <td><strong>Haemoglobin/Haematocrit</strong></td>
+            <td>May be elevated in dehydration; low if bleeding</td>
+            <td>Transfuse if bleeding; consider dehydration if elevated</td>
+          </tr>
+          <tr>
+            <td><strong>Glucose</strong></td>
+            <td>May be elevated in stress response; risk of hypo if poor intake</td>
+            <td>Consider dextrose-containing fluids if hypoglycemic</td>
+          </tr>
+        </table>
+
+        <h3>5. Review Current IV Fluid Prescription</h3>
+        <p>Check the following components:</p>
+        <ul>
+          <li><strong>Type of fluid:</strong> Crystalloid vs colloid; isotonic vs hypotonic</li>
+          <li><strong>Rate:</strong> Appropriate for patient's weight and clinical status</li>
+          <li><strong>Additives:</strong> Potassium, dextrose, other electrolytes</li>
+          <li><strong>Total daily volume:</strong> Meeting maintenance requirements plus replacing losses</li>
+          <li><strong>Duration:</strong> Is IV fluid still needed or can patient take orally?</li>
+        </ul>
+
+        <h3>6. Calculate Fluid Requirements</h3>
+
+        <h3>Maintenance Fluids (Adult)</h3>
+        <p><strong>Standard requirement: ~25-30mL/kg/day</strong></p>
+        <p>For 70kg adult: ~2000-2500mL/day (including oral intake)</p>
+
+        <h3>Alternative Calculation (4-2-1 Rule)</h3>
+        <ul>
+          <li>4mL/kg/hr for first 10kg</li>
+          <li>2mL/kg/hr for next 10kg</li>
+          <li>1mL/kg/hr for remaining kg</li>
+        </ul>
+        <p><strong>Example for 70kg patient:</strong></p>
+        <ul>
+          <li>First 10kg: 4 × 10 = 40mL/hr</li>
+          <li>Next 10kg: 2 × 10 = 20mL/hr</li>
+          <li>Remaining 50kg: 1 × 50 = 50mL/hr</li>
+          <li><strong>Total: 110mL/hr or ~2640mL/day</strong></li>
+        </ul>
+
+        <h3>Plus Replacement of Ongoing Losses</h3>
+        <ul>
+          <li><strong>NG tube losses:</strong> Replace mL for mL with 0.9% saline + KCl</li>
+          <li><strong>Drain output:</strong> Replace based on volume and composition</li>
+          <li><strong>Fever:</strong> Add 10mL/kg/day per °C above 37°C</li>
+        </ul>
+
+        <h3>7. Consider Electrolyte Requirements</h3>
+        <table>
+          <tr>
+            <th>Electrolyte</th>
+            <th>Daily Requirement (Adult)</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td><strong>Sodium</strong></td>
+            <td>1-2 mmol/kg/day<br>(70-140 mmol/day)</td>
+            <td>Provided by 0.9% saline (154mmol/L) or Hartmann's (131mmol/L)</td>
+          </tr>
+          <tr>
+            <td><strong>Potassium</strong></td>
+            <td>1 mmol/kg/day<br>(70 mmol/day)</td>
+            <td>Usually added to IV fluids (typically 20-40mmol/L)<br>Check K+ before supplementing</td>
+          </tr>
+          <tr>
+            <td><strong>Chloride</strong></td>
+            <td>1-2 mmol/kg/day</td>
+            <td>Provided by 0.9% saline (154mmol/L)</td>
+          </tr>
+          <tr>
+            <td><strong>Glucose</strong></td>
+            <td>50-100g/day</td>
+            <td>Prevents ketosis; provided by 5% dextrose (50g/L)</td>
+          </tr>
+        </table>
+
+        <h3>8. Formulate a Plan</h3>
+        <ul>
+          <li>Continue current fluids if appropriate</li>
+          <li>Adjust rate, type, or additives based on assessment</li>
+          <li>Set clear endpoints for reassessment</li>
+          <li>Plan for transition to oral intake when appropriate</li>
+          <li>Arrange follow-up bloods to monitor electrolytes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the differences between paediatric and adult IV fluid prescribing?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Key Differences in Paediatric vs Adult IV Fluid Prescribing</h3>
+
+        <h3>1. Fluid Requirements</h3>
+
+        <h3>Maintenance Fluid Calculation</h3>
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>Paediatric (Holliday-Segar Formula)</th>
+            <th>Adult</th>
+          </tr>
+          <tr>
+            <td><strong>4-2-1 Rule</strong></td>
+            <td>
+              • 4 mL/kg/hr for first 10kg<br>
+              • 2 mL/kg/hr for next 10kg<br>
+              • 1 mL/kg/hr for each kg >20kg
+            </td>
+            <td>Same rule applies, or use 25-30mL/kg/day</td>
+          </tr>
+          <tr>
+            <td><strong>Example: 15kg child</strong></td>
+            <td>
+              First 10kg: 4×10 = 40mL/hr<br>
+              Next 5kg: 2×5 = 10mL/hr<br>
+              <strong>Total: 50mL/hr</strong>
+            </td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td><strong>Example: 70kg adult</strong></td>
+            <td>N/A</td>
+            <td>
+              25-30mL/kg/day = 1750-2100mL/day<br>
+              OR use 4-2-1 rule ≈ 110mL/hr
+            </td>
+          </tr>
+        </table>
+
+        <h3>2. Fluid Composition</h3>
+
+        <h3>Choice of Fluid</h3>
+        <table>
+          <tr>
+            <th>Aspect</th>
+            <th>Paediatric</th>
+            <th>Adult</th>
+          </tr>
+          <tr>
+            <td><strong>Maintenance fluid</strong></td>
+            <td>
+              <strong>0.9% saline + 5% dextrose + KCl</strong><br>
+              (Previously used hypotonic fluids, but risk of hyponatremia)<br>
+              <br>
+              NICE guideline: Isotonic fluids (0.9% saline with glucose and K+) to reduce hyponatremia risk
+            </td>
+            <td>
+              <strong>0.9% saline or Hartmann's</strong> for resuscitation and replacement<br>
+              <br>
+              <strong>0.9% saline + 5% dextrose + KCl</strong> or<br>
+              <strong>0.45% saline + 5% dextrose + KCl</strong> for maintenance
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Dextrose</strong></td>
+            <td>
+              <strong>ALWAYS include dextrose</strong> in maintenance fluids<br>
+              Children have limited glycogen stores and are at higher risk of hypoglycemia
+            </td>
+            <td>
+              Dextrose optional in maintenance fluids<br>
+              Adults can maintain blood glucose longer without exogenous glucose
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Resuscitation fluid</strong></td>
+            <td>
+              <strong>0.9% saline or Hartmann's</strong><br>
+              Bolus: 10-20mL/kg over 10-20 minutes<br>
+              Reassess after each bolus
+            </td>
+            <td>
+              <strong>0.9% saline or Hartmann's</strong><br>
+              Bolus: 500-1000mL over 15-30 minutes<br>
+              Reassess after bolus
+            </td>
+          </tr>
+        </table>
+
+        <h3>3. Special Considerations in Children</h3>
+
+        <h3>Higher Risk of Complications</h3>
+        <ul>
+          <li><strong>Hyponatremia:</strong> Children more susceptible to cerebral oedema from rapid correction; avoid hypotonic fluids</li>
+          <li><strong>Hypoglycemia:</strong> Limited glycogen stores; always include dextrose in maintenance fluids</li>
+          <li><strong>Volume overload:</strong> Smaller circulating volume means less margin for error</li>
+          <li><strong>Hypothermia:</strong> Higher surface area to volume ratio; warm fluids if giving large volumes</li>
+        </ul>
+
+        <h3>4. Electrolyte Requirements</h3>
+        <table>
+          <tr>
+            <th>Electrolyte</th>
+            <th>Paediatric</th>
+            <th>Adult</th>
+          </tr>
+          <tr>
+            <td><strong>Sodium</strong></td>
+            <td>2-4 mmol/kg/day</td>
+            <td>1-2 mmol/kg/day</td>
+          </tr>
+          <tr>
+            <td><strong>Potassium</strong></td>
+            <td>1-2 mmol/kg/day<br>(Usually add 20mmol/L to fluids)</td>
+            <td>1 mmol/kg/day<br>(Usually add 20-40mmol/L to fluids)</td>
+          </tr>
+          <tr>
+            <td><strong>Glucose</strong></td>
+            <td>
+              <strong>ESSENTIAL</strong><br>
+              5-10g/kg/day<br>
+              Use 5% or 10% dextrose
+            </td>
+            <td>
+              50-100g/day (optional)<br>
+              Usually 5% dextrose sufficient if needed
+            </td>
+          </tr>
+        </table>
+
+        <h3>5. Monitoring</h3>
+        <table>
+          <tr>
+            <th>Parameter</th>
+            <th>Paediatric</th>
+            <th>Adult</th>
+          </tr>
+          <tr>
+            <td><strong>Frequency</strong></td>
+            <td>
+              More frequent monitoring required<br>
+              • Electrolytes: Every 12-24 hours initially<br>
+              • Blood glucose: Every 4-6 hours if on IV fluids<br>
+              • Fluid balance: Hourly in acute setting
+            </td>
+            <td>
+              • Electrolytes: Daily or twice daily<br>
+              • Blood glucose: If diabetic or on TPN<br>
+              • Fluid balance: Daily, hourly if unstable
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Weight</strong></td>
+            <td>Daily weights <strong>essential</strong><br>Acute weight change primarily reflects fluid status</td>
+            <td>Daily weights helpful<br>Especially in cardiac/renal patients</td>
+          </tr>
+          <tr>
+            <td><strong>Urine output</strong></td>
+            <td>
+              Target: >1mL/kg/hr<br>
+              (Infants >2mL/kg/hr)
+            </td>
+            <td>Target: >0.5mL/kg/hr</td>
+          </tr>
+        </table>
+
+        <h3>6. Prescribing Approach</h3>
+
+        <h3>Paediatric</h3>
+        <ul>
+          <li><strong>Weight-based:</strong> All calculations must be based on accurate weight</li>
+          <li><strong>Age-specific:</strong> Neonates, infants, children, and adolescents have different requirements</li>
+          <li><strong>Senior review:</strong> Junior doctors should discuss all paediatric IV fluid prescriptions with seniors</li>
+          <li><strong>Clear documentation:</strong> Document weight used for calculations</li>
+        </ul>
+
+        <h3>Adult</h3>
+        <ul>
+          <li><strong>More standardized:</strong> Often use fixed volumes (e.g., 1L bags)</li>
+          <li><strong>Weight-based in specific situations:</strong> Critical illness, obesity, renal impairment</li>
+          <li><strong>Greater physiological reserve:</strong> More tolerance for small errors</li>
+        </ul>
+
+        <h3>7. Recent Guideline Changes</h3>
+
+        <h3>NICE Guidance on Paediatric IV Fluids (Updated)</h3>
+        <ul>
+          <li><strong>Avoid hypotonic fluids:</strong> Use isotonic (0.9%) saline with 5% glucose for maintenance</li>
+          <li><strong>Reason:</strong> Reduce risk of hyponatremia and associated cerebral oedema</li>
+          <li><strong>Previous practice:</strong> 0.45% saline or 0.18% saline (now avoided)</li>
+        </ul>
+
+        <h3>8. Common Mistakes to Avoid</h3>
+
+        <h3>In Children</h3>
+        <ul>
+          <li>❌ Using hypotonic maintenance fluids (risk of hyponatremia)</li>
+          <li>❌ Forgetting glucose (risk of hypoglycemia)</li>
+          <li>❌ Calculation errors (wrong weight, decimal point errors)</li>
+          <li>❌ Not monitoring glucose regularly</li>
+          <li>❌ Giving excessive fluid boluses without reassessment</li>
+        </ul>
+
+        <h3>In Adults</h3>
+        <ul>
+          <li>❌ Excessive 0.9% saline (risk of hyperchloremic acidosis)</li>
+          <li>❌ Adding potassium without checking levels first</li>
+          <li>❌ Not reducing fluids when patient starts eating/drinking</li>
+          <li>❌ Fluid overload in cardiac/renal patients</li>
+        </ul>
+
+        <h3>Summary - Key Differences</h3>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Paediatric</th>
+            <th>Adult</th>
+          </tr>
+          <tr>
+            <td><strong>Fluid calculation</strong></td>
+            <td>Always weight-based (4-2-1 rule)</td>
+            <td>Fixed volume or 25-30mL/kg/day</td>
+          </tr>
+          <tr>
+            <td><strong>Maintenance fluid</strong></td>
+            <td>0.9% saline + 5% dextrose + K+</td>
+            <td>0.9% saline or Hartmann's ± dextrose</td>
+          </tr>
+          <tr>
+            <td><strong>Glucose</strong></td>
+            <td>Essential (always include)</td>
+            <td>Optional</td>
+          </tr>
+          <tr>
+            <td><strong>Tonicity</strong></td>
+            <td>Isotonic ONLY</td>
+            <td>Isotonic or hypotonic</td>
+          </tr>
+          <tr>
+            <td><strong>Monitoring</strong></td>
+            <td>More frequent</td>
+            <td>Less frequent</td>
+          </tr>
+          <tr>
+            <td><strong>Complications</strong></td>
+            <td>Higher risk (hyponatremia, hypoglycemia)</td>
+            <td>Lower risk (more physiological reserve)</td>
+          </tr>
+          <tr>
+            <td><strong>Senior input</strong></td>
+            <td>Always discuss with senior</td>
+            <td>Independent for routine cases</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. How would you recognise and manage a patient with volume depletion? What about volume overload?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Volume Depletion</h3>
+
+        <h3>Recognition of Volume Depletion</h3>
+
+        <h3>Clinical Features</h3>
+        <table>
+          <tr>
+            <th>System</th>
+            <th>Mild (3-5% loss)</th>
+            <th>Moderate (6-9% loss)</th>
+            <th>Severe (>10% loss)</th>
+          </tr>
+          <tr>
+            <td><strong>Cardiovascular</strong></td>
+            <td>
+              • Mild tachycardia<br>
+              • Normal BP<br>
+              • Postural hypotension
+            </td>
+            <td>
+              • Tachycardia (>100bpm)<br>
+              • Hypotension (systolic 90-100)<br>
+              • Prolonged capillary refill (>2 sec)
+            </td>
+            <td>
+              • Marked tachycardia<br>
+              • Hypotension (systolic <90)<br>
+              • Weak, thready pulse<br>
+              • Shock
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Renal</strong></td>
+            <td>• Mild oliguria</td>
+            <td>• Oliguria (urine <0.5mL/kg/hr)</td>
+            <td>• Anuria or severe oliguria</td>
+          </tr>
+          <tr>
+            <td><strong>Skin/mucosa</strong></td>
+            <td>
+              • Dry mucous membranes<br>
+              • Reduced skin turgor
+            </td>
+            <td>
+              • Very dry mouth<br>
+              • Tenting of skin<br>
+              • Sunken eyes
+            </td>
+            <td>
+              • Extreme dryness<br>
+              • Cold, clammy extremities<br>
+              • Mottled skin
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Neurological</strong></td>
+            <td>• Thirst<br>• Fatigue</td>
+            <td>• Confusion<br>• Lethargy</td>
+            <td>• Severe confusion<br>• Coma<br>• Seizures</td>
+          </tr>
+          <tr>
+            <td><strong>Other</strong></td>
+            <td>• Decreased JVP</td>
+            <td>• Absent JVP<br>• Weight loss</td>
+            <td>• Collapsed veins<br>• Significant weight loss</td>
+          </tr>
+        </table>
+
+        <h3>Laboratory Findings</h3>
+        <ul>
+          <li><strong>Elevated urea:creatinine ratio (>20:1):</strong> Pre-renal azotemia</li>
+          <li><strong>Elevated haematocrit:</strong> Haemoconcentration</li>
+          <li><strong>Hypernatremia:</strong> If losses are hypotonic (e.g., sweat, insensible losses)</li>
+          <li><strong>Hyponatremia:</strong> If fluid losses replaced with free water</li>
+          <li><strong>Metabolic alkalosis:</strong> If gastric losses (vomiting, NG aspiration)</li>
+          <li><strong>Low urine sodium (<20mmol/L):</strong> Kidneys conserving sodium</li>
+          <li><strong>High urine osmolality (>500mOsm/kg):</strong> Kidneys concentrating urine</li>
+          <li><strong>Elevated lactate:</strong> Tissue hypoperfusion in severe depletion</li>
+        </ul>
+
+        <h3>Management of Volume Depletion</h3>
+
+        <h3>1. Assess Severity</h3>
+        <p>Use clinical features and vital signs to determine if mild, moderate, or severe.</p>
+
+        <h3>2. Choose Appropriate Fluid</h3>
+        <table>
+          <tr>
+            <th>Situation</th>
+            <th>Fluid Choice</th>
+            <th>Rationale</th>
+          </tr>
+          <tr>
+            <td><strong>Hypovolemic shock</strong></td>
+            <td>0.9% saline or Hartmann's</td>
+            <td>Isotonic crystalloid for rapid volume expansion</td>
+          </tr>
+          <tr>
+            <td><strong>Hemorrhagic shock</strong></td>
+            <td>Blood products ± crystalloid</td>
+            <td>Replace lost blood; target 1:1:1 ratio (RBC:FFP:platelets)</td>
+          </tr>
+          <tr>
+            <td><strong>Gastric losses</strong></td>
+            <td>0.9% saline + KCl</td>
+            <td>Replaces Na+, Cl-, and K+ lost in gastric secretions</td>
+          </tr>
+          <tr>
+            <td><strong>Diarrhea</strong></td>
+            <td>Hartmann's or 0.9% saline + KCl</td>
+            <td>Replaces electrolytes lost in stool</td>
+          </tr>
+          <tr>
+            <td><strong>Burns</strong></td>
+            <td>Hartmann's (Parkland formula)</td>
+            <td>Preferred for large burns</td>
+          </tr>
+          <tr>
+            <td><strong>Diabetic ketoacidosis</strong></td>
+            <td>0.9% saline initially</td>
+            <td>Correct dehydration; switch to 0.45% saline if hypernatremic</td>
+          </tr>
+        </table>
+
+        <h3>3. Rate and Volume of Replacement</h3>
+
+        <h3>Mild-Moderate Depletion</h3>
+        <ul>
+          <li><strong>Bolus:</strong> 500-1000mL over 15-30 minutes</li>
+          <li>Reassess after each bolus (vital signs, urine output, clinical status)</li>
+          <li>Repeat boluses as needed until euvolemic</li>
+          <li>Then switch to maintenance fluids</li>
+        </ul>
+
+        <h3>Severe Depletion/Shock</h3>
+        <ul>
+          <li><strong>Rapid bolus:</strong> 1000mL (or 20mL/kg in children) as fast as possible</li>
+          <li>Consider two large-bore IV cannulas</li>
+          <li>Reassess frequently</li>
+          <li>May need several litres in first hour</li>
+          <li>Early senior/ICU involvement</li>
+        </ul>
+
+        <h3>4. Monitoring During Resuscitation</h3>
+        <ul>
+          <li><strong>Vital signs:</strong> HR, BP, RR every 15-30 minutes initially</li>
+          <li><strong>Urine output:</strong> Target >0.5mL/kg/hr (insert catheter)</li>
+          <li><strong>Lactate:</strong> Should decrease with adequate resuscitation</li>
+          <li><strong>Mental status:</strong> Should improve</li>
+          <li><strong>Capillary refill:</strong> Should normalize (<2 seconds)</li>
+          <li><strong>CVP monitoring:</strong> Consider in severe cases or ICU</li>
+        </ul>
+
+        <h3>5. Identify and Treat Underlying Cause</h3>
+        <ul>
+          <li>Bleeding → control source, transfuse</li>
+          <li>Vomiting/diarrhea → antiemetics, treat cause</li>
+          <li>Sepsis → antibiotics, source control</li>
+          <li>Burns → specialized burn management</li>
+          <li>DKA → insulin, ongoing fluid replacement</li>
+        </ul>
+
+        <h3>6. Complications to Avoid</h3>
+        <ul>
+          <li><strong>Fluid overload:</strong> Especially in elderly or cardiac/renal disease</li>
+          <li><strong>Electrolyte disturbances:</strong> Monitor K+, Na+ closely</li>
+          <li><strong>Hyperchloremic acidosis:</strong> From excessive 0.9% saline; consider balanced solutions</li>
+        </ul>
+
+        <h3>Volume Overload</h3>
+
+        <h3>Recognition of Volume Overload</h3>
+
+        <h3>Clinical Features</h3>
+        <table>
+          <tr>
+            <th>System</th>
+            <th>Clinical Signs</th>
+          </tr>
+          <tr>
+            <td><strong>Cardiovascular</strong></td>
+            <td>
+              • Elevated JVP (>3cm above sternal angle)<br>
+              • Third heart sound (S3 gallop)<br>
+              • Hypertension<br>
+              • Tachycardia
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Respiratory</strong></td>
+            <td>
+              • Dyspnoea<br>
+              • Orthopnoea<br>
+              • Paroxysmal nocturnal dyspnoea<br>
+              • Tachypnoea<br>
+              • Bibasal crackles (pulmonary oedema)<br>
+              • Reduced oxygen saturation<br>
+              • Pleural effusions
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Peripheral</strong></td>
+            <td>
+              • Peripheral oedema (ankles, legs, sacrum if bedbound)<br>
+              • Pitting oedema<br>
+              • Weight gain
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Abdominal</strong></td>
+            <td>
+              • Ascites<br>
+              • Hepatomegaly (tender liver edge)<br>
+              • Hepatojugular reflux
+            </td>
+          </tr>
+        </table>
+
+        <h3>Investigations</h3>
+        <ul>
+          <li><strong>Chest X-ray:</strong>
+            <ul>
+              <li>Cardiomegaly</li>
+              <li>Pulmonary oedema (bat wing appearance, Kerley B lines)</li>
+              <li>Pleural effusions</li>
+              <li>Upper lobe blood diversion</li>
+            </ul>
+          </li>
+          <li><strong>BNP/NT-proBNP:</strong> Elevated in heart failure</li>
+          <li><strong>Echocardiogram:</strong> Assess cardiac function</li>
+          <li><strong>Electrolytes:</strong> Hyponatremia may occur (dilutional)</li>
+          <li><strong>Renal function:</strong> May be impaired</li>
+        </ul>
+
+        <h3>Management of Volume Overload</h3>
+
+        <h3>1. Stop Contributing Factors</h3>
+        <ul>
+          <li><strong>Cease IV fluids</strong> or reduce rate significantly</li>
+          <li>Review medications (NSAIDs, steroids can worsen)</li>
+          <li>Identify underlying cause (heart failure, renal failure, liver disease, excessive IV fluids)</li>
+        </ul>
+
+        <h3>2. Fluid Restriction</h3>
+        <ul>
+          <li>Restrict total fluid intake to 1000-1500mL/day (including IV and oral)</li>
+          <li>More severe restriction (800-1000mL) in severe hyponatremia</li>
+          <li>Daily weights to monitor</li>
+        </ul>
+
+        <h3>3. Diuretic Therapy</h3>
+
+        <h3>Loop Diuretics (First-line)</h3>
+        <ul>
+          <li><strong>Furosemide:</strong>
+            <ul>
+              <li>Oral: 40mg once or twice daily (titrate up to 80-120mg BD if needed)</li>
+              <li>IV: 20-40mg initially; can increase to 80-120mg or give as infusion</li>
+              <li>Monitor response: Expect diuresis within 1 hour of IV, 1-2 hours of oral</li>
+            </ul>
+          </li>
+          <li><strong>Bumetanide:</strong> Alternative if furosemide resistance (40:1 potency ratio)</li>
+        </ul>
+
+        <h3>Thiazide Diuretics</h3>
+        <ul>
+          <li>Add to loop diuretic if inadequate response</li>
+          <li>Synergistic effect</li>
+          <li>E.g., Metolazone 2.5-5mg daily</li>
+        </ul>
+
+        <h3>Potassium-Sparing Diuretics</h3>
+        <ul>
+          <li><strong>Spironolactone:</strong> 25-50mg daily (useful in heart failure, liver disease)</li>
+          <li>Monitor potassium closely (risk of hyperkalemia)</li>
+        </ul>
+
+        <h3>4. Positioning and Oxygen</h3>
+        <ul>
+          <li>Sit patient upright (reduces venous return, improves breathing)</li>
+          <li>Supplemental oxygen to maintain SpO2 >94%</li>
+          <li>Consider CPAP/BiPAP for severe pulmonary oedema</li>
+        </ul>
+
+        <h3>5. Treatment of Underlying Cause</h3>
+        <table>
+          <tr>
+            <th>Cause</th>
+            <th>Specific Management</th>
+          </tr>
+          <tr>
+            <td><strong>Acute heart failure</strong></td>
+            <td>
+              • Diuretics<br>
+              • GTN (reduces preload)<br>
+              • ACE inhibitor (once stable)<br>
+              • Beta-blocker (once compensated)<br>
+              • Consider inotropes if cardiogenic shock
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Chronic kidney disease</strong></td>
+            <td>
+              • Higher doses of diuretics often needed<br>
+              • May require dialysis (ultrafiltration)<br>
+              • Restrict sodium and fluid
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Liver disease</strong></td>
+            <td>
+              • Spironolactone (first-line for ascites)<br>
+              • Furosemide (second-line or in combination)<br>
+              • Therapeutic paracentesis if tense ascites<br>
+              • Sodium restriction
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Iatrogenic (excessive IV fluids)</strong></td>
+            <td>
+              • Stop IV fluids<br>
+              • Diuretics<br>
+              • Usually resolves quickly
+            </td>
+          </tr>
+        </table>
+
+        <h3>6. Monitoring During Treatment</h3>
+        <ul>
+          <li><strong>Daily weights:</strong> Target 0.5-1kg loss per day</li>
+          <li><strong>Fluid balance:</strong> Aim for negative balance</li>
+          <li><strong>Electrolytes:</strong> Daily monitoring
+            <ul>
+              <li>Risk of hypokalemia (with loop diuretics)</li>
+              <li>Risk of hyponatremia (dilutional or from diuretics)</li>
+              <li>Risk of hyperkalemia (with K-sparing diuretics)</li>
+            </ul>
+          </li>
+          <li><strong>Renal function:</strong> Monitor for worsening (over-diuresis)</li>
+          <li><strong>Clinical status:</strong> Improvement in dyspnoea, oedema, JVP</li>
+        </ul>
+
+        <h3>7. Additional Measures</h3>
+        <ul>
+          <li><strong>Sodium restriction:</strong> <2g/day (90mmol/day)</li>
+          <li><strong>Dialysis/ultrafiltration:</strong> If refractory to diuretics or severe renal impairment</li>
+          <li><strong>Optimize cardiac output:</strong> Treat arrhythmias, optimize medications</li>
+        </ul>
+
+        <h3>8. Complications to Monitor</h3>
+        <ul>
+          <li>Electrolyte disturbances (hypo/hyperkalemia, hyponatremia)</li>
+          <li>Renal impairment from over-diuresis</li>
+          <li>Hypotension from excessive diuresis</li>
+          <li>Hepatic encephalopathy (in liver disease)</li>
+        </ul>
+
+        <h3>Summary Comparison</h3>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Volume Depletion</th>
+            <th>Volume Overload</th>
+          </tr>
+          <tr>
+            <td><strong>Key signs</strong></td>
+            <td>↓JVP, ↓BP, tachycardia, dry mucosa, ↓urine output</td>
+            <td>↑JVP, crackles, oedema, dyspnoea, weight gain</td>
+          </tr>
+          <tr>
+            <td><strong>Management principle</strong></td>
+            <td>Replace fluids</td>
+            <td>Remove fluids</td>
+          </tr>
+          <tr>
+            <td><strong>Key treatment</strong></td>
+            <td>IV crystalloid bolus</td>
+            <td>Diuretics + fluid restriction</td>
+          </tr>
+          <tr>
+            <td><strong>Monitoring</strong></td>
+            <td>Response to fluid bolus (BP, HR, UO)</td>
+            <td>Daily weights, fluid balance</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. A post-operative patient becomes confused 48 hours after surgery. Biochemistry reveals sodium 118mmol/L (normal 135-145). Discuss the causes and management of post-operative hyponatremia.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Post-Operative Hyponatremia</h3>
+
+        <h3>Definition and Severity</h3>
+        <table>
+          <tr>
+            <th>Severity</th>
+            <th>Serum Sodium (mmol/L)</th>
+            <th>Clinical Features</th>
+          </tr>
+          <tr>
+            <td><strong>Mild</strong></td>
+            <td>130-135</td>
+            <td>Often asymptomatic; mild nausea, headache</td>
+          </tr>
+          <tr>
+            <td><strong>Moderate</strong></td>
+            <td>125-129</td>
+            <td>Nausea, confusion, lethargy</td>
+          </tr>
+          <tr>
+            <td><strong>Severe</strong></td>
+            <td><125</td>
+            <td>Confusion, seizures, coma, cerebral oedema</td>
+          </tr>
+        </table>
+
+        <p><strong>This patient (Na+ 118mmol/L) has SEVERE hyponatremia requiring urgent treatment.</strong></p>
+
+        <h3>Causes of Post-Operative Hyponatremia</h3>
+
+        <h3>1. Syndrome of Inappropriate ADH Secretion (SIADH)</h3>
+        <p><strong>Most common cause post-operatively</strong></p>
+
+        <h3>Mechanism</h3>
+        <ul>
+          <li>Excessive ADH (vasopressin) release</li>
+          <li>Increased water reabsorption in kidneys</li>
+          <li>Dilutional hyponatremia</li>
+        </ul>
+
+        <h3>Post-operative Triggers for SIADH</h3>
+        <ul>
+          <li><strong>Surgical stress:</strong> Major surgery is a potent stimulus for ADH release</li>
+          <li><strong>Pain:</strong> Uncontrolled pain stimulates ADH</li>
+          <li><strong>Nausea:</strong> Powerful ADH stimulus</li>
+          <li><strong>Medications:</strong>
+            <ul>
+              <li>Opioid analgesics (morphine, fentanyl)</li>
+              <li>NSAIDs</li>
+              <li>SSRIs</li>
+              <li>Carbamazepine</li>
+            </ul>
+          </li>
+          <li><strong>Respiratory causes:</strong> Pneumonia, atelectasis, positive pressure ventilation</li>
+          <li><strong>CNS causes:</strong> If neurosurgery, head trauma, meningitis</li>
+        </ul>
+
+        <h3>Diagnostic Criteria for SIADH</h3>
+        <ul>
+          <li>Hyponatremia with low serum osmolality (<275mOsm/kg)</li>
+          <li><strong>Inappropriately concentrated urine:</strong> Urine osmolality >100mOsm/kg</li>
+          <li><strong>High urine sodium (>40mmol/L)</strong></li>
+          <li>Euvolemic clinically (no signs of dehydration or overload)</li>
+          <li>Normal thyroid and adrenal function</li>
+          <li>No recent diuretic use</li>
+        </ul>
+
+        <h3>2. Excessive Hypotonic Fluid Administration</h3>
+        <ul>
+          <li>Giving too much free water (5% dextrose, 0.45% saline)</li>
+          <li>Particularly dangerous when combined with SIADH</li>
+          <li>Water retained, sodium diluted</li>
+        </ul>
+
+        <h3>3. Volume Depletion</h3>
+        <ul>
+          <li>Blood loss, third-space losses</li>
+          <li>Stimulates ADH release (appropriate response to maintain circulating volume)</li>
+          <li>If replaced with hypotonic fluids → hyponatremia</li>
+        </ul>
+
+        <h3>4. Other Causes (Less Common Post-op)</h3>
+        <ul>
+          <li><strong>Adrenal insufficiency:</strong> Hypocortisolism → ↓ Na+, ↑ K+</li>
+          <li><strong>Hypothyroidism:</strong> Low T4 → ↓ metabolic rate → water retention</li>
+          <li><strong>Diuretics:</strong> Especially thiazides</li>
+          <li><strong>Psychogenic polydipsia:</strong> Excessive water intake (rare post-op)</li>
+        </ul>
+
+        <h3>Clinical Assessment</h3>
+
+        <h3>Symptoms of Hyponatremia</h3>
+        <table>
+          <tr>
+            <th>Severity</th>
+            <th>Symptoms</th>
+          </tr>
+          <tr>
+            <td><strong>Mild-Moderate</strong></td>
+            <td>
+              • Headache<br>
+              • Nausea and vomiting<br>
+              • Confusion<br>
+              • Lethargy<br>
+              • Muscle cramps
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Severe</strong></td>
+            <td>
+              • Severe confusion or delirium<br>
+              • Seizures<br>
+              • Reduced consciousness/coma<br>
+              • Respiratory arrest<br>
+              • Cerebral oedema (papilloedema, focal neurology)
+            </td>
+          </tr>
+        </table>
+
+        <h3>Assess Volume Status</h3>
+        <table>
+          <tr>
+            <th>Volume Status</th>
+            <th>Likely Cause</th>
+            <th>Clinical Features</th>
+          </tr>
+          <tr>
+            <td><strong>Hypovolemic</strong></td>
+            <td>
+              • True sodium loss<br>
+              • Vomiting, diarrhea<br>
+              • Third-space losses<br>
+              • Diuretics
+            </td>
+            <td>
+              • ↓JVP<br>
+              • ↓BP, postural drop<br>
+              • Tachycardia<br>
+              • Dry mucous membranes<br>
+              • ↓urine output<br>
+              • Urine Na+ <20mmol/L
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Euvolemic</strong></td>
+            <td>
+              • <strong>SIADH</strong> (most common post-op)<br>
+              • Hypothyroidism<br>
+              • Adrenal insufficiency
+            </td>
+            <td>
+              • Normal JVP<br>
+              • No oedema<br>
+              • Normal BP<br>
+              • Urine Na+ >40mmol/L
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Hypervolemic</strong></td>
+            <td>
+              • Heart failure<br>
+              • Liver failure<br>
+              • Renal failure<br>
+              • Excessive IV fluids
+            </td>
+            <td>
+              • ↑JVP<br>
+              • Peripheral oedema<br>
+              • Ascites<br>
+              • Pulmonary oedema<br>
+              • Urine Na+ variable
+            </td>
+          </tr>
+        </table>
+
+        <h3>Investigations</h3>
+        <ul>
+          <li><strong>Serum:</strong> Na+, K+, osmolality, glucose, urea, creatinine</li>
+          <li><strong>Urine:</strong> Sodium, osmolality</li>
+          <li><strong>Thyroid function:</strong> TSH, free T4</li>
+          <li><strong>Cortisol:</strong> 9am cortisol or short Synacthen test if adrenal insufficiency suspected</li>
+          <li><strong>Paired serum and urine osmolality:</strong> Essential for diagnosis</li>
+        </ul>
+
+        <h3>Management of Severe Hyponatremia (Na+ 118mmol/L)</h3>
+
+        <h3>Immediate Assessment</h3>
+        <ol>
+          <li><strong>Is the patient symptomatic?</strong> Confusion = symptomatic → URGENT treatment required</li>
+          <li><strong>Volume status:</strong> Likely euvolemic (SIADH) or hypervolemic (excessive fluids)</li>
+          <li><strong>Speed of onset:</strong> Post-op day 2 → likely acute (<48 hours)</li>
+        </ol>
+
+        <h3>Management Strategy</h3>
+
+        <h3>Step 1: Immediate Measures for Symptomatic Severe Hyponatremia</h3>
+        <p><strong>If seizures, reduced consciousness, or signs of cerebral oedema:</strong></p>
+        <ul>
+          <li><strong>Hypertonic saline (3% NaCl):</strong>
+            <ul>
+              <li>Give 150mL (or 2mL/kg) IV over 20 minutes</li>
+              <li>Can repeat twice if no improvement (total 3 doses)</li>
+              <li><strong>Goal:</strong> Raise Na+ by 4-6mmol/L in first 1-4 hours to stop symptoms</li>
+              <li><strong>Do NOT raise by more than 10mmol/L in first 24 hours</strong> (risk of osmotic demyelination syndrome)</li>
+            </ul>
+          </li>
+          <li><strong>Monitor closely:</strong> Check Na+ every 2-4 hours initially</li>
+          <li><strong>Senior/ICU involvement:</strong> Severe hyponatremia requires senior input</li>
+        </ul>
+
+        <h3>Step 2: Identify and Treat Underlying Cause</h3>
+
+        <h3>If SIADH (Most Likely)</h3>
+        <ul>
+          <li><strong>Fluid restriction:</strong> 800-1000mL/day (including IV and oral)</li>
+          <li><strong>Stop hypotonic fluids:</strong> No 5% dextrose or 0.45% saline</li>
+          <li><strong>Switch to isotonic saline</strong> if IV fluids needed</li>
+          <li><strong>Address triggers:</strong>
+            <ul>
+              <li>Optimize pain control</li>
+              <li>Treat nausea (antiemetics)</li>
+              <li>Treat respiratory complications (pneumonia, atelectasis)</li>
+              <li>Review medications (stop NSAIDs, SSRIs if possible)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>If Volume Depleted</h3>
+        <ul>
+          <li><strong>Isotonic saline:</strong> 0.9% saline to restore volume</li>
+          <li>Once euvolemic, fluid restriction for SIADH</li>
+        </ul>
+
+        <h3>If Volume Overloaded</h3>
+        <ul>
+          <li><strong>Fluid restriction</strong></li>
+          <li><strong>Diuretics:</strong> Furosemide (causes loss of free water)</li>
+        </ul>
+
+        <h3>Step 3: Monitor Correction Rate</h3>
+        <p><strong>CRITICAL:</strong> Avoid overly rapid correction (risk of osmotic demyelination syndrome)</p>
+
+        <h3>Safe Correction Limits</h3>
+        <ul>
+          <li><strong>First 24 hours:</strong> Increase Na+ by <strong>maximum 10mmol/L</strong></li>
+          <li><strong>First 48 hours:</strong> Increase Na+ by <strong>maximum 18mmol/L</strong></li>
+          <li><strong>Target rate:</strong> 0.5mmol/L/hour or 6-8mmol/L per day</li>
+        </ul>
+
+        <h3>Higher Risk for Osmotic Demyelination</h3>
+        <ul>
+          <li>Chronic hyponatremia (>48 hours)</li>
+          <li>Severe hyponatremia (<120mmol/L)</li>
+          <li>Alcoholism</li>
+          <li>Malnutrition</li>
+          <li>Liver disease</li>
+        </ul>
+
+        <h3>Step 4: Frequent Monitoring</h3>
+        <ul>
+          <li><strong>Serum Na+:</strong> Every 2-4 hours initially, then every 6-8 hours</li>
+          <li><strong>If correction too rapid:</strong> Give 5% dextrose or desmopressin (DDAVP) to slow correction</li>
+          <li><strong>Neurological status:</strong> Monitor for improvement or deterioration</li>
+          <li><strong>Fluid balance:</strong> Strict input/output monitoring</li>
+        </ul>
+
+        <h3>Step 5: Consider Additional Therapies (if SIADH persists)</h3>
+        <ul>
+          <li><strong>Salt tablets:</strong> Oral sodium chloride 1-2g TDS</li>
+          <li><strong>Demeclocycline:</strong> Induces nephrogenic diabetes insipidus (specialist use)</li>
+          <li><strong>Vaptans (e.g., tolvaptan):</strong> V2 receptor antagonists; promote free water excretion (specialist use, expensive)</li>
+        </ul>
+
+        <h3>Osmotic Demyelination Syndrome (ODS)</h3>
+        <p><strong>Previously called central pontine myelinolysis</strong></p>
+
+        <h3>Cause</h3>
+        <ul>
+          <li>Overly rapid correction of chronic hyponatremia</li>
+          <li>Damage to myelin sheath in pons and other brain regions</li>
+        </ul>
+
+        <h3>Presentation</h3>
+        <ul>
+          <li>Symptoms appear 2-6 days after correction</li>
+          <li>Dysarthria, dysphagia</li>
+          <li>Quadriparesis or paraparesis</li>
+          <li>Confusion, coma</li>
+          <li>"Locked-in" syndrome in severe cases</li>
+        </ul>
+
+        <h3>Prevention</h3>
+        <ul>
+          <li><strong>Slow correction:</strong> <10mmol/L in 24 hours, <18mmol/L in 48 hours</li>
+          <li>If accidental overcorrection: Relower sodium with 5% dextrose or desmopressin</li>
+        </ul>
+
+        <h3>Summary Management Algorithm for This Patient</h3>
+        <ol>
+          <li><strong>Immediate:</strong>
+            <ul>
+              <li>Patient has confusion (symptomatic) + severe hyponatremia (118mmol/L)</li>
+              <li>Consider hypertonic saline if severely symptomatic (seizures, coma)</li>
+              <li>Senior/ICU review</li>
+            </ul>
+          </li>
+          <li><strong>Investigations:</strong>
+            <ul>
+              <li>Paired serum and urine osmolality + urine sodium</li>
+              <li>Assess volume status</li>
+            </ul>
+          </li>
+          <li><strong>Likely diagnosis:</strong> SIADH (post-op day 2, euvolemic)</li>
+          <li><strong>Management:</strong>
+            <ul>
+              <li><strong>Fluid restriction</strong> 800-1000mL/day</li>
+              <li><strong>Stop hypotonic fluids</strong></li>
+              <li>Treat pain, nausea</li>
+              <li>Review medications</li>
+            </ul>
+          </li>
+          <li><strong>Monitoring:</strong>
+            <ul>
+              <li>Na+ every 2-4 hours initially</li>
+              <li>Target correction: 6-8mmol/L per day, <10mmol/L in 24 hours</li>
+            </ul>
+          </li>
+          <li><strong>Continue until:</strong> Na+ >130mmol/L and patient asymptomatic</li>
+        </ol>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+</body>
+</html>

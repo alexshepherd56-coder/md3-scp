@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 11.4 - Benign Breast Conditions</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 11.4 - Benign Breast Conditions | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 11.4 - Benign Breast Conditions">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 11.4 – Benign Breast Conditions</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - Breast & Endocrine | <strong>Setting:</strong> General practice</p>
+
+    <h2>Case</h2>
+    <p>Martha Henderson, aged 42 years, presents complaining of breast pain. She advises that the pain is worse leading up to her menses but settles afterwards. She is concerned that the pain is getting worse.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Outline how you would manage this case in terms of further history, examination and investigation.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Background - Cyclical Mastalgia:</strong></p>
+        <p>Premenstrual nodularity and breast discomfort are so common that they are considered <strong>part of the normal cyclical changes</strong>. When premenstrual pain is severe, interferes with daily activities and influences quality of life, then this is classified as <strong>moderate or severe cyclical mastalgia</strong>.</p>
+        <ul>
+          <li>There is <strong>no association</strong> between cyclical breast pain and any underlying histological abnormality</li>
+          <li>The cause of cyclical mastalgia is <strong>unknown</strong></li>
+          <li>Another common and significant problem is <strong>non-cyclical mastalgia</strong></li>
+        </ul>
+
+        <p><strong>Management Approach:</strong></p>
+        <ul>
+          <li>Need to establish <strong>cyclical / non-cyclical nature</strong></li>
+          <li><strong>Differentiate breast pain from chest wall and muscular pain</strong></li>
+          <li>Determine <strong>effect of pain on daily activity</strong> (this may influence treatment)</li>
+          <li><strong>Assess risk factors for breast cancer</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. On examination you identify a palpable breast mass. Using an algorithm, summarise the management of a palpable breast mass.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Management Algorithm for Palpable Breast Mass:</strong></p>
+
+        <p><strong>Step 1: Triple Assessment</strong></p>
+        <p>Using clinical examination, imaging and core biopsy</p>
+
+        <p><strong>Step 2: Classification Based on Results</strong></p>
+
+        <p><strong>A. MALIGNANT</strong></p>
+        <ul>
+          <li>→ Definitive treatment</li>
+        </ul>
+
+        <p><strong>B. SUSPICIOUS OR ATYPICAL</strong></p>
+        <ul>
+          <li>→ Repeat core or open biopsy</li>
+        </ul>
+
+        <p><strong>C. BENIGN (Definite Lesion)</strong></p>
+        <ul>
+          <li><strong>Option 1:</strong> Reassure unless radial scar
+            <ul>
+              <li>→ Radial scar requires excision</li>
+            </ul>
+          </li>
+          <li><strong>Option 2:</strong> Lesion adequately sampled + pictures of wire or clips in excision
+            <ul>
+              <li>→ Discharge</li>
+            </ul>
+          </li>
+          <li><strong>Option 3:</strong> Concern whether lesion hit or only 1 or 2 cores
+            <ul>
+              <li>→ Repeat core biopsy</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>D. BENIGN (No Definite Lesion)</strong></p>
+        <ul>
+          <li>→ Reassure and discharge</li>
+        </ul>
+
+        <p><strong>Key Principle:</strong> All palpable breast masses require triple assessment to ensure accurate diagnosis and appropriate management.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Martha is subsequently found to have fibroadenoma. Summarise the classical presentation of fibroadenoma in terms of presenting age, clinical features on examination and histology.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Nature of Fibroadenomas:</strong></p>
+        <p>Fibroadenomas are classified in most texts as benign tumours, but are best considered as <strong>aberrations of development rather than true neoplasms</strong>. The reasons are that:</p>
+        <ul>
+          <li>Fibroadenomas develop from a <strong>single lobule rather than from a single cell</strong></li>
+          <li>Show <strong>hormonal dependence</strong> similar to that of normal breast tissue
+            <ul>
+              <li>Lactating during pregnancy</li>
+              <li>Involuting in the perimenopausal period</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Presenting Age:</strong></p>
+        <ul>
+          <li>Fibroadenomas are most commonly seen <strong>immediately following the period of breast development and growth</strong></li>
+          <li>Typical age group: <strong>15-25 years</strong></li>
+        </ul>
+
+        <p><strong>Clinical Features on Examination:</strong></p>
+        <ul>
+          <li><strong>Well-circumscribed</strong></li>
+          <li><strong>Firm</strong></li>
+          <li><strong>Smooth</strong></li>
+          <li><strong>Mobile</strong> lumps (sometimes called "breast mouse" due to mobility)</li>
+          <li>May be <strong>multiple or bilateral</strong></li>
+        </ul>
+
+        <p><strong>Natural History:</strong></p>
+        <ul>
+          <li>Although a small number of fibroadenomas increase in size, <strong>most do not</strong></li>
+          <li>Over <strong>one-third become smaller or disappear within 2 years</strong></li>
+        </ul>
+
+        <p><strong>Imaging Characteristics:</strong></p>
+        <ul>
+          <li>Fibroadenomas have a <strong>characteristic appearance</strong> with <strong>easily visualized margins on ultrasound</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Breast cysts are the most common cause of breast mass in women in their 4th and 5th decades of life. Summarise the key clinical features of breast cysts.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Epidemiology:</strong></p>
+        <ul>
+          <li>Approximately <strong>7% of women</strong> in developed countries develop a palpable breast cyst at some time in their life</li>
+          <li>Cysts constitute approximately <strong>15% of all discrete breast masses</strong></li>
+          <li>They are <strong>distended, involuted lobules</strong> and are most frequently seen in the <strong>perimenopausal period</strong></li>
+        </ul>
+
+        <p><strong>Clinical Features:</strong></p>
+        <ul>
+          <li><strong>Smooth discrete lumps</strong></li>
+          <li>Can be <strong>painful</strong></li>
+          <li>Sometimes <strong>visible</strong></li>
+        </ul>
+
+        <p><strong>Mammographic Features:</strong></p>
+        <ul>
+          <li><strong>Characteristic haloes</strong></li>
+          <li><strong>Easily diagnosed by ultrasonography</strong></li>
+        </ul>
+
+        <p><strong>Management:</strong></p>
+        <p><strong>Symptomatic Palpable Cysts:</strong></p>
+        <ul>
+          <li>Treated by <strong>aspiration</strong></li>
+          <li>Provided the fluid is <strong>not blood-stained</strong>, it is discarded</li>
+          <li>If aspiration results in the <strong>disappearance of the mass</strong>, then the patient can be reassured</li>
+          <li>Cysts that contain <strong>blood-stained fluid</strong> require <strong>excision</strong> to exclude an associated intracystic cancer
+            <ul>
+              <li>These cancers are rare and are usually evident on ultrasound</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Asymptomatic Cysts:</strong></p>
+        <ul>
+          <li>Most cysts are asymptomatic</li>
+          <li>Provided they are appropriately investigated by ultrasound, <strong>do not need aspiration</strong></li>
+        </ul>
+
+        <p><strong>Important:</strong></p>
+        <ul>
+          <li><strong>All patients with cysts should have mammography</strong>, preferably before cyst aspiration</li>
+          <li>Between <strong>1 and 3%</strong> will have a cancer, usually <strong>remote from the cyst</strong>, visible on mammography</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Summarise the key features of investigation of a women with nipple discharge in terms of history, examination and investigation.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Investigation Algorithm for Persistent Spontaneous Nipple Discharge:</strong></p>
+
+        <p><strong>Initial Investigations:</strong></p>
+        <ul>
+          <li><strong>Clinical examination</strong></li>
+          <li><strong>Mammography</strong></li>
+        </ul>
+
+        <p><strong>Classification of Results:</strong></p>
+
+        <p><strong>A. ABNORMAL Findings:</strong></p>
+        <ul>
+          <li>→ Investigate palpable mass lesion or mammographic abnormality</li>
+        </ul>
+
+        <p><strong>B. NORMAL Findings:</strong></p>
+
+        <p><strong>1. Single-Duct Discharge:</strong></p>
+        <ul>
+          <li><strong>Breastfeeding not an issue:</strong>
+            <ul>
+              <li>→ Investigate palpable mass lesion or mammographic abnormality</li>
+            </ul>
+          </li>
+          <li><strong>Wishes to preserve ability to breastfeed:</strong>
+            <ul>
+              <li>→ Consider ductography +/- ductoscopy</li>
+              <li>→ Microdochectomy +/- total duct excision</li>
+              <li>→ Localized duct excision</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>2. Multiple-Duct Discharge:</strong></p>
+        <ul>
+          <li><strong>Distressing symptoms:</strong>
+            <ul>
+              <li>→ Total duct excision</li>
+            </ul>
+          </li>
+          <li><strong>No distressing symptoms:</strong>
+            <ul>
+              <li>→ Reassurance</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Ultrasound:</strong></p>
+        <ul>
+          <li>Ultrasound is useful to assess for <strong>dilated duct(s)</strong> that may be responsible for nipple discharge</li>
+          <li>Abnormal imaging findings require <strong>biopsy +/- excision</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Outline the differences in presentation and treatment of a breast abscess compared to breast mastitis.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Lactating Infection</h3>
+        <p><strong>Timing:</strong></p>
+        <ul>
+          <li>Infection usually develops within the <strong>first 6 weeks of breastfeeding</strong></li>
+          <li>Or, occasionally, during <strong>weaning</strong></li>
+        </ul>
+
+        <p><strong>Presenting Features:</strong></p>
+        <ul>
+          <li>Pain</li>
+          <li>Swelling</li>
+          <li>Tenderness</li>
+          <li>Cracked nipple or skin abrasion</li>
+        </ul>
+
+        <p><strong>Causative Organisms:</strong></p>
+        <ul>
+          <li><strong>Staphylococcus aureus</strong> - most common</li>
+          <li>Staph. epidermidis (occasionally)</li>
+          <li>Streptococci (occasionally)</li>
+        </ul>
+
+        <p><strong>Pathophysiology:</strong></p>
+        <ul>
+          <li>Drainage of milk from the affected segment is often reduced</li>
+          <li>The resultant <strong>stagnant milk becomes infected</strong></li>
+        </ul>
+
+        <h3>Non-Lactating Infection</h3>
+
+        <p><strong>1. Central (Peri-areolar) Infection</strong></p>
+        <ul>
+          <li>Most commonly seen in <strong>young women (mean age 32 years)</strong></li>
+          <li>The underlying cause is <strong>periductal mastitis</strong></li>
+        </ul>
+
+        <p><strong>Etiology - Smoking:</strong></p>
+        <ul>
+          <li>Current evidence suggests that <strong>smoking is important</strong> in the aetiology of non-lactational infection</li>
+          <li><strong>90% of women</strong> who present with periductal mastitis or its complications are <strong>smokers</strong></li>
+          <li>Substances in cigarette smoke either directly or indirectly <strong>damage the subareolar breast ducts</strong></li>
+          <li>The damaged tissue then becomes infected by either <strong>aerobic or anaerobic organisms</strong></li>
+        </ul>
+
+        <p><strong>Clinical Presentation:</strong></p>
+        <ul>
+          <li>Initial presentation is with peri-areolar inflammation, with or without an associated mass, or with an established abscess</li>
+          <li>Clinical features include:
+            <ul>
+              <li>Breast pain</li>
+              <li>Erythema</li>
+              <li>Peri-areolar swelling and tenderness</li>
+              <li>Nipple retraction</li>
+            </ul>
+          </li>
+          <li>These occur <strong>in relation to the affected duct</strong></li>
+        </ul>
+
+        <p><strong>2. Peripheral Non-Lactating Abscesses</strong></p>
+        <ul>
+          <li>Less common than peri-areolar abscesses</li>
+          <li>Sometimes associated with an <strong>underlying condition</strong>:
+            <ul>
+              <li>Diabetes</li>
+              <li>Rheumatoid arthritis</li>
+              <li>Steroid treatment</li>
+              <li><strong>Granulomatous lobular mastitis</strong></li>
+              <li>Trauma</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Granulomatous Lobular Mastitis:</strong></p>
+        <ul>
+          <li>Infection associated with granulomatous lobular mastitis can be a <strong>particular problem</strong></li>
+          <li>Strong tendency for this condition to <strong>persist and recur despite surgery</strong></li>
+          <li>Usually affects <strong>young parous women</strong></li>
+          <li>Develop <strong>large areas of inflammation with multiple simultaneous peripheral abscesses</strong></li>
+        </ul>
+
+        <h3>Summary of Key Differences</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Mastitis</th>
+              <th>Abscess</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Definition</td>
+              <td>Inflammation of breast tissue</td>
+              <td>Localized collection of pus</td>
+            </tr>
+            <tr>
+              <td>Presentation</td>
+              <td>Pain, erythema, swelling, systemic symptoms</td>
+              <td>Fluctuant mass, more localized pain, may have systemic symptoms</td>
+            </tr>
+            <tr>
+              <td>Treatment</td>
+              <td>Antibiotics, continue breastfeeding/expression</td>
+              <td>Drainage (needle aspiration or surgical) + antibiotics</td>
+            </tr>
+            <tr>
+              <td>Progression</td>
+              <td>May progress to abscess if untreated</td>
+              <td>Represents progression from mastitis</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+</body>
+</html>

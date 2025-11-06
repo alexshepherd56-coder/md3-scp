@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(find:*)",
+      "Bash(for week in 1 2 3 4 6 8 9 11 12 13 16 17 18 19 20 21 22 23 24 25 28)",
+      "Bash(do)",
+      "Bash(echo:*)",
+      "Bash(if grep -q \"Case content to be added\" /Users/alexshepherd/Desktop/SCPProject/case$week_1.html)",
+      "Bash(then)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(for week in 11)",
+      "Bash(do for case in 1 2 3 4 5 6 7)",
+      "Bash(do if grep -q \"Case content to be added\" /Users/alexshepherd/Desktop/SCPProject/case$week_$case.html)",
+      "Bash(then echo \"case$week_$case.html needs filling\")",
+      "Bash(else echo \"case$week_$case.html already filled\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

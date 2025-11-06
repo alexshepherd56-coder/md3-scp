@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 22.6 - Creutzfeldt-Jacob Disease [SDL]</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 22.6 - Creutzfeldt-Jacob Disease [SDL] | MD3 SCP Cases">
+  <meta name="description" content="Self-directed learning case on CJD and cerebral abscess covering diagnosis, investigations, and management.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 22.6 - Creutzfeldt-Jacob Disease [SDL]">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Self-directed learning case on CJD and cerebral abscess covering diagnosis, investigations, and management.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 22.6 – Creutzfeldt-Jacob Disease [SDL]</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Neurology | <strong>Setting:</strong> Emergency Department / Neurology Ward</p>
+
+    <h2>Case</h2>
+    <p>Annette Hay is a 29 year old woman who presents with a first seizure. She has been having intermittent headaches over the last few weeks. On examination she has a mild pyrexia and a reduced level of consciousness. Neurological examination reveals a left homonymous hemianopia and left arm weakness. The patient has recently returned from overseas travel.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is the most likely diagnosis and what are the differential diagnoses?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Most Likely Diagnosis: Cerebral Abscess</strong></p>
+
+        <p><strong>Rationale:</strong></p>
+        <ul>
+          <li>Subacute presentation (weeks of symptoms)</li>
+          <li>Triad of features suggesting space-occupying lesion with infection:
+            <ul>
+              <li><strong>Headache</strong> (raised ICP from mass effect)</li>
+              <li><strong>Fever</strong> (infection)</li>
+              <li><strong>Focal neurological signs</strong> (left hemianopia, left arm weakness - suggests right hemisphere lesion)</li>
+            </ul>
+          </li>
+          <li><strong>Seizure</strong> (common with cerebral abscess)</li>
+          <li><strong>Reduced consciousness</strong> (raised ICP)</li>
+          <li>Recent overseas travel (potential exposure to infections)</li>
+          <li>Young age (cerebral abscess can occur at any age)</li>
+        </ul>
+
+        <p><strong>DIFFERENTIAL DIAGNOSES:</strong></p>
+
+        <p><strong>1. Brain Tumor (Primary or Metastatic):</strong></p>
+        <ul>
+          <li>Space-occupying lesion causing headache, seizures, focal signs</li>
+          <li>BUT: Less likely to cause fever (unless tumor necrosis)</li>
+          <li>Primary brain tumors: Glioma (glioblastoma, astrocytoma), meningioma, lymphoma</li>
+          <li>Metastases: Lung, breast, melanoma, renal, colon</li>
+        </ul>
+
+        <p><strong>2. Stroke (Hemorrhagic or Large Ischemic):</strong></p>
+        <ul>
+          <li>Can cause focal signs and seizures</li>
+          <li>BUT: Usually sudden onset (not weeks of symptoms)</li>
+          <li>Fever uncommon unless aspiration pneumonia develops</li>
+        </ul>
+
+        <p><strong>3. Encephalitis (Viral or Autoimmune):</strong></p>
+        <ul>
+          <li><strong>Viral encephalitis (HSV, VZV):</strong> Fever, reduced consciousness, seizures</li>
+          <li>BUT: Usually more diffuse symptoms, less commonly focal signs</li>
+          <li><strong>Autoimmune encephalitis:</strong> Behavioral changes, psychiatric symptoms, seizures, movement disorders</li>
+        </ul>
+
+        <p><strong>4. Tuberculoma:</strong></p>
+        <ul>
+          <li>Space-occupying CNS TB lesion (granuloma)</li>
+          <li>Similar presentation to abscess</li>
+          <li>Consider especially if from TB-endemic area or immunocompromised</li>
+        </ul>
+
+        <p><strong>5. Toxoplasmosis (if immunocompromised):</strong></p>
+        <ul>
+          <li>Multiple ring-enhancing lesions</li>
+          <li>Most common in HIV/AIDS patients with CD4 <100</li>
+        </ul>
+
+        <p><strong>6. Neurocysticercosis:</strong></p>
+        <ul>
+          <li>Parasitic infection (Taenia solium - pork tapeworm)</li>
+          <li>Cysts in brain causing seizures, headaches, focal signs</li>
+          <li>Consider if travel to endemic areas (Latin America, Asia, Africa)</li>
+        </ul>
+
+        <p><strong>7. Other Infections:</strong></p>
+        <ul>
+          <li>Subdural empyema</li>
+          <li>Cerebral malaria (if travel to malaria-endemic area)</li>
+          <li>Fungal abscess (if immunocompromised)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What investigations would you perform and what management would you initiate?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>INVESTIGATIONS FOR SUSPECTED CEREBRAL ABSCESS:</strong></p>
+
+        <p><strong>1. URGENT IMAGING:</strong></p>
+
+        <p><strong>CT Brain with Contrast:</strong></p>
+        <ul>
+          <li><strong>First-line investigation</strong> - quick, widely available</li>
+          <li><strong>Classic findings of cerebral abscess:</strong>
+            <ul>
+              <li><strong>Ring-enhancing lesion</strong> (abscess capsule enhances with contrast)</li>
+              <li>Central hypodensity (pus)</li>
+              <li>Surrounding edema (low density)</li>
+              <li>Mass effect (midline shift, ventricular compression)</li>
+            </ul>
+          </li>
+          <li>Can be single or multiple lesions</li>
+        </ul>
+
+        <p><strong>MRI Brain with Contrast (if available):</strong></p>
+        <ul>
+          <li>More sensitive than CT</li>
+          <li>Better for posterior fossa lesions</li>
+          <li><strong>DWI (diffusion-weighted imaging):</strong> Abscess shows restricted diffusion (bright on DWI, dark on ADC) - helps distinguish abscess from tumor/other lesions</li>
+          <li>Better characterization of lesion and surrounding structures</li>
+        </ul>
+
+        <p><strong>2. BLOOD TESTS:</strong></p>
+        <ul>
+          <li><strong>FBC:</strong> Leukocytosis (elevated WCC)</li>
+          <li><strong>CRP, ESR:</strong> Elevated (markers of infection/inflammation)</li>
+          <li><strong>Blood cultures:</strong> May identify causative organism (positive in ~10% of cerebral abscess)</li>
+          <li><strong>U&Es, LFTs:</strong> Baseline, assess for organ dysfunction</li>
+          <li><strong>HIV test:</strong> If risk factors or multiple lesions (toxoplasmosis)</li>
+          <li><strong>Malaria film:</strong> If travel to endemic area</li>
+        </ul>
+
+        <p><strong>3. LUMBAR PUNCTURE:</strong></p>
+        <ul>
+          <li><strong>CONTRAINDICATED if space-occupying lesion suspected</strong></li>
+          <li>Risk of cerebral herniation (coning) due to raised ICP</li>
+          <li><strong>DO NOT perform LP until imaging done and no mass effect/raised ICP</strong></li>
+          <li>If safe to do (no mass effect), CSF may show:
+            <ul>
+              <li>Elevated protein</li>
+              <li>Pleocytosis (if abscess ruptures or meningitis coexists)</li>
+              <li>BUT CSF often normal or non-specific with cerebral abscess</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>4. MICROBIOLOGY:</strong></p>
+
+        <p><strong>Aspiration/Biopsy of Abscess (Neurosurgical procedure):</strong></p>
+        <ul>
+          <li><strong>Gold standard</strong> for identifying organism</li>
+          <li>Send pus for:
+            <ul>
+              <li>Gram stain</li>
+              <li>Bacterial culture (aerobic and anaerobic)</li>
+              <li>Fungal culture</li>
+              <li>TB culture and PCR</li>
+              <li>Toxoplasma PCR</li>
+            </ul>
+          </li>
+          <li>Also sends tissue for histology</li>
+        </ul>
+
+        <p><strong>5. INVESTIGATIONS TO FIND SOURCE:</strong></p>
+        <ul>
+          <li><strong>Chest X-ray:</strong> Pneumonia, lung abscess</li>
+          <li><strong>Echocardiography (TTE/TOE):</strong> Endocarditis (source of septic emboli)</li>
+          <li><strong>Dental examination:</strong> Dental infections common source</li>
+          <li><strong>Sinus CT:</strong> Sinusitis (especially frontal)</li>
+          <li><strong>Ear examination + temporal bone CT:</strong> Otitis media, mastoiditis</li>
+        </ul>
+
+        <p><strong>IMMEDIATE MANAGEMENT OF CEREBRAL ABSCESS:</strong></p>
+
+        <p><strong>1. RESUSCITATION AND SUPPORTIVE CARE:</strong></p>
+        <ul>
+          <li>ABC assessment</li>
+          <li>Airway protection if GCS <8</li>
+          <li>IV access</li>
+          <li>Oxygen if hypoxic</li>
+          <li>IV fluids (but avoid fluid overload - can worsen cerebral edema)</li>
+        </ul>
+
+        <p><strong>2. SEIZURE MANAGEMENT:</strong></p>
+        <ul>
+          <li>If actively seizing: IV benzodiazepines (lorazepam or diazepam)</li>
+          <li><strong>Anticonvulsant prophylaxis:</strong> Start in ALL patients with cerebral abscess (high seizure risk)
+            <ul>
+              <li>Levetiracetam or phenytoin</li>
+              <li>Continue for at least duration of treatment, often longer</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>3. RAISED ICP MANAGEMENT:</strong></p>
+        <ul>
+          <li>Nurse head-up 30°</li>
+          <li>Avoid hypotension (maintain adequate cerebral perfusion)</li>
+          <li><strong>Dexamethasone:</strong>
+            <ul>
+              <li>Controversial - may reduce edema but can impair antibiotic penetration and host immune response</li>
+              <li>Consider if severe mass effect/impending herniation</li>
+              <li>Dose: Dexamethasone 4-10mg IV 6-hourly</li>
+              <li>Taper once mass effect improves</li>
+            </ul>
+          </li>
+          <li><strong>Osmotherapy (if severe raised ICP):</strong> Mannitol or hypertonic saline</li>
+          <li><strong>Neurosurgical referral</strong> if deteriorating</li>
+        </ul>
+
+        <p><strong>4. EMPIRICAL ANTIBIOTICS (start immediately after imaging/cultures):</strong></p>
+
+        <p><strong>Choice depends on likely source:</strong></p>
+
+        <p><strong>Unknown source / Multiple sources:</strong></p>
+        <ul>
+          <li><strong>Ceftriaxone 2g IV 12-hourly</strong> (or cefotaxime)</li>
+          <li><strong>PLUS Metronidazole 500mg IV 8-hourly</strong> (for anaerobic coverage)</li>
+          <li><strong>PLUS Vancomycin 15-20mg/kg IV 8-12 hourly</strong> (if risk of Staph aureus, e.g., post-trauma, post-surgery, endocarditis)</li>
+        </ul>
+
+        <p><strong>Post-neurosurgery / Penetrating head trauma:</strong></p>
+        <ul>
+          <li><strong>Vancomycin PLUS Ceftazidime</strong> (or meropenem)</li>
+          <li>Covers MRSA, Pseudomonas, Gram-negatives</li>
+        </ul>
+
+        <p><strong>If immunocompromised (HIV, transplant, steroids):</strong></p>
+        <ul>
+          <li>Consider <strong>toxoplasmosis:</strong> Empirical treatment with <strong>pyrimethamine + sulfadiazine + folinic acid</strong></li>
+          <li>Also consider fungal causes: Add <strong>amphotericin B</strong> or <strong>voriconazole</strong></li>
+        </ul>
+
+        <p><strong>Duration:</strong></p>
+        <ul>
+          <li>Prolonged antibiotics required: Minimum <strong>4-6 weeks IV</strong> (often 6-8 weeks)</li>
+          <li>Guided by clinical response and repeat imaging</li>
+        </ul>
+
+        <p><strong>5. NEUROSURGICAL INTERVENTION:</strong></p>
+
+        <p><strong>Indications for surgery:</strong></p>
+        <ul>
+          <li><strong>Diagnostic:</strong> Aspiration/biopsy to identify organism (if not responding to empirical antibiotics)</li>
+          <li><strong>Therapeutic:</strong> Drainage or excision if:
+            <ul>
+              <li>Large abscess (>2.5 cm)</li>
+              <li>Significant mass effect</li>
+              <li>Deteriorating despite antibiotics</li>
+              <li>Posterior fossa location (risk of herniation)</li>
+              <li>Multiloculated or thick-walled abscess (poor antibiotic penetration)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Surgical options:</strong></p>
+        <ul>
+          <li><strong>Aspiration (stereotactic or open):</strong> Less invasive, can be repeated</li>
+          <li><strong>Excision:</strong> Complete removal of abscess (for accessible, encapsulated abscesses)</li>
+        </ul>
+
+        <p><strong>6. MONITORING AND FOLLOW-UP:</strong></p>
+        <ul>
+          <li>Serial imaging (CT/MRI) to monitor response (typically weekly initially)</li>
+          <li>Monitor inflammatory markers (CRP, WCC)</li>
+          <li>Neurology/neurosurgery follow-up</li>
+          <li>Continue anticonvulsants long-term (high seizure risk even after treatment)</li>
+        </ul>
+
+        <p><strong>7. TREAT UNDERLYING SOURCE:</strong></p>
+        <ul>
+          <li>Dental treatment if dental abscess</li>
+          <li>ENT referral if sinusitis/otitis media</li>
+          <li>Antibiotics for endocarditis if present</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is Creutzfeldt-Jakob Disease (CJD)? Describe the clinical features, investigations, and prognosis.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>CREUTZFELDT-JAKOB DISEASE (CJD)</strong></p>
+
+        <p>CJD is a rare, rapidly progressive, fatal neurodegenerative disease caused by prions (infectious proteins).</p>
+
+        <p><strong>PATHOPHYSIOLOGY:</strong></p>
+        <ul>
+          <li><strong>Prion disease:</strong> Caused by misfolded prion proteins (PrP<sup>Sc</sup>) that induce normal prion proteins (PrP<sup>C</sup>) to misfold</li>
+          <li>Results in accumulation of abnormal prion proteins in brain</li>
+          <li>Causes neuronal death, spongiform (sponge-like) changes in brain tissue</li>
+          <li>Progressive, irreversible, always fatal</li>
+        </ul>
+
+        <p><strong>TYPES OF CJD:</strong></p>
+
+        <p><strong>1. Sporadic CJD (sCJD) - ~85% of cases:</strong></p>
+        <ul>
+          <li>Most common form</li>
+          <li>Cause unknown (spontaneous misfolding of prion protein)</li>
+          <li>Peak age: 60-70 years</li>
+          <li>Rapid progression (median survival ~4-6 months from symptom onset)</li>
+        </ul>
+
+        <p><strong>2. Familial/Genetic CJD (~10-15%):</strong></p>
+        <ul>
+          <li>Inherited mutations in PRNP gene (prion protein gene)</li>
+          <li>Autosomal dominant</li>
+          <li>Earlier age of onset (can be <50 years)</li>
+        </ul>
+
+        <p><strong>3. Acquired CJD (~1%):</strong></p>
+
+        <p><strong>a) Variant CJD (vCJD) - "Mad Cow Disease":</strong></p>
+        <ul>
+          <li>Linked to consumption of BSE-infected beef (bovine spongiform encephalopathy)</li>
+          <li>Younger age of onset (median ~28 years)</li>
+          <li>Longer duration (~14 months)</li>
+          <li>Different clinical features: Psychiatric symptoms prominent early, painful sensory symptoms</li>
+          <li>Very rare now (peak in UK in 1990s-2000s)</li>
+        </ul>
+
+        <p><strong>b) Iatrogenic CJD:</strong></p>
+        <ul>
+          <li>Transmission via contaminated medical procedures</li>
+          <li>Sources: Contaminated neurosurgical instruments, dura mater grafts, corneal transplants, human growth hormone (from cadaver pituitary glands - no longer used)</li>
+          <li>Very rare now due to infection control measures</li>
+        </ul>
+
+        <p><strong>CLINICAL FEATURES OF SPORADIC CJD:</strong></p>
+
+        <p><strong>Early symptoms (first weeks-months):</strong></p>
+        <ul>
+          <li><strong>Rapidly progressive dementia:</strong> Memory loss, confusion, cognitive decline</li>
+          <li><strong>Behavioral/psychiatric changes:</strong> Depression, anxiety, apathy, personality change</li>
+          <li><strong>Ataxia:</strong> Unsteady gait, incoordination</li>
+          <li><strong>Visual disturbances:</strong> Blurred vision, visual field defects, cortical blindness</li>
+        </ul>
+
+        <p><strong>Progressive symptoms (weeks-months):</strong></p>
+        <ul>
+          <li><strong>Myoclonus:</strong> Sudden, brief, involuntary muscle jerks (very characteristic of CJD - present in ~90%)</li>
+          <li>Often stimulus-sensitive (startle to noise/touch)</li>
+          <li><strong>Pyramidal and extrapyramidal signs:</strong> Rigidity, spasticity, tremor</li>
+          <li><strong>Further cognitive decline:</strong> Severe dementia</li>
+          <li><strong>Akinetic mutism:</strong> Late stage - patient awake but unresponsive, mute, immobile</li>
+        </ul>
+
+        <p><strong>Terminal stage:</strong></p>
+        <ul>
+          <li>Akinetic mutism</li>
+          <li>Bedbound</li>
+          <li>Death usually from aspiration pneumonia or other complications</li>
+        </ul>
+
+        <p><strong>INVESTIGATIONS:</strong></p>
+
+        <p><strong>1. MRI Brain:</strong></p>
+        <ul>
+          <li><strong>DWI (diffusion-weighted imaging) and FLAIR sequences:</strong> Most sensitive</li>
+          <li><strong>Classic findings:</strong>
+            <ul>
+              <li><strong>"Cortical ribboning":</strong> Hyperintensity of cerebral cortex</li>
+              <li><strong>"Hockey stick sign" or "pulvinar sign":</strong> Hyperintensity in basal ganglia (caudate, putamen) and thalamus</li>
+            </ul>
+          </li>
+          <li>High sensitivity and specificity for CJD</li>
+        </ul>
+
+        <p><strong>2. EEG (Electroencephalogram):</strong></p>
+        <ul>
+          <li><strong>Classic finding:</strong> Periodic sharp wave complexes (PSWCs)</li>
+          <li>Generalized, bilaterally synchronous, 1-2 Hz</li>
+          <li>Present in ~65% of sporadic CJD (less sensitive than MRI)</li>
+          <li>Can be triggered by stimuli</li>
+        </ul>
+
+        <p><strong>3. CSF Analysis:</strong></p>
+        <ul>
+          <li><strong>14-3-3 protein:</strong> Elevated in ~90% of sporadic CJD
+            <ul>
+              <li>Released from dying neurons</li>
+              <li>Sensitive but not specific (also elevated in other rapid neurodegenerative conditions, stroke, encephalitis)</li>
+            </ul>
+          </li>
+          <li><strong>RT-QuIC (Real-Time Quaking-Induced Conversion):</strong>
+            <ul>
+              <li><strong>Newer test</strong> - detects prion protein in CSF</li>
+              <li>Very high sensitivity (>95%) and specificity (>99%)</li>
+              <li>Becoming gold standard CSF test for CJD</li>
+            </ul>
+          </li>
+          <li><strong>Total tau protein:</strong> Markedly elevated (>1200 pg/mL suggests CJD)</li>
+          <li>Routine CSF (cell count, protein, glucose): Usually normal or non-specific</li>
+        </ul>
+
+        <p><strong>4. Brain Biopsy:</strong></p>
+        <ul>
+          <li>Rarely done (diagnosis usually made on clinical + MRI + CSF)</li>
+          <li>Shows spongiform changes, neuronal loss, gliosis</li>
+          <li>Immunohistochemistry for prion protein</li>
+        </ul>
+
+        <p><strong>5. Genetic Testing:</strong></p>
+        <ul>
+          <li>PRNP gene sequencing if familial CJD suspected (family history, young age)</li>
+        </ul>
+
+        <p><strong>DIAGNOSTIC CRITERIA FOR SPORADIC CJD:</strong></p>
+
+        <p><strong>Definite CJD:</strong></p>
+        <ul>
+          <li>Neuropathological or immunohistochemical confirmation</li>
+        </ul>
+
+        <p><strong>Probable CJD:</strong></p>
+        <ul>
+          <li>Rapidly progressive dementia PLUS</li>
+          <li>At least 2 of: Myoclonus, visual/cerebellar signs, pyramidal/extrapyramidal signs, akinetic mutism</li>
+          <li>PLUS at least one of:
+            <ul>
+              <li>Typical EEG (periodic sharp waves)</li>
+              <li>Positive 14-3-3 CSF with clinical duration <2 years</li>
+              <li>MRI showing high signal in caudate/putamen or ≥2 cortical regions</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Possible CJD:</strong></p>
+        <ul>
+          <li>Progressive dementia</li>
+          <li>Plus 2 of the 4 clinical features listed above</li>
+          <li>But no EEG/MRI/CSF support</li>
+          <li>Duration <2 years</li>
+        </ul>
+
+        <p><strong>DIFFERENTIAL DIAGNOSIS:</strong></p>
+        <ul>
+          <li><strong>Other rapidly progressive dementias:</strong>
+            <ul>
+              <li>Alzheimer's disease (but usually slower progression)</li>
+              <li>Dementia with Lewy bodies</li>
+              <li>Frontotemporal dementia</li>
+            </ul>
+          </li>
+          <li><strong>Autoimmune encephalitis:</strong> Anti-NMDA receptor, anti-LGI1, etc. (TREATABLE - important to exclude!)</li>
+          <li><strong>Paraneoplastic syndromes</strong></li>
+          <li><strong>Metabolic encephalopathy:</strong> Hepatic, uremic, Hashimoto's encephalopathy</li>
+          <li><strong>Viral encephalitis</strong></li>
+          <li><strong>Cerebral vasculitis</strong></li>
+          <li><strong>Toxic:</strong> Lithium, bismuth</li>
+        </ul>
+
+        <p><strong>MANAGEMENT:</strong></p>
+        <ul>
+          <li><strong>NO CURE OR DISEASE-MODIFYING TREATMENT</strong></li>
+          <li><strong>Supportive care only:</strong>
+            <ul>
+              <li>Symptomatic management (myoclonus - clonazepam, valproate)</li>
+              <li>Psychological support for patient and family</li>
+              <li>Advance care planning</li>
+              <li>Palliative care</li>
+              <li>Manage complications (dysphagia, aspiration, infections)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>INFECTION CONTROL:</strong></p>
+        <ul>
+          <li>Prions extremely resistant to standard sterilization</li>
+          <li>Special decontamination protocols for surgical instruments</li>
+          <li>Autopsy/biopsy: Special precautions</li>
+          <li>NOT transmissible by casual contact</li>
+          <li>Standard precautions for healthcare workers</li>
+        </ul>
+
+        <p><strong>PROGNOSIS:</strong></p>
+        <ul>
+          <li><strong>Sporadic CJD: Median survival 4-6 months from symptom onset</strong></li>
+          <li>90% die within 1 year</li>
+          <li>Invariably fatal</li>
+          <li>Death usually from pneumonia, sepsis, or other complications of immobility</li>
+        </ul>
+
+        <p><strong>NOTIFICATION:</strong></p>
+        <ul>
+          <li>CJD is a notifiable disease in many countries</li>
+          <li>Surveillance important for tracking variant CJD and other forms</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

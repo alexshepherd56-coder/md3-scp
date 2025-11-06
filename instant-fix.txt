@@ -1,0 +1,11 @@
+INSTANT FIX - Copy and paste this ONE LINE into your browser console:
+
+firebase.auth().currentUser && (document.getElementById('authButton').style.display='none', document.getElementById('userProfile').style.display='flex', document.getElementById('userInitialCircle').textContent=firebase.auth().currentUser.displayName?.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2) || firebase.auth().currentUser.email[0].toUpperCase())
+
+This will:
+1. Check if you're signed in
+2. Hide the "Sign In" button
+3. Show your profile circle
+4. Set your initials
+
+After running this, refresh the page and the fix should persist.

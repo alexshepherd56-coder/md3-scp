@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 22.4 - Parkinsons & MND</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 22.4 - Parkinsons & MND | MD3 SCP Cases">
+  <meta name="description" content="Medical case study on Parkinson's disease and Motor Neurone Disease covering clinical presentation, differential diagnosis, investigations, and management.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 22.4 - Parkinsons & MND">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study on Parkinson's disease and Motor Neurone Disease covering clinical presentation, differential diagnosis, investigations, and management.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 22.4 – Parkinsons & MND</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Neurology | <strong>Setting:</strong> Neurology Outpatient Clinic</p>
+
+    <h2>Case</h2>
+    <p>Ken Kwa is a 59 year old man who presents to your clinic with a tremor. It started insidiously some 6 months ago and seems to have gotten worse. He first noticed it in his right hand. His wife has commented that he is taking longer to do things, his writing has become smaller and he doesn't seem to be able to express things emotionally anymore with his face.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What features do you look for on history and examination?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>History:</strong></p>
+
+        <p><strong>Motor symptoms (cardinal features):</strong></p>
+        <ul>
+          <li><strong>Tremor:</strong>
+            <ul>
+              <li>Character: resting tremor (improves with action)?</li>
+              <li>Frequency: 4-6 Hz "pill-rolling"</li>
+              <li>Distribution: asymmetric, starting in one limb?</li>
+              <li>Exacerbating/relieving factors</li>
+            </ul>
+          </li>
+          <li><strong>Bradykinesia (slowness of movement):</strong>
+            <ul>
+              <li>Difficulty with fine motor tasks (buttons, writing - micrographia)</li>
+              <li>Reduced arm swing when walking</li>
+              <li>Difficulty turning in bed</li>
+              <li>Reduced facial expression (hypomimia)</li>
+              <li>Reduced blink rate</li>
+            </ul>
+          </li>
+          <li><strong>Rigidity:</strong>
+            <ul>
+              <li>Limb stiffness</li>
+              <li>Muscle aches/pains</li>
+            </ul>
+          </li>
+          <li><strong>Postural instability:</strong>
+            <ul>
+              <li>Balance problems, falls (usually later feature)</li>
+              <li>Difficulty with turning</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Other motor features:</strong></p>
+        <ul>
+          <li><strong>Gait disturbance:</strong> Shuffling, festinating (accelerating forward), freezing episodes</li>
+          <li><strong>Speech changes:</strong> Quiet (hypophonia), monotonous</li>
+          <li><strong>Swallowing difficulties:</strong> Dysphagia (later feature)</li>
+          <li><strong>Handwriting:</strong> Small (micrographia)</li>
+        </ul>
+
+        <p><strong>Non-motor symptoms (very common, often under-recognized):</strong></p>
+        <ul>
+          <li><strong>Autonomic:</strong> Constipation, urinary urgency/frequency, erectile dysfunction, orthostatic hypotension</li>
+          <li><strong>Sleep disturbances:</strong> REM sleep behavior disorder, excessive daytime sleepiness, restless legs, insomnia</li>
+          <li><strong>Neuropsychiatric:</strong> Depression, anxiety, apathy, hallucinations (especially with medications), dementia (late)</li>
+          <li><strong>Sensory:</strong> Anosmia (loss of smell - often precedes motor symptoms), pain (shoulder, back)</li>
+          <li><strong>Cognitive:</strong> Executive dysfunction, slowed processing</li>
+        </ul>
+
+        <p><strong>Onset and progression:</strong></p>
+        <ul>
+          <li>Age of onset (peak 60s; young-onset <50 years suggests genetic causes)</li>
+          <li>Which symptoms appeared first?</li>
+          <li>Rate of progression (PD is slowly progressive)</li>
+          <li>Asymmetry (PD typically asymmetric initially)</li>
+        </ul>
+
+        <p><strong>Response to levodopa (if already tried):</strong></p>
+        <ul>
+          <li>Good response strongly supports diagnosis of PD</li>
+          <li>Poor/no response suggests alternative diagnosis (Parkinson-plus syndromes)</li>
+        </ul>
+
+        <p><strong>Red flags (suggest alternative diagnosis):</strong></p>
+        <ul>
+          <li>Early falls, early dementia, early dysautonomia</li>
+          <li>Rapid progression</li>
+          <li>Symmetrical onset</li>
+          <li>Lack of tremor</li>
+          <li>Poor/absent levodopa response</li>
+          <li>Eye movement abnormalities (PSP)</li>
+          <li>Cerebellar signs</li>
+          <li>Upper motor neuron signs (pyramidal)</li>
+          <li>Hallucinations early in disease (suggest DLB)</li>
+        </ul>
+
+        <p><strong>Past medical and drug history:</strong></p>
+        <ul>
+          <li>Medications that can cause parkinsonism: antipsychotics (especially typical), metoclopramide, prochlorperazine</li>
+          <li>Vascular risk factors (vascular parkinsonism)</li>
+          <li>Head injury, encephalitis</li>
+        </ul>
+
+        <p><strong>Family history:</strong></p>
+        <ul>
+          <li>Parkinson's disease (5-10% have family history)</li>
+          <li>Young-onset PD more likely genetic</li>
+        </ul>
+
+        <p><strong>Examination:</strong></p>
+
+        <p><strong>Observe:</strong></p>
+        <ul>
+          <li>Resting tremor (observe hands at rest)</li>
+          <li>Reduced facial expression (hypomimia, "mask-like facies")</li>
+          <li>Reduced blink rate</li>
+          <li>Posture: stooped, flexed</li>
+        </ul>
+
+        <p><strong>Bradykinesia:</strong></p>
+        <ul>
+          <li><strong>Finger tapping:</strong> Ask patient to tap index finger and thumb together rapidly - look for slowing, reduced amplitude, freezing</li>
+          <li><strong>Hand opening/closing:</strong> Rapid repeated movements - progressive slowing</li>
+          <li><strong>Pronation/supination:</strong> Rapid alternating movements of forearms</li>
+          <li><strong>Foot tapping:</strong> Tap foot on ground rapidly</li>
+          <li>Look for decrement in speed and amplitude with repetition</li>
+        </ul>
+
+        <p><strong>Tremor:</strong></p>
+        <ul>
+          <li>Resting tremor (4-6 Hz, "pill-rolling")</li>
+          <li>Asymmetric (at least initially)</li>
+          <li>Re-emergent tremor: tremor reappears after brief delay when arms held outstretched</li>
+          <li>Improves with action (distinguish from essential tremor, which worsens with action)</li>
+          <li>Exacerbated by distraction/mental stress (e.g., serial 7s)</li>
+        </ul>
+
+        <p><strong>Rigidity:</strong></p>
+        <ul>
+          <li><strong>Lead-pipe rigidity:</strong> Uniform resistance throughout passive movement of limb</li>
+          <li><strong>Cogwheel rigidity:</strong> Ratchet-like resistance (combination of tremor + rigidity)</li>
+          <li>Test by passive flexion/extension of wrist and elbow, with patient relaxed</li>
+          <li>Reinforcement maneuver: ask patient to move opposite limb to enhance rigidity</li>
+        </ul>
+
+        <p><strong>Postural instability:</strong></p>
+        <ul>
+          <li><strong>Pull test:</strong> Stand behind patient, warn them, pull backwards on shoulders - inability to recover balance or need >2 steps to recover is abnormal</li>
+          <li>NOTE: This is a later feature; early falls suggest alternative diagnosis</li>
+        </ul>
+
+        <p><strong>Gait:</strong></p>
+        <ul>
+          <li>Shuffling, small steps</li>
+          <li>Reduced arm swing (often asymmetric)</li>
+          <li>Difficulty initiating gait, turning (requires multiple small steps)</li>
+          <li>Festination (accelerating forward, difficulty stopping)</li>
+          <li>Freezing (sudden inability to move feet)</li>
+        </ul>
+
+        <p><strong>Other signs:</strong></p>
+        <ul>
+          <li><strong>Glabellar tap:</strong> Repeated tapping between eyebrows - persistent blinking (Myerson's sign) - seen in PD but not specific</li>
+          <li><strong>Hypophonia:</strong> Quiet, monotonous speech</li>
+          <li><strong>Micrographia:</strong> Ask patient to write - small, cramped handwriting</li>
+        </ul>
+
+        <p><strong>Exclude atypical features/Parkinson-plus syndromes:</strong></p>
+        <ul>
+          <li><strong>Eye movements:</strong> Supranuclear gaze palsy (PSP), saccadic intrusions</li>
+          <li><strong>Cerebellar signs:</strong> Ataxia, dysmetria, nystagmus (MSA-C)</li>
+          <li><strong>Pyramidal signs:</strong> Brisk reflexes, extensor plantars (not typical of PD)</li>
+          <li><strong>Dysautonomia:</strong> Orthostatic hypotension, urinary retention (MSA)</li>
+          <li><strong>Cognitive impairment:</strong> Early dementia (DLB, PSP)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. The examination features and history are consistent with Idiopathic Parkinson's disease. What is the differential diagnosis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The differential diagnosis of parkinsonism includes:</p>
+
+        <p><strong>1. IDIOPATHIC PARKINSON'S DISEASE (PD) - most common (~80%)</strong></p>
+        <ul>
+          <li>Slowly progressive</li>
+          <li>Asymmetric onset</li>
+          <li>Resting tremor common (but 30% have minimal tremor)</li>
+          <li>Good response to levodopa</li>
+          <li>Non-motor symptoms (anosmia, constipation, REM sleep behavior disorder) may precede motor symptoms by years</li>
+        </ul>
+
+        <p><strong>2. DRUG-INDUCED PARKINSONISM</strong></p>
+        <ul>
+          <li>Caused by dopamine receptor blockers</li>
+          <li>Common culprits:
+            <ul>
+              <li><strong>Antipsychotics:</strong> Especially typical (haloperidol, chlorpromazine); atypicals less likely but risperidone/amisulpride can cause</li>
+              <li><strong>Antiemetics:</strong> Metoclopramide, prochlorperazine</li>
+              <li><strong>Others:</strong> Calcium channel blockers (rarely - cinnarizine, flunarizine), valproate, lithium</li>
+            </ul>
+          </li>
+          <li>Usually symmetric</li>
+          <li>Tremor less prominent</li>
+          <li>Should improve within weeks to months of stopping offending drug (but can take >6 months)</li>
+        </ul>
+
+        <p><strong>3. VASCULAR PARKINSONISM ("lower body parkinsonism")</strong></p>
+        <ul>
+          <li>Due to small vessel cerebrovascular disease</li>
+          <li>Affects lower limbs predominantly (gait disturbance)</li>
+          <li>Upper limbs relatively spared</li>
+          <li>Tremor uncommon</li>
+          <li>Stepwise progression</li>
+          <li>MRI shows extensive white matter changes, lacunar infarcts</li>
+          <li>Poor response to levodopa</li>
+        </ul>
+
+        <p><strong>4. ATYPICAL PARKINSONIAN DISORDERS ("Parkinson-Plus Syndromes")</strong></p>
+
+        <p><strong>a) Progressive Supranuclear Palsy (PSP):</strong></p>
+        <ul>
+          <li>Supranuclear vertical gaze palsy (especially downward gaze; later becomes horizontal too)</li>
+          <li>Early postural instability and falls (within first year)</li>
+          <li>Axial rigidity > limb rigidity (extended rather than flexed posture)</li>
+          <li>Frontal dementia, personality change, apathy</li>
+          <li>Tremor uncommon</li>
+          <li>Poor/transient response to levodopa</li>
+          <li>Rapidly progressive</li>
+        </ul>
+
+        <p><strong>b) Multiple System Atrophy (MSA):</strong></p>
+        <ul>
+          <li>Parkinsonism PLUS autonomic failure and/or cerebellar signs</li>
+          <li>Two subtypes:
+            <ul>
+              <li><strong>MSA-P:</strong> Predominant parkinsonism</li>
+              <li><strong>MSA-C:</strong> Predominant cerebellar ataxia</li>
+            </ul>
+          </li>
+          <li><strong>Autonomic features (prominent and early):</strong> Severe orthostatic hypotension, urinary retention/incontinence, erectile dysfunction, constipation</li>
+          <li>Tremor less common; rigidity often symmetric</li>
+          <li>Laryngeal stridor (can be life-threatening)</li>
+          <li>Poor/minimal response to levodopa</li>
+          <li>Rapid progression (survival ~6-10 years)</li>
+        </ul>
+
+        <p><strong>c) Dementia with Lewy Bodies (DLB):</strong></p>
+        <ul>
+          <li>Dementia precedes or occurs within 1 year of parkinsonism</li>
+          <li>Fluctuating cognition</li>
+          <li>Visual hallucinations (early, recurrent, well-formed)</li>
+          <li>REM sleep behavior disorder</li>
+          <li>Severe sensitivity to antipsychotics</li>
+          <li>Parkinsonism usually symmetric, tremor less prominent</li>
+          <li>Variable response to levodopa; may worsen hallucinations</li>
+        </ul>
+
+        <p><strong>d) Corticobasal Degeneration (CBD):</strong></p>
+        <ul>
+          <li>Highly asymmetric, progressive parkinsonism</li>
+          <li>Limb apraxia, "alien limb" phenomenon</li>
+          <li>Cortical sensory loss</li>
+          <li>Myoclonus</li>
+          <li>Cognitive impairment (frontal, language)</li>
+          <li>Poor response to levodopa</li>
+        </ul>
+
+        <p><strong>5. OTHER CAUSES</strong></p>
+
+        <p><strong>Essential Tremor:</strong></p>
+        <ul>
+          <li>Action/postural tremor (not resting tremor)</li>
+          <li>Bilateral, symmetric</li>
+          <li>Head tremor common (not typical in PD)</li>
+          <li>Improves with alcohol</li>
+          <li>Family history common</li>
+          <li>NO bradykinesia or rigidity</li>
+        </ul>
+
+        <p><strong>Wilson's Disease:</strong></p>
+        <ul>
+          <li>Young onset (<40 years)</li>
+          <li>Parkinsonism, dystonia, wing-beating tremor</li>
+          <li>Psychiatric features</li>
+          <li>Kayser-Fleischer rings (copper deposition in cornea)</li>
+          <li>Liver disease</li>
+          <li>Low ceruloplasmin, high urinary copper</li>
+          <li>TREATABLE - must not miss!</li>
+        </ul>
+
+        <p><strong>Normal Pressure Hydrocephalus:</strong></p>
+        <ul>
+          <li>Triad: Gait disturbance, cognitive impairment, urinary incontinence</li>
+          <li>"Magnetic" gait (feet appear stuck to floor)</li>
+          <li>Potentially reversible with shunting</li>
+        </ul>
+
+        <p><strong>Other rare causes:</strong></p>
+        <ul>
+          <li>Post-encephalitic parkinsonism (historical - encephalitis lethargica epidemic)</li>
+          <li>Toxins: Carbon monoxide, manganese, MPTP</li>
+          <li>Brain tumors, subdural hematoma</li>
+          <li>Repeated head trauma ("punch-drunk syndrome")</li>
+        </ul>
+
+        <p><strong>UK PD BRAIN BANK CLINICAL DIAGNOSTIC CRITERIA (simplified):</strong></p>
+
+        <p><strong>Step 1: Diagnosis of Parkinsonian syndrome</strong></p>
+        <ul>
+          <li>Bradykinesia PLUS at least one of: Resting tremor, Rigidity, Postural instability</li>
+        </ul>
+
+        <p><strong>Step 2: Exclusion criteria (suggest alternative diagnosis)</strong></p>
+        <ul>
+          <li>Repeated strokes, repeated head injury</li>
+          <li>Encephalitis</li>
+          <li>Neuroleptic treatment at onset</li>
+          <li>More than one affected relative</li>
+          <li>Sustained remission</li>
+          <li>Strictly unilateral after 3 years</li>
+          <li>Supranuclear gaze palsy</li>
+          <li>Cerebellar signs</li>
+          <li>Early severe autonomic involvement</li>
+          <li>Early severe dementia</li>
+          <li>Babinski sign</li>
+          <li>Cerebral tumor or hydrocephalus on imaging</li>
+          <li>Negative response to large doses of levodopa</li>
+        </ul>
+
+        <p><strong>Step 3: Supportive criteria (3+ required for definite PD)</strong></p>
+        <ul>
+          <li>Unilateral onset</li>
+          <li>Rest tremor</li>
+          <li>Progressive disorder</li>
+          <li>Persistent asymmetry</li>
+          <li>Excellent response to levodopa (70-100%)</li>
+          <li>Severe levodopa-induced chorea</li>
+          <li>Levodopa response for ≥5 years</li>
+          <li>Clinical course ≥10 years</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What investigations are useful in Parkinson's disease?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Parkinson's disease is a CLINICAL diagnosis.</strong> There is no definitive diagnostic test. Investigations are mainly to exclude alternative diagnoses.</p>
+
+        <p><strong>In most cases of typical PD, NO investigations are required if:</strong></p>
+        <ul>
+          <li>Classic clinical features (asymmetric, rest tremor, bradykinesia, rigidity)</li>
+          <li>Gradual onset and progression</li>
+          <li>Good response to levodopa</li>
+          <li>No atypical features</li>
+        </ul>
+
+        <p><strong>Investigations to consider:</strong></p>
+
+        <p><strong>1. MRI Brain:</strong></p>
+        <ul>
+          <li>Usually NORMAL in idiopathic PD</li>
+          <li>Useful to exclude:
+            <ul>
+              <li>Vascular parkinsonism (multiple infarcts, white matter disease)</li>
+              <li>Normal pressure hydrocephalus</li>
+              <li>Structural lesions (tumor, subdural)</li>
+              <li>Atypical parkinsonian disorders (may show specific patterns of atrophy)</li>
+            </ul>
+          </li>
+          <li>Consider if: Young onset, atypical features, rapid progression, poor levodopa response</li>
+        </ul>
+
+        <p><strong>2. DaTscan (Dopamine Transporter SPECT imaging):</strong></p>
+        <ul>
+          <li>Assesses integrity of dopaminergic nerve terminals in basal ganglia</li>
+          <li>ABNORMAL (reduced uptake) in:
+            <ul>
+              <li>Idiopathic PD</li>
+              <li>Atypical parkinsonian disorders (PSP, MSA, CBD)</li>
+              <li>Dementia with Lewy bodies</li>
+            </ul>
+          </li>
+          <li>NORMAL in:
+            <ul>
+              <li>Essential tremor</li>
+              <li>Drug-induced parkinsonism</li>
+              <li>Vascular parkinsonism</li>
+              <li>Psychogenic/functional parkinsonism</li>
+            </ul>
+          </li>
+          <li><strong>Useful when:</strong> Diagnostic uncertainty between PD vs essential tremor vs drug-induced parkinsonism</li>
+          <li><strong>Limitation:</strong> Cannot distinguish PD from atypical parkinsonian disorders</li>
+        </ul>
+
+        <p><strong>3. Blood tests (to exclude secondary causes):</strong></p>
+        <ul>
+          <li><strong>Ceruloplasmin and serum copper:</strong> To exclude Wilson's disease (ESSENTIAL in patients <40 years)</li>
+          <li>FBC, U&Es, LFTs, TFTs: General screen</li>
+          <li>Vitamin B12: Deficiency can mimic/worsen symptoms</li>
+          <li>Syphilis serology (if clinically indicated)</li>
+        </ul>
+
+        <p><strong>4. Autonomic function tests:</strong></p>
+        <ul>
+          <li>Tilt table testing, heart rate variability</li>
+          <li>Useful if suspecting MSA (severe early autonomic failure)</li>
+        </ul>
+
+        <p><strong>5. Olfactory testing:</strong></p>
+        <ul>
+          <li>Anosmia (loss of smell) is very common in PD (>90%)</li>
+          <li>Preserved smell suggests alternative diagnosis (PSP, MSA, vascular, drug-induced)</li>
+          <li>Not routinely used clinically but can be helpful diagnostically</li>
+        </ul>
+
+        <p><strong>6. Genetic testing:</strong></p>
+        <ul>
+          <li>NOT routinely recommended</li>
+          <li>Consider if:
+            <ul>
+              <li>Young onset (<50 years), especially <40 years</li>
+              <li>Strong family history (multiple affected relatives)</li>
+              <li>Specific ethnic backgrounds (e.g., LRRK2 mutations in Ashkenazi Jews, North African Arabs)</li>
+            </ul>
+          </li>
+          <li>Common genes: LRRK2, PRKN (parkin), PINK1, DJ-1, SNCA (rare)</li>
+        </ul>
+
+        <p><strong>7. Therapeutic trial of levodopa:</strong></p>
+        <ul>
+          <li>Not strictly an "investigation" but clinically very useful</li>
+          <li>Give adequate dose (e.g., co-careldopa 25/100 three times daily) for adequate duration (4-6 weeks minimum)</li>
+          <li>Good response (≥30% improvement) strongly supports PD diagnosis</li>
+          <li>Poor/absent response suggests atypical parkinsonism</li>
+        </ul>
+
+        <p><strong>Summary: When to investigate?</strong></p>
+        <ul>
+          <li><strong>Young onset (<40 years):</strong> MRI brain, Wilson's screen (ceruloplasmin, copper), consider genetic testing</li>
+          <li><strong>Atypical features (red flags):</strong> MRI brain, consider DaTscan, autonomic testing</li>
+          <li><strong>Diagnostic uncertainty (PD vs essential tremor vs drug-induced):</strong> DaTscan</li>
+          <li><strong>Typical late-onset PD with good levodopa response:</strong> Often no investigations needed</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Discuss the medical and surgical management of Parkinson's disease.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>MEDICAL MANAGEMENT OF PARKINSON'S DISEASE</strong></p>
+
+        <p><strong>General Principles:</strong></p>
+        <ul>
+          <li>Treatment is symptomatic (no disease-modifying therapies available)</li>
+          <li>Individualized approach based on age, symptoms, disability, patient preference</li>
+          <li>Initiate treatment when symptoms affect quality of life or function</li>
+          <li>No need to treat if minimal symptoms and patient not bothered</li>
+        </ul>
+
+        <p><strong>1. DOPAMINERGIC MEDICATIONS</strong></p>
+
+        <p><strong>a) Levodopa (with carbidopa or benserazide):</strong></p>
+        <ul>
+          <li>MOST EFFECTIVE symptomatic treatment for PD</li>
+          <li>Levodopa is converted to dopamine in brain; carbidopa/benserazide are peripheral decarboxylase inhibitors (reduce peripheral conversion, reduce side effects)</li>
+          <li><strong>Preparations:</strong>
+            <ul>
+              <li>Co-careldopa (Sinemet): Levodopa + carbidopa (ratios: 12.5/50, 25/100, 25/250)</li>
+              <li>Co-beneldopa (Madopar): Levodopa + benserazide</li>
+              <li>Also available: Modified-release preparations, dispersible preparations</li>
+            </ul>
+          </li>
+          <li><strong>Efficacy:</strong> Improves ALL cardinal motor features (tremor, rigidity, bradykinesia)</li>
+          <li><strong>Initial dose:</strong> Start low (e.g., 25/100 three times daily), increase gradually</li>
+          <li><strong>Side effects:</strong>
+            <ul>
+              <li>Nausea, vomiting (give with food; use domperidone if needed - NOT metoclopramide)</li>
+              <li>Postural hypotension</li>
+              <li>Hallucinations, confusion (dose-related, especially in elderly)</li>
+            </ul>
+          </li>
+          <li><strong>Long-term complications:</strong>
+            <ul>
+              <li><strong>Motor fluctuations:</strong> "Wearing-off" (symptoms return before next dose), unpredictable "on-off" fluctuations</li>
+              <li><strong>Dyskinesias:</strong> Involuntary movements (chorea) at peak dose; occur in ~40% after 4-6 years</li>
+            </ul>
+          </li>
+          <li><strong>Strategy:</strong> Traditionally delayed in younger patients to reduce long-term motor complications, but current evidence suggests early use is acceptable if symptoms warrant; use lowest effective dose</li>
+        </ul>
+
+        <p><strong>b) Dopamine Agonists (DAs):</strong></p>
+        <ul>
+          <li>Directly stimulate dopamine receptors</li>
+          <li><strong>Options:</strong>
+            <ul>
+              <li><strong>Ergot-derived (rarely used now):</strong> Bromocriptine, cabergoline (risk of cardiac valvulopathy, pulmonary/retroperitoneal fibrosis)</li>
+              <li><strong>Non-ergot (preferred):</strong>
+                <ul>
+                  <li><strong>Ropinirole (oral):</strong> Short-acting</li>
+                  <li><strong>Pramipexole (oral):</strong> Short-acting</li>
+                  <li><strong>Rotigotine (transdermal patch):</strong> Useful if swallowing problems</li>
+                  <li><strong>Apomorphine (subcutaneous injection):</strong> Rescue therapy for "off" periods</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Efficacy:</strong> Less effective than levodopa but useful as monotherapy in early PD or adjunct to levodopa</li>
+          <li><strong>Advantages:</strong> May delay motor complications (dyskinesias, wearing-off); longer half-life than levodopa</li>
+          <li><strong>Side effects:</strong>
+            <ul>
+              <li>Similar to levodopa: nausea, postural hypotension, hallucinations</li>
+              <li><strong>Impulse control disorders:</strong> Pathological gambling, hypersexuality, compulsive shopping, binge eating (~15% of patients) - WARN patients and families!</li>
+              <li>Excessive daytime sleepiness, sudden onset of sleep (caution with driving)</li>
+              <li>Peripheral edema</li>
+              <li>Patch site reactions (rotigotine)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>c) MAO-B Inhibitors:</strong></p>
+        <ul>
+          <li>Inhibit monoamine oxidase B (enzyme that breaks down dopamine)</li>
+          <li><strong>Options:</strong>
+            <ul>
+              <li><strong>Selegiline (oral):</strong> Older agent</li>
+              <li><strong>Rasagiline (oral):</strong> Once daily, possibly neuroprotective (controversial)</li>
+            </ul>
+          </li>
+          <li><strong>Use:</strong> Monotherapy in early PD (mild benefit) or adjunct to levodopa (reduces wearing-off)</li>
+          <li><strong>Side effects:</strong> Generally well tolerated; nausea, headache, insomnia (if taken late in day)</li>
+          <li>Caution with antidepressants (risk of serotonin syndrome - especially SSRIs)</li>
+        </ul>
+
+        <p><strong>d) COMT Inhibitors:</strong></p>
+        <ul>
+          <li>Inhibit catechol-O-methyltransferase (enzyme that breaks down levodopa)</li>
+          <li><strong>Options:</strong> Entacapone, tolcapone (tolcapone rarely used - hepatotoxicity risk)</li>
+          <li><strong>Use:</strong> ONLY as adjunct to levodopa (prolongs levodopa effect, reduces wearing-off)</li>
+          <li><strong>Side effects:</strong> Diarrhea, urine discoloration (orange), dyskinesias (may need to reduce levodopa dose)</li>
+        </ul>
+
+        <p><strong>e) Amantadine:</strong></p>
+        <ul>
+          <li>Weak dopaminergic effect; NMDA antagonist</li>
+          <li><strong>Use:</strong> Mild benefit for motor symptoms; BEST for reducing dyskinesias</li>
+          <li><strong>Side effects:</strong> Livedo reticularis (skin mottling), ankle edema, confusion</li>
+        </ul>
+
+        <p><strong>2. ANTICHOLINERGICS:</strong></p>
+        <ul>
+          <li><strong>Examples:</strong> Trihexyphenidyl (benzhexol), procyclidine</li>
+          <li><strong>Use:</strong> Mainly for tremor in younger patients</li>
+          <li><strong>Side effects:</strong> Dry mouth, constipation, urinary retention, confusion, memory impairment, hallucinations</li>
+          <li><strong>AVOID in elderly</strong> (high risk of confusion, falls)</li>
+          <li>Rarely used now due to side effects</li>
+        </ul>
+
+        <p><strong>TREATMENT APPROACH:</strong></p>
+
+        <p><strong>Early PD / Younger patients (<65-70 years):</strong></p>
+        <ul>
+          <li>If functional impairment: Consider dopamine agonist OR MAO-B inhibitor OR levodopa (choice based on patient factors, tolerability)</li>
+          <li>Traditionally, levodopa delayed to reduce long-term motor complications, but no longer dogmatic</li>
+        </ul>
+
+        <p><strong>Early PD / Older patients (>70 years):</strong></p>
+        <ul>
+          <li>Levodopa usually first-line (better efficacy, motor complications less problematic as shorter life expectancy)</li>
+        </ul>
+
+        <p><strong>Advanced PD with motor complications:</strong></p>
+        <ul>
+          <li>Optimize levodopa dosing (smaller, more frequent doses; add modified-release preparations)</li>
+          <li>Add adjunct therapies: Dopamine agonist, MAO-B inhibitor, COMT inhibitor</li>
+          <li>Amantadine for dyskinesias</li>
+          <li>Consider advanced therapies (see below)</li>
+        </ul>
+
+        <p><strong>3. MANAGEMENT OF NON-MOTOR SYMPTOMS:</strong></p>
+
+        <p><strong>Depression/Anxiety:</strong></p>
+        <ul>
+          <li>SSRIs (citalopram, sertraline), SNRIs (venlafaxine)</li>
+          <li>CBT, psychological support</li>
+        </ul>
+
+        <p><strong>Psychosis/Hallucinations:</strong></p>
+        <ul>
+          <li>Review and reduce dopaminergic medications if possible</li>
+          <li><strong>Quetiapine:</strong> Low-dose (off-label use; limited evidence)</li>
+          <li><strong>Clozapine:</strong> Effective but requires blood monitoring (agranulocytosis risk)</li>
+          <li><strong>Pimavanserin:</strong> Specific for PD psychosis (not available in all countries)</li>
+          <li>AVOID typical antipsychotics (worsen parkinsonism)</li>
+        </ul>
+
+        <p><strong>Orthostatic Hypotension:</strong></p>
+        <ul>
+          <li>Review medications (reduce dopaminergics, antihypertensives if possible)</li>
+          <li>Non-pharmacological: Increase fluid/salt intake, compression stockings, head-up tilt sleeping</li>
+          <li>Midodrine, fludrocortisone</li>
+        </ul>
+
+        <p><strong>Constipation:</strong></p>
+        <ul>
+          <li>Increase fiber, fluids, exercise</li>
+          <li>Laxatives (macrogol, senna)</li>
+        </ul>
+
+        <p><strong>Urinary symptoms:</strong></p>
+        <ul>
+          <li>Exclude UTI</li>
+          <li>Anticholinergics for urgency/frequency (but caution - cognitive side effects)</li>
+          <li>Alpha-blockers for hesitancy/retention</li>
+        </ul>
+
+        <p><strong>REM Sleep Behavior Disorder:</strong></p>
+        <ul>
+          <li>Clonazepam, melatonin</li>
+          <li>Safety measures (remove dangerous objects from bedroom)</li>
+        </ul>
+
+        <p><strong>Sialorrhea (drooling):</strong></p>
+        <ul>
+          <li>Glycopyrrolate, botulinum toxin injections to salivary glands</li>
+        </ul>
+
+        <p><strong>4. SURGICAL MANAGEMENT</strong></p>
+
+        <p><strong>Deep Brain Stimulation (DBS):</strong></p>
+
+        <p><strong>Mechanism:</strong></p>
+        <ul>
+          <li>Implantation of electrodes into specific brain targets (subthalamic nucleus - STN, or globus pallidus interna - GPi) connected to pacemaker-like device</li>
+          <li>High-frequency electrical stimulation modulates abnormal neuronal activity</li>
+        </ul>
+
+        <p><strong>Indications:</strong></p>
+        <ul>
+          <li>Idiopathic PD with motor complications (fluctuations, dyskinesias) despite optimal medical therapy</li>
+          <li>Good response to levodopa (DBS does NOT work if levodopa doesn't work)</li>
+          <li>No significant cognitive impairment or major psychiatric disorder</li>
+          <li>Typically age <70 years (but case-by-case)</li>
+          <li>Disease duration usually >5 years</li>
+        </ul>
+
+        <p><strong>Efficacy:</strong></p>
+        <ul>
+          <li>Significant improvement in motor fluctuations (increases "on" time)</li>
+          <li>Reduces dyskinesias</li>
+          <li>Allows reduction in medication dose</li>
+          <li>Improves quality of life</li>
+          <li>Does NOT cure PD; disease continues to progress</li>
+        </ul>
+
+        <p><strong>Complications:</strong></p>
+        <ul>
+          <li>Surgical: Hemorrhage (~2%), infection, hardware complications</li>
+          <li>Stimulation-related: Speech/cognitive changes, mood changes (especially STN-DBS), gait disturbance</li>
+          <li>Requires ongoing programming adjustments</li>
+        </ul>
+
+        <p><strong>Other surgical options (rarely used):</strong></p>
+        <ul>
+          <li>Pallidotomy, thalamotomy (ablative procedures - largely replaced by DBS)</li>
+        </ul>
+
+        <p><strong>5. ADVANCED THERAPIES (for advanced PD with refractory motor fluctuations):</strong></p>
+
+        <p><strong>Apomorphine infusion:</strong></p>
+        <ul>
+          <li>Continuous subcutaneous infusion of dopamine agonist</li>
+          <li>Reduces "off" time</li>
+        </ul>
+
+        <p><strong>Levodopa-carbidopa intestinal gel (LCIG/Duodopa):</strong></p>
+        <ul>
+          <li>Continuous infusion of levodopa gel directly into duodenum via PEG-J tube</li>
+          <li>Provides stable levodopa levels</li>
+          <li>Reduces motor fluctuations</li>
+        </ul>
+
+        <p><strong>6. NON-PHARMACOLOGICAL MANAGEMENT (ESSENTIAL!):</strong></p>
+        <ul>
+          <li><strong>Physiotherapy:</strong> Gait training, balance, exercise (improves motor function, reduces falls)</li>
+          <li><strong>Occupational therapy:</strong> ADL support, home modifications, adaptive equipment</li>
+          <li><strong>Speech and language therapy:</strong> For dysarthria, dysphagia</li>
+          <li><strong>Exercise:</strong> Regular aerobic exercise beneficial for motor and non-motor symptoms</li>
+          <li><strong>Dietitian:</strong> Nutritional support, swallowing advice</li>
+          <li><strong>PD nurse specialist:</strong> Education, medication management, holistic care</li>
+          <li><strong>Psychological support:</strong> For patient and carers</li>
+          <li><strong>Driving assessment:</strong> DVLA notification required (UK)</li>
+          <li><strong>Palliative care:</strong> In advanced disease</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Describe the hereditary ataxias.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Hereditary ataxias are a group of genetic disorders characterized by progressive cerebellar dysfunction leading to ataxia (incoordination), often with other neurological features.</p>
+
+        <p><strong>CLASSIFICATION:</strong></p>
+
+        <p><strong>1. AUTOSOMAL DOMINANT CEREBELLAR ATAXIAS (ADCAs) = Spinocerebellar Ataxias (SCAs)</strong></p>
+
+        <p><strong>General features:</strong></p>
+        <ul>
+          <li>Usually adult onset (but variable)</li>
+          <li>Progressive ataxia</li>
+          <li>Over 40 different genetic subtypes (SCA1, SCA2, SCA3, etc.)</li>
+          <li>Most caused by CAG repeat expansions (polyglutamine diseases)</li>
+        </ul>
+
+        <p><strong>Common subtypes:</strong></p>
+
+        <p><strong>SCA3 (Machado-Joseph disease) - most common worldwide:</strong></p>
+        <ul>
+          <li>Ataxia, parkinsonism, dystonia, peripheral neuropathy, external ophthalmoplegia</li>
+          <li>Variable phenotype</li>
+        </ul>
+
+        <p><strong>SCA1:</strong></p>
+        <ul>
+          <li>Ataxia, pyramidal signs, peripheral neuropathy</li>
+          <li>Relatively rapid progression</li>
+        </ul>
+
+        <p><strong>SCA2:</strong></p>
+        <ul>
+          <li>Ataxia, slow saccades, peripheral neuropathy, parkinsonism</li>
+        </ul>
+
+        <p><strong>SCA6:</strong></p>
+        <ul>
+          <li>Pure cerebellar syndrome (ataxia, dysarthria, nystagmus)</li>
+          <li>Later onset, slower progression</li>
+          <li>Mutation in calcium channel gene (not polyglutamine)</li>
+        </ul>
+
+        <p><strong>SCA7:</strong></p>
+        <ul>
+          <li>Ataxia PLUS progressive visual loss (retinal degeneration)</li>
+        </ul>
+
+        <p><strong>Clinical features (vary by subtype):</strong></p>
+        <ul>
+          <li><strong>Cerebellar:</strong> Gait ataxia, limb ataxia, dysarthria, nystagmus</li>
+          <li><strong>Extra-cerebellar:</strong>
+            <ul>
+              <li>Pyramidal signs (spasticity, hyperreflexia)</li>
+              <li>Extrapyramidal signs (parkinsonism, dystonia, chorea)</li>
+              <li>Peripheral neuropathy</li>
+              <li>Ophthalmoplegia, slow saccades</li>
+              <li>Cognitive impairment</li>
+              <li>Retinal degeneration (SCA7)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Genetic features:</strong></p>
+        <ul>
+          <li>Anticipation: Earlier onset and more severe in subsequent generations (especially with paternal transmission)</li>
+          <li>CAG repeat length correlates with age of onset and severity</li>
+        </ul>
+
+        <p><strong>2. AUTOSOMAL RECESSIVE CEREBELLAR ATAXIAS:</strong></p>
+
+        <p><strong>Friedreich's Ataxia - most common autosomal recessive ataxia:</strong></p>
+        <ul>
+          <li><strong>Genetics:</strong> GAA repeat expansion in FXN gene (frataxin); autosomal recessive</li>
+          <li><strong>Onset:</strong> Childhood/adolescence (usually before age 25)</li>
+          <li><strong>Clinical features:</strong>
+            <ul>
+              <li>Progressive ataxia (gait, then limb, then speech)</li>
+              <li>Absent reflexes (peripheral neuropathy, dorsal column degeneration)</li>
+              <li>Extensor plantar responses (pyramidal tract involvement)</li>
+              <li>Pes cavus, scoliosis</li>
+              <li><strong>Cardiomyopathy</strong> (~90% - main cause of death)</li>
+              <li>Diabetes mellitus (~10-20%)</li>
+              <li>Optic atrophy (some patients)</li>
+            </ul>
+          </li>
+          <li><strong>Investigations:</strong>
+            <ul>
+              <li>Genetic testing (GAA repeat expansion)</li>
+              <li>ECG, echocardiogram (cardiomyopathy screening - essential!)</li>
+              <li>MRI: Spinal cord atrophy; cerebellum may be normal or mildly atrophic</li>
+              <li>Nerve conduction studies: Axonal sensory neuropathy</li>
+            </ul>
+          </li>
+          <li><strong>Management:</strong>
+            <ul>
+              <li>No disease-modifying treatment</li>
+              <li>Cardiac monitoring and treatment (ACE inhibitors, beta-blockers)</li>
+              <li>Physiotherapy, occupational therapy</li>
+              <li>Orthopedic management (scoliosis)</li>
+              <li>Diabetes management</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Ataxia-telangiectasia:</strong></p>
+        <ul>
+          <li>Childhood-onset ataxia</li>
+          <li>Telangiectasias (dilated blood vessels in eyes, skin)</li>
+          <li>Immunodeficiency (recurrent infections)</li>
+          <li>Increased cancer risk</li>
+          <li>Elevated alpha-fetoprotein</li>
+        </ul>
+
+        <p><strong>Ataxia with vitamin E deficiency (AVED):</strong></p>
+        <ul>
+          <li>Resembles Friedreich's ataxia clinically</li>
+          <li>Low vitamin E levels</li>
+          <li>TREATABLE with vitamin E supplementation</li>
+        </ul>
+
+        <p><strong>Other rare causes:</strong></p>
+        <ul>
+          <li>Abetalipoproteinemia, Refsum disease, cerebrotendinous xanthomatosis (all treatable - important not to miss!)</li>
+        </ul>
+
+        <p><strong>3. X-LINKED ATAXIAS:</strong></p>
+        <ul>
+          <li>Fragile X-associated tremor/ataxia syndrome (FXTAS): Late-onset (>50 years) tremor and ataxia in male carriers of fragile X premutation</li>
+        </ul>
+
+        <p><strong>INVESTIGATION OF HEREDITARY ATAXIA:</strong></p>
+        <ul>
+          <li><strong>MRI brain and spine:</strong> Cerebellar and spinal cord atrophy</li>
+          <li><strong>Genetic testing:</strong>
+            <ul>
+              <li>If family history/autosomal dominant: SCA gene panel</li>
+              <li>If early onset/recessive: Friedreich's ataxia gene testing first, then broader panel</li>
+            </ul>
+          </li>
+          <li><strong>Blood tests:</strong>
+            <ul>
+              <li>Vitamin E level (AVED - treatable!)</li>
+              <li>Alpha-fetoprotein (ataxia-telangiectasia)</li>
+              <li>Lipid profile (abetalipoproteinemia)</li>
+              <li>Creatine kinase (may be elevated in some SCAs)</li>
+            </ul>
+          </li>
+          <li><strong>Nerve conduction studies:</strong> Peripheral neuropathy</li>
+          <li><strong>ECG/echocardiogram:</strong> Especially if Friedreich's suspected</li>
+        </ul>
+
+        <p><strong>GENERAL MANAGEMENT:</strong></p>
+        <ul>
+          <li>No cure for most hereditary ataxias</li>
+          <li>Supportive care: Physiotherapy, occupational therapy, speech therapy</li>
+          <li>Treatment of complications (cardiomyopathy, diabetes, scoliosis)</li>
+          <li>Genetic counseling</li>
+          <li>A few are treatable (AVED, abetalipoproteinemia, Refsum, cerebrotendinous xanthomatosis) - important to identify!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. What are the features of Motor Neurone Disease (MND)? What are the types of MND?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>MOTOR NEURONE DISEASE (MND) / AMYOTROPHIC LATERAL SCLEROSIS (ALS)</strong></p>
+
+        <p>Motor neurone disease is a progressive neurodegenerative disorder affecting upper and lower motor neurons, leading to progressive weakness and wasting.</p>
+
+        <p><strong>PATHOLOGY:</strong></p>
+        <ul>
+          <li>Degeneration of:
+            <ul>
+              <li><strong>Lower motor neurons:</strong> Anterior horn cells (spinal cord), motor nuclei of brainstem (cranial nerves)</li>
+              <li><strong>Upper motor neurons:</strong> Motor cortex, corticospinal tracts</li>
+            </ul>
+          </li>
+          <li>Cause unknown (~90% sporadic; ~10% familial)</li>
+        </ul>
+
+        <p><strong>EPIDEMIOLOGY:</strong></p>
+        <ul>
+          <li>Incidence: ~2 per 100,000/year</li>
+          <li>Peak onset: 50-70 years</li>
+          <li>Slightly more common in men</li>
+          <li>Rapidly progressive; median survival 3-5 years from symptom onset</li>
+          <li>Prognosis worse with: Bulbar onset, older age, rapid progression</li>
+        </ul>
+
+        <p><strong>CLINICAL FEATURES:</strong></p>
+
+        <p><strong>Lower Motor Neuron (LMN) signs:</strong></p>
+        <ul>
+          <li>Weakness</li>
+          <li>Muscle wasting (atrophy)</li>
+          <li>Fasciculations (spontaneous muscle twitching)</li>
+          <li>Hyporeflexia or areflexia (in affected limbs)</li>
+          <li>Hypotonia</li>
+        </ul>
+
+        <p><strong>Upper Motor Neuron (UMN) signs:</strong></p>
+        <ul>
+          <li>Weakness (without wasting initially)</li>
+          <li>Spasticity (increased tone)</li>
+          <li>Hyperreflexia</li>
+          <li>Extensor plantar responses (Babinski sign)</li>
+          <li>Brisk jaw jerk</li>
+          <li>Pseudobulbar palsy (if bulbar UMN involvement - see below)</li>
+        </ul>
+
+        <p><strong>KEY DIAGNOSTIC FEATURE: Combination of UMN AND LMN signs in the SAME region</strong></p>
+
+        <p><strong>TYPES OF MND:</strong></p>
+
+        <p><strong>1. AMYOTROPHIC LATERAL SCLEROSIS (ALS) - Classical MND (~60-70%)</strong></p>
+        <ul>
+          <li>BOTH UMN and LMN signs in limbs</li>
+          <li>May have bulbar involvement</li>
+          <li>Most common presentation</li>
+          <li>Example: Wasting and fasciculations (LMN) in hands, with brisk reflexes and extensor plantars (UMN)</li>
+        </ul>
+
+        <p><strong>2. PROGRESSIVE BULBAR PALSY (PBP) (~20-25%)</strong></p>
+        <ul>
+          <li>Predominant bulbar (brainstem motor nuclei) involvement</li>
+          <li>Can have LMN (bulbar palsy) or UMN (pseudobulbar palsy) features, or both</li>
+          <li><strong>Bulbar palsy (LMN):</strong>
+            <ul>
+              <li>Flaccid, fasciculating tongue</li>
+              <li>Dysarthria (nasal, slurred speech)</li>
+              <li>Dysphagia (difficulty swallowing)</li>
+              <li>Nasal regurgitation</li>
+              <li>Reduced/absent gag reflex</li>
+            </ul>
+          </li>
+          <li><strong>Pseudobulbar palsy (UMN):</strong>
+            <ul>
+              <li>Spastic tongue (small, slow)</li>
+              <li>Dysarthria (strained, strangled quality - "Donald Duck speech")</li>
+              <li>Dysphagia</li>
+              <li>Brisk jaw jerk, increased gag reflex</li>
+              <li>Emotional lability (pathological laughing/crying)</li>
+            </ul>
+          </li>
+          <li>Limb involvement usually follows</li>
+          <li>Worst prognosis (respiratory complications, aspiration)</li>
+        </ul>
+
+        <p><strong>3. PROGRESSIVE MUSCULAR ATROPHY (PMA) (~5-10%)</strong></p>
+        <ul>
+          <li>ONLY LMN signs (no UMN signs)</li>
+          <li>Limb weakness and wasting</li>
+          <li>Better prognosis than ALS</li>
+          <li>Many eventually develop UMN signs (reclassified as ALS)</li>
+        </ul>
+
+        <p><strong>4. PRIMARY LATERAL SCLEROSIS (PLS) (~1-3%)</strong></p>
+        <ul>
+          <li>ONLY UMN signs (no LMN signs)</li>
+          <li>Progressive spastic paraparesis or tetraparesis</li>
+          <li>Slowest progression</li>
+          <li>Best prognosis</li>
+          <li>Diagnosis requires absence of LMN signs for >4 years</li>
+        </ul>
+
+        <p><strong>FEATURES PRESERVED IN MND (important - help differentiate from mimics):</strong></p>
+        <ul>
+          <li><strong>NO sensory loss</strong> (sensory neurons spared)</li>
+          <li><strong>NO sphincter disturbance</strong> (bladder/bowel function preserved until late)</li>
+          <li><strong>NO eye movement abnormalities</strong> (extraocular muscles spared)</li>
+          <li><strong>Cognition usually preserved</strong> (but ~15% develop frontotemporal dementia; ~50% have mild cognitive/behavioral changes)</li>
+        </ul>
+
+        <p><strong>DIAGNOSIS (EL ESCORIAL CRITERIA - revised):</strong></p>
+        <ul>
+          <li>Requires evidence of:
+            <ul>
+              <li>LMN degeneration (clinical, electrophysiological, or pathological)</li>
+              <li>UMN degeneration (clinical)</li>
+              <li>Progressive spread within a region or to other regions</li>
+            </ul>
+          </li>
+          <li>PLUS absence of other causes (imaging, electrophysiology)</li>
+          <li>Body divided into 4 regions: Bulbar, cervical, thoracic, lumbosacral</li>
+          <li>Diagnostic certainty increases with number of regions involved</li>
+        </ul>
+
+        <p><strong>INVESTIGATIONS:</strong></p>
+
+        <p><strong>1. Electromyography (EMG) and Nerve Conduction Studies (NCS):</strong></p>
+        <ul>
+          <li>ESSENTIAL for diagnosis</li>
+          <li><strong>EMG:</strong> Shows LMN features (fibrillations, fasciculations, chronic denervation with reinnervation) in multiple regions</li>
+          <li><strong>NCS:</strong> Motor conduction may be reduced (axonal loss) but sensory conduction NORMAL (helps exclude other conditions)</li>
+        </ul>
+
+        <p><strong>2. MRI brain and spine:</strong></p>
+        <ul>
+          <li>Usually normal in MND</li>
+          <li>Main purpose: EXCLUDE structural causes of weakness (cord compression, syrinx, MS, etc.)</li>
+          <li>May show corticospinal tract signal change (T2 hyperintensity)</li>
+        </ul>
+
+        <p><strong>3. Blood tests (to exclude mimics):</strong></p>
+        <ul>
+          <li>FBC, ESR, CRP</li>
+          <li>TFTs, calcium</li>
+          <li>Vitamin B12</li>
+          <li>Creatine kinase (may be mildly elevated in MND)</li>
+          <li>Anti-GM1 antibodies (multifocal motor neuropathy with conduction block)</li>
+          <li>Paraneoplastic antibodies (if rapid onset)</li>
+          <li>HIV, Lyme, syphilis serology (if indicated)</li>
+        </ul>
+
+        <p><strong>4. Lumbar puncture:</strong></p>
+        <ul>
+          <li>Usually not needed unless diagnostic doubt</li>
+          <li>CSF normal in MND</li>
+        </ul>
+
+        <p><strong>5. Respiratory function tests:</strong></p>
+        <ul>
+          <li>FVC (forced vital capacity), sniff nasal inspiratory pressure</li>
+          <li>Important for monitoring and planning ventilatory support</li>
+        </ul>
+
+        <p><strong>6. Genetic testing:</strong></p>
+        <ul>
+          <li>Consider if family history or young onset</li>
+          <li>C9orf72 repeat expansion (most common familial cause)</li>
+          <li>SOD1, TARDBP, FUS mutations</li>
+        </ul>
+
+        <p><strong>DIFFERENTIAL DIAGNOSIS (MND mimics):</strong></p>
+        <ul>
+          <li><strong>Cervical myelopathy with radiculopathy:</strong> Can have UMN + LMN signs; MRI spine diagnostic</li>
+          <li><strong>Multifocal motor neuropathy with conduction block (MMN):</strong> Pure LMN; treatable with IV immunoglobulin; anti-GM1 antibodies; conduction block on NCS</li>
+          <li><strong>Kennedy's disease (spinobulbar muscular atrophy):</strong> X-linked; bulbar + limb LMN signs; gynecomastia; genetic test (CAG repeat in androgen receptor gene)</li>
+          <li><strong>Inclusion body myositis:</strong> Progressive muscle weakness; may mimic MND but is a myopathy</li>
+          <li><strong>Myasthenia gravis:</strong> Fatigable weakness; can cause bulbar symptoms; positive antibodies; improves with edrophonium</li>
+          <li><strong>Syringomyelia/syringobulbia</strong></li>
+          <li><strong>Multiple sclerosis</strong></li>
+          <li><strong>Paraneoplastic syndromes</strong></li>
+        </ul>
+
+        <p><strong>MANAGEMENT OF MND:</strong></p>
+
+        <p><strong>1. Disease-modifying treatments (limited efficacy):</strong></p>
+        <ul>
+          <li><strong>Riluzole:</strong>
+            <ul>
+              <li>Glutamate antagonist</li>
+              <li>Extends survival by ~2-3 months on average</li>
+              <li>Does NOT reverse weakness</li>
+              <li>Dose: 50mg twice daily</li>
+              <li>Monitor LFTs</li>
+            </ul>
+          </li>
+          <li><strong>Edaravone:</strong>
+            <ul>
+              <li>Free radical scavenger</li>
+              <li>May slow progression in some patients</li>
+              <li>IV infusion; not widely available</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>2. Symptomatic management (ESSENTIAL - improves quality of life):</strong></p>
+
+        <p><strong>Respiratory:</strong></p>
+        <ul>
+          <li>Monitor respiratory function (FVC)</li>
+          <li><strong>Non-invasive ventilation (NIV):</strong> Prolongs survival and improves quality of life; offer when FVC <50% or symptoms of respiratory insufficiency</li>
+          <li>Discussions about invasive ventilation/tracheostomy (patient preference)</li>
+        </ul>
+
+        <p><strong>Nutrition/Dysphagia:</strong></p>
+        <ul>
+          <li>Speech and language therapy assessment</li>
+          <li>Modified diet, thickened fluids</li>
+          <li><strong>PEG (gastrostomy) feeding tube:</strong> If significant dysphagia or weight loss; ideally before FVC <50% (safer procedure)</li>
+        </ul>
+
+        <p><strong>Communication:</strong></p>
+        <ul>
+          <li>Speech therapy</li>
+          <li>Communication aids (text-to-speech devices, eye-gaze technology)</li>
+        </ul>
+
+        <p><strong>Spasticity:</strong></p>
+        <ul>
+          <li>Baclofen, tizanidine, gabapentin</li>
+          <li>Physiotherapy</li>
+        </ul>
+
+        <p><strong>Sialorrhea (drooling):</strong></p>
+        <ul>
+          <li>Anticholinergics (glycopyrrolate)</li>
+          <li>Botulinum toxin to salivary glands</li>
+        </ul>
+
+        <p><strong>Thick secretions:</strong></p>
+        <ul>
+          <li>Carbocysteine</li>
+          <li>Suction devices</li>
+        </ul>
+
+        <p><strong>Emotional lability:</strong></p>
+        <ul>
+          <li>Amitriptyline, SSRIs</li>
+        </ul>
+
+        <p><strong>Pain:</strong></p>
+        <ul>
+          <li>Analgesia, physiotherapy, muscle relaxants</li>
+        </ul>
+
+        <p><strong>3. Multidisciplinary care (CRITICAL):</strong></p>
+        <ul>
+          <li>Neurology, respiratory medicine</li>
+          <li>MND specialist nurse</li>
+          <li>Physiotherapy, occupational therapy, speech therapy</li>
+          <li>Dietitian</li>
+          <li>Palliative care (early involvement)</li>
+          <li>Psychological support for patient and family</li>
+          <li>Equipment provision (wheelchair, communication aids, home adaptations)</li>
+        </ul>
+
+        <p><strong>4. Advance care planning:</strong></p>
+        <ul>
+          <li>Discussions about wishes for ventilatory support, resuscitation</li>
+          <li>Advance directives, lasting power of attorney</li>
+          <li>Place of care preferences</li>
+        </ul>
+
+        <p><strong>5. End-of-life care:</strong></p>
+        <ul>
+          <li>Palliative care involvement</li>
+          <li>Symptom control (dyspnea - opioids, benzodiazepines; pain; secretions)</li>
+          <li>Emotional and spiritual support</li>
+        </ul>
+
+        <p><strong>PROGNOSIS:</strong></p>
+        <ul>
+          <li>Median survival: 3-5 years from symptom onset</li>
+          <li>~50% die within 3 years; ~20% survive >5 years; ~10% survive >10 years</li>
+          <li>Better prognosis: Younger age, limb onset (vs bulbar), PMA/PLS subtypes</li>
+          <li>Worse prognosis: Older age, bulbar onset, rapid progression, FVC <50%</li>
+          <li>Most common cause of death: Respiratory failure</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

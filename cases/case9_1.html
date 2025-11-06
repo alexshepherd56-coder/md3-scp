@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 9.1 - Asthma (ED)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 9.1 - Asthma (ED) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 9.1 - Asthma (ED)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 9.1 – Asthma (ED)</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Michael Wang, aged 5 years, presents with his anxious mother. Michael has a known history of asthma and has previously required hospitalisation. Tonight Michael is severely short of breath and has deteriorated despite 30mg of prednisolone given 5 hours earlier and Ventolin nebulisers. On arrival at the emergency centre, Michael becomes unconscious and apparently stops breathing.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Describe your management of Michael in terms of the primary assessment.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>In approaching the critically ill child, the diagnosis is of secondary importance to:</p>
+        <ul>
+          <li><strong>Primary assessment</strong>, which is a structured activity, and</li>
+          <li><strong>Timely resuscitation procedures</strong></li>
+        </ul>
+
+        <p>The primary assessment follows progression through the following A, B, C, D, E steps:</p>
+        <ul>
+          <li><strong>A</strong>irway</li>
+          <li><strong>B</strong>reathing</li>
+          <li><strong>C</strong>irculation</li>
+          <li><strong>D</strong>isability (deficiency of cerebral function)</li>
+          <li><strong>E</strong>xposure</li>
+        </ul>
+
+        <p>This structured approach is based on the knowledge that the brain requires a continual supply of oxygen and glucose. An airway problem will rapidly lead to death and must be corrected first.</p>
+
+        <h3>Airway</h3>
+        <p><strong>Anatomical considerations in children:</strong></p>
+        <ul>
+          <li>Infants are obligate nose-breathers</li>
+          <li>Smaller airways and mandible</li>
+          <li>Proportionately larger tongue and more floppy epiglottis and soft palate</li>
+          <li>Narrowest portion is below the cords at the cricoid ring (vs. vocal cords in adults)</li>
+          <li>Short, soft trachea - hyperextension or flexion may cause obstruction</li>
+        </ul>
+
+        <p><strong>Assessment - Look, Listen, Feel:</strong></p>
+        <ul>
+          <li><strong>Look:</strong> Chest wall and abdominal movement, intercostal and accessory muscle use, paradoxical abdominal movement with upper airway obstruction</li>
+          <li><strong>Listen:</strong> Air movement over mouth/nose, inspiratory stridor (tracheal/laryngeal/upper airway obstruction), auscultate over trachea and axillae</li>
+          <li><strong>Feel:</strong> Place face close to child's mouth to feel air movement</li>
+        </ul>
+
+        <h3>Breathing</h3>
+        <p><strong>Important differences in children:</strong></p>
+        <ul>
+          <li>Higher metabolic requirement</li>
+          <li>More immature musculature with easy diaphragmatic fatigability</li>
+          <li>More compliant chest wall with more horizontal ribs, decreasing bellows efficiency</li>
+          <li>Proportionately smaller airways - resistance inversely proportional to 4th power of radius</li>
+        </ul>
+
+        <p><strong>Assessment divided into three aspects:</strong></p>
+
+        <p><strong>1. Effort of breathing:</strong></p>
+        <ul>
+          <li>Respiratory rate (age-dependent) - tachypnoea is early response</li>
+          <li>Increased depth of respiration as failure progresses</li>
+          <li>Intercostal and subcostal recession</li>
+          <li>Sternal retraction in infants</li>
+          <li>Sternomastoid muscle recruitment</li>
+          <li>Nasal flaring (late sign in infants/small children)</li>
+        </ul>
+
+        <p><strong>Note: Diminished effort occurs in three circumstances:</strong></p>
+        <ul>
+          <li>Exhaustion from increased respiratory demands</li>
+          <li>Depressed central respiratory drive (trauma, meningitis, poisoning)</li>
+          <li>Neuromuscular paralysis (muscular dystrophy, Guillain-Barré)</li>
+        </ul>
+
+        <p><strong>2. Efficacy of breathing:</strong></p>
+        <ul>
+          <li>Confirm symmetrical chest movement</li>
+          <li>Watch for abdominal movement (diaphragm is main respiratory muscle in young children)</li>
+          <li>Auscultate both sides - <strong>beware the silent chest!</strong></li>
+          <li>Note wheezing (lower airway narrowing with prolonged expiratory phase)</li>
+          <li>Note crepitations (pneumonia, heart failure)</li>
+          <li>Oximetry for SaO₂ (may be difficult in cold/shocked child)</li>
+        </ul>
+
+        <p><strong>3. Effects on other organs:</strong></p>
+        <ul>
+          <li><strong>Cardiovascular:</strong> Tachycardia (bradycardia is preterminal), peripheral shutdown, pallor</li>
+          <li><strong>Brain:</strong> Initial agitation/irritability in infants, followed by loss of consciousness</li>
+          <li><strong>Note:</strong> Cyanosis is a preterminal sign</li>
+        </ul>
+
+        <h3>Circulation</h3>
+        <p><strong>Physiological considerations:</strong></p>
+        <ul>
+          <li>Cardiac output = stroke volume × heart rate</li>
+          <li>Infants have small, relatively fixed stroke volume - must increase heart rate to respond to increased demand</li>
+          <li>Relatively larger intravascular volume (85 ml/kg in infants, decreases to 60 ml/kg in teenagers)</li>
+          <li>Blood pressure increases with age</li>
+        </ul>
+
+        <p><strong>Assessment:</strong></p>
+        <ul>
+          <li>Heart rate increase is earliest response to reduced intravascular volume (bradycardia is preterminal)</li>
+          <li>Assess pulse volume peripherally and centrally - weak central pulses indicate severe shock</li>
+          <li>Capillary refill: Apply pressure to sternum for 5 seconds - normal refill <3 seconds (caution in cold environment)</li>
+          <li><strong>Hypotension is a late preterminal sign</strong></li>
+        </ul>
+
+        <p><strong>Effects on other organs:</strong></p>
+        <ul>
+          <li>Poor tissue perfusion → metabolic acidosis → compensatory tachypnoea</li>
+          <li>Initial agitation from sympathetic stimulation, later drowsiness/coma</li>
+          <li>Prerenal failure with reduced urine output (normal: >1 ml/kg/h in child, >2 ml/kg/h in infant)</li>
+        </ul>
+
+        <p><strong>Signs of cardiac failure:</strong></p>
+        <ul>
+          <li>Raised JVP (difficult in young children)</li>
+          <li>Gallop rhythm</li>
+          <li>Lung crepitations</li>
+          <li>Hepatomegaly</li>
+        </ul>
+
+        <h3>Disability</h3>
+        <p><strong>Three main aims:</strong></p>
+        <ul>
+          <li>Rapidly determine level of consciousness</li>
+          <li>Find localising intracranial lesions</li>
+          <li>Determine if raised intracranial pressure</li>
+        </ul>
+
+        <p><strong>Important:</strong> Respiratory and cardiovascular failure can cause decreased consciousness and must be dealt with first.</p>
+
+        <p><strong>Conscious level - AVPU method:</strong></p>
+        <ul>
+          <li><strong>A</strong> Alert</li>
+          <li><strong>V</strong> responds to Voice</li>
+          <li><strong>P</strong> responds to Pain</li>
+          <li><strong>U</strong> Unresponsive</li>
+        </ul>
+        <p>Note: Unresponsive or only responds to pain = GCS ≤8</p>
+
+        <p><strong>Posture and tone:</strong></p>
+        <ul>
+          <li>Hypotonia in seriously ill child</li>
+          <li>Decorticate posturing: flexed upper limbs, extended lower limbs (preterminal)</li>
+          <li>Decerebrate posturing: extended upper and lower limbs (preterminal)</li>
+        </ul>
+
+        <p><strong>Pupil examination:</strong></p>
+        <ul>
+          <li>Unequal pupils may indicate tentorial herniation or rapidly expanding lesion</li>
+          <li>Small reactive pupils suggest metabolic disorder or medullary lesion</li>
+        </ul>
+
+        <p><strong>Respiratory patterns in neurological failure:</strong></p>
+        <ul>
+          <li>Raised ICP can cause abnormal breathing patterns from hyperventilation to apnoea</li>
+          <li><strong>Cushing triad (late signs of raised ICP):</strong> Hypertension, bradycardia, hypoventilation</li>
+          <li>Hypotension is preterminal</li>
+        </ul>
+
+        <h3>Exposure</h3>
+        <ul>
+          <li>Infants/small children have proportionately greater surface area - lose heat more rapidly</li>
+          <li>Infants less able to respond to hypothermia</li>
+          <li>Measure core temperature early</li>
+          <li>Maintain appropriate warming during resuscitation</li>
+          <li>Fever may indicate infection</li>
+          <li>Fully expose child to look for valuable clues (rashes, bruises) but do sensitively</li>
+        </ul>
+
+        <h3>Reassessment</h3>
+        <p>Frequent reassessment should be undertaken, especially if deterioration occurs during resuscitation. Search for definitive diagnosis after stabilisation.</p>
+
+        <p><strong>Key Practical Points:</strong></p>
+        <ul>
+          <li>In collapsed child, careful primary assessment and timely resuscitation are more important than diagnosis</li>
+          <li>Children differ physiologically and anatomically from adults</li>
+          <li>Respiratory conditions are common pathway to collapse in children</li>
+          <li><strong>Cyanosis and hypotension are preterminal signs</strong></li>
+          <li><strong>Decerebrate and decorticate posturing are preterminal signs</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. In a table, outline the 5 main categories of causation in relation to paediatric emergencies and provide 3 examples of an illness in each category.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Causes of Paediatric Emergencies</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Airway</th>
+              <th>Breathing</th>
+              <th>Circulation</th>
+              <th>Disability</th>
+              <th>Exposure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>Croup</li>
+                  <li>Epiglottitis</li>
+                  <li>Laryngeal foreign body</li>
+                  <li>Bacterial tracheitis</li>
+                  <li>Trauma</li>
+                  <li>Angioneurotic oedema</li>
+                  <li>Retropharyngeal abscess</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Asthma</strong></li>
+                  <li>Bronchiolitis</li>
+                  <li>Pneumonia</li>
+                  <li>Foreign body</li>
+                  <li>Congestive heart failure</li>
+                  <li>Neuromuscular diseases</li>
+                  <li><strong>Trauma:</strong>
+                    <ul>
+                      <li>Pneumothorax</li>
+                      <li>Haemothorax</li>
+                      <li>Lung contusion</li>
+                      <li>Flail chest</li>
+                    </ul>
+                  </li>
+                  <li>Near drowning</li>
+                  <li>Smoke inhalation</li>
+                  <li><strong>Metabolic acidosis:</strong>
+                    <ul>
+                      <li>Diabetic ketoacidosis</li>
+                    </ul>
+                  </li>
+                  <li><strong>Poisoning:</strong>
+                    <ul>
+                      <li>Salicylates</li>
+                      <li>Methanol</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li><strong>Congenital heart disease</strong></li>
+                  <li>Duct dependent lesions:
+                    <ul>
+                      <li>Critical aortic stenosis</li>
+                      <li>Hypoplastic left heart</li>
+                      <li>Coarctation</li>
+                    </ul>
+                  </li>
+                  <li><strong>Dysrhythmias:</strong>
+                    <ul>
+                      <li>Bradycardia</li>
+                      <li>Tachycardia (Supraventricular/Ventricular)</li>
+                      <li>Torsade de pointes</li>
+                      <li>Fibrillation</li>
+                      <li>Pulseless electrical activity</li>
+                    </ul>
+                  </li>
+                  <li><strong>Shock:</strong>
+                    <ul>
+                      <li><strong>Cardiogenic:</strong> Cardiomyopathy, Heart failure, Myocardial contusion</li>
+                      <li><strong>Hypovolaemic:</strong> Haemorrhage, Vomiting/diarrhoea, Burns</li>
+                      <li><strong>Distributive:</strong> Septicaemia, Anaphylaxis, Spinal cord injury</li>
+                      <li><strong>Obstructive:</strong> Cardiac tamponade, Hypertension</li>
+                      <li>Dissociative</li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Seizure</li>
+                  <li>Meningitis</li>
+                  <li>Encephalitis</li>
+                  <li>Head injury</li>
+                  <li>Raised intracranial pressure</li>
+                  <li>Hypoglycaemia</li>
+                  <li>Metabolic disorder</li>
+                  <li>Poisoning</li>
+                  <li>Envenomation</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>Hypothermia</li>
+                  <li>Hyperthermia</li>
+                  <li>Inflicted injury</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. In a table, summarise the changes in vital signs (respiratory rate, heart rate, systolic blood pressure) in the following age ranges: < 1yr, 1-2 yrs, 2-5 yrs, 5-12 yrs and > 12 yrs.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Vital Signs by Age</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Age (years)</th>
+              <th>Respiratory Rate (breaths/min)</th>
+              <th>Heart Rate (beats/min)</th>
+              <th>Systolic Blood Pressure (mmHg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&lt;1</td>
+              <td>30-40</td>
+              <td>110-160</td>
+              <td>70-90</td>
+            </tr>
+            <tr>
+              <td>1-2</td>
+              <td>25-35</td>
+              <td>100-150</td>
+              <td>80-95</td>
+            </tr>
+            <tr>
+              <td>2-5</td>
+              <td>25-30</td>
+              <td>95-140</td>
+              <td>80-100</td>
+            </tr>
+            <tr>
+              <td>5-12</td>
+              <td>20-25</td>
+              <td>80-120</td>
+              <td>90-110</td>
+            </tr>
+            <tr>
+              <td>&gt;12</td>
+              <td>15-20</td>
+              <td>60-100</td>
+              <td>100-120</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. In a table, list the 3 main categories of causation of collapse in children and provide 3 examples in each category.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Causes of Collapse in Children</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Diagnosis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary neurological process</strong></td>
+              <td>
+                <ul>
+                  <li>Meningitis</li>
+                  <li>Head injury</li>
+                  <li>Encephalitis</li>
+                  <li>Seizures</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Failure of oxygen supply to brain</strong></td>
+              <td>
+                <ul>
+                  <li>Acute asphyxia (e.g. drowning, birth asphyxia)</li>
+                  <li>Respiratory causes (e.g. severe asthma, croup)</li>
+                  <li>Cardiac causes (e.g. arrhythmias, myocarditis)</li>
+                  <li>Hypovolaemia (e.g. dehydration, haemorrhage)</li>
+                  <li>Sepsis</li>
+                  <li>Anaphylaxis</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Metabolic disturbance or toxins</strong></td>
+              <td>
+                <ul>
+                  <li>Hypoglycaemia</li>
+                  <li>Hyponatraemia</li>
+                  <li>Drug or other toxic ingestion</li>
+                  <li>Envenomation</li>
+                  <li>Bacterial toxins</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Outline the principles of resuscitation in children.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Principles of Resuscitation in Children</h3>
+
+        <p>The general principles of resuscitation might be the same as used in adults, but <strong>specific techniques are required in children</strong>.</p>
+
+        <p><strong>Primary Aim:</strong> To restore an adequate supply of oxygenated blood to the brain to prevent secondary brain damage.</p>
+
+        <p><strong>Resuscitation procedures vary depending on degree of physiological impairment:</strong></p>
+        <ul>
+          <li><strong>Simple measures:</strong> Application of oxygen facemask, administration of IV fluid bolus</li>
+          <li><strong>Basic cardiopulmonary resuscitation</strong></li>
+          <li><strong>Advanced life support measures:</strong> Endotracheal intubation, mechanical ventilation, vasoactive drugs</li>
+        </ul>
+
+        <h3>Key Practical Points</h3>
+        <ul>
+          <li><strong>Do not waste time</strong> assessing adequacy of breathing and circulation in a collapsed child - assessment can be misleading and time-consuming</li>
+          <li>If circulation or breathing are inadequate or uncertain, <strong>administer cardiac compressions and artificial respiration</strong></li>
+          <li><strong>Never hesitate to give a trial of IV fluid bolus</strong> to a collapsed child</li>
+          <li><strong>Learn the technique of intraosseous needle placement</strong> - this simple technique can be life-saving</li>
+          <li><strong>Call for extra assistance early</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Using a flowchart, summarise the steps involved in treating an ECG rhythm of VF, VT, non VT and non VF rhythms.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Advanced Life Support Algorithm</h3>
+
+        <p><strong>Continuous CPR Pre-intubation:</strong></p>
+        <ul>
+          <li>~100 compressions/minute</li>
+          <li>15 compressions then 2 breaths</li>
+          <li>Pause compressions for each breath</li>
+        </ul>
+
+        <p><strong>Simultaneously (if enough staff available):</strong></p>
+        <ul>
+          <li>Intubate and ventilate (only pause CPR briefly for intubation)</li>
+          <li>Attach monitor/defibrillator</li>
+          <li>Obtain IV or IO access</li>
+        </ul>
+
+        <p><strong>Post-intubation CPR:</strong></p>
+        <ul>
+          <li>~100 compressions/minute</li>
+          <li>~10 breaths/minute</li>
+          <li>Do not pause compressions for breaths</li>
+        </ul>
+
+        <h3>Rhythm Assessment (maximum 10 seconds)</h3>
+
+        <p><strong>SHOCKABLE (VF or pulseless VT):</strong></p>
+        <ol>
+          <li><strong>One DC Shock</strong>
+            <ul>
+              <li>2 J/kg 1st cycle</li>
+              <li>4 J/kg subsequent cycles</li>
+            </ul>
+          </li>
+          <li><strong>Immediately resume CPR for 2 minutes</strong></li>
+          <li><strong>Adrenaline 10mcg/kg</strong> - for 3rd and subsequent cycles</li>
+          <li>Reassess rhythm</li>
+        </ol>
+
+        <p><strong>NON-SHOCKABLE (Asystole or Pulseless Electrical Activity):</strong></p>
+        <ol>
+          <li><strong>Adrenaline 10mcg/kg immediately</strong></li>
+          <li><strong>Resume CPR for 2 minutes</strong></li>
+          <li>Reassess rhythm</li>
+        </ol>
+
+        <p><strong>Continue cycles of CPR with rhythm assessment every 2 minutes</strong></p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Summarise paediatric arrest management in point form or a flow chart.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Basic Life Support</h3>
+
+        <ol>
+          <li><strong>Check if patient responds to command/pain</strong></li>
+          <li><strong>Call for help</strong></li>
+          <li><strong>Position patient</strong>
+            <ul>
+              <li>Check airway: Ensure airway patent</li>
+            </ul>
+          </li>
+          <li><strong>Check breathing:</strong>
+            <ul>
+              <li>If inadequate, or if any doubt:</li>
+              <li>Give assisted respiration</li>
+              <li>Use Bag & Mask with oxygen if available</li>
+              <li>Check chest moves with each breath</li>
+            </ul>
+          </li>
+          <li><strong>Check pulse:</strong>
+            <ul>
+              <li>If absent, too slow, or weak, or if any doubt:</li>
+              <li>Give cardiac compressions</li>
+              <li><strong>~100 compressions/minute</strong></li>
+              <li><strong>15 compressions then 2 breaths</strong></li>
+              <li><em>Pause compressions for each breath if patient not intubated</em></li>
+            </ul>
+          </li>
+          <li><strong>Move to advanced life support when possible</strong></li>
+        </ol>
+
+        <h3>Advanced Life Support - Key Points</h3>
+
+        <p><strong>Critical Actions:</strong></p>
+        <ul>
+          <li><strong>Do not waste time</strong> assessing adequacy of breathing and circulation in collapsed child - can be misleading and time-consuming</li>
+          <li>If circulation or breathing inadequate or uncertain, <strong>administer cardiac compressions and artificial respiration</strong></li>
+          <li><strong>Never hesitate to give trial of IV fluid bolus</strong> to collapsed child</li>
+          <li><strong>Learn intraosseous needle placement</strong> - life-saving technique</li>
+          <li><strong>Call for extra assistance early</strong></li>
+        </ul>
+
+        <p><strong>Rhythm Management:</strong></p>
+        <ul>
+          <li><strong>Shockable rhythms (VF/pulseless VT):</strong> DC shock → CPR 2 min → reassess</li>
+          <li><strong>Non-shockable rhythms (Asystole/PEA):</strong> Adrenaline → CPR 2 min → reassess</li>
+          <li><strong>Adrenaline dose:</strong> 10mcg/kg</li>
+          <li><strong>Shock energy:</strong> 2 J/kg (1st), 4 J/kg (subsequent)</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

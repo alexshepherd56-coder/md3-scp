@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 30.1 - Microcytic Anaemia (Iron Deficiency)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 30.1 - Microcytic Anaemia (Iron Deficiency) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study on iron deficiency anaemia covering differential diagnosis (TAILS mnemonic), investigation strategies, and management including oral and IV iron therapy.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 30.1 - Microcytic Anaemia (Iron Deficiency)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study on iron deficiency anaemia covering differential diagnosis (TAILS mnemonic), investigation strategies, and management including oral and IV iron therapy.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 30.1 – Microcytic Anaemia (Iron Deficiency)</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Haematology | <strong>Setting:</strong> General Medical Clinic</p>
+
+    <h2>Case</h2>
+    <p>Mrs. Patricia O'Brien, a 58-year-old teacher, presents to her GP with a 4-month history of progressive fatigue, shortness of breath on exertion, and difficulty concentrating at work. She describes feeling "constantly exhausted" and needing to rest after climbing one flight of stairs, which she previously managed easily. She has also noticed that her hair has been thinning and her nails have become brittle and spoon-shaped. Over the past year, she has experienced increasingly heavy menstrual periods, requiring pad changes every 1-2 hours during the first 2 days. She denies any change in bowel habit, rectal bleeding, or abdominal pain. Her diet is predominantly vegetarian with occasional fish. She takes no regular medications apart from ibuprofen for menstrual cramps. On examination, she appears pale with conjunctival pallor. Her tongue is smooth and atrophic. Cardiovascular examination reveals a systolic flow murmur. The rest of the examination is unremarkable.</p>
+
+    <div class="vital-signs">
+      <strong>Vital signs:</strong> BP 118/76 mmHg, HR 96 bpm (regular), RR 16/min, Temp 36.8°C, Oxygen saturation 98% on room air. <strong>Examination:</strong> Pale conjunctivae, pale palmar creases, smooth atrophic tongue (glossitis), brittle spoon-shaped nails (koilonychia). Cardiac: Systolic ejection murmur 2/6 (flow murmur). Abdomen soft, non-tender, no organomegaly. No lymphadenopathy.
+    </div>
+
+    <h2>Investigations</h2>
+    <div class="investigation-results">
+      <strong>Full Blood Count:</strong>
+      <ul>
+        <li>Hb: 82 g/L (normal 115-165 g/L for women)</li>
+        <li>MCV: 68 fL (normal 80-100 fL) - <strong>Microcytic</strong></li>
+        <li>MCH: 22 pg (normal 27-32 pg) - Hypochromic</li>
+        <li>WCC: 7.2 × 10⁹/L (normal)</li>
+        <li>Platelets: 420 × 10⁹/L (normal 150-400; mildly elevated - reactive thrombocytosis)</li>
+        <li>Reticulocytes: 1.8% (normal 0.5-2.5%)</li>
+      </ul>
+      <strong>Blood film:</strong> Microcytic hypochromic red cells, anisocytosis (variation in size), poikilocytosis (variation in shape), occasional target cells, pencil cells.
+    </div>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <button class="toggle-answer">1. Define microcytic anaemia and list the main differential diagnoses. Use a mnemonic to remember the causes and explain the pathophysiology of each.</button>
+      <div class="answer">
+        <p><strong>Definition of Microcytic Anaemia:</strong></p>
+        <p><strong>Microcytic anaemia</strong> is defined as anaemia (low hemoglobin) with a reduced mean corpuscular volume (MCV <80 fL). The red blood cells are smaller than normal.</p>
+
+        <p><strong>Normal Values:</strong></p>
+        <ul>
+          <li><strong>Hemoglobin (Hb):</strong> Male 130-180 g/L, Female 115-165 g/L</li>
+          <li><strong>MCV (Mean Corpuscular Volume):</strong> 80-100 fL</li>
+          <li><strong>MCH (Mean Corpuscular Hemoglobin):</strong> 27-32 pg</li>
+        </ul>
+
+        <p><strong>Differential Diagnosis - Mnemonic: "TAILS"</strong></p>
+
+        <table>
+          <tr>
+            <th>Cause</th>
+            <th>Pathophysiology</th>
+            <th>Key Features</th>
+          </tr>
+          <tr>
+            <td><strong>T</strong> = Thalassaemia</td>
+            <td><strong>Defective globin chain synthesis</strong><br/>
+            - α-thalassaemia: Reduced α-globin chains<br/>
+            - β-thalassaemia: Reduced β-globin chains<br/>
+            Result: Impaired hemoglobin production → microcytic RBCs</td>
+            <td>- Family history/ethnicity (Mediterranean, Asian, African)<br/>
+            - Normal/elevated ferritin<br/>
+            - Hemoglobin electrophoresis diagnostic<br/>
+            - <strong>Thalassaemia trait:</strong> Mild anaemia, very low MCV (60-70 fL), normal RDW</td>
+          </tr>
+          <tr>
+            <td><strong>A</strong> = Anaemia of Chronic Disease (ACD)</td>
+            <td><strong>Chronic inflammation → hepcidin ↑</strong><br/>
+            - Hepcidin inhibits iron absorption from gut<br/>
+            - Hepcidin traps iron in macrophages<br/>
+            Result: Functional iron deficiency (iron present but unavailable for erythropoiesis)</td>
+            <td>- Usually normocytic, but can be microcytic<br/>
+            - Low serum iron, <strong>low TIBC</strong>, <strong>normal/high ferritin</strong><br/>
+            - Underlying chronic disease (RA, IBD, malignancy, CKD)</td>
+          </tr>
+          <tr>
+            <td><strong>I</strong> = Iron Deficiency Anaemia (IDA)</td>
+            <td><strong>Insufficient iron → impaired heme synthesis</strong><br/>
+            - Iron is essential for heme (part of hemoglobin)<br/>
+            - Without adequate iron: small, pale RBCs produced<br/>
+            Causes: Blood loss, poor intake, malabsorption</td>
+            <td>- <strong>Most common cause of microcytic anaemia</strong><br/>
+            - Low ferritin, low serum iron, <strong>high TIBC</strong><br/>
+            - Blood film: pencil cells, target cells<br/>
+            - Clinical: koilonychia, glossitis, pica</td>
+          </tr>
+          <tr>
+            <td><strong>L</strong> = Lead Poisoning</td>
+            <td><strong>Lead inhibits enzymes in heme synthesis</strong><br/>
+            - Inhibits δ-ALA dehydratase and ferrochelatase<br/>
+            - Result: Impaired heme production → microcytic anaemia</td>
+            <td>- Rare in developed countries<br/>
+            - Occupational exposure (battery workers, painters)<br/>
+            - <strong>Basophilic stippling</strong> on blood film<br/>
+            - Elevated blood lead level, raised zinc protoporphyrin</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong> = Sideroblastic Anaemia</td>
+            <td><strong>Defective heme synthesis → iron accumulates in mitochondria</strong><br/>
+            - Hereditary (rare - X-linked) or acquired (alcohol, drugs, myelodysplasia)<br/>
+            - Iron deposits form ring around nucleus ("ring sideroblasts")</td>
+            <td>- <strong>Ring sideroblasts</strong> on bone marrow (Prussian blue stain)<br/>
+            - High ferritin, high serum iron<br/>
+            - "Dimorphic" blood film (two populations of RBCs)</td>
+          </tr>
+        </table>
+
+        <p><strong>Summary - Key Discriminators:</strong></p>
+        <table>
+          <tr>
+            <th>Cause</th>
+            <th>Ferritin</th>
+            <th>Serum Iron</th>
+            <th>TIBC</th>
+            <th>Transferrin Saturation</th>
+          </tr>
+          <tr>
+            <td><strong>Iron Deficiency</strong></td>
+            <td>↓↓ Low</td>
+            <td>↓ Low</td>
+            <td>↑↑ High</td>
+            <td>↓ Low (<15%)</td>
+          </tr>
+          <tr>
+            <td><strong>Thalassaemia</strong></td>
+            <td>Normal/↑</td>
+            <td>Normal/↑</td>
+            <td>Normal</td>
+            <td>Normal/↑</td>
+          </tr>
+          <tr>
+            <td><strong>Anaemia of Chronic Disease</strong></td>
+            <td>Normal/↑ High</td>
+            <td>↓ Low</td>
+            <td>↓ Low</td>
+            <td>↓ Low</td>
+          </tr>
+          <tr>
+            <td><strong>Sideroblastic</strong></td>
+            <td>↑↑ High</td>
+            <td>↑ High</td>
+            <td>Normal/↓</td>
+            <td>↑ High</td>
+          </tr>
+        </table>
+
+        <p><strong>Mrs. O'Brien's Case:</strong></p>
+        <p>Her presentation is most consistent with <strong>Iron Deficiency Anaemia (IDA)</strong> based on:</p>
+        <ul>
+          <li>Microcytic hypochromic anaemia (Hb 82 g/L, MCV 68 fL)</li>
+          <li>Clinical features: koilonychia, glossitis, fatigue</li>
+          <li>Heavy menstrual bleeding (menorrhagia) - likely cause of iron loss</li>
+          <li>Vegetarian diet - reduced dietary iron intake</li>
+        </ul>
+
+        <p><strong>Next step:</strong> Check iron studies (ferritin, serum iron, TIBC, transferrin saturation) to confirm diagnosis.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button class="toggle-answer">2. Discuss the causes of iron deficiency anaemia and outline an appropriate investigative approach. What are the key "red flag" features that require urgent investigation?</button>
+      <div class="answer">
+        <p><strong>Causes of Iron Deficiency Anaemia:</strong></p>
+
+        <p><strong>Iron Balance:</strong></p>
+        <ul>
+          <li>Daily iron requirement: ~1-2 mg/day (men and postmenopausal women), ~2-3 mg/day (menstruating women)</li>
+          <li>Dietary iron absorption: Only 10-15% of ingested iron is absorbed (from duodenum and proximal jejunum)</li>
+          <li>Body iron stores: ~3-4 g (mostly in hemoglobin, ferritin, hemosiderin)</li>
+        </ul>
+
+        <p><strong>Causes - Classified by Mechanism:</strong></p>
+
+        <p><strong>1. Blood Loss (Most Common Cause in Adults):</strong></p>
+        <table>
+          <tr>
+            <th>Source</th>
+            <th>Examples</th>
+            <th>Clinical Clues</th>
+          </tr>
+          <tr>
+            <td><strong>Gastrointestinal</strong></td>
+            <td>- <strong>Upper GI:</strong> Peptic ulcer, gastritis, esophagitis, gastric cancer<br/>
+            - <strong>Lower GI:</strong> Colorectal cancer, polyps, IBD, angiodysplasia, hemorrhoids, diverticular disease</td>
+            <td>- <strong>Most common in men and postmenopausal women</strong><br/>
+            - Melaena (upper GI), hematochezia (lower GI)<br/>
+            - Change in bowel habit, weight loss (malignancy)<br/>
+            - NSAID use (gastritis/ulcers)</td>
+          </tr>
+          <tr>
+            <td><strong>Menstrual</strong></td>
+            <td>- Menorrhagia (heavy periods)<br/>
+            - Fibroids, endometriosis, dysfunctional uterine bleeding</td>
+            <td>- <strong>Most common in premenopausal women</strong><br/>
+            - Flooding, clots, frequent pad/tampon changes<br/>
+            - Periods >7 days duration</td>
+          </tr>
+          <tr>
+            <td><strong>Other</strong></td>
+            <td>- Repeated blood donation<br/>
+            - Hematuria (bladder/renal pathology)<br/>
+            - Hemoptysis (pulmonary hemorrhage)<br/>
+            - Epistaxis (frequent nosebleeds)</td>
+            <td>- Detailed bleeding history essential</td>
+          </tr>
+        </table>
+
+        <p><strong>2. Reduced Intake/Absorption:</strong></p>
+        <table>
+          <tr>
+            <th>Mechanism</th>
+            <th>Causes</th>
+          </tr>
+          <tr>
+            <td><strong>Dietary deficiency</strong></td>
+            <td>- Vegetarian/vegan diet (heme iron from meat more readily absorbed than non-heme iron from plants)<br/>
+            - Poverty, food insecurity<br/>
+            - Restrictive eating disorders<br/>
+            - Elderly with poor nutrition</td>
+          </tr>
+          <tr>
+            <td><strong>Malabsorption</strong></td>
+            <td>- <strong>Coeliac disease</strong> (damage to duodenal villi → impaired iron absorption)<br/>
+            - <strong>Helicobacter pylori gastritis</strong> (reduced gastric acid → impaired iron absorption)<br/>
+            - Autoimmune atrophic gastritis<br/>
+            - <strong>Post-gastrectomy/gastric bypass</strong> (loss of duodenal absorption)<br/>
+            - IBD (Crohn's disease affecting duodenum/jejunum)<br/>
+            - Drugs reducing acid (PPI use - controversial but may impair absorption)</td>
+          </tr>
+        </table>
+
+        <p><strong>3. Increased Demand:</strong></p>
+        <ul>
+          <li><strong>Pregnancy:</strong> Increased iron requirement for fetal development and placenta (~1000 mg total)</li>
+          <li><strong>Lactation:</strong> Iron loss in breast milk</li>
+          <li><strong>Growth spurts:</strong> Infancy, adolescence</li>
+          <li><strong>Chronic intravascular hemolysis:</strong> e.g., paroxysmal nocturnal hemoglobinuria (PNH), prosthetic heart valves - leads to hemosiderinuria and iron loss</li>
+        </ul>
+
+        <p><strong>Investigative Approach for Iron Deficiency Anaemia:</strong></p>
+
+        <p><strong>Step 1: Confirm Iron Deficiency (Iron Studies):</strong></p>
+        <table>
+          <tr>
+            <th>Test</th>
+            <th>Iron Deficiency</th>
+            <th>Interpretation</th>
+          </tr>
+          <tr>
+            <td><strong>Ferritin</strong></td>
+            <td><30 μg/L</td>
+            <td><strong>Best single test</strong> for iron deficiency. Low ferritin = iron deficiency (high specificity). Note: Ferritin is an acute phase protein - can be falsely normal/elevated in inflammation</td>
+          </tr>
+          <tr>
+            <td><strong>Serum Iron</strong></td>
+            <td>↓ Low</td>
+            <td>Reflects circulating iron; varies with time of day and recent intake (less reliable)</td>
+          </tr>
+          <tr>
+            <td><strong>TIBC (Total Iron Binding Capacity)</strong></td>
+            <td>↑ High</td>
+            <td>Reflects transferrin level; body tries to maximize iron absorption by producing more transferrin</td>
+          </tr>
+          <tr>
+            <td><strong>Transferrin Saturation</strong></td>
+            <td><15%</td>
+            <td>Calculated: (Serum Iron / TIBC) × 100. Low saturation indicates insufficient iron to saturate transferrin</td>
+          </tr>
+        </table>
+
+        <p><strong>Step 2: Identify the Cause:</strong></p>
+
+        <p><strong>History:</strong></p>
+        <ul>
+          <li><strong>Bleeding history:</strong> GI symptoms, menstrual history, hematuria, hemoptysis, epistaxis, blood donation</li>
+          <li><strong>Dietary history:</strong> Vegetarian/vegan, food intake, appetite</li>
+          <li><strong>Drug history:</strong> NSAIDs (GI bleeding), PPIs (malabsorption), aspirin/anticoagulants</li>
+          <li><strong>GI symptoms:</strong> Dyspepsia, dysphagia, weight loss, change in bowel habit, abdominal pain</li>
+          <li><strong>Past medical history:</strong> Previous anaemia, GI surgery, coeliac disease</li>
+          <li><strong>Family history:</strong> GI malignancy, coeliac disease</li>
+        </ul>
+
+        <p><strong>Investigations to Find the Source:</strong></p>
+
+        <p><strong>For Premenopausal Women:</strong></p>
+        <ul>
+          <li>If heavy menstrual bleeding is the likely cause AND no GI symptoms → trial of iron replacement + gynecology referral if menorrhagia persists</li>
+          <li>If GI symptoms present OR iron deficiency persists despite treatment → investigate GI tract</li>
+        </ul>
+
+        <p><strong>For Men and Postmenopausal Women:</strong></p>
+        <p><strong>ALWAYS investigate the GI tract</strong> (assume GI blood loss until proven otherwise):</p>
+        <ul>
+          <li><strong>Upper GI Endoscopy (OGD):</strong>
+            <ul>
+              <li>Visualize esophagus, stomach, duodenum</li>
+              <li>Look for: peptic ulcer, gastritis, esophagitis, malignancy, angiodysplasia</li>
+              <li>Duodenal biopsies to exclude <strong>coeliac disease</strong></li>
+            </ul>
+          </li>
+          <li><strong>Colonoscopy:</strong>
+            <ul>
+              <li>Visualize entire colon and terminal ileum</li>
+              <li>Look for: colorectal cancer, polyps, IBD, angiodysplasia</li>
+              <li><strong>Gold standard for colonic investigation</strong></li>
+            </ul>
+          </li>
+          <li><strong>Alternative to colonoscopy:</strong> CT colonography (if unfit for colonoscopy or if incomplete colonoscopy)</li>
+        </ul>
+
+        <p><strong>If Both OGD and Colonoscopy Normal ("Occult GI Bleeding"):</strong></p>
+        <ul>
+          <li><strong>Coeliac serology:</strong> Anti-tissue transglutaminase (anti-TTG) IgA, anti-endomysial antibodies (EMA), total IgA</li>
+          <li><strong>Helicobacter pylori testing:</strong> Stool antigen, urea breath test, or CLO test at OGD</li>
+          <li><strong>Small bowel investigation:</strong>
+            <ul>
+              <li><strong>Capsule endoscopy:</strong> Video capsule swallowed, images entire small bowel (look for small bowel angiodysplasia, tumors, Crohn's disease)</li>
+              <li><strong>CT/MR enterography:</strong> Cross-sectional imaging of small bowel</li>
+            </ul>
+          </li>
+          <li><strong>Repeat OGD/colonoscopy:</strong> Lesions may have been missed on initial exam</li>
+        </ul>
+
+        <p><strong>Red Flag Features Requiring URGENT Investigation (Suspected GI Malignancy):</strong></p>
+
+        <p><strong>National Institute for Health and Care Excellence (NICE) Guidelines for Urgent (2-week wait) Cancer Referral:</strong></p>
+
+        <table>
+          <tr>
+            <th>Age</th>
+            <th>Red Flag Symptoms</th>
+            <th>Investigation</th>
+          </tr>
+          <tr>
+            <td><strong>≥40 years</strong></td>
+            <td>- Unexplained weight loss AND abdominal pain<br/>
+            - <strong>Iron deficiency anaemia</strong> (Hb <110 g/L women, <120 g/L men)</td>
+            <td><strong>Urgent OGD and colonoscopy</strong></td>
+          </tr>
+          <tr>
+            <td><strong>≥50 years</strong></td>
+            <td>- Unexplained rectal bleeding<br/>
+            - Change in bowel habit (>6 weeks)</td>
+            <td><strong>Urgent colonoscopy</strong></td>
+          </tr>
+          <tr>
+            <td><strong>≥55 years</strong></td>
+            <td>- Upper abdominal pain + dyspepsia + <strong>any</strong> of: weight loss, reflux, dysphagia, vomiting</td>
+            <td><strong>Urgent OGD</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Any age</strong></td>
+            <td>- <strong>Dysphagia</strong> (difficulty swallowing)<br/>
+            - Palpable abdominal/rectal mass<br/>
+            - Jaundice</td>
+            <td><strong>Urgent OGD/imaging</strong></td>
+          </tr>
+        </table>
+
+        <p><strong>Additional Red Flags:</strong></p>
+        <ul>
+          <li><strong>Persistent vomiting</strong></li>
+          <li><strong>Progressive unintentional weight loss</strong></li>
+          <li><strong>New-onset dyspepsia in patient ≥55 years</strong></li>
+          <li><strong>Iron deficiency anaemia in men or postmenopausal women</strong> (even without other symptoms - warrants investigation)</li>
+        </ul>
+
+        <p><strong>Investigative Plan for Mrs. O'Brien:</strong></p>
+        <ol>
+          <li><strong>Iron studies:</strong> Confirm iron deficiency (expect low ferritin, low serum iron, high TIBC)</li>
+          <li><strong>Gynecology referral:</strong> Assessment of menorrhagia (likely cause given heavy periods)
+            <ul>
+              <li>Pelvic ultrasound to exclude fibroids, structural abnormalities</li>
+              <li>Consider endometrial biopsy if abnormal bleeding pattern</li>
+            </ul>
+          </li>
+          <li><strong>Coeliac serology:</strong> Anti-TTG, EMA (she's vegetarian with possible malabsorption)</li>
+          <li><strong>GI investigation:</strong> Although she's premenopausal, her age (58 - perimenopausal) and lack of obvious GI symptoms still warrant consideration of:
+            <ul>
+              <li>OGD if any dyspeptic symptoms or if iron deficiency persists despite treatment</li>
+              <li>Colonoscopy if any change in bowel habit or if approaching menopause (increased risk)</li>
+            </ul>
+          </li>
+          <li><strong>Trial of oral iron supplementation</strong> and reassess response</li>
+        </ol>
+
+        <p><strong>Key Principle:</strong> <strong>Iron deficiency anaemia in men and postmenopausal women = GI malignancy until proven otherwise.</strong> Always investigate.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button class="toggle-answer">3. Describe the management of iron deficiency anaemia, including iron replacement therapy options, monitoring, and when to consider blood transfusion.</button>
+      <div class="answer">
+        <p><strong>Management of Iron Deficiency Anaemia:</strong></p>
+
+        <p><strong>Principles of Management:</strong></p>
+        <ol>
+          <li><strong>Identify and treat the underlying cause</strong> (most important step)</li>
+          <li><strong>Replace iron stores</strong></li>
+          <li><strong>Monitor response to treatment</strong></li>
+          <li><strong>Prevent recurrence</strong></li>
+        </ol>
+
+        <p><strong>1. Treat the Underlying Cause:</strong></p>
+        <ul>
+          <li><strong>GI blood loss:</strong> Treat peptic ulcer (PPI, H. pylori eradication), remove polyps/cancer (surgery), manage IBD</li>
+          <li><strong>Menorrhagia:</strong> Tranexamic acid, hormonal treatment (levonorgestrel IUS - Mirena coil, COCP), surgical options (endometrial ablation, hysterectomy for severe cases)</li>
+          <li><strong>Coeliac disease:</strong> Gluten-free diet</li>
+          <li><strong>Dietary deficiency:</strong> Dietary advice, increase iron-rich foods</li>
+          <li><strong>Malabsorption:</strong> Treat underlying cause (H. pylori eradication, manage IBD)</li>
+        </ul>
+
+        <p><strong>2. Iron Replacement Therapy:</strong></p>
+
+        <p><strong>A. Oral Iron (First-Line):</strong></p>
+
+        <p><strong>Preparations:</strong></p>
+        <table>
+          <tr>
+            <th>Preparation</th>
+            <th>Elemental Iron Content</th>
+            <th>Typical Dose</th>
+          </tr>
+          <tr>
+            <td><strong>Ferrous sulfate</strong></td>
+            <td>65 mg per 200 mg tablet</td>
+            <td><strong>200 mg TDS</strong> (provides ~195 mg elemental iron/day)</td>
+          </tr>
+          <tr>
+            <td><strong>Ferrous fumarate</strong></td>
+            <td>65 mg per 200 mg tablet</td>
+            <td>200 mg TDS</td>
+          </tr>
+          <tr>
+            <td><strong>Ferrous gluconate</strong></td>
+            <td>35 mg per 300 mg tablet</td>
+            <td>300 mg TDS (better tolerated but less iron per tablet)</td>
+          </tr>
+        </table>
+
+        <p><strong>Dosing Recommendations:</strong></p>
+        <ul>
+          <li><strong>Standard dose:</strong> 100-200 mg elemental iron per day (divided doses)</li>
+          <li><strong>Recent evidence (2024):</strong> Alternate-day dosing may improve absorption and reduce side effects (iron absorption is limited by hepcidin, which rises after a dose and blocks further absorption for 24-48 hours)</li>
+          <li><strong>Take on empty stomach</strong> for better absorption (1 hour before or 2 hours after food)</li>
+          <li><strong>Vitamin C enhances absorption:</strong> Can take with orange juice</li>
+          <li><strong>Avoid with:</strong> Tea, coffee, calcium, antacids (reduce absorption)</li>
+        </ul>
+
+        <p><strong>Side Effects of Oral Iron (Very Common - up to 30-40%):</strong></p>
+        <ul>
+          <li><strong>GI upset:</strong> Nausea, epigastric pain, constipation, diarrhea</li>
+          <li><strong>Black stools</strong> (warn patients - harmless but can be alarming)</li>
+          <li><strong>Management of side effects:</strong>
+            <ul>
+              <li>Take with food (reduces absorption but improves tolerance)</li>
+              <li>Reduce dose (e.g., once daily instead of TDS)</li>
+              <li>Change preparation (ferrous gluconate may be better tolerated)</li>
+              <li>Try alternate-day dosing</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Duration of Treatment:</strong></p>
+        <ul>
+          <li>Continue for <strong>3 months after Hb normalizes</strong> to replenish iron stores</li>
+          <li>Typically total duration: <strong>6 months</strong></li>
+          <li>Recheck ferritin at end of treatment to confirm store repletion (target ferritin >30 μg/L)</li>
+        </ul>
+
+        <p><strong>B. Intravenous (IV) Iron:</strong></p>
+
+        <p><strong>Indications for IV Iron:</strong></p>
+        <ul>
+          <li><strong>Intolerance to oral iron</strong> (severe GI side effects despite dose reduction)</li>
+          <li><strong>Malabsorption:</strong> Coeliac disease, IBD, post-gastrectomy</li>
+          <li><strong>Ongoing blood loss exceeding oral replacement capacity</strong> (e.g., severe menorrhagia, dialysis patients)</li>
+          <li><strong>Inadequate response to oral iron</strong> after 3 months (consider malabsorption or ongoing loss)</li>
+          <li><strong>Need for rapid repletion:</strong> Pregnancy (2nd/3rd trimester), preoperative optimization</li>
+          <li><strong>Chronic kidney disease:</strong> Especially on dialysis (erythropoietin therapy requires adequate iron)</li>
+          <li><strong>Heart failure:</strong> IV iron improves symptoms and reduces hospitalization even without anaemia</li>
+        </ul>
+
+        <p><strong>IV Iron Preparations:</strong></p>
+        <table>
+          <tr>
+            <th>Preparation</th>
+            <th>Dose</th>
+            <th>Administration</th>
+          </tr>
+          <tr>
+            <td><strong>Iron polymaltose (Ferrinject)</strong></td>
+            <td>Single dose up to 1000 mg</td>
+            <td>IV infusion over 15-30 minutes; convenient single dose</td>
+          </tr>
+          <tr>
+            <td><strong>Iron isomaltoside (Monofer)</strong></td>
+            <td>Up to 20 mg/kg single dose</td>
+            <td>IV infusion; can give total iron deficit in one dose</td>
+          </tr>
+          <tr>
+            <td><strong>Iron sucrose (Venofer)</strong></td>
+            <td>200-300 mg per dose</td>
+            <td>Multiple doses required; slower infusion</td>
+          </tr>
+          <tr>
+            <td><strong>Ferric carboxymaltose (Ferinject)</strong></td>
+            <td>Up to 1000 mg per dose</td>
+            <td>Rapid infusion; max 2 doses/week</td>
+          </tr>
+        </table>
+
+        <p><strong>Calculating IV Iron Dose:</strong></p>
+        <p><strong>Ganzoni formula:</strong> Iron deficit (mg) = Weight (kg) × (Target Hb - Actual Hb) g/L × 0.24 + 500 mg (for stores)</p>
+        <p>Example: 70 kg woman, Hb 80 g/L, target 120 g/L = 70 × (120-80) × 0.24 + 500 = 672 + 500 = ~1200 mg</p>
+
+        <p><strong>Side Effects of IV Iron:</strong></p>
+        <ul>
+          <li><strong>Common:</strong> Flushing, headache, nausea, myalgia, hypotension during infusion</li>
+          <li><strong>Rare but serious:</strong> Anaphylaxis (<0.1%) - ensure resuscitation facilities available</li>
+          <li><strong>Hypophosphatemia:</strong> Can occur with ferric carboxymaltose (monitor phosphate)</li>
+        </ul>
+
+        <p><strong>Advantages of IV Iron over Oral:</strong></p>
+        <ul>
+          <li>Faster replenishment of stores</li>
+          <li>No GI side effects</li>
+          <li>Single/few doses vs months of oral therapy</li>
+          <li>Effective in malabsorption</li>
+        </ul>
+
+        <p><strong>3. Blood Transfusion:</strong></p>
+
+        <p><strong>Indications for Red Cell Transfusion in IDA:</strong></p>
+        <ul>
+          <li><strong>Symptomatic severe anaemia:</strong>
+            <ul>
+              <li>Hb <70 g/L with symptoms (dyspnea, chest pain, presyncope)</li>
+              <li>Hb <80 g/L in elderly or cardiovascular disease</li>
+            </ul>
+          </li>
+          <li><strong>Hemodynamic instability:</strong> Ongoing acute hemorrhage with shock</li>
+          <li><strong>Severe symptoms despite Hb >70 g/L:</strong> Angina, acute heart failure, severe dyspnea</li>
+          <li><strong>Urgent surgery required</strong> and inadequate time for iron therapy</li>
+        </ul>
+
+        <p><strong>Important Considerations:</strong></p>
+        <ul>
+          <li><strong>Transfusion is temporary fix</strong> - does NOT replenish iron stores; still need iron replacement</li>
+          <li><strong>Risks:</strong> Transfusion reactions, fluid overload (especially in elderly/heart failure), iron overload if repeated transfusions</li>
+          <li><strong>Transfusion threshold:</strong> <strong>Restrictive strategy</strong> (Hb <70 g/L) is preferred unless symptomatic or comorbidities</li>
+          <li><strong>Slow transfusion</strong> in chronic anaemia (patient adapted to low Hb; rapid rise can precipitate heart failure)</li>
+        </ul>
+
+        <p><strong>For Mrs. O'Brien (Hb 82 g/L):</strong></p>
+        <ul>
+          <li>Not an indication for transfusion (Hb >70 g/L, hemodynamically stable, chronic anaemia)</li>
+          <li>Start oral iron and treat underlying cause</li>
+        </ul>
+
+        <p><strong>4. Monitoring Response to Treatment:</strong></p>
+
+        <p><strong>Expected Response to Iron Therapy:</strong></p>
+        <table>
+          <tr>
+            <th>Timeframe</th>
+            <th>Expected Change</th>
+          </tr>
+          <tr>
+            <td><strong>Within 1 week</strong></td>
+            <td><strong>Reticulocytosis</strong> (rise in reticulocyte count) - indicates bone marrow responding</td>
+          </tr>
+          <tr>
+            <td><strong>2-4 weeks</strong></td>
+            <td><strong>Hb rise</strong> of 10-20 g/L per week (if adequate iron replacement and no ongoing loss)</td>
+          </tr>
+          <tr>
+            <td><strong>2-3 months</strong></td>
+            <td><strong>Normalization of Hb</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3-6 months</strong></td>
+            <td><strong>Replenishment of iron stores</strong> (ferritin normalizes)</td>
+          </tr>
+        </table>
+
+        <p><strong>Monitoring Schedule:</strong></p>
+        <ul>
+          <li><strong>Recheck FBC at 2-4 weeks:</strong> Confirm Hb rising (should see ≥10 g/L rise)</li>
+          <li><strong>Recheck FBC at 2-3 months:</strong> Ensure Hb normalized</li>
+          <li><strong>Continue iron for 3 months after Hb normalizes</strong> to replenish stores</li>
+          <li><strong>Recheck ferritin at end of treatment:</strong> Ensure stores replete (>30 μg/L)</li>
+        </ul>
+
+        <p><strong>Failure to Respond to Oral Iron - Differential Diagnosis:</strong></p>
+        <ul>
+          <li><strong>Non-compliance:</strong> Most common cause (side effects → patient stops taking iron)</li>
+          <li><strong>Ongoing blood loss:</strong> Exceeds iron replacement (uncontrolled menorrhagia, occult GI bleeding)</li>
+          <li><strong>Malabsorption:</strong> Coeliac disease, H. pylori, post-gastrectomy</li>
+          <li><strong>Incorrect diagnosis:</strong> Not iron deficiency (thalassaemia, ACD, combined deficiency)</li>
+          <li><strong>Inadequate dose/duration</strong></li>
+        </ul>
+
+        <p><strong>Action if No Response:</strong></p>
+        <ul>
+          <li>Check compliance</li>
+          <li>Review diagnosis (repeat iron studies if ferritin was borderline)</li>
+          <li>Investigate for ongoing blood loss (OGD/colonoscopy if not already done)</li>
+          <li>Screen for coeliac disease, H. pylori</li>
+          <li>Consider IV iron</li>
+        </ul>
+
+        <p><strong>Management Plan for Mrs. O'Brien:</strong></p>
+        <ol>
+          <li><strong>Iron studies:</strong> Confirm iron deficiency</li>
+          <li><strong>Start oral iron:</strong> Ferrous sulfate 200 mg TDS (or alternate day if side effects)
+            <ul>
+              <li>Advise: Take on empty stomach, expect black stools, continue for 3 months after Hb normalizes</li>
+              <li>Dietary advice: Increase iron-rich foods (red meat, dark green vegetables, fortified cereals)</li>
+            </ul>
+          </li>
+          <li><strong>Treat menorrhagia:</strong>
+            <ul>
+              <li>Gynecology referral for assessment</li>
+              <li>Consider tranexamic acid during periods, hormonal treatment (Mirena IUS)</li>
+              <li>Pelvic ultrasound to exclude fibroids</li>
+            </ul>
+          </li>
+          <li><strong>Coeliac screening:</strong> Anti-TTG antibodies</li>
+          <li><strong>Monitor:</strong> Recheck FBC in 2-4 weeks (expect Hb rise of 10-20 g/L)</li>
+          <li><strong>Review at 3 months:</strong> Reassess if Hb normalized; if not, investigate further (consider IV iron, GI investigation)</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    // Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }</script>
+
+</body>
+</html>

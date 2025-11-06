@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 16.1 - Noonan Syndrome</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 16.1 - Noonan Syndrome | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 16.1 - Noonan Syndrome">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 16.1 – Noonan Syndrome</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine</p>
+
+    <h2>Case</h2>
+    <p>You are an intern doing a paediatrics rotation, Mrs Juanita Mascord-Perez presents with her 4 month old son, Marco. The referral letter from her GP comments on his facial appearance in particular his eyes seem to slant outward, are widely spaced and he has low set ears.</p>
+    <p>Marco has otherwise been well and his mother is very concerned that her GP believes there is something wrong with him. He is her first child.</p>
+    <p><strong>On general observation of Marco there is no immediately recognisable syndrome.</strong></p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the key features of history that you would explore with Marco's mother?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>A detailed medical history is important. Special points to note include:</p>
+        <ul>
+          <li><strong>antenatal history:</strong>
+            <ul>
+              <li>teratogens, such as drugs, viruses, maternal diabetes, maternal hyperthermia</li>
+              <li>foetal movements - a neuromuscular disorder may cause reduced foetal movements, resulting in arthrogryposis (multiple fixed deformities of joints)</li>
+              <li>prenatal screening and diagnostic tests</li>
+            </ul>
+          </li>
+          <li>perinatal history, weight, length and head circumference and Apgar scores at birth</li>
+          <li>growth and development, behaviour, sleep patterns</li>
+          <li>family history; draw a family tree noting the following:
+            <ul>
+              <li>miscarriages, stillbirths and deaths of siblings</li>
+              <li>information about other family members with the same features.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Outline the systematic approach to the physical examination that you would complete.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Observe the child before undressing or disturbing her/him. On the other hand, the examination is not complete until the child has been fully undressed. Especially note:</p>
+        <ul>
+          <li>behaviour and alertness</li>
+          <li>body size and proportions, relative head size, asymmetry, chest shape and spinal curvature</li>
+          <li>height, weight, head circumference, arm span, upper and lower body segments</li>
+          <li>always plot measurements on standard normal charts. Charts are available for many different body parts, e.g. hand measurements, foot and ear length. Special charts are available for certain disorders, e.g. Down syndrome, and various bone dysplasias, e.g. achondroplasia</li>
+          <li>facial features:
+            <ul>
+              <li>shape of the head and face</li>
+              <li>spacing of the eyes (hyper- or hypotelorism, i.e. wide or closely spaced); slant of the palpebral fissures (up or down)</li>
+              <li>shape and size of the nose and mouth</li>
+              <li>structure and position of the ears</li>
+            </ul>
+          </li>
+          <li>proportions of the limbs, muscle bulk and tone, joint contractures and mobility</li>
+          <li>structure of hands and feet (shape, length, number of digits, dermal ridges, nails)</li>
+          <li>skin pigmentary or vascular markings</li>
+          <li>external genitalia</li>
+          <li>any birth defects (e.g. cleft palate)?</li>
+          <li>auscultate the chest for any cardiac murmurs</li>
+          <li>palpate the abdomen for organomegaly.</li>
+        </ul>
+        <p>A <em>photograph</em> (with parental consent) is useful for:</p>
+        <ul>
+          <li>comparing later on to see how the face has changed</li>
+          <li>consulting colleagues.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. If Marco had an uncommon syndrome that was not immediately recognisable what resources would you utilise to make the diagnosis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li><strong>Check textbooks of syndromes</strong> by trying to match the most important dysmorphic features and comparing the photographs with those of the patient</li>
+          <li><strong>Consultation:</strong>
+            <ul>
+              <li>Paediatricians will recognize the more common syndromes, e.g. Down syndrome</li>
+              <li>Clinical geneticists have experience in identifying many more syndromes. Some have a special interest and expertise in syndrome diagnosis (dysmorphologists)</li>
+              <li>it's not easy! A skilled dysmorphologist makes a syndrome diagnosis in a dysmorphic child in only 20% of cases referred from an experienced paediatrician</li>
+              <li>if an overall diagnosis is not made, the recognized problems must still be managed.</li>
+            </ul>
+          </li>
+          <li><strong>Review</strong> in a few years time may allow a diagnosis to be made, as the features of many syndromes evolve with time and new information or laboratory techniques may be available for specific diagnoses</li>
+          <li><strong>Computerized databases</strong>
+            <ul>
+              <li>several thousand syndromes are published, and many are individually rare</li>
+              <li>computerized databases combine pictures and descriptions of syndromes</li>
+              <li>searches are made using a few key dysmorphic features and a number of possible diagnoses are suggested that can be compared with the patient</li>
+              <li>occasionally, a match will be achieved</li>
+              <li>success is more likely if relatively rare features are used for the search. For example, a common feature such as hypertelorism (wide-spaced eyes) would give a long list of suggested syndromes, whereas imperforate anus would give a more manageable list to consider</li>
+              <li>training and experience are needed to use these databases effectively</li>
+            </ul>
+          </li>
+          <li>Examples of these databases are:
+            <ul>
+              <li>POSSUM (Pictures Of Standard Syndromes and Undiagnosed Malformations), developed by the Genetic Health Services, Victoria, Australia</li>
+              <li>the Winter-Baraitser Dysmorphology Database (previously called the London Dysmorphology Database)</li>
+              <li>REAMS (a Radiological Electronic Atlas of Malformation Syndromes and Skeletal Dysplasias)</li>
+              <li>the Baraitser-Winter Neurogenetic Database (previously called the London Neurogenetics Database)</li>
+              <li>the London Ophthalmic Genetics Database (GENEYE)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What causes genetic mutations? Summarise the types of genetic mutations, providing a clinical example for each type.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>What causes genetic mutations?</h3>
+        <p>DNA replication consists of accurately copying the 6 billion nucleotides that are spread along the 2 m of DNA within the few microns of space within the nucleus of a cell The penalty for failing to copy DNA accurately is the generation of new genetic errors (or <em>mutations</em>), which are transmitted to all of the cell's progeny.</p>
+        <p>The enzyme <em>DNA polymerase</em> is very good at copying DNA accurately, having an error rate of only one wrong nucleotide pair per million processed. This is impressive, but it would amount to thousands of new mutations at every cell division. There is an additional proofreading mechanism that compares the original with the copied strand and corrects any mismatched nucleotides on the new strand. This mechanism reduces the overall mutation rate to approximately one wrong nucleotide per billion processed. As a consequence, the division of any cell results in approximately six new mutations in the DNA sequence.</p>
+        <p>Despite the frequency of mutations, most of them have no adverse effect on the information encoded in the DNA. Genes account for only 5% of the human genome, and the majority of mutations occur in non-coding DNA and do not affect genes or the proteins they encode. These mutations are usually referred to as <em>polymorphisms</em> (meaning 'many forms') because they do not reduce an individual's ability to survive. Polymorphisms are very common. Mutations in genes are much less common than polymorphisms. They may interfere with the function of a gene, compromise the cell's function, and so cause a disorder.</p>
+
+        <h3>Types of genetic mutations</h3>
+        <table>
+          <tr>
+            <th>Scale and type of error</th>
+            <th>Mutation</th>
+            <th>Description</th>
+            <th>Examples of diseases due to these mutations*</th>
+          </tr>
+          <tr>
+            <td rowspan="4"><strong>Structural errors</strong></td>
+            <td>Deletion of genes</td>
+            <td>Loss of all or part of a gene, resulting in little or no protein product</td>
+            <td>Duchenne muscular dystrophy</td>
+          </tr>
+          <tr>
+            <td>Duplication</td>
+            <td>Duplication of all (or part) of a gene resulting in excess (or deficiency) of the protein product</td>
+            <td>Charcot-Marie-Tooth disease</td>
+          </tr>
+          <tr>
+            <td>Nonsense/truncation</td>
+            <td>Mutation involving one or more nucleotides that prevents the cell from generating a complete RNA strand</td>
+            <td>Hurler syndrome</td>
+          </tr>
+          <tr>
+            <td>Missense</td>
+            <td>Mutation involving one codon that causes a critical alteration in the protein sequence</td>
+            <td>Achondroplasia</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Splicing error</td>
+            <td>Mutation involving the nucleotides which identify the junction between exons and introns resulting in generation of an abnormal RNA strand</td>
+            <td>Crouzon syndrome</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>Functional errors of genes</strong></td>
+            <td>Regulatory mutation</td>
+            <td>Mutation in the regulatory region of a gene causing inappropriate activation or silencing of gene</td>
+            <td>Thalassaemia</td>
+          </tr>
+          <tr>
+            <td>Abnormal imprint</td>
+            <td>Reversal of the normal silencing or activation of specific genes in the maternal or paternal germline</td>
+            <td>Beckwith-Wiedemann syndrome</td>
+          </tr>
+          <tr>
+            <td>Unstable triplet repeat</td>
+            <td>Increase in the number of copies of a repeated triplet of nucleotides causing impairment of function of gene or protein</td>
+            <td>Fragile X syndrome</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>Structural errors of chromosomes</strong></td>
+            <td>Monosomy (deletion)</td>
+            <td>Loss of whole (or part) of a chromosome</td>
+            <td>Turner syndrome</td>
+          </tr>
+          <tr>
+            <td>Trisomy (duplication)</td>
+            <td>Excess of the whole (or part) of a chromosome</td>
+            <td>Down syndrome</td>
+          </tr>
+          <tr>
+            <td>Triploidy</td>
+            <td>Presence of an extra copy of each chromosome</td>
+            <td>Miscarriage</td>
+          </tr>
+          <tr>
+            <td><strong>Functional errors of chromosomes</strong></td>
+            <td>Uniparental disomy</td>
+            <td>Both copies of all or part of a chromosome inherited from just one parent</td>
+            <td>Prader-Willi syndrome</td>
+          </tr>
+        </table>
+        <p><em>* Note that different patients with the same genetic disorder may have different types of mutation in the same gene.</em></p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Outline the inheritance pattern in an autosomal recessive condition, an autosomal dominant condition, an X-linked recessive disorder and a polygenic disorder.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Autosomal Recessive</h3>
+        <p>In autosomal recessive inheritance, both parents are typically carriers (heterozygous), and there is a 25% chance with each pregnancy of having an affected child. Carrier parents are unaffected but each carry one copy of the mutated gene.</p>
+
+        <h3>X-linked Recessive (e.g. Haemophilia)</h3>
+        <p>In X-linked recessive disorders, the mutated gene is located on the X chromosome. Males (XY) are affected because they have only one X chromosome. Females (XX) are typically carriers because they have a second normal X chromosome. Affected males cannot pass the condition to their sons, but all daughters will be carriers. Carrier females have a 50% chance of passing the mutation to each child.</p>
+
+        <h3>Autosomal Dominant</h3>
+        <p>In autosomal dominant inheritance, only one copy of the mutated gene is needed to cause the disorder. An affected parent has a 50% chance of passing the condition to each child, regardless of sex.</p>
+
+        <h3>A polygenic disorder</h3>
+        <p>A polygenic disorder is due the interaction of a number of different genes.</p>
+        <p>Many common genetic disorders cannot be attributed to a mutation in a single gene but are due to the interaction of a number of genes. Examples of such polygenic disorders include common congenital malformations, such as cleft lip, and disorders of later life, such as asthma, diabetes and schizophrenia. These conditions result from the interaction of a number of genes, each of which has some mutation or polymorphism that increases the risk of the condition. Any one of these mutations or polymorphisms is unlikely to cause the disorder on its own.</p>
+        <p>Even if a foetus has inherited a number of mutations that place it at increased risk of a birth defect, non-genetic factors, such as maternal nutrition or chance, may ultimately determine whether the malformation occurs. A disorder due to the interaction of multiple genes and non-genetic factors is called a <em>multifactorial disorder</em>. An example is spina bifida in which a nutritional deficiency of the vitamin folate and variations in genes responsible for folate metabolism are associated with an increased risk of this major malformation.</p>
+        <p>Polygenic and multifactorial disorders typically affect between 0.1% and 1% of the population. The recurrence risk among close relatives is usually 10-20 times higher. Few of the genes responsible for polygenic disorders have been identified, and this remains a major objective in genetic research.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. What is meant by the following genetic terms: malformation, disruption and deformation?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Structural birth defects may be classified on the basis of the mechanism by which they arise:</p>
+        <ul>
+          <li><strong>Malformations</strong> arise during the initial formation of the embryo and foetus as a result of genetic and/or environmental factors during organogenesis (2-8 weeks postconception). Malformations may include failure of formation, incomplete formation or abnormal configuration. Examples include spina bifida, cleft palate and hypospadias</li>
+          <li><strong>Disruptions</strong> result from a destructive process that alters structures after formation. Examples include early amnion rupture causing amputation defects of digits, or an abdominal wall defect</li>
+          <li><strong>Deformations</strong> result from moulding of a part by mechanical forces, usually acting over a prolonged period. Examples include talipes, congenital hip dislocations and plagiocephaly associated with oligohydramnios.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. In a table summarise the cause of birth defects.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Causes of birth defects</h3>
+        <table>
+          <tr>
+            <th>Mechanism</th>
+            <th>Example</th>
+            <th>Cause</th>
+          </tr>
+          <tr>
+            <td>Whole chromosome missing or duplicated</td>
+            <td>Down syndrome<br>Turner syndrome</td>
+            <td>Trisomy 21<br>Monosomy X</td>
+          </tr>
+          <tr>
+            <td>Part of chromosome deleted or duplicated</td>
+            <td>Cri du chat syndrome<br>Cat eye syndrome</td>
+            <td>Deletion 5p<br>Duplication 22q</td>
+          </tr>
+          <tr>
+            <td>Submicroscopic deletion or duplication of chromosome material</td>
+            <td>Williams syndrome<br>Velocardiofacial syndrome<br>Charcot-Marie-Tooth disease 1A</td>
+            <td>Deletion 7q<br>Deletion 22q<br>Duplication 17p</td>
+          </tr>
+          <tr>
+            <td>Mutation in single gene</td>
+            <td>Smith-Lemli-Opitz syndrome<br>Holt-Oram syndrome<br>Apert-Crouzon-Pfeiffer syndrome</td>
+            <td>7-dehydrocholesterol reductase<br>TBX5<br>Fibroblast growth factor receptor 2</td>
+          </tr>
+          <tr>
+            <td>Consequence of normal imprinting</td>
+            <td>Prader-Willi syndrome</td>
+            <td>Maternal uniparental disomy or paternal deletion for 15q12</td>
+          </tr>
+          <tr>
+            <td>Imprinting errors</td>
+            <td>Beckwith-Wiedemann syndrome<br>Angelman syndrome</td>
+            <td>Multiple mechanisms resulting in overexpression of IGF2<br>Mutations in UBE3A gene</td>
+          </tr>
+          <tr>
+            <td>Multifactorial/polygenic: one or more genes and environmental factors</td>
+            <td>Isolated heart malformations, neural tube defects and facial clefts</td>
+            <td>Complex interactions between genes and environmental factors not yet defined</td>
+          </tr>
+          <tr>
+            <td>Non-genetic vascular and other 'accidents during development'</td>
+            <td>Poland anomaly<br>Oculoauriculovertebral dysplasia</td>
+            <td>Subclavian artery ischaemia<br>Stapedial artery ischaemia</td>
+          </tr>
+          <tr>
+            <td>Uterine environment</td>
+            <td>Talipes, hip dysplasia, plagiocephaly</td>
+            <td>Oligohydramnios, twins, bicornuate uterus</td>
+          </tr>
+          <tr>
+            <td>Maternal environment</td>
+            <td>Mental retardation<br>Caudal regression</td>
+            <td>Maternal phenylketonuria<br>Maternal diabetes mellitus</td>
+          </tr>
+          <tr>
+            <td>Wider environment</td>
+            <td>Foetal rubella syndrome<br>Foetal alcohol syndrome<br>Microcephaly<br>Limb deficiency</td>
+            <td>Rubella infection in pregnancy<br>Maternal alcohol ingestion<br>High-dose X-irradiation<br>Thalidomide</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. Define the term teratogen and describe the effects of teratogens.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>A teratogen is an <strong>environmental agent</strong> that can cause abnormalities of form or function in an exposed embryo or foetus. It is estimated that between 1% and 3% of birth defects may be related to teratogenic exposure.</p>
+        <p>A teratogen may cause its effect by a number of different pathophysiological mechanisms, including:</p>
+        <ul>
+          <li>cell death</li>
+          <li>alteration of cell division and tissue growth, including cell migration</li>
+          <li>interference with cellular differentiation.</li>
+        </ul>
+        <p>Examples of the different ways in which teratogens may have their effects are seen with alcohol and sodium valproate, which are believed to cause dysmorphic facial features with underdevelopment of the mid-face and philtrum due to cell death in these areas, whereas syndactyly can result from failure of programmed death of cells between the digits.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>9. Marco is diagnosed with Noonan Syndrome; his parents are concerned regarding future pregnancies. List the indications for formal genetic counselling, briefly outline what Mr & Mrs Mascord-Perez will be told about future pregnancies.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Indications for formal genetic counselling</h3>
+        <p>Anybody who suspects that there might be an increased risk of a genetic condition or producing a child with a genetic condition or birth defect may wish to receive formal genetic counselling. This includes:</p>
+        <ul>
+          <li>individuals who themselves have a genetic disorder</li>
+          <li>couples who have had a stillbirth</li>
+          <li>couples who have had a child with a birth defect</li>
+          <li>couples who have had a child with intellectual disability</li>
+          <li>family history of any of the above</li>
+          <li>family history of known genetic disorders, such as Huntington disease, muscular dystrophy</li>
+          <li>multiple miscarriages</li>
+          <li>exposure to radiation or drugs during pregnancy</li>
+          <li>advanced maternal age</li>
+          <li>consanguinity</li>
+          <li>chromosome anomalies, including translocations and inversions</li>
+          <li>cancers, particularly where there are multiple affected family members and/or where there is a very young age at disease onset.</li>
+        </ul>
+
+        <h3>What Mr & Mrs Mascord-Perez will be told about future pregnancies</h3>
+        <p>Noonan syndrome occurs in either a sporadic or autosomal dominant fashion. Many affected individuals have <em>de novo</em> mutations; however, an affected parent is recognized in 30%-75% of families.</p>
+        <p>A parent may have mild clinical picture that can be recognised by careful examination.</p>
+        <p>The risk of a subsequent child having Noonan syndrome depends on the genetic status of the parents. NS is inherited in an <strong>autosomal dominant</strong> manner. Therefore, If a parent is <strong>affected</strong>, the risk is <strong>50%</strong>.</p>
+        <p>When the parents are <strong>unaffected</strong>, the risk for a subsequent pregnancy appears to be <strong>low (&lt;1%)</strong>. This is higher than the general population because of the possibility of germ line mosaicism in one or other parent (i.e. a mix of affected and unaffected germ cells).</p>
+        <p>Disease causing genes (<em>PTPN11, SOS1, RAF1,</em> and <em>KRAS</em>) have been identified and can be tested for by molecular genetic testing both in the child to confirm diagnosis and if found, in parents who may have no obvious clinical features.</p>
+        <p>Not all patients have a mutation in one of the (so far) 4 known genes, of which PTPN11 mutations are the most common, present in about 50%.</p>
+        <p><strong>Note</strong> that Genetic testing to find the causative mutation in a patient is expensive (about 1000$ per gene) only done in overseas labs right now, no Medicare rebate. Could add up to about $4,000 Australian to do all genes known so far, only done in overseas labs right now, no Medicare rebate. Testing is sometimes done if it will alter management or family planning.</p>
+        <p>Prenatal genetic testing is possible for further reassurance in a future pregnancy IF the causative mutation has been established in the affected child.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

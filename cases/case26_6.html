@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 26_6 - Paget's Disease (bone)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 26_6 - Paget's Disease (bone) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 26_6 - Paget's Disease (bone)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 26.6 – Paget's Disease (bone)</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Rheumatology | <strong>Setting:</strong> Orthopaedic Clinic</p>
+
+    <h2>Case</h2>
+    <p>Mr. Gerald Thompson, a 72-year-old retired builder, is referred to the orthopaedic clinic with a 6-month history of progressive left thigh pain and dull aching pain in his lower back. The pain is worse at night and disturbs his sleep. He also mentions that he has noticed his left leg seems slightly bowed and he has had to buy larger hats over the past few years as "my head seems to be getting bigger." His wife has commented that he seems to be going deaf, particularly in his right ear. He denies any recent trauma. He was found to have an isolated raised alkaline phosphatase (ALP 856 U/L, normal range 30-130 U/L) on routine blood tests by his GP 3 months ago; other liver function tests and bone profile (calcium, phosphate) were normal. An X-ray of his pelvis and femur was arranged, showing characteristic changes. He has a family history of bone problems - his father had "bone disease" requiring treatment.</p>
+
+    <p><strong>Past Medical History:</strong> Hypertension, type 2 diabetes (diet-controlled), osteoarthritis<br>
+    <strong>Medications:</strong> Ramipril 5mg OD, metformin 500mg BD<br>
+    <strong>Social History:</strong> Retired builder, non-smoker, minimal alcohol<br>
+    <strong>Family History:</strong> Father had Paget's disease of bone</p>
+
+    <div class="vital-signs">Vital signs: BP 148/86 mmHg, HR 76 bpm, Temp 36.9°C. Examination: Skull appears enlarged (increased hat size from 7 to 7½), frontal bossing. Left tibia appears bowed laterally, warm to touch. Bilateral sensorineural hearing loss (worse right side). Spine shows mild thoracic kyphosis. No focal neurological deficits in lower limbs. Cardiovascular: normal heart sounds, no murmurs</div>
+
+    <h2>Questions</h2>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q1')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 1:</strong> What is Paget's disease of bone? What is the pathophysiology and what are the characteristic clinical features?
+      </button>
+      <div id="q1" class="answer">
+        <p><strong>Definition of Paget's disease of bone:</strong></p>
+        <ul>
+          <li><strong>Paget's disease (Osteitis deformans):</strong> Chronic disorder of bone remodeling characterized by excessive and disorganized bone turnover in one or more bones</li>
+          <li>Named after Sir James Paget who described it in 1877</li>
+          <li>Results in structurally abnormal bone that is enlarged, deformed, and mechanically weak</li>
+          <li>Second most common metabolic bone disease (after osteoporosis)</li>
+          <li>Localized to specific bones (monostotic or polyostotic) - NOT a systemic/generalized bone disease</li>
+        </ul>
+
+        <p><strong>Epidemiology:</strong></p>
+        <ul>
+          <li><strong>Prevalence:</strong> ~2-3% of population >50 years; increases with age (5-10% in >80s)</li>
+          <li><strong>Geographic variation:</strong> Most common in UK, Western Europe, North America, Australia/New Zealand; rare in Scandinavia, Asia, Africa</li>
+          <li><strong>Age:</strong> Rare <40 years; typically presents >50 years (mean age ~70)</li>
+          <li><strong>Sex:</strong> Slightly more common in men (M:F ~1.5:1)</li>
+          <li><strong>Genetic component:</strong> 15-30% have positive family history; autosomal dominant pattern in some families</li>
+          <li><strong>Declining prevalence and severity</strong> in recent decades (reason unclear - possibly environmental factors)</li>
+        </ul>
+
+        <p><strong>Pathophysiology:</strong></p>
+
+        <p><em>Normal bone remodeling (for context):</em></p>
+        <ul>
+          <li>Continuous process: Osteoclasts resorb old bone → Osteoblasts form new bone → Balanced, organized remodeling</li>
+        </ul>
+
+        <p><em>Paget's disease - abnormal bone remodeling in three phases:</em></p>
+
+        <p><strong>Phase 1: Lytic phase (osteoclastic)</strong></p>
+        <ul>
+          <li>Excessive, uncontrolled osteoclastic bone resorption</li>
+          <li>Osteoclasts abnormally large (can have up to 100 nuclei vs. normal 3-5) and hyperactive</li>
+          <li>Rapid bone destruction</li>
+          <li>Lytic lesions on X-ray (advancing "flame-shaped" or "blade of grass" lytic front)</li>
+        </ul>
+
+        <p><strong>Phase 2: Mixed phase (osteoclastic + osteoblastic)</strong></p>
+        <ul>
+          <li>Excessive osteoclastic resorption triggers compensatory excessive osteoblastic new bone formation</li>
+          <li>Bone turnover massively increased (up to 10-20x normal)</li>
+          <li>New bone formed rapidly and chaotically - lacks normal lamellar structure</li>
+          <li>Results in "woven bone" (disorganized, mechanically weak)</li>
+          <li>Mixed lytic and sclerotic appearance on X-ray</li>
+        </ul>
+
+        <p><strong>Phase 3: Sclerotic/burnt-out phase (osteoblastic)</strong></p>
+        <ul>
+          <li>Osteoclastic activity decreases, osteoblastic activity persists</li>
+          <li>Affected bones become dense, sclerotic, enlarged, and deformed</li>
+          <li>Bone is structurally abnormal: Disorganized architecture, increased vascularity, weak despite appearing dense</li>
+          <li>Eventually "burns out" with minimal bone turnover (but bone remains abnormal)</li>
+        </ul>
+
+        <p><em>Consequences of abnormal bone remodeling:</em></p>
+        <ul>
+          <li><strong>Bone enlargement:</strong> Increased bone size and deformity</li>
+          <li><strong>Mechanical weakness:</strong> Despite density, bone is structurally weak (increased fracture risk)</li>
+          <li><strong>Increased vascularity:</strong> High blood flow to affected bone (can feel warm)</li>
+          <li><strong>Deformity:</strong> Bowing of long bones, skull enlargement, spinal changes</li>
+        </ul>
+
+        <p><strong>Etiology (not fully understood):</strong></p>
+        <ul>
+          <li><strong>Genetic factors:</strong>
+            <ul>
+              <li>Mutations in SQSTM1 gene (sequestosome 1) found in ~40% of familial cases and 5-10% of sporadic cases</li>
+              <li>Other genetic loci identified</li>
+              <li>Suggests genetic predisposition</li>
+            </ul>
+          </li>
+          <li><strong>Environmental trigger hypothesis (viral infection):</strong>
+            <ul>
+              <li>Osteoclasts from Paget's patients contain inclusion bodies resembling paramyxovirus (measles, respiratory syncytial virus)</li>
+              <li>However, no virus consistently isolated; controversial hypothesis</li>
+              <li>Declining prevalence may relate to improved childhood vaccination</li>
+            </ul>
+          </li>
+          <li>Likely: <strong>Genetic predisposition + environmental trigger</strong></li>
+        </ul>
+
+        <p><strong>Bones most commonly affected:</strong></p>
+        <ul>
+          <li><strong>Pelvis (70%)</strong> - most common site</li>
+          <li><strong>Lumbar spine (58%)</strong></li>
+          <li><strong>Femur (55%)</strong></li>
+          <li><strong>Skull (42%)</strong></li>
+          <li><strong>Tibia (32%)</strong></li>
+          <li>Sacrum, clavicle, humerus, scapula (less common)</li>
+          <li><strong>Monostotic (20-30%):</strong> Single bone affected</li>
+          <li><strong>Polyostotic (70-80%):</strong> Multiple bones affected</li>
+          <li><strong>Note:</strong> Distribution remains fixed - new bones do NOT become affected over time</li>
+        </ul>
+
+        <p><strong>Clinical features:</strong></p>
+
+        <p><em>Asymptomatic (majority):</em></p>
+        <ul>
+          <li><strong>~70-90% are asymptomatic</strong> - discovered incidentally on X-rays or blood tests (elevated ALP)</li>
+        </ul>
+
+        <p><em>Symptomatic presentations:</em></p>
+
+        <p><strong>1. Bone pain (most common symptom):</strong></p>
+        <ul>
+          <li>Dull, deep aching pain in affected bones</li>
+          <li>Often worse at night, at rest (unlike osteoarthritis which is worse with activity)</li>
+          <li>Due to: Increased vascularity, bone expansion, microfractures, secondary osteoarthritis</li>
+        </ul>
+
+        <p><strong>2. Bone deformity:</strong></p>
+        <ul>
+          <li><strong>Skull enlargement:</strong> Increasing hat size (classic sign)</li>
+          <li><strong>Frontal bossing:</strong> Prominent forehead</li>
+          <li><strong>Bowing of long bones:</strong>
+            <ul>
+              <li>Tibia ("saber shin") - anterior bowing</li>
+              <li>Femur - lateral bowing</li>
+            </ul>
+          </li>
+          <li><strong>Spinal involvement:</strong> Kyphosis, loss of height</li>
+        </ul>
+
+        <p><strong>3. Increased warmth over affected bone:</strong></p>
+        <ul>
+          <li>Increased vascularity → Bone feels warm to touch</li>
+          <li>Increased skin temperature measurable over active lesions</li>
+        </ul>
+
+        <p><strong>4. Complications (see later questions for details):</strong></p>
+        <ul>
+          <li><strong>Fractures:</strong> Pathological fractures (often transverse "chalk-stick" fractures), fissure fractures</li>
+          <li><strong>Secondary osteoarthritis:</strong> Due to bone deformity affecting joint mechanics (hip, knee)</li>
+          <li><strong>Neurological complications:</strong>
+            <ul>
+              <li><strong>Hearing loss (30-50%):</strong> Sensorineural (cochlear nerve compression, ossicle involvement) or conductive</li>
+              <li>Nerve compression: Spinal stenosis, nerve root compression, cranial nerve palsies</li>
+            </ul>
+          </li>
+          <li><strong>Cardiovascular:</strong> High-output cardiac failure (rare, in extensive disease - increased blood flow to bones)</li>
+          <li><strong>Malignant transformation:</strong> Osteosarcoma (<1%, but serious)</li>
+        </ul>
+
+        <p><strong>Characteristic features in this patient (Mr. Thompson):</strong></p>
+        <ul>
+          <li><strong>Bone pain:</strong> Left thigh and lower back pain, worse at night (typical of Paget's)</li>
+          <li><strong>Bone deformity:</strong> Left leg bowing, skull enlargement (increased hat size - classic)</li>
+          <li><strong>Hearing loss:</strong> Bilateral sensorineural hearing loss (common complication, especially with skull involvement)</li>
+          <li><strong>Increased warmth:</strong> Left tibia warm to touch (increased vascularity)</li>
+          <li><strong>Raised ALP with normal calcium/phosphate:</strong> Pathognomonic biochemical finding</li>
+          <li><strong>Family history:</strong> Father had Paget's disease (genetic component)</li>
+          <li><strong>Age and sex:</strong> 72-year-old male (typical demographics)</li>
+        </ul>
+
+        <p><strong>Key diagnostic clues:</strong></p>
+        <ul>
+          <li>Isolated elevated ALP (often very high, >3-4x normal)</li>
+          <li>Bone pain (particularly at night)</li>
+          <li>Bone deformity (bowing, skull enlargement)</li>
+          <li>Increased warmth over affected bone</li>
+          <li>Hearing loss</li>
+          <li>Characteristic X-ray changes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q2')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 2:</strong> What investigations are used to diagnose Paget's disease? What are the characteristic findings on blood tests and imaging?
+      </button>
+      <div id="q2" class="answer">
+        <p><strong>Investigations for Paget's disease:</strong></p>
+
+        <p><strong>1. Blood tests:</strong></p>
+
+        <p><em>Bone biochemistry:</em></p>
+        <ul>
+          <li><strong>Alkaline phosphatase (ALP) - KEY DIAGNOSTIC TEST:</strong>
+            <ul>
+              <li><strong>Markedly elevated</strong> (often 3-20x upper limit of normal; can be >1000 U/L in extensive disease)</li>
+              <li>Reflects increased osteoblastic activity</li>
+              <li>Degree of elevation correlates with extent and activity of disease</li>
+              <li>Predominantly bone isoenzyme (can measure bone-specific ALP if liver disease also present)</li>
+              <li><strong>Most useful marker for diagnosis and monitoring treatment response</strong></li>
+            </ul>
+          </li>
+          <li><strong>Calcium and phosphate:</strong>
+            <ul>
+              <li><strong>Usually NORMAL</strong> (key differentiating feature from other metabolic bone diseases)</li>
+              <li>Calcium may be elevated if patient immobilized (reduced bone formation, continued resorption)</li>
+              <li>Hypercalcemia rare but possible after fracture or with immobilization</li>
+            </ul>
+          </li>
+          <li><strong>Parathyroid hormone (PTH):</strong> Normal (helps exclude hyperparathyroidism)</li>
+          <li><strong>25-hydroxyvitamin D:</strong> Check to ensure adequacy (especially before starting bisphosphonates)</li>
+        </ul>
+
+        <p><em>Other blood tests:</em></p>
+        <ul>
+          <li><strong>Full blood count:</strong> Usually normal</li>
+          <li><strong>ESR/CRP:</strong> May be mildly elevated (inflammation from bone turnover)</li>
+          <li><strong>Renal and liver function:</strong> To assess before treatment, exclude other causes of raised ALP</li>
+        </ul>
+
+        <p><em>Markers of bone turnover (not routinely used but can be helpful):</em></p>
+        <ul>
+          <li><strong>Bone resorption markers:</strong> Urinary or serum N-telopeptide (NTX), C-telopeptide (CTX), deoxypyridinoline
+            <ul>
+              <li>Elevated in active disease</li>
+              <li>Can monitor treatment response</li>
+            </ul>
+          </li>
+          <li><strong>Bone formation markers:</strong> Procollagen type I N-propeptide (P1NP), bone-specific ALP
+            <ul>
+              <li>Also elevated</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>2. Plain radiographs (X-rays) - ESSENTIAL for diagnosis:</strong></p>
+
+        <p><em>Characteristic X-ray features depend on phase:</em></p>
+
+        <p><strong>Early/lytic phase:</strong></p>
+        <ul>
+          <li><strong>Skull:</strong> Osteoporosis circumscripta - well-demarcated lytic area (often in frontal/occipital regions)</li>
+          <li><strong>Long bones:</strong> "Blade of grass" or "flame-shaped" advancing lytic front (V-shaped lucency advancing along shaft)</li>
+        </ul>
+
+        <p><strong>Mixed phase (most common presentation):</strong></p>
+        <ul>
+          <li><strong>Combination of lytic and sclerotic areas</strong> - "cotton wool" appearance (patchy sclerosis)</li>
+          <li><strong>Bone enlargement:</strong> Expanded bone diameter, thickened cortex</li>
+          <li><strong>Coarse trabecular pattern:</strong> Thickened, disorganized trabeculae</li>
+          <li><strong>Skull:</strong>
+            <ul>
+              <li>"Cotton wool" appearance - areas of sclerosis and lucency</li>
+              <li>Thickened skull vault</li>
+              <li>Loss of distinction between inner and outer tables</li>
+              <li>Basilar invagination (skull base pushed upward into cranium - late complication)</li>
+            </ul>
+          </li>
+          <li><strong>Pelvis:</strong>
+            <ul>
+              <li>Thickened iliopectineal line ("brim sign")</li>
+              <li>Mixed sclerosis and coarse trabeculation</li>
+              <li>Protrusio acetabuli (femoral head protrusion into pelvis)</li>
+            </ul>
+          </li>
+          <li><strong>Spine:</strong>
+            <ul>
+              <li>"Picture frame" vertebra - sclerotic border with relatively lucent center</li>
+              <li>"Ivory vertebra" - uniformly dense, enlarged vertebral body</li>
+              <li>Vertebral body enlargement</li>
+            </ul>
+          </li>
+          <li><strong>Long bones (femur, tibia):</strong>
+            <ul>
+              <li>Cortical thickening</li>
+              <li>Bone expansion and bowing</li>
+              <li>Coarse trabecular pattern</li>
+              <li>Fissure fractures (incomplete transverse lucencies on convex surface - stress fractures)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Late/sclerotic phase:</strong></p>
+        <ul>
+          <li>Predominantly sclerotic, dense bone</li>
+          <li>Marked bone enlargement and deformity</li>
+          <li>Less active disease</li>
+        </ul>
+
+        <p><em>Complications visible on X-ray:</em></p>
+        <ul>
+          <li>Pathological fractures (transverse "chalk-stick" fractures)</li>
+          <li>Secondary osteoarthritis (joint space narrowing, osteophytes)</li>
+          <li>Bone sarcoma (aggressive lytic lesion, soft tissue mass, bone destruction - very concerning)</li>
+        </ul>
+
+        <p><strong>3. Bone scintigraphy (isotope bone scan) - technetium-99m bisphosphonate scan:</strong></p>
+
+        <p><em>Indications:</em></p>
+        <ul>
+          <li>Determine extent of disease (identify all affected bones, including asymptomatic sites)</li>
+          <li>Distinguish monostotic from polyostotic disease</li>
+          <li>Baseline survey before treatment</li>
+          <li>Follow-up to identify new sites (though Paget's distribution usually doesn't change - rare for new bones to become affected)</li>
+        </ul>
+
+        <p><em>Findings:</em></p>
+        <ul>
+          <li><strong>Intensely increased uptake in affected bones</strong> (one of the most avid lesions on bone scan)</li>
+          <li>Often whole bone or large portion involved (not small focal lesions)</li>
+          <li>Very sensitive (more sensitive than X-ray) but not specific</li>
+        </ul>
+
+        <p><em>Limitations:</em></p>
+        <ul>
+          <li>Cannot differentiate Paget's from metastases, infection, or other causes of increased uptake</li>
+          <li>Needs correlation with X-rays and clinical context</li>
+        </ul>
+
+        <p><strong>4. Other imaging modalities (not routine, but may be used):</strong></p>
+
+        <p><strong>CT scan:</strong></p>
+        <ul>
+          <li>Better detail of bone architecture</li>
+          <li>Useful for: Assessing skull base (basilar invagination), spinal stenosis, planning surgery</li>
+          <li>Can identify complications (fractures, nerve compression)</li>
+        </ul>
+
+        <p><strong>MRI:</strong></p>
+        <ul>
+          <li>Excellent for: Assessing spinal stenosis, nerve root compression, soft tissue involvement</li>
+          <li>May show increased signal in active Paget's (due to vascularity, marrow changes)</li>
+          <li><strong>Important for excluding malignant transformation</strong> (osteosarcoma shows soft tissue mass, marrow replacement)</li>
+        </ul>
+
+        <p><strong>5. Bone biopsy (rarely needed):</strong></p>
+        <ul>
+          <li>Usually diagnosis made on clinical, biochemical, and radiological grounds</li>
+          <li><strong>Biopsy indications:</strong>
+            <ul>
+              <li>Atypical presentation</li>
+              <li>Suspicion of malignant transformation (osteosarcoma)</li>
+              <li>Exclude metastases or other differential diagnoses</li>
+            </ul>
+          </li>
+          <li><strong>Histology:</strong> Mosaic pattern of lamellar bone (jigsaw puzzle appearance due to chaotic remodeling), large osteoclasts with numerous nuclei</li>
+        </ul>
+
+        <p><strong>Diagnostic approach:</strong></p>
+
+        <p><em>Step 1: Suspect based on clinical features + raised ALP</em></p>
+        <ul>
+          <li>Isolated elevated ALP with normal calcium/phosphate highly suggestive</li>
+        </ul>
+
+        <p><em>Step 2: Plain X-rays of symptomatic areas and commonly affected sites</em></p>
+        <ul>
+          <li>Characteristic appearances (see above) confirm diagnosis</li>
+          <li>X-ray pelvis, skull, spine, and any symptomatic long bones</li>
+        </ul>
+
+        <p><em>Step 3: Bone scan to determine extent (if considering treatment or if X-rays equivocal)</em></p>
+        <ul>
+          <li>Identifies all affected bones</li>
+          <li>Helps assess disease burden</li>
+        </ul>
+
+        <p><em>Step 4: Baseline bloods and assess for complications</em></p>
+        <ul>
+          <li>ALP (baseline for monitoring), calcium, phosphate, renal function, vitamin D</li>
+          <li>Audiometry if hearing loss</li>
+          <li>Cardiac assessment if extensive disease (exclude high-output failure)</li>
+        </ul>
+
+        <p><strong>Expected findings in this patient (Mr. Thompson):</strong></p>
+        <ul>
+          <li><strong>Blood tests:</strong>
+            <ul>
+              <li>ALP: 856 U/L (markedly elevated - ~6-7x normal)</li>
+              <li>Calcium and phosphate: Normal (already confirmed)</li>
+              <li>Other LFTs: Normal</li>
+            </ul>
+          </li>
+          <li><strong>X-rays (pelvis, femur, tibia, skull, lumbar spine):</strong>
+            <ul>
+              <li>Pelvis: Mixed lytic/sclerotic changes, thickened iliopectineal line, bone expansion</li>
+              <li>Left femur and tibia: Cortical thickening, bone expansion, bowing, coarse trabeculation, possible fissure fractures</li>
+              <li>Skull: "Cotton wool" appearance, thickened vault</li>
+              <li>Lumbar spine: "Picture frame" or "ivory" vertebrae</li>
+            </ul>
+          </li>
+          <li><strong>Bone scan:</strong> Intense uptake in pelvis, left femur, left tibia, skull, lumbar spine</li>
+          <li><strong>Audiometry:</strong> Bilateral sensorineural hearing loss</li>
+        </ul>
+
+        <p><strong>Differential diagnosis to exclude:</strong></p>
+        <ul>
+          <li><strong>Raised ALP differential:</strong>
+            <ul>
+              <li>Liver disease (check other LFTs - GGT, transaminases)</li>
+              <li>Bony metastases (sclerotic mets from prostate, breast; check PSA if male; bone scan shows multiple focal lesions rather than whole bone involvement)</li>
+              <li>Primary hyperparathyroidism (calcium elevated, PTH elevated)</li>
+              <li>Osteomalacia (low calcium, low phosphate, low vitamin D)</li>
+              <li>Recent fracture (ALP can rise but usually returns to normal within weeks)</li>
+            </ul>
+          </li>
+          <li><strong>Radiological differential:</strong>
+            <ul>
+              <li>Fibrous dysplasia (younger age, different distribution, ground-glass appearance)</li>
+              <li>Metastatic disease (clinical context, focal lesions, primary tumor)</li>
+              <li>Osteosarcoma (aggressive appearance, soft tissue mass - can be complication of Paget's)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Key points:</strong></p>
+        <ul>
+          <li>Diagnosis usually clinical + biochemical (raised ALP, normal calcium/phosphate) + radiological (characteristic X-ray changes)</li>
+          <li>Markedly elevated ALP with normal calcium and phosphate is highly characteristic</li>
+          <li>X-rays show mixed lytic/sclerotic changes, bone enlargement, coarse trabeculation</li>
+          <li>Bone scan useful to determine extent but needs correlation with X-rays</li>
+          <li>Biopsy rarely needed</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q3')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 3:</strong> What are the complications of Paget's disease? Which complications require urgent attention?
+      </button>
+      <div id="q3" class="answer">
+        <p><strong>Complications of Paget's disease:</strong></p>
+
+        <p><strong>1. Fractures (common):</strong></p>
+
+        <p><em>Types:</em></p>
+        <ul>
+          <li><strong>Pathological fractures:</strong>
+            <ul>
+              <li>Pagetic bone is structurally weak despite appearing dense</li>
+              <li>Fractures occur with minimal trauma</li>
+              <li><strong>"Chalk-stick" fractures:</strong> Complete transverse fractures (classically described)</li>
+              <li>Common sites: Femur (subtrochanteric, shaft), tibia</li>
+            </ul>
+          </li>
+          <li><strong>Fissure fractures (stress fractures):</strong>
+            <ul>
+              <li>Incomplete transverse lucencies on convex (tensile stress) side of bowed long bones</li>
+              <li>Visible on X-ray as radiolucent lines perpendicular to cortex</li>
+              <li>Can progress to complete fracture if untreated</li>
+              <li>Cause bone pain</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>Management:</em></p>
+        <ul>
+          <li>Fracture management: Surgical fixation often needed (internal fixation or arthroplasty)</li>
+          <li>Fissure fractures: May respond to bisphosphonate treatment + protected weight-bearing</li>
+          <li>Pagetic bone challenging for surgeons - hypervascular (bleeding risk), abnormal architecture (difficult to fix)</li>
+          <li>Consider prophylactic fixation of long bones with extensive involvement + fissure fractures</li>
+        </ul>
+
+        <p><strong>2. Secondary osteoarthritis (common, ~30%):</strong></p>
+
+        <p><em>Mechanism:</em></p>
+        <ul>
+          <li>Bone deformity (bowing, enlargement) → Abnormal joint mechanics → Accelerated cartilage wear</li>
+          <li>Most commonly affects hip and knee adjacent to pagetic bone</li>
+        </ul>
+
+        <p><em>Clinical features:</em></p>
+        <ul>
+          <li>Joint pain (activity-related, unlike pagetic bone pain which is worse at rest)</li>
+          <li>Stiffness, reduced range of motion</li>
+          <li>Difficulty distinguishing OA pain from pagetic bone pain</li>
+        </ul>
+
+        <p><em>Management:</em></p>
+        <ul>
+          <li>Standard OA management: Analgesia, physiotherapy, weight loss</li>
+          <li>Joint replacement may be needed (hip, knee arthroplasty)</li>
+          <li><strong>Important:</strong> If surgery planned in patient with active Paget's, treat with bisphosphonates first (reduce bone vascularity and bleeding risk)</li>
+        </ul>
+
+        <p><strong>3. Neurological complications:</strong></p>
+
+        <p><em>a) Hearing loss (30-50% with skull involvement - COMMON):</em></p>
+        <ul>
+          <li><strong>Sensorineural hearing loss (most common):</strong>
+            <ul>
+              <li>Mechanisms: Compression of 8th cranial nerve in internal auditory meatus, cochlear involvement, ossicular involvement</li>
+              <li>Bilateral or unilateral</li>
+              <li>Progressive and often irreversible</li>
+            </ul>
+          </li>
+          <li><strong>Conductive hearing loss:</strong> Ossicular chain involvement, middle ear involvement</li>
+          <li><strong>Management:</strong>
+            <ul>
+              <li>Audiometry to assess</li>
+              <li>Bisphosphonate treatment may slow progression but unlikely to reverse established loss</li>
+              <li>Hearing aids</li>
+              <li>Cochlear implants if severe</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>b) Spinal stenosis and nerve root compression:</em></p>
+        <ul>
+          <li><strong>Mechanism:</strong> Vertebral body enlargement, bone expansion into spinal canal, ligamentum flavum thickening</li>
+          <li><strong>Clinical features:</strong>
+            <ul>
+              <li>Neurogenic claudication (leg pain/weakness on walking, relieved by rest/sitting)</li>
+              <li>Radiculopathy (nerve root pain, numbness, weakness in dermatomal distribution)</li>
+              <li>Cauda equina syndrome (rare emergency - see below)</li>
+            </ul>
+          </li>
+          <li><strong>Investigations:</strong> MRI spine (gold standard to assess canal stenosis, nerve compression)</li>
+          <li><strong>Management:</strong>
+            <ul>
+              <li>Bisphosphonates may help early/mild cases</li>
+              <li>Severe stenosis: Surgical decompression (laminectomy)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>c) Basilar invagination (skull base involvement):</em></p>
+        <ul>
+          <li>Skull base softens and pushed upward into cranium by weight of head</li>
+          <li>Can compress: Brainstem, cerebellar tonsils, cranial nerves (especially lower cranial nerves - IX, X, XI, XII)</li>
+          <li><strong>Clinical features:</strong> Headache, neck pain, dysphagia, hoarseness, ataxia, long tract signs</li>
+          <li><strong>Investigations:</strong> CT or MRI skull base</li>
+          <li><strong>Management:</strong> Neurosurgical referral; may need skull base surgery</li>
+        </ul>
+
+        <p><em>d) Other cranial nerve palsies:</em></p>
+        <ul>
+          <li>Compression of cranial nerves in their foramina (optic nerve → visual loss; trigeminal nerve → facial pain)</li>
+        </ul>
+
+        <p><em>e) Hydrocephalus (rare):</em></p>
+        <ul>
+          <li>Obstruction of CSF flow due to basilar invagination or aqueduct stenosis</li>
+        </ul>
+
+        <p><strong>4. Cardiovascular complications:</strong></p>
+
+        <p><em>High-output cardiac failure (rare, <1%):</em></p>
+        <ul>
+          <li><strong>Mechanism:</strong> Extensive pagetic bone (>30-40% skeleton involved) is highly vascular → Acts as arteriovenous shunt → Increased cardiac output required → Eventually heart cannot compensate → High-output failure</li>
+          <li><strong>Clinical features:</strong>
+            <ul>
+              <li>Symptoms of heart failure (dyspnoea, orthopnea, peripheral edema)</li>
+              <li>Warm extremities (unlike low-output failure)</li>
+              <li>Raised JVP, pulmonary edema, gallop rhythm</li>
+            </ul>
+          </li>
+          <li><strong>Diagnosis:</strong> Echocardiography shows hyperdynamic circulation, dilated chambers; cardiac output elevated</li>
+          <li><strong>Management:</strong>
+            <ul>
+              <li>Standard heart failure treatment (diuretics, ACE inhibitors)</li>
+              <li><strong>Bisphosphonates to reduce bone vascularity and turnover</strong> - can improve cardiac function</li>
+              <li>Poor prognosis if untreated</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>Increased cardiovascular risk:</em></p>
+        <ul>
+          <li>Increased risk of hypertension, calcific aortic stenosis (mechanism unclear)</li>
+        </ul>
+
+        <p><strong>5. Malignant transformation - OSTEOSARCOMA (rare but SERIOUS):</strong></p>
+
+        <p><em>Epidemiology and risk:</em></p>
+        <ul>
+          <li><strong>Incidence: <1% of Paget's patients</strong> (0.1-0.9%)</li>
+          <li>However, ~10% of osteosarcomas in elderly occur in pagetic bone</li>
+          <li>Risk factors: Extensive polyostotic disease, long-standing disease, severe disease</li>
+          <li>Usually occurs in patients >50 years (unlike primary osteosarcoma which is typically adolescent/young adult)</li>
+        </ul>
+
+        <p><em>Clinical presentation:</em></p>
+        <ul>
+          <li><strong>Sudden increase in bone pain</strong> in pagetic bone (pain becomes severe, constant, progressive)</li>
+          <li>Palpable mass</li>
+          <li>Pathological fracture</li>
+          <li><strong>Very rapid rise in ALP</strong> (sudden, dramatic increase above baseline)</li>
+        </ul>
+
+        <p><em>Investigations:</em></p>
+        <ul>
+          <li><strong>X-ray:</strong> Aggressive lytic destruction, soft tissue mass, bone destruction (loss of pagetic changes)</li>
+          <li><strong>MRI:</strong> Shows soft tissue mass, marrow replacement; essential for staging</li>
+          <li><strong>Biopsy:</strong> Confirms diagnosis (high-grade sarcoma)</li>
+          <li>Staging CT chest (lung metastases common)</li>
+        </ul>
+
+        <p><em>Prognosis:</em></p>
+        <ul>
+          <li><strong>VERY POOR</strong> - one of worst prognostic osteosarcomas</li>
+          <li>5-year survival ~5-10% (much worse than primary osteosarcoma)</li>
+          <li>Often metastasizes early (lungs)</li>
+        </ul>
+
+        <p><em>Management:</em></p>
+        <ul>
+          <li>Wide surgical resection (amputation often needed) + neoadjuvant/adjuvant chemotherapy</li>
+          <li>Palliative care if unresectable or metastatic</li>
+        </ul>
+
+        <p><strong>6. Hypercalcemia (uncommon):</strong></p>
+        <ul>
+          <li>Usually calcium normal in Paget's</li>
+          <li><strong>Hypercalcemia can occur if:</strong>
+            <ul>
+              <li><strong>Immobilization</strong> (e.g., after fracture, hospitalization) - bone resorption continues but formation reduced → Calcium released</li>
+              <li>Coexistent primary hyperparathyroidism</li>
+            </ul>
+          </li>
+          <li><strong>Management:</strong> Rehydration, bisphosphonates, mobilize patient</li>
+        </ul>
+
+        <p><strong>7. Other complications:</strong></p>
+        <ul>
+          <li><strong>Angioid streaks of retina:</strong> Breaks in Bruch's membrane; can cause visual impairment</li>
+          <li><strong>Gout and hyperuricemia:</strong> Increased cell turnover → Increased uric acid production</li>
+          <li><strong>Renal stones:</strong> Hypercalciuria (even with normal serum calcium)</li>
+        </ul>
+
+        <p><strong>Complications requiring URGENT attention:</strong></p>
+
+        <p><strong>1. Suspected malignant transformation (osteosarcoma):</strong></p>
+        <ul>
+          <li>Sudden increase in pain, palpable mass, pathological fracture, rapid rise in ALP</li>
+          <li><strong>Action:</strong> Urgent imaging (X-ray, MRI), biopsy, oncology referral</li>
+        </ul>
+
+        <p><strong>2. Cauda equina syndrome:</strong></p>
+        <ul>
+          <li>Spinal stenosis causing: Bilateral leg weakness/numbness, saddle anesthesia, urinary retention/incontinence, fecal incontinence</li>
+          <li><strong>Action:</strong> Emergency MRI spine, urgent neurosurgical decompression</li>
+        </ul>
+
+        <p><strong>3. Severe basilar invagination with brainstem compression:</strong></p>
+        <ul>
+          <li>Rapidly progressive neurological deficits, cranial nerve palsies, long tract signs</li>
+          <li><strong>Action:</strong> Urgent neurosurgical referral</li>
+        </ul>
+
+        <p><strong>4. High-output cardiac failure:</strong></p>
+        <ul>
+          <li>Acute decompensated heart failure</li>
+          <li><strong>Action:</strong> Hospital admission, heart failure management, initiate bisphosphonates</li>
+        </ul>
+
+        <p><strong>5. Pathological fracture:</strong></p>
+        <ul>
+          <li>Particularly femoral fracture (high morbidity)</li>
+          <li><strong>Action:</strong> Orthopedic assessment, surgical fixation</li>
+        </ul>
+
+        <p><strong>Summary - key complications:</strong></p>
+        <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+          <thead>
+            <tr style="background-color: #f0f0f0;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Complication</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Frequency</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Urgency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Fractures (pathological, fissure)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Common</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Urgent if complete fracture</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Secondary osteoarthritis</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Common (~30%)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Non-urgent</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Hearing loss</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Common with skull involvement (30-50%)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Non-urgent</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Spinal stenosis</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Uncommon</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Urgent if cauda equina</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Basilar invagination</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Rare</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Urgent if symptomatic</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">High-output cardiac failure</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Rare (<1%)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Urgent</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Osteosarcoma</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Very rare (<1%)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>EMERGENCY - very poor prognosis</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q4')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 4:</strong> Outline the management of Paget's disease. When should treatment be initiated, and what are the treatment options?
+      </button>
+      <div id="q4" class="answer">
+        <p><strong>General principles of Paget's disease management:</strong></p>
+        <ul>
+          <li>Many patients asymptomatic and do NOT require treatment - observation alone</li>
+          <li>Treatment aims: Relieve symptoms, prevent complications, normalize bone turnover</li>
+          <li>Cannot reverse existing bone deformity or established complications</li>
+          <li>Bisphosphonates are mainstay of pharmacological treatment</li>
+        </ul>
+
+        <p><strong>Indications for treatment:</strong></p>
+
+        <p><em>Definite indications (treat):</em></p>
+        <ul>
+          <li><strong>Bone pain</strong> attributable to Paget's disease</li>
+          <li><strong>Active disease at high-risk sites:</strong>
+            <ul>
+              <li>Skull (risk of hearing loss, neurological complications)</li>
+              <li>Spine (risk of spinal stenosis, nerve compression)</li>
+              <li>Weight-bearing long bones (risk of fracture, deformity, OA)</li>
+              <li>Bone adjacent to major joint (risk of secondary OA)</li>
+            </ul>
+          </li>
+          <li><strong>Elevated ALP (>2x upper limit of normal) at high-risk sites</strong> (marker of disease activity)</li>
+          <li><strong>Complications:</strong>
+            <ul>
+              <li>Impending or recent pathological fracture</li>
+              <li>Fissure fractures (incomplete stress fractures)</li>
+              <li>Neurological complications (hearing loss, nerve compression)</li>
+              <li>High-output cardiac failure</li>
+            </ul>
+          </li>
+          <li><strong>Before orthopedic surgery</strong> on pagetic bone (reduce vascularity, bleeding risk)</li>
+          <li><strong>Hypercalcemia</strong> (due to immobilization)</li>
+        </ul>
+
+        <p><em>Controversial/relative indications:</em></p>
+        <ul>
+          <li><strong>Asymptomatic disease with very high ALP (>4x normal)</strong> - some experts treat to prevent complications, others observe</li>
+          <li><strong>Young patients (<50 years) with active disease</strong> - longer disease duration, may benefit from early treatment to prevent future complications</li>
+          <li><strong>Extensive polyostotic disease</strong> - risk of high-output failure, multiple complications</li>
+        </ul>
+
+        <p><em>Do NOT treat (observe):</em></p>
+        <ul>
+          <li><strong>Asymptomatic patients with minimal disease activity</strong> (low ALP, non-weight-bearing bones, no high-risk sites)</li>
+          <li><strong>"Burnt-out" Paget's</strong> (normal or minimally elevated ALP, sclerotic phase, no symptoms)</li>
+          <li>Incidental finding with no symptoms and low disease activity</li>
+        </ul>
+
+        <p><strong>Pharmacological treatment - Bisphosphonates (FIRST-LINE):</strong></p>
+
+        <p><em>Mechanism:</em></p>
+        <ul>
+          <li>Inhibit osteoclastic bone resorption</li>
+          <li>Reduce bone turnover</li>
+          <li>Normalize bone remodeling (though bone structure remains abnormal)</li>
+        </ul>
+
+        <p><em>Effects:</em></p>
+        <ul>
+          <li><strong>Reduce ALP</strong> (often normalizes or falls to near-normal within 3-6 months)</li>
+          <li><strong>Relieve bone pain</strong> (70-80% patients experience pain relief within weeks-months)</li>
+          <li><strong>Reduce disease activity</strong> (slow progression, reduce complications)</li>
+          <li><strong>Reduce bone vascularity</strong> (beneficial before surgery)</li>
+          <li><strong>Duration of effect:</strong> Single course can suppress disease for months-years (median ~2-5 years depending on agent)</li>
+        </ul>
+
+        <p><em>Options (in order of preference/potency):</em></p>
+
+        <p><strong>1. Zoledronic acid (zoledronate) - FIRST-LINE, MOST POTENT:</strong></p>
+        <ul>
+          <li><strong>Dose:</strong> 5mg IV infusion (single dose over 15-30 minutes)</li>
+          <li><strong>Advantages:</strong>
+            <ul>
+              <li>Most potent bisphosphonate</li>
+              <li>Single dose - excellent compliance</li>
+              <li>Longest duration of action (median remission ~2-5 years after single dose)</li>
+              <li>Normalizes ALP in ~90% of patients</li>
+              <li>Superior to oral bisphosphonates in trials</li>
+            </ul>
+          </li>
+          <li><strong>Administration:</strong> Outpatient infusion clinic; ensure adequate hydration before/during infusion</li>
+          <li><strong>Monitoring:</strong> Renal function, calcium, vitamin D before infusion; check ALP at 6 months to assess response</li>
+        </ul>
+
+        <p><strong>2. Risedronate (oral) - SECOND-LINE:</strong></p>
+        <ul>
+          <li><strong>Dose:</strong> 30mg daily for 2 months</li>
+          <li><strong>Efficacy:</strong> Normalizes ALP in ~70-80%</li>
+          <li><strong>Advantages:</strong> Oral (convenient), well-tolerated</li>
+          <li><strong>Administration:</strong> Empty stomach, remain upright 30 minutes (standard bisphosphonate instructions)</li>
+        </ul>
+
+        <p><strong>3. Alendronate (oral) - ALTERNATIVE:</strong></p>
+        <ul>
+          <li><strong>Dose:</strong> 40mg daily for 6 months (NOT same dose as osteoporosis)</li>
+          <li><strong>Similar efficacy to risedronate</strong></li>
+        </ul>
+
+        <p><strong>4. Pamidronate (IV) - ALTERNATIVE if zoledronate unavailable:</strong></p>
+        <ul>
+          <li><strong>Dose:</strong> 60-90mg IV infusions, repeated weekly or monthly (total dose ~180-360mg over weeks)</li>
+          <li><strong>Less convenient than zoledronate</strong> (multiple infusions), but effective</li>
+        </ul>
+
+        <p><strong>5. Older bisphosphonates (etidronate, tiludronate):</strong></p>
+        <ul>
+          <li>Less potent, longer courses required</li>
+          <li>Largely superseded by newer agents</li>
+          <li>Etidronate can cause osteomalacia at high doses (continuous use >6 months)</li>
+        </ul>
+
+        <p><em>Side effects of bisphosphonates (see osteoporosis case for full details):</em></p>
+        <ul>
+          <li><strong>Acute phase reaction (IV):</strong> Flu-like symptoms (fever, myalgia, headache) within 24-72 hours; common after first infusion (~30%); self-limiting (1-3 days); rare with subsequent doses
+            <ul>
+              <li>Prevention/management: Paracetamol before/after infusion; adequate hydration; warn patient</li>
+            </ul>
+          </li>
+          <li><strong>GI side effects (oral):</strong> Dyspepsia, esophageal irritation (minimize with proper administration)</li>
+          <li><strong>Hypocalcemia:</strong> Ensure adequate calcium and vitamin D before treatment (supplement if deficient)</li>
+          <li><strong>Renal impairment:</strong> Dose adjustment or avoid if eGFR <30-35 ml/min</li>
+          <li><strong>Osteonecrosis of jaw (ONJ):</strong> Very rare (~0.01% at osteoporosis doses; slightly higher at Paget's doses)
+            <ul>
+              <li>Dental check before starting; maintain good oral hygiene</li>
+            </ul>
+          </li>
+          <li><strong>Atypical femoral fractures:</strong> Rare, associated with prolonged use</li>
+        </ul>
+
+        <p><em>Contraindications:</em></p>
+        <ul>
+          <li>Severe renal impairment (eGFR <30-35 ml/min)</li>
+          <li>Hypocalcemia (correct before treatment)</li>
+          <li>Pregnancy (theoretical risk to fetal skeleton)</li>
+        </ul>
+
+        <p><strong>Monitoring treatment:</strong></p>
+        <ul>
+          <li><strong>Alkaline phosphatase:</strong> Check at baseline, then at 3-6 months post-treatment
+            <ul>
+              <li>Successful treatment: ALP falls significantly (often to normal or near-normal)</li>
+              <li>Nadir (lowest level) typically reached at 3-6 months</li>
+            </ul>
+          </li>
+          <li><strong>Symptoms:</strong> Assess bone pain (should improve within weeks-months)</li>
+          <li><strong>Follow-up ALP annually</strong> (or if symptoms recur)
+            <ul>
+              <li>Rising ALP suggests relapse/disease reactivation</li>
+            </ul>
+          </li>
+          <li><strong>Repeat imaging not routinely needed</strong> (unless new symptoms, suspected complications)</li>
+        </ul>
+
+        <p><strong>When to retreat (relapse):</strong></p>
+        <ul>
+          <li><strong>Rising ALP</strong> (>25% increase from nadir, or above normal range)</li>
+          <li><strong>Recurrent bone pain</strong> attributable to Paget's</li>
+          <li><strong>New complications</strong></li>
+          <li>Can re-treat with same or different bisphosphonate</li>
+          <li>Typically retreat when ALP rises, not at fixed intervals</li>
+        </ul>
+
+        <p><strong>Alternative treatments (rarely used):</strong></p>
+
+        <p><strong>Calcitonin (salmon calcitonin):</strong></p>
+        <ul>
+          <li>Inhibits osteoclast activity</li>
+          <li><strong>Much less effective than bisphosphonates</strong></li>
+          <li>Indications now very limited: Patients intolerant/contraindicated to bisphosphonates; acute pain relief (may have analgesic effect)</li>
+          <li>Dose: SC or IM injection (50-100 IU daily or alternate days) or intranasal spray</li>
+          <li>Tachyphylaxis develops (loss of efficacy over time)</li>
+        </ul>
+
+        <p><strong>Denosumab:</strong></p>
+        <ul>
+          <li>RANK ligand inhibitor (potent antiresorptive)</li>
+          <li>Not licensed for Paget's, but case reports show efficacy</li>
+          <li>Potential option for bisphosphonate-refractory disease (specialist use)</li>
+        </ul>
+
+        <p><strong>Non-pharmacological management:</strong></p>
+
+        <p><em>Analgesia:</em></p>
+        <ul>
+          <li>Paracetamol, NSAIDs for bone pain (adjunct to bisphosphonates)</li>
+          <li>Bisphosphonates address underlying cause of pain (usually more effective than simple analgesia alone)</li>
+        </ul>
+
+        <p><em>Physiotherapy:</em></p>
+        <ul>
+          <li>Maintain mobility, muscle strength</li>
+          <li>Gait aids if needed (walking stick, frame)</li>
+        </ul>
+
+        <p><em>Orthopedic interventions:</em></p>
+        <ul>
+          <li><strong>Fracture management:</strong> Surgical fixation (internal fixation, intramedullary nailing)</li>
+          <li><strong>Joint replacement:</strong> Hip or knee arthroplasty for severe secondary OA
+            <ul>
+              <li><strong>Important:</strong> Pre-treat with bisphosphonates 2-3 months before elective surgery (reduce bone vascularity, bleeding)</li>
+            </ul>
+          </li>
+          <li><strong>Corrective osteotomy:</strong> For severe deformity (rarely performed)</li>
+        </ul>
+
+        <p><em>Hearing aids:</em></p>
+        <ul>
+          <li>For sensorineural hearing loss (treatment unlikely to reverse established loss)</li>
+        </ul>
+
+        <p><em>Neurosurgery:</em></p>
+        <ul>
+          <li>Spinal decompression for spinal stenosis</li>
+          <li>Skull base surgery for basilar invagination</li>
+        </ul>
+
+        <p><strong>Calcium and vitamin D:</strong></p>
+        <ul>
+          <li><strong>Essential before and during bisphosphonate treatment</strong></li>
+          <li>Check vitamin D level - supplement if deficient (loading dose then maintenance)</li>
+          <li>Adequate dietary calcium (1000mg/day) or supplementation</li>
+          <li>Prevents hypocalcemia after bisphosphonates (especially potent IV bisphosphonates)</li>
+        </ul>
+
+        <p><strong>Management plan for this patient (Mr. Thompson):</strong></p>
+
+        <p><em>Assessment:</em></p>
+        <ul>
+          <li>Symptomatic Paget's disease (bone pain, hearing loss)</li>
+          <li>High-risk sites affected (skull, weight-bearing long bones, spine)</li>
+          <li>Markedly elevated ALP (856 U/L)</li>
+          <li><strong>Clear indication for treatment</strong></li>
+        </ul>
+
+        <p><em>Initial management:</em></p>
+        <ul>
+          <li><strong>Investigations (complete baseline assessment):</strong>
+            <ul>
+              <li>X-rays: Pelvis, left femur, left tibia, skull, lumbar spine (likely already done)</li>
+              <li>Bone scan: Determine full extent of disease</li>
+              <li>Blood tests: Renal function, calcium, phosphate, vitamin D</li>
+              <li>Audiometry: Quantify hearing loss</li>
+            </ul>
+          </li>
+          <li><strong>Optimize calcium and vitamin D:</strong>
+            <ul>
+              <li>Check vitamin D level - replace if deficient</li>
+              <li>Start calcium + vitamin D supplementation (e.g., Adcal-D3 or equivalent)</li>
+            </ul>
+          </li>
+          <li><strong>Pharmacological treatment:</strong>
+            <ul>
+              <li><strong>First-line: Zoledronic acid 5mg IV single infusion</strong>
+                <ul>
+                  <li>Most potent, single dose, best long-term control</li>
+                  <li>Pre-treatment: Ensure adequate hydration, normal calcium, adequate vitamin D</li>
+                  <li>Warn about acute phase reaction; provide paracetamol</li>
+                </ul>
+              </li>
+              <li>Alternative if IV not suitable: Risedronate 30mg daily for 2 months</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>Symptomatic management:</em></p>
+        <ul>
+          <li><strong>Analgesia:</strong> Paracetamol +/- NSAIDs for bone pain (short-term, until bisphosphonates take effect)</li>
+          <li><strong>Hearing loss:</strong> Audiology referral for hearing aids</li>
+          <li><strong>Physiotherapy:</strong> Assess gait, provide mobility aids if needed</li>
+        </ul>
+
+        <p><em>Monitoring:</em></p>
+        <ul>
+          <li><strong>ALP at 3 and 6 months:</strong> Expect significant fall (ideally to normal)</li>
+          <li><strong>Symptoms:</strong> Pain should improve within 1-3 months</li>
+          <li><strong>Annual follow-up:</strong> Check ALP, assess symptoms, monitor for complications</li>
+          <li><strong>Retreat if:</strong> ALP rises, pain recurs (typically may not need retreatment for several years after zoledronate)</li>
+        </ul>
+
+        <p><em>Address complications:</em></p>
+        <ul>
+          <li>Hearing loss: Already present - unlikely to reverse with treatment but may prevent further progression</li>
+          <li>Monitor for fractures, spinal stenosis, other neurological complications</li>
+        </ul>
+
+        <p><em>Family screening:</em></p>
+        <ul>
+          <li>Given strong family history (father affected), consider screening first-degree relatives >40 years</li>
+          <li>Screening: ALP, X-ray if ALP elevated or symptomatic</li>
+        </ul>
+
+        <p><strong>Expected outcomes with treatment:</strong></p>
+        <ul>
+          <li>ALP should normalize or fall to near-normal within 6 months</li>
+          <li>Bone pain should improve significantly (70-80% patients)</li>
+          <li>Disease activity suppressed for years (median ~2-5 years with zoledronate)</li>
+          <li>Hearing loss may stabilize but unlikely to improve</li>
+          <li>Existing bone deformity will NOT reverse (but further deformity prevented)</li>
+          <li>Reduced risk of future fractures and complications</li>
+        </ul>
+
+        <p><strong>Key counseling points:</strong></p>
+        <ul>
+          <li>Paget's disease is treatable and manageable with bisphosphonates</li>
+          <li>Treatment very effective at controlling disease activity and relieving pain</li>
+          <li>Single IV infusion can control disease for years</li>
+          <li>Cannot reverse existing complications (deformity, hearing loss) but prevents progression</li>
+          <li>Need long-term follow-up (annual checks)</li>
+          <li>Report new/worsening pain (could indicate complications like fracture or malignant transformation)</li>
+          <li>Family members should be aware of genetic component</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q5')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 5:</strong> How does Paget's disease differ from other metabolic bone diseases? Create a comparison highlighting key differentiating features.
+      </button>
+      <div id="q5" class="answer">
+        <p><strong>Comparison of Paget's disease with other metabolic bone diseases:</strong></p>
+
+        <p>Understanding the differences helps with differential diagnosis and appropriate management.</p>
+
+        <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+          <thead>
+            <tr style="background-color: #f0f0f0;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Feature</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Paget's Disease</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Osteoporosis</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Osteomalacia/Rickets</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Primary Hyperparathyroidism</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Pathophysiology</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Excessive, disorganized bone remodeling; localized to specific bones</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Reduced bone mass; normal mineralization; systemic</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Defective bone mineralization; unmineralized osteoid; systemic</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Excess PTH → increased bone resorption, renal calcium retention; systemic</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Serum Calcium</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Normal</strong> (or ↑ if immobilized)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Low or low-normal</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Elevated</strong></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Serum Phosphate</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Normal</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Low</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Low</strong> (renal phosphate wasting)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Alkaline Phosphatase</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Very high (often >1000)</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Elevated</strong> (variable)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Elevated or high-normal</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>PTH</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal or ↑ (secondary)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Elevated</strong> (inappropriate)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Vitamin D</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal (unless coexistent deficiency)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Often low (common in elderly)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Low</strong> (most common cause)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal or ↑ (PTH stimulates activation)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Distribution</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Localized (monostotic or polyostotic specific bones)</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Generalized (systemic)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Generalized (systemic)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Generalized (systemic)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>X-ray appearance</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Mixed lytic/sclerotic; bone enlargement; "cotton wool" skull; thickened cortex; coarse trabeculae</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Reduced bone density; thin cortex; vertebral fractures; fragility fractures</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Reduced density; <strong>Looser zones (pseudofractures)</strong>; bowing in children</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Subperiosteal resorption (phalanges); "salt and pepper" skull; brown tumors; osteosclerosis ("rugger jersey spine")</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Bone pain</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Deep, aching; worse at night/rest</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Usually painless (unless fracture)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Diffuse bone pain, muscle weakness</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Bone pain, abdominal pain, renal stones, "bones, stones, groans, moans"</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Bone deformity</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Yes - bowing, skull enlargement</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Kyphosis, height loss (from fractures)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Bowing (children), skeletal deformities</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Usually no gross deformity</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Fractures</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Pathological fractures; transverse "chalk-stick"; fissure fractures</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Fragility fractures - vertebral, hip, wrist</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Looser zones (pseudofractures)</strong>; true fractures</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Fragility fractures (increased risk)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Age of onset</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">>50 years (usually >65)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Postmenopausal women; elderly</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Any age (rickets in children, osteomalacia in adults)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Middle-aged to elderly (peak 50-60 years)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Bone scan</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Intensely increased uptake in affected bones (whole bone or large areas)</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Normal or reduced uptake</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Diffusely increased uptake</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Increased uptake (generalized or brown tumors)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Treatment</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Bisphosphonates (IV zoledronate)</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Bisphosphonates, denosumab, lifestyle</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Vitamin D replacement; calcium</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Parathyroidectomy</strong> (definitive)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Unique features</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Localized disease; markedly ↑ ALP with normal Ca/PO₄; bone enlargement; hearing loss</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Low BMD on DEXA; fragility fractures; normal biochemistry</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>↓ Ca, ↓ PO₄, ↓ vit D; Looser zones; muscle weakness</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>↑ Ca, ↓ PO₄, ↑ PTH; renal stones; peptic ulcers</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Key diagnostic clues to differentiate Paget's from other conditions:</strong></p>
+
+        <p><strong>Paget's disease (this patient):</strong></p>
+        <ul>
+          <li><strong>Markedly elevated ALP + normal calcium and phosphate</strong> = pathognomonic</li>
+          <li>Localized to specific bones (not generalized)</li>
+          <li>Bone pain worse at night/rest (unlike OA which is worse with activity)</li>
+          <li>Bone enlargement and deformity (skull enlargement, bowing)</li>
+          <li>Mixed lytic/sclerotic appearance on X-ray</li>
+          <li>Age >50 years</li>
+        </ul>
+
+        <p><strong>When to suspect each condition:</strong></p>
+
+        <table style="width:100%; border-collapse: collapse; margin-top: 10px; margin-bottom: 10px;">
+          <thead>
+            <tr style="background-color: #f0f0f0;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Suspect this if...</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Diagnosis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Very high ALP + normal Ca/PO₄ + bone pain + localized X-ray changes</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Paget's disease</strong></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Fragility fracture + low BMD on DEXA + normal biochemistry</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Osteoporosis</strong></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">Low Ca + low PO₄ + high ALP + Looser zones on X-ray + muscle weakness</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Osteomalacia</strong></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">High Ca + low PO₄ + high PTH + renal stones/peptic ulcer</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Primary hyperparathyroidism</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Practical clinical approach to isolated raised ALP:</strong></p>
+
+        <p><em>Step 1: Confirm it's from bone (not liver):</em></p>
+        <ul>
+          <li>Check other LFTs (GGT, ALT, AST, bilirubin)
+            <ul>
+              <li>If other LFTs raised → liver disease</li>
+              <li>If other LFTs normal → likely bone source</li>
+            </ul>
+          </li>
+          <li>Can measure bone-specific ALP or GGT if uncertain</li>
+        </ul>
+
+        <p><em>Step 2: Check calcium and phosphate:</em></p>
+        <ul>
+          <li><strong>Normal Ca + normal PO₄:</strong> Paget's disease most likely (also consider: recent fracture, bony metastases, growing adolescent)</li>
+          <li><strong>High Ca + low PO₄:</strong> Primary hyperparathyroidism</li>
+          <li><strong>Low Ca + low PO₄:</strong> Osteomalacia (vitamin D deficiency)</li>
+          <li><strong>Normal Ca + low PO₄:</strong> Consider renal phosphate wasting, oncogenic osteomalacia</li>
+        </ul>
+
+        <p><em>Step 3: Plain X-rays of symptomatic areas + commonly affected sites (pelvis, skull, spine):</em></p>
+        <ul>
+          <li>Characteristic pagetic changes confirm diagnosis</li>
+          <li>If X-rays normal but ALP very high → bone scan to identify affected sites</li>
+        </ul>
+
+        <p><em>Step 4: Exclude differential diagnoses if atypical:</em></p>
+        <ul>
+          <li>PSA (if male - exclude prostate cancer with sclerotic bone mets)</li>
+          <li>Protein electrophoresis, Bence Jones protein (exclude myeloma)</li>
+          <li>Imaging for primary tumor if metastases suspected</li>
+        </ul>
+
+        <p><strong>Summary - key distinguishing feature:</strong></p>
+        <ul>
+          <li><strong>Paget's disease:</strong> Very high ALP + normal Ca/PO₄ + localized bone changes</li>
+          <li>This combination is virtually diagnostic and different from all other metabolic bone diseases</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

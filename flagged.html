@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flagged Questions | MD3 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Flagged Questions | MD3 SCP Cases">
+  <meta name="description" content="Review questions you've flagged as difficult.">
+
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .flagged-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .flagged-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .flagged-header h1 {
+      color: var(--text-color);
+      font-size: 32px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      background-color: white;
+      border: 1.5px solid var(--border-color);
+    }
+
+    .back-link:hover {
+      background-color: var(--hover-bg);
+      border-color: var(--accent-color);
+      transform: translateY(-1px);
+    }
+
+    .clear-all-btn {
+      padding: 10px 20px;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .clear-all-btn:hover {
+      background-color: #ff5252;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.25);
+    }
+
+    .flag-count {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .flagged-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .flagged-item {
+      background: white;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .flagged-item:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .flagged-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 16px;
+    }
+
+    .case-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .case-badge {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .case-badge:hover {
+      background-color: var(--hover-color);
+      transform: scale(1.05);
+    }
+
+    .question-number {
+      color: var(--secondary-text);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .remove-flag-btn {
+      padding: 6px 14px;
+      background-color: transparent;
+      color: var(--secondary-text);
+      border: 1.5px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .remove-flag-btn:hover {
+      background-color: #ff6b6b;
+      color: white;
+      border-color: #ff6b6b;
+    }
+
+    .question-text {
+      color: var(--text-color);
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .flagged-date {
+      color: var(--secondary-text);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .empty-state-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+      opacity: 0.3;
+    }
+
+    .empty-state h2 {
+      color: var(--text-color);
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .empty-state p {
+      color: var(--secondary-text);
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .flagged-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .flagged-header h1 {
+        font-size: 24px;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .flagged-item {
+        padding: 16px;
+      }
+
+      .flagged-item-header {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
+      <img src="https://img.icons8.com/?size=100&id=39563&format=png&color=FFFFFF" alt="logo">
+      <h1>MD3 SCP Cases</h1>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-bar" placeholder="Search for anything (e.g. Nephrotic Syndrome)">
+    </div>
+    <div class="header-right">
+      <div id="userProfile" class="user-profile" style="display: none;">
+        <div class="user-initial-circle" id="userInitialCircle"></div>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown-header">
+            <div class="dropdown-user-name" id="dropdownUserName"></div>
+            <div class="dropdown-user-email" id="dropdownUserEmail"></div>
+          </div>
+          <button class="dropdown-signout-btn" id="dropdownSignOut">Sign Out</button>
+        </div>
+      </div>
+      <button id="authButton" class="auth-button">Sign In</button>
+      <div class="logo-container">
+        <img src="assets/ShepTech logo.png" alt="ShepTech Logo" class="sheptech-logo">
+        <span class="sheptech-text">SHEPTECH</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="flagged-container">
+    <div class="flagged-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <h1>🚩 Flagged Questions</h1>
+        <span class="flag-count" id="flagCount">0</span>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="back-link">← Back to Cases</a>
+        <button class="clear-all-btn" id="clearAllBtn" onclick="clearAllFlags()">Clear All</button>
+      </div>
+    </div>
+
+    <div class="flagged-list" id="flaggedList">
+      <!-- Flagged items will be inserted here by JavaScript -->
+    </div>
+
+    <div class="empty-state" id="emptyState" style="display: none;">
+      <div class="empty-state-icon">🏳️</div>
+      <h2>No Flagged Questions Yet</h2>
+      <p>Flag questions you find difficult to review them later</p>
+      <a href="index.html" class="back-link">Browse Cases</a>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/flag-tracker.js"></script>
+
+  <script>
+    // Case metadata mapping
+    const caseMetadata = {
+      '1_1': { name: 'Hypertension', number: '1.1' },
+      '1_2': { name: 'Chest Pain (SDL)', number: '1.2' },
+      '1_3': { name: 'Heart Failure', number: '1.3' },
+      '1_4': { name: 'Hyperlipidaemia (Acquired)', number: '1.4' },
+      '1_5': { name: 'Obesity', number: '1.5' },
+      '1_6': { name: 'Smoking Cessation (SDL)', number: '1.6' },
+      '2_1': { name: 'Cardiomyopathy (Hypertrophic)', number: '2.1' },
+      '2_2': { name: 'Cardiomyopathy (Dilated) [SDL]', number: '2.2' },
+      '2_3': { name: 'Stable Angina', number: '2.3' },
+      '2_4': { name: 'Unstable Angina', number: '2.4' },
+      '2_5': { name: 'Myocardial Infarction', number: '2.5' },
+      '2_6': { name: 'Hyperlipidaemia (Congenital) [SDL]', number: '2.6' },
+      // Add more mappings as needed
+    };
+
+    // Display flagged questions
+    function displayFlaggedQuestions() {
+      if (!window.flagTracker) {
+        setTimeout(displayFlaggedQuestions, 100);
+        return;
+      }
+
+      const flags = window.flagTracker.getAllFlags();
+      const flaggedList = document.getElementById('flaggedList');
+      const emptyState = document.getElementById('emptyState');
+      const flagCount = document.getElementById('flagCount');
+      const clearAllBtn = document.getElementById('clearAllBtn');
+
+      flagCount.textContent = flags.length;
+
+      if (flags.length === 0) {
+        flaggedList.style.display = 'none';
+        emptyState.style.display = 'block';
+        clearAllBtn.style.display = 'none';
+        return;
+      }
+
+      flaggedList.style.display = 'flex';
+      emptyState.style.display = 'none';
+      clearAllBtn.style.display = 'block';
+
+      // Sort flags by date (newest first)
+      flags.sort((a, b) => new Date(b.flaggedAt) - new Date(a.flaggedAt));
+
+      flaggedList.innerHTML = flags.map(flag => {
+        const caseInfo = caseMetadata[flag.caseId] || {
+          name: `Case ${flag.caseId.replace('_', '.')}`,
+          number: flag.caseId.replace('_', '.')
+        };
+        const flagDate = new Date(flag.flaggedAt).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+
+        return `
+          <div class="flagged-item" data-flag-id="${flag.flagId}">
+            <div class="flagged-item-header">
+              <div class="case-info">
+                <a href="cases/case${flag.caseId}.html" class="case-badge">
+                  Case ${caseInfo.number}
+                </a>
+                <span class="question-number">Question ${flag.questionNumber}</span>
+              </div>
+              <button class="remove-flag-btn" onclick="removeFlag('${flag.caseId}', ${flag.questionNumber})">
+                Remove
+              </button>
+            </div>
+            <p class="question-text">${flag.questionText}</p>
+            <div class="flagged-date">Flagged on ${flagDate}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Remove a specific flag
+    function removeFlag(caseId, questionNumber) {
+      if (window.flagTracker) {
+        const flagId = window.flagTracker.createFlagId(caseId, questionNumber);
+        // Get question text for toggle
+        const questionText = window.flagTracker.flags[flagId]?.questionText || '';
+        window.flagTracker.toggleFlag(caseId, questionNumber, questionText);
+        displayFlaggedQuestions();
+      }
+    }
+
+    // Clear all flags
+    function clearAllFlags() {
+      if (window.flagTracker && window.flagTracker.clearAllFlags()) {
+        displayFlaggedQuestions();
+      }
+    }
+
+    // Initialize display when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      displayFlaggedQuestions();
+    });
+  </script>
+
+</body>
+</html>

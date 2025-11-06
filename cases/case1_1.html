@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 1.1 - Hypertension | MD3 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 1.1 - Hypertension | MD3 SCP Cases">
+  <meta name="description" content="Cardiovascular case study on hypertension for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://md3-scp.netlify.app/cases/case1_1.html">
+  <meta property="og:title" content="Case 1.1 - Hypertension">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Cardiovascular case study on hypertension for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Case 1.1 - Hypertension">
+  <meta property="twitter:description" content="Cardiovascular case study on hypertension for medical students.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 1.1 – Hypertension</h1>
+    <p class="meta"><strong>Category:</strong> Cardiovascular | <strong>Discipline:</strong> General practice | <strong>Setting:</strong> Urban Community</p>
+
+    <h2>Case</h2>
+    <p>Lucy Webster, aged 46 years, presents to her general practitioner for a Pap smear test. After taking a Pap smear, the doctor checks Lucy's blood pressure and notes a reading of 165/100. After 5 minutes, the blood pressure is measured again and the same reading is obtained. The practice records indicate that Lucy has had her blood pressure checked over the last few years and it has never been elevated in the past. Her reading from 2 years earlier is recorded as 135/85.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is the definition of hypertension?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <tr><th>Category</th><th>Systolic BP (mmHg)</th><th>Diastolic BP (mmHg)</th></tr>
+          <tr><td colspan="3"><strong>Blood pressure</strong></td></tr>
+          <tr><td>Optimal</td><td>&lt; 120</td><td>&lt; 80</td></tr>
+          <tr><td>Normal</td><td>&lt; 130</td><td>&lt; 85</td></tr>
+          <tr><td>High normal</td><td>130-139</td><td>85-89</td></tr>
+          <tr><td colspan="3"><strong>Hypertension</strong></td></tr>
+          <tr><td>Grade 1 (mild)</td><td>140-159</td><td>90-99 (confirm within 2 months)</td></tr>
+          <tr><td>Grade 2 (moderate)</td><td>160-179</td><td>100-109 (confirm within one month)</td></tr>
+          <tr><td>Grade 3 (severe)</td><td>≥180</td><td>≥110 (confirm within one week)</td></tr>
+          <tr><td colspan="3"><strong>Isolated systolic hypertension</strong></td></tr>
+          <tr><td>Grade 1</td><td>140-159</td><td>&lt; 90</td></tr>
+          <tr><td>Grade 2</td><td>≥160</td><td>&lt; 90</td></tr>
+        </table>
+        <p>When a patient's Systolic and Diastolic blood pressures fall into different categories, the higher category should apply.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. List the most likely diagnosis and differential diagnosis for the cause of Lucy's elevated blood pressure reading.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Most likely: <strong>Essential hypertension</strong> (affects about 95% of diagnosed patients)</p>
+        <p><strong>Causes of Secondary Hypertension:</strong></p>
+        <ul>
+          <li><strong>Alcohol</strong></li>
+          <li><strong>Obesity</strong></li>
+          <li><strong>Pregnancy</strong> (pre-eclampsia)</li>
+          <li><strong>Renal disease</strong> (most common cause of secondary hypertension): Renal vascular disease, Parenchymal renal disease (glomerulonephritis), Polycystic kidney disease</li>
+          <li><strong>Endocrine disease:</strong> Phaeochromocytoma, Cushing's syndrome, Primary hyperaldosteronism (Conn's syndrome), Hyperparathyroidism, Acromegaly, Primary hypothyroidism, Thyrotoxicosis, Congenital adrenal hyperplasia, Liddle's syndrome</li>
+          <li><strong>Drugs:</strong> Oral contraceptives containing oestrogens, anabolic steroids, corticosteroids, NSAIDs, carbenoxolone, sympathomimetic agents</li>
+          <li><strong>Coarctation of the aorta</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is the pathogenesis of essential hypertension?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The pathogenesis of essential hypertension is not clearly understood. Investigators have proposed that the primary abnormality may involve the kidney, the peripheral resistance vessels, or the sympathetic nervous system. In reality, the problem is probably multifactorial.</p>
+        <ul>
+          <li>More common in some ethnic groups (particularly African Americans and Japanese)</li>
+          <li>Genetic factors play a role in approximately 40-60% cases</li>
+          <li><strong>Environmental factors:</strong> High salt intake, heavy alcohol consumption, obesity, lack of exercise, impaired intrauterine growth</li>
+          <li>Very little evidence that 'stress' causes hypertension</li>
+        </ul>
+        <p>In about 5% of unselected cases, hypertension is a consequence of a specific disease leading to sodium retention and/or peripheral vasoconstriction (secondary hypertension).</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What is the histological structure of the aorta, and how is this altered by hypertension?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Normal aortic structure:</strong> Large elastic artery comprised of three concentric layers:</p>
+        <ul>
+          <li><strong>Intima:</strong> Single layer of endothelial cells, separated from media by internal elastic lamina</li>
+          <li><strong>Media:</strong> Connective and muscle tissue</li>
+          <li><strong>Adventitia:</strong> Connective tissue with nerve fibres and vasa vasorum (network of small arterioles supplying oxygen and nutrients)</li>
+        </ul>
+        <p><strong>Changes in hypertension:</strong></p>
+        <ul>
+          <li><strong>Larger arteries (>1mm):</strong> Internal elastic lamina becomes thickened, smooth muscle hypertrophied, fibrous tissue deposited. Vessels dilate and become tortuous, walls become less compliant</li>
+          <li><strong>Smaller arteries (<1mm):</strong> Hyaline arteriosclerosis occurs in wall, lumen narrows, aneurysms may develop</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What symptoms may high blood pressure cause?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Generally, high blood pressure is <strong>asymptomatic</strong>.</p>
+        <p>However, patients may complain of:</p>
+        <ul>
+          <li>Headache</li>
+          <li>Symptoms secondary to vascular disease: visual disturbance, chest pain (angina), breathlessness, calf pain</li>
+          <li>Symptoms related to possible secondary causes of hypertension</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. What further history and examination should be undertaken?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>History:</strong></p>
+        <ul>
+          <li>Known duration of elevated BP and previous BP levels</li>
+          <li>Previous therapy, adverse effects</li>
+          <li>Past history or current symptoms of ischaemic heart disease, heart failure, cerebrovascular disease, peripheral vascular disease</li>
+          <li>Past history or current symptoms of kidney disease</li>
+          <li>Symptoms suggestive of secondary hypertension (e.g. paroxysmal headache, sweating, palpitations for phaeochromocytoma; sleep apnoea)</li>
+          <li>Asthma, COPD, diabetes, dyslipidaemia, gout, other significant illnesses</li>
+          <li>Family history of hypertension, diabetes, dyslipidaemia, stroke, CAD, kidney disease</li>
+          <li>Modifiable risk factors: obesity, alcohol intake, salt use, physical activity, smoking, saturated fat intake</li>
+          <li>Medications that may cause hypertension (OCP, NSAIDs, nasal decongestants, corticosteroids)</li>
+        </ul>
+        <p><strong>Examination:</strong></p>
+        <ul>
+          <li>Presence of other cardiovascular risk factors</li>
+          <li>Body mass index, Waist circumference</li>
+          <li>CVS: heart size, evidence of heart failure, arterial disease (carotid, peripheral, renal)</li>
+          <li>Lungs: basal crackles, wheeze</li>
+          <li>Abdomen: renal size, other masses, bruits</li>
+          <li>Optic Fundi</li>
+          <li>Nervous system: evidence of previous neurological disease</li>
+          <li>Endocrine system: evidence of Cushing's, hypothyroidism, hyperthyroidism, acromegaly</li>
+          <li>Blood pressure in sitting and standing position (postural hypotension)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. What investigations and further management would you perform on Lucy at this stage, and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Initial investigations should determine:</p>
+        <ul>
+          <li>Possible causes of hypertension</li>
+          <li>Presence of end organ disease</li>
+          <li>Cardiovascular risk factors</li>
+          <li>Baseline values for judging biochemical effects of therapy</li>
+        </ul>
+        <p><strong>Hypertension Investigation of All Patients:</strong></p>
+        <ul>
+          <li>Urinalysis for blood, protein and glucose</li>
+          <li>Blood urea, electrolytes (including Calcium) and creatinine</li>
+          <li>Fasting blood glucose</li>
+          <li>Fasting serum total and HDL cholesterol, LDL, Triglyceride</li>
+          <li>12-lead ECG (left ventricular hypertrophy, coronary artery disease)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. What are the common classes of drugs used to treat hypertension, and what are the mechanisms of action?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Main means of lowering blood pressure:</strong></p>
+        <ul>
+          <li>Reduce cardiac output (beta-blockers, Ca Channel blockers)</li>
+          <li>Reduce plasma volume (diuretics)</li>
+          <li>Reduce peripheral vascular resistance (vasodilators)</li>
+        </ul>
+        <p><strong>MAP = CO x TPR</strong></p>
+        <table>
+          <tr><th>Class of Anti-hypertensive</th><th>Mode of Action</th></tr>
+          <tr><td>Thiazide Diuretic</td><td>Act at distal tubule by blocking sodium and chloride transport, increasing urinary losses (diuretic effect)</td></tr>
+          <tr><td>Beta-blockers</td><td>Beta-adrenergic receptor antagonists, block beta receptor action resulting in vasodilation and reduced cardiac output</td></tr>
+          <tr><td>ACE Inhibitors (ACEI)</td><td>Inhibit conversion of angiotensin I to angiotensin II, reduces circulating angiotensin II and vascular tone</td></tr>
+          <tr><td>Calcium Channel blockers</td><td>Block calcium influx into blood vessel walls resulting in vasodilation and reduced cardiac output</td></tr>
+          <tr><td>Angiotensin II Receptor Blockers (ARB)</td><td>Competitively inhibit AT1 receptors blocking angiotensin action</td></tr>
+          <tr><td>Alpha-blockers</td><td>Alpha-adrenergic receptor antagonists, block alpha receptor resulting in vasodilation</td></tr>
+        </table>
+        <p><strong>NICE Guideline 2011:</strong></p>
+        <ul>
+          <li>Age <55: offer ACE inhibitor or ARB</li>
+          <li>Age >55: offer Calcium channel blockers, or Thiazide-like if calcium channel blockers not suitable</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>9. What non-pharmacological methods are used to manage patients with hypertension?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>SNAP (Smoking, Nutrition, Alcohol & Physical activity):</strong></p>
+        <ul>
+          <li>Weight reduction (waist circumference <94cm males, <80cm females, BMI <25kg/m²)</li>
+          <li>Regular physical activity (30 mins moderate activity, 5 times a week)</li>
+          <li>Reduce & limit intake of alcohol</li>
+          <li>Reduce intake of salt (below 90mmol per day)</li>
+          <li>Diet: increase plant based foods, reduce saturated fats</li>
+          <li>Smoking cessation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>10. What are common causes for treatment failure?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Common causes of treatment failure in hypertension:</p>
+        <ol>
+          <li>Non-adherence with drug therapy</li>
+          <li>Inadequate therapy</li>
+          <li>Failure to recognise an underlying cause such as renal artery stenosis or phaeochromocytoma</li>
+          <li>Chronic use of medication such as NSAID, corticosteroid and OCP</li>
+        </ol>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+</body>
+</html>

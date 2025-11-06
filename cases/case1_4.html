@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 1.4 - Hyperlipidaemia (Acquired)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 1.4 - Hyperlipidaemia (Acquired) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 1.4 - Hyperlipidaemia (Acquired)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 1.4 – Hyperlipidaemia (Acquired)</h1>
+    <p class="meta"><strong>Category:</strong> Cardiovascular | <strong>Discipline:</strong> General practice | <strong>Setting:</strong> Urban Community</p>
+
+    <h2>Case</h2>
+    <p>Herbert Chapper, aged 45 years, presents the results of his blood tests. Hehad a shoulder injury at work two weeks ago, and you had suggested he have some blood tests as part of a general health review. His father died of an acute myocardial infarction at 58 years. Herbert is a poor attendee to the practice, but did have his cholesterol levels tested 8 years ago. At that time they were normal. However, since then, Herbert has put on a lot of weight.</p>
+
+    <p><strong>His blood results are as follows:</strong><br>
+    Cholesterol 7.0 mmol/l (3.9-5.5)<br>
+    Triglycerides 2.0 mmol/l (0.5-1.7)<br>
+    LDL 4.5 mmol/l (2.1-4.0)<br>
+    HDL 0.7 mmol/l (>1.0)</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Summarise Herbert's test results.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Herbert has an elevated total cholesterol – hypercholesterolaemia, of which the main contributor is his LDL cholesterol which is also elevated.</p>
+        <p>He also had elevated triglycerides – hypertriglycerideaemia.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. List the common causes of abnormal lipid profiles.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Primary causes: Familial hypercholesterolaemia,<br>
+        Secondary causes: More common than primary causes:</p>
+        <ul>
+          <li>Dietary</li>
+          <li>Alcohol</li>
+          <li>Type 2 DM</li>
+          <li>Hypothyroidism</li>
+          <li>Medication (steroids, contraceptives, beta-blockers)</li>
+          <li>Nephrotic syndrome</li>
+        </ul>
+
+        <p>Polygenic hypercholesterolaemia is the most common cause of mild to moderate increase in LDL-C</p>
+
+        <p>Familial hypercholesterolaemia (FH) causes moderate to severe hypercholesterolaemia with a prevalence of at least 0.2% in most populations. It is usually due to an autosomal dominantly inherited mutation of the LDL receptor gene, but a similar syndrome can arise with defects in the ligand-binding domain of apolipoprotein B100 or a sterol-sensitive protease known as NARC-1. Most patients with these abnormalities exhibit LDL levels that are approximately twice as high as in unaffected subjects of the same age and gender.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. How is hyperlipidaemia classified and how do the different classifications correspond to CHD risk?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>CLASSIFICATION OF HYPERLIPIDAEMIA</strong></p>
+        <table>
+          <tr>
+            <th>Disease</th>
+            <th>Elevated lipid results</th>
+            <th>Elevated lipoprotein</th>
+            <th>CHD risk</th>
+            <th>Pancreatitis risk</th>
+          </tr>
+          <tr>
+            <td>Predominant hypercholesterolaemia(mostly polygenic)</td>
+            <td>TC ± TG</td>
+            <td>LDL ± VLDL</td>
+            <td>+</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Familial hypercholesterolaemia (LDL receptor defect, defective Apo B100, defective NARC-1 protease)</td>
+            <td>TC ± TG</td>
+            <td>LDL ± VLDL</td>
+            <td>+++</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Hyperalphalipoproteinaemia</td>
+            <td>TC</td>
+            <td>HDL</td>
+            <td>- -</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Predominant hypertriglycerideaemia (mostly polygenic)</td>
+            <td>TG</td>
+            <td>VLDL ± LDL</td>
+            <td>Variable</td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td>Lipoprotein lipase deficiency</td>
+            <td>TG > TC</td>
+            <td>Chylo</td>
+            <td>?</td>
+            <td>+++</td>
+          </tr>
+          <tr>
+            <td>Familial hypertriglycerideaemia</td>
+            <td>TG + TC</td>
+            <td>VLDL + Chylo</td>
+            <td>?</td>
+            <td>++</td>
+          </tr>
+          <tr>
+            <td>Mixed hyperlipidaemia (mostly polygenic)</td>
+            <td>TC + TG</td>
+            <td>VLDL + LDL</td>
+            <td>Variable</td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td>Familial combined hyperlipidaemia*</td>
+            <td>TC and/or TG</td>
+            <td>LDL and VLDL</td>
+            <td>++</td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td>Dysbetalipoproteinaemia*</td>
+            <td>TC and/or TG</td>
+            <td>IDL</td>
+            <td>++ +</td>
+            <td>+</td>
+          </tr>
+        </table>
+        <p>* Familial combined hyperlipidaemia and dysbetalipoproteinaemia may also present as predominant hypercholesterolaemia or predominant hypertriglyceridaemia. (Chylo = chylomicrons; CHD = coronary heart disease; TC = total cholesterol; TG = triglycerides)</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What further history and examination would you undertake?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>History:</strong></p>
+        <ul>
+          <li>Explore other risk factors for cardiovascular disease smoking, diet, exercise, alcohol intake, diabetes.</li>
+          <li>Explore past history of cardiovascular events – AMI, CVA, peripheral vascular disease.</li>
+          <li>Explore possible secondary causes thyroid disease, liver disease, renal disease, medications.</li>
+          <li>Family history of cardiovascular disease, diabetes, lipid abnormalities.</li>
+        </ul>
+
+        <p><strong>Examination:</strong></p>
+        <ul>
+          <li>BP, PR, RR</li>
+          <li>Weight, BMI</li>
+          <li>CVS – signs of heart failure, peripheral vascular disease</li>
+          <li>Fundi</li>
+          <li>Abdomen – organomegaly.</li>
+          <li>Other signs of hyperlipidaemia</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. How would you manage his dyslipidaemia in terms of non-pharmacological and pharmacological approaches?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Non-pharmacological treatment</strong></p>
+        <p>Patients with lipid abnormalities should receive medical advice and, if necessary, dietary counselling to:</p>
+        <ul>
+          <li>reduce intake of saturated and trans-unsaturated fat to less than 7-10% of total energy</li>
+          <li>reduce the intake of cholesterol to less than 250 mg/day</li>
+          <li>replace sources of saturated fat and cholesterol with alternative foods such as lean meat, low-fat dairy products, polyunsaturated spreads and low glycaemic index carbohydrates</li>
+          <li>reduce energy-dense foods such as fats and soft drinks, whilst increasing activity and exercise to achieve stable or negative energy balance (i.e. weight maintenance or weight loss)</li>
+          <li>increase consumption of cardioprotective and nutrient-dense foods such as vegetables, unrefined carbohydrates, fish, pulses, legumes, fruit etc.</li>
+          <li>adjust alcohol consumption, reducing intake if excessive or if associated with hypertension, hypertriglyceridaemia or central obesity</li>
+          <li>achieve additional benefits with supplementary intake of foods containing lipid-lowering nutrients such as n-3 fatty acids, dietary fibre and plant sterols</li>
+        </ul>
+
+        <p><strong>Pharmacological Management</strong></p>
+        <p>In Herbert's situation he would require patient education regarding weight loss and dietary measures; referral for further review by a dietitian would also be beneficial. As Herbert has a significant family history of CVD and is a poor attender, it would be beneficial to commence him on medication in light of his predominate hypercholestrolaemia a statin would be the first line therapy, with a plan to adding a further medication if this was unsuccessful in lowering his cholesterol</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Summarise the evidence base behind treating hypercholesterolaemia with statins</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>HMGCoA reductase inhibitors (statins)</strong></p>
+        <p>Statins inhibit cholesterol synthesis, thereby up-regulating activity of the LDL receptor. This increases clearance of LDL and its precursor, IDL, thereby causing a secondary reduction in LDL synthesis. As a result, statins reduce LDL-C by up to 60%, reduce TG by up to 40% and increase HDL-C by up to 10%. They also reduce the concentration of intermediate metabolites such as isoprenes, which may lead to other effects such as suppression of the inflammatory response. There is clear evidence of protection against stroke, and total and coronary mortality, as well as a reduction in cardiovascular events in high-risk patients</p>
+
+        <p><strong>BENEFITS OF TREATING PATIENTS WITH HYPERCHOLESTEROLAEMIA WITH STATINS</strong></p>
+        <p>'Meta-analysis of major RCTs involving over 90 000 subjects receiving statins for an average of 5 years showed reduced coronary mortality of 19% (95% confidence interval 15-24%), stroke 17% (12-22%) and total mortality 12% (9-16%) per 1 mmol/l reduction in LDL-C.'</p>
+        <p>• Baigent C, et al. Lancet 2005; 366:1267-1278.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. How would your management change if Herbert was 87 years old?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>MANAGEMENT OF HYPERLIPIDAEMIA IN THE ELDERLY</strong></p>
+        <ul>
+          <li><strong>Prevalence of atherosclerotic cardiovascular disease:</strong> greatest in old age.</li>
+          <li><strong>Associated cardiovascular risk:</strong> lipid levels become less predictive, as do other risk factors apart from age itself.</li>
+          <li><strong>Benefit of statin therapy:</strong> maintained up to the age of 80 years but evidence is lacking beyond this.</li>
+          <li><strong>Life expectancy and statin therapy:</strong> lives saved by intervention are associated with shorter life expectancy than in younger patients, and so the impact of statins on quality-adjusted life years is smaller in old age.</li>
+        </ul>
+
+        <p>In light of the evidence you would probably be less likely to commence Herbert on a statin, and may persist more with non-pharmacological methods. Not only is there less evidence of benefit in the elderly, they are also more likely to experience muscle related side effects , myalgia, myositis and possibly rhabdomyolysis from the statins and abnormalities of liver function, especially if they are taking other medications.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

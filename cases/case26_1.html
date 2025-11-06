@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 26_1 - Rheumatoid Arthritis</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 26_1 - Rheumatoid Arthritis | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 26_1 - Rheumatoid Arthritis">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 26.1 – Rheumatoid Arthritis</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Rheumatology | <strong>Setting:</strong> Rheumatology Clinic</p>
+
+    <h2>Case</h2>
+    <p>Mrs. Patricia Davies, a 48-year-old administrative assistant, is referred to the rheumatology clinic by her GP with a 4-month history of joint pain and stiffness. She describes symmetrical pain and swelling affecting her hands, wrists, and feet. The stiffness is particularly severe in the mornings, lasting over 2 hours, and improves with activity. She reports difficulty making a fist, opening jars, and buttoning her clothes. She has noticed fatigue and feels generally unwell. She denies any history of psoriasis, back pain, or recent infections. Her symptoms are significantly affecting her work performance. On examination, there is symmetrical synovitis of the MCP and PIP joints bilaterally with associated warmth and tenderness. Wrist effusions are present bilaterally. There is reduced grip strength. The MTP joints are also tender to palpation.</p>
+
+    <div class="vital-signs">Vital signs: BP 128/82 mmHg, HR 78 bpm, Temp 37.1°C. Examination: symmetrical synovitis of MCPs, PIPs, and wrists bilaterally. MTPs tender. No subcutaneous nodules visible.</div>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the key clinical features of rheumatoid arthritis (RA), and what diagnostic criteria are used?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Definition:</strong></p>
+        <p>Rheumatoid arthritis (RA) is a chronic, systemic, inflammatory autoimmune disease primarily affecting the synovial joints, characterized by symmetrical polyarthritis that can lead to joint destruction and disability if untreated.</p>
+        <p><strong>Epidemiology:</strong></p>
+        <ul>
+          <li>Prevalence: ~1% of the population</li>
+          <li>Female:male ratio approximately 3:1</li>
+          <li>Can occur at any age, peak onset 40-60 years</li>
+          <li>More severe disease in males</li>
+          <li>Genetic component: ~60% heritability</li>
+        </ul>
+        <p><strong>Key Clinical Features:</strong></p>
+        <p><strong>Articular (Joint) Manifestations:</strong></p>
+        <ul>
+          <li><strong>Symmetrical polyarthritis:</strong>
+            <ul>
+              <li>Typically affects small joints of hands and feet initially</li>
+              <li>MCP and PIP joints (NOT DIP joints - involvement of DIPs suggests osteoarthritis or psoriatic arthritis)</li>
+              <li>Wrists</li>
+              <li>MTP joints (often early involvement)</li>
+              <li>Can progress to involve larger joints (knees, shoulders, elbows, ankles)</li>
+            </ul>
+          </li>
+          <li><strong>Morning stiffness:</strong>
+            <ul>
+              <li>Typically >30 minutes (often >1 hour)</li>
+              <li>Distinguishes inflammatory from mechanical arthritis</li>
+              <li>Improves with activity</li>
+            </ul>
+          </li>
+          <li><strong>Joint swelling:</strong>
+            <ul>
+              <li>Soft tissue swelling (synovitis)</li>
+              <li>Warm, tender joints</li>
+              <li>Effusions may be present</li>
+            </ul>
+          </li>
+          <li><strong>Progressive joint damage:</strong>
+            <ul>
+              <li>Joint deformities develop if untreated</li>
+              <li>Ulnar deviation of fingers</li>
+              <li>Swan-neck deformity (hyperextension at PIP, flexion at DIP)</li>
+              <li>Boutonnière deformity (flexion at PIP, hyperextension at DIP)</li>
+              <li>Z-thumb deformity</li>
+              <li>Subluxation and joint instability</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Extra-Articular Manifestations:</strong></p>
+        <ul>
+          <li><strong>Constitutional symptoms:</strong>
+            <ul>
+              <li>Fatigue (very common, often debilitating)</li>
+              <li>Low-grade fever</li>
+              <li>Weight loss</li>
+              <li>Malaise</li>
+            </ul>
+          </li>
+          <li><strong>Rheumatoid nodules:</strong>
+            <ul>
+              <li>Firm subcutaneous nodules</li>
+              <li>Occur in 20-30% of patients</li>
+              <li>Typically over pressure points (elbows, fingers, Achilles tendon)</li>
+              <li>Associated with seropositivity and more severe disease</li>
+            </ul>
+          </li>
+          <li><strong>Other extra-articular features:</strong>
+            <ul>
+              <li>Ocular: scleritis, episcleritis, keratoconjunctivitis sicca (dry eyes - secondary Sjögren's)</li>
+              <li>Pulmonary: interstitial lung disease, pleural effusions, pulmonary nodules</li>
+              <li>Cardiac: pericarditis, increased cardiovascular risk</li>
+              <li>Haematological: normocytic anaemia of chronic disease</li>
+              <li>Vasculitis: rare, severe complication</li>
+              <li>Neurological: carpal tunnel syndrome, cervical myelopathy (atlantoaxial subluxation)</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>2010 ACR/EULAR Classification Criteria for RA:</strong></p>
+        <p>Scoring system with total score ≥6 out of 10 needed for definite RA:</p>
+        <p><strong>1. Joint involvement (0-5 points):</strong></p>
+        <ul>
+          <li>1 large joint = 0 points</li>
+          <li>2-10 large joints = 1 point</li>
+          <li>1-3 small joints (with or without large joints) = 2 points</li>
+          <li>4-10 small joints (with or without large joints) = 3 points</li>
+          <li>>10 joints (at least 1 small joint) = 5 points</li>
+        </ul>
+        <p><strong>2. Serology (0-3 points):</strong></p>
+        <ul>
+          <li>Negative RF and negative ACPA = 0 points</li>
+          <li>Low-positive RF or low-positive ACPA = 2 points</li>
+          <li>High-positive RF or high-positive ACPA = 3 points</li>
+        </ul>
+        <p><strong>3. Acute phase reactants (0-1 point):</strong></p>
+        <ul>
+          <li>Normal CRP and normal ESR = 0 points</li>
+          <li>Abnormal CRP or abnormal ESR = 1 point</li>
+        </ul>
+        <p><strong>4. Duration of symptoms (0-1 point):</strong></p>
+        <ul>
+          <li><6 weeks = 0 points</li>
+          <li>≥6 weeks = 1 point</li>
+        </ul>
+        <p><strong>Important Notes:</strong></p>
+        <ul>
+          <li>These are <strong>classification</strong> criteria (for research/clinical trials), not strict diagnostic criteria</li>
+          <li>Clinical diagnosis may be made with high suspicion even if criteria not fully met</li>
+          <li>Early referral to rheumatology crucial (ideally within 3 months of symptom onset)</li>
+          <li>Treatment should not be delayed awaiting fulfillment of criteria</li>
+        </ul>
+        <p><strong>Differential Diagnosis to Consider:</strong></p>
+        <ul>
+          <li>Psoriatic arthritis (asymmetrical, DIP involvement, psoriasis, nail changes)</li>
+          <li>Systemic lupus erythematosus (SLE) - multisystem features, different serology</li>
+          <li>Polymyalgia rheumatica (older patients, proximal muscle pain/stiffness)</li>
+          <li>Viral arthritis (usually self-limiting, recent infection)</li>
+          <li>Osteoarthritis (mechanical pain, DIPs affected, not inflammatory)</li>
+          <li>Crystal arthropathy (gout, pseudogout - usually acute monoarthritis)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What investigations should be performed, and what are the typical laboratory findings in RA?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Initial Blood Tests:</strong></p>
+        <p><strong>Autoantibodies (most important):</strong></p>
+        <ul>
+          <li><strong>Rheumatoid Factor (RF):</strong>
+            <ul>
+              <li>IgM antibody against Fc portion of IgG</li>
+              <li>Positive in ~70% of RA patients</li>
+              <li>Sensitivity ~70%, specificity ~85%</li>
+              <li>Can be positive in other conditions: other autoimmune diseases, chronic infections, elderly</li>
+              <li>Higher titres associated with more severe disease</li>
+            </ul>
+          </li>
+          <li><strong>Anti-Cyclic Citrullinated Peptide (anti-CCP/ACPA):</strong>
+            <ul>
+              <li>More specific for RA (~95% specificity)</li>
+              <li>Positive in ~70% of RA patients</li>
+              <li>Can be positive years before clinical disease onset</li>
+              <li>Associated with erosive disease and poor prognosis</li>
+              <li>Useful when RF negative but clinical suspicion high</li>
+            </ul>
+          </li>
+          <li><strong>Seronegative RA:</strong> ~20-30% of patients are RF and anti-CCP negative</li>
+        </ul>
+        <p><strong>Inflammatory markers:</strong></p>
+        <ul>
+          <li><strong>C-reactive protein (CRP):</strong>
+            <ul>
+              <li>Usually elevated in active disease</li>
+              <li>Useful for monitoring disease activity</li>
+              <li>Rapid response to treatment</li>
+            </ul>
+          </li>
+          <li><strong>Erythrocyte sedimentation rate (ESR):</strong>
+            <ul>
+              <li>Usually elevated</li>
+              <li>Less specific than CRP</li>
+              <li>Slower to change than CRP</li>
+            </ul>
+          </li>
+          <li>Note: ~40% of patients may have normal inflammatory markers despite active disease</li>
+        </ul>
+        <p><strong>Other blood tests:</strong></p>
+        <ul>
+          <li><strong>Full blood count (FBC):</strong>
+            <ul>
+              <li>Normocytic normochromic anaemia (anaemia of chronic disease) - common</li>
+              <li>Thrombocytosis (platelets elevated in active inflammation)</li>
+              <li>Baseline before starting treatment (methotrexate can cause bone marrow suppression)</li>
+            </ul>
+          </li>
+          <li><strong>Liver function tests:</strong> Baseline before starting DMARDs</li>
+          <li><strong>Renal function (U&Es):</strong> Baseline before treatment</li>
+          <li><strong>Consider:</strong>
+            <ul>
+              <li>ANA (antinuclear antibody) - if SLE suspected</li>
+              <li>Uric acid - if gout in differential</li>
+              <li>Hepatitis B and C serology - before starting immunosuppression</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Imaging:</strong></p>
+        <p><strong>Plain X-rays of hands and feet (baseline):</strong></p>
+        <ul>
+          <li><strong>Early changes (may be normal initially):</strong>
+            <ul>
+              <li>Soft tissue swelling</li>
+              <li>Periarticular osteopenia</li>
+            </ul>
+          </li>
+          <li><strong>Later changes:</strong>
+            <ul>
+              <li>Joint space narrowing (uniform)</li>
+              <li>Marginal erosions</li>
+              <li>Subluxation and deformity</li>
+            </ul>
+          </li>
+          <li>Important for baseline comparison and monitoring progression</li>
+        </ul>
+        <p><strong>Ultrasound (musculoskeletal):</strong></p>
+        <ul>
+          <li>More sensitive than clinical examination for detecting synovitis</li>
+          <li>Can detect erosions earlier than X-ray</li>
+          <li>Power Doppler can assess disease activity</li>
+          <li>Increasingly used in early diagnosis</li>
+        </ul>
+        <p><strong>MRI:</strong></p>
+        <ul>
+          <li>Most sensitive for early erosions and synovitis</li>
+          <li>Detects bone marrow oedema (predictor of erosion development)</li>
+          <li>Not routinely required but useful in unclear cases</li>
+          <li>Expensive and less accessible</li>
+        </ul>
+        <p><strong>Other investigations (as indicated):</strong></p>
+        <ul>
+          <li><strong>Chest X-ray:</strong>
+            <ul>
+              <li>Baseline before starting biologics (TB screening)</li>
+              <li>Assess for interstitial lung disease if respiratory symptoms</li>
+            </ul>
+          </li>
+          <li><strong>Joint aspiration:</strong>
+            <ul>
+              <li>If diagnostic doubt (to exclude septic arthritis or crystal arthropathy)</li>
+              <li>RA synovial fluid: inflammatory (elevated WCC, predominantly neutrophils)</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Screening before starting treatment:</strong></p>
+        <ul>
+          <li>Tuberculosis screening (IGRA/tuberculin skin test, CXR) - before biologics</li>
+          <li>Hepatitis B and C serology</li>
+          <li>HIV if risk factors</li>
+          <li>Pregnancy test in women of childbearing age (methotrexate teratogenic)</li>
+        </ul>
+        <p><strong>Interpretation:</strong></p>
+        <ul>
+          <li>Positive serology (RF and/or anti-CCP) supports diagnosis but is not essential</li>
+          <li>Elevated inflammatory markers support active disease</li>
+          <li>Normal investigations do NOT exclude RA - diagnosis is clinical</li>
+          <li>Serial monitoring of inflammatory markers and imaging used to assess disease activity and treatment response</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is the pathophysiology of rheumatoid arthritis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>RA is an autoimmune disease with complex pathophysiology involving genetic susceptibility, environmental triggers, and immune system dysregulation.</p>
+        <p><strong>Genetic Factors:</strong></p>
+        <ul>
+          <li><strong>HLA-DR4 and HLA-DR1:</strong> Strongest genetic association
+            <ul>
+              <li>Shared epitope - specific amino acid sequence in HLA-DRB1</li>
+              <li>Present in ~70% of RA patients</li>
+              <li>Associated with more severe disease</li>
+            </ul>
+          </li>
+          <li>Multiple other genetic loci identified (PTPN22, CTLA4, etc.)</li>
+          <li>Genetic factors account for ~60% of disease risk</li>
+        </ul>
+        <p><strong>Environmental Triggers:</strong></p>
+        <ul>
+          <li><strong>Smoking:</strong> Most important environmental risk factor
+            <ul>
+              <li>Increases risk 2-fold</li>
+              <li>Associated with worse prognosis</li>
+              <li>May trigger citrullination of proteins</li>
+            </ul>
+          </li>
+          <li>Infectious agents (possible triggers, but no single pathogen identified)</li>
+          <li>Hormonal factors (higher incidence in women, often improves in pregnancy)</li>
+          <li>Periodontal disease (Porphyromonas gingivalis can citrullinate proteins)</li>
+        </ul>
+        <p><strong>Immunological Mechanisms:</strong></p>
+        <p><strong>1. Loss of Self-Tolerance:</strong></p>
+        <ul>
+          <li>Breakdown of immune tolerance to self-antigens</li>
+          <li>Citrullination of proteins (post-translational modification)</li>
+          <li>Formation of neo-antigens recognized as foreign</li>
+          <li>Production of autoantibodies (RF, anti-CCP)</li>
+        </ul>
+        <p><strong>2. Synovial Inflammation:</strong></p>
+        <ul>
+          <li><strong>Initiation:</strong>
+            <ul>
+              <li>Antigen-presenting cells activate T cells</li>
+              <li>CD4+ T helper cells (Th1, Th17) central to pathogenesis</li>
+              <li>T cells activate B cells → autoantibody production</li>
+            </ul>
+          </li>
+          <li><strong>Inflammatory cascade:</strong>
+            <ul>
+              <li>Release of pro-inflammatory cytokines:
+                <ul>
+                  <li><strong>TNF-α:</strong> Key cytokine, major therapeutic target</li>
+                  <li><strong>IL-1, IL-6:</strong> Promote inflammation and bone resorption</li>
+                  <li><strong>IL-17:</strong> Drives neutrophil recruitment</li>
+                </ul>
+              </li>
+              <li>Chemokines attract more immune cells</li>
+              <li>Synovial membrane becomes inflamed and thickened</li>
+            </ul>
+          </li>
+          <li><strong>Pannus formation:</strong>
+            <ul>
+              <li>Proliferation of synovial fibroblasts</li>
+              <li>Formation of invasive granulation tissue (pannus)</li>
+              <li>Angiogenesis (new blood vessel formation)</li>
+              <li>Pannus invades cartilage and bone</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>3. Joint Destruction:</strong></p>
+        <ul>
+          <li><strong>Cartilage degradation:</strong>
+            <ul>
+              <li>Matrix metalloproteinases (MMPs) break down cartilage matrix</li>
+              <li>Direct invasion by pannus</li>
+              <li>Loss of cartilage → joint space narrowing</li>
+            </ul>
+          </li>
+          <li><strong>Bone erosion:</strong>
+            <ul>
+              <li>Osteoclast activation (stimulated by RANK-L)</li>
+              <li>Erosions at joint margins (where pannus contacts bone)</li>
+              <li>Periarticular osteoporosis</li>
+            </ul>
+          </li>
+          <li><strong>Structural damage:</strong>
+            <ul>
+              <li>Ligament and tendon damage</li>
+              <li>Joint instability and subluxation</li>
+              <li>Deformity formation</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>4. Systemic Effects:</strong></p>
+        <ul>
+          <li>Circulating inflammatory mediators cause systemic manifestations:
+            <ul>
+              <li>Fatigue, fever, malaise</li>
+              <li>Anaemia (IL-6 induces hepcidin → iron sequestration)</li>
+              <li>Increased cardiovascular risk (chronic inflammation accelerates atherosclerosis)</li>
+              <li>Extra-articular organ involvement</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Key Cells Involved:</strong></p>
+        <ul>
+          <li><strong>T cells:</strong> Orchestrate immune response</li>
+          <li><strong>B cells:</strong> Produce autoantibodies, present antigens</li>
+          <li><strong>Macrophages:</strong> Produce TNF-α, IL-1, IL-6</li>
+          <li><strong>Synovial fibroblasts:</strong> Form pannus, produce inflammatory mediators and MMPs</li>
+          <li><strong>Osteoclasts:</strong> Mediate bone erosion</li>
+          <li><strong>Neutrophils:</strong> Accumulate in synovial fluid, release destructive enzymes</li>
+        </ul>
+        <p><strong>Therapeutic Implications:</strong></p>
+        <p>Understanding the pathophysiology has led to targeted therapies:</p>
+        <ul>
+          <li><strong>TNF-α inhibitors:</strong> Block key inflammatory cytokine</li>
+          <li><strong>IL-6 inhibitors:</strong> Block IL-6 signaling</li>
+          <li><strong>B cell depletion (rituximab):</strong> Deplete antibody-producing cells</li>
+          <li><strong>T cell co-stimulation blockade (abatacept):</strong> Prevent T cell activation</li>
+          <li><strong>JAK inhibitors:</strong> Block intracellular signaling of multiple cytokines</li>
+        </ul>
+        <p><strong>Window of Opportunity:</strong></p>
+        <ul>
+          <li>Early treatment (within 3 months) prevents irreversible joint damage</li>
+          <li>Once erosions occur, damage is permanent</li>
+          <li>Justifies aggressive early treatment approach</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Outline the treatment strategy for rheumatoid arthritis, including the role of Disease-Modifying Anti-Rheumatic Drugs (DMARDs).</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Treatment of RA aims to achieve remission or low disease activity, prevent joint damage, maintain function, and improve quality of life. Modern management follows a "treat-to-target" approach.</p>
+        <p><strong>Treatment Principles:</strong></p>
+        <ul>
+          <li><strong>Early aggressive treatment:</strong> Start DMARDs as soon as diagnosis made (ideally within 3 months of symptom onset)</li>
+          <li><strong>Treat-to-target approach:</strong> Aim for remission or low disease activity, adjust treatment every 3 months until target achieved</li>
+          <li><strong>Multidisciplinary care:</strong> Rheumatologist, specialist nurse, physiotherapist, occupational therapist</li>
+          <li><strong>Regular monitoring:</strong> Disease activity, drug toxicity</li>
+        </ul>
+        <p><strong>1. Conventional Synthetic DMARDs (csDMARDs) - First-line:</strong></p>
+        <p><strong>Methotrexate (MTX):</strong></p>
+        <ul>
+          <li><strong>First-line DMARD of choice</strong></li>
+          <li>Dose: Start 10-15mg weekly, titrate up to 25mg weekly as needed</li>
+          <li>Route: Oral or subcutaneous (SC better bioavailability, consider if inadequate response to oral)</li>
+          <li>Mechanism: Inhibits dihydrofolate reductase, anti-inflammatory and immunosuppressive effects</li>
+          <li><strong>Co-prescription: Folic acid 5mg weekly</strong> (on different day to MTX) - reduces side effects</li>
+          <li><strong>Efficacy:</strong> Effective in 60-70% of patients</li>
+          <li><strong>Onset:</strong> 6-12 weeks</li>
+          <li><strong>Side effects:</strong>
+            <ul>
+              <li>Nausea, mouth ulcers, diarrhoea (common, often improve with folic acid)</li>
+              <li>Hepatotoxicity (monitor LFTs)</li>
+              <li>Bone marrow suppression (monitor FBC)</li>
+              <li>Pneumonitis (rare but serious - baseline CXR)</li>
+              <li>Teratogenic - MUST avoid pregnancy</li>
+            </ul>
+          </li>
+          <li><strong>Monitoring:</strong> FBC, LFTs, U&Es every 2 weeks until stable, then monthly for 3 months, then every 3 months</li>
+          <li><strong>Contraindications:</strong> Pregnancy, breastfeeding, severe liver disease, significant renal impairment</li>
+        </ul>
+        <p><strong>Other csDMARDs (alternatives or additional agents):</strong></p>
+        <ul>
+          <li><strong>Sulfasalazine:</strong>
+            <ul>
+              <li>Dose: 500mg daily, increase to 2-3g daily in divided doses</li>
+              <li>Less effective than MTX but better tolerated</li>
+              <li>Side effects: nausea, rash, hepatotoxicity, bone marrow suppression</li>
+              <li>Can be used in pregnancy (category A)</li>
+            </ul>
+          </li>
+          <li><strong>Hydroxychloroquine:</strong>
+            <ul>
+              <li>Dose: 200-400mg daily</li>
+              <li>Mildest DMARD, least toxic</li>
+              <li>Often used in combination or for mild disease</li>
+              <li>Side effect: retinopathy (annual eye screening after 5 years)</li>
+            </ul>
+          </li>
+          <li><strong>Leflunomide:</strong>
+            <ul>
+              <li>Alternative to MTX if MTX not tolerated/contraindicated</li>
+              <li>Similar efficacy to MTX</li>
+              <li>Teratogenic, long half-life (washout required before pregnancy)</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Combination csDMARD therapy:</strong></p>
+        <ul>
+          <li>Triple therapy: MTX + sulfasalazine + hydroxychloroquine</li>
+          <li>Used if monotherapy insufficient or before escalating to biologics</li>
+          <li>More effective than monotherapy</li>
+        </ul>
+        <p><strong>2. Biological DMARDs (bDMARDs) - Second-line:</strong></p>
+        <p>Used if inadequate response to csDMARDs (usually after trial of 2 csDMARDs including MTX) or intolerance to csDMARDs.</p>
+        <p><strong>TNF-α inhibitors (most commonly used biologics):</strong></p>
+        <ul>
+          <li>Examples: Adalimumab, etanercept, infliximab, golimumab, certolizumab</li>
+          <li>Usually given with MTX (more effective in combination, reduces antibody formation)</li>
+          <li>Highly effective - achieve low disease activity/remission in ~60%</li>
+          <li>Route: SC injection (most) or IV infusion (infliximab)</li>
+          <li><strong>Side effects/risks:</strong>
+            <ul>
+              <li>Increased infection risk (serious infections 2-3x higher)</li>
+              <li>Reactivation of latent TB - <strong>MUST screen before starting</strong></li>
+              <li>Increased risk of hepatitis B reactivation</li>
+              <li>Injection site reactions</li>
+              <li>Small increased risk of lymphoma (controversial)</li>
+              <li>Demyelinating disease (rare)</li>
+              <li>Heart failure (contraindicated in severe CHF)</li>
+            </ul>
+          </li>
+          <li><strong>Monitoring:</strong> Before each infusion/regular intervals for infection, annual TB screening</li>
+        </ul>
+        <p><strong>Other biologics:</strong></p>
+        <ul>
+          <li><strong>Rituximab (B cell depletion):</strong> Anti-CD20 antibody, alternative to TNF inhibitors</li>
+          <li><strong>Abatacept (T cell co-stimulation blocker):</strong> Blocks T cell activation</li>
+          <li><strong>Tocilizumab (IL-6 inhibitor):</strong> Can be used without MTX</li>
+          <li><strong>Sarilumab (IL-6 inhibitor):</strong> Alternative IL-6 blocker</li>
+        </ul>
+        <p><strong>3. Targeted Synthetic DMARDs (tsDMARDs):</strong></p>
+        <p><strong>JAK inhibitors:</strong></p>
+        <ul>
+          <li>Examples: Tofacitinib, baricitinib, upadacitinib</li>
+          <li>Oral agents (advantage over injectable biologics)</li>
+          <li>Block JAK-STAT intracellular signaling pathway</li>
+          <li>Similar efficacy to biologics</li>
+          <li>Used if inadequate response to csDMARDs</li>
+          <li>Side effects: increased infection risk, venous thromboembolism (VTE) risk, lipid elevations</li>
+        </ul>
+        <p><strong>4. Glucocorticoids:</strong></p>
+        <ul>
+          <li><strong>Role:</strong> Rapid symptom relief while waiting for DMARDs to work ("bridging therapy")</li>
+          <li><strong>Dosing:</strong>
+            <ul>
+              <li>Low-dose oral prednisolone (5-10mg daily) for short-term use</li>
+              <li>IM/intra-articular injections for flares</li>
+            </ul>
+          </li>
+          <li><strong>Important:</strong> Should NOT be used as monotherapy long-term</li>
+          <li><strong>Taper and discontinue</strong> once DMARDs effective (ideally within 3 months)</li>
+          <li>Long-term use: multiple adverse effects (osteoporosis, diabetes, infection, weight gain, etc.)</li>
+        </ul>
+        <p><strong>5. NSAIDs and Analgesics:</strong></p>
+        <ul>
+          <li><strong>Symptom relief only - do NOT modify disease progression</strong></li>
+          <li>NSAIDs: reduce pain and stiffness
+            <ul>
+              <li>Use lowest effective dose, shortest duration</li>
+              <li>Co-prescribe PPI for gastroprotection</li>
+              <li>Caution in elderly, cardiovascular disease, renal impairment</li>
+            </ul>
+          </li>
+          <li>Simple analgesics (paracetamol) as needed</li>
+        </ul>
+        <p><strong>6. Non-Pharmacological Management:</strong></p>
+        <ul>
+          <li><strong>Physiotherapy:</strong> Exercise programs to maintain joint mobility and muscle strength</li>
+          <li><strong>Occupational therapy:</strong> Joint protection techniques, adaptive devices, splints</li>
+          <li><strong>Lifestyle:</strong>
+            <ul>
+              <li>Smoking cessation (improves outcomes)</li>
+              <li>Weight management</li>
+              <li>Regular exercise (low-impact)</li>
+            </ul>
+          </li>
+          <li><strong>Psychological support:</strong> Chronic disease, depression common</li>
+          <li><strong>Patient education:</strong> Self-management, medication adherence</li>
+        </ul>
+        <p><strong>7. Surgical Intervention:</strong></p>
+        <ul>
+          <li>For severely damaged joints despite optimal medical therapy</li>
+          <li>Joint replacement (hip, knee most common)</li>
+          <li>Synovectomy, tendon repair</li>
+          <li>Cervical spine stabilization if atlantoaxial subluxation</li>
+        </ul>
+        <p><strong>Treatment Algorithm:</strong></p>
+        <ol>
+          <li>Diagnosis confirmed → Start DMARD immediately (usually MTX) + short-term steroid</li>
+          <li>Assess response at 3 months (DAS28 score or similar)
+            <ul>
+              <li>If target not met → escalate (increase dose or add second csDMARD)</li>
+            </ul>
+          </li>
+          <li>If inadequate response to 2 csDMARDs → Consider biologic or JAK inhibitor</li>
+          <li>If biologic fails → Switch to different biologic or JAK inhibitor</li>
+          <li>Continue regular monitoring and adjustment</li>
+        </ol>
+        <p><strong>Monitoring Disease Activity:</strong></p>
+        <ul>
+          <li>DAS28 (Disease Activity Score based on 28 joints)</li>
+          <li>Regular assessment of:
+            <ul>
+              <li>Joint counts (tender and swollen)</li>
+              <li>Patient global assessment</li>
+              <li>Inflammatory markers (CRP/ESR)</li>
+              <li>Functional status (HAQ score)</li>
+            </ul>
+          </li>
+          <li>Target: Remission (DAS28 <2.6) or low disease activity (DAS28 <3.2)</li>
+        </ul>
+        <p><strong>Key Messages:</strong></p>
+        <ul>
+          <li>Early aggressive treatment prevents irreversible joint damage</li>
+          <li>Regular monitoring and treatment adjustment essential</li>
+          <li>MTX remains cornerstone of treatment</li>
+          <li>Multiple effective treatment options now available</li>
+          <li>Treat-to-target approach improves outcomes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What are the key extra-articular manifestations and complications of rheumatoid arthritis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>RA is a systemic disease that can affect multiple organ systems beyond the joints. Extra-articular manifestations occur in 10-40% of patients and are associated with more severe disease, seropositivity, and increased mortality.</p>
+        <p><strong>Constitutional Symptoms:</strong></p>
+        <ul>
+          <li><strong>Fatigue:</strong> Very common (affects >80%), often debilitating, multifactorial</li>
+          <li><strong>Fever:</strong> Low-grade, particularly during flares</li>
+          <li><strong>Weight loss:</strong> From chronic inflammation and reduced appetite</li>
+          <li><strong>Malaise:</strong> General feeling of being unwell</li>
+        </ul>
+        <p><strong>Rheumatoid Nodules:</strong></p>
+        <ul>
+          <li>Occur in 20-30% of RA patients</li>
+          <li>Firm, subcutaneous nodules, usually painless</li>
+          <li>Common sites: extensor surfaces (elbows), pressure points, fingers, Achilles tendon</li>
+          <li>Can occur in other organs (lungs, heart)</li>
+          <li>Strongly associated with RF positivity</li>
+          <li>May ulcerate or become infected</li>
+          <li>Can regress with treatment</li>
+        </ul>
+        <p><strong>Cardiovascular:</strong></p>
+        <ul>
+          <li><strong>Accelerated atherosclerosis:</strong>
+            <ul>
+              <li>Chronic inflammation increases CV risk 1.5-2 fold</li>
+              <li>Increased risk of MI, stroke, heart failure</li>
+              <li>Often under-recognized and undertreated</li>
+              <li>Aggressive CV risk factor management essential</li>
+            </ul>
+          </li>
+          <li><strong>Pericarditis:</strong>
+            <ul>
+              <li>Subclinical in up to 50%, symptomatic in 2-5%</li>
+              <li>Can cause pericardial effusion</li>
+              <li>Rarely leads to tamponade</li>
+            </ul>
+          </li>
+          <li><strong>Myocarditis:</strong> Rare</li>
+          <li><strong>Valvular disease:</strong> Uncommon, may require monitoring</li>
+        </ul>
+        <p><strong>Pulmonary:</strong></p>
+        <ul>
+          <li><strong>Interstitial lung disease (ILD):</strong>
+            <ul>
+              <li>Occurs in 10-20% of RA patients</li>
+              <li>More common in males, smokers, RF-positive</li>
+              <li>Usual interstitial pneumonia (UIP) pattern most common</li>
+              <li>Presents with progressive dyspnoea, dry cough</li>
+              <li>Diagnosis: HRCT chest, pulmonary function tests</li>
+              <li>Treatment: immunosuppression, antifibrotics (nintedanib, pirfenidone)</li>
+              <li>Major cause of mortality in RA</li>
+            </ul>
+          </li>
+          <li><strong>Pleural disease:</strong>
+            <ul>
+              <li>Pleural effusions (exudative, low glucose characteristic)</li>
+              <li>Pleural thickening</li>
+              <li>More common in men</li>
+            </ul>
+          </li>
+          <li><strong>Pulmonary nodules:</strong> Can mimic malignancy</li>
+          <li><strong>Bronchiolitis obliterans:</strong> Rare, associated with RA and penicillamine use</li>
+          <li><strong>Drug-induced lung disease:</strong> MTX pneumonitis (rare but serious)</li>
+        </ul>
+        <p><strong>Ocular:</strong></p>
+        <ul>
+          <li><strong>Keratoconjunctivitis sicca (dry eyes):</strong>
+            <ul>
+              <li>Most common ocular manifestation (~15%)</li>
+              <li>Secondary Sjögren's syndrome</li>
+              <li>Gritty eyes, discomfort</li>
+              <li>Treatment: artificial tears, ciclosporin eye drops</li>
+            </ul>
+          </li>
+          <li><strong>Episcleritis:</strong>
+            <ul>
+              <li>Inflammation of episclera</li>
+              <li>Red eye, mild discomfort</li>
+              <li>Benign, self-limiting</li>
+            </ul>
+          </li>
+          <li><strong>Scleritis:</strong>
+            <ul>
+              <li>More serious than episcleritis</li>
+              <li>Severe pain, photophobia, vision threat</li>
+              <li>Deep red/purple discolouration</li>
+              <li>Requires urgent treatment (systemic immunosuppression)</li>
+              <li>Can lead to scleromalacia perforans (thinning of sclera)</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Haematological:</strong></p>
+        <ul>
+          <li><strong>Anaemia of chronic disease:</strong>
+            <ul>
+              <li>Very common (~30-60%)</li>
+              <li>Normocytic normochromic</li>
+              <li>Related to inflammatory cytokines (IL-6 → hepcidin → iron sequestration)</li>
+              <li>Improves with disease control</li>
+              <li>May require iron supplementation or ESAs if severe</li>
+            </ul>
+          </li>
+          <li><strong>Felty's syndrome:</strong>
+            <ul>
+              <li>Triad: RA + splenomegaly + neutropenia</li>
+              <li>Rare (<1% of RA patients)</li>
+              <li>Severe, erosive RA</li>
+              <li>Recurrent infections due to neutropenia</li>
+              <li>May also have thrombocytopenia, leg ulcers</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Neurological:</strong></p>
+        <ul>
+          <li><strong>Carpal tunnel syndrome:</strong>
+            <ul>
+              <li>Common (up to 50%)</li>
+              <li>Median nerve compression from wrist synovitis</li>
+              <li>Numbness/tingling in median nerve distribution</li>
+              <li>May require decompression surgery</li>
+            </ul>
+          </li>
+          <li><strong>Cervical myelopathy:</strong>
+            <ul>
+              <li>Atlantoaxial subluxation from C1-C2 joint destruction</li>
+              <li>Can cause spinal cord compression</li>
+              <li>Presents with neck pain, upper motor neuron signs</li>
+              <li>Serious complication - can be fatal</li>
+              <li>Screen with lateral cervical spine X-rays (flexion/extension)</li>
+              <li>MRI if neurological signs</li>
+              <li>May require surgical stabilization</li>
+            </ul>
+          </li>
+          <li><strong>Peripheral neuropathy:</strong> Can occur, various patterns</li>
+        </ul>
+        <p><strong>Vasculitis:</strong></p>
+        <ul>
+          <li><strong>Rheumatoid vasculitis:</strong>
+            <ul>
+              <li>Rare but serious (~1% of RA patients)</li>
+              <li>More common in longstanding, severe, seropositive RA</li>
+              <li>Small and medium vessel vasculitis</li>
+              <li>Manifestations:
+                <ul>
+                  <li>Cutaneous: palpable purpura, leg ulcers, nail-fold infarcts, digital gangrene</li>
+                  <li>Peripheral neuropathy (mononeuritis multiplex)</li>
+                  <li>Organ involvement: bowel, kidney, CNS</li>
+                </ul>
+              </li>
+              <li>Poor prognosis</li>
+              <li>Treatment: high-dose steroids, cyclophosphamide, rituximab</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Renal:</strong></p>
+        <ul>
+          <li>RA itself rarely causes kidney disease</li>
+          <li>Renal involvement usually due to:
+            <ul>
+              <li>Drug toxicity (NSAIDs, gold, penicillamine)</li>
+              <li>AA amyloidosis (rare, from chronic inflammation)</li>
+              <li>Vasculitis</li>
+            </ul>
+          </li>
+          <li>Regular monitoring of renal function important</li>
+        </ul>
+        <p><strong>Other Manifestations:</strong></p>
+        <ul>
+          <li><strong>Osteoporosis:</strong>
+            <ul>
+              <li>Increased risk from RA itself, steroid use, reduced mobility</li>
+              <li>Screen with DEXA scan</li>
+              <li>Calcium, vitamin D supplementation</li>
+              <li>Bisphosphonates if indicated</li>
+            </ul>
+          </li>
+          <li><strong>Increased infection risk:</strong>
+            <ul>
+              <li>From disease itself and immunosuppressive treatment</li>
+              <li>Vaccinations important (avoid live vaccines on immunosuppression)</li>
+            </ul>
+          </li>
+          <li><strong>Malignancy:</strong>
+            <ul>
+              <li>Slightly increased risk of lymphoma (~2-fold)</li>
+              <li>Controversial whether biologics further increase risk</li>
+            </ul>
+          </li>
+          <li><strong>Depression and anxiety:</strong>
+            <ul>
+              <li>Common with chronic disease</li>
+              <li>Affects quality of life and treatment adherence</li>
+              <li>Screen and treat appropriately</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Clinical Implications:</strong></p>
+        <ul>
+          <li><strong>Comprehensive assessment needed</strong> - not just joints</li>
+          <li><strong>Regular screening for complications</strong>
+            <ul>
+              <li>CV risk assessment and management</li>
+              <li>Respiratory symptoms → investigate for ILD</li>
+              <li>Annual flu vaccination</li>
+              <li>Pneumococcal vaccination</li>
+            </ul>
+          </li>
+          <li><strong>Extra-articular manifestations indicate severe disease</strong> → may need more aggressive treatment</li>
+          <li><strong>Multidisciplinary management essential</strong></li>
+          <li><strong>Good disease control reduces extra-articular complications</strong></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

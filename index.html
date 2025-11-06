@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD3 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="MD3 SCP Cases">
+  <meta name="description" content="Comprehensive collection of medical student practice cases covering Medicine, Surgery, Psychiatry, and Paediatrics.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://md3-scp.netlify.app/">
+  <meta property="og:title" content="MD3 SCP Cases">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Comprehensive collection of medical student practice cases covering Medicine, Surgery, Psychiatry, and Paediatrics.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MD3 SCP Cases Logo">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://md3-scp.netlify.app/">
+  <meta property="twitter:title" content="MD3 SCP Cases">
+  <meta property="twitter:description" content="Comprehensive collection of medical student practice cases covering Medicine, Surgery, Psychiatry, and Paediatrics.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="css/main.css?v=20251106-2">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
+      <div class="logo-container">
+        <img src="assets/ShepTech logo.png" alt="ShepTech Logo" class="sheptech-logo-header">
+        <span class="sheptech-text">SHEPTECH</span>
+      </div>
+      <h1>MD3 SCP Cases</h1>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-bar" placeholder="Search for anything (e.g. Nephrotic Syndrome)">
+    </div>
+    <div class="header-right">
+      <div id="userProfile" class="user-profile" style="display: none;">
+        <div class="user-initial-circle" id="userInitialCircle"></div>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown-header">
+            <div class="dropdown-user-name" id="dropdownUserName"></div>
+            <div class="dropdown-user-email" id="dropdownUserEmail"></div>
+          </div>
+          <button class="dropdown-signout-btn" id="dropdownSignOut">Sign Out</button>
+        </div>
+      </div>
+      <button id="authButton" class="auth-button">Sign In</button>
+    </div>
+  </header>
+
+  <!-- Authentication Modal -->
+  <div id="authModal" class="auth-modal">
+    <div class="auth-hologram-container">
+      <div class="hologram-logo">
+        <img src="assets/ShepTech logo.png" alt="ShepTech Logo" class="hologram-image">
+        <span class="hologram-text">SHEPTECH</span>
+      </div>
+    </div>
+    <h1 class="auth-hero-text">EVERY Y3 SCP</h1>
+    <div class="auth-modal-content">
+      <button class="auth-modal-close" id="authModalClose" onclick="window.authSystem.closeAuthModal()">&times;</button>
+
+      <h2 id="authModalTitle">Sign In</h2>
+      <p id="authModalSubtitle" class="auth-subtitle" style="display: none;"></p>
+
+      <div id="authError" class="auth-error" style="display: none;"></div>
+
+      <!-- Sign In Form -->
+      <form id="signInForm" class="auth-form">
+        <input type="email" id="signInEmail" placeholder="Email" required>
+        <input type="password" id="signInPassword" placeholder="Password" required>
+        <button type="submit" class="auth-submit-button">Sign In</button>
+        <div class="auth-divider">
+          <span>or</span>
+        </div>
+        <button type="button" class="auth-signup-button" id="showSignUp">Create New Account</button>
+        <p class="auth-link">
+          <a href="#" id="showForgotPassword">Forgot password?</a>
+        </p>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="signUpForm" class="auth-form" style="display: none;">
+        <input type="email" id="signUpEmail" placeholder="Email" required>
+        <input type="text" id="signUpName" placeholder="Full Name" required>
+        <input type="password" id="signUpPassword" placeholder="Password (min 6 characters)" required>
+        <button type="submit" class="auth-submit-button">Sign Up</button>
+        <p class="auth-link">
+          Already have an account? <a href="#" id="showSignIn">Sign in</a>
+        </p>
+      </form>
+
+      <!-- Forgot Password Form -->
+      <form id="forgotPasswordForm" class="auth-form" style="display: none;">
+        <p class="auth-description">Enter your email to receive a password reset link</p>
+        <input type="email" id="forgotPasswordEmail" placeholder="Email" required>
+        <button type="submit" class="auth-submit-button">Send Reset Link</button>
+        <p class="auth-link">
+          <a href="#" id="backToSignIn">Back to sign in</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="sidebar">
+    <h2 id="flaggedCasesSection" data-group="flagged" style="display: none;"><span class="flagged-icon">🔖</span>Flagged Cases <span class="count" id="flaggedCasesCount">(0)</span></h2>
+
+    <h2 data-group="all" class="active">All SCPs <span class="count">(0)</span></h2>
+
+    <h2 data-group="medicine">Medicine <span class="count">(0)</span></h2>
+    <div class="specialty" data-filter="cardiology">Cardiology <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="psychiatry">Psychiatry <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="paediatrics">Paediatrics <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="neurology">Neurology <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="gastroenterology">Gastroenterology <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="endocrinology">Endocrinology <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="renal">Renal <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="respiratory">Respiratory <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="rheumatology">Rheumatology <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="haematology">Haematology <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="og">O&amp;G <span class="count">(0)</span></div>
+
+    <h2 data-group="surgery">Surgery <span class="count">(0)</span></h2>
+    <div class="specialty" data-filter="git">GIT <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="general">General <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="breast">Breast &amp; Endocrine <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="ortho">Ortho <span class="count">(0)</span></div>
+    <div class="specialty" data-filter="vascular">Vascular <span class="count">(0)</span></div>
+  </div>
+
+  <div class="main">
+    <!-- Mobile Search -->
+    <div class="mobile-search">
+      <input type="text" id="mobileSearchInput" class="search-bar" placeholder="Search for anything (e.g. Nephrotic Syndrome)">
+    </div>
+
+    <!-- Week 1 - Cardiology -->
+    <div class="week" data-specialties="cardiology">Week 1 - Cardiology</div>
+    <div class="case-grid">
+<a href="cases/case1_1.html" class="case-card cardiology"><h3>1.1 Hypertension</h3></a>
+<a href="cases/case1_2.html" class="case-card cardiology"><h3>1.2 Chest Pain (SDL)</h3></a>
+<a href="cases/case1_3.html" class="case-card cardiology"><h3>1.3 Heart Failure</h3></a>
+<a href="cases/case1_4.html" class="case-card cardiology"><h3>1.4 Hyperlipidaemia (Acquired)</h3></a>
+<a href="cases/case1_5.html" class="case-card cardiology"><h3>1.5 Obesity</h3></a>
+<a href="cases/case1_6.html" class="case-card cardiology"><h3>1.6 Smoking Cessation (SDL)</h3></a>
+    </div>
+
+    <!-- Week 2 - Cardiology -->
+    <div class="week" data-specialties="cardiology">Week 2 - Cardiology</div>
+    <div class="case-grid">
+<a href="cases/case2_1.html" class="case-card cardiology"><h3>2.1 Cardiomyopathy (Hypertrophic)</h3></a>
+<a href="cases/case2_2.html" class="case-card cardiology"><h3>2.2 Cardiomyopathy (Dilated) [SDL]</h3></a>
+<a href="cases/case2_3.html" class="case-card cardiology"><h3>2.3 Stable Angina</h3></a>
+<a href="cases/case2_4.html" class="case-card cardiology"><h3>2.4 Unstable Angina</h3></a>
+<a href="cases/case2_5.html" class="case-card cardiology"><h3>2.5 Myocardial Infarction</h3></a>
+<a href="cases/case2_6.html" class="case-card cardiology"><h3>2.6 Hyperlipidaemia (Congenital) [SDL]</h3></a>
+    </div>
+
+    <!-- Week 3 - General Surgery -->
+    <div class="week" data-specialties="general">Week 3 - General Surgery</div>
+    <div class="case-grid">
+      <a href="cases/case3_1.html" class="case-card general"><h3>3.1 Peri-Operative Management</h3></a>
+      <a href="cases/case3_2.html" class="case-card general"><h3>3.2 Appendicitis</h3></a>
+      <a href="cases/case3_3.html" class="case-card general"><h3>3.3 Surgical Wound Management [SDL]</h3></a>
+      <a href="cases/case3_4.html" class="case-card general"><h3>3.4 Post Operative Fever [SDL]</h3></a>
+      <a href="cases/case3_5.html" class="case-card general"><h3>3.5 Pancreatitis</h3></a>
+      <a href="cases/case3_6.html" class="case-card general"><h3>3.6 Cholecystitis & Biliary Colic</h3></a>
+      <a href="cases/case3_7.html" class="case-card general"><h3>3.7 Choledocolethiasis & Cholecystectomy [SDL]</h3></a>
+    </div>
+
+    <!-- Week 4 - O&G -->
+    <div class="week" data-specialties="og">Week 4 - O&amp;G</div>
+    <div class="case-grid">
+      <a href="cases/case4_1.html" class="case-card og"><h3>4.1 Pre-Conception Care</h3></a>
+      <a href="cases/case4_2.html" class="case-card og"><h3>4.2 Antenatal Care</h3></a>
+      <a href="cases/case4_3.html" class="case-card og"><h3>4.3 Bleeding in Early Pregnancy</h3></a>
+      <a href="cases/case4_4.html" class="case-card og"><h3>4.4 Ectopic Pregnancy</h3></a>
+      <a href="cases/case4_5.html" class="case-card og"><h3>4.5 Vulvovaginitis (Adolescence) [SDL]</h3></a>
+      <a href="cases/case4_6.html" class="case-card og"><h3>4.6 Dysmenorrhea & Menorrhagia (Adolescence)</h3></a>
+      <a href="cases/case4_7.html" class="case-card og"><h3>4.7 Contraception (Adolescence)</h3></a>
+    </div>
+
+    <!-- Week 5 - Psychiatry -->
+    <div class="week" data-specialties="psychiatry">Week 5 - Psychiatry</div>
+    <div class="case-grid">
+      <a href="cases/case5_1.html" class="case-card psychiatry"><h3>5.1 Self Harm & Suicide [SDL]</h3></a>
+      <a href="cases/case5_2.html" class="case-card psychiatry"><h3>5.2 Anxiety Disorders</h3></a>
+      <a href="cases/case5_3.html" class="case-card psychiatry"><h3>5.3 Depression</h3></a>
+      <a href="cases/case5_4.html" class="case-card psychiatry"><h3>5.4 Bipolar Disorder</h3></a>
+    </div>
+
+    <!-- Week 6 - Paediatrics -->
+    <div class="week" data-specialties="paediatrics">Week 6 - Paediatrics</div>
+    <div class="case-grid">
+      <a href="cases/case6_1.html" class="case-card paediatrics"><h3>6.1 T1D (New Diagnosis)</h3></a>
+      <a href="cases/case6_2.html" class="case-card paediatrics"><h3>6.2 T1D (Ongoing Management)</h3></a>
+      <a href="cases/case6_3.html" class="case-card paediatrics"><h3>6.3 Cystic Fibrosis</h3></a>
+      <a href="cases/case6_4.html" class="case-card paediatrics"><h3>6.4 Growth (Short Stature)</h3></a>
+    </div>
+
+    <!-- Week 7 - Respiratory -->
+    <div class="week" data-specialties="respiratory">Week 7 - Respiratory</div>
+    <div class="case-grid">
+      <a href="cases/case7_1.html" class="case-card respiratory"><h3>7.1 Asthma Exacerbation</h3></a>
+      <a href="cases/case7_2.html" class="case-card respiratory"><h3>7.2 Severe Asthma</h3></a>
+      <a href="cases/case7_3.html" class="case-card respiratory"><h3>7.3 COPD</h3></a>
+      <a href="cases/case7_4.html" class="case-card respiratory"><h3>7.4 Bronchiectasis [SDL]</h3></a>
+      <a href="cases/case7_5.html" class="case-card respiratory"><h3>7.5 Cystic Fibrosis [SDL]</h3></a>
+      <a href="cases/case7_6.html" class="case-card respiratory"><h3>7.6 Community Acquired Pneumonia</h3></a>
+    </div>
+
+    <!-- Week 8 - GIT Surgery -->
+    <div class="week" data-specialties="git">Week 8 - GIT Surgery</div>
+    <div class="case-grid">
+      <a href="cases/case8_1.html" class="case-card git"><h3>8.1 Diverticular Disease</h3></a>
+      <a href="cases/case8_2.html" class="case-card git"><h3>8.2 Colorectal Polyps & Cancer</h3></a>
+      <a href="cases/case8_3.html" class="case-card git"><h3>8.3 IBD (UC & Chrons)</h3></a>
+      <a href="cases/case8_4.html" class="case-card git"><h3>8.4 LBO [SDL]</h3></a>
+      <a href="cases/case8_5.html" class="case-card git"><h3>8.5 Internal & External Haemorrhoids</h3></a>
+      <a href="cases/case8_6.html" class="case-card git"><h3>8.6 Perianal Access & Fistula</h3></a>
+      <a href="cases/case8_7.html" class="case-card git"><h3>8.7 Anal Fissures, Cancers and STIs [SDL]</h3></a>
+    </div>
+
+    <!-- Week 9 - Paediatrics -->
+    <div class="week" data-specialties="paediatrics">Week 9 - Paediatrics</div>
+    <div class="case-grid">
+      <a href="cases/case9_1.html" class="case-card paediatrics"><h3>9.1 Asthma (ED)</h3></a>
+      <a href="cases/case9_2.html" class="case-card paediatrics"><h3>9.2 Poisoning & Envenomation</h3></a>
+      <a href="cases/case9_3.html" class="case-card paediatrics"><h3>9.3 DDH</h3></a>
+      <a href="cases/case9_4.html" class="case-card paediatrics"><h3>9.4 Common Surgical Conditions in Kids</h3></a>
+      <a href="cases/case9_6.html" class="case-card paediatrics"><h3>9.6 Neonatal Resuscitation</h3></a>
+      <a href="cases/case9_7.html" class="case-card paediatrics"><h3>9.7 Infections at Birth</h3></a>
+    </div>
+
+    <!-- Week 10 - Respiratory -->
+    <div class="week" data-specialties="respiratory">Week 10 - Respiratory</div>
+    <div class="case-grid">
+      <a href="cases/case10_1.html" class="case-card respiratory"><h3>10.1 Obstructive Sleep Apnoea</h3></a>
+      <a href="cases/case10_2.html" class="case-card respiratory"><h3>10.2 Pneumonia [SDL]</h3></a>
+      <a href="cases/case10_3.html" class="case-card respiratory"><h3>10.3 Tuberculosis [SDL]</h3></a>
+      <a href="cases/case10_4.html" class="case-card respiratory"><h3>10.4 Bronchial Cancer</h3></a>
+      <a href="cases/case10_5.html" class="case-card respiratory"><h3>10.5 Interstitial Lung Disease & Sarcoidosis</h3></a>
+      <a href="cases/case10_6.html" class="case-card respiratory"><h3>10.6 Pulmonary Embolism</h3></a>
+    </div>
+
+    <!-- Week 11 - General Surgery & Breast -->
+    <div class="week" data-specialties="general breast">Week 11 - General Surgery & Breast</div>
+    <div class="case-grid">
+      <a href="cases/case11_1.html" class="case-card general"><h3>11.1 Inguinal Hernias</h3></a>
+      <a href="cases/case11_2.html" class="case-card general"><h3>11.2 Umbilical Hernias</h3></a>
+      <a href="cases/case11_3.html" class="case-card breast"><h3>11.3 Breast Cancers [SDL]</h3></a>
+      <a href="cases/case11_4.html" class="case-card breast"><h3>11.4 Benign Breast Conditions</h3></a>
+      <a href="cases/case11_5.html" class="case-card breast"><h3>11.5 Breast Cancer (new diagnosis)</h3></a>
+      <a href="cases/case11_6.html" class="case-card breast"><h3>11.6 Breast Cancer (Terminal)</h3></a>
+      <a href="cases/case11_7.html" class="case-card general"><h3>11.7 Electrolyte Management [SDL]</h3></a>
+    </div>
+
+    <!-- Week 12 - Paediatrics -->
+    <div class="week" data-specialties="paediatrics">Week 12 - Paediatrics</div>
+    <div class="case-grid">
+      <a href="cases/case12_1.html" class="case-card paediatrics"><h3>12.1 Febrile Seizures</h3></a>
+      <a href="cases/case12_2.html" class="case-card paediatrics"><h3>12.2 Afebrile Seizures (Epilepsy)</h3></a>
+      <a href="cases/case12_3.html" class="case-card paediatrics"><h3>12.3 Headache (Migraine)</h3></a>
+      <a href="cases/case12_4.html" class="case-card paediatrics"><h3>12.4 Hydrocephalus</h3></a>
+      <a href="cases/case12_5.html" class="case-card paediatrics"><h3>12.5 Neural Tube Defects</h3></a>
+      <a href="cases/case12_6.html" class="case-card paediatrics"><h3>12.6 Developmental Delay (Cerebral Palsy)</h3></a>
+    </div>
+
+    <!-- Week 13 - O&G -->
+    <div class="week" data-specialties="og">Week 13 - O&amp;G</div>
+    <div class="case-grid">
+      <a href="cases/case13_1.html" class="case-card og"><h3>13.1 Normal Vs Abnormal Labour</h3></a>
+      <a href="cases/case13_2.html" class="case-card og"><h3>13.2 Labour (Obstetric Emergencies)</h3></a>
+      <a href="cases/case13_3.html" class="case-card og"><h3>13.3 Analgesia in Birth & Cesarian</h3></a>
+      <a href="cases/case13_4.html" class="case-card og"><h3>13.4 Prematurity & Neonatal Resusitation</h3></a>
+    </div>
+
+    <!-- Week 14 - Renal -->
+    <div class="week" data-specialties="renal">Week 14 - Renal</div>
+    <div class="case-grid">
+      <a href="cases/case14_1.html" class="case-card renal"><h3>14.1 UTI</h3></a>
+      <a href="cases/case14_2.html" class="case-card renal"><h3>14.2 Renal Calculi</h3></a>
+      <a href="cases/case14_3.html" class="case-card renal"><h3>14.3 Nephrotic Syndrome (Glomerulonephritis)</h3></a>
+      <a href="cases/case14_4.html" class="case-card renal"><h3>14.4 Diabetic Nephropathy [SDL]</h3></a>
+      <a href="cases/case14_5.html" class="case-card renal"><h3>14.5 Haematuria [SDL]</h3></a>
+      <a href="cases/case14_6.html" class="case-card renal"><h3>14.6 Prostate Cancer</h3></a>
+    </div>
+
+    <!-- Week 15 - Psychiatry -->
+    <div class="week" data-specialties="psychiatry">Week 15 - Psychiatry</div>
+    <div class="case-grid">
+      <a href="cases/case15_1.html" class="case-card psychiatry"><h3>15.1 Alcohol Abuse</h3></a>
+      <a href="cases/case15_2.html" class="case-card psychiatry"><h3>15.2 Substance Abuse</h3></a>
+      <a href="cases/case15_3.html" class="case-card psychiatry"><h3>15.3 Dementia</h3></a>
+      <a href="cases/case15_4.html" class="case-card psychiatry"><h3>15.4 Delirium [SDL]</h3></a>
+      <a href="cases/case15_5.html" class="case-card psychiatry"><h3>15.5 Personality Disorders</h3></a>
+    </div>
+
+    <!-- Week 16 - Paediatrics -->
+    <div class="week" data-specialties="paediatrics">Week 16 - Paediatrics</div>
+    <div class="case-grid">
+      <a href="cases/case16_1.html" class="case-card paediatrics"><h3>16.1 Noonan Syndrome</h3></a>
+      <a href="cases/case16_2.html" class="case-card paediatrics"><h3>16.2 Pyloric Stenosis</h3></a>
+      <a href="cases/case16_3.html" class="case-card paediatrics"><h3>16.3 Acute Diarrhoea</h3></a>
+      <a href="cases/case16_4.html" class="case-card paediatrics"><h3>16.4 Chronic Diarrhoea & Malabsorption</h3></a>
+      <a href="cases/case16_5.html" class="case-card paediatrics"><h3>16.5 Febrile Child & Vaccination</h3></a>
+      <a href="cases/case16_6.html" class="case-card paediatrics"><h3>16.6 Teething [SDL]</h3></a>
+    </div>
+
+    <!-- Week 17 - Endocrinology -->
+    <div class="week" data-specialties="endocrinology">Week 17 - Endocrinology</div>
+    <div class="case-grid">
+      <a href="cases/case17_1.html" class="case-card endocrinology"><h3>17.1 Primary Hypothyroidism</h3></a>
+      <a href="cases/case17_2.html" class="case-card endocrinology"><h3>17.2 Graves Disease</h3></a>
+      <a href="cases/case17_3.html" class="case-card endocrinology"><h3>17.3 Thyroid Mass [SDL]</h3></a>
+      <a href="cases/case17_4.html" class="case-card endocrinology"><h3>17.4 Cushing's Disease [SDL]</h3></a>
+      <a href="cases/case17_5.html" class="case-card endocrinology"><h3>17.5 Adrenal Insufficiency</h3></a>
+      <a href="cases/case17_6.html" class="case-card endocrinology"><h3>17.6 Calcium Metabolism Disorders</h3></a>
+    </div>
+
+    <!-- Week 18 - O&G -->
+    <div class="week" data-specialties="og">Week 18 - O&amp;G</div>
+    <div class="case-grid">
+      <a href="cases/case18_1.html" class="case-card og"><h3>18.1 Menorrhagia</h3></a>
+      <a href="cases/case18_2.html" class="case-card og"><h3>18.2 Post-Menopausal Bleeding</h3></a>
+      <a href="cases/case18_3.html" class="case-card og"><h3>18.3 Acute Pelvic Pain (Benign Ovarian Disease)</h3></a>
+      <a href="cases/case18_4.html" class="case-card og"><h3>18.4 Endometriosis</h3></a>
+      <a href="cases/case18_5.html" class="case-card og"><h3>18.5 Premalignant Disease of the Cervix</h3></a>
+    </div>
+
+    <!-- Week 19 - Ortho Surgery -->
+    <div class="week" data-specialties="ortho">Week 19 - Ortho Surgery</div>
+    <div class="case-grid">
+      <a href="cases/case19_1.html" class="case-card ortho"><h3>19.1 Osteoarthritis</h3></a>
+      <a href="cases/case19_2.html" class="case-card ortho"><h3>19.2 Septic Arthritis</h3></a>
+      <a href="cases/case19_3.html" class="case-card ortho"><h3>19.3 Bony Lumps</h3></a>
+      <a href="cases/case19_4.html" class="case-card ortho"><h3>19.4 Gout</h3></a>
+      <a href="cases/case19_5.html" class="case-card ortho"><h3>19.5 Knee Injuries</h3></a>
+      <a href="cases/case19_6.html" class="case-card ortho"><h3>19.6 Paediatric Fractures</h3></a>
+    </div>
+
+    <!-- Week 20 - Paediatrics -->
+    <div class="week" data-specialties="paediatrics">Week 20 - Paediatrics</div>
+    <div class="case-grid">
+      <a href="cases/case20_1.html" class="case-card paediatrics"><h3>20.1 Child with Cough</h3></a>
+      <a href="cases/case20_2.html" class="case-card paediatrics"><h3>20.2 Child with Wheeze</h3></a>
+      <a href="cases/case20_3.html" class="case-card paediatrics"><h3>20.3 The Atopic Child</h3></a>
+      <a href="cases/case20_4.html" class="case-card paediatrics"><h3>20.4 Asthma (Acute Exacerbation)</h3></a>
+      <a href="cases/case20_5.html" class="case-card paediatrics"><h3>20.5 Child with Stridor</h3></a>
+      <a href="cases/case20_6.html" class="case-card paediatrics"><h3>20.6 Pneumonia</h3></a>
+    </div>
+
+    <!-- Week 21 - Gastroenterology -->
+    <div class="week" data-specialties="gastroenterology">Week 21 - Gastroenterology</div>
+    <div class="case-grid">
+      <a href="cases/case21_1.html" class="case-card gastroenterology"><h3>21.1 Oesophageal Carcinoma</h3></a>
+      <a href="cases/case21_2.html" class="case-card gastroenterology"><h3>21.2 Gastric Ulcers & Gastric Cancer</h3></a>
+      <a href="cases/case21_3.html" class="case-card gastroenterology"><h3>21.3 Coeliac [SDL]</h3></a>
+      <a href="cases/case21_4.html" class="case-card gastroenterology"><h3>21.4 Constipation [SDL]</h3></a>
+      <a href="cases/case21_5.html" class="case-card gastroenterology"><h3>21.5 IBS</h3></a>
+    </div>
+
+    <!-- Week 22 - Neurology -->
+    <div class="week" data-specialties="neurology">Week 22 - Neurology</div>
+    <div class="case-grid">
+      <a href="cases/case22_1.html" class="case-card neurology"><h3>22.1 Stroke & TIA</h3></a>
+      <a href="cases/case22_2.html" class="case-card neurology"><h3>22.2 Multiple Sclerosis</h3></a>
+      <a href="cases/case22_3.html" class="case-card neurology"><h3>22.3 Alzheimers</h3></a>
+      <a href="cases/case22_4.html" class="case-card neurology"><h3>22.4 Parkinsons & MND</h3></a>
+      <a href="cases/case22_5.html" class="case-card neurology"><h3>22.5 Meningitis [SDL]</h3></a>
+      <a href="cases/case22_6.html" class="case-card neurology"><h3>22.6 Creutzfeldt-Jacob Disease [SDL]</h3></a>
+      <a href="cases/case22_7.html" class="case-card neurology"><h3>22.7 Intracranial Tumours & Hydrocephalus [SDL]</h3></a>
+    </div>
+
+    <!-- Week 23 - Paediatrics -->
+    <div class="week" data-specialties="paediatrics">Week 23 - Paediatrics</div>
+    <div class="case-grid">
+      <a href="cases/case23_1.html" class="case-card paediatrics"><h3>23.1 Congenital Heart Disease (Acyanotic)</h3></a>
+      <a href="cases/case23_2.html" class="case-card paediatrics"><h3>23.2 Congenital Heart Disease (Cyanotic)</h3></a>
+      <a href="cases/case23_3.html" class="case-card paediatrics"><h3>23.3 Nasolacrimal Duct Blockage</h3></a>
+      <a href="cases/case23_4.html" class="case-card paediatrics"><h3>23.4 Strabismus</h3></a>
+      <a href="cases/case23_5.html" class="case-card paediatrics"><h3>23.5 Laryngomalacia</h3></a>
+    </div>
+
+    <!-- Week 24 - O&G -->
+    <div class="week" data-specialties="og">Week 24 - O&amp;G</div>
+    <div class="case-grid">
+      <a href="cases/case24_2.html" class="case-card og"><h3>24.2 Secondary Amenorrhoea</h3></a>
+      <a href="cases/case24_3.html" class="case-card og"><h3>24.3 PCOS</h3></a>
+      <a href="cases/case24_4.html" class="case-card og"><h3>24.4 Infertility</h3></a>
+      <a href="cases/case24_5.html" class="case-card og"><h3>24.5 Primary Amenorrhoea [SDL]</h3></a>
+      <a href="cases/case24_6.html" class="case-card og"><h3>24.6 Hirsutism [SDL]</h3></a>
+      <a href="cases/case24_7.html" class="case-card og"><h3>24.7 Pre-Menstrual Syndrome & Dysphoric Disorder</h3></a>
+    </div>
+
+    <!-- Week 25 - Psychiatry -->
+    <div class="week" data-specialties="psychiatry">Week 25 - Psychiatry</div>
+    <div class="case-grid">
+      <a href="cases/case25_1.html" class="case-card psychiatry"><h3>25.1 Borderline Personality Disorder</h3></a>
+      <a href="cases/case25_2.html" class="case-card psychiatry"><h3>25.2 Substance Abuse</h3></a>
+      <a href="cases/case25_3.html" class="case-card psychiatry"><h3>25.3 Drug Seeking Patient</h3></a>
+      <a href="cases/case25_4.html" class="case-card psychiatry"><h3>25.4 PTSD</h3></a>
+    </div>
+
+    <!-- Week 26 - Rheumatology -->
+    <div class="week" data-specialties="rheumatology">Week 26 - Rheumatology</div>
+    <div class="case-grid">
+      <a href="cases/case26_1.html" class="case-card rheumatology"><h3>26.1 Rheumatoid Arthritis</h3></a>
+      <a href="cases/case26_2.html" class="case-card rheumatology"><h3>26.2 Ankylosing Spondylitis</h3></a>
+      <a href="cases/case26_3.html" class="case-card rheumatology"><h3>26.3 Polymyalgia Rheumatica & Temporal Arteritis</h3></a>
+      <a href="cases/case26_4.html" class="case-card rheumatology"><h3>26.4 Fibromyalgia [SDL]</h3></a>
+      <a href="cases/case26_5.html" class="case-card rheumatology"><h3>26.5 Osteoperosis</h3></a>
+      <a href="cases/case26_6.html" class="case-card rheumatology"><h3>26.6 Paget's Disease (bone)</h3></a>
+    </div>
+
+    <!-- Week 27 - Vascular Surgery -->
+    <div class="week" data-specialties="vascular">Week 27 - Vascular Surgery</div>
+    <div class="case-grid">
+      <a href="cases/case27_1.html" class="case-card vascular"><h3>27.1 AAA</h3></a>
+      <a href="cases/case27_2.html" class="case-card vascular"><h3>27.2 Lower Limb Arterial Disease</h3></a>
+      <a href="cases/case27_3.html" class="case-card vascular"><h3>27.3 Carotid Artery Disease [SDL]</h3></a>
+      <a href="cases/case27_4.html" class="case-card vascular"><h3>27.4 Varicose Veins</h3></a>
+      <a href="cases/case27_5.html" class="case-card vascular"><h3>27.5 Chronic Venous Insufficiency</h3></a>
+    </div>
+
+    <!-- Week 28 - Paediatrics -->
+    <div class="week" data-specialties="paediatrics">Week 28 - Paediatrics</div>
+    <div class="case-grid">
+      <a href="cases/case28_1.html" class="case-card paediatrics"><h3>28.1 UTI</h3></a>
+      <a href="cases/case28_2.html" class="case-card paediatrics"><h3>28.2 Glomerulonephritis</h3></a>
+      <a href="cases/case28_3.html" class="case-card paediatrics"><h3>28.3 Nephrotic Syndrome</h3></a>
+      <a href="cases/case28_4.html" class="case-card paediatrics"><h3>28.4 Anaemia (Nutritional)</h3></a>
+      <a href="cases/case28_5.html" class="case-card paediatrics"><h3>28.5 Purpuric Rash</h3></a>
+      <a href="cases/case28_6.html" class="case-card paediatrics"><h3>28.6 Acute Lymphoblastic Leukaemia</h3></a>
+    </div>
+
+    <!-- Week 29 - O&G -->
+    <div class="week" data-specialties="og">Week 29 - O&amp;G</div>
+    <div class="case-grid">
+      <a href="cases/case29_1.html" class="case-card og"><h3>29.1 Urinary Stress Incontinence</h3></a>
+      <a href="cases/case29_2.html" class="case-card og"><h3>29.2 Urinary Urge Incontinence</h3></a>
+      <a href="cases/case29_3.html" class="case-card og"><h3>29.3 Uterine Prolapse</h3></a>
+      <a href="cases/case29_4.html" class="case-card og"><h3>29.4 Perimenopause & Menopause</h3></a>
+      <a href="cases/case29_5.html" class="case-card og"><h3>29.5 Menopause</h3></a>
+      <a href="cases/case29_6.html" class="case-card og"><h3>29.6 Candidiasis [SDL]</h3></a>
+      <a href="cases/case29_7.html" class="case-card og"><h3>29.7 Genital Herpes [SDL]</h3></a>
+      <a href="cases/case29_8.html" class="case-card og"><h3>29.8 Unplanned Pregnancy [SDL]</h3></a>
+    </div>
+
+    <!-- Week 30 - Haematology -->
+    <div class="week" data-specialties="haematology">Week 30 - Haematology</div>
+    <div class="case-grid">
+      <a href="cases/case30_1.html" class="case-card haematology"><h3>30.1 Microcytic Anaemia</h3></a>
+      <a href="cases/case30_2.html" class="case-card haematology"><h3>30.2 Macrocytic Anaemia</h3></a>
+      <a href="cases/case30_3.html" class="case-card haematology"><h3>30.3 Aplastic Anaemia [SDL]</h3></a>
+      <a href="cases/case30_4.html" class="case-card haematology"><h3>30.4 Haemolytic Anaemia [SDL]</h3></a>
+      <a href="cases/case30_5.html" class="case-card haematology"><h3>30.5 Myelofibrosis</h3></a>
+      <a href="cases/case30_6.html" class="case-card haematology"><h3>30.6 Thrombocytopaenia</h3></a>
+    </div>
+  </div>
+
+  <!-- JavaScript - Updated 2025-11-06 -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/auth-ui.js"></script>
+  <script src="js/completion-tracker.js"></script>
+  <script src="js/flag-tracker.js"></script>
+  <script src="js/navigation.js"></script>
+
+  <script>
+    // Update case flag indicators and flagged cases count
+    function updateFlaggedCasesDisplay() {
+      if (window.flagTracker) {
+        // Update flag indicators on case tiles
+        window.flagTracker.updateAllCaseFlagIndicators();
+
+        // Update flagged cases count
+        const count = window.flagTracker.getFlaggedCaseCount();
+        const countElement = document.getElementById('flaggedCasesCount');
+        if (countElement) {
+          countElement.textContent = `(${count})`;
+        }
+
+        // Show/hide flagged cases section based on count
+        const flaggedSection = document.getElementById('flaggedCasesSection');
+        if (flaggedSection) {
+          flaggedSection.style.display = count > 0 ? 'block' : 'none';
+        }
+      }
+    }
+
+    // Update on page load and periodically
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(updateFlaggedCasesDisplay, 500);
+      setInterval(updateFlaggedCasesDisplay, 2000);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 3.4 - Post Operative Fever [SDL]</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 3.4 - Post Operative Fever [SDL] | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 3.4 - Post Operative Fever [SDL]">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 3.4 – Post Operative Fever [SDL]</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - General</p>
+
+    <h2>Clinical Scenario</h2>
+    <div style="background: #e8f4f8; padding: 20px; border-radius: 8px; border-left: 4px solid #2196F3; margin-bottom: 20px;">
+      <p><strong>Patient:</strong> Mrs Elise Davis, 59 years old</p>
+      <p><strong>Procedure:</strong> Elective hysterectomy 24 hours ago</p>
+      <p><strong>Medical History:</strong> Asthma, Previous deep vein thrombosis (DVT)</p>
+      <p><strong>Current Treatment:</strong> Subcutaneous heparin, TED stockings</p>
+      <p><strong>Presentation:</strong> Temperature spiked to 38.1°C, feeling unwell</p>
+      <p><strong>Setting:</strong> Hospital</p>
+    </div>
+
+    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin-bottom: 25px;">
+      <strong>Clinical Note:</strong> While Mrs Davis's temperature of 38.1°C is below the Society of Critical Care Medicine threshold of 38.3°C for investigation, the post-operative context and her subjective feeling of unwellness warrant thorough clinical assessment and monitoring.
+    </div>
+
+    <h2>Questions</h2>
+
+    <!-- Question 1 -->
+    <div class="question">
+      <strong>Question 1: How would you manage Mrs Davis (history, examination, investigations)?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>A. History Taking</h3>
+
+        <h4>1. Symptoms Assessment</h4>
+        <ul>
+          <li><strong>Fever characteristics:</strong> Onset, duration, pattern (continuous vs. intermittent), maximum temperature recorded</li>
+          <li><strong>Associated symptoms:</strong>
+            <ul>
+              <li>Respiratory: Cough, sputum production, dyspnea, pleuritic chest pain</li>
+              <li>Urinary: Dysuria, frequency, urgency, loin pain, hematuria</li>
+              <li>Abdominal: Abdominal pain, nausea, vomiting, diarrhea</li>
+              <li>Wound-related: Pain, discharge, redness at surgical site</li>
+              <li>Constitutional: Rigors, sweating, malaise, headache</li>
+            </ul>
+          </li>
+          <li><strong>Leg symptoms:</strong> Pain, swelling, tenderness (DVT risk given history)</li>
+        </ul>
+
+        <h4>2. Operative Details</h4>
+        <ul>
+          <li>Type of hysterectomy (abdominal vs. vaginal vs. laparoscopic)</li>
+          <li>Duration of surgery</li>
+          <li>Intraoperative complications</li>
+          <li>Blood loss and transfusion requirements</li>
+          <li>Antibiotic prophylaxis given</li>
+        </ul>
+
+        <h4>3. Post-operative Course</h4>
+        <ul>
+          <li>Fluid balance and urine output</li>
+          <li>Pain management and mobility</li>
+          <li>Time of urinary catheter removal</li>
+          <li>Presence of drains or other devices</li>
+          <li>Current medications including compliance with heparin</li>
+        </ul>
+
+        <h4>4. Relevant Past Medical History</h4>
+        <ul>
+          <li><strong>Asthma:</strong> Control, recent exacerbations, current medications</li>
+          <li><strong>DVT history:</strong> When, treatment received, residual symptoms</li>
+          <li>Previous surgeries and complications</li>
+          <li>Drug allergies</li>
+          <li>Smoking history</li>
+        </ul>
+
+        <h3>B. Physical Examination</h3>
+
+        <h4>General Examination</h4>
+        <ul>
+          <li><strong>Vital signs:</strong> Temperature, heart rate, blood pressure, respiratory rate, oxygen saturation</li>
+          <li><strong>General appearance:</strong> Level of distress, hydration status, color</li>
+          <li><strong>Mental status:</strong> Alertness, orientation, confusion</li>
+        </ul>
+
+        <h4>Detailed Physical Examination Checklist</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>System/Area</th>
+              <th>Specific Examination Points</th>
+              <th>Key Findings to Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Respiratory System</strong></td>
+              <td>
+                • Inspection: Respiratory rate, pattern, use of accessory muscles<br>
+                • Palpation: Chest expansion, tactile fremitus<br>
+                • Percussion: Note areas of dullness<br>
+                • Auscultation: Breath sounds, crackles, bronchial breathing, pleural rub
+              </td>
+              <td>Signs of pneumonia, atelectasis, pulmonary embolism, or bronchospasm</td>
+            </tr>
+            <tr>
+              <td><strong>Cardiovascular System</strong></td>
+              <td>
+                • Heart rate and rhythm<br>
+                • Heart sounds (normal, murmurs, gallop)<br>
+                • Jugular venous pressure<br>
+                • Peripheral pulses<br>
+                • Capillary refill time
+              </td>
+              <td>Tachycardia, new murmurs, signs of endocarditis, hemodynamic instability</td>
+            </tr>
+            <tr>
+              <td><strong>Abdominal/Surgical Site</strong></td>
+              <td>
+                • Wound inspection: Erythema, swelling, discharge, dehiscence<br>
+                • Palpation: Tenderness, guarding, rebound tenderness<br>
+                • Presence of surgical drains and output characteristics<br>
+                • Bowel sounds<br>
+                • Organomegaly<br>
+                • Pelvic examination if indicated
+              </td>
+              <td>Wound infection, intra-abdominal abscess, peritonitis, pelvic collection</td>
+            </tr>
+            <tr>
+              <td><strong>Urinary System</strong></td>
+              <td>
+                • Suprapubic tenderness<br>
+                • Costovertebral angle tenderness<br>
+                • Urethral discharge<br>
+                • Catheter site if present
+              </td>
+              <td>Urinary tract infection, pyelonephritis, catheter-related infection</td>
+            </tr>
+            <tr>
+              <td><strong>Lower Limbs</strong></td>
+              <td>
+                • Inspection: Swelling, color changes, varicosities<br>
+                • Palpation: Calf tenderness, warmth, cord-like structures<br>
+                • Measure calf circumference bilaterally<br>
+                • Homan's sign (limited value)<br>
+                • Pedal pulses
+              </td>
+              <td>Deep vein thrombosis (especially relevant given history)</td>
+            </tr>
+            <tr>
+              <td><strong>Venous Access Sites</strong></td>
+              <td>
+                • Examine all IV sites, central lines<br>
+                • Look for erythema, purulence, tracking<br>
+                • Palpate for tenderness
+              </td>
+              <td>Phlebitis, line-related sepsis</td>
+            </tr>
+            <tr>
+              <td><strong>Skin/Pressure Areas</strong></td>
+              <td>
+                • Check sacrum, heels, buttocks<br>
+                • Look for rashes, lesions<br>
+                • Examine for signs of drug reaction
+              </td>
+              <td>Pressure sores, cellulitis, drug eruptions</td>
+            </tr>
+            <tr>
+              <td><strong>ENT/Oral Cavity</strong></td>
+              <td>
+                • Throat examination<br>
+                • Sinus tenderness<br>
+                • Oral mucosa<br>
+                • Dental hygiene
+              </td>
+              <td>Pharyngitis, sinusitis, dental abscess</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 15px 0;">
+          <strong>Special Considerations for Mrs Davis:</strong>
+          <ul>
+            <li>Given her history of DVT, particularly careful examination of lower limbs is essential</li>
+            <li>With a history of asthma, thorough respiratory examination to exclude chest infection or bronchospasm</li>
+            <li>Post-hysterectomy complications may include pelvic infection, vaginal cuff infection, or abscess formation</li>
+          </ul>
+        </div>
+
+        <h3>C. Investigations</h3>
+
+        <h4>1. Blood Tests</h4>
+        <ul>
+          <li><strong>Full Blood Count (FBC):</strong> White cell count, differential count, hemoglobin, platelets</li>
+          <li><strong>C-reactive protein (CRP) and ESR:</strong> Markers of inflammation</li>
+          <li><strong>Urea and Electrolytes (U&E):</strong> Renal function, dehydration, electrolyte imbalance</li>
+          <li><strong>Liver Function Tests (LFTs):</strong> Hepatic involvement, drug reactions</li>
+          <li><strong>Coagulation studies:</strong> Especially if anticoagulation adjustment needed</li>
+          <li><strong>Blood cultures:</strong> At least 2 sets from different sites if temperature ≥38.3°C or sepsis suspected</li>
+          <li><strong>Lactate:</strong> If sepsis suspected (marker of tissue hypoperfusion)</li>
+        </ul>
+
+        <h4>2. Microbiological Samples</h4>
+        <ul>
+          <li><strong>Urine:</strong> Dipstick and microscopy, culture and sensitivity</li>
+          <li><strong>Wound swabs:</strong> If wound appears infected or discharging</li>
+          <li><strong>Sputum culture:</strong> If productive cough present</li>
+          <li><strong>Vaginal swabs:</strong> If vaginal discharge or concern for pelvic infection</li>
+          <li><strong>Drain fluid:</strong> Send for culture if drains in situ</li>
+        </ul>
+
+        <h4>3. Imaging</h4>
+        <ul>
+          <li><strong>Chest X-ray:</strong> Essential to exclude pneumonia, atelectasis, pleural effusion</li>
+          <li><strong>Abdominal/Pelvic Ultrasound:</strong> To detect collections, abscesses, hematomas</li>
+          <li><strong>CT Abdomen/Pelvis with contrast:</strong> If clinical suspicion of intra-abdominal pathology</li>
+          <li><strong>Doppler Ultrasound of lower limbs:</strong> If clinical suspicion of DVT</li>
+          <li><strong>CT Pulmonary Angiography (CTPA):</strong> If pulmonary embolism suspected</li>
+        </ul>
+
+        <h4>4. Other Investigations</h4>
+        <ul>
+          <li><strong>ECG:</strong> Tachycardia assessment, exclude cardiac ischemia</li>
+          <li><strong>Arterial blood gas:</strong> If respiratory compromise or sepsis suspected</li>
+        </ul>
+
+        <h3>D. Immediate Management</h3>
+        <ul>
+          <li>Continue monitoring vital signs (minimum 4-hourly, more frequently if unstable)</li>
+          <li>Ensure adequate hydration (IV fluids if poor oral intake)</li>
+          <li>Regular analgesia to facilitate mobility and respiratory effort</li>
+          <li>Encourage deep breathing exercises and mobilization</li>
+          <li>Continue thromboprophylaxis as prescribed</li>
+          <li>Document findings clearly and escalate if deteriorating</li>
+          <li>Consider early warning score (e.g., NEWS2) to track clinical trajectory</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+      <strong>Question 2: List common sources of fever in surgical patients</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; border: 2px dashed #2196F3; margin: 15px 0; font-family: 'Courier New', monospace;">
+          <strong>The "5 W's" Mnemonic (Traditional timing-based approach):</strong><br>
+          • <strong>W</strong>ind (Respiratory) - Days 1-2<br>
+          • <strong>W</strong>ater (Urinary) - Days 3-5<br>
+          • <strong>W</strong>ound (Surgical site) - Days 5-7<br>
+          • <strong>W</strong>alking (DVT/PE) - Days 7-10<br>
+          • <strong>W</strong>onder drugs (Drug fever) - Anytime<br><br>
+          <em>Note: While this mnemonic is useful, overlap exists and timings are approximate.</em>
+        </div>
+
+        <h3>1. Respiratory Causes ("Wind")</h3>
+        <h4>Common in immediate post-operative period (24-48 hours)</h4>
+        <ul>
+          <li><strong>Atelectasis:</strong> Most common cause of fever in first 48 hours post-operatively. Due to hypoventilation, poor respiratory effort, pain</li>
+          <li><strong>Pneumonia:</strong> Hospital-acquired pneumonia (HAP), aspiration pneumonia, ventilator-associated pneumonia</li>
+          <li><strong>Pulmonary embolism:</strong> May present with fever along with dyspnea and pleuritic chest pain</li>
+          <li><strong>Pleural effusion:</strong> Especially if complicated or infected (empyema)</li>
+          <li><strong>Bronchospasm/Asthma exacerbation:</strong> Particularly relevant for Mrs Davis</li>
+        </ul>
+
+        <h3>2. Urinary Tract Causes ("Water")</h3>
+        <h4>Common days 3-5 post-operatively</h4>
+        <ul>
+          <li><strong>Urinary tract infection (UTI):</strong> Most common after urinary catheterization. Risk increases with duration of catheterization</li>
+          <li><strong>Catheter-associated UTI (CAUTI):</strong> Single most common healthcare-associated infection</li>
+          <li><strong>Urinary retention:</strong> Can predispose to infection</li>
+        </ul>
+
+        <h3>3. Wound and Surgical Site Causes ("Wound")</h3>
+        <h4>Common days 5-7 post-operatively (but can occur earlier)</h4>
+        <ul>
+          <li><strong>Superficial surgical site infection (SSI):</strong> Skin and subcutaneous tissue</li>
+          <li><strong>Deep SSI:</strong> Fascia and muscle layers</li>
+          <li><strong>Organ/space SSI:</strong> Any part of anatomy manipulated during surgery</li>
+          <li><strong>Specific to hysterectomy:</strong> Vaginal cuff infection/abscess, pelvic abscess or collection, pelvic cellulitis, infected hematoma</li>
+          <li><strong>Necrotizing fasciitis:</strong> Rare but life-threatening, rapid progression</li>
+        </ul>
+
+        <h3>4. Venous Thromboembolic Disease ("Walking")</h3>
+        <h4>Typically days 7-10 but can occur earlier</h4>
+        <ul>
+          <li><strong>Deep vein thrombosis (DVT):</strong> Particularly relevant for Mrs Davis given her history. Low-grade fever common. May be clinically silent</li>
+          <li><strong>Pulmonary embolism (PE):</strong> Can present with fever, dyspnea, pleuritic chest pain, tachycardia</li>
+          <li><strong>Superficial thrombophlebitis:</strong> At IV cannulation sites</li>
+        </ul>
+
+        <h3>5. Intravascular Device-Related Infections</h3>
+        <ul>
+          <li><strong>Peripheral IV catheter-related:</strong> Phlebitis, thrombophlebitis</li>
+          <li><strong>Central line-associated bloodstream infection (CLABSI)</strong></li>
+          <li><strong>Catheter-related bacteremia/sepsis</strong></li>
+        </ul>
+
+        <h3>6. Drug-Related Fever ("Wonder Drugs")</h3>
+        <h4>Can occur at any time</h4>
+        <ul>
+          <li><strong>Drug fever:</strong> Antibiotics (beta-lactams, sulfonamides), anticonvulsants, allopurinol</li>
+          <li><strong>Transfusion reactions:</strong> If blood products administered</li>
+          <li><strong>Contrast media reactions</strong></li>
+        </ul>
+
+        <h3>7. Intra-abdominal/Pelvic Causes</h3>
+        <ul>
+          <li><strong>Intra-abdominal abscess:</strong> Subphrenic, pelvic, or other locations</li>
+          <li><strong>Peritonitis:</strong> Generalized or localized</li>
+          <li><strong>Acalculous cholecystitis:</strong> Especially in critically ill patients</li>
+          <li><strong>Clostridium difficile colitis:</strong> Following antibiotic use</li>
+        </ul>
+
+        <h3>8. Other Infectious Causes</h3>
+        <ul>
+          <li><strong>Parotitis:</strong> Due to dehydration, poor oral hygiene</li>
+          <li><strong>Sinusitis:</strong> Especially if nasogastric tube in place</li>
+          <li><strong>Endocarditis:</strong> Rare, but consider in persistent bacteremia</li>
+        </ul>
+
+        <h3>9. Non-Infectious Causes</h3>
+        <ul>
+          <li><strong>Tissue trauma from surgery:</strong> Physiological inflammatory response (usually resolves within 48 hours)</li>
+          <li><strong>Hematoma:</strong> Uninfected collections can cause low-grade fever</li>
+          <li><strong>Malignant hyperthermia:</strong> Rare, occurs during or immediately after anesthesia</li>
+          <li><strong>Adrenal insufficiency:</strong> In patients on long-term steroids</li>
+          <li><strong>Thyroid storm:</strong> In patients with hyperthyroidism</li>
+        </ul>
+
+        <div style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 15px 0;">
+          <strong>Key Considerations for Mrs Davis at 24 Hours Post-Hysterectomy:</strong>
+          <br><br>
+          <strong>Most likely causes at this timepoint:</strong>
+          <ul>
+            <li>Atelectasis (most common cause in first 48 hours)</li>
+            <li>Urinary tract infection (especially if catheter used)</li>
+            <li>Early wound infection (though typically later)</li>
+            <li>Physiological inflammatory response to surgery</li>
+          </ul>
+          <br>
+          <strong>Important to exclude given her history:</strong>
+          <ul>
+            <li>DVT/PE (history of previous DVT despite prophylaxis)</li>
+            <li>Respiratory infection or bronchospasm (history of asthma)</li>
+            <li>Pelvic collection or infection specific to gynecological surgery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+      <strong>Question 3: List the endocrine, metabolic, autonomic and behavioural characteristics of the febrile state</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Fever (pyrexia) is a complex, coordinated physiological response involving multiple body systems. It represents a regulated increase in core body temperature orchestrated by the hypothalamus in response to pyrogens.</p>
+
+        <h3>A. Endocrine Characteristics</h3>
+
+        <h4>1. Hypothalamic-Pituitary-Adrenal (HPA) Axis Activation</h4>
+        <ul>
+          <li><strong>Increased cortisol secretion:</strong> Stress response to illness, anti-inflammatory effects, metabolic effects, peak levels typically 2-4 times normal</li>
+          <li><strong>Elevated ACTH (adrenocorticotropic hormone):</strong> Drives cortisol production</li>
+          <li><strong>Increased corticotropin-releasing hormone (CRH):</strong> Central regulation of stress response</li>
+        </ul>
+
+        <h4>2. Thyroid Hormone Changes</h4>
+        <ul>
+          <li>May see decreased T3 (triiodothyronine) - "sick euthyroid syndrome"</li>
+          <li>Increased reverse T3 (rT3)</li>
+          <li>Usually normal or slightly decreased TSH</li>
+          <li>Adaptive response to conserve energy during acute illness</li>
+        </ul>
+
+        <h4>3. Vasopressin (ADH) Secretion</h4>
+        <ul>
+          <li><strong>Increased antidiuretic hormone:</strong> Water retention, concentrated urine, decreased urine output, may lead to hyponatremia if excessive</li>
+        </ul>
+
+        <h4>4. Growth Hormone and IGF</h4>
+        <ul>
+          <li><strong>Elevated growth hormone:</strong> Stress-induced secretion</li>
+          <li><strong>Decreased IGF-1:</strong> Part of acute phase response</li>
+        </ul>
+
+        <h4>5. Gonadotropin Suppression</h4>
+        <ul>
+          <li><strong>Decreased LH and FSH:</strong> Reproductive function suppressed during acute illness</li>
+          <li><strong>Reduced sex hormone production:</strong> Energy conservation mechanism</li>
+        </ul>
+
+        <h4>6. Catecholamine Release</h4>
+        <ul>
+          <li><strong>Increased adrenaline and noradrenaline:</strong> From adrenal medulla, contributes to cardiovascular changes, metabolic effects (glycogenolysis, lipolysis)</li>
+        </ul>
+
+        <h3>B. Metabolic Characteristics</h3>
+
+        <h4>1. Increased Metabolic Rate</h4>
+        <ul>
+          <li>Approximately 10-13% increase per 1°C rise in temperature</li>
+          <li>Increased oxygen consumption and CO2 production</li>
+        </ul>
+
+        <h4>2. Altered Glucose Metabolism</h4>
+        <ul>
+          <li><strong>Hyperglycemia:</strong> Increased hepatic glucose production, insulin resistance, stress hormone effects</li>
+          <li><strong>Increased glucose utilization:</strong> By immune cells and tissues</li>
+        </ul>
+
+        <h4>3. Protein Metabolism Changes</h4>
+        <ul>
+          <li><strong>Increased protein catabolism:</strong> Muscle protein breakdown, negative nitrogen balance</li>
+          <li><strong>Acute phase protein synthesis:</strong>
+            <ul>
+              <li>Increased: CRP, serum amyloid A, fibrinogen, ferritin, haptoglobin</li>
+              <li>Decreased: Albumin, transferrin, transthyretin</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>4. Lipid Metabolism</h4>
+        <ul>
+          <li><strong>Increased lipolysis:</strong> Fat breakdown for energy</li>
+          <li><strong>Elevated free fatty acids:</strong> Alternative fuel source</li>
+          <li><strong>Altered lipid profile:</strong> Decreased HDL, increased triglycerides</li>
+        </ul>
+
+        <h4>5. Electrolyte and Mineral Changes</h4>
+        <ul>
+          <li><strong>Hyponatremia:</strong> Due to ADH secretion and fluid shifts</li>
+          <li><strong>Hypokalemia:</strong> Intracellular shift, increased urinary losses</li>
+          <li><strong>Hypophosphatemia:</strong> Intracellular shift</li>
+          <li><strong>Decreased serum iron and zinc:</strong> Sequestration (reduces availability to pathogens)</li>
+        </ul>
+
+        <h3>C. Autonomic Characteristics</h3>
+
+        <h4>1. Sympathetic Nervous System Activation</h4>
+        <ul>
+          <li><strong>Cardiovascular effects:</strong> Tachycardia, increased cardiac output, peripheral vasoconstriction during "chill phase"</li>
+          <li><strong>Pupillary dilation (mydriasis)</strong></li>
+          <li><strong>Decreased gastrointestinal motility:</strong> Reduced bowel sounds, constipation, nausea</li>
+        </ul>
+
+        <h4>2. Thermoregulatory Responses</h4>
+        <ul>
+          <li><strong>During temperature rise (chill phase):</strong> Vasoconstriction, piloerection, shivering thermogenesis, seeking warmth</li>
+          <li><strong>At fever plateau:</strong> Balance between heat production and loss</li>
+          <li><strong>During defervescence:</strong> Peripheral vasodilation, sweating, increased heat loss</li>
+        </ul>
+
+        <h4>3. Respiratory Changes</h4>
+        <ul>
+          <li><strong>Increased respiratory rate (tachypnea):</strong> Compensation for increased metabolic rate, may lead to respiratory alkalosis</li>
+        </ul>
+
+        <h4>4. Skin and Cutaneous Circulation</h4>
+        <ul>
+          <li><strong>Biphasic response:</strong> Initial vasoconstriction (cold, pale), later vasodilation (warm, flushed)</li>
+          <li><strong>Sweating:</strong> Eccrine gland activation during defervescence</li>
+        </ul>
+
+        <h4>5. Renal Effects</h4>
+        <ul>
+          <li><strong>Decreased urine output (oliguria):</strong> Due to ADH secretion, reduced renal blood flow, fluid loss through sweating</li>
+          <li><strong>Concentrated urine:</strong> High specific gravity</li>
+        </ul>
+
+        <h3>D. Behavioral Characteristics</h3>
+
+        <h4>1. Thermoregulatory Behaviors</h4>
+        <ul>
+          <li><strong>During chill phase:</strong> Seeking warmth, adding clothing/blankets, curling up</li>
+          <li><strong>During hot phase:</strong> Seeking cool environment, removing clothing, increased fluid intake</li>
+        </ul>
+
+        <h4>2. Sickness Behaviors</h4>
+        <ul>
+          <li><strong>Malaise and fatigue:</strong> Overwhelming tiredness, lack of energy, mediated by cytokines</li>
+          <li><strong>Lethargy and somnolence:</strong> Increased sleep, reduced activity, conservation of energy</li>
+          <li><strong>Social withdrawal:</strong> Decreased social interaction, isolation behaviors</li>
+        </ul>
+
+        <h4>3. Appetite and Dietary Changes</h4>
+        <ul>
+          <li><strong>Anorexia (loss of appetite):</strong> Reduced food intake, cytokine-mediated, adaptive response</li>
+          <li><strong>Taste changes:</strong> Altered perception of food</li>
+          <li><strong>Nausea:</strong> May accompany fever</li>
+        </ul>
+
+        <h4>4. Cognitive and Mood Changes</h4>
+        <ul>
+          <li><strong>Difficulty concentrating:</strong> "Brain fog"</li>
+          <li><strong>Confusion:</strong> Especially in elderly (may indicate delirium)</li>
+          <li><strong>Irritability and mood changes:</strong> Depression-like symptoms, anxiety, emotional lability</li>
+          <li><strong>Altered pain perception:</strong> Increased sensitivity or hyperalgesia</li>
+        </ul>
+
+        <h4>5. Motor Function Changes</h4>
+        <ul>
+          <li><strong>Reduced motor activity:</strong> Less movement, staying still</li>
+          <li><strong>Weakness:</strong> Generalized muscle weakness</li>
+          <li><strong>Myalgia (muscle aches):</strong> Often accompanies fever</li>
+          <li><strong>Arthralgia (joint aches)</strong></li>
+        </ul>
+
+        <h4>6. Sensory Changes</h4>
+        <ul>
+          <li><strong>Headache:</strong> Very common with fever</li>
+          <li><strong>Photophobia:</strong> Light sensitivity</li>
+          <li><strong>Hyperacusis:</strong> Sound sensitivity</li>
+        </ul>
+
+        <div style="background: #d1ecf1; padding: 15px; border-radius: 8px; border-left: 4px solid #0c5460; margin: 15px 0;">
+          <strong>For Mrs Davis specifically:</strong>
+          <ul>
+            <li>Her asthma history means respiratory changes (tachypnea) must be carefully monitored</li>
+            <li>Behavioral changes like reduced mobility could increase DVT risk despite prophylaxis</li>
+            <li>Dehydration from fever could concentrate blood and increase thrombotic risk</li>
+            <li>Metabolic stress response may affect wound healing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+      <strong>Question 4: What antibiotic regimen would you prescribe until results available and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <div style="background: #f8d7da; padding: 15px; border-radius: 8px; border-left: 4px solid #dc3545; margin: 15px 0; color: #721c24;">
+          <strong>Important Caveat:</strong> The decision to start empirical antibiotics should be based on clinical assessment of sepsis severity and likelihood of bacterial infection. Not all post-operative fevers require antibiotics. Mrs Davis's temperature of 38.1°C is below the 38.3°C threshold, and if she is otherwise stable with no clear source of infection, watchful waiting with close monitoring may be appropriate.
+        </div>
+
+        <h3>Decision-Making Framework</h3>
+
+        <h4>When to START Empirical Antibiotics:</h4>
+        <ul>
+          <li>Signs of sepsis or severe sepsis (use qSOFA or SOFA scores)</li>
+          <li>Hemodynamic instability</li>
+          <li>Evidence of significant bacterial infection on examination or investigations</li>
+          <li>Immunocompromised state</li>
+          <li>Deteriorating clinical condition</li>
+        </ul>
+
+        <h4>When to WITHHOLD Antibiotics and Monitor:</h4>
+        <ul>
+          <li>Low-grade fever (<38.3°C) without other concerning features</li>
+          <li>Hemodynamically stable</li>
+          <li>Likely non-bacterial cause (atelectasis, physiological surgical response)</li>
+          <li>First 48 hours post-op with unremarkable examination</li>
+        </ul>
+
+        <h3>Key Factors for Mrs Davis</h3>
+        <table>
+          <tr>
+            <th>Factor</th>
+            <th>Consideration</th>
+            <th>Impact on Antibiotic Choice</th>
+          </tr>
+          <tr>
+            <td><strong>Type of Surgery</strong></td>
+            <td>Hysterectomy (gynecological)</td>
+            <td>Need coverage for Gram-negatives (E. coli, Klebsiella), anaerobes (Bacteroides), Gram-positives</td>
+          </tr>
+          <tr>
+            <td><strong>Timing</strong></td>
+            <td>24 hours post-operative</td>
+            <td>Early time point - consider non-infectious causes first</td>
+          </tr>
+          <tr>
+            <td><strong>Likely Sources</strong></td>
+            <td>UTI, wound/pelvis, respiratory</td>
+            <td>Broad-spectrum coverage needed until source identified</td>
+          </tr>
+        </table>
+
+        <h3>RECOMMENDED FIRST-LINE REGIMEN</h3>
+
+        <div style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 15px 0;">
+          <h4>Co-amoxiclav 1.2g IV three times daily</h4>
+
+          <strong>Rationale:</strong>
+          <ul>
+            <li><strong>Broad-spectrum coverage:</strong>
+              <ul>
+                <li>Gram-positive: Streptococcus spp., Staphylococcus aureus (not MRSA)</li>
+                <li>Gram-negative: E. coli, Klebsiella, Proteus (common UTI and pelvic organisms)</li>
+                <li>Anaerobes: Bacteroides fragilis (important for pelvic/abdominal infections)</li>
+              </ul>
+            </li>
+            <li><strong>Good tissue penetration:</strong> Including pelvic tissues and surgical sites</li>
+            <li><strong>Well-established safety profile</strong></li>
+            <li><strong>Single agent:</strong> Simpler than combination therapy</li>
+            <li><strong>Cost-effective</strong></li>
+            <li><strong>No monitoring required</strong> (unlike gentamicin)</li>
+            <li><strong>Follows antimicrobial stewardship:</strong> Appropriate spectrum, not excessively broad</li>
+          </ul>
+
+          <strong>Before prescribing, ensure:</strong>
+          <ul>
+            <li>No penicillin allergy documented</li>
+            <li>Baseline renal function checked</li>
+            <li>Blood cultures and other samples taken BEFORE first dose</li>
+          </ul>
+        </div>
+
+        <h3>Alternative Regimens</h3>
+
+        <h4>If Penicillin Allergy:</h4>
+        <ul>
+          <li><strong>Cefuroxime 1.5g IV TDS + Metronidazole 500mg IV TDS</strong></li>
+          <li>(Note: 10% cross-reactivity with cephalosporins)</li>
+        </ul>
+
+        <h4>If Severe Penicillin Allergy:</h4>
+        <ul>
+          <li><strong>Ciprofloxacin 400mg IV BD + Metronidazole 500mg IV TDS</strong></li>
+        </ul>
+
+        <h4>If Severe Sepsis/Septic Shock:</h4>
+        <ul>
+          <li><strong>Piperacillin-Tazobactam 4.5g IV TDS</strong> or</li>
+          <li><strong>Meropenem 1g IV TDS</strong></li>
+        </ul>
+
+        <h3>Management Summary for Mrs Davis</h3>
+
+        <div style="background: #d1ecf1; padding: 15px; border-radius: 8px; border-left: 4px solid #0c5460; margin: 15px 0;">
+          <strong>Recommended Approach:</strong>
+          <ol>
+            <li><strong>If hemodynamically stable, no signs of sepsis:</strong>
+              <ul>
+                <li>DO NOT start antibiotics immediately</li>
+                <li>Complete thorough assessment</li>
+                <li>Monitor closely (4-hourly observations)</li>
+                <li>Reassess in 4-6 hours</li>
+              </ul>
+            </li>
+            <li><strong>If temperature ≥38.3°C OR signs of sepsis OR clinical deterioration:</strong>
+              <ul>
+                <li>Take blood cultures and other samples</li>
+                <li><strong>START Co-amoxiclav 1.2g IV TDS within 1 hour</strong></li>
+              </ul>
+            </li>
+            <li><strong>After 48-72 hours:</strong>
+              <ul>
+                <li>Review culture results</li>
+                <li>De-escalate to narrower spectrum based on sensitivities</li>
+                <li>Switch to oral when clinically appropriate</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <h3>Monitoring and Duration</h3>
+        <ul>
+          <li>Monitor clinical response (temperature, observations, symptoms)</li>
+          <li>Review at 48-72 hours when culture results available</li>
+          <li><strong>Duration:</strong>
+            <ul>
+              <li>Uncomplicated UTI: 3-5 days</li>
+              <li>Wound infection: 5-7 days</li>
+              <li>Pelvic infection: 7-14 days depending on severity</li>
+            </ul>
+          </li>
+          <li>Daily review of need for antibiotics (antimicrobial stewardship)</li>
+        </ul>
+
+        <div style="background: #f8d7da; padding: 15px; border-radius: 8px; border-left: 4px solid #dc3545; margin: 15px 0; color: #721c24;">
+          <strong>Key Principle:</strong> The decision to start antibiotics should be based on clinical assessment, not temperature alone. Mrs Davis's presentation at 38.1°C may not require immediate antibiotics if she is otherwise stable and without clear evidence of bacterial infection. However, if antibiotics are indicated, Co-amoxiclav provides appropriate empirical coverage while adhering to antimicrobial stewardship principles.
+        </div>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

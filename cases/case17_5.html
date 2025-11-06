@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 17.5 - Adrenal Insufficiency</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 17.5 - Adrenal Insufficiency | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 17.5 - Adrenal Insufficiency">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 17.5 – Adrenocortical Insufficiency</h1>
+    <p class="meta"><strong>Category:</strong> Endocrine & Reproductive Systems | <strong>Discipline:</strong> Medicine - Endocrinology | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>John Mosby, 25 years old, has a long history of chronic asthma, which has required long term use of inhaled and oral corticosteroids to manage.</p>
+    <p>He has been unwell over the last few days with vomiting and diarrhoea and presents with lethargy and looks pale and unwell.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. The ED registrar explains to you that his long term use of steroid medication has most likely impaired John's ability to respond to his illness; demonstrate your understanding of the glucocorticoid axis by explaining what the registrar means by this.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>The Glucocorticoid Axis:</strong></p>
+        <ul>
+          <li>The hypothalamus releases corticotrophin-releasing factor (CRF) and antidiuretic hormone (ADH)</li>
+          <li>These stimulate the anterior pituitary to release adrenocorticotrophic hormone (ACTH, corticotrophin)</li>
+          <li>ACTH stimulates the adrenal cortex to produce glucocorticoids (cortisol)</li>
+          <li>Glucocorticoids provide negative feedback to both the hypothalamus and anterior pituitary (long negative feedback loop is more important than the short loop)</li>
+          <li>ACTH has only a minimal effect on mineralocorticoid production (which is mainly regulated by the renin-angiotensin system)</li>
+        </ul>
+
+        <p><strong>Effect of exogenous glucocorticoids:</strong></p>
+        <ul>
+          <li>Long-term use of exogenous glucocorticoids (e.g. prednisolone) suppresses the hypothalamic-pituitary-adrenal axis through negative feedback</li>
+          <li>This leads to suppression of endogenous glucocorticoid synthesis</li>
+          <li>The adrenal glands atrophy from lack of ACTH stimulation</li>
+          <li>When the patient becomes acutely ill or stressed, the body normally increases cortisol production significantly</li>
+          <li>However, in patients on long-term steroids, the suppressed HPA axis cannot mount this stress response</li>
+          <li>This results in relative adrenal insufficiency during illness, even if the patient continues their regular steroid dose</li>
+          <li>The patient may require higher doses of steroids during acute illness to compensate</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Outline other potential problems due to prolonged use of corticosteroid medications.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Unwanted effects are seen mainly after prolonged systemic use as anti-inflammatory or immunosuppressive agents but not usually with replacement therapy. The most important are:</p>
+        <ul>
+          <li>Suppression of response to infection</li>
+          <li>Suppression of endogenous glucocorticoid synthesis</li>
+          <li>Metabolic actions (hyperglycaemia, increased protein catabolism, redistribution of fat, fluid retention)</li>
+          <li>Osteoporosis</li>
+          <li>Iatrogenic Cushing's syndrome</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Long-term steroid use is the most common cause of secondary adrenocortical insufficiency. Outline in a table other causes of adrenal insufficiency and summarise how secondary and primary adrenocortical insufficiency differ.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <tr>
+            <th colspan="2">CAUSES OF ADRENOCORTICAL INSUFFICIENCY</th>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>SECONDARY (↓ACTH)</strong> - Issue at level of Anterior Pituitary or Hypothalamus</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <ul>
+                <li><strong>Withdrawal of suppressive glucocorticoid therapy</strong> - Chronic suppression of ACTH from pituitary leads to secondary adrenal atrophy over time → Sudden steroid cessation → not enough cortisol</li>
+                <li>Hypothalamic or pituitary disease</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>PRIMARY (↑ACTH)</strong> - Issue at level of adrenal glands</td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Addison's disease - Common Causes:</strong></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <ul>
+                <li>Autoimmune (Sporadic, Polyglandular syndromes)</li>
+                <li>Tuberculosis</li>
+                <li>HIV/AIDS</li>
+                <li>Metastatic carcinoma</li>
+                <li>Bilateral adrenalectomy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Addison's disease - Rare causes:</strong></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <ul>
+                <li>Lymphoma</li>
+                <li>Intra-adrenal haemorrhage (following meningococcal septicaemia)</li>
+                <li>Amyloidosis</li>
+                <li>Haemochromatosis</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Corticosteroid biosynthetic enzyme defects:</strong></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <ul>
+                <li>Congenital adrenal hyperplasias</li>
+                <li>Drugs: Aminoglutethimide, metyrapone, ketoconazole, etomidate etc.</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <p><strong>Key differences between primary and secondary adrenocortical insufficiency:</strong></p>
+        <ul>
+          <li><strong>ACTH levels:</strong> High in primary (↑ACTH), Low in secondary (↓ACTH)</li>
+          <li><strong>Mineralocorticoid deficiency:</strong> Present in primary, Absent in secondary</li>
+          <li><strong>Pigmentation:</strong> Present in primary (due to high ACTH), Absent in secondary</li>
+          <li><strong>Hyperkalaemia:</strong> Common in primary, Rare in secondary</li>
+          <li><strong>Hyponatraemia:</strong> Depletional in primary, Dilutional in secondary</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What are the key clinical and biochemical features of adrenal insufficiency?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <tr>
+            <th></th>
+            <th>Glucocorticoid insufficiency</th>
+            <th>Mineralocorticoid insufficiency</th>
+            <th>ACTH excess</th>
+            <th>Adrenal androgen insufficiency</th>
+          </tr>
+          <tr>
+            <td><strong>Withdrawal of exogenous glucocorticoid</strong></td>
+            <td>+</td>
+            <td>−</td>
+            <td>−</td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><strong>Hypopituitarism</strong></td>
+            <td>+</td>
+            <td>−</td>
+            <td>−</td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><strong>Addison's disease</strong></td>
+            <td>+</td>
+            <td>+</td>
+            <td>+</td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td><strong>Congenital adrenal hyperplasia (21 OHase deficiency)</strong></td>
+            <td>+</td>
+            <td>+</td>
+            <td>+</td>
+            <td>−</td>
+          </tr>
+        </table>
+
+        <p><strong>Clinical features by system:</strong></p>
+        
+        <p><em>Glucocorticoid insufficiency:</em></p>
+        <ul>
+          <li>Weight loss</li>
+          <li>Malaise</li>
+          <li>Weakness</li>
+          <li>Anorexia</li>
+          <li>Nausea</li>
+          <li>Vomiting</li>
+          <li>Gastrointestinal: diarrhoea or constipation</li>
+          <li>Postural hypotension</li>
+          <li>Shock</li>
+          <li>Hypoglycaemia</li>
+          <li>Hyponatraemia (dilutional)</li>
+          <li>Hypercalcaemia</li>
+        </ul>
+
+        <p><em>Mineralocorticoid insufficiency (Aldosterone):</em></p>
+        <ul>
+          <li>Hypotension</li>
+          <li>Shock</li>
+          <li>Hyponatraemia (depletional)</li>
+          <li>Hyperkalaemia</li>
+        </ul>
+
+        <p><em>ACTH excess:</em></p>
+        <ul>
+          <li>Pigmentation:
+            <ul>
+              <li>Sun-exposed areas</li>
+              <li>Pressure areas (e.g. elbows, knees)</li>
+              <li>Palmar creases, knuckles</li>
+              <li>Mucous membranes</li>
+              <li>Conjunctivae</li>
+              <li>Recent scars</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>Adrenal androgen insufficiency:</em></p>
+        <ul>
+          <li>Decreased body hair and loss of libido, especially in female</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Why is primary hypoadrenalism [Addison disease] potentially life threatening?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Acute Adrenal Crisis:</strong></p>
+        <p>Features of an acute adrenal crisis include:</p>
+        <ul>
+          <li><strong>Circulatory shock</strong> with severe hypotension</li>
+          <li><strong>Severe hypotension</strong></li>
+          <li><strong>Hyponatraemia</strong></li>
+          <li><strong>Hyperkalaemia</strong></li>
+          <li>In some instances, <strong>hypoglycaemia</strong> and <strong>hypercalcaemia</strong></li>
+          <li><strong>Muscle cramps</strong></li>
+          <li><strong>Nausea, vomiting, diarrhoea</strong></li>
+          <li><strong>Unexplained fever</strong></li>
+        </ul>
+
+        <p>The crisis is often precipitated by:</p>
+        <ul>
+          <li>Intercurrent disease</li>
+          <li>Surgery</li>
+          <li>Infection</li>
+        </ul>
+
+        <p><strong>Why it is life-threatening:</strong></p>
+        <ul>
+          <li>Deranged electrolytes (↓sodium, ↑potassium) can cause cardiac arrhythmias</li>
+          <li>Severe hypotension/shock can lead to organ failure</li>
+          <li>Hypoglycaemia can cause seizures and coma</li>
+          <li>Without prompt treatment with IV hydrocortisone and fluid resuscitation, the patient may die</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Summarise the key investigations in the patient with suspected adrenocortical insufficiency and correlate the results with the clinical context.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Investigations:</strong></p>
+        <p>In patients presenting with chronic illness, the investigations below should be performed before any treatment. In patients with suspected acute adrenal crisis treatment should not be delayed pending results. A random blood sample should be stored for measurement of cortisol.</p>
+
+        <p><strong>Assessment of glucocorticoids:</strong></p>
+        <ul>
+          <li><strong>Random plasma cortisol</strong> is usually low in patients with adrenal insufficiency, but it may be within the normal range yet inappropriately low for a seriously ill patient</li>
+          <li>Random measurement of plasma cortisol cannot therefore be used to confirm or refute the diagnosis, unless the value is high, i.e. >460 nmol/l (>170 μg/dl)</li>
+          <li><strong>Short ACTH stimulation test</strong> (also called the tetracosactide or short Synacthen test):
+            <ul>
+              <li>Give exogenous ACTH and see if cortisol rises</li>
+              <li>Cortisol levels fail to increase in response to exogenous ACTH in patients with primary or secondary adrenal insufficiency</li>
+              <li>Primary vs secondary can be distinguished by measurement of ACTH (which is low in ACTH deficiency and high in Addison's disease)</li>
+            </ul>
+          </li>
+          <li><strong>Long ACTH stimulation test:</strong> If ACTH assay unavailable (1 mg depot ACTH i.m. daily for 3 days):
+            <ul>
+              <li>In secondary adrenal insufficiency there is a progressive increase in plasma cortisol with repeated ACTH administration</li>
+              <li>In Addison's disease cortisol remains less than 700 nmol/l (25.4 μg/dl) at 8 hours after the last injection</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Assessment of mineralocorticoids:</strong></p>
+        <ul>
+          <li>Plasma electrolyte measurements are insufficient to assess mineralocorticoid secretion</li>
+          <li>Hyponatraemia occurs in both aldosterone and cortisol deficiency</li>
+          <li>Hyperkalaemia is common, but not universal, in aldosterone deficiency</li>
+          <li><strong>Plasma renin activity and aldosterone</strong> should be measured in the supine position:
+            <ul>
+              <li>In mineralocorticoid deficiency, plasma renin activity is high</li>
+              <li>Plasma aldosterone is either low or in the lower part of the normal range</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Other tests to establish the cause (in patients with elevated ACTH):</strong></p>
+        <ul>
+          <li><strong>Autoimmune adrenal failure:</strong> Antibodies against steroid-secreting cells (adrenal and gonad), thyroid antigens, pancreatic β cells and parietal cells</li>
+          <li><strong>Screening for associated conditions:</strong> Thyroid function tests, full blood count (to screen for pernicious anaemia), plasma calcium, glucose and tests of gonadal function</li>
+          <li><strong>Tuberculosis:</strong> Causes adrenal calcification (visible on plain X-ray or ultrasound scan). Chest X-ray and early morning urine for culture</li>
+          <li><strong>HIV test:</strong> If risk factors for infection are present</li>
+          <li><strong>Imaging:</strong> CT or MRI of the adrenals to identify metastatic malignancy if appropriate</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Summarise the principles of management of primary hypoadrenalism.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Management:</strong></p>
+        <p>Patients with adrenocortical insufficiency always need glucocorticoid replacement therapy and usually, but not always, mineralocorticoid. Adrenal androgen replacement for women is not usually employed. Other treatments depend on the underlying cause.</p>
+
+        <p><strong>Glucocorticoid replacement:</strong></p>
+        <ul>
+          <li><strong>Cortisol (hydrocortisone)</strong> is the drug of choice</li>
+          <li>In someone who is not critically ill, cortisol should be given by mouth</li>
+          <li>The dose may need to be adjusted for the individual patient, but this is subjective:
+            <ul>
+              <li>Excess weight gain usually indicates over-replacement</li>
+              <li>Persistent lethargy or hyperpigmentation may be due to an inadequate dose</li>
+            </ul>
+          </li>
+          <li>Measurement of plasma cortisol levels is unhelpful</li>
+          <li>These are physiological replacement doses which should not cause Cushingoid side-effects</li>
+        </ul>
+
+        <p><strong>Adrenal crisis management:</strong></p>
+        <ul>
+          <li>An adrenal crisis is a medical emergency</li>
+          <li>Requires <strong>intravenous hydrocortisone succinate</strong> and <strong>intravenous fluid</strong></li>
+          <li>Parenteral hydrocortisone should be continued until gastrointestinal symptoms abate before starting oral therapy</li>
+          <li>The precipitating cause should be sought and, if possible, treated</li>
+        </ul>
+
+        <p><strong>Mineralocorticoid replacement:</strong></p>
+        <ul>
+          <li>Aldosterone is not readily available</li>
+          <li><strong>Fludrocortisone</strong> (i.e. 9α-fluoro-hydrocortisone) is the mineralocorticoid used (mimics aldosterone - salt retention)</li>
+          <li>The halogen group prevents fludrocortisone from being metabolised by 11β-HSD2 and thereby confers a longer half-life and access to mineralocorticoid receptors</li>
+          <li>Adequacy of replacement can be assessed objectively by measurement of blood pressure, plasma electrolytes and plasma renin activity</li>
+        </ul>
+
+        <p><strong>In adrenal crisis:</strong></p>
+        <ul>
+          <li>Rapid replacement of sodium deficiency is more important than administration of fludrocortisone</li>
+          <li>Intravenous saline should be infused as required to normalise haemodynamic indices</li>
+        </ul>
+
+        <p><strong>ADVICE TO PATIENTS ON GLUCOCORTICOID REPLACEMENT:</strong></p>
+        <table>
+          <tr>
+            <td><strong>Intercurrent stress:</strong></td>
+            <td>e.g. Febrile illness - double dose of hydrocortisone</td>
+          </tr>
+          <tr>
+            <td><strong>Surgery:</strong></td>
+            <td>Minor operation - hydrocortisone 100 mg i.m. with pre-medication<br>Major operation - hydrocortisone 100 mg 6-hourly for 24 hours, then 50 mg i.m. 6-hourly until ready to take tablets</td>
+          </tr>
+          <tr>
+            <td><strong>Vomiting:</strong></td>
+            <td>Must have parenteral hydrocortisone if unable to take by mouth</td>
+          </tr>
+          <tr>
+            <td><strong>Steroid card:</strong></td>
+            <td>Patient should carry this at all times. Should give information regarding diagnosis, steroid, dose and doctor</td>
+          </tr>
+          <tr>
+            <td><strong>Bracelet:</strong></td>
+            <td>Patients should be encouraged to buy one of these and have it engraved with the diagnosis and a reference number for a central database</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 9.2 - Poisoning & Envenomation</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 9.2 - Poisoning & Envenomation | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 9.2 - Poisoning & Envenomation">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 9.2 – Poisoning & Envenomation</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Sven Tuk, aged 3 years, presents with an inflamed, swollen and painful hand. Her mother repeats that she was playing in the garden shed with her boys and had presented crying. The pain has not responded to Panadol, and is aggravated by movement. The pain and swelling are now extending up her arm. On examination, you note Sven is sweating and dry retching.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. List your likely diagnosis and differential diagnosis.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Most Likely Diagnosis:</strong> Red-back spider bite</p>
+
+        <p><strong>Differential Diagnosis:</strong></p>
+        <ul>
+          <li><strong>Bee sting</strong> - not usually associated with sweating or vomiting</li>
+          <li><strong>Wasp sting</strong> - not usually associated with sweating or vomiting</li>
+          <li><strong>Other spider bites</strong> - unlikely:
+            <ul>
+              <li>Funnel web spiders do not cause a local reaction</li>
+              <li>White tailed spider is thought to cause only a local reaction</li>
+            </ul>
+          </li>
+          <li><strong>Snake bite</strong> - highly unlikely as all Australian snakes do not cause a local reaction</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Outline your approach in terms of further history, examination and investigation.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Further History</h3>
+        <ul>
+          <li>Known presence of red-back or other spiders, bees, wasps, or snakes at or near their home</li>
+          <li>Whether any were noticed by her boys</li>
+          <li>Obtain precise time of incident</li>
+        </ul>
+
+        <h3>Examination</h3>
+        <ul>
+          <li><strong>Vital signs</strong> - temperature, pulse and blood pressure (measure BP in the unaffected arm)</li>
+          <li><strong>Inspect the hand</strong> for evidence of a bee sting still present in the skin</li>
+          <li><strong>Inspect the rest of the skin</strong> for rashes</li>
+          <li><strong>Observe sweating pattern</strong> - determine if generalized or localized to the affected arm</li>
+          <li><strong>Inspect for muscle fasciculation</strong> at the site</li>
+          <li><strong>Palpate the axilla</strong> for local lymphadenopathy</li>
+          <li><strong>Assess for generalized muscular weakness</strong></li>
+        </ul>
+
+        <h3>Investigations</h3>
+        <p><strong>Note:</strong> There are no venom detection tests for spider bites.</p>
+        <ul>
+          <li><strong>Rapid venom detection test</strong> to exclude snake bite - can be performed from:
+            <ul>
+              <li>Swab from the bite site</li>
+              <li>Blood</li>
+              <li>Urine</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. If red back spider bite was suspected, what would make you consider administration of antivenom?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Indications for Antivenom Administration:</strong></p>
+        <p>Antivenom should be given if the reaction has spread beyond the local bite site, with:</p>
+        <ul>
+          <li><strong>Systemic symptoms and signs</strong>, OR</li>
+          <li><strong>Severe or recurrent pain</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. If Sven had been bitten by a tiger snake, and presented with headache, abdominal pain, vomiting and ascending paralysis, how would you manage her presentation?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Background on Australian Snake Envenomation</h3>
+        <p>Tiger snakes and brown snakes account for most envenomations. All Australian snakes are elapids, which have relatively small fangs and whose venoms do not cause severe local effects.</p>
+
+        <p><strong>Two Most Common Acute Threats to Life:</strong></p>
+        <ul>
+          <li>Neuromuscular paralysis with respiratory failure</li>
+          <li>Coagulopathy causing bleeding with peripheral circulatory failure (shock)</li>
+        </ul>
+
+        <h3>Main Components of Venoms</h3>
+        <ul>
+          <li><strong>Pre- and postsynaptic neurotoxins</strong> - cause paralysis</li>
+          <li><strong>Prothrombin activators</strong> - cause disseminated intravascular coagulation and haemorrhage</li>
+          <li><strong>Anticoagulants</strong> - cause spontaneous haemorrhage</li>
+          <li><strong>Rhabdomyolysins</strong> - may cause renal failure</li>
+          <li><strong>Haemolysins</strong></li>
+        </ul>
+
+        <h3>Principles of Treatment for Snake Bite</h3>
+        <ul>
+          <li><strong>Prevent rapid absorption</strong> of venom from subcutaneous tissue into circulation by application of pressure-immobilization bandage</li>
+          <li><strong>Neutralize the venom</strong> by administration of antivenom</li>
+          <li><strong>Treat the effects</strong> of the venom - respiratory failure and bleeding</li>
+        </ul>
+
+        <h3>Antivenom Administration</h3>
+
+        <p><strong>Available Antivenoms:</strong></p>
+        <ul>
+          <li>Specific monovalent antivenoms (Commonwealth Serum Laboratories Ltd, Melbourne) manufactured against: tiger, brown, taipan, black, death adder and beaked sea snake venoms</li>
+          <li>Polyvalent preparation (mixture of five terrestrial antivenoms)</li>
+          <li>Antivenoms are highly purified equine immunoglobulins</li>
+        </ul>
+
+        <p><strong>Geographic Antivenom Selection:</strong></p>
+        <ul>
+          <li><strong>Tasmania:</strong> Tiger snake antivenom (snakes are black tiger snakes and copperheads)</li>
+          <li><strong>Victoria:</strong> Tiger snake plus brown snake antivenom (dangerous species are tiger, brown, black and copperhead snakes)</li>
+          <li><strong>Elsewhere in Australia:</strong> Polyvalent preparation (additional species exist)</li>
+        </ul>
+
+        <p><strong>Premedication (Essential):</strong></p>
+        <ul>
+          <li><strong>Subcutaneous adrenaline</strong> (NOT IV or IM) 0.005-0.01 mg/kg - to prevent life-threatening anaphylactoid reaction</li>
+          <li>Additional protective agents if known allergic history:
+            <ul>
+              <li>Steroid (hydrocortisone)</li>
+              <li>Antihistamine</li>
+            </ul>
+          </li>
+          <li>Only one premedication dose of adrenaline is required</li>
+        </ul>
+
+        <p><strong>Antivenom Delivery:</strong></p>
+        <ul>
+          <li>Administer intravenously, diluted with crystalloid solution</li>
+          <li>Over approximately 30 minutes</li>
+          <li>For severe envenomation - may be delivered rapidly</li>
+        </ul>
+
+        <p><strong>Dosing:</strong></p>
+        <ul>
+          <li>Dose is never certain at beginning (amount of venom injected is unknown)</li>
+          <li>Each ampoule neutralizes average yield from 'milking'</li>
+          <li>Venom injected is highly variable; bites may be multiple</li>
+          <li>Children more susceptible due to larger venom-to-body-mass ratio</li>
+          <li>Majority of envenomations treated with 1-3 ampoules</li>
+          <li>Many more ampoules usually required in life-threatening envenomations</li>
+        </ul>
+
+        <p><strong>Serum Sickness Prevention:</strong></p>
+        <p>If polyvalent antivenom or multiple doses of monovalent antivenom required: prednisolone 1-2 mg/kg/day for 5 days</p>
+
+        <p><strong>Indications for Antivenom:</strong></p>
+        <ul>
+          <li>Clinical signs or symptoms of envenomation after snake bite</li>
+          <li>Substantial coagulopathy present</li>
+          <li>May withhold if venom detected in urine but no clinical evidence or very mild coagulopathy (but monitor closely)</li>
+        </ul>
+
+        <h3>Life Support</h3>
+
+        <p><strong>Respiratory Support:</strong></p>
+        <ul>
+          <li>Endotracheal intubation and mechanical ventilation may be required for bulbar and respiratory muscle paralysis</li>
+          <li>If antivenom therapy delayed, mechanical ventilation may be required for many days</li>
+        </ul>
+
+        <p><strong>Coagulopathy Management:</strong></p>
+        <ul>
+          <li>May cause massive haemorrhage from mucosal surfaces and peripheral circulatory failure</li>
+          <li>Haemorrhage may occur into vital organs, particularly the brain</li>
+          <li>Restore circulatory volume with blood transfusion</li>
+          <li>Normalize coagulation with antivenom and coagulation factors (fresh frozen plasma)</li>
+          <li><strong>Important:</strong> Antivenom neutralizes venom but does not restore coagulation per se</li>
+        </ul>
+
+        <p><strong>Monitoring:</strong></p>
+        <ul>
+          <li>Repeated laboratory tests of coagulation:
+            <ul>
+              <li>Prothrombin time</li>
+              <li>Activated partial thromboplastin time</li>
+              <li>Serum fibrinogen</li>
+              <li>Fibrin degradation products</li>
+            </ul>
+          </li>
+          <li>Bedside tests of bleeding</li>
+          <li>Coagulation status is the most sensitive guide to need for additional antivenom after bite by coagulopathic species</li>
+        </ul>
+
+        <p><strong>Key Dangers and Mistakes in Management:</strong></p>
+        <ul>
+          <li>Fang marks may not be visible</li>
+          <li>Premature removal of pressure-immobilization bandage allows sudden systemic envenomation</li>
+          <li>Erroneous snake identification may cause wrong antivenom to be given (if in doubt give polyvalent)</li>
+          <li>Delayed onset of paralysis may not be detected</li>
+          <li>Insufficient antivenom</li>
+          <li>Antivenom without premedication</li>
+          <li>Antivenom without clinical or laboratory evidence of envenomation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Summarise the principles of pressure-immobilisation first aid.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Pressure-Immobilization First Aid for Snake Bite</h3>
+
+        <p><strong>Background:</strong></p>
+        <ul>
+          <li>Limbs sustain 95% of all bites</li>
+          <li>Snake venoms gain access from subcutaneous tissue to circulation via lymphatics</li>
+        </ul>
+
+        <h3>Technique</h3>
+
+        <p><strong>Bandaging:</strong></p>
+        <ul>
+          <li>Apply a firm crepe (or crepe-like) bandage over the bite site and whole of the limb</li>
+          <li>This effectively occludes lymphatic channels</li>
+          <li>Bandage should be no tighter than a bandage for a sprained ankle</li>
+          <li>Can be left in place indefinitely</li>
+        </ul>
+
+        <p><strong>Splinting:</strong></p>
+        <ul>
+          <li>Application of splint that includes joints on either side of bite</li>
+          <li>Prevents use of surrounding muscle groups</li>
+          <li>Decreases lymph flow</li>
+        </ul>
+
+        <h3>Application Context</h3>
+        <ul>
+          <li><strong>First aid measure</strong> - should be applied at scene of snake bite to prevent initial absorption of venom</li>
+          <li><strong>In hospital</strong> - also used in established envenomation to prevent additional absorption of venom while preparations are being made to administer antivenom</li>
+        </ul>
+
+        <h3>Important Cautions</h3>
+
+        <p><strong>When to Remove:</strong></p>
+        <ul>
+          <li>After asymptomatic patient reaches hospital that has antivenom stock</li>
+          <li>After envenomated patient has been given antivenom</li>
+          <li><strong>DANGER:</strong> It is dangerous to remove bandage from envenomated patient before antivenom administration - allows substantial additional venom to rapidly access circulation</li>
+        </ul>
+
+        <p><strong>Inspection of Bite Site:</strong></p>
+        <ul>
+          <li>Do NOT remove splint and bandage solely to inspect bite site</li>
+          <li>Remove splint temporarily</li>
+          <li>Cut a window in bandage to take swab for venom testing</li>
+          <li>Reinforce bandage and reapply splint</li>
+        </ul>
+
+        <p><strong>Note on Venom Inactivation:</strong></p>
+        <ul>
+          <li>Bandage does NOT allow substantial inactivation of venom in tissues</li>
+          <li>Bites are usually visible as scratches or puncture wounds</li>
+          <li>Their presence/appearance/absence does not prove or disprove envenomation</li>
+          <li>Does not allow identification of snake involved</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Poisoning is common in children aged 1-5 years. Outline the principles of management in suspected poisoning in a 3 year old child.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Background</h3>
+        <p>Poisoning occurs most frequently in this age group. Most instances are accidental, in which the young child discovers a drug or household cleaning/chemical agent. The majority of serious poisonings occur with prescribed drugs or over-the-counter drugs. Parents often underestimate the capabilities of young children who become increasingly mobile and curious, eating substances that are not palatable to adults.</p>
+
+        <h3>Principles of Management</h3>
+
+        <p>The immediate aim is to attend to the effects of the poison on the patient. Later, attention should be given to circumstances with the aim of preventing recurrence. The following principles may be applied universally:</p>
+
+        <h3>1. Support Vital Functions</h3>
+        <ul>
+          <li><strong>Imperative to maintain and support vital functions if depressed</strong></li>
+          <li>Many poisons are excreted adequately or metabolized by the body if vital functions are maintained</li>
+          <li>If patient is unconscious, examine:
+            <ul>
+              <li>Airway adequacy</li>
+              <li>Depth and frequency of breathing</li>
+              <li>Circulation adequacy</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>2. Establish the Diagnosis</h3>
+
+        <p><strong>Important to establish:</strong></p>
+        <ul>
+          <li>What poisons are involved</li>
+          <li>In what quantity</li>
+          <li>When exposure occurred</li>
+        </ul>
+
+        <p><strong>Clinical Considerations:</strong></p>
+        <ul>
+          <li>Often diagnosis is self-evident, but not always obvious</li>
+          <li>When a poison identified, never assume other poisons could not be involved</li>
+          <li>Symptoms and signs are diverse but dangerous drugs threaten vital functions</li>
+        </ul>
+
+        <p><strong>Seriously poisoned patients commonly present with:</strong></p>
+        <ul>
+          <li>Unconsciousness</li>
+          <li>Cardiorespiratory failure</li>
+          <li>Convulsions</li>
+        </ul>
+
+        <p>If any present and cause otherwise not known, poisoning should be high on differential diagnoses list.</p>
+
+        <p><strong>Investigations:</strong></p>
+        <ul>
+          <li>Meticulous physical examination and history provides invaluable help</li>
+          <li>Laboratory investigations may be necessary to:
+            <ul>
+              <li>Establish diagnosis</li>
+              <li>Determine amount of poison in body</li>
+              <li>Help determine specific treatment for certain poisons</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>3. Prevent Absorption</h3>
+
+        <p><strong>Routes of Poisoning:</strong></p>
+        <ul>
+          <li><strong>Skin/conjunctivae/mucous membranes:</strong> Copious irrigation with water</li>
+          <li><strong>Inhalational (gases):</strong> Oxygen therapy and mechanical ventilation may be required</li>
+          <li><strong>Ingested (most common):</strong> Options include:
+            <ul>
+              <li>Activated charcoal (oral or gastric)</li>
+              <li>Gastric lavage</li>
+              <li>Whole bowel irrigation</li>
+              <li>Induced emesis (largely abandoned - limited effectiveness and aspiration risk)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>If Poison Already Absorbed (in vascular compartment):</strong></p>
+        <p>Invasive techniques may be required:</p>
+        <ul>
+          <li>Plasmafiltration</li>
+          <li>Haemofiltration</li>
+          <li>Charcoal haemoperfusion</li>
+          <li>Haemodialysis</li>
+          <li>Peritoneal dialysis</li>
+          <li>Exchange transfusion</li>
+        </ul>
+
+        <h3>Critical Safety Considerations</h3>
+
+        <p><strong>CONTRAINDICATIONS:</strong></p>
+        <p>Unconscious/drowsy patients or patients who cannot protect their airway should NOT undergo:</p>
+        <ul>
+          <li>Induced emesis</li>
+          <li>Gastric lavage</li>
+          <li>Activated charcoal</li>
+          <li>Colonic washout solutions</li>
+        </ul>
+
+        <p><strong>Reason:</strong> Consequences of aspirating gastric contents during vomiting or regurgitation in less than fully conscious state far outweigh dangers of many untreated poisons. Mortality from severe pneumonitis is approximately 50%.</p>
+
+        <h3>Treatment Selection</h3>
+
+        <p><strong>Activated charcoal:</strong> Probably the most appropriate therapy in emergency/casualty department</p>
+
+        <p><strong>Whole bowel irrigation:</strong> May be preferable for some agents</p>
+
+        <p><strong>Gastric lavage:</strong> Reserved for:
+          <ul>
+            <li>Recent (within 1 hour) serious life-threatening ingestion in conscious patient, OR</li>
+            <li>Serious poisoning in less than fully conscious patient who has airway protection</li>
+          </ul>
+        </p>
+
+        <p><strong>Treatment determined by:</strong></p>
+        <ul>
+          <li>Substance involved</li>
+          <li>Amount</li>
+          <li>Interval between ingestion and presentation</li>
+          <li>Effect of the poison</li>
+          <li>Must be weighed against hazards of removal</li>
+        </ul>
+
+        <h3>4. Administer an Antidote</h3>
+        <ul>
+          <li>Only relatively few poisons have antidotes</li>
+          <li>Knowledge and use of these can be life-saving</li>
+          <li>Appropriate dose determined by amount of poison and its effects</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. List some common strategies to prevent childhood poisoning.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Background</h3>
+        <ul>
+          <li>Nature of poisoning varies for different age groups in children</li>
+          <li>Usually unintentional, but possibility of deliberate poisoning as part of child abuse should not be forgotten</li>
+          <li>Pharmaceutical substances involved in 70% of poisonings</li>
+          <li>In hospitals, errors in drug administration are frequent causes of poisoning</li>
+        </ul>
+
+        <h3>Prevention Strategies</h3>
+
+        <h3>Safe Storage</h3>
+        <ul>
+          <li>Store medicines, chemicals and household products safely out of reach and out of sight of children</li>
+          <li>Store up high (at least 1.5 metres) in a locked or child-resistant cupboard</li>
+          <li>Separate medicines from chemicals and household products</li>
+          <li>Do not store medicines in refrigerator unless advised by pharmacist</li>
+          <li>Visitors' bags may contain medicines - keep them well out of reach of children</li>
+        </ul>
+
+        <h3>Safe Containers</h3>
+        <ul>
+          <li>Do not transfer medicines, chemicals or household products from their original containers</li>
+          <li>Keep everything in original, labelled containers</li>
+          <li>Never store in cups or soft drink bottles</li>
+          <li>Use medicines, chemicals and household products in child-resistant packaging (blister or strip packs or special 'push and turn' lids)</li>
+          <li><strong>Remember:</strong> Child-resistant packaging is not child-proof</li>
+        </ul>
+
+        <h3>Safe Labels</h3>
+        <ul>
+          <li>Ensure all medicines, chemicals and household products are properly labelled</li>
+          <li>Read the label carefully before use</li>
+        </ul>
+
+        <h3>Safe Use</h3>
+        <ul>
+          <li>Use medicines, chemicals and household products safely</li>
+          <li>Read directions for use carefully</li>
+          <li>Do not leave them unattended while in use</li>
+          <li>Children tend to imitate adults - avoid taking medicines in their presence</li>
+          <li>Refer to medicines by their proper names - they are not lollies</li>
+          <li>Use appropriate protection when painting, spraying chemicals or cleaning oven:
+            <ul>
+              <li>Follow directions for use</li>
+              <li>Protect skin and eyes</li>
+              <li>Ensure adequate ventilation with air circulating continuously</li>
+              <li>If spill occurs, remove any contaminated clothing immediately</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Safe Disposal</h3>
+        <ul>
+          <li>Empty containers of liquid medications, chemicals and household products should be rinsed with water before disposal</li>
+          <li>Clean out medicine cupboard regularly</li>
+          <li>Take unwanted or out of date medicines to a chemist for disposal</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

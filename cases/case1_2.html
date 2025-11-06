@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 1.2 - Chest Pain (SDL)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 1.2 - Chest Pain (SDL) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 1.2 - Chest Pain (SDL)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 1.2 – Chest Pain (SDL)</h1>
+    <p class="meta"><strong>Category:</strong> Cardiovascular | <strong>Discipline:</strong> General practice | <strong>Setting:</strong> Urban Community</p>
+
+    <h2>Case</h2>
+    <p>Arthur May, aged 52 years, presents complaining of chest pain. He is concerned that it may be his heart.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Briefly describe the key aspects of the coronary circulation.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The left main and right coronary arteries arise from the left and right coronary sinuses, just distal to the aortic valve. Within 2.5 cm of its origin, the left coronary artery divides into the anterior interventricular artery (also known as the left anterior descending artery (or LAD) and the left circumflex artery (CX). The anterior interventricular artery runs in the anterior interventricular groove, while the circumflex artery runs posteriorly in the left atrioventricular groove. The branches of the left interventricular artery supply the anterior part of the septum (septal perforators) and the anterior wall and apex of the LV. The CX gives marginal branches that supply the lateral, posterior and inferior segments of the LV. The right coronary artery (RCA) runs in the right atrioventricular groove, giving branches that supply the RA, RV and infero-posterior aspects of the LV. The posterior interventricular artery (also known as the posterior descending artery or PDA) runs in the posterior interventricular groove and supplies the inferior part of the interventricular septum plus the AV node. This vessel is a branch of the RCA in approximately 90% of people (dominant right system) and is supplied by the CX in the remainder (dominant left system). The exact coronary anatomy varies greatly from person to person and there are many 'normal variants'.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What features might help to distinguish cardiac pain from non-cardiac pain. Consider the location, radiation, character, precipitating factors, relieving factors, and associated features in your answer.. List these in a table.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <tr><th>Feature</th><th>Ischaemic Cardiac Chest pain</th><th>Non-Cardiac Chest pain</th></tr>
+          <tr><td>Location</td><td>Central, diffuse</td><td>Peripheral, localised</td></tr>
+          <tr><td>Radiation</td><td>Jaw, neck, shoulder, arm, occasionally back</td><td>Other or no radiation</td></tr>
+          <tr><td>Character</td><td>Tight, squeezing, choking</td><td>Sharp, stabbing, catching</td></tr>
+          <tr><td>Precipitation</td><td>Usually precipitated by exertion and/or emotion, unstable angina originally defined as angina at rest</td><td>Spontaneous, not related to exertion, provoked by pressure, respiration or palpation</td></tr>
+          <tr><td>Relieving factors</td><td>Rest, quick response to nitrates, (Nitroglycerin response does not always distinguish active coronary artery disease from other chest pain causes)</td><td>Not relieved by rest, usually slow or no response to nitrates Nb: chest pain due to oesophageal spasm may be relieved by nitroglycerin</td></tr>
+          <tr><td>Associated features</td><td>Breathlessness</td><td>Respiratory, gastrointestinal, locomotor or psychological.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. List the common causes of chest pain.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Anxiety/emotion</strong></p>
+
+        <p><strong>Cardiac</strong></p>
+        <ul>
+          <li>Myocardial ischaemia (angina)</li>
+          <li>Myocardial infarction</li>
+          <li>Myocarditis</li>
+          <li>Pericarditis</li>
+          <li>Mitral valve prolapse</li>
+        </ul>
+
+        <p><strong>Aortic</strong></p>
+        <ul>
+          <li>Aortic dissection</li>
+          <li>Aortic aneurysm</li>
+        </ul>
+
+        <p><strong>Oesophageal</strong></p>
+        <ul>
+          <li>Oesophagitis</li>
+          <li>Oesophageal spasm</li>
+          <li>Mallory-Weiss syndrome</li>
+        </ul>
+
+        <p><strong>Neurological</strong></p>
+        <ul>
+          <li>Prolapsed intervertebral disc</li>
+          <li>Herpes zoster</li>
+          <li>Thoracic outlet syndrome</li>
+        </ul>
+
+        <p><strong>Lungs/pleura</strong></p>
+        <ul>
+          <li>Bronchospasm</li>
+          <li>Pulmonary infarct</li>
+          <li>Pneumonia</li>
+          <li>Tracheitis</li>
+          <li>Pneumothorax</li>
+          <li>Pulmonary embolism</li>
+          <li>Malignancy</li>
+          <li>Tuberculosis</li>
+          <li>Connective tissue disorders (rare)</li>
+        </ul>
+
+        <p><strong>Musculoskeletal</strong></p>
+        <ul>
+          <li>Osteoarthritis</li>
+          <li>Rib fracture/injury</li>
+          <li>Intercostal muscle injury</li>
+          <li>Costochondritis (Tietze's syndrome)</li>
+          <li>Epidemic myalgia (Bornholm disease)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Outline the common classification of myocardial ischaemia, the pathophysiology, clinical features and risk assessment.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Simple classification of myocardial ischaemia:</strong></p>
+        <ul>
+          <li><strong>Stable angina</strong> - intermittent angina on exertion, relieved by rest</li>
+          <li><strong>Unstable angina</strong> - Acute coronary syndrome (ACS) with no detected raised cardiac troponin, originally defined as angina at rest, now includes new onset angina and acceleration angina</li>
+          <li><strong>Myocardial ischaemia with normal coronary vessels</strong></li>
+          <li><strong>Acute coronary syndrome</strong> which include unstable angina, non-ST segment elevation MI (NSTEMI) and ST segment elevation MI (STEMI)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What further history and examination would you take from Arthur?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>History:</strong></p>
+        <ul>
+          <li>Explore the features of the chest pain in terms of character, location, radiation, associated symptoms, precipitating and relieving factors to determine whether the pain is most likely cardiac or non-cardiac in origin.</li>
+          <li>Explore his risk factors for heart disease include smoking, high cholesterol, exercise, family history, presence of diabetes, obesity.</li>
+        </ul>
+
+        <p>In adults without known CVD (Cardio Vascular Disease), a comprehensive assessment of cardiovascular risk includes consideration of the following:</p>
+
+        <p><strong>Modifiable risk factors</strong></p>
+        <ul>
+          <li>Smoking status</li>
+          <li>Blood pressure</li>
+          <li>Serum lipids</li>
+          <li>Waist circumference and Body Mass Index (BMI)</li>
+          <li>Nutrition</li>
+          <li>Physical activity level</li>
+          <li>Alcohol intake.</li>
+        </ul>
+
+        <p><strong>Non-modifiable risk factors</strong></p>
+        <ul>
+          <li>Age and sex</li>
+          <li>Family history of premature CVD (Female <65, Male<55)</li>
+          <li>Social history including cultural identity, ethnicity and socioeconomic status.</li>
+        </ul>
+
+        <p><strong>Related conditions</strong></p>
+        <ul>
+          <li>Diabetes Mellitus</li>
+          <li>Chronic Kidney Disease (albuminuria ± urine protein, especially eGFR <45 )</li>
+          <li>Familial hypercholesterolaemia</li>
+          <li>Evidence of atrial fibrillation (history, examination, and electrocardiogram).</li>
+        </ul>
+
+        <p><strong>Physical examination</strong></p>
+        <p>General Observation – pallor, sweating, level of distress & discomfort</p>
+        <p>BP, PR, RR, temperature.</p>
+
+        <p><strong>CVS:</strong></p>
+        <ul>
+          <li>Signs of left ventricular dysfunction/heart failure (e.g. dyskinetic apex beat, gallop rhythm, bibasal crackles)</li>
+          <li>other manifestations of arterial disease (e.g. bruits, signs of peripheral vascular disease)</li>
+          <li>signs of valvular disease (e.g. cardiac murmurs)</li>
+        </ul>
+
+        <p><strong>Other:</strong> Evidence of important risk factors (e.g. xanthoma indicating hyperlipidaemia), and unrelated conditions that may exacerbate angina (e.g. anaemia, thyroid disease).</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. If you suspected that Arthur was suffering from heart related chest pain, how would you further manage his presentation?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Further management depends on initial clinical judgement. If this is new onset chest pain or if this chest pain is typical, patient should be referred to hospital immediately for further management (in GP setting).</p>
+
+        <p>The investigation stated below should be done in hospital.</p>
+
+        <p><strong>Baseline investigations are;</strong></p>
+        <p>Full blood count (FBC). Fasting BSL, Lipids, Thyroid function tests (TFTs) and 12 lead ECG. If you suspect a cardiac cause – biochemical markers of cardiac damage (troponin levels) should be done.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. What changes on an ECG suggest acute ischaemia?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>(Note: resting ECG is normal in about 50% of patients with typical angina pectoris)</p>
+        <ul>
+          <li>New isolated T wave inversion</li>
+          <li>Tall positive T-wave (hyper acute T wave)</li>
+          <li>ST segment depression</li>
+          <li>ST segment elevation</li>
+          <li>New Left bundle branch block</li>
+          <li>Inverted U wave</li>
+          <li>Old myocardial infarction</li>
+        </ul>
+        <p>The earliest ECG change is usually ST elevation; later on there is diminution in the size of the R wave, and in transmural (full thickness) infarction a Q wave begins to develop. One explanation for the Q wave is that the myocardial infarct acts as an 'electrical window', transmitting the changes of potential from within the ventricular cavity and allowing the ECG to 'see' the reciprocal R wave from the other walls of the ventricle. Subsequently, the T wave becomes inverted because of a change in ventricular repolarisation; this change persists after the ST segment has returned to normal. These features and their sequence is sufficiently reliable for the approximate age of the infarct to be deduced.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

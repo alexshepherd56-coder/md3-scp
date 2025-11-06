@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 14_1 - UTI</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 14_1 - UTI | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 14_1 - UTI">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 14.1 – Urinary Tract Infection</h1>
+    <p class="meta"><strong>Category:</strong> Renal and Urinary Systems | <strong>Discipline:</strong> Medicine - Nephrology | <strong>Setting:</strong> Urban General Practice</p>
+
+    <h2>Case</h2>
+    <p>25 year old, Loretta Willis presents to your general practice. She has had 2 days of stinging and burning when passing urine. She has tried the Ural recommended by her local pharmacist, but her symptoms have not resolved. She is concerned that she has another urinary tract infection.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What further history would you take and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Further history would involve the presence of previous infections - her age at onset, the frequency and severity. Have the previous UTIs been confirmed to exclude other possibilities such as trigonitis or interstitial cystitis, has she had any imaging to exclude a predisposing cause and any renal involvement? Has she had any recent diarrhoea or does she have chronic diarrhoea? If she has been prescribed antibiotics in the past has she been compliant and taken the full course to prevent the risk of developing resistance? Has she had any adverse reactions to previous treatment? Is she aware of the appropriate precautions with adequate daily fluid intake, hygiene, pre- and post-coital voiding and does she adhere to these recommendations? Is there a history of other infections to suggest an underlying immune deficiency and has she had any other blood tests in this regard? Does she have any children and if so were there any problems with the delivery e.g. forceps rotation with possible effect on the bladder, is there any stress or urge incontinence and has she been shown pelvic floor exercises?</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the features of history and clinical examination that support a diagnosis of urinary tract infection?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>UTI can be strongly suspected on the basis of the patient's symptoms. These include:</p>
+        <ul>
+          <li>Abrupt onset of frequency of micturition</li>
+          <li>Dysuria (pain or stinging during micturition)</li>
+          <li>Suprapubic "pressure", discomfort or pain during and after voiding</li>
+          <li>Nocturia (initial or increase in frequency)</li>
+          <li>Strangury (intense desire to pass more urine after micturition)</li>
+          <li>Incontinence of urine</li>
+          <li>A bloated sensation, cramping in the pelvic area or back</li>
+          <li>The urine has a strong odour, looks cloudy or contains blood</li>
+        </ul>
+        <p><strong>Clinical examination</strong> may reveal fever, rigors, lower abdominal discomfort and loin pain when the renal angle is balloted posteriorly. The latter findings are more suggestive of complicated UTI or pyelonephritis.</p>
+        <p>In males, phimosis (inability to retract a tight foreskin over the glans) or prostatomegaly and in females, vaginal prolapse may be evident to explain the UTI. Urinalysis looking for the presence of blood, white blood cells (neutrophils), nitrites, protein, glucose.</p>
+        <p>Symptoms may vary in different age groups e.g. infants and young children may present with fever of otherwise unknown origin, signs of feeding difficulties, lassitude, frequent and offensive urine or cloudy urine noted by parents, vomiting and apparent abdominal pain. In the elderly symptoms may include mental changes or confusion, nausea or vomiting, abdominal pain. Prevalence of asymptomatic bacteriuria rises with age (in institutional care it rises to ≈ 40% in women and 30% in men).</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What are the risk factors that need to be explored in patients presenting with recurrent urinary tract infections?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li><strong>Incomplete bladder emptying</strong> – bladder outflow obstruction, neurological problems (e.g. multiple sclerosis, diabetic neuropathy), gynaecological abnormalities (e.g. uterine prolapse), vesico-ureteric reflux</li>
+          <li><strong>Foreign bodies</strong> - urethral catheter or ureteric stent</li>
+          <li><strong>Loss of host defences</strong> - atrophic urethritis and vaginitis in post-menopausal women, diabetes mellitus</li>
+        </ul>
+        <p>In women, recurrent infections are common and further investigation is only justified if infections are frequent (three or more per year) or unusually severe. Men and children with recurrent infections, and patients with signs of pyelonephritis or systemic infection should also be investigated.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What investigations are used in the assessment of the renal tract and when and why are they used?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <tr><th>Investigation</th><th>Indications</th></tr>
+          <tr><td>Culture of MSU, or urine obtained by suprapubic aspiration</td><td>All patients</td></tr>
+          <tr><td>Microscopic examination or cytometry of urine for white and red cells</td><td>All patients</td></tr>
+          <tr><td>Dipstick examination of urine for nitrite and leucocyte esterase</td><td>All patients</td></tr>
+          <tr><td>Dipstick examination of urine for blood, protein and glucose</td><td>All patients</td></tr>
+          <tr><td>Full blood count</td><td>Infants, children, adults with acute pyelonephritis or prostatitis</td></tr>
+          <tr><td>Plasma urea, electrolytes, creatinine</td><td>Infants, children, acute pyelonephritis, recurrent UTI</td></tr>
+          <tr><td>Blood culture</td><td>Fever, rigors or evidence of septic shock</td></tr>
+          <tr><td>Pelvic examination</td><td>Women with recurrent UTI</td></tr>
+          <tr><td>Rectal examination</td><td>Men (to examine prostate)</td></tr>
+          <tr><td>Renal ultrasound or CT</td><td>To identify obstruction, cysts, calculi<br>Infants, children, men after single UTI<br>Women who have (1) acute pyelonephritis, (2) recurrent UTI after antibiotic therapy, (3) UTI or asymptomatic bacteriuria in pregnancy</td></tr>
+          <tr><td>Micturating cysto-urethrogram (MCU) or radioisotope study</td><td>Selected infants and children to look for reflux and renal scars</td></tr>
+          <tr><td>Cystoscopy</td><td>Patients with haematuria or a suspected bladder lesion</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Outline the clinical spectrum of urinary tract infections. How do these clinical presentations differ?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>A. Asymptomatic bacteriuria.</strong> Defined as > 10<sup>5</sup>/ml organisms in the urine of apparently healthy asymptomatic patients. Approx. 1% of children under the age of 1, 1% of schoolgirls, 0.03% of schoolboys and men, 3% of non-pregnant adult women and 5% of pregnant women have asymptomatic bacteriuria. There is no evidence that this condition causes renal scarring in adults who are not pregnant and have a normal urinary tract, and in general, treatment is not indicated. In infants and pregnant women, treatment is required and investigation is indicated.</p>
+
+        <p><strong>B. Symptomatic acute urethritis and cystitis</strong> (previously described)</p>
+
+        <p><strong>C. Acute pyelonephritis.</strong> The kidneys are infected in a minority of patients with lower urinary tract infection or bacteriuria. Acute renal infection (pyelonephritis) presents as a classic triad of unilateral or bilateral loin pain, fever and tenderness over the kidneys. Pain may radiate to the iliac fossae and suprapubic area. About 30% have dysuria due to associated cystitis. Fever is usually present and may be associated with rigors, vomiting and hypotension. The differential diagnosis includes acute appendicitis, diverticulitis, cholecystitis and salpingitis.</p>
+
+        <p><strong>D. Acute prostatitis.</strong> It can be caused by the same bacteria that are associated with UTI or, more commonly, may be non-bacterial (no organisms cultured from urine). Clinical features include frequency, dysuria, perineal or groin pain, difficulty passing urine and, in acute disease, considerable systemic disturbance. The prostate is enlarged and tender.</p>
+
+        <p><strong>E. Septicaemia (usually Gram-negative bacteria)</strong> May complicate cystitis in compromised host. Pyelonephritis, renal abscess (intrarenal or extrarenal), acute prostatitis or prostatic abscess can cause septicaemia in an immunocompetent host. May present as fever or hypothermia (seen principally in the elderly), tachycardia, tachypnoea and inadequate organ perfusion or function (altered mental state, hypoxaemia, oliguria).</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Describe the pathogenesis of urinary tract infection due to the different causative micro-organisms.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Organisms causing UTI in the community include:</strong></p>
+        <ul>
+          <li><em>Escherichia coli</em> derived from the gastrointestinal tract (about 75% of infections)</li>
+          <li><em>Proteus</em></li>
+          <li><em>Pseudomonas</em> species</li>
+          <li>Streptococci</li>
+          <li><em>Staphylococcus epidermidis</em></li>
+        </ul>
+        <p>In hospital, <em>E. coli</em> still predominates, but <em>Klebsiella</em> or streptococci are more common than in the community.</p>
+        <p>The first stage in the development of UTI is colonization of the periurethral zone with pathogenic organisms. Urine is an excellent culture medium for bacteria; in addition, the urothelium of susceptible persons may have more receptors to which virulent strains of <em>E. coli</em> become adherent. In women, the ascent of organisms into the bladder is easier than in men because of the relatively short urethra and absence of bactericidal prostatic secretions. Sexual intercourse may cause minor urethral trauma and transfer bacteria from the perineum into the bladder.</p>
+        <p>Some patients, usually female, have symptoms suggestive of urethritis and cystitis but no bacteria are cultured from the urine (the 'urethral syndrome'). Possible explanations include infection with organisms not readily cultured by ordinary methods (e.g. <em>Chlamydia</em>, certain anaerobes), intermittent or very low-count bacteriuria, symptoms related to sexual intercourse, post-menopausal atrophic vaginitis, trigonitis or interstitial cystitis. Antibiotics are not indicated.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Loretta is diagnosed with an E-coli urinary tract infection; outline your management plan, including any recommendations/advice that you would provide.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Encourage fluid intake of at least 2 litres/day</li>
+          <li>Commence the appropriate antibiotic (depending on the sensitivities from the MSU) at the recommended dose and encourage compliance with advice re the potential for developing a resistant strain of organism by not completing the course</li>
+          <li>Re-visit the information on personal hygiene re appropriate wiping on every occasion, the need for pre- and post-coital voiding and why this is important</li>
+          <li>Review if the symptoms don't settle fully or recur soon after completion of treatment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. Loretta continues to present with further urinary tract infections, outline your assessment and management plan.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Document the presence of infection with an MSU - if organism confirmed treat as above but arrange a progress MSU at least 24 hours after completing the course of antibiotics to confirm eradication of infection (if organism still present in an asymptomatic patient consider colonization)</li>
+          <li>If no organism evident then consideration should be given to <em>Chlamydia</em> infection and a urine PCR arranged</li>
+          <li>Bloods to assess renal function</li>
+          <li>Encourage appropriate fluid intake as above and discuss the benefits of a urinary antiseptic and/or cranberry juice or supplements</li>
+          <li>Pelvic examination to exclude structural cause e.g. cystocoele, uterine fibroids etc.</li>
+          <li>Consider need to exclude structural cause with initially an ultrasound of the urinary tract looking for large post-voiding residual urine, any abnormality in bladder (e.g. diverticulum) or kidneys - obstruction, calculi etc. A CT scan may be required to further assess any abnormality found at ultrasound</li>
+          <li>Consider need for cystoscopy in the presence of persisting haematuria with no discernible UTI and an otherwise normal CT KUB</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

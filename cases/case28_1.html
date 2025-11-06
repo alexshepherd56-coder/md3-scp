@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 28.1 - UTI</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 28.1 - UTI | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 28.1 - UTI">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 28.1 – UTI</h1>
+    <p class="meta"><strong>Category:</strong> Renal & Urinary Systems | <strong>Discipline:</strong> Paediatrics | <strong>Setting:</strong> General Practice (Rural) | <strong>Topic:</strong> Urinary tract infection, urinary tract abnormalities</p>
+
+    <h2>Case</h2>
+    <p>You are a GP in a large rural regional centre. Jonah Keese is a 14 month old who presents for follow-up, you reviewed him 2 days ago with fever and lethargy he was not unwell and examination was unremarkable you recommended symptomatic treatment. He returns today with his mother because his temperature has continued and his mother has noticed a change in the odour of his urine.</p>
+
+    <p><strong>On examination:</strong> Temperature 37.9°C, alert, active and well perfused.</p>
+
+    <p>His mother has brought in a urine sample [collected via paediatric bag] as you suggested. Urinalysis is positive for leucocytes.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Jonah's mother asks if he has a urinary tract infection, what would you explain to her?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Jonah presents with fever and lethargy, change in the odour of his urine and has a urinalysis positive for leucocytes. It is possible that Jonah has a urinary tract infection but you do not have enough information to be sure. The presentation of urinary tract infection varies with age because of developmental status of the child: at Jonah's age you could have a range of symptoms from acute illness, with fever and vomiting, to chronic illness with failure to thrive.</p>
+
+        <p>Jonah's urinalysis is positive for leucocytes but the predictive value of a dipstick urinalysis is low (positive urinary dipstick test for leukocyte esterase in 80% of urine infections detected). It is a reasonably sensitive test but not specific for UTI.</p>
+
+        <p>Urinary nitrate testing is less sensitive but it is more specific (97% of positive tests indicate infection) however bacteria require about 4 hours to produce nitrates and can be falsely negative thus the early morning urine sample is more accurate. Microscopy will usually show leukocytes and non-glomerular red cells (i.e. red cells that appear normally haemoglobinised and uniform size and shape) in fresh urine.</p>
+
+        <p>How useful microscopy testing is varies with age - A negative testing for leucocytes and nitrates does not exclude infection particularly in babies – a significant number of babies with infection will still test negative on dipstick – however with a negative dipstick may reasonably withhold antibiotics while waiting for culture over three years.</p>
+
+        <table>
+          <caption><strong>Predictive values for the diagnosis of UTI by urinary dipsticks</strong></caption>
+          <tr>
+            <th></th>
+            <th colspan="2">Positive predictive value (%)</th>
+            <th colspan="2">Negative predictive value (%)</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>&lt;1 year age</th>
+            <th>&gt;1 year age</th>
+            <th>&lt;1 year age</th>
+            <th>&gt;1 year age</th>
+          </tr>
+          <tr>
+            <td>Leucocyte +</td>
+            <td>11-12</td>
+            <td>7-25</td>
+            <td>99</td>
+            <td>98-100</td>
+          </tr>
+          <tr>
+            <td>Nitrate +</td>
+            <td>47-65</td>
+            <td>34-70</td>
+            <td>98</td>
+            <td>96-99</td>
+          </tr>
+          <tr>
+            <td>Nitrate and leukocytes +</td>
+            <td>21-35</td>
+            <td>13-40</td>
+            <td>96-98</td>
+            <td>95-99</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What examination would you perform in your assessment of Jonah and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Clinical examination to exclude other causes of infection. URTI is extremely common cause, check for otitis media and exclude serious bacterial infection. Unexplained fever in a child is often a urinary tract infection.</p>
+
+        <p>Check whether the child is systemically unwell, for signs of septic shock, such as hypotension, tachycardia and decreased conscious state.</p>
+
+        <p>Clinical examination of possible precipitating factors: a precipitating factor for urinary tract infection in males, as well as congenital renal malformation, can be physiological phimosis (in phimosis the opening at the tip of the foreskin has narrowed to such a degree that foreskin cannot be retracted). Can also be precipitated by constipation and in female's vulvovaginitis.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. You explain to Jonah's mother that she needs to try and collect a 'clean' urine specimen – outline the different methods of urine collection in children and the advantages and disadvantages of each. In this clinical context, what collection method would you suggest for Jonah and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>As Jonah is not systemically unwell would try first for a clean catch urine specimen.</p>
+        <ul>
+          <li><strong>Paediatric bag</strong> – convenient/non-invasive: commonly contaminated with skin flora</li>
+          <li><strong>Clean catch</strong> – non-invasive/good correlation with SPA/MSU/CSU: perceived to be difficult to collect/most can be collected within an hour</li>
+          <li><strong>Midstream urine (MSU)</strong> - non-invasive/well accepted: potential failure due to poor technique/contamination</li>
+          <li><strong>Catheter sample urine (CSU)</strong> - invasive poor acceptance by parents, children anxiety</li>
+          <li><strong>Suprapubic aspirate of urine (SPA)</strong> - good standard/avoids contamination/less invasive than the CSU: can have dry tap (confirm full bladder with ultrasound).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. The results of Jonah's urine culture is a pure growth of E Coli. Explain the pathogenesis of E Coli. What are the other key organisms responsible for UTI in children and describe their pathogenesis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li><strong><em>Escherichia coli</em> (E. coli)</strong> is the most common cause of urinary tract infections (80-90%) it is a bacterium common to the digestive tract and is usually spread to the urethra from the anus.</li>
+          <li><strong><em>Proteus</em></strong> (30% of males over one year) - more commonly diagnosed in boys than girls possibly because of its presence under the prepuce,</li>
+          <li><strong>Coagulase negative staph</strong> (teenagers),</li>
+          <li><strong><em>Klebsiella</em></strong> (neo-natal) <em>pseudomonas</em> and <em>enterococcus</em> (more common with anatomical malformations and surgical procedures).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What antibiotic treatment is commonly used in the management of UTI in children?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>If the child was systematically unwell would use IV antibiotics (benzyl penicillin and gentamycin). In Jonah, febrile with dipstick positive for leucocytes, would use oral antibiotics with a review when culture available in 24-48 hours. Possible antibiotics would be Trimethoprim or Co-trimoxazole or Cephalexin or Augmentin.</p>
+
+        <table>
+          <tr>
+            <th>Antibiotic</th>
+            <th>Dose</th>
+            <th>Organisms sensitive (%)</th>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Acute intravenous (sick&lt;6months old, pyelonephritis)</strong></td>
+          </tr>
+          <tr>
+            <td>1. Benzyl penicillin<br>and<br>2. Gentamycin</td>
+            <td>50mg/kg (max. dose 2g) 6h<br>8mg/kg day 1, then 6 mg/kg/day for &lt;10 years (max. dose 360mg) monitoring: trough level &lt;1 mg/l taken on 3rd day and serum creatinine 3rd day</td>
+            <td>Covers enterococcus<br>95+</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Oral</strong></td>
+          </tr>
+          <tr>
+            <td>Trimethoprim<br>or<br>Co-trimaxole<br>or<br>Cephalexin<br>or<br>augmentin</td>
+            <td>4 mg/kg (max. dose 150mg) 12hr<br>(40/200mg/5ml)<br>0.5 ml/kg (max. dose 20 ml) 12 hr<br>15 mg/kg (max. Dose 500mg) 8hr<br>10-25mg/kg/8h</td>
+            <td>85+<br>85+<br>95<br>95</td>
+          </tr>
+          <tr>
+            <td colspan="3"><strong>Prophylactic</strong></td>
+          </tr>
+          <tr>
+            <td>Co-trimoxazole<br>Nitrofurantoin<br>Cefalexin</td>
+            <td>(40/200mg/5ml)<br>0.25ml/kg/night<br>1-2 mg/kg/night<br>5 mg/kg/night</td>
+            <td>85+<br>85+<br>95+</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. You explain to Jonah's mother that he needs further investigations because of his UTI, she asks why and what investigations he will need to have. What would you explain to her?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>He will need investigations to exclude obstructive urinary tract lesion and to determine whether there is significant underlying urinary tract malformation.</p>
+
+        <p>The least invasive investigation is renal ultrasound which can determine presence, site, size and shape of the kidneys. However a renal ultrasound in the under 5 age group will only show 15% of the abnormalities ('scars/dysplasia') found on DMSA, ureters are not visualized unless enlarged on ultrasound.</p>
+
+        <p>More invasive procedures, and those involving radiation, are more frequently now restricted for special circumstances. Other possible investigations include <strong>micturating cystourethrogram (MCU)</strong> which can provide information about whether vesicoureteric reflux is present, grade its severity, and identify structural abnormalities of the renal tract, such as posterior urethral valves, a duplex collecting system, ureterocoeles and bladder diverticulae. It is performed less frequency than in the past because the demonstration of VUR does alter management at many centres.</p>
+
+        <p><strong>Nuclear medicine investigations</strong> with technetium-99m-labelled radioisotopes, such as DMSA, dimercaptosuccinic acid, a compound which concentrates in the kidney after intravenous injection. Before injection, this compound is radioactively labelled with technetium, which can be detected by a gamma camera. The dose of radiation is quite small and the short half-life of technetium means it is out of the child's system after about 24 hours, toxicity less than one-tenth of a routine chest X-ray.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Jonah's renal ultrasound is normal, but Jonah has a second UTI so investigation via a micturition cystourethrogram [MCU] is planned. Jonah's family need to travel to have this investigation as it is not available locally. Outline how access to imaging investigations can impact on the assessment and management of children in rural centres.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>There are potential problems such as extra costs involved in travel. The procedure may have to be carried out at a distance from family and support systems and away from familiar health personnel. This may lead to cancelling of appointments and inadequate management.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. Jonah is diagnosed with grade 1 vesicoureteric reflux. Explain the pathology that occurs in vesicoureteric reflux and how this differs from normal micturition.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Urine passes in a retrograde direction from the bladder through the vesico-ureteric junction into the ureter. It is associated with a developmental abnormality in which the distal end of the ureter runs obliquely through the wall of the bladder and has less muscle around it – more severe abnormalities associated with renal malformations, excessive dilatation and tortuosity of ureter, and poor bladder emptying. Higher grades of VUR are associated with higher recurrence rates of UTI.</p>
+
+        <p>The urine returning to the bladder from the ureters after voiding → incomplete emptying of bladder encourages infection → possibility of kidney infection particularly with intrarenal reflux. Bladder voiding pressure is transmitted to renal papillae→ may contribute to renal damage if voiding pressures are high.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>9. Outline how the following urinary tract abnormalities can cause UTI in children, posterior urethral valves, duplication and PUJ obstruction.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li><strong>Posterior urethral valves</strong> (also referred to as congenital obstructive posterior urethral membranes/COPUMs) – obstruction to the urethral flow at the level of the posterior urethra, often associated with thick walled trabeculated bladder and may be associated with VUR with tortuous and dilated ureters draining grossly hydronephrotic kidneys.</li>
+          <li><strong>Duplication</strong> – kidney is duplex if it has two separate collecting systems, the lower pole ureter often has VUR→infection.</li>
+          <li><strong>PUJ obstruction</strong> - (pelviureteric junction obstruction) →hydronephrosis→ dilatation of the ureter predisposes to intrarenal reflux and renal scaring with UTI</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>10. Jonah's mother says that the paediatrician has commenced Jonah on antibiotics. Outline the use of antibiotics in the management of VUR as compared with the surgical management of VUR.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Infection may destroy renal tissue, leaving a scar, resulting in a shrunken poorly functioning segment of kidney, prompt treatment reduces the risk of renal scaring –</p>
+
+        <p><strong>Treatment to avoid complications of renal failure and hypertension:</strong></p>
+
+        <p>Controlled trials have shown no advantage of either anti-reflux surgery or antibiotic prophylaxis in preventing urinary infections, hypertension, renal injury or renal failure – not clear whether these treatments are better than no treatment or episodic treatment of urine infection alone.</p>
+
+        <p><strong>Antibiotic prophylaxis (controversial)</strong> – attention to precipitating factors for UTI (eg. bladder emptying/regular voiding/prevention constipation/perineal hygiene), episodic or prophylactic use of antibiotics. Then selective anti-reflux surgery for patients with intractable symptoms.</p>
+
+        <p>VUR often resolves spontaneously (20% spontaneous resolution every 3-year period, less severe resolve earlier than more severe).</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

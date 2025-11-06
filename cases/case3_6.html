@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 3.6 - Cholecystitis & Biliary Colic</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 3.6 - Cholecystitis & Biliary Colic | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 3.6 - Cholecystitis & Biliary Colic">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 3.6 – Cholecystitis & Biliary Colic</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - General | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p><strong>Patient:</strong> Annette Everley, 42 years old</p>
+    <p><strong>Presentation:</strong> Acute right upper abdominal pain, screaming for pain relief</p>
+    <p><strong>Vital Signs:</strong> Temperature 37.2°C</p>
+    <p><strong>Physical Examination:</strong> Marked right upper quadrant (RUQ) tenderness</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>Question 1: What is your differential diagnosis? List the 5 most likely options.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The differential diagnosis for acute right upper quadrant pain in this 42-year-old woman includes:</p>
+        <ol>
+          <li><strong>Acute cholecystitis</strong> - Inflammation of the gallbladder, typically due to gallstone obstruction of the cystic duct. The marked RUQ tenderness and severe pain are highly suggestive.</li>
+          <li><strong>Biliary colic</strong> - Intermittent obstruction of the cystic duct by a gallstone causing severe colicky pain without inflammation. Temperature is typically normal.</li>
+          <li><strong>Acute cholangitis</strong> - Infection of the bile duct system, typically presenting with Charcot's triad (fever, RUQ pain, jaundice). May progress to Reynolds' pentad with shock and altered mental status.</li>
+          <li><strong>Acute peptic ulcer disease/perforation</strong> - Particularly a posterior duodenal ulcer, which can present with RUQ pain and severe discomfort.</li>
+          <li><strong>Acute hepatitis</strong> - Viral, alcoholic, or drug-induced hepatitis can cause RUQ pain and tenderness, though typically with more systemic symptoms and elevated liver enzymes.</li>
+        </ol>
+        <p><strong>Other considerations:</strong></p>
+        <ul>
+          <li>Acute pancreatitis (may have RUQ pain, though typically epigastric)</li>
+          <li>Right-sided pyelonephritis or renal colic</li>
+          <li>Hepatic abscess</li>
+          <li>Right lower lobe pneumonia (referred pain)</li>
+          <li>Fitz-Hugh-Curtis syndrome (perihepatitis from PID)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>Question 2: Describe the pathogenesis of the three common forms of gallstone.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>1. Cholesterol Stones (80-90% of gallstones in Western countries)</h3>
+        <p><strong>Pathogenesis:</strong></p>
+        <ul>
+          <li><strong>Supersaturation of bile with cholesterol:</strong> Occurs when there is an imbalance between cholesterol, bile salts, and phospholipids. Cholesterol is normally kept in solution by micelles formed with bile salts and lecithin.</li>
+          <li><strong>Nucleation:</strong> Cholesterol precipitates out of solution and crystals form. This is promoted by:
+            <ul>
+              <li>Mucin glycoproteins in bile that serve as a nucleation site</li>
+              <li>Decreased gallbladder motility allowing time for crystal formation</li>
+            </ul>
+          </li>
+          <li><strong>Stone growth:</strong> Continued precipitation and layering of cholesterol leads to stone formation</li>
+          <li><strong>Risk factors:</strong> Obesity, female gender, pregnancy, rapid weight loss, certain medications (estrogen, fibrates), ileal disease (Crohn's), Native American ethnicity</li>
+        </ul>
+
+        <h3>2. Black Pigment Stones (10-15% of stones)</h3>
+        <p><strong>Pathogenesis:</strong></p>
+        <ul>
+          <li><strong>Unconjugated bilirubin precipitation:</strong> Formed from calcium bilirubinate and other calcium salts</li>
+          <li><strong>Hemolytic conditions:</strong> Chronic hemolysis (sickle cell disease, hereditary spherocytosis, thalassemia) leads to increased bilirubin production and excretion</li>
+          <li><strong>Cirrhosis:</strong> Impaired hepatic function and increased bilirubin in bile</li>
+          <li><strong>Appearance:</strong> Small, black, hard stones that are radiopaque due to calcium content</li>
+          <li><strong>Location:</strong> Form primarily in the gallbladder</li>
+        </ul>
+
+        <h3>3. Brown Pigment Stones (Rare in Western countries)</h3>
+        <p><strong>Pathogenesis:</strong></p>
+        <ul>
+          <li><strong>Bacterial infection:</strong> Bacteria (E. coli, Klebsiella, Pseudomonas) produce beta-glucuronidase enzyme</li>
+          <li><strong>Bile deconjugation:</strong> Beta-glucuronidase hydrolyzes conjugated bilirubin to unconjugated bilirubin, which precipitates with calcium</li>
+          <li><strong>Bile stasis:</strong> Associated with biliary strictures, parasitic infections (Clonorchis sinensis, Ascaris), or anatomical abnormalities</li>
+          <li><strong>Appearance:</strong> Soft, earthy, brown stones containing calcium bilirubinate, fatty acids, and bacterial debris</li>
+          <li><strong>Location:</strong> Typically form in bile ducts (primary common bile duct stones)</li>
+          <li><strong>Association:</strong> Common in East Asia due to endemic parasitic infections and dietary factors</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>Question 3: What are the key elements of the epidemiology of gallstones?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Prevalence</h3>
+        <ul>
+          <li>Affects 10-15% of adults in Western countries</li>
+          <li>Increases with age: up to 20-30% in those over 60 years</li>
+          <li>Geographic variation: higher in Western countries, Native American populations (Pima Indians: 70% prevalence); lower in Asian and African populations</li>
+        </ul>
+
+        <h3>Risk Factors - "4 F's" (Traditional)</h3>
+        <ul>
+          <li><strong>Female:</strong> 2-3 times more common in women than men</li>
+          <li><strong>Forty (Age):</strong> Prevalence increases with age, particularly after 40</li>
+          <li><strong>Fat:</strong> Obesity (BMI > 30) significantly increases risk due to increased cholesterol synthesis and secretion</li>
+          <li><strong>Fertile:</strong> Pregnancy and multiparity increase risk due to estrogen effects on cholesterol metabolism and gallbladder stasis</li>
+        </ul>
+
+        <h3>Additional Risk Factors</h3>
+        <p><strong>Demographic:</strong></p>
+        <ul>
+          <li>Ethnicity: Native American, Hispanic > Caucasian > Asian/African</li>
+          <li>Family history: genetic predisposition</li>
+        </ul>
+
+        <p><strong>Metabolic:</strong></p>
+        <ul>
+          <li>Metabolic syndrome, diabetes mellitus</li>
+          <li>Hypertriglyceridemia, hypercholesterolemia</li>
+          <li>Rapid weight loss (> 1.5 kg/week) or bariatric surgery</li>
+          <li>Total parenteral nutrition (TPN)</li>
+        </ul>
+
+        <p><strong>Medications:</strong></p>
+        <ul>
+          <li>Estrogen therapy, oral contraceptives</li>
+          <li>Fibrates (clofibrate)</li>
+          <li>Octreotide, ceftriaxone</li>
+        </ul>
+
+        <p><strong>Medical conditions:</strong></p>
+        <ul>
+          <li>Hemolytic anemias (sickle cell, spherocytosis): pigment stones</li>
+          <li>Crohn's disease, ileal resection: impaired bile salt reabsorption</li>
+          <li>Cirrhosis</li>
+          <li>Cystic fibrosis</li>
+        </ul>
+
+        <h3>Clinical Significance</h3>
+        <ul>
+          <li>Majority (80%) of gallstones remain asymptomatic</li>
+          <li>Annual symptom development: 1-4% in asymptomatic patients</li>
+          <li>Once symptomatic, complications are more likely to develop</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>Question 4: What features on history and examination would help you distinguish the cause of her pain?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>History</h3>
+
+        <p><strong>Pain Characteristics:</strong></p>
+        <ul>
+          <li><strong>Location:</strong>
+            <ul>
+              <li>Biliary colic/cholecystitis: RUQ or epigastric, may radiate to right scapula or shoulder</li>
+              <li>Cholangitis: RUQ</li>
+              <li>Peptic ulcer: Epigastric, may radiate to back</li>
+              <li>Hepatitis: RUQ, diffuse liver tenderness</li>
+              <li>Pancreatitis: Epigastric, radiating to back</li>
+              <li>Renal colic: Flank to groin radiation</li>
+            </ul>
+          </li>
+          <li><strong>Onset and duration:</strong>
+            <ul>
+              <li>Biliary colic: Sudden onset, lasts 30 minutes to 6 hours, then resolves</li>
+              <li>Cholecystitis: Sustained pain > 6 hours, progressively worsening</li>
+              <li>Cholangitis: Persistent pain</li>
+              <li>Perforated ulcer: Sudden, catastrophic onset</li>
+            </ul>
+          </li>
+          <li><strong>Character:</strong>
+            <ul>
+              <li>Biliary colic: Severe, constant (despite name "colic"), cramping</li>
+              <li>Cholecystitis: Constant, severe</li>
+              <li>Renal colic: Intermittent, colicky, excruciating</li>
+            </ul>
+          </li>
+          <li><strong>Timing:</strong>
+            <ul>
+              <li>Biliary pain: Often postprandial (30-90 minutes after fatty meals), nocturnal</li>
+              <li>Peptic ulcer: Duodenal ulcer pain improves with food; gastric ulcer pain worsens with food</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Associated Symptoms:</strong></p>
+        <ul>
+          <li><strong>Fever:</strong> Suggests cholecystitis, cholangitis, or abscess (typically absent in biliary colic)</li>
+          <li><strong>Jaundice:</strong> Cholangitis, choledocholithiasis, hepatitis</li>
+          <li><strong>Nausea/vomiting:</strong> Common in biliary disease, pancreatitis</li>
+          <li><strong>Rigors/chills:</strong> Cholangitis, pyelonephritis</li>
+          <li><strong>Change in stool/urine color:</strong> Dark urine and pale stools suggest biliary obstruction</li>
+          <li><strong>Hematemesis/melena:</strong> Peptic ulcer disease</li>
+          <li><strong>Urinary symptoms:</strong> Pyelonephritis, UTI</li>
+        </ul>
+
+        <p><strong>Past Medical History:</strong></p>
+        <ul>
+          <li>Previous biliary colic episodes</li>
+          <li>Previous imaging showing gallstones</li>
+          <li>Risk factors for gallstones (obesity, pregnancy, diabetes)</li>
+          <li>Hemolytic disorders (pigment stones)</li>
+          <li>NSAID/PPI use (peptic ulcer)</li>
+        </ul>
+
+        <h3>Physical Examination</h3>
+
+        <p><strong>General Appearance:</strong></p>
+        <ul>
+          <li>Patient writhing in pain: suggests renal colic</li>
+          <li>Patient still, guarding abdomen: suggests peritonitis</li>
+          <li>Distressed but can find comfortable position: biliary colic</li>
+        </ul>
+
+        <p><strong>Vital Signs:</strong></p>
+        <ul>
+          <li><strong>Fever:</strong> Cholecystitis (low-grade), cholangitis (high fever with rigors), absent in biliary colic</li>
+          <li><strong>Tachycardia, hypotension:</strong> Suggests sepsis (cholangitis), perforation, or severe pancreatitis</li>
+        </ul>
+
+        <p><strong>Abdominal Examination:</strong></p>
+        <ul>
+          <li><strong>Murphy's sign:</strong> Inspiratory arrest during deep palpation of RUQ - highly specific for acute cholecystitis</li>
+          <li><strong>Boas's sign:</strong> Hyperesthesia below right scapula - may indicate cholecystitis</li>
+          <li><strong>Guarding and rebound:</strong> Peritonitis from perforation, severe cholecystitis, or pancreatitis</li>
+          <li><strong>Palpable gallbladder:</strong> Courvoisier's sign (painless jaundice with palpable gallbladder suggests malignancy, not stones)</li>
+          <li><strong>Diffuse tenderness:</strong> Peritonitis</li>
+          <li><strong>RUQ mass:</strong> Empyema, gallbladder hydrops, hepatomegaly</li>
+        </ul>
+
+        <p><strong>Other Findings:</strong></p>
+        <ul>
+          <li><strong>Jaundice:</strong> Inspect sclera and skin - cholangitis, choledocholithiasis, hepatitis</li>
+          <li><strong>Costovertebral angle tenderness:</strong> Pyelonephritis</li>
+          <li><strong>Respiratory examination:</strong> Right lower lobe pneumonia may cause referred RUQ pain</li>
+        </ul>
+
+        <h3>Key Distinguishing Features</h3>
+        <table>
+          <tr>
+            <th>Condition</th>
+            <th>Key Discriminating Features</th>
+          </tr>
+          <tr>
+            <td>Biliary Colic</td>
+            <td>Intermittent, postprandial, resolves < 6 hours, no fever, no Murphy's sign</td>
+          </tr>
+          <tr>
+            <td>Acute Cholecystitis</td>
+            <td>Persistent pain > 6 hours, fever, positive Murphy's sign, RUQ tenderness</td>
+          </tr>
+          <tr>
+            <td>Cholangitis</td>
+            <td>Charcot's triad: fever, RUQ pain, jaundice</td>
+          </tr>
+          <tr>
+            <td>Peptic Ulcer</td>
+            <td>Epigastric pain, relationship to meals, history of NSAID use</td>
+          </tr>
+          <tr>
+            <td>Hepatitis</td>
+            <td>Jaundice, diffuse liver tenderness, systemic symptoms</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>Question 5: What laboratory and imaging tests would you order and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Laboratory Tests</h3>
+
+        <p><strong>1. Complete Blood Count (CBC)</strong></p>
+        <ul>
+          <li><strong>White Blood Cell Count:</strong>
+            <ul>
+              <li>Elevated (> 12,000) in acute cholecystitis</li>
+              <li>Normal in biliary colic</li>
+              <li>Markedly elevated with left shift in cholangitis or perforation</li>
+            </ul>
+          </li>
+          <li><strong>Hemoglobin/Hematocrit:</strong> Rule out anemia from peptic ulcer bleeding</li>
+        </ul>
+
+        <p><strong>2. Liver Function Tests (LFTs)</strong></p>
+        <ul>
+          <li><strong>Bilirubin (total and direct):</strong>
+            <ul>
+              <li>Elevated in cholangitis and choledocholithiasis</li>
+              <li>Mildly elevated or normal in cholecystitis (unless Mirizzi syndrome)</li>
+              <li>Markedly elevated in hepatitis</li>
+            </ul>
+          </li>
+          <li><strong>Alkaline Phosphatase (ALP) and Gamma-GT:</strong>
+            <ul>
+              <li>Elevated in biliary obstruction (cholangitis, choledocholithiasis)</li>
+              <li>Pattern: cholestatic (high ALP, GGT) vs hepatocellular (high transaminases)</li>
+            </ul>
+          </li>
+          <li><strong>Transaminases (AST, ALT):</strong>
+            <ul>
+              <li>Mildly elevated in cholecystitis</li>
+              <li>Moderately elevated in choledocholithiasis (transient spike)</li>
+              <li>Markedly elevated (> 1000) in acute hepatitis</li>
+            </ul>
+          </li>
+          <li><strong>Albumin:</strong> Assess synthetic liver function and nutritional status</li>
+        </ul>
+
+        <p><strong>3. Pancreatic Enzymes</strong></p>
+        <ul>
+          <li><strong>Lipase/Amylase:</strong> Elevated in pancreatitis (gallstone pancreatitis is common with choledocholithiasis)</li>
+        </ul>
+
+        <p><strong>4. Inflammatory Markers</strong></p>
+        <ul>
+          <li><strong>C-Reactive Protein (CRP):</strong> Elevated in cholecystitis, helps assess inflammation severity</li>
+        </ul>
+
+        <p><strong>5. Blood Cultures</strong></p>
+        <ul>
+          <li>If sepsis or cholangitis suspected (fever, rigors, hypotension)</li>
+          <li>Obtain before starting antibiotics</li>
+        </ul>
+
+        <p><strong>6. Coagulation Profile</strong></p>
+        <ul>
+          <li><strong>PT/INR:</strong> May be prolonged in cholestasis (vitamin K malabsorption) or liver disease</li>
+          <li>Important if surgery planned</li>
+        </ul>
+
+        <p><strong>7. Basic Metabolic Panel</strong></p>
+        <ul>
+          <li>Assess renal function, electrolytes (especially if vomiting)</li>
+          <li>Glucose (diabetes is risk factor for gallstones)</li>
+        </ul>
+
+        <p><strong>8. Urinalysis</strong></p>
+        <ul>
+          <li>Rule out urinary tract infection or pyelonephritis</li>
+          <li>Check for bilirubin (suggests conjugated hyperbilirubinemia)</li>
+        </ul>
+
+        <h3>Imaging Studies</h3>
+
+        <p><strong>1. Right Upper Quadrant Ultrasound (First-line imaging)</strong></p>
+        <ul>
+          <li><strong>Advantages:</strong>
+            <ul>
+              <li>Non-invasive, no radiation, rapid, bedside availability</li>
+              <li>High sensitivity (95%) and specificity (95%) for gallstones</li>
+              <li>Excellent for evaluating gallbladder wall, pericholecystic fluid</li>
+            </ul>
+          </li>
+          <li><strong>Findings in Acute Cholecystitis:</strong>
+            <ul>
+              <li>Gallstones (may see impacted stone in gallbladder neck or cystic duct)</li>
+              <li>Gallbladder wall thickening (> 3-4 mm)</li>
+              <li>Pericholecystic fluid</li>
+              <li>Sonographic Murphy's sign (maximal tenderness over gallbladder with ultrasound probe)</li>
+              <li>Gallbladder distension (> 10 cm length or > 5 cm width)</li>
+            </ul>
+          </li>
+          <li><strong>Findings in Biliary Colic:</strong>
+            <ul>
+              <li>Gallstones present</li>
+              <li>No wall thickening, no pericholecystic fluid</li>
+              <li>No sonographic Murphy's sign</li>
+            </ul>
+          </li>
+          <li><strong>Limitations:</strong>
+            <ul>
+              <li>Limited visualization of common bile duct (CBD) stones (sensitivity 50-75%)</li>
+              <li>Operator-dependent</li>
+              <li>Difficult in obese patients or with overlying bowel gas</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>2. HIDA Scan (Hepatobiliary Iminodiacetic Acid Scintigraphy)</strong></p>
+        <ul>
+          <li><strong>Indication:</strong> If ultrasound equivocal but high clinical suspicion for acute cholecystitis</li>
+          <li><strong>Technique:</strong> IV radiotracer is taken up by hepatocytes and excreted into bile</li>
+          <li><strong>Interpretation:</strong>
+            <ul>
+              <li>Non-visualization of gallbladder suggests cystic duct obstruction (acute cholecystitis)</li>
+              <li>Sensitivity 95%, specificity 90% for acute cholecystitis</li>
+            </ul>
+          </li>
+          <li><strong>Limitations:</strong> Time-consuming (up to 4 hours), requires fasting, false positives in critically ill or TPN patients</li>
+        </ul>
+
+        <p><strong>3. CT Abdomen/Pelvis with IV Contrast</strong></p>
+        <ul>
+          <li><strong>Indications:</strong>
+            <ul>
+              <li>Unclear diagnosis or suspicion of complications</li>
+              <li>Evaluate for perforation, abscess, emphysematous cholecystitis</li>
+              <li>Assess other differential diagnoses (pancreatitis, appendicitis, bowel pathology)</li>
+            </ul>
+          </li>
+          <li><strong>Findings in cholecystitis:</strong>
+            <ul>
+              <li>Gallbladder wall thickening and enhancement</li>
+              <li>Pericholecystic fat stranding and fluid</li>
+              <li>Gallbladder distension</li>
+            </ul>
+          </li>
+          <li><strong>Advantages:</strong> Comprehensive evaluation of abdomen, identifies complications</li>
+          <li><strong>Limitations:</strong> Radiation exposure, less sensitive than ultrasound for gallstones (30% are radiolucent)</li>
+        </ul>
+
+        <p><strong>4. Magnetic Resonance Cholangiopancreatography (MRCP)</strong></p>
+        <ul>
+          <li><strong>Indications:</strong>
+            <ul>
+              <li>Suspected choledocholithiasis (elevated bilirubin, dilated CBD on ultrasound)</li>
+              <li>Evaluate biliary anatomy before surgery</li>
+              <li>Alternative to ERCP when therapeutic intervention not needed</li>
+            </ul>
+          </li>
+          <li><strong>Advantages:</strong>
+            <ul>
+              <li>Non-invasive, excellent visualization of biliary tree and pancreatic duct</li>
+              <li>High sensitivity (90-95%) for CBD stones</li>
+            </ul>
+          </li>
+          <li><strong>Limitations:</strong> Expensive, time-consuming, limited availability</li>
+        </ul>
+
+        <p><strong>5. Endoscopic Retrograde Cholangiopancreatography (ERCP)</strong></p>
+        <ul>
+          <li><strong>Indications:</strong>
+            <ul>
+              <li>Therapeutic intervention for known or highly suspected choledocholithiasis</li>
+              <li>Cholangitis requiring urgent biliary drainage</li>
+              <li>Gallstone pancreatitis with persistent obstruction</li>
+            </ul>
+          </li>
+          <li><strong>Procedure:</strong> Endoscopic sphincterotomy and stone extraction, biliary stent placement</li>
+          <li><strong>Risks:</strong> Pancreatitis (5%), bleeding, perforation, infection</li>
+          <li><strong>Note:</strong> Both diagnostic and therapeutic</li>
+        </ul>
+
+        <p><strong>6. Endoscopic Ultrasound (EUS)</strong></p>
+        <ul>
+          <li><strong>Indication:</strong> High sensitivity for small CBD stones when MRCP inconclusive</li>
+          <li><strong>Advantage:</strong> Can combine diagnosis with therapeutic ERCP in same session</li>
+        </ul>
+
+        <p><strong>7. Plain Abdominal X-ray</strong></p>
+        <ul>
+          <li><strong>Limited utility:</strong> Only 10-15% of gallstones are radiopaque</li>
+          <li><strong>May show:</strong> Porcelain gallbladder (calcified wall), emphysematous cholecystitis (gas in gallbladder wall), pneumoperitoneum if perforated</li>
+          <li>Useful to rule out other causes (bowel obstruction, perforation)</li>
+        </ul>
+
+        <h3>Recommended Imaging Algorithm</h3>
+        <ol>
+          <li><strong>First-line:</strong> RUQ Ultrasound - for suspected biliary pathology</li>
+          <li><strong>If ultrasound positive for cholecystitis:</strong> Proceed to surgical consultation</li>
+          <li><strong>If ultrasound equivocal:</strong> Consider HIDA scan</li>
+          <li><strong>If concern for CBD stones:</strong> Check CBD diameter on ultrasound
+            <ul>
+              <li>If dilated (> 6 mm) or LFTs suggest obstruction: MRCP or ERCP</li>
+            </ul>
+          </li>
+          <li><strong>If unclear diagnosis or concern for complications:</strong> CT abdomen/pelvis</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>Question 6: What percentage of asymptomatic gallstones will develop symptoms?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Natural History of Asymptomatic Gallstones</h3>
+
+        <p><strong>Symptom Development Rate:</strong></p>
+        <ul>
+          <li><strong>Annual incidence:</strong> Approximately 1-4% of asymptomatic gallstone patients develop symptoms per year</li>
+          <li><strong>Cumulative incidence:</strong>
+            <ul>
+              <li>10% develop symptoms within 5 years</li>
+              <li>15-20% develop symptoms within 10 years</li>
+              <li>20-25% develop symptoms within 20 years</li>
+            </ul>
+          </li>
+          <li><strong>Overall:</strong> Approximately 80% of patients with gallstones remain asymptomatic throughout their lifetime</li>
+        </ul>
+
+        <h3>Risk of Complications in Asymptomatic Patients</h3>
+        <ul>
+          <li><strong>Serious complications without prior symptoms:</strong> Rare (< 1-2%)</li>
+          <li>Most patients develop biliary colic before experiencing complications</li>
+          <li>However, acute cholecystitis or pancreatitis can occasionally be the first presentation</li>
+        </ul>
+
+        <h3>Risk Factors for Symptom Development</h3>
+        <ul>
+          <li><strong>Young age at diagnosis:</strong> Younger patients have longer lifetime risk</li>
+          <li><strong>Larger stones (> 2-3 cm):</strong> Higher risk of symptoms and gallbladder cancer</li>
+          <li><strong>Multiple small stones:</strong> Increased risk of CBD migration and pancreatitis</li>
+          <li><strong>Porcelain gallbladder:</strong> Calcification increases cancer risk (0.5-6%)</li>
+        </ul>
+
+        <h3>Clinical Implications - Management of Asymptomatic Gallstones</h3>
+
+        <p><strong>Observation ("Watchful Waiting"):</strong></p>
+        <ul>
+          <li><strong>Recommended approach:</strong> Most asymptomatic patients should be observed rather than undergo prophylactic cholecystectomy</li>
+          <li><strong>Rationale:</strong>
+            <ul>
+              <li>80% remain asymptomatic lifelong</li>
+              <li>Low risk of complications without prior symptoms</li>
+              <li>Cholecystectomy has morbidity/mortality risks (0.1-0.5% mortality)</li>
+              <li>Cost-effectiveness favors observation</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Indications for Prophylactic Cholecystectomy in Asymptomatic Patients:</strong></p>
+        <ol>
+          <li><strong>Porcelain gallbladder:</strong> Due to malignancy risk (controversial - recent data suggests lower risk than previously thought)</li>
+          <li><strong>Gallstones > 3 cm:</strong> Increased cancer risk</li>
+          <li><strong>Gallbladder polyps > 10 mm:</strong> Especially with concurrent gallstones</li>
+          <li><strong>Anomalous pancreaticobiliary duct junction:</strong> Increased cancer risk</li>
+          <li><strong>Specific populations:</strong>
+            <ul>
+              <li>Children with gallstones (likely to become symptomatic over lifetime)</li>
+              <li>Patients undergoing bariatric surgery (rapid weight loss increases risk)</li>
+              <li>Transplant candidates (immunosuppression complicates post-transplant cholecystitis)</li>
+              <li>Patients with hemolytic anemias undergoing splenectomy (concurrent cholecystectomy reasonable)</li>
+              <li>Remote populations with limited access to emergency care</li>
+            </ul>
+          </li>
+          <li><strong>Sickle cell disease:</strong> Difficult to distinguish biliary pain from sickle crisis; some advocate cholecystectomy</li>
+        </ol>
+
+        <p><strong>Patient Education:</strong></p>
+        <ul>
+          <li>Advise patients with asymptomatic gallstones to seek medical attention if they develop:
+            <ul>
+              <li>RUQ or epigastric pain</li>
+              <li>Nausea/vomiting</li>
+              <li>Fever</li>
+              <li>Jaundice</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Once Symptoms Develop</h3>
+        <ul>
+          <li><strong>Risk of recurrent symptoms:</strong> 30-50% within 1 year if untreated</li>
+          <li><strong>Risk of complications:</strong> 1-3% per year (cholecystitis, pancreatitis, cholangitis)</li>
+          <li><strong>Recommendation:</strong> Cholecystectomy is indicated once biliary colic develops due to high recurrence rate and complication risk</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>Question 7: Compare and contrast biliary colic versus acute cholecystitis in terms of clinical presentation, laboratory findings, radiological findings, and management.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Comprehensive Comparison: Biliary Colic vs Acute Cholecystitis</h3>
+
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Biliary Colic</th>
+            <th>Acute Cholecystitis</th>
+          </tr>
+          <tr>
+            <td><strong>Pathophysiology</strong></td>
+            <td>
+              <ul>
+                <li>Transient obstruction of cystic duct by gallstone</li>
+                <li>Gallbladder contracts against obstruction</li>
+                <li>Increased intraluminal pressure causes pain</li>
+                <li>Stone either passes back into gallbladder or through cystic duct</li>
+                <li>No inflammation</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Persistent obstruction of cystic duct by impacted stone (90-95% of cases)</li>
+                <li>Sustained increase in intraluminal pressure</li>
+                <li>Ischemia of gallbladder wall</li>
+                <li>Chemical inflammation from concentrated bile</li>
+                <li>Secondary bacterial infection (50% of cases): E. coli, Klebsiella, Enterococcus</li>
+                <li>May progress to gangrenous cholecystitis or perforation</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <h3>Clinical Presentation</h3>
+
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Biliary Colic</th>
+            <th>Acute Cholecystitis</th>
+          </tr>
+          <tr>
+            <td><strong>Pain Characteristics</strong></td>
+            <td>
+              <ul>
+                <li><strong>Location:</strong> RUQ or epigastric</li>
+                <li><strong>Radiation:</strong> To right scapula, right shoulder, or interscapular region</li>
+                <li><strong>Onset:</strong> Sudden, often postprandial (30-90 min after fatty meal)</li>
+                <li><strong>Duration:</strong> 30 minutes to 6 hours (typically 2-4 hours)</li>
+                <li><strong>Character:</strong> Severe, constant, crescendo pattern (despite term "colic")</li>
+                <li><strong>Resolution:</strong> Gradual resolution once stone dislodges</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><strong>Location:</strong> RUQ (more localized than biliary colic)</li>
+                <li><strong>Radiation:</strong> To right scapula or shoulder</li>
+                <li><strong>Onset:</strong> May begin as biliary colic that doesn't resolve</li>
+                <li><strong>Duration:</strong> Persistent, > 6 hours (often days)</li>
+                <li><strong>Character:</strong> Severe, constant, progressively worsening</li>
+                <li><strong>Resolution:</strong> Does not resolve spontaneously</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Associated Symptoms</strong></td>
+            <td>
+              <ul>
+                <li>Nausea and vomiting (common)</li>
+                <li>No fever</li>
+                <li>No chills/rigors</li>
+                <li>Patient may appear uncomfortable but not toxic</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Nausea and vomiting (very common)</li>
+                <li>Fever (low-grade 38-38.5°C typical; higher suggests complications)</li>
+                <li>Chills (may occur)</li>
+                <li>Anorexia</li>
+                <li>Patient appears ill, may be toxic if complicated</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Physical Examination</strong></td>
+            <td>
+              <ul>
+                <li><strong>Vital signs:</strong> Normal temperature, may have mild tachycardia</li>
+                <li><strong>Abdominal exam:</strong>
+                  <ul>
+                    <li>RUQ tenderness (mild to moderate)</li>
+                    <li>No peritoneal signs</li>
+                    <li>No guarding or rebound</li>
+                  </ul>
+                </li>
+                <li><strong>Murphy's sign:</strong> Negative</li>
+                <li><strong>Boas's sign:</strong> Absent</li>
+                <li>Examination between episodes is usually normal</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><strong>Vital signs:</strong> Low-grade fever, tachycardia; hypotension if septic</li>
+                <li><strong>Abdominal exam:</strong>
+                  <ul>
+                    <li>Marked RUQ tenderness</li>
+                    <li>Voluntary guarding</li>
+                    <li>May have involuntary guarding if peritonitis</li>
+                    <li>Rebound tenderness (suggests peritonitis)</li>
+                  </ul>
+                </li>
+                <li><strong>Murphy's sign:</strong> <strong>POSITIVE</strong> (97% sensitive, 48% specific)
+                  <ul>
+                    <li>Inspiratory arrest with deep palpation of RUQ during deep inspiration</li>
+                    <li>Pain causes sudden cessation of inspiration</li>
+                  </ul>
+                </li>
+                <li><strong>Boas's sign:</strong> May be present
+                  <ul>
+                    <li>Hyperesthesia (increased sensitivity to touch) in the region below the right scapula</li>
+                    <li>Due to referred visceral pain via phrenic nerve irritation</li>
+                  </ul>
+                </li>
+                <li><strong>Palpable mass:</strong> May palpate distended, tender gallbladder (30% of cases)</li>
+                <li>Jaundice: Uncommon (< 10%), suggests Mirizzi syndrome or CBD stones</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <h3>Laboratory Findings</h3>
+
+        <table>
+          <tr>
+            <th>Test</th>
+            <th>Biliary Colic</th>
+            <th>Acute Cholecystitis</th>
+          </tr>
+          <tr>
+            <td><strong>White Blood Cell Count</strong></td>
+            <td>Normal (4,000-11,000/μL)</td>
+            <td>
+              <ul>
+                <li>Elevated: 12,000-15,000/μL (leukocytosis)</li>
+                <li>Left shift (bandemia) indicates bacterial infection</li>
+                <li>> 20,000 suggests complications (gangrene, perforation)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Bilirubin</strong></td>
+            <td>Normal</td>
+            <td>
+              <ul>
+                <li>Usually normal or mildly elevated (< 4 mg/dL)</li>
+                <li>Significant elevation suggests:
+                  <ul>
+                    <li>Concomitant CBD stones</li>
+                    <li>Mirizzi syndrome (stone in cystic duct compressing CBD)</li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Alkaline Phosphatase</strong></td>
+            <td>Normal</td>
+            <td>Mildly elevated (up to 2x upper limit normal) in 25% of cases</td>
+          </tr>
+          <tr>
+            <td><strong>Transaminases (AST/ALT)</strong></td>
+            <td>Normal</td>
+            <td>
+              <ul>
+                <li>Normal or mildly elevated (< 300 U/L)</li>
+                <li>Marked elevation suggests choledocholithiasis or hepatitis</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Amylase/Lipase</strong></td>
+            <td>Normal</td>
+            <td>
+              <ul>
+                <li>Usually normal</li>
+                <li>Elevated if concomitant gallstone pancreatitis</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>C-Reactive Protein</strong></td>
+            <td>Normal or mildly elevated</td>
+            <td>Elevated (> 3 mg/dL); higher levels correlate with severity</td>
+          </tr>
+          <tr>
+            <td><strong>Blood Cultures</strong></td>
+            <td>Not indicated</td>
+            <td>
+              <ul>
+                <li>Positive in 10-30% with acute cholecystitis</li>
+                <li>Obtain if fever/sepsis present</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <h3>Radiological Findings</h3>
+
+        <table>
+          <tr>
+            <th>Imaging Modality</th>
+            <th>Biliary Colic</th>
+            <th>Acute Cholecystitis</th>
+          </tr>
+          <tr>
+            <td><strong>RUQ Ultrasound (First-line)</strong></td>
+            <td>
+              <ul>
+                <li><strong>Gallstones present:</strong> Echogenic foci with posterior acoustic shadowing, mobile with position changes</li>
+                <li><strong>Gallbladder wall:</strong> Normal thickness (< 3 mm)</li>
+                <li><strong>Pericholecystic fluid:</strong> Absent</li>
+                <li><strong>Sonographic Murphy's sign:</strong> Negative (no maximal tenderness when probe pressed over gallbladder)</li>
+                <li><strong>CBD:</strong> Normal caliber (< 6 mm, or < 10 mm if post-cholecystectomy)</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><strong>Gallstones present:</strong> Often see stone impacted in gallbladder neck or cystic duct</li>
+                <li><strong>Gallbladder wall thickening:</strong> > 3-4 mm (highly suggestive if > 5 mm)</li>
+                <li><strong>Wall edema:</strong> "Double wall sign" or hypoechoic layer</li>
+                <li><strong>Pericholecystic fluid:</strong> Present (fluid collection around gallbladder)</li>
+                <li><strong>Sonographic Murphy's sign:</strong> <strong>POSITIVE</strong> (most specific finding - 95% PPV)</li>
+                <li><strong>Gallbladder distension:</strong> Length > 10 cm or width > 5 cm</li>
+                <li><strong>Gas in gallbladder wall:</strong> Suggests emphysematous cholecystitis (surgical emergency)</li>
+                <li><strong>Sensitivity/Specificity:</strong> 88-95% sensitive, 78-80% specific</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>HIDA Scan (Cholescintigraphy)</strong></td>
+            <td>
+              <ul>
+                <li>Gallbladder fills normally with radiotracer</li>
+                <li>Normal emptying with CCK stimulation</li>
+                <li>Tracer visualized in CBD and small bowel</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><strong>Non-visualization of gallbladder after 4 hours:</strong> Diagnostic (indicates cystic duct obstruction)</li>
+                <li>Radiotracer seen in liver and CBD, but not gallbladder</li>
+                <li><strong>Sensitivity:</strong> 95%</li>
+                <li><strong>Specificity:</strong> 90%</li>
+                <li><strong>Best use:</strong> When ultrasound equivocal but clinical suspicion high</li>
+                <li><strong>Limitations:</strong> False positives in critically ill, TPN patients, prolonged fasting</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>CT Abdomen/Pelvis</strong></td>
+            <td>
+              <ul>
+                <li>Gallstones may or may not be visible (30% radiolucent)</li>
+                <li>Normal gallbladder wall</li>
+                <li>No inflammatory changes</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Gallbladder wall thickening (> 4 mm) and enhancement</li>
+                <li>Pericholecystic fat stranding</li>
+                <li>Pericholecystic fluid/abscess</li>
+                <li>Gallbladder distension</li>
+                <li><strong>Complications visible:</strong>
+                  <ul>
+                    <li>Emphysematous cholecystitis: Gas in wall or lumen</li>
+                    <li>Gangrenous cholecystitis: Irregular wall, intramural gas</li>
+                    <li>Perforation: Free fluid, focal wall defect</li>
+                    <li>Pericholecystic abscess</li>
+                  </ul>
+                </li>
+                <li><strong>Less sensitive than ultrasound</strong> for uncomplicated cholecystitis</li>
+                <li><strong>Best use:</strong> Evaluating complications or unclear diagnosis</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <h3>Management</h3>
+
+        <table>
+          <tr>
+            <th>Aspect</th>
+            <th>Biliary Colic</th>
+            <th>Acute Cholecystitis</th>
+          </tr>
+          <tr>
+            <td><strong>Acute Management</strong></td>
+            <td>
+              <ul>
+                <li><strong>Analgesia:</strong>
+                  <ul>
+                    <li>NSAIDs: Ketorolac 30 mg IV or diclofenac 50-75 mg PO (first-line)</li>
+                    <li>Opioids: Morphine or hydromorphone if NSAIDs contraindicated or insufficient (avoid in renal colic to prevent masking)</li>
+                    <li>Antispasmodics: Hyoscine butylbromide (Buscopan) may help smooth muscle spasm</li>
+                  </ul>
+                </li>
+                <li><strong>Antiemetics:</strong> Ondansetron 4-8 mg IV/PO or metoclopramide 10 mg IV</li>
+                <li><strong>Hydration:</strong> IV fluids if vomiting or unable to tolerate PO</li>
+                <li><strong>No antibiotics needed</strong> (no infection/inflammation)</li>
+                <li><strong>Observation:</strong> Monitor until symptoms resolve (usually hours)</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><strong>NPO (nothing by mouth):</strong> Bowel rest to decrease gallbladder stimulation</li>
+                <li><strong>IV Fluids:</strong> Crystalloids for hydration and electrolyte replacement</li>
+                <li><strong>Analgesia:</strong>
+                  <ul>
+                    <li>Opioids: Morphine 2-5 mg IV q2-4h PRN or hydromorphone 0.5-1 mg IV q2-4h PRN</li>
+                    <li>NSAIDs: May add ketorolac 30 mg IV q6h (avoid if considering surgery due to bleeding risk)</li>
+                  </ul>
+                </li>
+                <li><strong>Antiemetics:</strong> Ondansetron 4-8 mg IV q8h PRN</li>
+                <li><strong>Antibiotics (broad-spectrum):</strong>
+                  <ul>
+                    <li><strong>Mild-moderate cholecystitis:</strong> Ceftriaxone 1-2 g IV daily + metronidazole 500 mg IV q8h
+                      <ul>
+                        <li>Alternative: Piperacillin-tazobactam 3.375 g IV q6h</li>
+                      </ul>
+                    </li>
+                    <li><strong>Severe/complicated cholecystitis or high-risk patients:</strong>
+                      <ul>
+                        <li>Piperacillin-tazobactam 4.5 g IV q6h</li>
+                        <li>OR Meropenem 1 g IV q8h</li>
+                        <li>OR Imipenem-cilastatin 500 mg IV q6h</li>
+                      </ul>
+                    </li>
+                    <li><strong>Coverage needed:</strong> Gram-negative rods (E. coli, Klebsiella), Enterococcus, anaerobes</li>
+                  </ul>
+                </li>
+                <li><strong>Nasogastric tube:</strong> If persistent vomiting or ileus</li>
+                <li><strong>Monitor vital signs:</strong> Watch for sepsis, peritonitis</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Definitive Management</strong></td>
+            <td>
+              <ul>
+                <li><strong>Elective laparoscopic cholecystectomy</strong> recommended to prevent recurrence
+                  <ul>
+                    <li><strong>Timing:</strong> Can be scheduled within 6 weeks of initial episode</li>
+                    <li><strong>Urgency:</strong> Not emergent; outpatient surgery</li>
+                    <li><strong>Risk of recurrence:</strong> 30-50% within 1 year if not treated</li>
+                    <li><strong>Risk of complications:</strong> 1-3% per year (cholecystitis, pancreatitis)</li>
+                  </ul>
+                </li>
+                <li><strong>Conservative management:</strong> Only if patient refuses surgery or high surgical risk
+                  <ul>
+                    <li>Dietary modification: Low-fat diet</li>
+                    <li>Expectant management with understanding of recurrence risk</li>
+                    <li>Ursodeoxycholic acid for stone dissolution (limited efficacy, only for small cholesterol stones)</li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><strong>Surgical cholecystectomy (definitive treatment)</strong></li>
+                <li><strong>Timing - Two approaches:</strong>
+                  <ul>
+                    <li><strong>Early laparoscopic cholecystectomy (PREFERRED):</strong>
+                      <ul>
+                        <li><strong>Timing:</strong> Within 72 hours of symptom onset (ideally within 24-48 hours)</li>
+                        <li><strong>Benefits:</strong>
+                          <ul>
+                            <li>Shorter hospital stay</li>
+                            <li>Lower conversion to open rate</li>
+                            <li>Fewer complications</li>
+                            <li>Lower overall cost</li>
+                            <li>Prevents need for readmission</li>
+                          </ul>
+                        </li>
+                        <li><strong>Recommended by major guidelines</strong> (Tokyo Guidelines, SAGES)</li>
+                      </ul>
+                    </li>
+                    <li><strong>Delayed cholecystectomy:</strong>
+                      <ul>
+                        <li><strong>Timing:</strong> 6-10 weeks after symptoms resolve (cooling-off period)</li>
+                        <li><strong>Indication:</strong> If presenting > 72 hours after onset with severe inflammation, or patient too unstable for early surgery</li>
+                        <li><strong>Risks:</strong> 20-30% require readmission for recurrent symptoms/complications before planned surgery</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><strong>Surgical approach:</strong>
+                  <ul>
+                    <li><strong>Laparoscopic cholecystectomy (first-line):</strong> 90-95% successful, less pain, faster recovery</li>
+                    <li><strong>Conversion to open:</strong> If severe inflammation, unclear anatomy, or complications (5-10% of cases)</li>
+                    <li><strong>Open cholecystectomy:</strong> If laparoscopy not feasible</li>
+                  </ul>
+                </li>
+                <li><strong>Intraoperative cholangiography:</strong> May be performed to identify CBD stones</li>
+                <li><strong>Non-surgical options (for non-operative candidates):</strong>
+                  <ul>
+                    <li><strong>Percutaneous cholecystostomy:</strong> Image-guided drainage tube placement
+                      <ul>
+                        <li>Indication: High-risk surgical patients (elderly, severe comorbidities, septic)</li>
+                        <li>Temporizes infection; cholecystectomy still needed later if patient improves</li>
+                        <li>May convert to interval cholecystectomy once stabilized</li>
+                      </ul>
+                    </li>
+                    <li><strong>Antibiotics alone:</strong> Success rate 60-80%, but high recurrence (20-40%); not recommended except in very high-risk patients</li>
+                  </ul>
+                </li>
+                <li><strong>Complications requiring urgent intervention:</strong>
+                  <ul>
+                    <li>Gangrenous cholecystitis: Urgent surgery</li>
+                    <li>Emphysematous cholecystitis: Urgent surgery + broad-spectrum antibiotics</li>
+                    <li>Perforation: Emergency surgery</li>
+                    <li>Gallbladder empyema: Urgent drainage or surgery</li>
+                  </ul>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Additional Considerations</strong></td>
+            <td>
+              <ul>
+                <li><strong>Pre-operative workup:</strong>
+                  <ul>
+                    <li>Ensure no CBD stones (check LFTs, CBD diameter on ultrasound)</li>
+                    <li>If concern for choledocholithiasis: MRCP or intraoperative cholangiography</li>
+                  </ul>
+                </li>
+                <li><strong>Patient education:</strong> High recurrence rate without surgery</li>
+                <li><strong>Dietary advice:</strong> Avoid fatty meals temporarily</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><strong>Grade severity (Tokyo Guidelines):</strong>
+                  <ul>
+                    <li><strong>Grade I (Mild):</strong> No organ dysfunction, healthy patient → Early laparoscopic cholecystectomy</li>
+                    <li><strong>Grade II (Moderate):</strong> Elevated WBC, palpable mass, > 72 hours duration → Early surgery or percutaneous drainage if high risk</li>
+                    <li><strong>Grade III (Severe):</strong> Organ dysfunction (cardiovascular, renal, hepatic, hematologic, neurologic) → Stabilize first, percutaneous drainage, then interval cholecystectomy</li>
+                  </ul>
+                </li>
+                <li><strong>Check for choledocholithiasis:</strong>
+                  <ul>
+                    <li>If suspected (jaundice, dilated CBD, elevated bilirubin), perform ERCP before or after cholecystectomy</li>
+                  </ul>
+                </li>
+                <li><strong>DVT prophylaxis:</strong> Subcutaneous heparin or enoxaparin (hospitalized patients)</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Prognosis</strong></td>
+            <td>
+              <ul>
+                <li>Excellent with cholecystectomy</li>
+                <li>Recurrence prevented with surgery</li>
+                <li>Low surgical morbidity (< 5%) and mortality (< 0.5%) for elective laparoscopic cholecystectomy</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li><strong>With early surgery:</strong> Excellent outcomes, mortality < 1%</li>
+                <li><strong>Complicated cholecystitis:</strong>
+                  <ul>
+                    <li>Gangrenous cholecystitis: Mortality 15-30%</li>
+                    <li>Perforation: Mortality 10-30%</li>
+                    <li>Emphysematous cholecystitis: Mortality 15-25%</li>
+                  </ul>
+                </li>
+                <li><strong>High-risk patients:</strong> Elderly, diabetics, immunocompromised have worse outcomes</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <h3>Key Distinguishing Features Summary</h3>
+        <p><strong>Remember:</strong> The primary differences are:</p>
+        <ul>
+          <li><strong>Duration:</strong> Biliary colic < 6 hours; cholecystitis > 6 hours</li>
+          <li><strong>Fever:</strong> Absent in biliary colic; present in cholecystitis</li>
+          <li><strong>Murphy's sign:</strong> Negative in biliary colic; positive in cholecystitis</li>
+          <li><strong>Leukocytosis:</strong> Absent in biliary colic; present in cholecystitis</li>
+          <li><strong>Ultrasound:</strong> Stones only in biliary colic; stones + wall thickening + pericholecystic fluid + sonographic Murphy's sign in cholecystitis</li>
+          <li><strong>Management:</strong> Elective surgery for biliary colic; urgent/early surgery for cholecystitis</li>
+        </ul>
+
+        <p><strong>Annette Everley's case likely represents acute cholecystitis</strong> given marked RUQ tenderness, severe pain requiring urgent analgesia, though the temperature is only mildly elevated. The presence of significant tenderness suggests inflammation beyond simple biliary colic. Further workup with ultrasound and labs would confirm the diagnosis and guide immediate management with antibiotics and early cholecystectomy.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

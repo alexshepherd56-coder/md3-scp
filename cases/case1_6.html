@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 1.6 - Smoking Cessation (SDL)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 1.6 - Smoking Cessation (SDL) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 1.6 - Smoking Cessation (SDL)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 1.6 – Smoking Cessation (SDL)</h1>
+    <p class="meta"><strong>Category:</strong> Cardiovascular | <strong>Discipline:</strong> General practice | <strong>Setting:</strong> Urban Community</p>
+
+    <h2>Case</h2>
+    <p>David Chen is a 55-year-old man who presents to his GP for a routine check-up. He has been smoking 20 cigarettes per day for the past 35 years. He has tried to quit several times in the past but has been unsuccessful. His wife has been encouraging him to quit, especially since his brother was recently diagnosed with lung cancer. David says he's now ready to seriously attempt to stop smoking.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the health consequences of smoking?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Smoking is the leading preventable cause of death and disease. Health consequences include:</p>
+        <p><strong>Cardiovascular disease:</strong></p>
+        <ul>
+          <li>Coronary heart disease (2-4 times increased risk)</li>
+          <li>Stroke (2-4 times increased risk)</li>
+          <li>Peripheral vascular disease</li>
+          <li>Aortic aneurysm</li>
+          <li>Increased risk of sudden cardiac death</li>
+        </ul>
+        <p><strong>Respiratory disease:</strong></p>
+        <ul>
+          <li>Chronic obstructive pulmonary disease (COPD) - 90% caused by smoking</li>
+          <li>Chronic bronchitis</li>
+          <li>Emphysema</li>
+          <li>Increased respiratory infections</li>
+          <li>Exacerbation of asthma</li>
+        </ul>
+        <p><strong>Cancer:</strong></p>
+        <ul>
+          <li>Lung cancer (85-90% caused by smoking, 20-30 times increased risk)</li>
+          <li>Other cancers: oral, pharyngeal, laryngeal, oesophageal, bladder, kidney, pancreatic, stomach, cervical, leukaemia</li>
+        </ul>
+        <p><strong>Other effects:</strong></p>
+        <ul>
+          <li>Peptic ulcer disease</li>
+          <li>Osteoporosis and fractures</li>
+          <li>Impaired wound healing</li>
+          <li>Erectile dysfunction</li>
+          <li>Age-related macular degeneration</li>
+          <li>Premature aging of skin</li>
+          <li>Reduced fertility</li>
+          <li>Complications in pregnancy (miscarriage, low birth weight, premature birth)</li>
+          <li>Passive smoking effects on others</li>
+        </ul>
+        <p><strong>Mortality:</strong> Smokers die on average 10 years earlier than non-smokers. Up to half of all long-term smokers will die from smoking-related diseases.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the health benefits of smoking cessation?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The benefits of quitting smoking begin almost immediately and continue to increase over time:</p>
+        <p><strong>Timeline of benefits:</strong></p>
+        <table>
+          <tr><th>Time after quitting</th><th>Health benefits</th></tr>
+          <tr><td>20 minutes</td><td>Heart rate and blood pressure drop</td></tr>
+          <tr><td>12 hours</td><td>Carbon monoxide level in blood returns to normal</td></tr>
+          <tr><td>2-12 weeks</td><td>Circulation improves, lung function increases</td></tr>
+          <tr><td>1-9 months</td><td>Coughing and shortness of breath decrease, cilia regain normal function</td></tr>
+          <tr><td>1 year</td><td>Risk of coronary heart disease is half that of a continuing smoker</td></tr>
+          <tr><td>5 years</td><td>Stroke risk reduced to that of a non-smoker. Risk of cancers of mouth, throat, oesophagus and bladder cut in half</td></tr>
+          <tr><td>10 years</td><td>Lung cancer death rate about half that of a continuing smoker. Risk of cancers of larynx and pancreas decreases</td></tr>
+          <tr><td>15 years</td><td>Risk of coronary heart disease returns to that of a non-smoker</td></tr>
+        </table>
+        <p><strong>Other benefits:</strong></p>
+        <ul>
+          <li>Improved sense of taste and smell</li>
+          <li>Whiter teeth, fresher breath</li>
+          <li>Better skin appearance</li>
+          <li>Increased energy and fitness</li>
+          <li>Significant cost savings</li>
+          <li>Better outcomes if surgery needed</li>
+          <li>Protection of family/others from passive smoking</li>
+        </ul>
+        <p><strong>Important message:</strong> It's never too late to quit - even patients with existing smoking-related disease benefit from cessation.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What are the components of nicotine dependence and withdrawal?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Nicotine dependence:</strong></p>
+        <p>Nicotine is highly addictive. It acts on nicotinic acetylcholine receptors in the brain, causing:</p>
+        <ul>
+          <li>Release of dopamine → pleasure and reward</li>
+          <li>Increased alertness and concentration</li>
+          <li>Appetite suppression</li>
+          <li>Stress relief (perceived)</li>
+        </ul>
+        <p>Dependence has three components:</p>
+        <ul>
+          <li><strong>Physical dependence:</strong> Tolerance develops, withdrawal symptoms occur when stopping</li>
+          <li><strong>Psychological dependence:</strong> Smoking associated with certain activities, emotions, stress relief</li>
+          <li><strong>Social/behavioural factors:</strong> Habitual actions, social situations</li>
+        </ul>
+        <p><strong>Assessment of dependence - Fagerström Test:</strong></p>
+        <ul>
+          <li>Time to first cigarette after waking (within 5 minutes = highly dependent)</li>
+          <li>Number of cigarettes per day</li>
+          <li>Difficulty refraining from smoking in forbidden places</li>
+        </ul>
+        <p><strong>Nicotine withdrawal symptoms:</strong></p>
+        <ul>
+          <li>Cravings for nicotine (strongest symptom)</li>
+          <li>Irritability, frustration, anger</li>
+          <li>Anxiety and restlessness</li>
+          <li>Difficulty concentrating</li>
+          <li>Increased appetite and weight gain</li>
+          <li>Depressed mood</li>
+          <li>Sleep disturbance</li>
+          <li>Headache</li>
+        </ul>
+        <p>Withdrawal symptoms typically peak in the first week and gradually decrease over 2-4 weeks, though cravings can persist longer.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Describe the "5 A's" approach to smoking cessation counselling.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The "5 A's" is an evidence-based framework for smoking cessation counselling:</p>
+        <p><strong>1. ASK about tobacco use</strong></p>
+        <ul>
+          <li>Systematically ask all patients about smoking status at every visit</li>
+          <li>Document smoking status in medical records</li>
+          <li>Assess: current smoker, ex-smoker, never smoker</li>
+        </ul>
+        <p><strong>2. ADVISE to quit</strong></p>
+        <ul>
+          <li>Provide clear, strong, personalised advice to quit</li>
+          <li>"The best thing you can do for your health is to stop smoking"</li>
+          <li>Link to current health problems or concerns</li>
+          <li>Be non-judgmental and supportive</li>
+        </ul>
+        <p><strong>3. ASSESS willingness to make a quit attempt</strong></p>
+        <ul>
+          <li>Determine readiness to quit (stages of change model)</li>
+          <li>If ready to quit → proceed to Assist</li>
+          <li>If not ready → use motivational interviewing, discuss barriers, provide information</li>
+          <li>Assess level of dependence</li>
+        </ul>
+        <p><strong>4. ASSIST in quit attempt</strong></p>
+        <ul>
+          <li>Help patient develop a quit plan:
+            <ul>
+              <li>Set a quit date (within 2 weeks)</li>
+              <li>Tell family/friends for support</li>
+              <li>Remove cigarettes and triggers from environment</li>
+              <li>Anticipate challenges (withdrawal, triggers)</li>
+            </ul>
+          </li>
+          <li>Provide practical counseling:
+            <ul>
+              <li>Avoid triggers</li>
+              <li>Develop coping strategies</li>
+              <li>Encourage alcohol reduction (often associated with smoking)</li>
+            </ul>
+          </li>
+          <li>Recommend pharmacotherapy (see next question)</li>
+          <li>Provide self-help materials</li>
+          <li>Refer to Quitline or cessation programs if appropriate</li>
+        </ul>
+        <p><strong>5. ARRANGE follow-up</strong></p>
+        <ul>
+          <li>Schedule follow-up contact (phone or in person) within first week after quit date</li>
+          <li>Assess progress, address problems, provide encouragement</li>
+          <li>Continue follow-up as needed</li>
+          <li>If relapse occurs → review what happened, learn from experience, encourage another quit attempt</li>
+        </ul>
+        <p><strong>Additional approach - "Ask, Advise, Help":</strong> A simplified version emphasizing brief intervention in every consultation.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What pharmacological therapies are available to assist with smoking cessation?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Pharmacotherapy approximately doubles quit rates. Should be offered to all smokers making a quit attempt unless contraindicated.</p>
+        <p><strong>1. Nicotine Replacement Therapy (NRT):</strong></p>
+        <p>Provides nicotine without the harmful toxins in cigarette smoke, reduces withdrawal symptoms.</p>
+        <table>
+          <tr><th>Form</th><th>Details</th></tr>
+          <tr><td>Patch</td><td>Provides steady nicotine level. Use for 8-12 weeks, gradually reduce strength. Can be combined with short-acting NRT</td></tr>
+          <tr><td>Gum</td><td>2mg or 4mg. Chew slowly, park between cheek and gum. Use when cravings occur, up to 15 pieces/day</td></tr>
+          <tr><td>Lozenge</td><td>Similar to gum, dissolves slowly in mouth</td></tr>
+          <tr><td>Inhaler</td><td>Mimics hand-to-mouth action of smoking</td></tr>
+          <tr><td>Nasal spray</td><td>Fastest nicotine delivery. Most effective for highly dependent smokers</td></tr>
+        </table>
+        <p><strong>Combination NRT:</strong> Patch (long-acting) + short-acting form (gum/lozenge) is more effective than single form alone.</p>
+        <p><strong>Side effects:</strong> Local irritation, nausea, headache, sleep disturbance</p>
+        <p><strong>2. Varenicline (Champix):</strong></p>
+        <ul>
+          <li>Partial agonist at nicotine receptors</li>
+          <li>Reduces cravings and withdrawal symptoms</li>
+          <li>Blocks rewarding effects of smoking</li>
+          <li>Start 1-2 weeks before quit date, continue for 12 weeks</li>
+          <li>Most effective single pharmacotherapy</li>
+          <li>Side effects: Nausea (most common), abnormal dreams, sleep disturbance. Rare: mood changes, suicidal ideation (monitor)</li>
+          <li>Contraindications: Caution in psychiatric illness, pregnancy</li>
+        </ul>
+        <p><strong>3. Bupropion (Zyban):</strong></p>
+        <ul>
+          <li>Antidepressant that reduces cravings and withdrawal</li>
+          <li>Start 1-2 weeks before quit date, continue for 7-12 weeks</li>
+          <li>Side effects: Dry mouth, insomnia, headache</li>
+          <li>Contraindications: Seizure disorder, eating disorders, concurrent MAOIs</li>
+          <li>Less commonly used than NRT or varenicline</li>
+        </ul>
+        <p><strong>Choosing therapy:</strong></p>
+        <ul>
+          <li>First-line: Varenicline or combination NRT</li>
+          <li>Consider patient preference, previous experience, contraindications</li>
+          <li>All are more effective than placebo</li>
+          <li>Should always be combined with behavioural support</li>
+        </ul>
+        <p><strong>Note:</strong> E-cigarettes (vaping) - role in cessation remains controversial. Less harmful than smoking but not harmless. Not currently recommended as first-line therapy in most guidelines.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

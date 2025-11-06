@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 6.3 - Cystic Fibrosis</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 6.3 - Cystic Fibrosis | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 6.3 - Cystic Fibrosis">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 6.3 – Cystic Fibrosis (Meconium Ileus)</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine | <strong>Setting:</strong> Rural Hospital</p>
+
+    <h2>Case</h2>
+    <p>You are the intern covering the neonatal nursery. Georgie Taylor is 12 hours old. The nursing staff have asked you to review her because she has not passed meconium. She has not been feeding very well and has just vomited. On assessment you note that Georgie has a distended abdomen.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. You are concerned that Georgie may have a bowel obstruction, and you organise for an abdominal x-ray to be done. What are the features seen on the abdominal radiograph?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>X-ray shows:</strong></p>
+        <ul>
+          <li><strong>Distended loops of intestine with thickened bowel wall</strong></li>
+        </ul>
+
+        <p><strong>Other X-ray signs include:</strong></p>
+        <ul>
+          <li>A large amount of meconium mixed with swallowed air producing the so-called <strong>'ground-glass' sign</strong> typical of meconium ileus. This is a characteristic feature but often absent.</li>
+          <li><strong>Calcification, free air or very large air-fluid levels</strong> suggesting bowel perforation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. The radiologist reports that the findings are consistent with meconium ileus. You speak with the surgeon who explains that Georgie will need to be transferred to the 'children's hospital' and that he will come and speak with parents. The surgeon explains the condition and the likelihood that Georgie has cystic fibrosis. Her father asks what this is and how did Georgie 'get it'? What would you explain to the parents about Cystic Fibrosis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>What is Cystic Fibrosis?</strong></p>
+        <p>Cystic fibrosis is the most common life-threatening autosomal recessive disorder in Australians, affecting approximately 1 in every 2500 births. It is caused by a defect in the cystic fibrosis transmembrane conductance regulator gene (CFTR). The CFTR gene encodes a protein for a cyclic adenosine monophosphate (cAMP)-regulated chloride channel present on many epithelial cells, including those of the conducting airways, gut and genital tract. The commonest mutation, Δ508, accounts for approximately 70% of mutant alleles and more than 1300 mutations have been described.</p>
+
+        <p><strong>How is it inherited?</strong></p>
+        <p>Cystic Fibrosis (CF) is an inherited recessive genetic condition. Amongst people of Caucasian ancestry 1 in 25 are genetic carriers for CF, usually without knowing it.</p>
+
+        <p>If a baby is born with CF, it means that both parents are genetic carriers for CF. However, even if they are genetic carriers, there is no guarantee that the child will be born with CF.</p>
+
+        <p><strong>If two people are genetic carriers for CF and they have a child there is (with every pregnancy):</strong></p>
+        <ul>
+          <li>A <strong>1 out of 4 (25%) chance</strong> that the child will have CF</li>
+          <li>A <strong>2 out of 4 (50%) chance</strong> that the child will be a genetic carrier for CF</li>
+          <li>A <strong>1 out of 4 (25%) chance</strong> that the child will not have CF and will not be a genetic carrier for CF</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Explain the current newborn screening testing that is performed for cystic fibrosis and outline the limitations of this test.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Newborn Screening for Cystic Fibrosis:</strong></p>
+        <p>In Australia all babies are screened at birth for Cystic Fibrosis. A small blood sample is taken about three days after birth and if this test proves to be positive genetic testing of the CFTR gene will be done. Finally a sweat test will be carried out to measure the amount of salt in the sweat and it is with this test that a diagnosis will be made.</p>
+
+        <p><strong>Limitations:</strong></p>
+        <p>While newborn testing picks up almost all babies with CF (about 95%) <strong>the test will miss some</strong>. A sweat test should be arranged if there are phenotypic features suggestive of cystic fibrosis.</p>
+
+        <p><strong>Sweat Test:</strong></p>
+        <p>The diagnosis is confirmed with a sweat test (pilocarpine iontophoresis) at 6-10 weeks. An elevated sweat chloride and sweat sodium is diagnostic.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. As you are preparing Georgie for transfer to the children's hospital you think about what lies ahead for her and her family. Summarise in the form of a management plan the main problems that can occur in Cystic fibrosis and outline the key aspects of management.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Goal of Treatment:</strong></p>
+        <p>The goal of treatment is to maintain as high a quality of life as possible for as long as possible in order to slow the relentless progression of lung disease that occurs in cystic fibrosis.</p>
+
+        <p><strong>Respiratory Management:</strong></p>
+        <ul>
+          <li>Prompt use of antibiotics to delay the onset of bacterial colonization</li>
+          <li>Aggressive treatment of recurrent respiratory infections</li>
+          <li>Promotion of mucociliary clearance by daily physiotherapy</li>
+          <li>Minimization of other causes of lung damage (e.g. smoking, aspiration)</li>
+          <li>Promotion of normal growth through high-energy diet and pancreatic supplementation</li>
+          <li>Identification and treatment of complications as they arise (asthma-like disease, allergic bronchopulmonary aspergillosis (ABPA), haemoptysis, pneumothorax, etc.)</li>
+        </ul>
+
+        <p><strong>Gastroenterological and Nutritional Management:</strong></p>
+        <ul>
+          <li>Pancreatic enzyme replacement (lipase, protease, amylase) at each meal</li>
+          <li>High energy diet</li>
+          <li>Vitamin supplementation with vitamin A, D, E and K, and salt tablets</li>
+        </ul>
+
+        <p><strong>Psychological Management:</strong></p>
+        <p>Cystic fibrosis is a lifelong chronic condition. As children grow and mature into adolescents and young adults, the psychosocial aspects of the disease take on different dimensions for individuals, siblings and parents. In adolescence, attention to body image issues and feelings of difference due to chronic disease can help maintain young people's adherence with the health-care regimen. Declining health despite good adherence can be especially demoralizing.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

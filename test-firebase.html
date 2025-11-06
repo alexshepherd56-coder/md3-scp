@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .test-item {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border-left: 4px solid #ccc;
+    }
+    .test-item.pass {
+      border-left-color: #4CAF50;
+    }
+    .test-item.fail {
+      border-left-color: #f44336;
+    }
+    .status {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    button {
+      background: #CC785C;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+    button:hover {
+      background: #B66A4E;
+    }
+    #output {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      min-height: 100px;
+    }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <h1>🔥 Firebase Integration Test</h1>
+  <p>This page tests if Firebase is properly configured.</p>
+
+  <div id="tests"></div>
+
+  <h2>Actions</h2>
+  <button onclick="testAuthButton()">Test Auth Button Click</button>
+  <button onclick="testModalOpen()">Test Modal Open</button>
+  <button onclick="location.reload()">Refresh Page</button>
+
+  <div id="output"></div>
+
+  <script src="js/firebase-config.js"></script>
+  <script>
+    const testsDiv = document.getElementById('tests');
+    const output = document.getElementById('output');
+
+    function addTest(name, passed, details) {
+      const div = document.createElement('div');
+      div.className = `test-item ${passed ? 'pass' : 'fail'}`;
+      div.innerHTML = `
+        <span class="status">${passed ? '✅' : '❌'}</span>
+        <strong>${name}</strong>
+        ${details ? `<br><small>${details}</small>` : ''}
+      `;
+      testsDiv.appendChild(div);
+    }
+
+    function log(message) {
+      output.innerHTML += `<div>${message}</div>`;
+    }
+
+    // Run tests
+    window.addEventListener('load', function() {
+      log('🔍 Starting tests...');
+
+      // Test 1: Firebase SDK loaded
+      setTimeout(() => {
+        if (typeof firebase !== 'undefined') {
+          addTest('Firebase SDK Loaded', true, 'firebase object exists');
+          log('✅ Firebase SDK loaded');
+
+          // Test 2: Firebase config exists
+          if (typeof firebaseConfig !== 'undefined') {
+            addTest('Firebase Config Exists', true, `Project: ${firebaseConfig.projectId}`);
+            log(`✅ Config found: ${firebaseConfig.projectId}`);
+
+            // Test 3: Initialize Firebase
+            try {
+              if (typeof initializeFirebase === 'function') {
+                const result = initializeFirebase();
+                addTest('Firebase Initialized', result, 'Auth and Firestore ready');
+                log('✅ Firebase initialized');
+              } else {
+                addTest('Firebase Initialize Function', false, 'initializeFirebase not found');
+                log('❌ initializeFirebase function not found');
+              }
+            } catch (error) {
+              addTest('Firebase Initialized', false, error.message);
+              log(`❌ Init error: ${error.message}`);
+            }
+          } else {
+            addTest('Firebase Config Exists', false, 'firebaseConfig not defined');
+            log('❌ Firebase config not found');
+          }
+        } else {
+          addTest('Firebase SDK Loaded', false, 'firebase is undefined');
+          log('❌ Firebase SDK not loaded');
+        }
+
+        // Test 4: Check if auth.js loaded
+        setTimeout(() => {
+          if (typeof window.authSystem !== 'undefined') {
+            addTest('Auth System Loaded', true, 'window.authSystem exists');
+            log('✅ Auth system loaded');
+          } else {
+            addTest('Auth System Loaded', false, 'window.authSystem is undefined');
+            log('❌ Auth system not loaded - auth.js may not be loading');
+          }
+
+          // Test 5: Check for auth button on main page
+          log('<br>ℹ️ Note: Auth button test only works on index.html');
+
+        }, 500);
+
+      }, 100);
+    });
+
+    function testAuthButton() {
+      log('<br>🔘 Testing auth button...');
+      if (typeof window.authSystem !== 'undefined') {
+        log('✅ authSystem found');
+        if (typeof window.authSystem.openAuthModal === 'function') {
+          log('✅ openAuthModal function exists');
+          try {
+            window.authSystem.openAuthModal();
+            log('✅ Called openAuthModal()');
+          } catch (e) {
+            log(`❌ Error: ${e.message}`);
+          }
+        } else {
+          log('❌ openAuthModal function not found');
+        }
+      } else {
+        log('❌ authSystem not loaded');
+      }
+    }
+
+    function testModalOpen() {
+      log('<br>🔘 Testing modal directly...');
+      const modal = document.getElementById('authModal');
+      if (modal) {
+        log('✅ Modal element found');
+        modal.style.display = 'flex';
+        log('✅ Modal display set to flex');
+      } else {
+        log('❌ Modal element not found (this is a test page, modal is on index.html)');
+      }
+    }
+  </script>
+
+  <script src="js/auth.js"></script>
+  <script src="js/auth-ui.js"></script>
+</body>
+</html>

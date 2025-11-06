@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 22.1 - Stroke & TIA</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 22.1 - Stroke & TIA | MD3 SCP Cases">
+  <meta name="description" content="Medical case study on stroke and TIA covering assessment, investigations, differential diagnosis, and evidence-based treatment.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 22.1 - Stroke & TIA">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study on stroke and TIA covering assessment, investigations, differential diagnosis, and evidence-based treatment.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 22.1 – Stroke & TIA</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Neurology | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Elliot Mable is a 70 year old gentleman who has been brought to the Emergency Department by ambulance after calling 000 because of right sided weakness. On arrival, a thorough history and neurological examination, demonstrates Elliot has also had some visual loss. Elliot's wife tells you that this occurred earlier today at about 8.30 am. During the examination, Elliot says that in fact the weakness in his right arm seemed to go away for a while and then came back. On neurological examination, he has right sided weakness, 3/5 in the arm and 4/5 in the leg, a right hemianopia and cannot feel light touch on the right hand side.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Write a brief structured history and examination scheme for your assessment of a patient presenting with a possible stroke/TIA</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>History</strong></p>
+        <ul>
+          <li>Onset, duration, course (abrupt onset, maximal at onset, or stuttering or progressive)</li>
+          <li>Nature of deficit: motor, sensory, speech, vision, other cortical features (neglect, etc.)</li>
+          <li>Pre-morbid function (including cognition)</li>
+          <li>Cardiovascular risk factors: hypertension, diabetes, smoking, hyperlipidemia, previous stroke, MI, AF, angina</li>
+          <li>Family history cardiovascular disease and stroke</li>
+          <li>Medications especially anticoagulants and antiplatelet agents</li>
+        </ul>
+
+        <p><strong>Examination</strong></p>
+        <ul>
+          <li>Vital signs (BP, pulse, temperature)</li>
+          <li>Cardiovascular system (heart sounds, carotids, peripheral pulses)</li>
+          <li>Level of consciousness</li>
+          <li>Higher cortical functions: dysphasia, dyspraxia, neglect, visual agnosia</li>
+          <li>Cranial nerves</li>
+          <li>Motor: tone, power, coordination, reflexes, plantar responses, gait</li>
+          <li>Sensation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What initial investigations would you request in a patient with suspected stroke/TIA?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Immediate:</strong></p>
+        <ul>
+          <li>Blood glucose (essential to exclude hypoglycemia)</li>
+          <li>CT brain (to exclude hemorrhage and other non-vascular pathology)</li>
+        </ul>
+
+        <p><strong>Urgent (within 24 hours):</strong></p>
+        <ul>
+          <li>FBC, ESR, CRP</li>
+          <li>Biochemistry: U&Es, glucose, lipid profile</li>
+          <li>Coagulation studies (if on anticoagulants or considering thrombolysis)</li>
+          <li>ECG (to detect AF, MI)</li>
+          <li>Chest X-ray</li>
+          <li>Carotid imaging: Doppler ultrasound, CT angiography, or MR angiography (for anterior circulation events to detect carotid stenosis)</li>
+        </ul>
+
+        <p><strong>Other investigations to consider:</strong></p>
+        <ul>
+          <li>Echocardiography (if cardiac source suspected: AF, valve disease, endocarditis)</li>
+          <li>24-hour ECG (if paroxysmal AF suspected)</li>
+          <li>Thrombophilia screen (in young patients or if no obvious vascular risk factors)</li>
+          <li>Autoimmune screen (vasculitis) - if clinically indicated</li>
+          <li>Syphilis serology - if clinically indicated</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is the definition of a stroke and a transient ischaemic attack?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Stroke:</strong> A stroke is a clinical syndrome characterized by rapidly developing clinical symptoms and/or signs of focal, and at times global, loss of cerebral function, with symptoms lasting more than 24 hours or leading to death, with no apparent cause other than that of vascular origin.</p>
+
+        <p><strong>Transient Ischaemic Attack (TIA):</strong> A TIA is defined as a stroke syndrome with symptoms lasting less than 24 hours. In practice, most TIAs last less than 1 hour, and the majority last only a few minutes.</p>
+
+        <p><strong>Note:</strong> The 24-hour time definition is somewhat arbitrary. Modern imaging (particularly MRI with diffusion-weighted sequences) shows that many 'TIAs' lasting less than 24 hours have evidence of infarction. Some authorities now define TIA as a transient episode of neurological dysfunction caused by focal brain, spinal cord, or retinal ischemia, without acute infarction.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What are the differential diagnoses of stroke/TIA?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The differential diagnosis of stroke includes:</p>
+        <ul>
+          <li><strong>Hypoglycemia</strong> (essential to check blood glucose immediately)</li>
+          <li><strong>Migraine with aura</strong> (typically symptoms develop over minutes, positive sensory symptoms, history of migraine)</li>
+          <li><strong>Seizures</strong> (especially Todd's paresis - focal weakness following a focal seizure)</li>
+          <li><strong>Intracranial space-occupying lesion</strong> (tumor, abscess, subdural hematoma) - usually more gradual onset but can present acutely</li>
+          <li><strong>Metabolic disturbances</strong> (hyponatremia, hypercalcemia, hepatic/renal failure)</li>
+          <li><strong>Demyelination</strong> (multiple sclerosis) - usually more gradual onset over days</li>
+          <li><strong>Functional neurological disorder</strong> (previously 'hysteria' or 'conversion disorder')</li>
+          <li><strong>Peripheral nerve lesions</strong> (e.g. radial nerve palsy, Bell's palsy) - may be confused with stroke by non-specialists</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What are the most important risk factors for stroke?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The major modifiable risk factors for stroke are:</p>
+        <ul>
+          <li><strong>Hypertension</strong> (the single most important modifiable risk factor)</li>
+          <li><strong>Atrial fibrillation</strong> (increases stroke risk 5-fold; accounts for ~20% of ischemic strokes)</li>
+          <li><strong>Smoking</strong> (doubles stroke risk)</li>
+          <li><strong>Diabetes mellitus</strong> (increases stroke risk 2-3 fold)</li>
+          <li><strong>Hyperlipidemia</strong> (elevated cholesterol)</li>
+          <li><strong>Carotid stenosis</strong> (significant stenosis >70% is a major risk)</li>
+          <li><strong>Excessive alcohol consumption</strong></li>
+          <li><strong>Physical inactivity and obesity</strong></li>
+          <li><strong>Poor diet</strong> (low fruit/vegetable intake, high salt intake)</li>
+        </ul>
+
+        <p>Non-modifiable risk factors:</p>
+        <ul>
+          <li><strong>Age</strong> (risk doubles each decade after age 55)</li>
+          <li><strong>Male sex</strong> (men have higher risk than women)</li>
+          <li><strong>Family history</strong></li>
+          <li><strong>Previous stroke or TIA</strong></li>
+          <li><strong>Ethnicity</strong> (higher risk in certain ethnic groups)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. When is CT brain indicated and when is MRI indicated in acute stroke?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>CT Brain:</strong></p>
+        <ul>
+          <li><strong>Immediate CT</strong> is indicated in all patients with suspected acute stroke</li>
+          <li>CT is excellent at detecting acute hemorrhage (appears hyperdense/bright)</li>
+          <li>CT can exclude other pathology (tumor, abscess, subdural hematoma)</li>
+          <li>Early ischemic changes may be subtle on CT in first few hours</li>
+          <li>CT is widely available, quick, and essential before thrombolysis</li>
+          <li><strong>CT must be performed immediately if:</strong>
+            <ul>
+              <li>Patient is on anticoagulants</li>
+              <li>Thrombolysis is being considered</li>
+              <li>Reduced level of consciousness (GCS <13)</li>
+              <li>Progressive or fluctuating symptoms</li>
+              <li>Severe headache at onset</li>
+              <li>Signs of raised intracranial pressure</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>MRI Brain:</strong></p>
+        <ul>
+          <li>MRI is more sensitive than CT for detecting acute ischemia (especially diffusion-weighted imaging - DWI)</li>
+          <li>DWI can detect ischemia within minutes of onset</li>
+          <li>MRI is better at imaging posterior fossa (brainstem/cerebellum)</li>
+          <li>MRI is better at detecting small lacunar infarcts</li>
+          <li>MRI is useful in younger patients or when diagnosis is uncertain</li>
+          <li><strong>Limitations:</strong> Less widely available than CT, takes longer, contraindicated if pacemaker/metallic implants, more difficult in uncooperative patients</li>
+        </ul>
+
+        <p><strong>In practice:</strong></p>
+        <ul>
+          <li>CT is the first-line investigation in acute stroke (widely available, quick, excellent for excluding hemorrhage)</li>
+          <li>MRI is used when diagnosis is uncertain, for posterior circulation strokes, or in selected cases for better characterization</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. What is the evidence for the following treatments in stroke and TIA: aspirin, thrombolysis, heparin, blood pressure lowering, early mobilisation, stroke units?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Aspirin:</strong></p>
+        <ul>
+          <li>Give aspirin 300 mg immediately in acute ischemic stroke (after CT has excluded hemorrhage)</li>
+          <li>Evidence: Chinese Acute Stroke Trial (CAST) and International Stroke Trial (IST) showed modest but significant benefit</li>
+          <li>Prevents about 9 deaths or further strokes per 1000 patients treated in first few weeks</li>
+          <li>For TIA/stroke prevention: long-term antiplatelet therapy (aspirin, clopidogrel, or combination) reduces recurrent stroke by about 25%</li>
+        </ul>
+
+        <p><strong>Thrombolysis:</strong></p>
+        <ul>
+          <li>IV alteplase (tissue plasminogen activator - tPA) is effective if given within 4.5 hours of symptom onset</li>
+          <li>Evidence: Multiple trials including NINDS, ECASS III, and IST-3</li>
+          <li>Treats about 1 in 10 patients for good outcome but carries risk of hemorrhage (symptomatic ICH ~6%)</li>
+          <li>Number needed to treat (NNT) ~7 for improved outcome at 3 months</li>
+          <li>Benefit greatest if given early (within 3 hours); benefit decreases with time</li>
+          <li><strong>Strict inclusion/exclusion criteria</strong> must be followed</li>
+        </ul>
+
+        <p><strong>Heparin:</strong></p>
+        <ul>
+          <li>No evidence of benefit for routine use of heparin or other anticoagulation in acute ischemic stroke</li>
+          <li>International Stroke Trial (IST) showed no net benefit - any reduction in recurrent stroke was offset by increased hemorrhage</li>
+          <li>May be considered in specific situations: cardioembolic stroke with AF, arterial dissection, or venous sinus thrombosis (but evidence is limited)</li>
+        </ul>
+
+        <p><strong>Blood Pressure Lowering:</strong></p>
+        <ul>
+          <li><strong>Acute stroke:</strong> Generally DO NOT lower BP acutely unless extremely high (>220/120 mmHg) or if thrombolysis is given</li>
+          <li>High BP in acute stroke may be compensatory (maintaining cerebral perfusion); lowering it may worsen ischemia</li>
+          <li>BP typically falls spontaneously in first few days</li>
+          <li><strong>Secondary prevention:</strong> Long-term BP control is essential for stroke prevention</li>
+          <li>Evidence: PROGRESS trial showed that BP lowering (perindopril + indapamide) reduced recurrent stroke by 28%</li>
+        </ul>
+
+        <p><strong>Early Mobilisation:</strong></p>
+        <ul>
+          <li>Very early mobilization (within 24 hours) may be harmful</li>
+          <li>AVERT trial (2015) showed worse outcomes with very early, frequent mobilization</li>
+          <li>Current practice: Mobilize when medically stable, typically within 24-48 hours, but avoid very aggressive early mobilization</li>
+          <li>Early assessment by physiotherapy and multidisciplinary team is important</li>
+        </ul>
+
+        <p><strong>Stroke Units:</strong></p>
+        <ul>
+          <li>Organized stroke unit care reduces death and disability</li>
+          <li>Evidence: Cochrane review of multiple trials showed that stroke unit care reduces death or dependency by about 20%</li>
+          <li>NNT ~20 to prevent one death or dependent patient</li>
+          <li>Benefit applies across all stroke severities and patient ages</li>
+          <li>Stroke units provide: coordinated multidisciplinary care, early mobilization, swallow screening, early rehabilitation, patient and family education</li>
+          <li><strong>All stroke patients should be admitted to a stroke unit</strong></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

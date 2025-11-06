@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auth Debug</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .log { background: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 4px; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Authentication Debug</h1>
+
+  <div>
+    <button id="testBtn">Test Button Click</button>
+    <button onclick="alert('Direct onclick works!')">Direct onclick</button>
+  </div>
+
+  <div id="log"></div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    function log(message) {
+      const logDiv = document.getElementById('log');
+      const entry = document.createElement('div');
+      entry.className = 'log';
+      entry.textContent = new Date().toISOString() + ': ' + message;
+      logDiv.appendChild(entry);
+      console.log(message);
+    }
+
+    log('Page loaded');
+
+    document.getElementById('testBtn').addEventListener('click', () => {
+      log('Test button clicked!');
+    });
+
+    log('Event listener attached');
+
+    // Test Firebase
+    setTimeout(() => {
+      if (typeof firebase !== 'undefined') {
+        log('Firebase is loaded');
+      } else {
+        log('Firebase is NOT loaded');
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

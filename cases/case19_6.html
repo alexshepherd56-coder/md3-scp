@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 19.6 - Paediatric Fractures</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 19.6 - Paediatric Fractures | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 19.6 - Paediatric Fractures">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 19.6 – Fractures - Paediatric</h1>
+    <p class="meta"><strong>Category:</strong> Musculoskeletal System & Skin | <strong>Discipline:</strong> Surgery - Orthopaedics | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Stephanie Pike is a 9 year old girl who is brought in by her distressed parents, with a suspected fracture of her right arm following a fall from a trampoline.</p>
+    <p>Stephanie's vital signs are stable, she has no obvious deformity of her right arm and is reluctant to let you move or touch her arm.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the key components of the history and examination in the assessment of patient's with a suspected fracture?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>History:</strong></p>
+        <ul>
+          <li>Type of injury</li>
+          <li>Patients age</li>
+          <li>Mechanism of injury</li>
+          <li>Symptoms; pain, bruising and swelling</li>
+          <li>Associated injuries (numbness, loss of movement, skin pallor, cyanosis, blood in the urine, abdominal discomfort)</li>
+          <li>Previous injuries</li>
+          <li>Any other musculoskeletal injuries</li>
+          <li>General medical history</li>
+        </ul>
+
+        <p><strong>Examination:</strong></p>
+        <ul>
+          <li>Examine the most obviously injured part</li>
+          <li>Check for arterial damage</li>
+          <li>Test for nerve injury</li>
+          <li>Look for injuries of local soft tissues and viscera</li>
+          <li>Look for injuries in distant parts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. The cause of Stephanie's fracture was sudden trauma; outline other possible causes of fracture and how they differ from fractures due to trauma.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ol>
+          <li>Fractures due to sudden trauma</li>
+          <li>Stress or fatigue fractures – cracks can occur in bone because of repetitive stress</li>
+          <li>Pathological fractures – fractures in mechanically abnormal bone</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is meant by the terms complete and incomplete fracture and how do they differ?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Complete fracture:</strong> The bone is completely broken into two or more fragments. If the fracture is transverse, the fragments usually remain in place after reduction. If it is oblique or spiral, they tend to slip and redisplace even if the bone is splinted.</p>
+
+        <p><strong>Incomplete fracture:</strong> Here the bone is incompletely divided and the periosteum remains in continuity. In a greenstick fracture the bone is buckled or bent (like snapping a green twig). This is seen in children, whose bones are more springy than those of adults. Stress fractures also may be incomplete, with the break initially appearing in only one part of the cortex.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Stephanie's mother is concerned about how the fracture will heal, as her daughter is right handed and a budding violinist; Explain how fractures heal by callus and without callus, and the healing factors that contribute to bone strength.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Fractures heal by two different methods: with callus or without.</p>
+
+        <p><strong>Healing by Callus:</strong></p>
+        <p>The process of fracture repair varies according to the type of bone involved and the amount of movement at the fracture site. In a tubular bone, and in the absence of rigid fixation, healing proceeds in five stages:</p>
+        <ol>
+          <li>Tissue destruction and haematoma formation</li>
+          <li>Inflammation and cellular proliferation</li>
+          <li>Callus formation</li>
+          <li>Consolidation</li>
+          <li>Remodelling</li>
+        </ol>
+
+        <p><strong>Healing without Callus:</strong></p>
+        <p>Callus is the response to movement at the fracture site. It serves to stabilize the fragments as rapidly as possible – a necessary precondition for bridging by bone. If the fracture site is absolutely immobile – for example an impacted fracture in cancellous bone, or one internally fixated – there is no need for callus. Instead, new bone formation occurs directly between the fragments. Gaps between the fracture surfaces are invaded by new capillaries and bone forming cells growing in from the edges. Healing by callus, though less direct, ensures mechanical strength while the bone ends heal. With rigid metal fixation, on the other hand, the absence of callus means that there is a long period during which the one depends entirely upon the implant for its integrity. Moreover, the implant diverts stress away from the bone, which may become osteoporotic and not full recover until the metal is removed.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. In reviewing Stephanie's x-ray outline the 'rule of twos'</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>The 'rule of twos':</strong></p>
+        <ul>
+          <li><strong>Two views</strong></li>
+          <li><strong>Two joints</strong> (Above and below included)</li>
+          <li><strong>Two limbs</strong> (In children, the appearance of immature epiphyses may confuse the diagnosis so imaging the unaffected limb may be needed.)</li>
+          <li><strong>Two Injuries</strong> (Severe force often causes injuries at more than one level. Thus, with fractures of the calcaneum or femur also x-ray the pelvis and spine.)</li>
+          <li><strong>Two occasions</strong> (Some fractures are difficult to detect soon after injury, but another x-ray a week or two later may show the lesion.)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. What is the role of CT, MRI and radioisotope scanning in the assessment of fractures?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>CT and MRI are useful for displaying fracture patterns in difficult sites such as the vertebral column, the acetabulum and the calcaneum. Radioisotope scanning is helpful in diagnosing a suspected stress fracture or other 'occult' fractures.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Stephanie's x-ray reveals an undisplaced fracture of the radius; outline the management of undisplaced fractures and how this differs from a displaced fracture.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Undisplaced fractures:</strong> These may be treated by splinting the part in a cast for 2-4 weeks (depending on the site of injury and the age of the child).</p>
+
+        <p><strong>Displaced fractures:</strong> Must be reduced as soon as possible. With minimal displacement this can usually be done closed and then splinted for 3-6 weeks. With more significant displacement the fracture demands perfect anatomical reduction. An attempt may be made to achieve this by gentle manipulation under GA; if this is successful the limb is held in cast for 4-8 weeks. If it cannot be reduced by closed manipulation then internal fixation is called for.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. One of the key concerns in paediatric fractures are injuries to the physis [growth plate] explain the reasons for this concern and summarise, with the use of diagrams the Salter & Harris classification of physeal injuries.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>More than 10 percent of childhood fractures involve injury to the physis (or growth plate). Because this is a relatively weak part of the bone, injuries that cause ligament strains in adults are liable to disrupt the physis in children. The fracture usually runs transversely through the calcified layer of the growth plate, often veering off towards the shaft to include a triangular piece of the metaphysis.</p>
+
+        <p>The most widely used classification of physeal injuries is that of Salter and Harris:</p>
+
+        <p><strong>Type I:</strong> A type 1 fracture is a transverse fracture through the hypertrophic zone of the physis. In this injury, the width of the physis is increased. The growing zone of the physis usually is not injured, and growth disturbance is uncommon.</p>
+
+        <p><strong>Type II:</strong> A type II fracture is a fracture through the physis and the metaphysis, but the epiphysis is not involved in the injury. Type II is the most common type of Salter-Harris fracture.</p>
+
+        <p><strong>Type III:</strong> A type III fracture is a fracture through the physis and the epiphysis. This fracture passes through the hypertrophic layer of the physis and extends to split the epiphysis, inevitably damaging the reproductive layer of the physis.</p>
+
+        <p><strong>Type IV:</strong> A Type IV fracture involves all 3 elements of the bone: The fracture passes through the epiphysis, physis, and metaphysis.</p>
+
+        <p><strong>Type V:</strong> A type V injury is a compression or crush injury of the epiphyseal plate with no associated epiphyseal or metaphyseal fracture.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>9. Stephanie presents a few weeks later at the outpatient's clinic, what are the key components of your clinical assessment of fracture union? What complications would you be concerned about?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Fracture union is a gradual process and it is impossible to tell from clinical and x-ray features precisely when the bone fragments have joined. Encouraging signs of healing are:</p>
+        <ul>
+          <li>Absence of pain during daily activities</li>
+          <li>Absence of tenderness at the fracture site</li>
+          <li>Absence of pain on stressing the fracture</li>
+          <li>Absence of mobility at the fracture site</li>
+          <li>X-ray signs of callus formation, then bone bridging across the fracture and finally trabeculation across the old fracture site</li>
+        </ul>
+
+        <p><strong>Late complications of fractures include:</strong></p>
+        <ul>
+          <li>Delayed union</li>
+          <li>Non-union</li>
+          <li>Malunion</li>
+          <li>Avascular necrosis</li>
+          <li>Growth disturbance</li>
+          <li>Joint instability</li>
+          <li>Osteoarthritis</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

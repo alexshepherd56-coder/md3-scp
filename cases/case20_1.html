@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 20.1 - Child with Cough</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 20.1 - Child with Cough | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 20.1 - Child with Cough">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 20.1 – Child with Cough</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine</p>
+
+    <h2>Case</h2>
+    <p>Andy Hayle is a 7-year-old boy who presents with his mother Michelle. She is concerned that Andy is 'coughing all the time'.</p>
+    <p>He had a cold about 2 months ago, and since then he has been coughing. She has tried about 3 different cough medicines, but they have not helped.</p>
+    <p>The coughing is now waking Andy at night and no-one in the house is getting a good night's sleep.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Michelle asks you what causes coughing. Outline your explanation of cough.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Cough is generally considered a reflex but as it is subject to cognition and can be voluntarily generated there are non-reflex elements to cough. Cough is made up of three phases (inspiratory, compressive and expiratory) and serves as a vital defensive mechanism for lung health. The forceful expiration provided by coughing occurs after a build-up of pressure in the thorax (up to 300 mmHg) by contraction of expiratory muscles against a closed glottis. This leads to expulsion of air at high velocity, which sweeps material within the airways towards the mouth. Inspiration of a variable volume of air occurs when cough is stimulated. Successive coughs may or may not be preceded by inspiration.</p>
+        <p>Cough is an important component of normal respiratory function through two mechanisms. Firstly, mechanical stimulation of the larynx causes immediate expiratory efforts through the expiratory reflex, a primary defensive mechanism that is stimulated when foreign objects (such as food or fluid) are inhaled. Secondly, cough enhances mucociliary clearance. The absence of a forceful cough (e.g. generalized muscular weakness) has important clinical repercussions, such as difficulty clearing secretions, atelectasis, lobar collapse and recurrent pneumonia.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Does Andy have a chronic cough? Why.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>There is no strict definition of chronic cough. Most acute cough arises from respiratory viruses and settles within 2 weeks. Subacute cough commonly lasts 2-4 weeks, while chronic cough is cough lasting longer than 4 weeks.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What are the key features of your history and examination of Andy?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The key point in the assessment of chronic cough is whether it is specific or non-specific, according to the presence or absence of particular features which alert to the presence of an underlying disorder:</p>
+        <ul>
+          <li>Auscultatory findings</li>
+          <li>Cough characteristics e.g. cough with choking, cough quality (barking, honking, paroxysmal, staccato, cough productive of casts ), cough starting from birth</li>
+          <li>Cardiac abnormalities (including murmurs)</li>
+          <li>Chest pain</li>
+          <li>Chest wall deformity</li>
+          <li>Chronic dyspnoea</li>
+          <li>Daily moist or productive cough</li>
+          <li>Digital clubbing</li>
+          <li>Exertional dyspnoea</li>
+          <li>Failure to thrive</li>
+          <li>Feeding difficulties</li>
+          <li>Haemoptysis</li>
+          <li>Immune deficiency</li>
+          <li>Neurodevelopmental abnormality</li>
+          <li>Sinopulmonary infections</li>
+          <li>Increased work of breathing – subcostal /intercostal/sternal recession, tracheal tug, nasal flaring, grunting</li>
+          <li>Stridor</li>
+        </ul>
+        <p>Children younger than 6 years do not generally expectorate sputum. Thus the productive cough of older children and adults manifests as a moist or 'rattly' cough in younger children. The presence of any of these symptoms or signs raises the possibility of an underlying disorder. Certain cough characteristics are associated with particular types of illness.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What features help distinguish between the different causes of persistent cough.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Key questions:</strong></p>
+        <ul>
+          <li>Is the cough representative of an underlying respiratory disorder?</li>
+          <li>Are there any symptoms or signs that alert to the presence of an underlying disorder?</li>
+          <li>Are exacerbating environmental factors present (passive or active tobacco smoking, other lung toxicants)?</li>
+          <li>Should the child be referred promptly?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Your history reveals that Andy's parents smoke. What would you explain to his mother?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Identification of exposure to environmental tobacco smoke (ETS) in children and active smoking in adolescents is an important part of respiratory history taking. Environmental tobacco smoke exposure can cause non-specific cough and exacerbate a variety of respiratory disorders including otitis media, asthma and pneumonia. Non-specific cough is a reason to encourage parents to stop smoking. If smoking cessation cannot be achieved, aim to reduce smoking in enclosed spaces such as the house and car.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Your history and examination reveal that Andy has dry non-productive cough. Summarise the features of recognisable coughs in children and the underlying pathophysiology.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Cough Type</th>
+            <th>Associated Conditions</th>
+          </tr>
+          <tr>
+            <td>Onset in infancy (and barking)</td>
+            <td>Tracheomalacia.</td>
+          </tr>
+          <tr>
+            <td>Dry (worse at night)</td>
+            <td>post-viral cough, chronic non-specific cough of childhood, asthma.</td>
+          </tr>
+          <tr>
+            <td>Dry (paroxysmal)</td>
+            <td>Pertussis.</td>
+          </tr>
+          <tr>
+            <td>Wet (productive)</td>
+            <td>Suppurative lung disease (chronic suppurative bronchitis, cystic fibrosis, immunodeficiency, primary ciliary dyskinesia, inhaled foreign body)</td>
+          </tr>
+          <tr>
+            <td>Onset in older childhood (honking)</td>
+            <td>Psychogenic.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Based on your history and examination, there is no obvious cause for Andy's cough. Detail in a flow chart, your ongoing investigation and management of Andy's cough.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><em>[A detailed flowchart is provided in the source material showing investigation pathways for chronic/persistent cough (>4 weeks), including CXR, spirometry assessments, and various diagnostic pathways for conditions including asthma, bronchiectasis, aspiration, chronic infections, interstitial lung disease, and cardiac causes. The flowchart guides clinical decision-making based on examination findings and test results.]</em></p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. Summarise the clinical features and management of the possible causes of chronic cough.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Asthma and allergy</h3>
+        <p>There is little doubt that children with asthma can present with cough. However, most children with chronic cough do not have asthma. Furthermore, while nocturnal cough is a feature of children with asthma, nocturnal cough alone is uncommonly due to asthma.</p>
+        <p>If asthma 'preventer' medication is used, it should be introduced on a trial basis with early review (2-4 weeks) and cessation of medication if the cough does not respond to asthma 'preventer' therapy. Failure to do so will result in escalation of medication dose with the risk of significant side effects.</p>
+
+        <h3>GOR and aspiration lung disease</h3>
+        <p>Gastro-oesophageal reflux (GOR) can be associated with cough. However, while GOR can cause cough, cough can also cause GOR and causative links are hard to identify. The view that GOR is a frequent cause of cough is now challenged. GOR is neither a specific nor frequent cause of chronic cough in children.</p>
+        <p>Aspiration lung disease can result from severe GOR and from laryngopalatal discoordination or discoordinated swallowing. These children present with chronic cough but usually in the context of severe developmental or neurological disturbance.</p>
+
+        <h3>Sinusitis and postnasal drip</h3>
+        <p>Although it is widely stated that sinusitis/postnasal drip is a common cause of cough there is little supportive evidence. There are no cough receptors in the pharynx or postnasal space. The relationship between nasal secretions and cough is more likely linked by common aetiology (infection and/or inflammation causing both) or due to throat clearing of secretions reaching the larynx.</p>
+
+        <h3>Bronchiectasis</h3>
+        <p>Bronchiectasis can be the end result of a number of different respiratory disorders. Diffuse disease usually develops secondary to an underlying disorder such as cystic fibrosis, immunodeficiency or primary ciliary dyskinesia, although it can be idiopathic. Focal bronchiectasis more commonly reflects airway narrowing, either congenital (e.g. bronchial stenosis) or acquired (e.g. retained foreign body).</p>
+        <p>The spectrum of bronchiectasis varies from mild to severe. Symptoms and signs reflect the extent of the disease. Children with bronchiectasis have a chronic moist or productive cough and are typically clubbed but not necessarily so. The cough is characteristically worse in the mornings. Physical findings are non-specific: clubbing, chest wall abnormality (hyperinflation or pectus carinatum (uncommon)), coarse crepitations and localized wheeze. All these may or may not be present and absence of these signs does not imply absence of disease.</p>
+        <p>The general approach to managing children with bronchiectasis is similar to that outlined for cystic fibrosis below. In addition, children aged more than 2 years should receive a pneumococcal 23 valent vaccine once every 5 years and influenza vaccine yearly. Pooled immunoglobulin replacement is indicated for those with identified immunodeficiency syndromes. Surgery is very rarely indicated, and only for those with focal disease.</p>
+
+        <h3>Primary ciliary dyskinesia</h3>
+        <p>Primary ciliary dyskinesia (PCD) syndromes encompass several congenital disorders, all of which affect the ciliary function of several organs, including the upper and lower respiratory tracts and genitourinary tract</p>
+        <p>Cilial dysfunction markedly reduces mucociliary clearance and results in recurrent infections of both the upper and lower respiratory tract (middle ear infections, pneumonia, bronchitis, bronchiectasis). The severity of pulmonary manifestations of PCD varies widely; the diagnosis should be considered in those with chronic cough, bronchiectasis, recurrent pneumonia, atypical asthma, recurrent rhinosinusitis and chronic secretory otitis media.</p>
+
+        <h3>Cystic Fibrosis</h3>
+        <p><strong>Common manifestations of CF:</strong></p>
+        <p><strong>Respiratory system</strong></p>
+        <ul>
+          <li>Chronic productive or moist cough</li>
+          <li>Features of bronchiectasis</li>
+          <li>Clubbing</li>
+        </ul>
+        <p><strong>ENT</strong></p>
+        <ul>
+          <li>Nasal polyps</li>
+          <li>Sinusitis</li>
+        </ul>
+        <p><strong>Gastrointestinal system</strong></p>
+        <ul>
+          <li>Meconium ileus</li>
+          <li>Features of malabsorption</li>
+          <li>Distal intestinal obstruction syndrome</li>
+          <li>Liver disease</li>
+          <li>Endocrine pancreatic insufficiency (diabetes mellitus)</li>
+        </ul>
+        <p><strong>Reproductive</strong></p>
+        <ul>
+          <li>Male infertility</li>
+        </ul>
+        <p><strong>General</strong></p>
+        <ul>
+          <li>Growth delay</li>
+        </ul>
+        <p><strong>Metabolic</strong></p>
+        <ul>
+          <li>Salt depletion</li>
+        </ul>
+        <p><strong>Other</strong></p>
+        <ul>
+          <li>Osteoporosis</li>
+          <li>Urinary incontinence</li>
+        </ul>
+
+        <p><strong>Principles of management:</strong></p>
+        <p>A range of improvements has contributed to improved health outcomes, including a stronger focus on nutrition and the development of more specific and potent anti-biotics. However, a key intervention has been the development of specialized cystic fibrosis centres, characterized by a multidisciplinary team of health professionals including respiratory physicians, gastroenterologists, physiotherapists, dietitians, nurses, surgeons, social workers and mental health therapists. The goal of treatment is to maintain as high a quality of life as possible for as long as possible in order to slow the relentless progression of lung disease that occurs in cystic fibrosis.</p>
+
+        <p><strong>Key elements of respiratory management</strong></p>
+        <ul>
+          <li>prompt use of antibiotics to delay the onset of bacterial colonization</li>
+          <li>aggressive treatment of recurrent respiratory infections</li>
+          <li>promotion of mucociliary clearance by daily physiotherapy</li>
+          <li>minimization of other causes of lung damage (e.g. smoking, aspiration)</li>
+          <li>promotion of normal growth through high-energy diet and pancreatic supplementation</li>
+          <li>identification and treatment of complications as they arise (asthma like disease, allergic bronchopulmonary aspergillosis (ABPA), haemoptysis, pneumothorax, etc.).</li>
+        </ul>
+
+        <p>Respiratory infections should be treated aggressively, as recurrent infection and the accompanying inflammation promote loss of lung function. The most common respiratory bacteria are <em>Staphylococcus aureus</em> and <em>Haemophilus influenzae</em> in the early years, followed by <em>Pseudomonas aeruginosa</em> and <em>Burkholderia cepacia</em>. With increasing use of anti-biotics, a plethora of other microorganisms are now increasingly isolated, ranging from fungi (<em>Aspergillus</em> species, <em>Acedosporium prolificans</em>) and other bacteria (<em>Stenotrophomonas maltophilia</em>) to non-tuberculous mycobacteria, <em>Nocardia</em>, <em>Ralstonia</em> and <em>Pandoraea</em> species. Children colonized with certain types of microorganism (such as <em>B. cepacia</em>) should also be separated from non-colonized children. Most clinics currently cohort children who have similar organisms in their airways (sputum or bronchoalveolar lavage) to prevent cross-colonization.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>9. Michelle asks if you could prescribe a stronger cough medicine. What would be your response and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Over-the-counter (OTC) or prescription medications are ineffective for chronic non-specific cough and should not be used for the symptomatic relief of cough</li>
+          <li>Treatment for chronic cough should be aetiologically based. Medications are largely unhelpful for non-specific cough. If medication trials are undertaken, a response should not be assumed to be related to the medication tried, especially for asthma medications. A diagnosis of asthma should not be made based on a single episode in the absence of other symptoms of asthma</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+    }
+  </script>
+
+</body>
+</html>

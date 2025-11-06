@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 10.2 - Pneumonia [SDL] | MD3 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 10.2 - Pneumonia [SDL] | MD3 SCP Cases">
+  <meta name="description" content="Self-directed learning case on hospital-acquired pneumonia for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://md3-scp.netlify.app/cases/case10_2.html">
+  <meta property="og:title" content="Case 10.2 - Pneumonia [SDL]">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Self-directed learning case on hospital-acquired pneumonia for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Case 10.2 - Pneumonia [SDL]">
+  <meta property="twitter:description" content="Self-directed learning case on hospital-acquired pneumonia for medical students.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 10.2 – Pneumonia [SDL]</h1>
+    <p class="meta"><strong>Category:</strong> Respiratory System | <strong>Discipline:</strong> Medicine | <strong>Setting:</strong> General Practice</p>
+
+    <h2>Case</h2>
+    <p>Martin Clark, aged 62 years, is brought to your general practice by his son after a long night. Martin was discharged from hospital three days ago. He had been admitted for same day surgery after hip replacement. He had been told he needed to walk around as much as possible. He has done so and is quite pleased and has managed well until yesterday evening. Yesterday afternoon he noted he felt chilly. By the evening he felt hot. His son noted he had spiked a temperature and states that it reached 39 degrees. He slept fitfully. In the morning Martin was no better and his son noticed that he was short of breath. When his father started coughing up sputum he brought him to your surgery. You note that he is breathless at rest and on auscultation of the chest he has inspiratory crackles in the right base. He also looks sweaty and unwell and has a temperature of 38.8.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. How would you manage this case?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>This patient requires urgent admission to hospital.</p>
+
+        <p>He requires blood cultures, sputum, and chest x-ray and appropriate antibiotic therapy needs to be commenced. He is likely to have a hospital acquired pneumonia.</p>
+
+        <p>Management of community acquired pneumonia depends on its severity, which can be assessed using prognostic scores such as the CURB-65 scoring system. This allocates 1 point for each of the following:</p>
+        <ul>
+          <li><strong>C</strong>onfusion (abbreviated mental test score ≤ 8)</li>
+          <li><strong>U</strong>rea > 7 mmol/l</li>
+          <li><strong>R</strong>espiratory rate ≥ 30/min</li>
+          <li><strong>B</strong>lood pressure: systolic < 90 or diastolic ≤ 60 mmHg</li>
+          <li>Age ≥ <strong>65</strong> years</li>
+        </ul>
+
+        <p>A score of 0 or 1 indicates low risk (< 3% mortality) and the patient can usually be managed at home. A score of 2 indicates intermediate risk (3-15% mortality) and hospital admission should be considered. Patients with a score of 3 or more have a high risk of death (> 15%) and require urgent admission to hospital.</p>
+
+        <p><strong>Antibiotic therapy</strong></p>
+        <p>Ideally, treatment of pneumonia should be based on knowledge of the causative organism and its antibiotic sensitivity. In practice, the organism is often not known and therapy has to be started on a 'blind' basis, taking into account the clinical circumstances and severity of the pneumonia, local antimicrobial resistance patterns and any history of recent antibiotic therapy. Mild pneumonia, in which treatment is possible at home, usually responds to amoxicillin or a macrolide such as clarithromycin.</p>
+
+        <p>High-dose amoxicillin plus a macrolide, or a fluoroquinolone with enhanced pneumococcal activity such as levofloxacin or moxifloxacin, should be used in patients admitted to hospital.</p>
+
+        <p>Suitable antibiotic regimens for CAP caused by specific pathogens are listed below.</p>
+
+        <p><strong><em>Streptococcus pneumoniae</em></strong></p>
+        <ul>
+          <li>Benzylpenicillin 1.2 g i.v. 6-hourly, or</li>
+          <li>Amoxicillin 500 mg-1 g orally 8-hourly</li>
+          <li>NB: In patients with penicillin hypersensitivity: clarithromycin 500 mg orally 12-hourly or levofloxacin 500 mg orally/i.v. 12-24-hourly</li>
+        </ul>
+
+        <p><strong><em>Legionella</em>, <em>Mycoplasma</em>, <em>Chlamydia</em></strong></p>
+        <ul>
+          <li>Clarithromycin 500 mg orally/i.v. 12-hourly, or</li>
+          <li>Erythromycin 500 mg orally 6-hourly, or</li>
+          <li>Levofloxacin 500 mg orally/i.v. 12-24-hourly, or</li>
+          <li>Rifampicin (in addition to erythromycin or clarithromycin for severe Legionnaire's disease)</li>
+        </ul>
+
+        <p><strong><em>Staphylococcus aureus</em>, <em>Gram-negative enterobacteria</em></strong></p>
+        <ul>
+          <li>Co-amoxiclav 1.2 g i.v. 8-hourly, or</li>
+          <li>Cefuroxime 1.5 g i.v. 6-8-hourly, or</li>
+          <li>Ceftazidime 1-2 g i.v. 8-hourly plus gentamicin 5 mg/kg/day i.v. in divided doses</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the factors which predispose to nosocomial infection?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Host factors:</strong></p>
+        <ul>
+          <li>Diminished host defences including immunosuppression and diabetes mellitus</li>
+          <li>Severe underlying disease, particularly chronic lung disease</li>
+          <li>Extremes of age</li>
+        </ul>
+
+        <p><strong>Therapeutic intervention:</strong></p>
+        <ul>
+          <li>Therapeutic intervention, e.g. major surgery</li>
+          <li>Anaesthesia</li>
+          <li>Tracheal intubation</li>
+          <li>Mechanical ventilation</li>
+          <li>Sedative drug therapy</li>
+          <li>Prolonged stay in an intensive care unit (ICU)</li>
+          <li>Broad-spectrum antibiotic therapy</li>
+        </ul>
+
+        <p><strong>Microbial factors:</strong></p>
+        <ul>
+          <li>Contaminated ventilators, bronchoscopes and suction equipment</li>
+          <li>Water supplies colonised by <em>Legionella</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What other respiratory infections are important in old age?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Pneumonia, both community- and hospital-acquired, is common in elderly people. The predominant organisms are <em>Streptococcus pneumoniae</em> and <em>Haemophilus influenzae</em>. Viral infections, particularly influenza A virus, are an important cause of respiratory disease in elderly people and debilitated subjects. Such viral illnesses may be complicated by bacterial pneumonia.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What are the clinical features of suppurative pneumonia?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>A lung abscess is suspected when a patient with pneumonia continues to have marked systemic features including swinging fever, persistent leucocytosis and copious amounts of sputum, which is often foul-tasting or foul-smelling and sometimes bloodstained. Severe halitosis is often present and clubbing of the fingers may develop quickly.</p>
+
+        <p>In a small number of patients a primary lung abscess complicates pneumonia and ruptures into the pleural space, producing a pyopneumothorax.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What are the clinical features of aspiration pneumonia?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Aspiration of gastric contents into the lungs may occur during vomiting in patients whose protective laryngeal reflexes are impaired by neurological disease, drug intoxication or anaesthesia. It may also complicate oesophageal disorders such as achalasia and oesophageal obstruction. Aspiration of acidic gastric contents results in immediate chemical injury to the alveolar lining cells and capillary endothelium of the lungs, causing pulmonary oedema. This presents typically as acute breathlessness with wheeze, cough and the production of pink, frothy sputum a few hours after inhalation. Chest radiography shows widespread, ill-defined opacities predominantly in the lower zones and right side.</p>
+
+        <p>Occasionally, a patient may develop what appears to be an uncomplicated pneumonia but as recovery is slow or incomplete, a chest x-ray shows collapse and consolidation of a pulmonary segment or lobe distal to an obstruction. The cause may be inhalation of a foreign body, and a bronchoscopy is essential to establish the diagnosis.</p>
+
+        <p>In hospital practice inhalation of oropharyngeal anaerobes is often a complication of anaesthesia or acute alcoholism. The right lung is most commonly involved.</p>
+
+        <p><strong>Infection</strong></p>
+        <p>Bacterial infection with anaerobic organisms from the oropharynx or with <em>Staphylococcus aureus</em> or <em>Klebsiella</em> is an important complication of aspiration and should be treated with appropriate antibiotics.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. What is severe acute respiratory syndrome (SARS)?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Severe acute respiratory syndrome (SARS) is a serious form of viral pneumonia, first recognised in 2003 during a large outbreak which started in Guangdong Province in southern China. The disease spread rapidly, mainly affecting Hong Kong and parts of mainland China but with cases reported from more than 30 countries. More than 8000 people contracted the disease and over 800 died. The clinical features of the illness include fever, diarrhoea, myalgia, lymphopenia, deranged liver function tests and a chest x-ray showing consolidation and patchy shadowing which is often bilateral. The SARS virus is a previously unrecognised coronavirus, probably arising from an animal reservoir, with secondary human-to-human transmission by the respiratory route. SARS is an important differential diagnosis in patients presenting with severe pneumonia who have recently visited or are contacts of visitors to endemic areas.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- JavaScript -->  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/completion-tracker.js"></script>
+  <script src="../js/flag-tracker.js"></script>
+  <script src="../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Build and development scripts
+*.py
+*.sh
+/tmp/
+
+# Status and documentation files (keep in repo but exclude from deployment)
+PAEDIATRICS_CASES_STATUS.md
+DESIGN_NOTES.md
+DEPLOYMENT.md
+
+# Backup files
+SCP2.html
+SCP2_backup.html
+*_backup.*
+
+# System files
+.DS_Store
+.git
+.gitignore
+.claude/
+
+# Development logs
+*.log
+/tmp/
+
+# Node modules if any
+node_modules/
+
+# Firebase cache
+.firebase/
+firebase-debug.log
