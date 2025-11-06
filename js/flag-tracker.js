@@ -29,7 +29,7 @@ class FlagTracker {
   // Get current case ID from URL
   getCurrentCaseId() {
     const path = window.location.pathname;
-    const match = path.match(/case(\d+_\d+)\.html/);
+    const match = path.match(/case(\d+_\d+)/);
     return match ? match[1] : null;
   }
 
@@ -480,7 +480,7 @@ class FlagTracker {
 
     caseCards.forEach(card => {
       const href = card.getAttribute('href');
-      const match = href ? href.match(/case(\d+_\d+)\.html/) : null;
+      const match = href ? href.match(/case(\d+_\d+)/) : null;
 
       if (match) {
         const caseId = match[1];
@@ -523,4 +523,6 @@ window.flagTracker = new FlagTracker();
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   window.flagTracker.initialize();
+  // Add flag indicators to case cards
+  window.flagTracker.updateAllCaseFlagIndicators();
 });
