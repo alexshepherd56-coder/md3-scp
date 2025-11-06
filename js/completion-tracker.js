@@ -430,11 +430,22 @@ window.completionTracker = new CompletionTracker();
 
 // Initialize when DOM and Firebase are ready
 document.addEventListener('DOMContentLoaded', () => {
+  let attempts = 0;
+  const maxAttempts = 50; // 5 seconds max wait
+
   // Wait for Firebase to be initialized
   const checkFirebase = setInterval(() => {
+    attempts++;
+
     if (typeof firebase !== 'undefined' && firebase.auth && firebase.firestore) {
       clearInterval(checkFirebase);
       window.completionTracker.initialize();
+      console.log('Completion tracker initialized with Firebase');
+    } else if (attempts >= maxAttempts) {
+      // Timeout - initialize without Firebase
+      clearInterval(checkFirebase);
+      window.completionTracker.initialize();
+      console.warn('Completion tracker initialized without Firebase (timeout)');
     }
   }, 100);
 });
