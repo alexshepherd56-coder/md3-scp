@@ -114,7 +114,7 @@ function showFlaggedCasesOnly() {
 
   document.querySelectorAll('.case-card').forEach(card => {
     const href = card.getAttribute('href');
-    const match = href ? href.match(/case(\d+_\d+)\.html/) : null;
+    const match = href ? href.match(/case(\d+_\d+)/) : null;
 
     if (match) {
       const caseId = match[1];
