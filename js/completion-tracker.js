@@ -256,8 +256,9 @@ class CompletionTracker {
   getCaseIdFromCard(card) {
     const href = card.getAttribute('href');
     if (href) {
-      const match = href.match(/case([^\.]+)\.html/);
-      return match ? match[1].replace('/', '') : null;
+      // Match both /cases/case1_1 and /cases/case1_1.html
+      const match = href.match(/case(\d+_\d+)/);
+      return match ? match[1] : null;
     }
     return null;
   }
@@ -265,8 +266,8 @@ class CompletionTracker {
   // Extract case ID from current page URL
   getCurrentCaseId() {
     const path = window.location.pathname;
-    const match = path.match(/case([^\.]+)\.html/);
-    return match ? match[1].replace('/', '') : null;
+    const match = path.match(/case(\d+_\d+)/);
+    return match ? match[1] : null;
   }
 
   // Update all UI elements
