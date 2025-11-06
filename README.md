@@ -101,3 +101,4 @@ Upload the entire folder to:
 3. **Token Efficiency:** AI edits require loading much smaller files
 4. **Deployment Ready:** Optimized structure for CDN and static hosting
 5. **Scalability:** Easy to add new cases using template
+# Trigger redeploy
