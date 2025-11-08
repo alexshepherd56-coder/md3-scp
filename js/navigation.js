@@ -108,9 +108,18 @@ groupHeaders.forEach(group => {
 
 // Show only flagged cases
 function showFlaggedCasesOnly() {
-  if (!window.flagTracker) return;
+  // Support both old (window.flagTracker) and new (window.app.getModule('flag')) systems
+  let flaggedCaseIds = [];
 
-  const flaggedCaseIds = window.flagTracker.getAllFlaggedCases().map(f => f.caseId);
+  if (window.app && window.app.getModule && window.app.getModule('flag')) {
+    // Use new flag module
+    flaggedCaseIds = window.app.getModule('flag').getAllFlaggedCases().map(f => f.caseId);
+  } else if (window.flagTracker) {
+    // Fallback to old flag tracker
+    flaggedCaseIds = window.flagTracker.getAllFlaggedCases().map(f => f.caseId);
+  } else {
+    return; // No flag system available
+  }
 
   document.querySelectorAll('.case-card').forEach(card => {
     const href = card.getAttribute('href');
@@ -158,7 +167,18 @@ function updateCounts() {
 
 // === Progress Bar Update Script ===
 function updateSidebarProgress() {
-  if (!window.completionTracker) return;
+  // Support both old (window.completionTracker) and new (window.app.getModule('completionUI')) systems
+  let completionUI = null;
+
+  if (window.app && window.app.getModule && window.app.getModule('completionUI')) {
+    // Use new completion module
+    completionUI = window.app.getModule('completionUI');
+  } else if (window.completionTracker) {
+    // Fallback to old completion tracker
+    completionUI = window.completionTracker;
+  } else {
+    return; // No completion system available
+  }
 
   // Define group filters
   const groupFilters = {
@@ -172,14 +192,14 @@ function updateSidebarProgress() {
     const groupHeader = document.querySelector(`h2[data-group="${group}"]`);
     if (!groupHeader) return;
 
-    const stats = window.completionTracker.getStatsByGroup(groupFilters[group]);
+    const stats = completionUI.getStatsByGroup(groupFilters[group]);
     updateHeadingProgress(groupHeader, stats);
   });
 
   // Update specialty progress bars
   document.querySelectorAll('.specialty').forEach(spec => {
     const filter = spec.dataset.filter;
-    const stats = window.completionTracker.getStatsBySpecialty(filter);
+    const stats = completionUI.getStatsBySpecialty(filter);
     updateHeadingProgress(spec, stats);
   });
 }
@@ -222,13 +242,44 @@ window.addEventListener('completionDataLoaded', () => {
   updateSidebarProgress();
 });
 
-// Listen for completion changes
+// Listen for completion changes using new event system
+if (window.eventBus) {
+  // Initial update when completion module is ready
+  eventBus.on('completion:initialized', () => {
+    console.log('[Navigation] Completion initialized, updating sidebar progress');
+    setTimeout(updateSidebarProgress, 100);
+  });
+
+  eventBus.on('completion:loaded-from-local', () => {
+    updateSidebarProgress();
+  });
+
+  eventBus.on('completion:case-completed', () => {
+    updateSidebarProgress();
+  });
+
+  eventBus.on('completion:case-uncompleted', () => {
+    updateSidebarProgress();
+  });
+
+  eventBus.on('completion:synced', () => {
+    updateSidebarProgress();
+  });
+
+  // Also update when app is fully ready
+  eventBus.on('app:ready', () => {
+    console.log('[Navigation] App ready, updating sidebar progress');
+    setTimeout(updateSidebarProgress, 500);
+  });
+}
+
+// Legacy support: Listen for completion changes from old system
 if (window.completionTracker) {
   window.completionTracker.addListener(() => {
     updateSidebarProgress();
   });
 } else {
-  // Wait for completion tracker to initialize
+  // Wait for completion tracker to initialize (legacy support)
   const checkTracker = setInterval(() => {
     if (window.completionTracker) {
       clearInterval(checkTracker);
@@ -242,9 +293,9 @@ if (window.completionTracker) {
 // Check for filter parameter in URL or use stored filter
 const urlParams = new URLSearchParams(window.location.search);
 const filterParam = urlParams.get('filter');
-// Default to 'all' for landing page - only use stored filter if explicitly navigating back
-const storedFilter = urlParams.has('filter') ? null : localStorage.getItem('currentFilter');
-const initialFilter = filterParam || 'all';
+// Use stored filter from localStorage if available
+const storedFilter = localStorage.getItem('currentFilter');
+const initialFilter = filterParam || storedFilter || 'all';
 
 // Apply the initial filter
 if (initialFilter === 'all' || initialFilter === 'medicine' || initialFilter === 'surgery') {
@@ -263,21 +314,7 @@ if (initialFilter === 'all' || initialFilter === 'medicine' || initialFilter ===
 }
 
 // === Scroll Position Management ===
-// Save scroll position when clicking on a case card
-document.querySelectorAll('.case-card').forEach(card => {
-  card.addEventListener('click', function(e) {
-    localStorage.setItem('scpScrollPosition', window.scrollY);
-  });
-});
-
-// Restore scroll position if returning from a case
-const savedScrollPosition = urlParams.get('scroll');
-if (savedScrollPosition) {
-  // Use setTimeout to ensure page is fully rendered before scrolling
-  setTimeout(() => {
-    window.scrollTo(0, parseInt(savedScrollPosition));
-  }, 100);
-}
+// TODO: Implement scroll restoration in future session
 
 // === Search Functionality ===
 function performSearch(searchTerm) {
