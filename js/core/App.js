@@ -165,21 +165,21 @@ class App {
 }
 
 // Create singleton instance
-const app = new App();
+const scpApp = new App();
 
 // Make it available globally
-window.app = app;
+window.app = scpApp;
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     console.log('[App] DOM ready, initializing app...');
-    app.initialize();
+    scpApp.initialize();
   });
 } else {
   // DOM already loaded
   console.log('[App] DOM already ready, initializing app...');
-  app.initialize();
+  scpApp.initialize();
 }
 
 // Export for module usage

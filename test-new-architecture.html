@@ -157,6 +157,35 @@
     </div>
   </div>
 
+  <div class="container">
+    <h2>💻 Try These in Browser Console (F12)</h2>
+    <div class="status info">
+      <strong>Open your browser console and try these commands:</strong>
+      <pre style="background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 4px; overflow-x: auto;">
+<span style="color: #6272a4;">// See all events that have been emitted</span>
+eventBus.getHistory();
+
+<span style="color: #6272a4;">// Emit a custom event</span>
+eventBus.emit('test:event', { message: 'Hello from console!' });
+
+<span style="color: #6272a4;">// Listen to events</span>
+eventBus.on('test:event', (data) => console.log('Got event:', data));
+
+<span style="color: #6272a4;">// See all registered events</span>
+eventBus.getEvents();
+
+<span style="color: #6272a4;">// Check Firebase status</span>
+firebaseService.isReady();
+
+<span style="color: #6272a4;">// Get current user</span>
+firebaseService.getCurrentUser();
+
+<span style="color: #6272a4;">// Check app status</span>
+app.initialized;
+      </pre>
+    </div>
+  </div>
+
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
@@ -172,8 +201,28 @@
   <script src="js/core/App.js"></script>
 
   <script>
-    // Enable debug mode for EventBus
-    window.eventBus.enableDebug();
+    // Wait for all scripts to load, then expose to console
+    window.addEventListener('load', function() {
+      // Make commonly used objects easier to access in console
+      // (Remove 'window.' prefix requirement)
+      window.eventBus = window.eventBus || {};
+      window.firebaseService = window.firebaseService || {};
+      window.app = window.app || {};
+
+      // Also make them available without window. prefix
+      var eventBus = window.eventBus;
+      var firebaseService = window.firebaseService;
+      var app = window.app;
+
+      // Make REALLY sure they're global for console access
+      globalThis.eventBus = window.eventBus;
+      globalThis.firebaseService = window.firebaseService;
+      globalThis.app = window.app;
+
+      // Enable debug mode for EventBus
+      if (window.eventBus && window.eventBus.enableDebug) {
+        window.eventBus.enableDebug();
+      }
 
     // Listen to some events to demonstrate
     window.eventBus.on('test:event', (data) => {
@@ -274,6 +323,17 @@
 
     // Initial update
     setTimeout(updateStatus, 100);
+
+      // Welcome message in console
+      console.log('%c🎉 New Architecture Test Page Loaded!', 'font-size: 20px; color: #4CAF50; font-weight: bold;');
+      console.log('%cTry these commands:', 'font-size: 14px; color: #2196F3; font-weight: bold;');
+      console.log('%c  eventBus.getHistory()                  %c- See all events', 'color: #333', 'color: #666');
+      console.log('%c  eventBus.emit("test", {hello:"world"}) %c- Emit an event', 'color: #333', 'color: #666');
+      console.log('%c  firebaseService.isReady()              %c- Check Firebase', 'color: #333', 'color: #666');
+      console.log('%c  app.getCurrentUser()                   %c- Get current user', 'color: #333', 'color: #666');
+      console.log(' ');
+      console.log('All core systems available:', { eventBus: window.eventBus, firebaseService: window.firebaseService, app: window.app });
+    });
   </script>
 </body>
 </html>
