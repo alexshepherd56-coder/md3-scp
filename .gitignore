@@ -38,7 +38,13 @@ node_modules/
 
 # Test files
 test-deploy.html
+debug-commands.txt
 
 # Build outputs
 dist/
 build/
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

@@ -1,0 +1,14 @@
+{
+  "name": "scp-project",
+  "version": "1.0.0",
+  "description": "MD3 SCP Cases - Medical Student Practice Cases",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
