@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module Test</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    body { padding: 20px; font-family: monospace; }
+    .test-section { margin: 20px 0; padding: 20px; border: 2px solid #ccc; }
+    .log { background: #f0f0f0; padding: 10px; margin: 5px 0; }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+  <h1>Module Test Page</h1>
+  <div id="logs"></div>
+
+  <div class="test-section">
+    <h2>Test Case Card:</h2>
+    <a href="cases/case1_1.html" class="case-card cardiology">
+      <h3>1.1 Hypertension</h3>
+    </a>
+  </div>
+
+  <!-- Load all scripts in same order as index.html -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/core/EventBus.js"></script>
+  <script src="js/core/FirebaseService.js"></script>
+  <script src="js/core/App.js"></script>
+
+  <script src="js/auth.js"></script>
+  <script src="js/auth-ui.js"></script>
+
+  <script src="js/modules/progress/CompletionModule.js"></script>
+  <script src="js/modules/progress/CompletionUI.js"></script>
+  <script src="js/modules/progress/FlagModule.js"></script>
+  <script src="js/modules/progress/FlagUI.js"></script>
+
+  <script src="js/navigation.js"></script>
+
+  <script>
+    const logs = document.getElementById('logs');
+
+    function log(msg, type = 'info') {
+      const div = document.createElement('div');
+      div.className = 'log ' + type;
+      div.textContent = new Date().toLocaleTimeString() + ': ' + msg;
+      logs.appendChild(div);
+      console.log(msg);
+    }
+
+    // Wait for app to be ready
+    setTimeout(() => {
+      log('=== STARTING TESTS ===');
+
+      // Check core services
+      log('window.eventBus exists: ' + !!window.eventBus);
+      log('window.firebaseService exists: ' + !!window.firebaseService);
+      log('window.app exists: ' + !!window.app);
+
+      if (window.app) {
+        log('window.app.initialized: ' + window.app.initialized);
+        log('Modules loaded: ' + JSON.stringify(Object.keys(window.app.modules || {})));
+
+        // Get module instances
+        const flagModule = window.app.getModule('flag');
+        const flagUI = window.app.getModule('flagUI');
+        const completionModule = window.app.getModule('completion');
+        const completionUI = window.app.getModule('completionUI');
+
+        log('FlagModule: ' + (flagModule ? 'EXISTS' : 'NULL'), flagModule ? 'success' : 'error');
+        log('FlagUI: ' + (flagUI ? 'EXISTS' : 'NULL'), flagUI ? 'success' : 'error');
+        log('CompletionModule: ' + (completionModule ? 'EXISTS' : 'NULL'), completionModule ? 'success' : 'error');
+        log('CompletionUI: ' + (completionUI ? 'EXISTS' : 'NULL'), completionUI ? 'success' : 'error');
+
+        // Test UI methods
+        if (flagUI) {
+          log('Testing flagUI.updateAllCaseFlagIndicators()...');
+          try {
+            flagUI.updateAllCaseFlagIndicators();
+
+            setTimeout(() => {
+              const card = document.querySelector('.case-card');
+              const bookmark = card ? card.querySelector('.case-flag-bookmark') : null;
+              log('Bookmark added to test card: ' + (bookmark ? 'YES ✓' : 'NO ✗'), bookmark ? 'success' : 'error');
+
+              if (bookmark) {
+                log('Bookmark classes: ' + bookmark.className);
+                log('Bookmark computed display: ' + window.getComputedStyle(bookmark).display);
+              } else if (card) {
+                log('Card innerHTML: ' + card.innerHTML);
+              }
+            }, 500);
+          } catch (e) {
+            log('ERROR calling updateAllCaseFlagIndicators: ' + e.message, 'error');
+          }
+        }
+
+        if (completionUI) {
+          log('Testing completionUI.updateCaseCards()...');
+          try {
+            completionUI.updateCaseCards();
+
+            setTimeout(() => {
+              const card = document.querySelector('.case-card');
+              const badge = card ? card.querySelector('.completion-badge, .completion-badge-incomplete') : null;
+              log('Completion badge added: ' + (badge ? 'YES ✓' : 'NO ✗'), badge ? 'success' : 'error');
+
+              if (badge) {
+                log('Badge classes: ' + badge.className);
+                log('Badge text: ' + badge.textContent);
+              }
+            }, 500);
+          } catch (e) {
+            log('ERROR calling updateCaseCards: ' + e.message, 'error');
+          }
+        }
+
+        if (flagUI) {
+          log('Testing flagUI.updateAllFlaggedQuestionsBadges()...');
+          try {
+            flagUI.updateAllFlaggedQuestionsBadges();
+
+            setTimeout(() => {
+              const card = document.querySelector('.case-card');
+              const badge = card ? card.querySelector('.flagged-questions-count') : null;
+              log('Flagged questions badge added: ' + (badge ? 'YES ✓' : 'NO ✗'), badge ? 'success' : 'error');
+            }, 500);
+          } catch (e) {
+            log('ERROR calling updateAllFlaggedQuestionsBadges: ' + e.message, 'error');
+          }
+        }
+      } else {
+        log('window.app is not available!', 'error');
+      }
+    }, 3000);
+
+    // Listen for app:ready event
+    if (window.eventBus) {
+      window.eventBus.on('app:ready', () => {
+        log('✓ app:ready event fired', 'success');
+      });
+    }
+  </script>
+</body>
+</html>
