@@ -619,8 +619,46 @@ a.case-card {
   opacity: 1;
 }
 
+/* Flagged Question Count Badge */
+.flagged-question-count {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(255, 107, 107, 0.3);
+  z-index: 2;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.case-card:hover .flagged-question-count {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(255, 107, 107, 0.4);
+}
+
 .case-flag-bookmark.flagged::after {
   content: 'Unflag this case';
+}
+
+/* Flagged Questions Count Badge */
+.flagged-questions-count {
+  position: absolute !important;
+  bottom: 12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  color: #a02030 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  white-space: nowrap !important;
 }
 
 /* Progress Stats */

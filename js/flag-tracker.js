@@ -102,6 +102,11 @@ class FlagTracker {
     return this.getAllFlags().filter(flag => flag.caseId === caseId);
   }
 
+  // Get count of flagged questions for a specific case
+  getFlaggedQuestionCountForCase(caseId) {
+    return this.getFlagsForCase(caseId).length;
+  }
+
   // Get total flag count
   getFlagCount() {
     return Object.keys(this.flags).length;
