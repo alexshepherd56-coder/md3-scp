@@ -542,6 +542,8 @@
         const flagModule = window.app.getModule('flag');
         if (flagModule) {
           const count = flagModule.getFlaggedCaseCount();
+          console.log('[MainPage] Flagged case count:', count);
+
           const countElement = document.getElementById('flaggedCasesCount');
           if (countElement) {
             countElement.textContent = `(${count})`;
@@ -549,8 +551,13 @@
 
           const flaggedSection = document.getElementById('flaggedCasesSection');
           if (flaggedSection) {
+            console.log('[MainPage] Setting flagged section display to:', count > 0 ? 'block' : 'none');
             flaggedSection.style.display = count > 0 ? 'block' : 'none';
+          } else {
+            console.error('[MainPage] Could not find flaggedCasesSection element!');
           }
+        } else {
+          console.warn('[MainPage] Flag module not found');
         }
       } else if (window.flagTracker) {
         // Fallback to old system
@@ -577,6 +584,17 @@
           console.log('[MainPage] App ready, starting UI updates');
           updateMainPageUI();
           setInterval(updateMainPageUI, 2000);
+        });
+
+        // Listen for flag events to update immediately
+        window.app.on('flag:case-flagged', () => {
+          console.log('[MainPage] Case flagged, updating UI');
+          updateMainPageUI();
+        });
+
+        window.app.on('flag:case-unflagged', () => {
+          console.log('[MainPage] Case unflagged, updating UI');
+          updateMainPageUI();
         });
       } else {
         // Fallback if no app system
