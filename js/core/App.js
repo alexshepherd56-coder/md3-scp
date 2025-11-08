@@ -16,8 +16,18 @@ class App {
     this.initialized = false;
 
     // Core services (available to all modules)
-    this.eventBus = window.eventBus;
-    this.firebase = window.firebaseService;
+    // Note: These are set in the constructor but EventBus/FirebaseService
+    // scripts must be loaded BEFORE App.js
+    this.eventBus = window.eventBus || null;
+    this.firebaseService = window.firebaseService || null;
+
+    // Ensure critical services are available
+    if (!this.eventBus) {
+      console.error('[App] EventBus not found! Make sure EventBus.js is loaded before App.js');
+    }
+    if (!this.firebaseService) {
+      console.error('[App] FirebaseService not found! Make sure FirebaseService.js is loaded before App.js');
+    }
   }
 
   /**
@@ -58,11 +68,11 @@ class App {
     console.log('[App] Initializing core services...');
 
     // Initialize Firebase
-    this.firebase.initialize();
+    this.firebaseService.initialize();
 
     // Wait for Firebase to be ready
     await new Promise((resolve) => {
-      this.firebase.onReady(resolve);
+      this.firebaseService.onReady(resolve);
     });
 
     console.log('[App] Core services initialized');
@@ -74,20 +84,63 @@ class App {
    */
   async initializeModules() {
     console.log('[App] Initializing modules...');
+    console.log('[App] Checking for modules: CompletionModule=' + (typeof window.CompletionModule) + ', FlagModule=' + (typeof window.FlagModule));
 
-    // Future: Initialize auth module
-    // if (window.AuthModule) {
-    //   this.modules.auth = new AuthModule(this);
-    //   await this.modules.auth.initialize();
-    // }
+    // Initialize AuthModule (if available)
+    if (window.AuthModule) {
+      console.log('[App] Initializing AuthModule...');
+      this.modules.auth = new window.AuthModule(this);
+      await this.modules.auth.initialize();
 
-    // Future: Initialize completion module
-    // if (window.CompletionModule) {
-    //   this.modules.completion = new CompletionModule(this);
-    //   await this.modules.completion.initialize();
-    // }
+      // Initialize AuthUI (if available)
+      if (window.AuthUI) {
+        console.log('[App] Initializing AuthUI...');
+        this.modules.authUI = new window.AuthUI(this);
+        this.modules.authUI.initialize(this.modules.auth);
+      }
+    }
 
-    // For now, modules will initialize themselves
+    // Initialize CompletionModule (if available)
+    if (window.CompletionModule) {
+      console.log('[App] Initializing CompletionModule...');
+      try {
+        this.modules.completion = new window.CompletionModule(this);
+        await this.modules.completion.initialize();
+
+        // Initialize CompletionUI (if available)
+        if (window.CompletionUI) {
+          console.log('[App] Initializing CompletionUI...');
+          this.modules.completionUI = new window.CompletionUI(this);
+          this.modules.completionUI.initialize(this.modules.completion);
+        }
+      } catch (error) {
+        console.error('[App] Error initializing CompletionModule:', error);
+      }
+    } else {
+      console.warn('[App] CompletionModule not found in window object');
+    }
+
+    // Initialize FlagModule (if available)
+    if (window.FlagModule) {
+      console.log('[App] Initializing FlagModule...');
+      try {
+        this.modules.flag = new window.FlagModule(this);
+        await this.modules.flag.initialize();
+
+        // Initialize FlagUI (if available)
+        if (window.FlagUI) {
+          console.log('[App] Initializing FlagUI...');
+          this.modules.flagUI = new window.FlagUI(this);
+          this.modules.flagUI.initialize(this.modules.flag);
+        }
+      } catch (error) {
+        console.error('[App] Error initializing FlagModule:', error);
+      }
+    } else {
+      console.warn('[App] FlagModule not found in window object');
+    }
+
+    // For now, other modules will initialize themselves
     // Once refactored, they'll register here
 
     console.log('[App] Modules initialized');
@@ -125,7 +178,7 @@ class App {
    * @returns {FirebaseService}
    */
   getFirebase() {
-    return this.firebase;
+    return this.firebaseService;
   }
 
   /**
@@ -152,7 +205,7 @@ class App {
    * @returns {firebase.User|null}
    */
   getCurrentUser() {
-    return this.firebase.getCurrentUser();
+    return this.firebaseService.getCurrentUser();
   }
 
   /**
@@ -160,7 +213,7 @@ class App {
    * @returns {boolean}
    */
   isSignedIn() {
-    return this.firebase.isSignedIn();
+    return this.firebaseService.isSignedIn();
   }
 }
 
