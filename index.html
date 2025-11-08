@@ -520,6 +520,19 @@
   <script src="js/navigation.js"></script>
 
   <script>
+    // Debug: Check if modules loaded
+    console.log('[DEBUG] Checking module availability...');
+    console.log('[DEBUG] window.CompletionModule:', typeof window.CompletionModule);
+    console.log('[DEBUG] window.FlagModule:', typeof window.FlagModule);
+    console.log('[DEBUG] window.app:', typeof window.app);
+
+    setTimeout(() => {
+      if (window.app) {
+        console.log('[DEBUG] app.initialized:', window.app.initialized);
+        console.log('[DEBUG] app.modules:', Object.keys(window.app.modules || {}));
+      }
+    }, 1000);
+
     // Update UI elements - let the modules handle most of the work
     function updateMainPageUI() {
       console.log('[MainPage] Updating UI...');
