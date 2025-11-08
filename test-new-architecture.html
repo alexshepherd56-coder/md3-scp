@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Architecture Test</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      border-bottom: 3px solid #4CAF50;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #555;
+      margin-top: 0;
+    }
+    .status {
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    .status.success {
+      background: #d4edda;
+      border-left: 4px solid #28a745;
+      color: #155724;
+    }
+    .status.info {
+      background: #d1ecf1;
+      border-left: 4px solid #17a2b8;
+      color: #0c5460;
+    }
+    .status.warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      color: #856404;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    button.secondary {
+      background: #2196F3;
+    }
+    button.secondary:hover {
+      background: #0b7dda;
+    }
+    .event-log {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+    .event-item {
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 5px;
+    }
+    .event-item:last-child {
+      border-bottom: none;
+    }
+    .event-name {
+      color: #2196F3;
+      font-weight: bold;
+    }
+    .event-time {
+      color: #999;
+      font-size: 11px;
+    }
+    .module-status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .module-status.active {
+      background: #28a745;
+      color: white;
+    }
+    .module-status.inactive {
+      background: #dc3545;
+      color: white;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏗️ New Architecture Test Page</h1>
+
+  <div class="container">
+    <h2>System Status</h2>
+    <div id="systemStatus"></div>
+  </div>
+
+  <div class="container">
+    <h2>Core Services</h2>
+    <div id="coreServicesStatus"></div>
+  </div>
+
+  <div class="container">
+    <h2>Event Bus Demonstration</h2>
+    <p>Test the event communication system:</p>
+    <button onclick="testEmitEvent()">Emit Test Event</button>
+    <button onclick="testUserEvent()" class="secondary">Emit User Event</button>
+    <button onclick="clearEventLog()" class="secondary">Clear Log</button>
+    <div id="eventLog" class="event-log"></div>
+  </div>
+
+  <div class="container">
+    <h2>Firebase Service</h2>
+    <div id="firebaseStatus"></div>
+  </div>
+
+  <div class="container">
+    <h2>How This Works</h2>
+    <div class="status info">
+      <strong>Event-Driven Architecture:</strong>
+      <ul>
+        <li>Modules communicate through <code>eventBus</code> instead of calling each other directly</li>
+        <li>No tight coupling - modules can be added/removed without breaking others</li>
+        <li>Easy to test - can emit fake events to test module responses</li>
+        <li>Easy to debug - can see all events in the log below</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="js/firebase-config.js"></script>
+
+  <!-- New Architecture Core (Load in order) -->
+  <script src="js/utils/helpers.js"></script>
+  <script src="js/core/EventBus.js"></script>
+  <script src="js/core/FirebaseService.js"></script>
+  <script src="js/core/App.js"></script>
+
+  <script>
+    // Enable debug mode for EventBus
+    window.eventBus.enableDebug();
+
+    // Listen to some events to demonstrate
+    window.eventBus.on('test:event', (data) => {
+      console.log('Received test event:', data);
+    });
+
+    window.eventBus.on('user:action', (data) => {
+      console.log('User action detected:', data);
+    });
+
+    // Update status displays
+    function updateStatus() {
+      // System Status
+      document.getElementById('systemStatus').innerHTML = `
+        <div class="status success">
+          <strong>✓ New Architecture Active</strong><br>
+          Event Bus: <span class="module-status active">ACTIVE</span><br>
+          Firebase Service: <span class="module-status ${window.firebaseService.isReady() ? 'active' : 'inactive'}">
+            ${window.firebaseService.isReady() ? 'READY' : 'INITIALIZING'}
+          </span><br>
+          App Coordinator: <span class="module-status ${window.app.initialized ? 'active' : 'inactive'}">
+            ${window.app.initialized ? 'INITIALIZED' : 'INITIALIZING'}
+          </span>
+        </div>
+      `;
+
+      // Core Services
+      const eventCount = window.eventBus.getEvents().length;
+      const listenerCount = window.eventBus.getEvents().reduce((sum, event) => {
+        return sum + window.eventBus.getListenerCount(event);
+      }, 0);
+
+      document.getElementById('coreServicesStatus').innerHTML = `
+        <div class="status info">
+          <strong>EventBus:</strong><br>
+          - Registered events: ${eventCount}<br>
+          - Total listeners: ${listenerCount}<br>
+          - Events in history: ${window.eventBus.getHistory().length}
+        </div>
+      `;
+
+      // Firebase Status
+      const firebaseStatus = window.firebaseService.isReady()
+        ? '<div class="status success"><strong>✓ Firebase Connected</strong></div>'
+        : '<div class="status warning"><strong>⚠ Firebase Initializing...</strong></div>';
+
+      document.getElementById('firebaseStatus').innerHTML = firebaseStatus;
+    }
+
+    // Test event emission
+    function testEmitEvent() {
+      window.eventBus.emit('test:event', {
+        message: 'This is a test event',
+        timestamp: new Date().toISOString()
+      });
+      updateEventLog();
+    }
+
+    function testUserEvent() {
+      window.eventBus.emit('user:action', {
+        action: 'button-click',
+        target: 'test-button'
+      });
+      updateEventLog();
+    }
+
+    // Update event log display
+    function updateEventLog() {
+      const history = window.eventBus.getHistory(20);
+      const logHtml = history.map(event => {
+        const time = new Date(event.timestamp).toLocaleTimeString();
+        return `
+          <div class="event-item">
+            <span class="event-time">${time}</span> -
+            <span class="event-name">${event.event}</span>
+            ${event.data ? `<br><small>${JSON.stringify(event.data, null, 2)}</small>` : ''}
+          </div>
+        `;
+      }).reverse().join('');
+
+      document.getElementById('eventLog').innerHTML = logHtml || '<em>No events yet. Click a button above to emit an event.</em>';
+    }
+
+    function clearEventLog() {
+      window.eventBus.eventHistory = [];
+      updateEventLog();
+    }
+
+    // Listen for app ready event
+    window.eventBus.on('app:ready', () => {
+      console.log('App is ready!');
+      updateStatus();
+      updateEventLog();
+    });
+
+    // Update status every second
+    setInterval(updateStatus, 1000);
+
+    // Initial update
+    setTimeout(updateStatus, 100);
+  </script>
+</body>
+</html>
