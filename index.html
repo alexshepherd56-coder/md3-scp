@@ -492,27 +492,29 @@
     </div>
   </div>
 
-  <!-- JavaScript - Updated 2025-11-08 (Phase 3: Completion Module Integration) -->
+  <!-- JavaScript - Updated 2025-11-09 (Fixed module load order) -->
   <script src="js/firebase-config.js"></script>
 
   <!-- Core Services (Event-driven architecture) -->
   <script src="js/core/EventBus.js"></script>
   <script src="js/core/FirebaseService.js"></script>
-  <script src="js/core/App.js"></script>
 
   <!-- Auth (Old system - will be migrated in future) -->
   <script src="js/auth.js"></script>
   <script src="js/auth-ui.js"></script>
 
-  <!-- Completion Tracking (New modular system) -->
+  <!-- Completion Tracking (New modular system) - MUST load before App.js -->
   <script src="js/modules/progress/CompletionModule.js"></script>
   <script src="js/modules/progress/CompletionUI.js"></script>
   <!-- OLD: <script src="js/completion-tracker.js"></script> -->
 
-  <!-- Flag Tracking (New modular system) -->
+  <!-- Flag Tracking (New modular system) - MUST load before App.js -->
   <script src="js/modules/progress/FlagModule.js"></script>
   <script src="js/modules/progress/FlagUI.js"></script>
   <!-- OLD: <script src="js/flag-tracker.js"></script> -->
+
+  <!-- App Coordinator - MUST load AFTER all modules -->
+  <script src="js/core/App.js"></script>
 
   <!-- Navigation (Old system - will be migrated in future) -->
   <script src="js/navigation.js"></script>

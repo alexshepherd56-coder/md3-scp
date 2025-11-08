@@ -32,15 +32,18 @@
   <script src="js/firebase-config.js"></script>
   <script src="js/core/EventBus.js"></script>
   <script src="js/core/FirebaseService.js"></script>
-  <script src="js/core/App.js"></script>
 
   <script src="js/auth.js"></script>
   <script src="js/auth-ui.js"></script>
 
+  <!-- Load modules BEFORE App.js -->
   <script src="js/modules/progress/CompletionModule.js"></script>
   <script src="js/modules/progress/CompletionUI.js"></script>
   <script src="js/modules/progress/FlagModule.js"></script>
   <script src="js/modules/progress/FlagUI.js"></script>
+
+  <!-- Load App.js AFTER modules -->
+  <script src="js/core/App.js"></script>
 
   <script src="js/navigation.js"></script>
 
