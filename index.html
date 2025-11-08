@@ -574,47 +574,57 @@
       }
     }
 
-    // Wait for app to be ready, then update UI periodically
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('[MainPage] DOM ready');
+    // Register event listeners immediately (before DOMContentLoaded)
+    // This ensures we catch the flag:initialized event
+    if (window.eventBus) {
+      console.log('[MainPage] Registering event listeners early');
 
-      // Wait for app initialization
-      if (window.app) {
-        window.app.on('app:ready', () => {
-          console.log('[MainPage] App ready, starting periodic UI updates');
-          // Don't call updateMainPageUI here - let flag:initialized handle it
-          // to avoid showing count as 0 before flags are loaded
-          setInterval(updateMainPageUI, 2000);
-        });
-
-        // Listen for flag events to update immediately
-        window.app.on('flag:case-flagged', () => {
-          console.log('[MainPage] Case flagged, updating UI');
-          updateMainPageUI();
-        });
-
-        window.app.on('flag:case-unflagged', () => {
-          console.log('[MainPage] Case unflagged, updating UI');
-          updateMainPageUI();
-        });
-
-        // Listen for flag module initialization to show existing flags
-        window.app.on('flag:initialized', () => {
-          console.log('[MainPage] Flags initialized, updating UI');
-          updateMainPageUI();
-        });
-
-        window.app.on('flag:loaded-from-local', () => {
-          console.log('[MainPage] Flags loaded from localStorage, updating UI');
-          updateMainPageUI();
-        });
-      } else {
-        // Fallback if no app system
-        console.log('[MainPage] No app system, using fallback');
-        setTimeout(updateMainPageUI, 500);
+      // Listen for app ready to start periodic updates
+      window.eventBus.on('app:ready', () => {
+        console.log('[MainPage] App ready, starting periodic UI updates');
         setInterval(updateMainPageUI, 2000);
-      }
-    });
+      });
+
+      // Listen for flag events to update immediately
+      window.eventBus.on('flag:case-flagged', () => {
+        console.log('[MainPage] Case flagged, updating UI');
+        updateMainPageUI();
+      });
+
+      window.eventBus.on('flag:case-unflagged', () => {
+        console.log('[MainPage] Case unflagged, updating UI');
+        updateMainPageUI();
+      });
+
+      // Listen for flag module initialization to show existing flags
+      window.eventBus.on('flag:initialized', () => {
+        console.log('[MainPage] Flags initialized, updating UI');
+        updateMainPageUI();
+      });
+
+      window.eventBus.on('flag:loaded-from-local', () => {
+        console.log('[MainPage] Flags loaded from localStorage, updating UI');
+        updateMainPageUI();
+      });
+    } else {
+      // Fallback: register on DOMContentLoaded
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('[MainPage] No eventBus, using fallback with app events');
+
+        if (window.app) {
+          window.app.on('app:ready', () => {
+            setInterval(updateMainPageUI, 2000);
+          });
+          window.app.on('flag:case-flagged', updateMainPageUI);
+          window.app.on('flag:case-unflagged', updateMainPageUI);
+          window.app.on('flag:initialized', updateMainPageUI);
+          window.app.on('flag:loaded-from-local', updateMainPageUI);
+        } else {
+          setTimeout(updateMainPageUI, 500);
+          setInterval(updateMainPageUI, 2000);
+        }
+      });
+    }
   </script>
 
 </body>
