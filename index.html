@@ -581,8 +581,9 @@
       // Wait for app initialization
       if (window.app) {
         window.app.on('app:ready', () => {
-          console.log('[MainPage] App ready, starting UI updates');
-          updateMainPageUI();
+          console.log('[MainPage] App ready, starting periodic UI updates');
+          // Don't call updateMainPageUI here - let flag:initialized handle it
+          // to avoid showing count as 0 before flags are loaded
           setInterval(updateMainPageUI, 2000);
         });
 
