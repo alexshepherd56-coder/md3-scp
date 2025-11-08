@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diagnostic Check</title>
+</head>
+<body>
+  <h1>Checking Module Loading...</h1>
+  <pre id="output"></pre>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Core -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/core/EventBus.js"></script>
+  <script src="js/core/FirebaseService.js"></script>
+  <script src="js/core/App.js"></script>
+
+  <!-- Modules -->
+  <script src="js/modules/progress/CompletionModule.js"></script>
+  <script src="js/modules/progress/CompletionUI.js"></script>
+  <script src="js/modules/progress/FlagModule.js"></script>
+  <script src="js/modules/progress/FlagUI.js"></script>
+
+  <script>
+    const output = document.getElementById('output');
+
+    function log(message) {
+      output.textContent += message + '\n';
+      console.log(message);
+    }
+
+    setTimeout(() => {
+      log('=== DIAGNOSTIC CHECK ===\n');
+      log('window.eventBus: ' + (window.eventBus ? 'EXISTS' : 'MISSING'));
+      log('window.firebaseService: ' + (window.firebaseService ? 'EXISTS' : 'MISSING'));
+      log('window.app: ' + (window.app ? 'EXISTS' : 'MISSING'));
+
+      if (window.app) {
+        log('window.app.initialized: ' + window.app.initialized);
+        log('window.app.modules: ' + JSON.stringify(Object.keys(window.app.modules || {})));
+
+        const flagModule = window.app.getModule('flag');
+        const flagUI = window.app.getModule('flagUI');
+        const completionModule = window.app.getModule('completion');
+        const completionUI = window.app.getModule('completionUI');
+
+        log('\nModules:');
+        log('  flag: ' + (flagModule ? 'LOADED' : 'MISSING'));
+        log('  flagUI: ' + (flagUI ? 'LOADED' : 'MISSING'));
+        log('  completion: ' + (completionModule ? 'LOADED' : 'MISSING'));
+        log('  completionUI: ' + (completionUI ? 'LOADED' : 'MISSING'));
+
+        if (flagModule) {
+          log('\nFlag Module Stats:');
+          log('  Question flags: ' + flagModule.getFlagCount());
+          log('  Case flags: ' + flagModule.getFlaggedCaseCount());
+        }
+      }
+
+      log('\n=== CHECK COMPLETE ===');
+    }, 2000);
+  </script>
+</body>
+</html>
