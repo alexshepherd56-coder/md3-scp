@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2024 SAQ Exam - MD3 SCP</title>
+
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="stylesheet" href="../css/main.css?v=20251109-1">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+
+  <style>
+    /* Exam-specific styles */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .exam-container {
+      display: flex;
+      height: 100vh;
+      background: var(--claude-cream);
+    }
+
+    /* Top header bar */
+    .exam-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--claude-sidebar);
+      border-bottom: 1px solid var(--claude-border);
+      padding: 16px 24px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .exam-title-section {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .exam-timer {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      color: var(--claude-text);
+      font-weight: 400;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .back-home-btn {
+      padding: 8px 16px;
+      background: var(--claude-card-bg);
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-home-btn:hover {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .exam-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--claude-text);
+      margin: 0;
+    }
+
+    .exam-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .flag-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .flag-btn:hover {
+      border-color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.05);
+    }
+
+    .flag-btn.flagged {
+      background: #ff6b6b;
+      border-color: #ff6b6b;
+      color: white;
+    }
+
+    /* Sidebar with question navigation */
+    .exam-sidebar {
+      position: fixed;
+      left: 0;
+      top: 72px;
+      width: 200px;
+      height: calc(100vh - 72px);
+      background: var(--claude-sidebar);
+      border-right: 1px solid var(--claude-border);
+      padding: 40px 16px 24px 16px;
+      overflow-y: auto;
+      z-index: 50;
+    }
+
+    .question-nav-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--claude-secondary);
+      margin: 0 0 16px 0;
+    }
+
+    .question-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .question-nav-btn {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--claude-border);
+      background: var(--claude-card-bg);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--claude-text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      text-align: left;
+    }
+
+    .question-nav-btn:hover {
+      border-color: var(--claude-accent);
+      background: var(--claude-light-accent);
+    }
+
+    .question-nav-btn.active {
+      background: var(--claude-accent);
+      color: white;
+      border-color: var(--claude-accent);
+    }
+
+    .question-nav-btn.answered {
+      background: #4CAF50;
+      color: white;
+      border-color: #4CAF50;
+    }
+
+    .question-nav-btn.answered.active {
+      background: #45a049;
+    }
+
+    .question-nav-btn .flag-indicator {
+      font-size: 12px;
+      display: none;
+      margin-left: 4px;
+    }
+
+    .question-nav-btn.flagged .flag-indicator {
+      display: inline;
+    }
+
+    /* Main content area */
+    .exam-content {
+      margin-top: 72px;
+      margin-left: 200px;
+      width: calc(100% - 200px);
+      min-width: calc(100% - 200px);
+      max-width: calc(100% - 200px);
+      height: calc(100vh - 72px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: fixed;
+      right: 0;
+    }
+
+    .question-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px;
+      padding-bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .question-content-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      box-sizing: border-box;
+    }
+
+    .question-content-wrapper > * {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    .question-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .question-number {
+      font-size: 20px;
+      font-weight: 400;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--claude-text);
+    }
+
+    .question-header .flag-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .question-header .flag-btn:hover {
+      border-color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.05);
+    }
+
+    .question-header .flag-btn.flagged {
+      background: #ff6b6b;
+      border-color: #ff6b6b;
+      color: white;
+    }
+
+    .question-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--claude-text);
+      margin-bottom: 16px;
+      padding: 24px;
+      background: var(--claude-card-bg);
+      border: 1px solid var(--claude-border);
+      border-radius: 12px;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .sub-questions {
+      margin-left: 20px;
+      margin-top: 16px;
+      width: 100%;
+    }
+
+    .sub-question {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .sub-question-label {
+      font-weight: 600;
+      color: var(--claude-text);
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .answer-area {
+      margin-top: 0;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .answer-input {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 400px;
+      padding: 16px;
+      border: 1px solid var(--claude-border);
+      border-radius: 12px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--claude-text);
+      background: var(--claude-card-bg);
+      resize: vertical;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .answer-input:focus {
+      outline: none;
+      border-color: var(--claude-accent);
+      box-shadow: 0 0 0 3px rgba(204, 120, 92, 0.1);
+    }
+
+    .question-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 24px 40px;
+      border-top: 1px solid var(--claude-border);
+      background: var(--claude-sidebar);
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .nav-buttons-left {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      padding: 12px 24px;
+      background: var(--claude-card-bg);
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .nav-btn.primary {
+      background: var(--claude-accent);
+      color: white;
+      border-color: var(--claude-accent);
+    }
+
+    .nav-btn.primary:hover:not(:disabled) {
+      background: var(--claude-hover);
+    }
+
+    .finish-btn {
+      padding: 12px 24px;
+      background: #4CAF50;
+      border: 1.5px solid #4CAF50;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .finish-btn:hover {
+      background: #45a049;
+      border-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="exam-container">
+    <!-- Top header bar -->
+    <div class="exam-header">
+      <div class="exam-title-section">
+        <button class="back-home-btn" id="backBtn">
+          <span>←</span> Back
+        </button>
+        <h1 class="exam-title">2024 SAQ Exam</h1>
+      </div>
+
+      <div class="exam-actions">
+        <div class="exam-timer" id="examTimer">00:00:00</div>
+      </div>
+    </div>
+
+    <!-- Sidebar with question navigation -->
+    <div class="exam-sidebar">
+      <div class="question-nav-list" id="questionNavList">
+        <!-- Question buttons will be generated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="exam-content">
+      <div class="question-container" id="questionContainer">
+        <!-- Question content will be loaded here -->
+      </div>
+
+      <div class="question-actions">
+        <div class="nav-buttons-left">
+          <button class="nav-btn" id="prevBtn">← Previous</button>
+          <button class="nav-btn primary" id="nextBtn">Next →</button>
+        </div>
+        <button class="finish-btn" id="finishBtn">Finish</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Use Firebase instances from firebase-config.js
+    let examAuth = null;
+    let examDb = null;
+    let examUser = null;
+
+    // Initialize Firebase by using the already-initialized instances
+    function initFirebase() {
+      try {
+        // Wait for firebase-config.js to load
+        if (window.firebaseAuth && window.firebaseDb) {
+          examAuth = window.firebaseAuth;
+          examDb = window.firebaseDb;
+
+          // Get current user
+          examUser = examAuth.currentUser;
+
+          // Listen for auth state changes
+          examAuth.onAuthStateChanged((user) => {
+            examUser = user;
+            if (user) {
+              console.log('[Exam] User signed in:', user.email);
+              // Load user's exam progress from Firestore
+              loadProgressFromFirestore();
+            } else {
+              console.log('[Exam] User signed out');
+              // Fall back to localStorage
+              loadProgress();
+            }
+          });
+
+          console.log('[Exam] Firebase connected');
+        } else {
+          console.log('[Exam] Firebase not available, using localStorage only');
+        }
+      } catch (error) {
+        console.error('[Exam] Firebase initialization error:', error);
+      }
+    }
+
+    // Exam data - Real questions from 2024 MEDI6003 exam
+    const examData = {
+      title: '2024 SAQ Exam',
+      totalQuestions: 35,
+      questions: [
+        {
+          id: 1,
+          text: 'All probable and definitive cases of pertussis are notifiable in Australia',
+          subQuestions: [
+            'a. What clinical features must be present to make the diagnosis pertussis probable?',
+            'b. What is another finding that in addition to the probable diagnosis of pertussis (based on clinical features) would make the diagnosis of pertussis definitive?',
+            'c. What changed in pertussis vaccination schedule in 2015 to for the protection of children or improve immunity in children?',
+            'd. What are 2 other changes that occurred to reduce morbidity and mortality associated with pertussis, specifically in infants less than 3 months?',
+            'e. Interpret graph on pertussis notification rates in 2018-2020, Give 3 findings?',
+            'f. What 4 public health personal hygiene factors were implemented in 2020 that explains the reduction rates of pertussis? (with reference to COVID-19 pandemic)',
+            'g. Absolute contraindication to pertussis vaccine'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 2,
+          text: 'ESKD Graph and analysis (Repeat Q of 2023)',
+          subQuestions: [
+            'a. What is the epidemiological measure that is used in this graph?',
+            'b. What are 3 trends?',
+            'c. What are 2 underlying reasons for the distribution of Indigenous ESKD in the remote region?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 3,
+          text: 'Graph showing highest expenditure drugs from PBS, top 2 drugs were rosuvastatin and atorvastatin',
+          subQuestions: [
+            'a. What CV risk factor does the highest expenditure drug (rosuvastatin) address?',
+            'b. What are 4 personal preventable lifestyle factors that can reduce CVD risk and also contribute to a high disease burden?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 4,
+          text: 'Shared decision making',
+          subQuestions: [
+            'a. What are 2 features of shared decision-making?',
+            'b. What are 5 benefits of shared-decision making?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 5,
+          text: 'A patient comes in with face lacerations, an image of the laceration needs to be sent to the surgeon for review to determine the urgency of the management. The patient has already consented to taking and sending the image to the surgeon.',
+          subQuestions: [
+            'a. What are 3 things you need to consider before taking a clinical image (for a face laceration image)?',
+            'b. What 2 things would you do once the image has been taken?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 6,
+          text: 'A 22 year old woman comes for a checkup at the GP after surgery. Surgery went well and there are no problems. She hasn\'t seen the GP in 3 years.',
+          subQuestions: [
+            'a. What are 2 opportunistic preventative things the GP could do? How would the GP explain the benefit of these (4 marks)'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 7,
+          text: 'What are 4 things that could suggest sexual abuse in a child?',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 8,
+          text: 'Mental Health Act: Involuntary admission',
+          subQuestions: [
+            'a. 3 things a doctor must consider about a patient before admitting?',
+            'b. 4 rights of involuntary admitted patients in addition to the rights all mental health patients have?',
+            'c. 2 kinds of treatment there needs to be extra consent for despite involuntary admission'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 9,
+          text: 'Drug seeking behaviour',
+          subQuestions: [
+            'a. 4 kinds of drug seeking behaviour besides anger and aggression?',
+            'b. 2 most sought after drugs of dependence?',
+            'c. 2 things put in place by practices / GPs to reduce drug seeking behaviour?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 10,
+          text: 'A child is brought into ED 30 minutes after being bitten on the ankle by a Snake',
+          subQuestions: [
+            'a. List 5 questions you would ask the parents in your History.',
+            'b. What are 3 steps in the management of this child?',
+            'c. What are 3 exam findings you would expect for a child bitten by a snake?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 11,
+          text: 'A patient with a diagnosis of Bipolar is brought to the ED by the police.',
+          subQuestions: [
+            'a. List 2 physical signs of mania in a patient with bipolar disorder',
+            'b. List 3 collateral questions to ask their family members'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 12,
+          text: 'Woman with PID',
+          subQuestions: [
+            'a. List 4 examination/investigation findings you would expect in a person with PID'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 13,
+          text: 'Patient presented to her GP a few weeks ago with fatigue, she thinks she is iron deficient, but blood tests return normal. She returns today distressed and can\'t sleep. She becomes teary during the consultation.',
+          subQuestions: [
+            'a. List 4 Differential Diagnoses for this presentation'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 14,
+          text: 'A patient is having withdrawal symptoms from heroin and wants your help.',
+          subQuestions: [
+            'a. What are two questions you would ask the patient when taking the history?',
+            'b. What is the MOA buprenorphine and how can it help this patient?',
+            'c. What are 2 considerations you must make before starting this patient on Buprenorphine.'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 15,
+          text: 'Healthy 22 years female patient comes into GP post-surgery, otherwise well.',
+          subQuestions: [
+            'a. What 2x preventative things could you offer and how would you explain the benefit of each one to the patient?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 16,
+          text: 'Mother who is 34 weeks pregnant presents to hospital with HTN, proteinuria and epigastric pain.',
+          subQuestions: [
+            'a. List 4 clinical examination findings.',
+            'b. What is the most likely diagnosis in this patient?',
+            'c. What are 2 fetal complications of this diagnosis?',
+            'd. What are 2 maternal complications of this diagnosis?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 17,
+          text: 'Refugee presents to a GP seeking help for depression and low mood.',
+          subQuestions: [
+            'a. What are 4 history Questions to assess high risk for suicide in the same day'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 18,
+          text: 'Rhesus negative mother G1P0',
+          subQuestions: [
+            'a. List some situations when she would need Anti-D?',
+            'b. When during pregnancy is anti-D prophylaxis Given?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 19,
+          text: 'Pregnant woman 8 weeks of gestation, positive home pregnancy test, with bleeding and lower abdo pain.',
+          subQuestions: [
+            'a. List 4 Differential Diagnoses'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 20,
+          text: 'Patients present for their first antenatal check-up at 8 weeks gestation, confirmed intrauterine pregnancy on ultrasound. All initial antenatal screening was negative.',
+          subQuestions: [
+            'a. What are 6 screening things done routinely throughout pregnancy for preventative healthcare (not including initial blood test at the first visit like Hep B, C etc)'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 21,
+          text: 'Man comes in with a palpable groin mass. On examination, there is a 2cm palpable lymph node in the right groin.',
+          subQuestions: [
+            'a. List 4 DDx for Lymphadenopathy Specifically',
+            'b. What is the gold standard Investigation for lymphadenopathy?',
+            'c. List 3 other sites that would need to be examined.'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 22,
+          text: '39F comes in for a repeat COCP. She has been on it for years and happy to continue',
+          subQuestions: [
+            'a. What are 4 contraindications to the COCP?',
+            'b. What are 4 lower-risk alternatives to the COCP?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 23,
+          text: 'Patient is being administered zoledronic acid by a nurse, who steps out into another room, you are the medical student, and you notice they are suddenly pale and coughing.',
+          subQuestions: [
+            'a. What is your Diagnosis?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 24,
+          text: 'Liver CT',
+          subQuestions: [
+            'a. List 2 features on this CT',
+            'b. What is your leading Differential Diagnosis?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 25,
+          text: 'Patient presents with haematemesis and dark tarry stools, hepatosplenomegaly. Blood tests results given: Low Hb, MCV high, Thrombocytopenia, Low albumin, AST = 86 (5-35), ALT = 122 (5-35)',
+          subQuestions: [
+            'a. Why is the patient tired & why do they have oedema?',
+            'b. What 3 aspects of social history would you inquire about in order to determine the diagnosis?',
+            'c. What is the significance of their raised AST/ALT?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 26,
+          text: 'Patient case painting a picture of nephrotic syndrome, which includes examination findings and some blood tests (24hr urine = 4g protein, hypertensive, 4 RBCs in urine, fatty casts in urine, total cholesterol = 8, oedema to shin and periorbital).',
+          subQuestions: [
+            'a. 4 DDx',
+            'b. 3 Ix',
+            'c. 3 Mx',
+            'd. 2 complications untreated'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 27,
+          text: 'A 3 year old Child UTI',
+          subQuestions: [
+            'a. 4 risks for UTI in Children',
+            'b. 3 Common organisms that cause UTI in children',
+            'c. What Ix would you order in a child with recurrent UTIs – Justify each Ix.'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 28,
+          text: 'Patient is 3 days post hemi-colectomy and has started on PO fluids. Has developed abdominal pain, guarding, afebrile, and constipation, and urine output is XXX ml/hr (was it 10ml?) in the last 2 hours.',
+          subQuestions: [
+            'a. 4 DDx',
+            'b. 6 immediate Mx'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 29,
+          text: 'Nurse calls you to review a patient in a nursing home who has started acting confused 24-48h of Symptoms. Nurse thinks the patient has delirium.',
+          subQuestions: [
+            'a. List 4 DDx'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 30,
+          text: '42 yo male with painless non-febrile haematuria, on aspirin, beta-blocker, ACE-I. Nonsmoker, does not drink.',
+          subQuestions: [
+            'a. List 5 DDx',
+            'b. List 5 Ix'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 31,
+          text: 'Mother brings her child in who she felt was hot, then developed a seizure.',
+          subQuestions: [
+            'a. List 4 aspects of the history that indicate it was a simple febrile seizure',
+            'b. List 3–5 Mx steps'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 32,
+          text: 'Patient is a few days post radical prostatectomy, and develops SOB and distress a few hours ago.',
+          subQuestions: [
+            'a. List 4 causes',
+            'b. Give 6 questions on history that would differentiate the cause.'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 33,
+          text: 'Case with a 2-year-old child who is dehydrated - slightly sunken eyes, decreased alertness but easily arousable, cap refill 2sec, dry mucous membranes, normal BP, HR and RR.',
+          subQuestions: [
+            'a. List 4 assessment categories that determine their hydration status.',
+            'b. Does the child have Mild, Moderate or Severe Hydration & Why?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 34,
+          text: '45-year-old presents multiple swollen joints in hands, MCP, PIP, symmetrical, worse in the morning.',
+          subQuestions: [
+            'a. What are the 4 most likely diagnoses?',
+            'b. What are 6 investigations you would order?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 35,
+          text: 'Mental Health',
+          subQuestions: [
+            'a. List 5 features of PTSD'
+          ],
+          answer: '',
+          flagged: false
+        }
+      ]
+    };
+
+    // State
+    let currentQuestionIndex = 0;
+    let timerStartTime = null;
+    let timerInterval = null;
+
+    // Timer functions
+    function startTimer() {
+      timerStartTime = Date.now();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+      const elapsed = Date.now() - timerStartTime;
+      const hours = Math.floor(elapsed / 3600000);
+      const minutes = Math.floor((elapsed % 3600000) / 60000);
+      const seconds = Math.floor((elapsed % 60000) / 1000);
+
+      const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      document.getElementById('examTimer').textContent = timeString;
+    }
+
+    // Initialize
+    function initExam() {
+      generateQuestionNav();
+      loadQuestion(0);
+
+      // Start the timer
+      startTimer();
+
+      // Initialize Firebase first
+      initFirebase();
+
+      // If no user is signed in after a short delay, load from localStorage
+      setTimeout(() => {
+        if (!examUser) {
+          loadProgress();
+        }
+      }, 1000);
+    }
+
+    // Generate question navigation buttons
+    function generateQuestionNav() {
+      const navList = document.getElementById('questionNavList');
+      navList.innerHTML = '';
+
+      examData.questions.forEach((q, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'question-nav-btn';
+
+        const questionLabel = document.createElement('span');
+        questionLabel.textContent = `Question ${index + 1}`;
+
+        const flagIndicator = document.createElement('span');
+        flagIndicator.className = 'flag-indicator';
+        flagIndicator.textContent = '🚩';
+
+        btn.appendChild(questionLabel);
+        btn.appendChild(flagIndicator);
+
+        if (q.answer && q.answer.trim()) btn.classList.add('answered');
+        if (q.flagged) btn.classList.add('flagged');
+        if (index === currentQuestionIndex) btn.classList.add('active');
+
+        btn.addEventListener('click', () => loadQuestion(index));
+        navList.appendChild(btn);
+      });
+    }
+
+    // Load question
+    function loadQuestion(index) {
+      if (currentQuestionIndex !== index) {
+        saveCurrentAnswer();
+      }
+
+      currentQuestionIndex = index;
+      const question = examData.questions[index];
+
+      // Build question HTML
+      let html = `
+        <div class="question-content-wrapper">
+          <div class="question-header">
+            <div class="question-number">Question ${index + 1}</div>
+            <button class="flag-btn" id="flagBtn">
+              <span id="flagBtnText">${question.flagged ? 'Flagged' : 'Flag Question'}</span>
+            </button>
+          </div>
+          <div class="question-text">${question.text}`;
+
+      if (question.subQuestions && question.subQuestions.length > 0) {
+        html += '<div class="sub-questions">';
+        question.subQuestions.forEach(sq => {
+          html += `<div class="sub-question">${sq}</div>`;
+        });
+        html += '</div>';
+      }
+
+      html += `</div>
+          <div class="answer-area">
+            <textarea id="answerInput" class="answer-input" placeholder="Type your answer here...">${question.answer || ''}</textarea>
+          </div>
+        </div>`;
+
+      document.getElementById('questionContainer').innerHTML = html;
+
+      // Update flag button
+      const flagBtn = document.getElementById('flagBtn');
+      if (flagBtn) {
+        if (question.flagged) {
+          flagBtn.classList.add('flagged');
+        } else {
+          flagBtn.classList.remove('flagged');
+        }
+
+        // Add event listener to flag button
+        flagBtn.addEventListener('click', () => {
+          examData.questions[currentQuestionIndex].flagged = !examData.questions[currentQuestionIndex].flagged;
+          loadQuestion(currentQuestionIndex);
+        });
+      }
+
+      // Update navigation buttons
+      document.getElementById('prevBtn').disabled = index === 0;
+      document.getElementById('nextBtn').disabled = index === examData.totalQuestions - 1;
+
+      // Auto-save on input
+      document.getElementById('answerInput').addEventListener('input', () => {
+        saveCurrentAnswer();
+        generateQuestionNav();
+      });
+
+      generateQuestionNav();
+      saveProgress();
+    }
+
+    // Save current answer
+    function saveCurrentAnswer() {
+      const answerInput = document.getElementById('answerInput');
+      if (answerInput) {
+        examData.questions[currentQuestionIndex].answer = answerInput.value;
+        saveProgress();
+      }
+    }
+
+    // Save progress to Firestore (if authenticated) or localStorage
+    async function saveProgress() {
+      const progressData = {
+        currentQuestionIndex,
+        questions: examData.questions.map(q => ({
+          id: q.id,
+          answer: q.answer,
+          flagged: q.flagged
+        })),
+        lastUpdated: new Date().toISOString()
+      };
+
+      // Save to localStorage as fallback
+      localStorage.setItem('saq-2024-progress', JSON.stringify(progressData));
+
+      // Save to Firestore if authenticated
+      if (examUser && examDb) {
+        try {
+          await examDb.collection('users')
+            .doc(examUser.uid)
+            .collection('exams')
+            .doc('saq-2024')
+            .set(progressData, { merge: true });
+          console.log('[Exam] Progress saved to Firestore');
+        } catch (error) {
+          console.error('[Exam] Error saving to Firestore:', error);
+        }
+      }
+    }
+
+    // Load progress from Firestore
+    async function loadProgressFromFirestore() {
+      if (!examUser || !examDb) return;
+
+      try {
+        const doc = await examDb.collection('users')
+          .doc(examUser.uid)
+          .collection('exams')
+          .doc('saq-2024')
+          .get();
+
+        if (doc.exists) {
+          const progress = doc.data();
+          currentQuestionIndex = progress.currentQuestionIndex || 0;
+
+          // Restore answers and flags
+          if (progress.questions) {
+            progress.questions.forEach(savedQ => {
+              const question = examData.questions.find(q => q.id === savedQ.id);
+              if (question) {
+                question.answer = savedQ.answer || '';
+                question.flagged = savedQ.flagged || false;
+              }
+            });
+          }
+
+          console.log('[Exam] Progress loaded from Firestore');
+          loadQuestion(currentQuestionIndex);
+        } else {
+          // No Firestore data, check localStorage for migration
+          loadProgress();
+        }
+      } catch (error) {
+        console.error('[Exam] Error loading from Firestore:', error);
+        loadProgress();
+      }
+    }
+
+    // Load progress from localStorage
+    function loadProgress() {
+      const saved = localStorage.getItem('saq-2024-progress');
+      if (saved) {
+        const progress = JSON.parse(saved);
+        currentQuestionIndex = progress.currentQuestionIndex || 0;
+
+        // Restore answers and flags
+        if (progress.questions) {
+          progress.questions.forEach(savedQ => {
+            const question = examData.questions.find(q => q.id === savedQ.id);
+            if (question) {
+              question.answer = savedQ.answer || '';
+              question.flagged = savedQ.flagged || false;
+            }
+          });
+        }
+
+        loadQuestion(currentQuestionIndex);
+      }
+    }
+
+    // Function to return to SAQ Exams modal
+    function returnToExams() {
+      saveCurrentAnswer();
+      window.location.href = '../index.html#exams';
+    }
+
+    // Event listeners
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentQuestionIndex > 0) {
+        loadQuestion(currentQuestionIndex - 1);
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentQuestionIndex < examData.totalQuestions - 1) {
+        loadQuestion(currentQuestionIndex + 1);
+      }
+    });
+
+    document.getElementById('finishBtn').addEventListener('click', () => {
+      returnToExams();
+    });
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      returnToExams();
+    });
+
+    // Auto-save every 30 seconds
+    setInterval(saveCurrentAnswer, 30000);
+
+    // Initialize
+    initExam();
+  </script>
+</body>
+</html>
