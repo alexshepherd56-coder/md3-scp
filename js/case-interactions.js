@@ -3,9 +3,21 @@
 // Back navigation function
 function goBack(event) {
   event.preventDefault();
-  const lastFilter = localStorage.getItem('currentFilter') || 'all';
-  const scrollPosition = localStorage.getItem('scpScrollPosition') || '0';
-  window.location.href = '../index.html?filter=' + lastFilter + '&scroll=' + scrollPosition;
+
+  // Get saved filter
+  let filter = localStorage.getItem('currentFilter') || 'all';
+
+  // If filter is 'none' (welcome page), default to 'all' instead
+  if (filter === 'none') {
+    filter = 'all';
+  }
+
+  // Get saved scroll positions
+  const mainScrollPosition = localStorage.getItem('mainScrollPosition') || '0';
+  const sidebarScrollPosition = localStorage.getItem('sidebarScrollPosition') || '0';
+
+  // Navigate back to index with filter and scroll positions
+  window.location.href = `../index.html?filter=${filter}&scroll=${mainScrollPosition}&sidebarScroll=${sidebarScrollPosition}`;
 }
 
 // Toggle Answers and Initialize Flag Buttons

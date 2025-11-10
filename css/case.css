@@ -1,14 +1,15 @@
 /* Case Page Stylesheet - Claude-inspired Design */
 
 :root {
-  --claude-cream: #F4F1EA;
-  --claude-text: #2B1F15;
-  --claude-accent: #CC785C;
-  --claude-hover: #B66A4E;
+  --claude-cream: #F9F6F1;
+  --claude-text: #0A0A0A;
+  --claude-accent: #D97757;
+  --claude-hover: #C5654A;
   --claude-border: #E8E3D9;
-  --claude-card-bg: #FDFCFA;
-  --claude-secondary: #5A4A3F;
-  --claude-light-accent: #F9EDE6;
+  --claude-card-bg: #FFFFFF;
+  --claude-secondary: #4B535A;
+  --claude-light-accent: #FBF0ED;
+  --claude-primary: #0A2540;
 }
 
 * {
@@ -128,7 +129,7 @@ body {
   background-color: var(--claude-light-accent);
   border-color: var(--claude-accent);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(204, 120, 92, 0.15);
+  box-shadow: 0 2px 8px rgba(217, 119, 87, 0.15);
 }
 
 .case-flag-button.flagged {
@@ -149,6 +150,7 @@ h1 {
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .meta {
@@ -173,13 +175,13 @@ h1 {
   font-size: 15px;
   transition: all 0.2s ease;
   letter-spacing: -0.01em;
-  box-shadow: 0 2px 8px rgba(204, 120, 92, 0.2);
+  box-shadow: 0 2px 8px rgba(217, 119, 87, 0.2);
 }
 
 .pdf-link:hover {
   background-color: var(--claude-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(204, 120, 92, 0.3);
+  box-shadow: 0 6px 20px rgba(217, 119, 87, 0.3);
 }
 
 h2 {
@@ -248,7 +250,7 @@ button.toggle {
 button.toggle:hover {
   background-color: var(--claude-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.25);
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.25);
 }
 
 /* Flag Button Styles */
@@ -461,8 +463,8 @@ strong {
   letter-spacing: 0.08em;
   color: var(--claude-card-bg);
   text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(204, 120, 92, 0.8),
-               0 0 40px rgba(204, 120, 92, 0.5),
+  text-shadow: 0 0 20px rgba(217, 119, 87, 0.8),
+               0 0 40px rgba(217, 119, 87, 0.5),
                0 2px 10px rgba(0, 0, 0, 0.3);
   margin: 0;
   text-align: center;
@@ -471,13 +473,13 @@ strong {
 
 @keyframes heroTextPulse {
   0%, 100% {
-    text-shadow: 0 0 20px rgba(204, 120, 92, 0.8),
-                 0 0 40px rgba(204, 120, 92, 0.5),
+    text-shadow: 0 0 20px rgba(217, 119, 87, 0.8),
+                 0 0 40px rgba(217, 119, 87, 0.5),
                  0 2px 10px rgba(0, 0, 0, 0.3);
   }
   50% {
-    text-shadow: 0 0 30px rgba(204, 120, 92, 1),
-                 0 0 50px rgba(204, 120, 92, 0.7),
+    text-shadow: 0 0 30px rgba(217, 119, 87, 1),
+                 0 0 50px rgba(217, 119, 87, 0.7),
                  0 2px 10px rgba(0, 0, 0, 0.3);
   }
 }
@@ -504,9 +506,9 @@ strong {
 .hologram-image {
   width: 80px;
   height: 80px;
-  filter: drop-shadow(0 0 15px rgba(204, 120, 92, 0.6))
-          drop-shadow(0 0 30px rgba(204, 120, 92, 0.4))
-          drop-shadow(0 0 45px rgba(204, 120, 92, 0.2));
+  filter: drop-shadow(0 0 15px rgba(217, 119, 87, 0.6))
+          drop-shadow(0 0 30px rgba(217, 119, 87, 0.4))
+          drop-shadow(0 0 45px rgba(217, 119, 87, 0.2));
   animation: hologramPulse 2s ease-in-out infinite;
   mix-blend-mode: screen;
   opacity: 0.85;
@@ -518,9 +520,9 @@ strong {
   letter-spacing: 0.3em;
   color: var(--claude-accent);
   text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(204, 120, 92, 0.8),
-               0 0 15px rgba(204, 120, 92, 0.6),
-               0 0 20px rgba(204, 120, 92, 0.4);
+  text-shadow: 0 0 8px rgba(217, 119, 87, 0.8),
+               0 0 15px rgba(217, 119, 87, 0.6),
+               0 0 20px rgba(217, 119, 87, 0.4);
   animation: hologramTextPulse 2s ease-in-out infinite;
 }
 
@@ -544,30 +546,30 @@ strong {
 
 @keyframes hologramPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 20px rgba(204, 120, 92, 0.6))
-            drop-shadow(0 0 40px rgba(204, 120, 92, 0.4))
-            drop-shadow(0 0 60px rgba(204, 120, 92, 0.2));
+    filter: drop-shadow(0 0 20px rgba(217, 119, 87, 0.6))
+            drop-shadow(0 0 40px rgba(217, 119, 87, 0.4))
+            drop-shadow(0 0 60px rgba(217, 119, 87, 0.2));
     opacity: 1;
   }
   50% {
-    filter: drop-shadow(0 0 30px rgba(204, 120, 92, 0.8))
-            drop-shadow(0 0 50px rgba(204, 120, 92, 0.6))
-            drop-shadow(0 0 70px rgba(204, 120, 92, 0.4));
+    filter: drop-shadow(0 0 30px rgba(217, 119, 87, 0.8))
+            drop-shadow(0 0 50px rgba(217, 119, 87, 0.6))
+            drop-shadow(0 0 70px rgba(217, 119, 87, 0.4));
     opacity: 0.9;
   }
 }
 
 @keyframes hologramTextPulse {
   0%, 100% {
-    text-shadow: 0 0 10px rgba(204, 120, 92, 0.8),
-                 0 0 20px rgba(204, 120, 92, 0.6),
-                 0 0 30px rgba(204, 120, 92, 0.4);
+    text-shadow: 0 0 10px rgba(217, 119, 87, 0.8),
+                 0 0 20px rgba(217, 119, 87, 0.6),
+                 0 0 30px rgba(217, 119, 87, 0.4);
     opacity: 1;
   }
   50% {
-    text-shadow: 0 0 15px rgba(204, 120, 92, 1),
-                 0 0 30px rgba(204, 120, 92, 0.8),
-                 0 0 45px rgba(204, 120, 92, 0.6);
+    text-shadow: 0 0 15px rgba(217, 119, 87, 1),
+                 0 0 30px rgba(217, 119, 87, 0.8),
+                 0 0 45px rgba(217, 119, 87, 0.6);
     opacity: 0.9;
   }
 }
@@ -654,7 +656,7 @@ strong {
 .auth-form input:focus {
   outline: none;
   border-color: var(--claude-accent);
-  box-shadow: 0 0 0 3px rgba(204, 120, 92, 0.1);
+  box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.1);
 }
 
 .auth-submit-button {
@@ -674,7 +676,7 @@ strong {
 .auth-submit-button:hover {
   background-color: var(--claude-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.25);
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.25);
 }
 
 .auth-submit-button:disabled {
@@ -723,7 +725,7 @@ strong {
   background-color: var(--claude-accent);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.25);
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.25);
 }
 
 .auth-signup-button:disabled {

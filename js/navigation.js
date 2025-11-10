@@ -1,7 +1,129 @@
 // Navigation and Filtering Logic for SCP Cases
 
 // Store current filter for back navigation
-let currentFilter = 'all';
+let currentFilter = 'none'; // Start with 'none' to show welcome page
+
+// === Welcome Page Functions ===
+async function showWelcomePage() {
+  console.log('[Navigation] Showing welcome page');
+  const welcomePage = document.getElementById('welcomePage');
+  const pastExamsContent = document.getElementById('pastExamsContent');
+  const scpsMainContent = document.getElementById('scpsMainContent');
+
+  if (welcomePage) welcomePage.style.display = 'flex';
+  if (pastExamsContent) pastExamsContent.style.display = 'none';
+  if (scpsMainContent) scpsMainContent.style.display = 'none';
+
+  // Clear active states
+  document.querySelectorAll('.sidebar h2').forEach(h => h.classList.remove('active'));
+  document.querySelectorAll('.specialty').forEach(s => s.classList.remove('active'));
+
+  // Collapse SCPs section using global function
+  if (window.collapseScps) {
+    window.collapseScps();
+  }
+
+  // Update greeting with user's first name
+  await updateWelcomeGreeting();
+
+  currentFilter = 'none';
+  localStorage.setItem('currentFilter', 'none');
+}
+
+async function updateWelcomeGreeting() {
+  const greetingElement = document.getElementById('welcomeGreeting');
+  if (!greetingElement) return;
+
+  let firstName = null;
+
+  if (window.authSystem && window.authSystem.currentUser) {
+    const user = window.authSystem.currentUser;
+
+    // Try to get from Firestore first (more reliable for new users)
+    try {
+      const db = window.firebaseDb || firebase.firestore();
+      const userDoc = await db.collection('users').doc(user.uid).get();
+      if (userDoc.exists) {
+        const userData = userDoc.data();
+        console.log('[Navigation] Firestore user data:', userData);
+        if (userData.displayName && userData.displayName.trim()) {
+          const displayName = userData.displayName.trim();
+          // Check if it looks like an email (contains @)
+          if (displayName.includes('@')) {
+            console.log('[Navigation] Firestore displayName is email, extracting name from email');
+            firstName = extractNameFromEmail(displayName);
+          } else if (displayName.length > 0) {
+            // Check if it's just an email username (like "alex.shepherd56")
+            if (isEmailUsername(displayName)) {
+              console.log('[Navigation] Firestore displayName is email username, extracting name');
+              firstName = extractNameFromEmailUsername(displayName);
+            } else {
+              // It's a proper name
+              firstName = displayName.split(' ')[0];
+              console.log('[Navigation] Got first name from Firestore:', firstName);
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.warn('[Navigation] Could not fetch user data from Firestore:', error);
+    }
+
+    // If still null, try Firebase user profile
+    if (!firstName && user.displayName && user.displayName.trim()) {
+      const displayName = user.displayName.trim();
+      if (displayName.includes('@')) {
+        firstName = extractNameFromEmail(displayName);
+      } else if (isEmailUsername(displayName)) {
+        firstName = extractNameFromEmailUsername(displayName);
+      } else {
+        firstName = displayName.split(' ')[0];
+        console.log('[Navigation] Got first name from user.displayName:', firstName);
+      }
+    }
+
+    // Last resort: extract from email address
+    if (!firstName && user.email) {
+      console.log('[Navigation] No displayName found, extracting from email');
+      firstName = extractNameFromEmail(user.email);
+    }
+  }
+
+  // Use "there" as friendly fallback if no valid name found
+  greetingElement.textContent = `Hey there${firstName ? ', ' + firstName : ''}`;
+}
+
+// Helper function to check if a string looks like an email username
+function isEmailUsername(str) {
+  // Check if it contains dots, numbers, or underscores but no spaces
+  // and doesn't look like a proper name (no uppercase in middle)
+  return /[._\d]/.test(str) && !/\s/.test(str);
+}
+
+// Helper function to extract name from email username (before @)
+function extractNameFromEmailUsername(username) {
+  // Remove numbers and special characters
+  let name = username.split(/[._\d]/)[0];
+  // Capitalize first letter
+  if (name && name.length > 0) {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  }
+  return null;
+}
+
+// Helper function to extract name from full email
+function extractNameFromEmail(email) {
+  const username = email.split('@')[0];
+  return extractNameFromEmailUsername(username);
+}
+
+function hideWelcomePage() {
+  const welcomePage = document.getElementById('welcomePage');
+  if (welcomePage) welcomePage.style.display = 'none';
+}
+
+// Make showWelcomePage globally accessible
+window.showWelcomePage = showWelcomePage;
 
 // === Mobile Menu Functionality ===
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -45,25 +167,67 @@ const specialties = document.querySelectorAll('.specialty');
 const weekSections = document.querySelectorAll('.week');
 
 function applyFilterBySpecialty(filter) {
-  document.querySelectorAll('.case-card').forEach(card => {
+  // Only filter case-cards inside scpsMainContent
+  document.querySelectorAll('#scpsMainContent .case-card').forEach(card => {
     card.style.display = card.classList.contains(filter) ? 'flex' : 'none';
   });
+
+  let firstVisibleWeek = null;
+
   weekSections.forEach(week => {
     const grid = week.nextElementSibling;
     const hasCases = Array.from(grid.querySelectorAll('.case-card'))
       .some(c => c.classList.contains(filter));
     week.style.display = hasCases ? 'block' : 'none';
     grid.style.display = hasCases ? 'flex' : 'none';
+
+    // Track first visible week
+    if (hasCases && !firstVisibleWeek) {
+      firstVisibleWeek = week;
+    }
+
+    // Remove first-visible class from all
+    week.classList.remove('first-visible-week');
   });
+
+  // Add first-visible class to the first visible week
+  if (firstVisibleWeek) {
+    firstVisibleWeek.classList.add('first-visible-week');
+  }
 }
 
 specialties.forEach(spec => {
   spec.addEventListener('click', () => {
+    // Hide welcome page
+    hideWelcomePage();
+
+    // Show SCPs content, hide Past Exams content
+    const scpsMainContent = document.getElementById('scpsMainContent');
+    const pastExamsContent = document.getElementById('pastExamsContent');
+    if (scpsMainContent) scpsMainContent.style.display = 'block';
+    if (pastExamsContent) pastExamsContent.style.display = 'none';
+
     specialties.forEach(s => s.classList.remove('active'));
     groupHeaders.forEach(g => g.classList.remove('active'));
+    // Remove active from Past Exams section
+    const pastExamsSection = document.getElementById('pastExamsSection');
+    if (pastExamsSection) pastExamsSection.classList.remove('active');
     spec.classList.add('active');
-    saveCurrentFilter(spec.dataset.filter);
-    applyFilterBySpecialty(spec.dataset.filter);
+
+    const filter = spec.dataset.filter;
+    saveCurrentFilter(filter);
+    applyFilterBySpecialty(filter);
+
+    // Scroll to top of main content
+    const mainElement = document.querySelector('.main');
+    if (mainElement) {
+      mainElement.scrollTop = 0;
+    }
+
+    // Expand SCPs if collapsed
+    if (window.expandScps && window.scpsState && !window.scpsState.isExpanded) {
+      window.expandScps();
+    }
   });
 });
 
@@ -71,8 +235,20 @@ specialties.forEach(spec => {
 const groupHeaders = document.querySelectorAll('h2[data-group]');
 groupHeaders.forEach(group => {
   group.addEventListener('click', () => {
+    // Hide welcome page
+    hideWelcomePage();
+
+    // Show SCPs content, hide Past Exams content
+    const scpsMainContent = document.getElementById('scpsMainContent');
+    const pastExamsContent = document.getElementById('pastExamsContent');
+    if (scpsMainContent) scpsMainContent.style.display = 'block';
+    if (pastExamsContent) pastExamsContent.style.display = 'none';
+
     specialties.forEach(s => s.classList.remove('active'));
     groupHeaders.forEach(g => g.classList.remove('active'));
+    // Remove active from Past Exams section
+    const pastExamsSection = document.getElementById('pastExamsSection');
+    if (pastExamsSection) pastExamsSection.classList.remove('active');
     group.classList.add('active');
     const groupName = group.dataset.group;
     let filters = [];
@@ -93,16 +269,39 @@ groupHeaders.forEach(group => {
       saveCurrentFilter('surgery');
     }
 
-    document.querySelectorAll('.case-card').forEach(card => {
+    // Only filter case-cards inside scpsMainContent
+    document.querySelectorAll('#scpsMainContent .case-card').forEach(card => {
       card.style.display = filters.some(f => card.classList.contains(f)) ? 'flex' : 'none';
     });
+
+    let firstVisibleWeek = null;
+
     weekSections.forEach(week => {
       const grid = week.nextElementSibling;
       const hasCases = Array.from(grid.querySelectorAll('.case-card'))
         .some(c => filters.some(f => c.classList.contains(f)));
       week.style.display = hasCases ? 'block' : 'none';
       grid.style.display = hasCases ? 'flex' : 'none';
+
+      // Track first visible week
+      if (hasCases && !firstVisibleWeek) {
+        firstVisibleWeek = week;
+      }
+
+      // Remove first-visible class from all
+      week.classList.remove('first-visible-week');
     });
+
+    // Add first-visible class to the first visible week
+    if (firstVisibleWeek) {
+      firstVisibleWeek.classList.add('first-visible-week');
+    }
+
+    // Scroll to top of main content
+    const mainElement = document.querySelector('.main');
+    if (mainElement) {
+      mainElement.scrollTop = 0;
+    }
   });
 });
 
@@ -121,7 +320,8 @@ function showFlaggedCasesOnly() {
     return; // No flag system available
   }
 
-  document.querySelectorAll('.case-card').forEach(card => {
+  // Only filter case-cards inside scpsMainContent
+  document.querySelectorAll('#scpsMainContent .case-card').forEach(card => {
     const href = card.getAttribute('href');
     const match = href ? href.match(/case(\d+_\d+)/) : null;
 
@@ -133,13 +333,34 @@ function showFlaggedCasesOnly() {
     }
   });
 
+  let firstVisibleWeek = null;
+
   weekSections.forEach(week => {
     const grid = week.nextElementSibling;
     const hasCases = Array.from(grid.querySelectorAll('.case-card'))
       .some(c => c.style.display === 'flex');
     week.style.display = hasCases ? 'block' : 'none';
     grid.style.display = hasCases ? 'flex' : 'none';
+
+    // Track first visible week
+    if (hasCases && !firstVisibleWeek) {
+      firstVisibleWeek = week;
+    }
+
+    // Remove first-visible class from all
+    week.classList.remove('first-visible-week');
   });
+
+  // Add first-visible class to the first visible week
+  if (firstVisibleWeek) {
+    firstVisibleWeek.classList.add('first-visible-week');
+  }
+
+  // Scroll to top of main content
+  const mainElement = document.querySelector('.main');
+  if (mainElement) {
+    mainElement.scrollTop = 0;
+  }
 }
 
 // === Auto Count Script ===
@@ -290,35 +511,86 @@ if (window.completionTracker) {
   }, 100);
 }
 
-// Check for filter parameter in URL or use stored filter
-const urlParams = new URLSearchParams(window.location.search);
-const filterParam = urlParams.get('filter');
-// Use stored filter from localStorage if available
-const storedFilter = localStorage.getItem('currentFilter');
-const initialFilter = filterParam || storedFilter || 'all';
-
-// Apply the initial filter
-if (initialFilter === 'all' || initialFilter === 'medicine' || initialFilter === 'surgery') {
-  // Click on group header
-  const targetGroup = document.querySelector(`h2[data-group="${initialFilter}"]`);
-  if (targetGroup) targetGroup.click();
-} else {
-  // Click on specific specialty
-  const targetSpec = document.querySelector(`.specialty[data-filter="${initialFilter}"]`);
-  if (targetSpec) {
-    targetSpec.click();
-  } else {
-    // Fallback to All SCPs
-    document.querySelector('h2[data-group="all"]').click();
-  }
-}
+// Initial filter will be applied in DOMContentLoaded to ensure elements exist
 
 // === Scroll Position Management ===
-// TODO: Implement scroll restoration in future session
+// Save scroll positions periodically for reload scenarios
+document.addEventListener('DOMContentLoaded', () => {
+  const mainElement = document.querySelector('.main');
+  const sidebarElement = document.querySelector('.sidebar');
+
+  // Debounce function to limit how often we save
+  let scrollSaveTimeout;
+  function saveScrollPositions() {
+    clearTimeout(scrollSaveTimeout);
+    scrollSaveTimeout = setTimeout(() => {
+      if (mainElement) {
+        localStorage.setItem('mainScrollPosition', mainElement.scrollTop);
+      }
+      if (sidebarElement) {
+        localStorage.setItem('sidebarScrollPosition', sidebarElement.scrollTop);
+      }
+    }, 100);
+  }
+
+  // Listen for scroll events
+  if (mainElement) {
+    mainElement.addEventListener('scroll', saveScrollPositions);
+  }
+  if (sidebarElement) {
+    sidebarElement.addEventListener('scroll', saveScrollPositions);
+  }
+});
+
+// === Case Card Click Handlers ===
+// Ensure filter and scroll position are saved when clicking on case cards
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.case-card:not(.exam-type-card)').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Get current active filter
+      const activeSpec = document.querySelector('.specialty.active');
+      const activeGroup = document.querySelector('h2[data-group].active');
+
+      let filterToSave = 'all';
+
+      if (activeSpec) {
+        filterToSave = activeSpec.dataset.filter;
+        console.log('[Navigation] Saving filter from active specialty:', filterToSave);
+      } else if (activeGroup) {
+        filterToSave = activeGroup.dataset.group;
+        console.log('[Navigation] Saving filter from active group:', filterToSave);
+      } else {
+        // No active filter, check which category this card belongs to
+        const cardClasses = Array.from(card.classList);
+        const specialtyClass = cardClasses.find(cls =>
+          ['cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology',
+           'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og',
+           'git', 'general', 'breast', 'ortho', 'vascular'].includes(cls)
+        );
+        if (specialtyClass) {
+          filterToSave = specialtyClass;
+          console.log('[Navigation] No active filter, detected from card classes:', filterToSave);
+        }
+      }
+
+      // Save scroll positions (main content and sidebar)
+      const mainElement = document.querySelector('.main');
+      const sidebarElement = document.querySelector('.sidebar');
+      const mainScrollPosition = mainElement ? mainElement.scrollTop : 0;
+      const sidebarScrollPosition = sidebarElement ? sidebarElement.scrollTop : 0;
+
+      console.log('[Navigation] Case card clicked, saving filter:', filterToSave, 'main scroll:', mainScrollPosition, 'sidebar scroll:', sidebarScrollPosition);
+      localStorage.setItem('currentFilter', filterToSave);
+      localStorage.setItem('mainScrollPosition', mainScrollPosition);
+      localStorage.setItem('sidebarScrollPosition', sidebarScrollPosition);
+    }, true); // Use capturing phase to run before navigation
+  });
+});
 
 // === Search Functionality ===
 function performSearch(searchTerm) {
-  const allCards = document.querySelectorAll('.case-card');
+  // Only search case-cards inside scpsMainContent
+  const allCards = document.querySelectorAll('#scpsMainContent .case-card');
 
   if (searchTerm === '') {
     // If search is empty, restore current filter view
@@ -403,3 +675,309 @@ if (mobileSearchInput) {
     }
   });
 }
+
+// === Past Exams Section ===
+const pastExamsSection = document.getElementById('pastExamsSection');
+const pastExamsContent = document.getElementById('pastExamsContent');
+const scpsMainContent = document.getElementById('scpsMainContent');
+const saqExamCard = document.getElementById('saqExamCard');
+const saqExamModal = document.getElementById('saqExamModal');
+const closeSaqModal = document.getElementById('closeSaqModal');
+
+// Handle Past Exams click
+if (pastExamsSection) {
+  pastExamsSection.addEventListener('click', (e) => {
+    console.log('Past Exams clicked in navigation.js');
+    e.stopPropagation(); // Prevent event bubbling
+
+    // Hide welcome page
+    hideWelcomePage();
+
+    // Hide SCPs content, show Past Exams content
+    if (scpsMainContent) {
+      scpsMainContent.style.display = 'none';
+      console.log('SCPs content hidden');
+    }
+    if (pastExamsContent) {
+      pastExamsContent.style.display = 'block';
+      console.log('Past Exams content shown');
+    }
+
+    // Collapse SCPs section using global function
+    if (window.collapseScps) {
+      window.collapseScps();
+      console.log('SCPs section collapsed');
+    }
+
+    // Update sidebar active states - remove active from all
+    document.querySelectorAll('.sidebar h2').forEach(h => h.classList.remove('active'));
+    document.querySelectorAll('.specialty').forEach(s => s.classList.remove('active'));
+
+    // Add active to Past Exams only
+    pastExamsSection.classList.add('active');
+
+    saveCurrentFilter('past-exams');
+  });
+} else {
+  console.log('pastExamsSection not found!');
+}
+
+// SAQ card click is now handled below with updateExamModal
+
+// Handle SAQ modal close
+if (closeSaqModal) {
+  closeSaqModal.addEventListener('click', () => {
+    if (saqExamModal) {
+      saqExamModal.style.display = 'none';
+    }
+    // Ensure we stay on Past Exams page when modal closes
+    if (pastExamsSection && !pastExamsSection.classList.contains('active')) {
+      pastExamsSection.click();
+    }
+  });
+}
+
+// Close modal when clicking outside
+if (saqExamModal) {
+  saqExamModal.addEventListener('click', (e) => {
+    if (e.target === saqExamModal) {
+      saqExamModal.style.display = 'none';
+      // Ensure we stay on Past Exams page when modal closes
+      if (pastExamsSection && !pastExamsSection.classList.contains('active')) {
+        pastExamsSection.click();
+      }
+    }
+  });
+}
+
+// Handle exam item clicks
+document.querySelectorAll('.exam-item').forEach(item => {
+  item.addEventListener('click', (e) => {
+    // Don't navigate if clicking the mark complete button
+    if (e.target.classList.contains('mark-complete-btn')) {
+      return;
+    }
+    const examYear = item.dataset.exam;
+    // Navigate to exam page (we'll create this next)
+    window.location.href = `exams/saq-${examYear}.html`;
+  });
+});
+
+// Update exam modal with progress info
+function updateExamModal() {
+  // Update 2024 exam progress
+  const exam2024Progress = JSON.parse(localStorage.getItem('saq-2024-progress') || 'null');
+  const exam2024Completion = localStorage.getItem('saq-2024-completed') === 'true';
+
+  const totalQuestions = 35;
+  let attemptedCount = 0;
+  let flaggedCount = 0;
+
+  if (exam2024Progress && exam2024Progress.questions) {
+    // Count attempted (questions with answers) and flagged questions
+    attemptedCount = exam2024Progress.questions.filter(q => q.answer && q.answer.trim()).length;
+    flaggedCount = exam2024Progress.questions.filter(q => q.flagged).length;
+  }
+
+  // Update progress bar
+  const progressBar = document.getElementById('exam2024Progress');
+  if (progressBar) {
+    const progressPercent = (attemptedCount / totalQuestions) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+  }
+
+  // Update attempts count
+  const attemptsCount = document.getElementById('exam2024Attempts');
+  if (attemptsCount) {
+    attemptsCount.textContent = `${attemptedCount}/${totalQuestions} Questions Attempted`;
+  }
+
+  // Update flagged badge
+  const flaggedBadge = document.getElementById('exam2024Flagged');
+  if (flaggedBadge) {
+    if (flaggedCount > 0) {
+      flaggedBadge.textContent = `${flaggedCount} Question${flaggedCount !== 1 ? 's' : ''} Flagged`;
+      flaggedBadge.style.display = 'inline-block';
+    } else {
+      flaggedBadge.style.display = 'none';
+    }
+  }
+
+  // Update completion icon
+  const completionIcon = document.getElementById('exam2024CompletionIcon');
+  if (completionIcon) {
+    if (exam2024Completion) {
+      completionIcon.style.display = 'flex';
+    } else {
+      completionIcon.style.display = 'none';
+    }
+  }
+}
+
+// Handle completion icon click for 2024 exam
+const exam2024CompletionIcon = document.getElementById('exam2024CompletionIcon');
+if (exam2024CompletionIcon) {
+  exam2024CompletionIcon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isCompleted = localStorage.getItem('saq-2024-completed') === 'true';
+
+    if (isCompleted) {
+      // Uncomplete
+      localStorage.setItem('saq-2024-completed', 'false');
+    } else {
+      // Mark as completed
+      localStorage.setItem('saq-2024-completed', 'true');
+    }
+
+    updateExamModal();
+  });
+}
+
+// Handle clicking on exam card to mark as complete if all questions attempted
+document.addEventListener('click', (e) => {
+  const examCard = e.target.closest('.exam-card-style[data-exam="2024"]');
+  if (examCard) {
+    // Check if clicked on completion icon area (top right)
+    const rect = examCard.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
+
+    // If clicked in top right corner (where icon is), toggle completion
+    if (clickX > rect.width - 60 && clickY < 60) {
+      e.stopPropagation();
+      const exam2024Progress = JSON.parse(localStorage.getItem('saq-2024-progress') || 'null');
+      const attemptedCount = exam2024Progress?.questions?.filter(q => q.answer && q.answer.trim()).length || 0;
+
+      // Only allow marking complete if at least some progress
+      if (attemptedCount > 0) {
+        const isCompleted = localStorage.getItem('saq-2024-completed') === 'true';
+        localStorage.setItem('saq-2024-completed', isCompleted ? 'false' : 'true');
+        updateExamModal();
+      }
+      return;
+    }
+
+    // Otherwise, open the exam
+    window.location.href = 'exams/saq-2024.html';
+  }
+});
+
+// Update modal when it opens
+if (saqExamCard) {
+  saqExamCard.addEventListener('click', () => {
+    updateExamModal();
+    if (saqExamModal) {
+      saqExamModal.style.display = 'flex';
+    }
+  });
+}
+
+// Initialize correct content based on URL parameter or saved filter
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('[Navigation] DOMContentLoaded - Initializing filter');
+
+  // Check for filter parameter in URL or use stored filter
+  const urlParams = new URLSearchParams(window.location.search);
+  const filterParam = urlParams.get('filter');
+  const storedFilter = localStorage.getItem('currentFilter');
+  const initialFilter = filterParam || storedFilter || 'none';
+
+  console.log('[Navigation] Initial filter:', initialFilter, 'from URL:', filterParam, 'from storage:', storedFilter);
+
+  // Apply the initial filter
+  if (initialFilter === 'none') {
+    // Show welcome page
+    showWelcomePage();
+  } else if (initialFilter === 'all' || initialFilter === 'medicine' || initialFilter === 'surgery' || initialFilter === 'flagged') {
+    // Click on group header
+    const targetGroup = document.querySelector(`h2[data-group="${initialFilter}"]`);
+    if (targetGroup) {
+      console.log('[Navigation] Clicking group:', initialFilter);
+      targetGroup.click();
+    } else {
+      console.warn('[Navigation] Group not found:', initialFilter);
+      showWelcomePage();
+    }
+  } else if (initialFilter === 'past-exams') {
+    // Show past exams
+    const pastExamsSection = document.getElementById('pastExamsSection');
+    if (pastExamsSection) {
+      console.log('[Navigation] Clicking past exams');
+      pastExamsSection.click();
+    }
+  } else {
+    // Click on specific specialty
+    const targetSpec = document.querySelector(`.specialty[data-filter="${initialFilter}"]`);
+    if (targetSpec) {
+      console.log('[Navigation] Clicking specialty:', initialFilter);
+      targetSpec.click();
+    } else {
+      console.warn('[Navigation] Specialty not found:', initialFilter, '- defaulting to All SCPs');
+      // Fallback to All SCPs instead of welcome page
+      const allScps = document.querySelector('h2[data-group="all"]');
+      if (allScps) {
+        allScps.click();
+      } else {
+        showWelcomePage();
+      }
+    }
+  }
+
+  // Restore scroll positions if provided in URL or localStorage
+  const scrollParam = urlParams.get('scroll');
+  const sidebarScrollParam = urlParams.get('sidebarScroll');
+
+  // Also check localStorage for scroll positions (in case of simple reload without URL params)
+  const storedMainScroll = localStorage.getItem('mainScrollPosition');
+  const storedSidebarScroll = localStorage.getItem('sidebarScrollPosition');
+
+  const mainScrollPosition = scrollParam ? parseInt(scrollParam, 10) : (storedMainScroll ? parseInt(storedMainScroll, 10) : 0);
+  const sidebarScrollPosition = sidebarScrollParam ? parseInt(sidebarScrollParam, 10) : (storedSidebarScroll ? parseInt(storedSidebarScroll, 10) : 0);
+
+  if (mainScrollPosition > 0 || sidebarScrollPosition > 0) {
+    console.log('[Navigation] Restoring scroll positions - main:', mainScrollPosition, 'sidebar:', sidebarScrollPosition);
+
+    // Restore scroll immediately to prevent flash
+    const mainElement = document.querySelector('.main');
+    const sidebarElement = document.querySelector('.sidebar');
+
+    if (mainElement && mainScrollPosition > 0) {
+      mainElement.scrollTop = mainScrollPosition;
+    }
+    if (sidebarElement && sidebarScrollPosition > 0) {
+      sidebarElement.scrollTop = sidebarScrollPosition;
+    }
+
+    // Also restore after a delay to ensure content is fully rendered
+    setTimeout(() => {
+      if (mainElement && mainScrollPosition > 0) {
+        mainElement.scrollTop = mainScrollPosition;
+        console.log('[Navigation] Main scroll restored to:', mainScrollPosition);
+      }
+      if (sidebarElement && sidebarScrollPosition > 0) {
+        sidebarElement.scrollTop = sidebarScrollPosition;
+        console.log('[Navigation] Sidebar scroll restored to:', sidebarScrollPosition);
+      }
+    }, 150);
+  }
+
+  // Check if URL has #exams hash and open the SAQ Exams modal
+  if (window.location.hash === '#exams') {
+    console.log('[Navigation] Opening SAQ Exams modal from hash');
+    // Clear the hash
+    history.replaceState(null, null, ' ');
+
+    // Navigate to Past Exams section first
+    if (pastExamsSection) {
+      pastExamsSection.click();
+    }
+
+    // Then update and open the modal
+    setTimeout(() => {
+      updateExamModal();
+      if (saqExamModal) {
+        saqExamModal.style.display = 'flex';
+      }
+    }, 100);
+  }
+});

@@ -412,6 +412,23 @@ class AuthSystem {
 
     // Hide auth modal if open
     this.closeAuthModal();
+
+    // Only show welcome page if there's no navigation intent (no filter in URL or localStorage)
+    setTimeout(() => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const filterParam = urlParams.get('filter');
+      const storedFilter = localStorage.getItem('currentFilter');
+
+      // Only show welcome page if no filter is specified and storage is 'none' or empty
+      if (!filterParam && (!storedFilter || storedFilter === 'none')) {
+        if (window.showWelcomePage) {
+          console.log('[Auth] No navigation intent, showing welcome page after login');
+          window.showWelcomePage();
+        }
+      } else {
+        console.log('[Auth] Navigation intent detected, skipping welcome page', { filterParam, storedFilter });
+      }
+    }, 100);
   }
 
   // Show unauthenticated UI

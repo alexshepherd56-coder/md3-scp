@@ -1,15 +1,16 @@
 /* Main SCP Cases Stylesheet - Claude-inspired Design */
 
 :root {
-  --claude-cream: #F4F1EA;
-  --claude-text: #2B1F15;
-  --claude-accent: #CC785C;
-  --claude-hover: #B66A4E;
+  --claude-cream: #F9F6F1;
+  --claude-text: #0A0A0A;
+  --claude-accent: #D97757;
+  --claude-hover: #C5654A;
   --claude-border: #E8E3D9;
-  --claude-card-bg: #FDFCFA;
+  --claude-card-bg: #FFFFFF;
   --claude-sidebar: #FFFFFF;
-  --claude-secondary: #5A4A3F;
-  --claude-light-accent: #F9EDE6;
+  --claude-secondary: #4B535A;
+  --claude-light-accent: #FBF0ED;
+  --claude-primary: #0A2540;
 }
 
 * {
@@ -54,9 +55,64 @@ header {
 
 .logo-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 2px;
+  gap: 12px;
+}
+
+.claude-logo {
+  height: 40px;
+  width: 40px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.claude-logo:hover {
+  transform: rotate(180deg);
+}
+
+.logo-animation-group {
+  transform-origin: center;
+  animation: logo-pulse 3s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.logo-spike {
+  animation: spike-float 4s ease-in-out infinite;
+}
+
+.logo-spike:nth-child(2) { animation-delay: 0s; }
+.logo-spike:nth-child(3) { animation-delay: 0.5s; }
+.logo-spike:nth-child(4) { animation-delay: 1s; }
+.logo-spike:nth-child(5) { animation-delay: 1.5s; }
+.logo-spike:nth-child(6) { animation-delay: 2s; }
+.logo-spike:nth-child(7) { animation-delay: 2.5s; }
+.logo-spike:nth-child(8) { animation-delay: 3s; }
+.logo-spike:nth-child(9) { animation-delay: 3.5s; }
+
+@keyframes spike-float {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.mdhub-text {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--claude-text);
+  letter-spacing: -0.01em;
 }
 
 .sheptech-logo-header {
@@ -113,7 +169,7 @@ header h1 {
   outline: none;
   border-color: var(--claude-accent);
   background: var(--claude-card-bg);
-  box-shadow: 0 0 0 3px rgba(204, 120, 92, 0.1);
+  box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.1);
 }
 
 .header-right {
@@ -143,7 +199,7 @@ header h1 {
   background-color: var(--claude-light-accent);
   border-color: var(--claude-accent);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(204, 120, 92, 0.15);
+  box-shadow: 0 2px 8px rgba(217, 119, 87, 0.15);
 }
 
 .flagged-count {
@@ -174,7 +230,7 @@ header h1 {
 .auth-button:hover {
   background-color: var(--claude-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.25);
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.25);
 }
 
 /* User Profile Circle */
@@ -186,21 +242,23 @@ header h1 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--claude-accent), var(--claude-hover));
+  background: var(--claude-text);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(204, 120, 92, 0.2);
+  box-shadow: 0 2px 8px rgba(10, 10, 10, 0.2);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: -0.01em;
 }
 
 .user-initial-circle:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.3);
+  box-shadow: 0 4px 12px rgba(10, 10, 10, 0.3);
 }
 
 /* User Dropdown */
@@ -264,11 +322,76 @@ header h1 {
   cursor: pointer;
   transition: background 0.2s ease;
   text-align: left;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0;
 }
 
 .dropdown-signout-btn:hover {
   background: var(--claude-light-accent);
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--claude-border);
+  border-radius: 0 0 12px 12px;
+}
+
+.dark-mode-label {
+  font-size: 14px;
+  color: var(--claude-text);
+  font-weight: 500;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: all 0.3s ease;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: var(--claude-text);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+.toggle-switch:hover .toggle-slider {
+  opacity: 0.9;
 }
 
 /* Sidebar */
@@ -317,6 +440,101 @@ header h1 {
 .sidebar h2.active {
   background-color: var(--claude-light-accent);
   color: var(--claude-accent);
+}
+
+/* Sidebar Icons */
+.sidebar-icon {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+#scpsToggle .sidebar-icon {
+  position: relative;
+  top: 3px;
+}
+
+/* Main Section Headings - Past Exams and SCPs Toggle */
+.sidebar-main-heading,
+#pastExamsSection,
+#scpsToggle {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 12px 14px;
+  background-color: transparent;
+  border-left: 3px solid transparent;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  text-transform: none;
+}
+
+#pastExamsSection {
+  text-transform: capitalize;
+  margin-top: 8px;
+}
+
+#scpsToggle {
+  margin-top: 4px;
+}
+
+#pastExamsSection:hover,
+#scpsToggle:hover {
+  background-color: var(--claude-light-accent);
+  border-left-color: var(--claude-border);
+}
+
+#pastExamsSection.active,
+#scpsToggle.active {
+  background-color: var(--claude-light-accent);
+  color: var(--claude-accent);
+  border-left-color: var(--claude-accent);
+}
+
+/* Sub-headings under SCPs (Flagged Cases, All SCPs, Medicine, Surgery) */
+#scpsContent > h2 {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 8px 0 4px 0;
+}
+
+/* First sub-heading (Flagged Cases or All SCPs) - closer to SCPs heading */
+#scpsContent > h2:first-child {
+  margin-top: 4px;
+}
+
+/* Surgery heading - add more space above to separate from Medicine section */
+#scpsContent > h2[data-group="surgery"] {
+  margin-top: 16px;
+}
+
+#scpsContent > h2:hover {
+  background-color: var(--claude-light-accent);
+}
+
+#scpsContent > h2.active {
+  background-color: var(--claude-light-accent);
+  color: var(--claude-accent);
+}
+
+/* SCPs toggle chevron positioning */
+#scpsToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scps-toggle-content {
+  flex: 0 0 auto;
+}
+
+.chevron-icon {
+  font-size: 1.2em;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  margin-left: auto;
 }
 
 /* Completion Progress for Sidebar Headings */
@@ -408,12 +626,49 @@ header h1 {
   font-weight: 500;
   letter-spacing: -0.02em;
   border-top: 1px solid var(--claude-border);
+  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
-.week:first-of-type {
+.week:first-of-type,
+.week.first-visible-week {
   border-top: none;
   padding-top: 0;
   margin-top: 0;
+}
+
+/* Welcome Page */
+#welcomePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  width: 100%;
+}
+
+.welcome-container {
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+}
+
+.welcome-greeting {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 56px;
+  font-weight: 400;
+  color: var(--claude-text);
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.welcome-subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--claude-secondary);
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .case-grid {
@@ -449,7 +704,7 @@ header h1 {
 
 .case-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(204, 120, 92, 0.12);
+  box-shadow: 0 8px 24px rgba(217, 119, 87, 0.12);
   border-color: var(--claude-accent);
 }
 
@@ -569,7 +824,7 @@ a.case-card {
 
 .case-card.completed {
   border-color: #4CAF50;
-  background: linear-gradient(135deg, #FDFCFA 0%, #F0FFF0 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0FFF0 100%);
 }
 
 /* Case Flag Bookmark */
@@ -727,7 +982,18 @@ a.case-card {
   position: relative;
   animation: modalFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--claude-border);
+}
+
+/* SAQ Exam Modal - width to fit 2 exam tiles */
+#saqExamModal .modal-content {
+  max-width: 500px;
+  width: 500px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+#saqExamModal h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
 }
 
 @keyframes modalFadeIn {
@@ -790,7 +1056,7 @@ button.toggle {
 button.toggle:hover {
   background-color: var(--claude-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.25);
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.25);
 }
 
 /* Authentication Modal */
@@ -801,7 +1067,7 @@ button.toggle:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(43, 31, 21, 0.7);
+  background-color: rgba(217, 119, 87, 0.7);
   backdrop-filter: blur(8px);
   flex-direction: column;
   justify-content: center;
@@ -824,13 +1090,13 @@ button.toggle:hover {
 
 @keyframes heroTextPulse {
   0%, 100% {
-    text-shadow: 0 0 20px rgba(204, 120, 92, 0.8),
-                 0 0 40px rgba(204, 120, 92, 0.5),
+    text-shadow: 0 0 20px rgba(217, 119, 87, 0.8),
+                 0 0 40px rgba(217, 119, 87, 0.5),
                  0 2px 10px rgba(0, 0, 0, 0.3);
   }
   50% {
-    text-shadow: 0 0 30px rgba(204, 120, 92, 1),
-                 0 0 50px rgba(204, 120, 92, 0.7),
+    text-shadow: 0 0 30px rgba(217, 119, 87, 1),
+                 0 0 50px rgba(217, 119, 87, 0.7),
                  0 2px 10px rgba(0, 0, 0, 0.3);
   }
 }
@@ -887,30 +1153,30 @@ button.toggle:hover {
 
 @keyframes hologramPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 20px rgba(204, 120, 92, 0.6))
-            drop-shadow(0 0 40px rgba(204, 120, 92, 0.4))
-            drop-shadow(0 0 60px rgba(204, 120, 92, 0.2));
+    filter: drop-shadow(0 0 20px rgba(217, 119, 87, 0.6))
+            drop-shadow(0 0 40px rgba(217, 119, 87, 0.4))
+            drop-shadow(0 0 60px rgba(217, 119, 87, 0.2));
     opacity: 1;
   }
   50% {
-    filter: drop-shadow(0 0 30px rgba(204, 120, 92, 0.8))
-            drop-shadow(0 0 50px rgba(204, 120, 92, 0.6))
-            drop-shadow(0 0 70px rgba(204, 120, 92, 0.4));
+    filter: drop-shadow(0 0 30px rgba(217, 119, 87, 0.8))
+            drop-shadow(0 0 50px rgba(217, 119, 87, 0.6))
+            drop-shadow(0 0 70px rgba(217, 119, 87, 0.4));
     opacity: 0.9;
   }
 }
 
 @keyframes hologramTextPulse {
   0%, 100% {
-    text-shadow: 0 0 10px rgba(204, 120, 92, 0.8),
-                 0 0 20px rgba(204, 120, 92, 0.6),
-                 0 0 30px rgba(204, 120, 92, 0.4);
+    text-shadow: 0 0 10px rgba(217, 119, 87, 0.8),
+                 0 0 20px rgba(217, 119, 87, 0.6),
+                 0 0 30px rgba(217, 119, 87, 0.4);
     opacity: 1;
   }
   50% {
-    text-shadow: 0 0 15px rgba(204, 120, 92, 1),
-                 0 0 30px rgba(204, 120, 92, 0.8),
-                 0 0 45px rgba(204, 120, 92, 0.6);
+    text-shadow: 0 0 15px rgba(217, 119, 87, 1),
+                 0 0 30px rgba(217, 119, 87, 0.8),
+                 0 0 45px rgba(217, 119, 87, 0.6);
     opacity: 0.9;
   }
 }
@@ -987,7 +1253,7 @@ button.toggle:hover {
 .auth-form input:focus {
   outline: none;
   border-color: var(--claude-accent);
-  box-shadow: 0 0 0 2px rgba(204, 120, 92, 0.15);
+  box-shadow: 0 0 0 2px rgba(217, 119, 87, 0.15);
 }
 
 .auth-submit-button {
@@ -1056,7 +1322,7 @@ button.toggle:hover {
   background-color: var(--claude-accent);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.25);
+  box-shadow: 0 4px 12px rgba(217, 119, 87, 0.25);
 }
 
 .auth-signup-button:disabled {
@@ -1236,6 +1502,19 @@ button.toggle:hover {
     min-width: 100%;
   }
 
+  /* Welcome page mobile adjustments */
+  .welcome-greeting {
+    font-size: 36px;
+  }
+
+  .welcome-subtitle {
+    font-size: 18px;
+  }
+
+  .welcome-container {
+    padding: 20px;
+  }
+
   /* Mobile search - show at top of main content */
   .main::before {
     content: '';
@@ -1277,6 +1556,216 @@ button.toggle:hover {
   }
 }
 
+/* Past Exams Section */
+#pastExamsContent {
+  display: none;
+}
+
+#pastExamsContent .week,
+#pastExamsContent .case-grid {
+  display: block !important;
+}
+
+#pastExamsContent .case-grid {
+  display: flex !important;
+}
+
+/* Force Past Exams cards to always be visible */
+#pastExamsContent .case-card {
+  display: flex !important;
+}
+
+/* Exam Modal Enhancements */
+.exam-item {
+  padding: 24px;
+  margin-bottom: 16px;
+  border: 1px solid var(--claude-border);
+  border-radius: 12px;
+  background: var(--claude-card-bg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exam-item:hover {
+  border-color: var(--claude-accent);
+  background: var(--claude-light-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.15);
+}
+
+.exam-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.exam-item h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--claude-text);
+}
+
+.exam-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.exam-completion-badge {
+  padding: 4px 10px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: none;
+}
+
+.exam-completion-badge.completed {
+  display: inline-block;
+}
+
+.exam-flags-badge {
+  padding: 4px 10px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  display: none;
+}
+
+.exam-flags-badge.has-flags {
+  display: inline-block;
+}
+
+.mark-complete-btn {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--claude-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 12px;
+}
+
+.mark-complete-btn:hover {
+  background: var(--claude-hover);
+  transform: translateY(-1px);
+}
+
+.mark-complete-btn.completed {
+  background: #4CAF50;
+}
+
+.exam-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* New exam card style matching case cards */
+.exam-card-style {
+  position: relative;
+  width: 100%;
+}
+
+.exam-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  min-height: 28px;
+}
+
+.exam-title-with-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.exam-title-with-badge h3 {
+  margin: 0;
+}
+
+.exam-flagged-badge {
+  padding: 6px 12px;
+  background: rgba(255, 107, 107, 0.05);
+  border: 1.5px solid #ff6b6b;
+  color: #ff6b6b;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.exam-completion-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #4CAF50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exam-completion-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+/* Placeholder for completion icon area (to keep space) */
+.exam-card-header::after {
+  content: '';
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  visibility: hidden;
+}
+
+/* Hide placeholder when icon is visible */
+.exam-card-header:has(.exam-completion-icon[style*="display: flex"])::after {
+  display: none;
+}
+
+.exam-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #E8E3D9;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.exam-progress-fill {
+  height: 100%;
+  background: #4CAF50;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+.exam-attempts-count {
+  text-align: right;
+  font-size: 13px;
+  color: var(--claude-secondary);
+  font-weight: 500;
+}
+
 /* Tablet adjustments */
 @media (min-width: 769px) and (max-width: 1024px) {
   .sidebar {
@@ -1300,5 +1789,572 @@ button.toggle:hover {
     width: calc(50% - 10px);
     max-width: calc(50% - 10px);
     min-width: calc(50% - 10px);
+  }
+}
+
+/* ===== DARK MODE ===== */
+body.dark-mode {
+  --claude-cream: #1a1a1a;
+  --claude-text: #e8e8e8;
+  --claude-accent: #D97757;
+  --claude-hover: #C5654A;
+  --claude-border: #333333;
+  --claude-card-bg: #242424;
+  --claude-sidebar: #1f1f1f;
+  --claude-secondary: #b0b0b0;
+  --claude-light-accent: #2a2a2a;
+  --claude-primary: #e8e8e8;
+  background-color: var(--claude-cream);
+  color: var(--claude-text);
+}
+
+body.dark-mode .search-bar {
+  background: #2a2a2a;
+  color: var(--claude-text);
+  border-color: var(--claude-border);
+}
+
+body.dark-mode .case-card {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+  color: var(--claude-text);
+}
+
+body.dark-mode .week {
+  color: var(--claude-text);
+  border-color: var(--claude-border);
+}
+
+body.dark-mode header {
+  background: var(--claude-sidebar);
+  border-bottom-color: var(--claude-border);
+}
+
+body.dark-mode .sidebar {
+  background-color: var(--claude-sidebar);
+  border-right-color: var(--claude-border);
+}
+
+body.dark-mode .auth-modal-content {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+}
+
+body.dark-mode .auth-modal {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+body.dark-mode .user-dropdown {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+}
+
+body.dark-mode .user-initial-circle {
+  background: var(--claude-text);
+  color: #1a1a1a;
+}
+
+body.dark-mode .claude-logo path,
+body.dark-mode .claude-logo circle {
+  stroke: var(--claude-text);
+  fill: var(--claude-text);
+}
+
+body.dark-mode .hologram-image path,
+body.dark-mode .hologram-image circle {
+  stroke: var(--claude-text);
+  fill: var(--claude-text);
+}
+
+/* Exam cards and modals in dark mode */
+body.dark-mode .exam-type-card {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+  color: var(--claude-text);
+}
+
+body.dark-mode .exam-type-card:hover {
+  background: var(--claude-light-accent);
+}
+
+/* Coming Soon Exam Cards */
+.exam-type-card.coming-soon {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  position: relative;
+  background: var(--claude-card-bg);
+  border: 1px dashed var(--claude-border);
+}
+
+.exam-type-card.coming-soon h3 {
+  color: var(--claude-secondary);
+}
+
+.coming-soon-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: var(--claude-border);
+  color: var(--claude-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+body.dark-mode .exam-type-card.coming-soon {
+  opacity: 0.5;
+  background: var(--claude-card-bg);
+  border: 1px dashed var(--claude-border);
+}
+
+body.dark-mode .coming-soon-badge {
+  background: var(--claude-border);
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .modal {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+body.dark-mode .modal-content {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+  color: var(--claude-text);
+}
+
+body.dark-mode .exam-card-style {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+}
+
+body.dark-mode .exam-card-header h3 {
+  color: var(--claude-text);
+}
+
+body.dark-mode .exam-progress-bar {
+  background: #333333;
+}
+
+body.dark-mode .exam-attempts-count {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .close-btn {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .close-btn:hover {
+  color: var(--claude-text);
+}
+
+body.dark-mode .specialty {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .specialty:hover {
+  color: var(--claude-text);
+}
+
+body.dark-mode .mdhub-text {
+  color: var(--claude-text);
+}
+
+/* ============================================
+   LUDICROUS MODE - ABSOLUTE CHAOS
+   ============================================ */
+
+/* CSS Variables for dynamic colors */
+:root {
+  --ludicrous-bg-hue: 280;
+}
+
+/* Ludicrous mode body styles */
+body.ludicrous-mode {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--ludicrous-bg-hue), 100%, 85%),
+    hsl(calc(var(--ludicrous-bg-hue) + 60), 100%, 75%),
+    hsl(calc(var(--ludicrous-bg-hue) + 120), 100%, 85%)
+  ) !important;
+  background-size: 400% 400%;
+  animation: ludicrous-gradient 8s ease infinite !important;
+  transition: background 0.5s ease;
+}
+
+/* Confetti particles */
+.ludicrous-confetti {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 999999;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Card wobble animation */
+@keyframes ludicrous-wobble {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(2deg) scale(1.02); }
+  50% { transform: rotate(0deg) scale(1.05); }
+  75% { transform: rotate(-2deg) scale(1.02); }
+}
+
+@keyframes ludicrous-mega-wobble {
+  0%, 100% { transform: rotate(0deg) scale(1.1); }
+  25% { transform: rotate(5deg) scale(1.15); }
+  50% { transform: rotate(0deg) scale(1.2); }
+  75% { transform: rotate(-5deg) scale(1.15); }
+}
+
+/* Rainbow gradient animation */
+@keyframes ludicrous-rainbow {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Spinning logo */
+@keyframes ludicrous-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Background gradient animation */
+@keyframes ludicrous-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shake animation */
+@keyframes ludicrous-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+/* Ludicrous mode card styles with readable text */
+body.ludicrous-mode .case-card,
+body.ludicrous-mode .exam-card-style {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 3px solid;
+  border-image: linear-gradient(
+    45deg,
+    #ff0000, #ff7f00, #ffff00, #00ff00,
+    #0000ff, #4b0082, #9400d3
+  ) 1;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5),
+              0 0 40px rgba(0, 255, 255, 0.3) !important;
+  transition: all 0.3s ease;
+}
+
+body.ludicrous-mode.dark-mode .case-card,
+body.ludicrous-mode.dark-mode .exam-card-style {
+  background: rgba(30, 30, 40, 0.95) !important;
+  color: #ffffff !important;
+}
+
+/* Ensure text is readable */
+body.ludicrous-mode .case-card .case-title,
+body.ludicrous-mode .case-card p,
+body.ludicrous-mode .case-card .case-meta,
+body.ludicrous-mode .exam-card-style h3,
+body.ludicrous-mode .exam-card-style p {
+  color: #1a1a1a !important;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+body.ludicrous-mode.dark-mode .case-card .case-title,
+body.ludicrous-mode.dark-mode .case-card p,
+body.ludicrous-mode.dark-mode .case-card .case-meta,
+body.ludicrous-mode.dark-mode .exam-card-style h3,
+body.ludicrous-mode.dark-mode .exam-card-style p {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Pulsing buttons */
+body.ludicrous-mode button,
+body.ludicrous-mode .auth-button {
+  animation: ludicrous-pulse 2s ease-in-out infinite;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: 2px solid #fff !important;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+  color: white !important;
+}
+
+@keyframes ludicrous-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(102, 126, 234, 0.6); }
+  50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(118, 75, 162, 0.8); }
+}
+
+/* Ludicrous mode header */
+body.ludicrous-mode header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4) !important;
+}
+
+body.ludicrous-mode .logo,
+body.ludicrous-mode .nav-link {
+  color: white !important;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar in ludicrous mode */
+body.ludicrous-mode .sidebar {
+  background: linear-gradient(180deg, #a8edea 0%, #fed6e3 100%) !important;
+  border-right: 3px solid #667eea !important;
+}
+
+body.ludicrous-mode .sidebar-link {
+  color: #333 !important;
+  transition: all 0.3s ease;
+}
+
+body.ludicrous-mode .sidebar-link:hover {
+  background: rgba(102, 126, 234, 0.3) !important;
+  transform: translateX(10px) scale(1.1);
+}
+
+/* Floating animation for toggle slider */
+.ludicrous-slider {
+  animation: ludicrous-float 3s ease-in-out infinite;
+}
+
+@keyframes ludicrous-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Modal in ludicrous mode */
+body.ludicrous-mode .modal-content {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 5px solid;
+  border-image: linear-gradient(
+    45deg,
+    #ff0000, #ff7f00, #ffff00, #00ff00,
+    #0000ff, #4b0082, #9400d3
+  ) 1;
+  box-shadow: 0 0 50px rgba(102, 126, 234, 0.8) !important;
+}
+
+body.ludicrous-mode.dark-mode .modal-content {
+  background: rgba(30, 30, 40, 0.98) !important;
+}
+
+/* Sparkle cursor effect */
+body.ludicrous-mode {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">✨</text></svg>'), auto;
+}
+
+/* Text selection in ludicrous mode */
+body.ludicrous-mode ::selection {
+  background: rgba(255, 0, 255, 0.5);
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Scrollbar in ludicrous mode */
+body.ludicrous-mode ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+body.ludicrous-mode ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   LUDICROUS MODE VORTEX TRANSITION
+   ============================================ */
+
+/* Vortex overlay */
+.ludicrous-vortex {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, #000000 0%, #1a0033 50%, #000000 100%);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Spiral vortex elements */
+.vortex-spiral {
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+  border: 20px solid;
+  border-color: transparent transparent #ff00ff transparent;
+  border-radius: 50%;
+  animation: vortex-spin 2s linear infinite;
+  opacity: 0.6;
+}
+
+.vortex-spiral-2 {
+  border-color: transparent #00ffff transparent transparent;
+  animation-delay: -0.66s;
+  animation-duration: 1.5s;
+}
+
+.vortex-spiral-3 {
+  border-color: transparent transparent transparent #ffff00;
+  animation-delay: -1.33s;
+  animation-duration: 1.8s;
+}
+
+@keyframes vortex-spin {
+  0% {
+    transform: rotate(0deg) scale(0.1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(720deg) scale(3);
+    opacity: 0;
+  }
+}
+
+/* Vortex sheep animation */
+.vortex-sheep {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  z-index: 10;
+  animation: vortex-sheep-spin 3s ease-in forwards;
+  opacity: 1;
+  transform: scale(2) rotate(0deg);
+  filter: drop-shadow(0 0 30px #ff00ff)
+          drop-shadow(0 0 60px #00ffff)
+          drop-shadow(0 0 90px #ffff00);
+}
+
+@keyframes vortex-sheep-spin {
+  0% {
+    opacity: 1;
+    transform: scale(2) rotate(0deg);
+    filter: drop-shadow(0 0 30px #ff00ff)
+            drop-shadow(0 0 60px #00ffff)
+            drop-shadow(0 0 90px #ffff00)
+            blur(0px);
+  }
+  33% {
+    opacity: 1;
+    transform: scale(2) rotate(0deg);
+    filter: drop-shadow(0 0 40px #ff00ff)
+            drop-shadow(0 0 70px #00ffff)
+            drop-shadow(0 0 100px #ffff00)
+            blur(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(-360deg);
+    filter: drop-shadow(0 0 50px #ff00ff)
+            drop-shadow(0 0 80px #00ffff)
+            drop-shadow(0 0 110px #ffff00)
+            blur(5px);
+  }
+  75% {
+    opacity: 0.8;
+    transform: scale(0.8) rotate(-1080deg);
+    filter: drop-shadow(0 0 60px #ff00ff)
+            drop-shadow(0 0 90px #00ffff)
+            drop-shadow(0 0 120px #ffff00)
+            blur(15px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(-1800deg);
+    filter: drop-shadow(0 0 80px #ff00ff)
+            drop-shadow(0 0 110px #00ffff)
+            drop-shadow(0 0 140px #ffff00)
+            blur(30px);
+  }
+}
+
+/* Background pulse during vortex */
+.ludicrous-vortex::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #ff00ff, transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: vortex-pulse 2s ease-out infinite;
+}
+
+@keyframes vortex-pulse {
+  0% {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+  }
+  100% {
+    width: 2000px;
+    height: 2000px;
+    opacity: 0;
+  }
+}
+
+/* Particle effects in vortex */
+.vortex-spiral::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px white,
+    100px 50px 10px white,
+    -150px -80px 15px #ff00ff,
+    200px -100px 12px #00ffff,
+    -100px 150px 8px #ffff00;
+  animation: vortex-particles 3s linear infinite;
+}
+
+@keyframes vortex-particles {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(720deg) translateX(500px);
+    opacity: 0;
+  }
+}
+
+/* Distortion effect */
+.ludicrous-vortex-active {
+  animation: vortex-distort 0.5s ease-in-out;
+}
+
+@keyframes vortex-distort {
+  0%, 100% {
+    filter: blur(0px) hue-rotate(0deg);
+  }
+  50% {
+    filter: blur(20px) hue-rotate(180deg);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .vortex-sheep {
+    width: 200px;
+    height: 200px;
   }
 }
