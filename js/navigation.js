@@ -1016,13 +1016,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return; // Exit early, don't apply stored filter
   }
 
-  // Check for filter parameter in URL or use stored filter
+  // Check for filter parameter in URL - only use URL param, ignore stored filter
   const urlParams = new URLSearchParams(window.location.search);
   const filterParam = urlParams.get('filter');
-  const storedFilter = localStorage.getItem('currentFilter');
-  const initialFilter = filterParam || storedFilter || 'none';
+  // Always default to 'none' (welcome page) unless URL explicitly has a filter
+  const initialFilter = filterParam || 'none';
 
-  console.log('[Navigation] Initial filter:', initialFilter, 'from URL:', filterParam, 'from storage:', storedFilter);
+  console.log('[Navigation] Initial filter:', initialFilter, 'from URL:', filterParam);
 
   // Apply the initial filter
   if (initialFilter === 'none') {
@@ -1052,14 +1052,9 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('[Navigation] Clicking specialty:', initialFilter);
       targetSpec.click();
     } else {
-      console.warn('[Navigation] Specialty not found:', initialFilter, '- defaulting to All SCPs');
-      // Fallback to All SCPs instead of welcome page
-      const allScps = document.querySelector('h2[data-group="all"]');
-      if (allScps) {
-        allScps.click();
-      } else {
-        showWelcomePage();
-      }
+      console.warn('[Navigation] Specialty not found:', initialFilter, '- showing welcome page');
+      // Fallback to welcome page
+      showWelcomePage();
     }
   }
 
