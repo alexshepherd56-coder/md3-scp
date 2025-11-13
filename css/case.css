@@ -767,3 +767,239 @@ strong {
   text-align: center;
   margin: 0 0 16px 0;
 }
+
+/* ============================================
+   DARK MODE STYLES
+   ============================================ */
+
+/* Dark mode color overrides */
+body.dark-mode {
+  --claude-cream: #1a1a1a;
+  --claude-text: #e8e8e8;
+  --claude-card-bg: #242424;
+  --claude-sidebar: #1f1f1f;
+  --claude-border: #333333;
+  --claude-secondary: #b0b0b0;
+  --claude-light-accent: #2a2a2a;
+  --claude-accent: #D97757;
+}
+
+body.dark-mode .container {
+  background: var(--claude-card-bg);
+  border-left-color: var(--claude-border);
+  border-right-color: var(--claude-border);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: var(--claude-text);
+}
+
+body.dark-mode h2 {
+  border-bottom-color: var(--claude-accent);
+}
+
+body.dark-mode .meta {
+  color: var(--claude-secondary);
+  border-bottom-color: var(--claude-border);
+}
+
+body.dark-mode .question {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+  color: var(--claude-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .question:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .question.flagged {
+  background: rgba(220, 53, 69, 0.15);
+  border-color: #dc3545;
+}
+
+body.dark-mode .question strong {
+  color: var(--claude-text);
+}
+
+body.dark-mode .answer {
+  background: var(--claude-light-accent);
+  border-color: var(--claude-border);
+  color: var(--claude-text);
+}
+
+body.dark-mode .back-link {
+  color: var(--claude-accent);
+}
+
+body.dark-mode .back-link:hover {
+  background-color: var(--claude-light-accent);
+}
+
+body.dark-mode .completion-button {
+  color: white;
+}
+
+body.dark-mode .case-flag-button {
+  color: var(--claude-secondary);
+  border-color: var(--claude-border);
+}
+
+body.dark-mode .case-flag-button:hover {
+  background-color: var(--claude-light-accent);
+  border-color: var(--claude-accent);
+}
+
+body.dark-mode .case-flag-button.flagged {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+body.dark-mode .pdf-link {
+  box-shadow: 0 2px 8px rgba(217, 119, 87, 0.3);
+}
+
+body.dark-mode .pdf-link:hover {
+  box-shadow: 0 6px 20px rgba(217, 119, 87, 0.4);
+}
+
+body.dark-mode table {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode table th {
+  background-color: var(--claude-light-accent);
+  color: var(--claude-text);
+  border-bottom-color: var(--claude-border);
+}
+
+body.dark-mode table td {
+  border-bottom-color: var(--claude-border);
+  color: var(--claude-text);
+}
+
+body.dark-mode table tr:hover {
+  background-color: var(--claude-light-accent);
+}
+
+body.dark-mode li {
+  color: var(--claude-text);
+}
+
+body.dark-mode li strong {
+  color: var(--claude-text);
+}
+
+body.dark-mode p {
+  color: var(--claude-text);
+}
+
+body.dark-mode strong {
+  color: var(--claude-text);
+}
+
+body.dark-mode .flag-button {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .flag-button svg {
+  stroke: var(--claude-secondary);
+}
+
+body.dark-mode .flag-button .flag-text {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .flag-button:hover svg {
+  stroke: var(--claude-text);
+}
+
+body.dark-mode .flag-button.flagged {
+  background-color: #dc3545;
+}
+
+body.dark-mode .flag-button.flagged svg {
+  stroke: white;
+  fill: white;
+}
+
+body.dark-mode .flag-button.flagged .flag-text {
+  color: white;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: var(--claude-card-bg);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: var(--claude-border);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: var(--claude-accent);
+}
+
+/* Auth Modal Dark Mode */
+body.dark-mode .auth-modal {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+body.dark-mode .auth-modal-content {
+  background: var(--claude-card-bg);
+  border-color: var(--claude-border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .auth-modal-close {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .auth-modal-close:hover {
+  color: var(--claude-accent);
+}
+
+body.dark-mode .auth-modal h2 {
+  color: var(--claude-text);
+}
+
+body.dark-mode .auth-subtitle {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .auth-form input {
+  background: var(--claude-light-accent);
+  color: var(--claude-text);
+  border-color: var(--claude-border);
+}
+
+body.dark-mode .auth-form input:focus {
+  border-color: var(--claude-accent);
+  box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.2);
+}
+
+body.dark-mode .auth-divider::before,
+body.dark-mode .auth-divider::after {
+  border-bottom-color: var(--claude-border);
+}
+
+body.dark-mode .auth-divider {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .auth-link {
+  color: var(--claude-secondary);
+}
+
+body.dark-mode .auth-link a {
+  color: var(--claude-accent);
+}
+
+body.dark-mode .auth-description {
+  color: var(--claude-secondary);
+}

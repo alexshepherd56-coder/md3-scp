@@ -13,6 +13,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
   <script src="../js/firebase-config.js"></script>
+  <script src="../js/dark-mode.js"></script>
 
   <style>
     /* Exam-specific styles */
@@ -37,7 +38,7 @@
       right: 0;
       background: var(--claude-sidebar);
       border-bottom: 1px solid var(--claude-border);
-      padding: 16px 24px;
+      padding: 16px 40px 16px 140px;
       z-index: 100;
       display: flex;
       justify-content: space-between;
@@ -47,7 +48,9 @@
     .exam-title-section {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 0;
+      position: relative;
+      flex: 1;
     }
 
     .exam-timer {
@@ -60,6 +63,8 @@
     }
 
     .back-home-btn {
+      position: absolute;
+      left: -124px;
       padding: 8px 16px;
       background: var(--claude-card-bg);
       border: 1.5px solid var(--claude-border);
@@ -85,6 +90,7 @@
       font-weight: 600;
       color: var(--claude-text);
       margin: 0;
+      padding-left: 0;
     }
 
     .exam-actions {
@@ -123,12 +129,12 @@
     .exam-sidebar {
       position: fixed;
       left: 0;
-      top: 72px;
-      width: 200px;
-      height: calc(100vh - 72px);
+      top: 0;
+      width: 100px;
+      height: 100vh;
       background: var(--claude-sidebar);
       border-right: 1px solid var(--claude-border);
-      padding: 40px 16px 24px 16px;
+      padding: 112px 16px 24px 16px;
       overflow-y: auto;
       z-index: 50;
     }
@@ -149,61 +155,66 @@
     }
 
     .question-nav-btn {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid var(--claude-border);
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 2px solid var(--claude-border);
       background: var(--claude-card-bg);
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 600;
       color: var(--claude-text);
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       position: relative;
-      text-align: left;
+      margin: 0 auto;
     }
 
     .question-nav-btn:hover {
-      border-color: var(--claude-accent);
-      background: var(--claude-light-accent);
+      border-color: #1e3a5f;
+      background: rgba(30, 58, 95, 0.1);
     }
 
     .question-nav-btn.active {
-      background: var(--claude-accent);
-      color: white;
-      border-color: var(--claude-accent);
+      background: rgba(30, 58, 95, 0.1);
+      color: var(--claude-text);
+      border-color: #1e3a5f;
     }
 
     .question-nav-btn.answered {
-      background: #4CAF50;
+      background: #1e3a5f;
       color: white;
-      border-color: #4CAF50;
+      border-color: #1e3a5f;
     }
 
     .question-nav-btn.answered.active {
-      background: #45a049;
+      background: #1e3a5f;
+      color: white;
+      border-color: #1e3a5f;
     }
 
     .question-nav-btn .flag-indicator {
-      font-size: 12px;
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      font-size: 18px;
       display: none;
-      margin-left: 4px;
     }
 
     .question-nav-btn.flagged .flag-indicator {
-      display: inline;
+      display: block;
     }
 
     /* Main content area */
     .exam-content {
       margin-top: 72px;
-      margin-left: 200px;
-      width: calc(100% - 200px);
-      min-width: calc(100% - 200px);
-      max-width: calc(100% - 200px);
+      margin-left: 100px;
+      width: calc(100% - 100px);
+      min-width: calc(100% - 100px);
+      max-width: calc(100% - 100px);
       height: calc(100vh - 72px);
       display: flex;
       flex-direction: column;
@@ -382,13 +393,13 @@
     }
 
     .nav-btn.primary {
-      background: var(--claude-accent);
+      background: #1e3a5f;
       color: white;
-      border-color: var(--claude-accent);
+      border-color: #1e3a5f;
     }
 
     .nav-btn.primary:hover:not(:disabled) {
-      background: var(--claude-hover);
+      background: #0A2540;
     }
 
     .finish-btn {
@@ -407,9 +418,95 @@
       background: #45a049;
       border-color: #45a049;
     }
+    /* Progress Check Modal */
+    .progress-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .progress-modal-content {
+      background: var(--claude-card-bg);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .progress-modal h2 {
+      margin: 0 0 16px 0;
+      font-size: 24px;
+      color: var(--claude-text);
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .progress-modal p {
+      margin: 0 0 24px 0;
+      font-size: 16px;
+      color: var(--claude-secondary);
+      line-height: 1.5;
+    }
+
+    .progress-modal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .progress-modal-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid;
+    }
+
+    .progress-modal-btn.reset {
+      background: white;
+      border-color: var(--claude-border);
+      color: var(--claude-text);
+    }
+
+    .progress-modal-btn.reset:hover {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .progress-modal-btn.continue {
+      background: #1e3a5f;
+      border-color: #1e3a5f;
+      color: white;
+    }
+
+    .progress-modal-btn.continue:hover {
+      background: #0A2540;
+      border-color: #0A2540;
+    }
   </style>
 </head>
 <body>
+  <!-- Progress Check Modal -->
+  <div class="progress-modal" id="progressModal">
+    <div class="progress-modal-content">
+      <h2>Continue Exam?</h2>
+      <p>Would you like to continue where you left off, or reset and start a new attempt?</p>
+      <div class="progress-modal-buttons">
+        <button class="progress-modal-btn reset" id="resetExamBtn">Reset Exam</button>
+        <button class="progress-modal-btn continue" id="continueExamBtn">Continue Current Attempt</button>
+      </div>
+    </div>
+  </div>
+
   <div class="exam-container">
     <!-- Top header bar -->
     <div class="exam-header">
@@ -900,7 +997,7 @@
         btn.className = 'question-nav-btn';
 
         const questionLabel = document.createElement('span');
-        questionLabel.textContent = `Question ${index + 1}`;
+        questionLabel.textContent = `${index + 1}`;
 
         const flagIndicator = document.createElement('span');
         flagIndicator.className = 'flag-indicator';
@@ -1086,7 +1183,7 @@
     // Function to return to SAQ Exams modal
     function returnToExams() {
       saveCurrentAnswer();
-      window.location.href = '../index.html#exams';
+      window.location.href = '../index.html#past-exams';
     }
 
     // Event listeners
@@ -1113,8 +1210,76 @@
     // Auto-save every 30 seconds
     setInterval(saveCurrentAnswer, 30000);
 
+    // Check for existing progress and show modal if needed
+    function checkExistingProgress() {
+      const saved = localStorage.getItem('saq-2024-progress');
+      if (saved) {
+        const progress = JSON.parse(saved);
+        // Check if there's any actual progress (answered questions)
+        const hasProgress = progress.questions && progress.questions.some(q => q.answer && q.answer.trim());
+
+        if (hasProgress) {
+          // Show modal
+          const modal = document.getElementById('progressModal');
+          modal.style.display = 'flex';
+
+          // Handle continue button
+          document.getElementById('continueExamBtn').addEventListener('click', () => {
+            modal.style.display = 'none';
+            initExam();
+          });
+
+          // Handle reset button
+          document.getElementById('resetExamBtn').addEventListener('click', async () => {
+            if (!confirm('Are you sure you want to reset this exam? All progress will be permanently deleted.')) {
+              return;
+            }
+
+            // Clear Firestore first if available
+            if (examUser && examDb) {
+              try {
+                await examDb.collection('users')
+                  .doc(examUser.uid)
+                  .collection('exams')
+                  .doc('saq-2024')
+                  .delete();
+                console.log('[Exam] Progress deleted from Firestore');
+              } catch (error) {
+                console.error('[Exam] Error deleting from Firestore:', error);
+              }
+            }
+
+            // Clear localStorage
+            localStorage.removeItem('saq-2024-progress');
+            localStorage.removeItem('saq-2024-completed');
+
+            // Reset exam data in memory
+            examData.questions.forEach(q => {
+              q.answer = '';
+              q.flagged = false;
+            });
+
+            currentQuestionIndex = 0;
+            elapsedSeconds = 0;
+
+            modal.style.display = 'none';
+
+            // Reinitialize exam with fresh state
+            generateQuestionNav();
+            loadQuestion(0);
+            startTimer();
+          });
+
+          return; // Don't auto-initialize
+        }
+      }
+
+      // No progress found, initialize normally
+      initExam();
+    }
+
     // Initialize
-    initExam();
+    checkExistingProgress();
   </script>
 </body>
 </html>

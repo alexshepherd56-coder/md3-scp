@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auth Modules Test - SCP Project</title>
+  <link rel="stylesheet" href="styles/navbar.css">
+  <link rel="stylesheet" href="styles/auth-modal.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .test-container {
+      max-width: 1200px;
+      margin: 100px auto 50px;
+      padding: 20px;
+    }
+
+    .test-section {
+      background: #2a2a2a;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .test-section h2 {
+      margin-top: 0;
+      color: #4CAF50;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 10px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .status-item {
+      background: #333;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 3px solid #666;
+    }
+
+    .status-item.ready {
+      border-left-color: #4CAF50;
+    }
+
+    .status-item.error {
+      border-left-color: #f44336;
+    }
+
+    .status-item.initializing {
+      border-left-color: #ff9800;
+    }
+
+    .status-label {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 5px;
+    }
+
+    .status-value {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .user-info {
+      background: #333;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+
+    .user-info pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .test-button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .test-button:hover {
+      background: #45a049;
+    }
+
+    .test-button.secondary {
+      background: #2196F3;
+    }
+
+    .test-button.secondary:hover {
+      background: #0b7dda;
+    }
+
+    .event-log {
+      background: #1a1a1a;
+      border: 1px solid #3a3a3a;
+      border-radius: 5px;
+      padding: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 12px;
+      margin-top: 15px;
+    }
+
+    .event-log-entry {
+      padding: 5px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .event-log-entry:last-child {
+      border-bottom: none;
+    }
+
+    .event-log-entry .time {
+      color: #666;
+    }
+
+    .event-log-entry .event-name {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .event-log-entry .data {
+      color: #2196F3;
+    }
+
+    /* Sidebar and main for testing content protection */
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 60px;
+      width: 200px;
+      height: calc(100% - 60px);
+      background: #2a2a2a;
+      border-right: 1px solid #3a3a3a;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+
+    .main {
+      margin-left: 220px;
+      transition: all 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <img src="assets/ShepTech logo.png" alt="ShepTech Logo" class="logo-image">
+        <span class="logo-text">SHEPTECH</span>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button id="authButton" class="auth-button">Sign In</button>
+      <div id="userProfile" class="user-profile" style="display: none;">
+        <div id="userInitialCircle" class="user-initial-circle"></div>
+        <div id="userDropdown" class="user-dropdown">
+          <div class="dropdown-header">
+            <div id="dropdownUserName" class="dropdown-user-name"></div>
+            <div id="dropdownUserEmail" class="dropdown-user-email"></div>
+          </div>
+          <div class="dropdown-divider"></div>
+          <button id="dropdownSignOut" class="dropdown-sign-out">Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Fake sidebar and main for testing content protection -->
+  <div class="sidebar">
+    <h3>Test Sidebar</h3>
+    <p>This should blur when not authenticated</p>
+  </div>
+
+  <div class="main">
+    <div class="test-container">
+      <h1 style="color: #4CAF50;">🔐 Auth Modules Test Page</h1>
+
+      <!-- System Status -->
+      <div class="test-section">
+        <h2>System Status</h2>
+        <div class="status-grid">
+          <div class="status-item" id="status-eventbus">
+            <div class="status-label">EventBus</div>
+            <div class="status-value">CHECKING...</div>
+          </div>
+          <div class="status-item" id="status-firebase">
+            <div class="status-label">Firebase</div>
+            <div class="status-value">CHECKING...</div>
+          </div>
+          <div class="status-item" id="status-app">
+            <div class="status-label">App</div>
+            <div class="status-value">CHECKING...</div>
+          </div>
+          <div class="status-item" id="status-authmodule">
+            <div class="status-label">AuthModule</div>
+            <div class="status-value">CHECKING...</div>
+          </div>
+          <div class="status-item" id="status-authui">
+            <div class="status-label">AuthUI</div>
+            <div class="status-value">CHECKING...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current User -->
+      <div class="test-section">
+        <h2>Current User</h2>
+        <div class="user-info">
+          <pre id="user-display">Loading...</pre>
+        </div>
+      </div>
+
+      <!-- Auth Actions -->
+      <div class="test-section">
+        <h2>Auth Actions</h2>
+        <div class="button-group">
+          <button class="test-button" onclick="testOpenAuthModal()">Open Auth Modal</button>
+          <button class="test-button secondary" onclick="testCheckAuthState()">Check Auth State</button>
+          <button class="test-button secondary" onclick="testGetUserInfo()">Get User Info</button>
+        </div>
+      </div>
+
+      <!-- Event Log -->
+      <div class="test-section">
+        <h2>Event Log (Last 20 Events)</h2>
+        <div class="button-group">
+          <button class="test-button secondary" onclick="refreshEventLog()">Refresh Log</button>
+          <button class="test-button secondary" onclick="clearEventLog()">Clear Log</button>
+        </div>
+        <div class="event-log" id="event-log"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/utils/helpers.js"></script>
+  <script src="js/core/EventBus.js"></script>
+  <script src="js/core/FirebaseService.js"></script>
+  <script src="js/modules/auth/AuthModule.js"></script>
+  <script src="js/modules/auth/AuthUI.js"></script>
+  <script src="js/core/App.js"></script>
+
+  <script>
+    // Wait for everything to load
+    window.addEventListener('load', function() {
+      console.log('%c🎉 Auth Modules Test Page Loaded!', 'color: #4CAF50; font-size: 16px; font-weight: bold;');
+
+      // Make services available in console for testing
+      globalThis.eventBus = window.eventBus;
+      globalThis.firebaseService = window.firebaseService;
+      globalThis.app = window.app;
+
+      console.log('%cYou can now use these in the console:', 'color: #2196F3; font-weight: bold;');
+      console.log('- eventBus.emit("test", {data: "hello"})');
+      console.log('- eventBus.getHistory(5)');
+      console.log('- firebaseService.isReady()');
+      console.log('- app.getCurrentUser()');
+      console.log('- app.getModule("auth")');
+      console.log('- app.getModule("authUI")');
+
+      // Check status after a short delay
+      setTimeout(updateStatus, 500);
+
+      // Set up event listeners for auth events
+      setupEventListeners();
+
+      // Auto-refresh event log
+      setInterval(refreshEventLog, 2000);
+    });
+
+    function updateStatus() {
+      // EventBus
+      const eventBusStatus = document.getElementById('status-eventbus');
+      if (window.eventBus) {
+        eventBusStatus.classList.add('ready');
+        eventBusStatus.querySelector('.status-value').textContent = 'READY';
+      } else {
+        eventBusStatus.classList.add('error');
+        eventBusStatus.querySelector('.status-value').textContent = 'NOT FOUND';
+      }
+
+      // Firebase
+      const firebaseStatus = document.getElementById('status-firebase');
+      if (window.firebaseService && window.firebaseService.isReady()) {
+        firebaseStatus.classList.add('ready');
+        firebaseStatus.querySelector('.status-value').textContent = 'READY';
+      } else if (window.firebaseService) {
+        firebaseStatus.classList.add('initializing');
+        firebaseStatus.querySelector('.status-value').textContent = 'INITIALIZING';
+        setTimeout(updateStatus, 500);
+      } else {
+        firebaseStatus.classList.add('error');
+        firebaseStatus.querySelector('.status-value').textContent = 'NOT FOUND';
+      }
+
+      // App
+      const appStatus = document.getElementById('status-app');
+      if (window.app && window.app.initialized) {
+        appStatus.classList.add('ready');
+        appStatus.querySelector('.status-value').textContent = 'READY';
+      } else if (window.app) {
+        appStatus.classList.add('initializing');
+        appStatus.querySelector('.status-value').textContent = 'INITIALIZING';
+        setTimeout(updateStatus, 500);
+      } else {
+        appStatus.classList.add('error');
+        appStatus.querySelector('.status-value').textContent = 'NOT FOUND';
+      }
+
+      // AuthModule
+      const authModuleStatus = document.getElementById('status-authmodule');
+      const authModule = window.app && window.app.getModule('auth');
+      if (authModule && authModule.initialized) {
+        authModuleStatus.classList.add('ready');
+        authModuleStatus.querySelector('.status-value').textContent = 'READY';
+      } else if (authModule) {
+        authModuleStatus.classList.add('initializing');
+        authModuleStatus.querySelector('.status-value').textContent = 'INITIALIZING';
+        setTimeout(updateStatus, 500);
+      } else {
+        authModuleStatus.classList.add('error');
+        authModuleStatus.querySelector('.status-value').textContent = 'NOT LOADED';
+      }
+
+      // AuthUI
+      const authUIStatus = document.getElementById('status-authui');
+      const authUI = window.app && window.app.getModule('authUI');
+      if (authUI && authUI.initialized) {
+        authUIStatus.classList.add('ready');
+        authUIStatus.querySelector('.status-value').textContent = 'READY';
+      } else if (authUI) {
+        authUIStatus.classList.add('initializing');
+        authUIStatus.querySelector('.status-value').textContent = 'INITIALIZING';
+        setTimeout(updateStatus, 500);
+      } else {
+        authUIStatus.classList.add('error');
+        authUIStatus.querySelector('.status-value').textContent = 'NOT LOADED';
+      }
+
+      // Update user display
+      updateUserDisplay();
+    }
+
+    function setupEventListeners() {
+      // Listen to all auth events
+      eventBus.on('auth:signed-in', (user) => {
+        console.log('🔐 User signed in:', user.email);
+        updateUserDisplay();
+      });
+
+      eventBus.on('auth:signed-out', () => {
+        console.log('🔓 User signed out');
+        updateUserDisplay();
+      });
+
+      eventBus.on('auth:error', (error) => {
+        console.error('❌ Auth error:', error);
+      });
+
+      eventBus.on('auth:state-change', (user) => {
+        console.log('🔄 Auth state changed:', user ? user.email : 'signed out');
+      });
+
+      eventBus.on('auth:modal-opened', () => {
+        console.log('📖 Auth modal opened');
+      });
+
+      eventBus.on('auth:modal-closed', () => {
+        console.log('📕 Auth modal closed');
+      });
+    }
+
+    function updateUserDisplay() {
+      const userDisplay = document.getElementById('user-display');
+      const user = window.app && window.app.getCurrentUser();
+
+      if (user) {
+        userDisplay.textContent = JSON.stringify({
+          email: user.email,
+          displayName: user.displayName,
+          uid: user.uid,
+          emailVerified: user.emailVerified
+        }, null, 2);
+      } else {
+        userDisplay.textContent = 'No user signed in';
+      }
+    }
+
+    function testOpenAuthModal() {
+      console.log('Opening auth modal...');
+      const authUI = window.app && window.app.getModule('authUI');
+      if (authUI) {
+        authUI.openAuthModal();
+      } else {
+        console.error('AuthUI not available');
+      }
+    }
+
+    function testCheckAuthState() {
+      const authModule = window.app && window.app.getModule('auth');
+      if (authModule) {
+        const isSignedIn = authModule.isSignedIn();
+        const user = authModule.getCurrentUser();
+        console.log('Auth State:', {
+          isSignedIn,
+          user: user ? user.email : null
+        });
+      } else {
+        console.error('AuthModule not available');
+      }
+    }
+
+    function testGetUserInfo() {
+      const authModule = window.app && window.app.getModule('auth');
+      if (authModule) {
+        const user = authModule.getCurrentUser();
+        if (user) {
+          console.log('User Info:', {
+            email: user.email,
+            displayName: user.displayName,
+            uid: user.uid,
+            initials: authModule.getUserInitials()
+          });
+        } else {
+          console.log('No user signed in');
+        }
+      } else {
+        console.error('AuthModule not available');
+      }
+    }
+
+    function refreshEventLog() {
+      const eventLog = document.getElementById('event-log');
+      const history = eventBus.getHistory(20);
+
+      if (history.length === 0) {
+        eventLog.innerHTML = '<div style="color: #666;">No events yet</div>';
+        return;
+      }
+
+      eventLog.innerHTML = history.map(entry => {
+        const time = new Date(entry.timestamp).toLocaleTimeString();
+        const dataStr = entry.data ? JSON.stringify(entry.data) : '';
+        return `
+          <div class="event-log-entry">
+            <span class="time">[${time}]</span>
+            <span class="event-name">${entry.event}</span>
+            ${dataStr ? `<span class="data">${dataStr}</span>` : ''}
+          </div>
+        `;
+      }).join('');
+
+      // Auto-scroll to bottom
+      eventLog.scrollTop = eventLog.scrollHeight;
+    }
+
+    function clearEventLog() {
+      eventBus.clearHistory();
+      refreshEventLog();
+    }
+
+    // Make test functions available globally
+    window.testOpenAuthModal = testOpenAuthModal;
+    window.testCheckAuthState = testCheckAuthState;
+    window.testGetUserInfo = testGetUserInfo;
+    window.refreshEventLog = refreshEventLog;
+    window.clearEventLog = clearEventLog;
+  </script>
+</body>
+</html>

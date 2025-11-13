@@ -253,16 +253,74 @@
 
     <!-- Past Exams Section -->
     <div id="pastExamsContent">
-      <div class="week">Past Exams</div>
+      <!-- SAQ Exams -->
+      <h2 class="exam-category-title">SAQ</h2>
       <div class="case-grid">
-        <div class="case-card exam-type-card" id="saqExamCard">
-          <h3>SAQ</h3>
+        <div class="case-card exam-card-style" data-exam="2024" onclick="window.location.href='exams/saq-2024.html'">
+          <div class="exam-card-top">
+            <h3>2024 Summative Exam Dump</h3>
+            <span class="exam-flagged-badge" id="exam2024Flagged" style="display: none;"></span>
+          </div>
+          <div class="exam-card-bottom">
+            <div class="exam-attempts-count" id="exam2024Attempts">0/35 Questions Attempted</div>
+            <div class="exam-progress-bar">
+              <div class="exam-progress-fill" id="exam2024Progress"></div>
+            </div>
+          </div>
+          <div class="exam-completion-icon" id="exam2024CompletionIcon" style="display: none;">✓</div>
         </div>
-        <div class="case-card exam-type-card coming-soon" id="mcqExamCard">
-          <h3>MCQ</h3>
-          <span class="coming-soon-badge">Coming Soon</span>
+
+        <div class="case-card exam-card-style" data-exam="2023" onclick="window.location.href='exams/saq-2023.html'">
+          <div class="exam-card-top">
+            <h3>2023 Summative Exam Dump</h3>
+            <span class="exam-flagged-badge" id="exam2023Flagged" style="display: none;"></span>
+          </div>
+          <div class="exam-card-bottom">
+            <div class="exam-attempts-count" id="exam2023Attempts">0/36 Questions Attempted</div>
+            <div class="exam-progress-bar">
+              <div class="exam-progress-fill" id="exam2023Progress"></div>
+            </div>
+          </div>
+          <div class="exam-completion-icon" id="exam2023CompletionIcon" style="display: none;">✓</div>
         </div>
-        <div class="case-card exam-type-card coming-soon" id="osceExamCard">
+
+        <div class="case-card exam-card-style" data-exam="2022" onclick="window.location.href='exams/saq-2022.html'">
+          <div class="exam-card-top">
+            <h3>2022 Summative Exam Dump</h3>
+            <span class="exam-flagged-badge" id="exam2022Flagged" style="display: none;"></span>
+          </div>
+          <div class="exam-card-bottom">
+            <div class="exam-attempts-count" id="exam2022Attempts">0/39 Questions Attempted</div>
+            <div class="exam-progress-bar">
+              <div class="exam-progress-fill" id="exam2022Progress"></div>
+            </div>
+          </div>
+          <div class="exam-completion-icon" id="exam2022CompletionIcon" style="display: none;">✓</div>
+        </div>
+      </div>
+
+      <!-- MCQ Exams -->
+      <h2 class="exam-category-title">MCQ</h2>
+      <div class="case-grid">
+        <div class="case-card exam-card-style" data-exam="mcq-2024" onclick="window.location.href='exams/mcq-2024.html'">
+          <div class="exam-card-top">
+            <h3>2024 Summative Exam Dump</h3>
+            <span class="exam-flagged-badge" id="examMcq2024Flagged" style="display: none;"></span>
+          </div>
+          <div class="exam-card-bottom">
+            <div class="exam-attempts-count" id="examMcq2024Attempts">0/57 Questions Attempted</div>
+            <div class="exam-progress-bar">
+              <div class="exam-progress-fill" id="examMcq2024Progress"></div>
+            </div>
+          </div>
+          <div class="exam-completion-icon" id="examMcq2024CompletionIcon" style="display: none;">✓</div>
+        </div>
+      </div>
+
+      <!-- OSCE Exams -->
+      <h2 class="exam-category-title">OSCE</h2>
+      <div class="case-grid">
+        <div class="case-card exam-type-card coming-soon">
           <h3>OSCE</h3>
           <span class="coming-soon-badge">Coming Soon</span>
         </div>
@@ -623,7 +681,58 @@
           <div class="exam-progress-bar">
             <div class="exam-progress-fill" id="exam2024Progress"></div>
           </div>
-          <div class="exam-attempts-count" id="exam2024Attempts">0/9 Questions Attempted</div>
+          <div class="exam-attempts-count" id="exam2024Attempts">0/35 Questions Attempted</div>
+        </div>
+
+        <div class="exam-item exam-card-style" data-exam="2023">
+          <div class="exam-card-header">
+            <div class="exam-title-with-badge">
+              <h3>2023 SAQ Exam</h3>
+              <span class="exam-flagged-badge" id="exam2023Flagged" style="display: none;"></span>
+            </div>
+            <div class="exam-completion-icon" id="exam2023CompletionIcon" style="display: none;">✓</div>
+          </div>
+          <div class="exam-progress-bar">
+            <div class="exam-progress-fill" id="exam2023Progress"></div>
+          </div>
+          <div class="exam-attempts-count" id="exam2023Attempts">0/36 Questions Attempted</div>
+        </div>
+
+        <div class="exam-item exam-card-style" data-exam="2022">
+          <div class="exam-card-header">
+            <div class="exam-title-with-badge">
+              <h3>2022 SAQ Exam</h3>
+              <span class="exam-flagged-badge" id="exam2022Flagged" style="display: none;"></span>
+            </div>
+            <div class="exam-completion-icon" id="exam2022CompletionIcon" style="display: none;">✓</div>
+          </div>
+          <div class="exam-progress-bar">
+            <div class="exam-progress-fill" id="exam2022Progress"></div>
+          </div>
+          <div class="exam-attempts-count" id="exam2022Attempts">0/39 Questions Attempted</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MCQ Exam Modal -->
+  <div id="mcqExamModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close-btn" id="closeMcqModal">&times;</span>
+      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-weight: 400;">MCQ Exams</h2>
+      <div class="exam-list">
+        <div class="exam-item exam-card-style" data-exam="mcq-2024">
+          <div class="exam-card-header">
+            <div class="exam-title-with-badge">
+              <h3>2024 MCQ Exam</h3>
+              <span class="exam-flagged-badge" id="examMcq2024Flagged" style="display: none;"></span>
+            </div>
+            <div class="exam-completion-icon" id="examMcq2024CompletionIcon" style="display: none;">✓</div>
+          </div>
+          <div class="exam-progress-bar">
+            <div class="exam-progress-fill" id="examMcq2024Progress"></div>
+          </div>
+          <div class="exam-attempts-count" id="examMcq2024Attempts">0/57 Questions Attempted</div>
         </div>
       </div>
     </div>
