@@ -28,6 +28,43 @@ service cloud.firestore {
       match /caseFlags/{caseId} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
       }
+
+      // Session tracking subcollection
+      match /sessions/{sessionId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Feature usage tracking subcollection
+      match /featureUsage/{usageId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // Allow authenticated users to read all user profiles (for admin dashboard)
+    match /users/{userId} {
+      allow read: if request.auth != null;
+
+      // Allow reading sessions for admin purposes
+      match /sessions/{sessionId} {
+        allow read: if request.auth != null;
+      }
+
+      // Allow reading feature usage for admin purposes
+      match /featureUsage/{usageId} {
+        allow read: if request.auth != null;
+      }
+    }
+
+    // Global case analytics - everyone can read, authenticated users can write
+    match /caseAnalytics/{caseId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Global exam analytics - everyone can read, authenticated users can write
+    match /examAnalytics/{examId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
     }
   }
 }

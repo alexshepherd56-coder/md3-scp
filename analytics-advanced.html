@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Analytics - SCP Cases</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+    }
+
+    .dashboard-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 10px;
+    }
+
+    .dashboard-header h1 {
+      margin: 0;
+      color: white;
+      font-size: 2em;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .section {
+      background: #2a2a2a;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #3a3a3a;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      color: #667eea;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat-card {
+      background: #333;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+
+    .stat-card h3 {
+      margin: 0 0 10px 0;
+      color: #b0b0b0;
+      font-size: 0.85em;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      font-size: 2em;
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    .stat-subtext {
+      font-size: 0.85em;
+      color: #808080;
+      margin-top: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #3a3a3a;
+    }
+
+    th {
+      background: #333;
+      color: #b0b0b0;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85em;
+    }
+
+    tr:hover {
+      background: #333;
+    }
+
+    .chart-container {
+      margin: 20px 0;
+      padding: 20px;
+      background: #333;
+      border-radius: 8px;
+    }
+
+    .bar {
+      background: #667eea;
+      height: 25px;
+      border-radius: 4px;
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      color: white;
+      font-size: 0.9em;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: #808080;
+    }
+
+    .refresh-btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .refresh-btn:hover {
+      background: #5568d3;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+
+    .badge-success { background: #4CAF50; color: white; }
+    .badge-warning { background: #FF9800; color: white; }
+    .badge-danger { background: #f44336; color: white; }
+    .badge-info { background: #2196F3; color: white; }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #3a3a3a;
+    }
+
+    .metric-label {
+      color: #b0b0b0;
+    }
+
+    .metric-value {
+      color: #667eea;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Configuration -->
+  <script src="js/firebase-config.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Advanced Analytics Dashboard</h1>
+      <div class="nav-buttons">
+        <a href="admin.html" class="nav-btn">User Dashboard</a>
+        <a href="index.html" class="nav-btn">Home</a>
+      </div>
+    </div>
+
+    <div id="loadingMessage" class="loading">Loading analytics data...</div>
+
+    <div id="dashboardContent" style="display: none;">
+
+      <!-- Retention Metrics -->
+      <div class="section">
+        <div class="section-header">
+          <h2>User Retention & Engagement</h2>
+          <button class="refresh-btn" onclick="loadRetentionMetrics()">Refresh</button>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Daily Active Users</h3>
+            <p class="stat-value" id="dau">-</p>
+            <p class="stat-subtext">Last 24 hours</p>
+          </div>
+          <div class="stat-card">
+            <h3>Weekly Active Users</h3>
+            <p class="stat-value" id="wau">-</p>
+            <p class="stat-subtext">Last 7 days</p>
+          </div>
+          <div class="stat-card">
+            <h3>Monthly Active Users</h3>
+            <p class="stat-value" id="mau">-</p>
+            <p class="stat-subtext">Last 30 days</p>
+          </div>
+          <div class="stat-card">
+            <h3>Avg Sessions/User</h3>
+            <p class="stat-value" id="avgSessions">-</p>
+            <p class="stat-subtext">Per active user</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Cases -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Most Popular Cases</h2>
+          <button class="refresh-btn" onclick="loadCaseAnalytics()">Refresh</button>
+        </div>
+        <div id="topCasesContainer"></div>
+      </div>
+
+      <!-- Least Popular Cases -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Least Viewed Cases</h2>
+        </div>
+        <div id="bottomCasesContainer"></div>
+      </div>
+
+      <!-- Feature Usage -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Feature Usage Statistics</h2>
+          <button class="refresh-btn" onclick="loadFeatureUsage()">Refresh</button>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total Searches</h3>
+            <p class="stat-value" id="totalSearches">-</p>
+          </div>
+          <div class="stat-card">
+            <h3>Filter Uses</h3>
+            <p class="stat-value" id="totalFilters">-</p>
+          </div>
+          <div class="stat-card">
+            <h3>Flags/Bookmarks</h3>
+            <p class="stat-value" id="totalFlags">-</p>
+          </div>
+          <div class="stat-card">
+            <h3>Case Completions</h3>
+            <p class="stat-value" id="totalCompletions">-</p>
+          </div>
+        </div>
+        <div id="featureDetailsContainer"></div>
+      </div>
+
+      <!-- Exam Resources -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Exam Resource Usage</h2>
+          <button class="refresh-btn" onclick="loadExamAnalytics()">Refresh</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Exam Resource</th>
+              <th>Total Views</th>
+              <th>Unique Users</th>
+              <th>Last Viewed</th>
+            </tr>
+          </thead>
+          <tbody id="examAnalyticsBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Study Patterns -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Study Session Patterns</h2>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Average Session Duration</span>
+          <span class="metric-value" id="avgSessionDuration">-</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Median Session Duration</span>
+          <span class="metric-value" id="medianSessionDuration">-</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Total Study Time (All Users)</span>
+          <span class="metric-value" id="totalStudyTime">-</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label">Most Active Day</span>
+          <span class="metric-value" id="mostActiveDay">-</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let db, auth;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof firebase === 'undefined') {
+        alert('Firebase not loaded');
+        return;
+      }
+
+      auth = window.firebaseAuth || firebase.auth();
+      db = window.firebaseDb || firebase.firestore();
+
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          loadAllAnalytics();
+        } else {
+          window.location.href = 'index.html';
+        }
+      });
+    });
+
+    async function loadAllAnalytics() {
+      document.getElementById('loadingMessage').style.display = 'block';
+      document.getElementById('dashboardContent').style.display = 'none';
+
+      await Promise.all([
+        loadRetentionMetrics(),
+        loadCaseAnalytics(),
+        loadFeatureUsage(),
+        loadExamAnalytics(),
+        loadStudyPatterns()
+      ]);
+
+      document.getElementById('loadingMessage').style.display = 'none';
+      document.getElementById('dashboardContent').style.display = 'block';
+    }
+
+    async function loadRetentionMetrics() {
+      try {
+        const now = new Date();
+        const oneDayAgo = new Date(now - 24 * 60 * 60 * 1000);
+        const sevenDaysAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+        const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
+
+        const usersSnapshot = await db.collection('users').get();
+
+        let dau = 0, wau = 0, mau = 0;
+        let totalSessions = 0;
+
+        for (const doc of usersSnapshot.docs) {
+          const userData = doc.data();
+          const lastActive = userData.lastActive?.toDate();
+
+          if (lastActive) {
+            if (lastActive > oneDayAgo) dau++;
+            if (lastActive > sevenDaysAgo) wau++;
+            if (lastActive > thirtyDaysAgo) mau++;
+          }
+
+          const sessions = await db.collection('users').doc(doc.id).collection('sessions').get();
+          totalSessions += sessions.size;
+        }
+
+        document.getElementById('dau').textContent = dau;
+        document.getElementById('wau').textContent = wau;
+        document.getElementById('mau').textContent = mau;
+        document.getElementById('avgSessions').textContent = mau > 0 ? (totalSessions / mau).toFixed(1) : 0;
+
+      } catch (error) {
+        console.error('Error loading retention metrics:', error);
+      }
+    }
+
+    async function loadCaseAnalytics() {
+      try {
+        const casesSnapshot = await db.collection('caseAnalytics').get();
+        const cases = [];
+
+        casesSnapshot.forEach(doc => {
+          const data = doc.data();
+          cases.push({
+            id: doc.id,
+            title: data.title || doc.id,
+            viewCount: data.viewCount || 0,
+            uniqueViewers: (data.uniqueViewers || []).length,
+            lastViewed: data.lastViewed?.toDate()
+          });
+        });
+
+        // Sort by view count
+        cases.sort((a, b) => b.viewCount - a.viewCount);
+
+        // Top 10 cases
+        const topCases = cases.slice(0, 10);
+        const maxViews = topCases[0]?.viewCount || 1;
+
+        let topHTML = '<div class="chart-container">';
+        topCases.forEach(caseData => {
+          const width = (caseData.viewCount / maxViews) * 100;
+          topHTML += `
+            <div class="bar" style="width: ${width}%">
+              ${caseData.title}: ${caseData.viewCount} views (${caseData.uniqueViewers} unique)
+            </div>
+          `;
+        });
+        topHTML += '</div>';
+        document.getElementById('topCasesContainer').innerHTML = topHTML;
+
+        // Bottom 10 cases
+        const bottomCases = cases.slice(-10).reverse();
+        let bottomHTML = '<div class="chart-container">';
+        if (bottomCases.length > 0) {
+          bottomCases.forEach(caseData => {
+            bottomHTML += `
+              <div class="metric-row">
+                <span class="metric-label">${caseData.title}</span>
+                <span class="metric-value">${caseData.viewCount} views</span>
+              </div>
+            `;
+          });
+        } else {
+          bottomHTML += '<p style="color: #808080;">No case data available yet</p>';
+        }
+        bottomHTML += '</div>';
+        document.getElementById('bottomCasesContainer').innerHTML = bottomHTML;
+
+      } catch (error) {
+        console.error('Error loading case analytics:', error);
+      }
+    }
+
+    async function loadFeatureUsage() {
+      try {
+        const usersSnapshot = await db.collection('users').get();
+
+        let totalSearches = 0;
+        let totalFilters = 0;
+        let totalFlags = 0;
+        let totalCompletions = 0;
+
+        for (const doc of usersSnapshot.docs) {
+          const userData = doc.data();
+          const featureUsage = userData.featureUsage || {};
+
+          totalSearches += featureUsage.search || 0;
+          totalFilters += featureUsage.filter || 0;
+          totalFlags += featureUsage.flag || 0;
+          totalCompletions += featureUsage.case_completion || 0;
+        }
+
+        document.getElementById('totalSearches').textContent = totalSearches;
+        document.getElementById('totalFilters').textContent = totalFilters;
+        document.getElementById('totalFlags').textContent = totalFlags;
+        document.getElementById('totalCompletions').textContent = totalCompletions;
+
+        // Feature usage details
+        const totalFeatures = totalSearches + totalFilters + totalFlags + totalCompletions;
+        if (totalFeatures > 0) {
+          const details = `
+            <div class="chart-container">
+              <h3 style="margin-top: 0; color: #b0b0b0;">Feature Distribution</h3>
+              <div class="bar" style="width: ${(totalSearches/totalFeatures*100)}%">
+                Search: ${((totalSearches/totalFeatures)*100).toFixed(1)}%
+              </div>
+              <div class="bar" style="width: ${(totalFilters/totalFeatures*100)}%">
+                Filters: ${((totalFilters/totalFeatures)*100).toFixed(1)}%
+              </div>
+              <div class="bar" style="width: ${(totalFlags/totalFeatures*100)}%">
+                Flags: ${((totalFlags/totalFeatures)*100).toFixed(1)}%
+              </div>
+              <div class="bar" style="width: ${(totalCompletions/totalFeatures*100)}%">
+                Completions: ${((totalCompletions/totalFeatures)*100).toFixed(1)}%
+              </div>
+            </div>
+          `;
+          document.getElementById('featureDetailsContainer').innerHTML = details;
+        }
+
+      } catch (error) {
+        console.error('Error loading feature usage:', error);
+      }
+    }
+
+    async function loadExamAnalytics() {
+      try {
+        const examsSnapshot = await db.collection('examAnalytics').get();
+        const tbody = document.getElementById('examAnalyticsBody');
+        tbody.innerHTML = '';
+
+        if (examsSnapshot.empty) {
+          tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #808080;">No exam data available yet</td></tr>';
+          return;
+        }
+
+        examsSnapshot.forEach(doc => {
+          const data = doc.data();
+          const row = tbody.insertRow();
+
+          row.insertCell().textContent = `${data.examType} ${data.examYear}`;
+          row.insertCell().textContent = data.viewCount || 0;
+          row.insertCell().textContent = (data.uniqueViewers || []).length;
+          row.insertCell().textContent = data.lastViewed ?
+            data.lastViewed.toDate().toLocaleString() : 'Never';
+        });
+
+      } catch (error) {
+        console.error('Error loading exam analytics:', error);
+      }
+    }
+
+    async function loadStudyPatterns() {
+      try {
+        const usersSnapshot = await db.collection('users').get();
+        let allDurations = [];
+        let totalTime = 0;
+
+        for (const doc of usersSnapshot.docs) {
+          const sessions = await db.collection('users').doc(doc.id).collection('sessions').get();
+          sessions.forEach(sessionDoc => {
+            const session = sessionDoc.data();
+            if (session.duration) {
+              allDurations.push(session.duration);
+              totalTime += session.duration;
+            }
+          });
+        }
+
+        if (allDurations.length > 0) {
+          const avg = totalTime / allDurations.length;
+          allDurations.sort((a, b) => a - b);
+          const median = allDurations[Math.floor(allDurations.length / 2)];
+
+          document.getElementById('avgSessionDuration').textContent = formatDuration(avg);
+          document.getElementById('medianSessionDuration').textContent = formatDuration(median);
+          document.getElementById('totalStudyTime').textContent = formatDuration(totalTime);
+        }
+
+        document.getElementById('mostActiveDay').textContent = 'Analysis pending';
+
+      } catch (error) {
+        console.error('Error loading study patterns:', error);
+      }
+    }
+
+    function formatDuration(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+
+      if (hours > 0) {
+        return `${hours}h ${minutes}m`;
+      }
+      return `${minutes}m`;
+    }
+  </script>
+</body>
+</html>
