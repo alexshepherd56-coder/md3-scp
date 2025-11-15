@@ -342,7 +342,7 @@
   </div>
 
   <script>
-    let db, auth;
+    let analyticsDb, analyticsAuth;
 
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof firebase === 'undefined') {
@@ -350,10 +350,10 @@
         return;
       }
 
-      auth = window.firebaseAuth || firebase.auth();
-      db = window.firebaseDb || firebase.firestore();
+      analyticsAuth = window.firebaseAuth || firebase.auth();
+      analyticsDb = window.firebaseDb || firebase.firestore();
 
-      auth.onAuthStateChanged((user) => {
+      analyticsAuth.onAuthStateChanged((user) => {
         if (user) {
           loadAllAnalytics();
         } else {
@@ -385,7 +385,7 @@
         const sevenDaysAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
         const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000);
 
-        const usersSnapshot = await db.collection('users').get();
+        const usersSnapshot = await analyticsDb.collection('users').get();
 
         let dau = 0, wau = 0, mau = 0;
         let totalSessions = 0;
@@ -400,7 +400,7 @@
             if (lastActive > thirtyDaysAgo) mau++;
           }
 
-          const sessions = await db.collection('users').doc(doc.id).collection('sessions').get();
+          const sessions = await analyticsDb.collection('users').doc(doc.id).collection('sessions').get();
           totalSessions += sessions.size;
         }
 
@@ -416,7 +416,7 @@
 
     async function loadCaseAnalytics() {
       try {
-        const casesSnapshot = await db.collection('caseAnalytics').get();
+        const casesSnapshot = await analyticsDb.collection('caseAnalytics').get();
         const cases = [];
 
         casesSnapshot.forEach(doc => {
@@ -474,7 +474,7 @@
 
     async function loadFeatureUsage() {
       try {
-        const usersSnapshot = await db.collection('users').get();
+        const usersSnapshot = await analyticsDb.collection('users').get();
 
         let totalSearches = 0;
         let totalFilters = 0;
@@ -526,7 +526,7 @@
 
     async function loadExamAnalytics() {
       try {
-        const examsSnapshot = await db.collection('examAnalytics').get();
+        const examsSnapshot = await analyticsDb.collection('examAnalytics').get();
         const tbody = document.getElementById('examAnalyticsBody');
         tbody.innerHTML = '';
 
@@ -553,12 +553,12 @@
 
     async function loadStudyPatterns() {
       try {
-        const usersSnapshot = await db.collection('users').get();
+        const usersSnapshot = await analyticsDb.collection('users').get();
         let allDurations = [];
         let totalTime = 0;
 
         for (const doc of usersSnapshot.docs) {
-          const sessions = await db.collection('users').doc(doc.id).collection('sessions').get();
+          const sessions = await analyticsDb.collection('users').doc(doc.id).collection('sessions').get();
           sessions.forEach(sessionDoc => {
             const session = sessionDoc.data();
             if (session.duration) {

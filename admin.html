@@ -350,7 +350,7 @@
 
   <script>
     let allUsers = [];
-    let db, auth;
+    let adminDb, adminAuth;
 
     // Check authentication
     document.addEventListener('DOMContentLoaded', () => {
@@ -359,10 +359,10 @@
         return;
       }
 
-      auth = window.firebaseAuth || firebase.auth();
-      db = window.firebaseDb || firebase.firestore();
+      adminAuth = window.firebaseAuth || firebase.auth();
+      adminDb = window.firebaseDb || firebase.firestore();
 
-      auth.onAuthStateChanged((user) => {
+      adminAuth.onAuthStateChanged((user) => {
         if (user) {
           // Check if user is admin (you can implement admin check here)
           checkAdminAccess(user);
@@ -406,7 +406,7 @@
 
       try {
         // Fetch all users
-        const usersSnapshot = await db.collection('users').get();
+        const usersSnapshot = await adminDb.collection('users').get();
         allUsers = [];
 
         let totalSessions = 0;
@@ -419,7 +419,7 @@
           const userData = doc.data();
 
           // Get sessions for this user
-          const sessionsSnapshot = await db.collection('users').doc(doc.id)
+          const sessionsSnapshot = await adminDb.collection('users').doc(doc.id)
             .collection('sessions').get();
 
           const sessionCount = sessionsSnapshot.size;
