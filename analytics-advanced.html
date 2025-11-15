@@ -556,14 +556,24 @@
         const usersSnapshot = await analyticsDb.collection('users').get();
         let allDurations = [];
         let totalTime = 0;
+        const now = new Date();
 
         for (const doc of usersSnapshot.docs) {
           const sessions = await analyticsDb.collection('users').doc(doc.id).collection('sessions').get();
           sessions.forEach(sessionDoc => {
             const session = sessionDoc.data();
-            if (session.duration) {
-              allDurations.push(session.duration);
-              totalTime += session.duration;
+            let duration = session.duration || 0;
+
+            // For active sessions, calculate current duration from startTime
+            if (session.isActive && session.startTime) {
+              const startTime = session.startTime.toDate();
+              const currentDuration = Math.floor((now - startTime) / 1000);
+              duration = Math.max(duration, currentDuration); // Use the larger value
+            }
+
+            if (duration > 0) {
+              allDurations.push(duration);
+              totalTime += duration;
             }
           });
         }
@@ -576,6 +586,10 @@
           document.getElementById('avgSessionDuration').textContent = formatDuration(avg);
           document.getElementById('medianSessionDuration').textContent = formatDuration(median);
           document.getElementById('totalStudyTime').textContent = formatDuration(totalTime);
+        } else {
+          document.getElementById('avgSessionDuration').textContent = '0m';
+          document.getElementById('medianSessionDuration').textContent = '0m';
+          document.getElementById('totalStudyTime').textContent = '0m';
         }
 
         document.getElementById('mostActiveDay').textContent = 'Analysis pending';

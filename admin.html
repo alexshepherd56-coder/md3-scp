@@ -432,11 +432,21 @@
 
           // Calculate total session time
           let userTotalTime = 0;
+          const now = new Date();
           sessionsSnapshot.forEach(sessionDoc => {
             const session = sessionDoc.data();
-            if (session.duration) {
-              userTotalTime += session.duration;
-              totalSessionTime += session.duration;
+            let duration = session.duration || 0;
+
+            // For active sessions, calculate current duration from startTime
+            if (session.isActive && session.startTime) {
+              const startTime = session.startTime.toDate();
+              const currentDuration = Math.floor((now - startTime) / 1000);
+              duration = Math.max(duration, currentDuration);
+            }
+
+            if (duration > 0) {
+              userTotalTime += duration;
+              totalSessionTime += duration;
             }
           });
 
