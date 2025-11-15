@@ -33,11 +33,24 @@ class UserAnalytics {
       return;
     }
 
+    // Check if user is already signed in (important for page refreshes)
+    const currentUser = this.auth.currentUser;
+    if (currentUser) {
+      console.log('UserAnalytics: Found already signed-in user, starting session');
+      this.startSession(currentUser);
+    }
+
     // Listen for auth state changes
     this.auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log('UserAnalytics: User signed in, starting session tracking');
-        this.startSession(user);
+        console.log('UserAnalytics: Auth state changed - user signed in');
+        // Only start session if we don't already have one
+        if (!this.currentSessionId) {
+          console.log('UserAnalytics: No existing session, starting new one');
+          this.startSession(user);
+        } else {
+          console.log('UserAnalytics: Session already exists, skipping');
+        }
       } else {
         console.log('UserAnalytics: User signed out, ending session tracking');
         this.endSession();
@@ -93,7 +106,7 @@ class UserAnalytics {
         pages: [{
           path: this.currentPage,
           title: document.title,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          timestamp: new Date() // Can't use serverTimestamp() in arrays
         }],
         isActive: true,
         userAgent: navigator.userAgent,
@@ -214,7 +227,7 @@ class UserAnalytics {
         pages: firebase.firestore.FieldValue.arrayUnion({
           path: path,
           title: title,
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          timestamp: new Date() // Can't use serverTimestamp() in arrays
         })
       });
 

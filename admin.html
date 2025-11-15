@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - SCP Cases</title>
-  <link rel="stylesheet" href="css/styles.css">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -401,12 +400,16 @@
     }
 
     async function loadDashboardData() {
+      console.log('[DEBUG] ========== Starting Dashboard Load ==========');
       document.getElementById('loadingMessage').style.display = 'block';
+      document.getElementById('loadingMessage').textContent = 'Loading users...';
       document.getElementById('usersTable').style.display = 'none';
 
       try {
         // Fetch all users
+        console.log('[DEBUG] Fetching all users...');
         const usersSnapshot = await adminDb.collection('users').get();
+        console.log(`[DEBUG] Found ${usersSnapshot.size} users`);
         allUsers = [];
 
         let totalSessions = 0;
@@ -415,7 +418,12 @@
         const now = new Date();
         const fiveMinutesAgo = new Date(now - 5 * 60 * 1000);
 
+        let userIndex = 0;
         for (const doc of usersSnapshot.docs) {
+          userIndex++;
+          document.getElementById('loadingMessage').textContent = `Loading user ${userIndex}/${usersSnapshot.size}...`;
+          console.log(`[DEBUG] Processing user ${userIndex}/${usersSnapshot.size}: ${doc.id}`);
+
           const userData = doc.data();
 
           // Get sessions for this user
@@ -433,22 +441,37 @@
           // Calculate total session time
           let userTotalTime = 0;
           const now = new Date();
+          console.log(`[DEBUG] Processing ${sessionsSnapshot.size} sessions for user ${userData.email}`);
+
           sessionsSnapshot.forEach(sessionDoc => {
             const session = sessionDoc.data();
             let duration = session.duration || 0;
+
+            console.log(`[DEBUG] Session ${sessionDoc.id}:`, {
+              isActive: session.isActive,
+              storedDuration: session.duration,
+              startTime: session.startTime?.toDate(),
+              hasStartTime: !!session.startTime
+            });
 
             // For active sessions, calculate current duration from startTime
             if (session.isActive && session.startTime) {
               const startTime = session.startTime.toDate();
               const currentDuration = Math.floor((now - startTime) / 1000);
               duration = Math.max(duration, currentDuration);
+              console.log(`[DEBUG] Active session - calculated duration: ${currentDuration}s (${Math.floor(currentDuration/60)}m)`);
             }
 
             if (duration > 0) {
               userTotalTime += duration;
               totalSessionTime += duration;
+              console.log(`[DEBUG] Added ${duration}s to user total. New total: ${userTotalTime}s`);
+            } else {
+              console.log(`[DEBUG] Skipped session with 0 duration`);
             }
           });
+
+          console.log(`[DEBUG] Final user total time: ${userTotalTime}s (${Math.floor(userTotalTime/60)}m)`);
 
           allUsers.push({
             id: doc.id,
@@ -464,6 +487,14 @@
         }
 
         // Update statistics
+        console.log('[DEBUG] ========== SUMMARY ==========');
+        console.log(`[DEBUG] Total users: ${allUsers.length}`);
+        console.log(`[DEBUG] Active users: ${activeUsersCount}`);
+        console.log(`[DEBUG] Total sessions: ${totalSessions}`);
+        console.log(`[DEBUG] Total session time: ${totalSessionTime}s (${Math.floor(totalSessionTime/60)}m)`);
+        console.log(`[DEBUG] Average session time: ${totalSessions > 0 ? Math.round(totalSessionTime / totalSessions / 60) : 0}m`);
+        console.log('[DEBUG] ==================================');
+
         document.getElementById('totalUsers').textContent = allUsers.length;
         document.getElementById('activeUsers').textContent = activeUsersCount;
         document.getElementById('totalSessions').textContent = totalSessions;
