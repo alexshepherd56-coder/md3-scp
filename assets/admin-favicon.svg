@@ -1,0 +1,23 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Green virus/star logo for admin -->
+  <g>
+    <!-- Center circle -->
+    <circle cx="20" cy="20" r="6" fill="#22c55e"/>
+    <!-- Top arc -->
+    <path d="M20 4 Q20 12, 20 12" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <!-- Right arc -->
+    <path d="M36 20 Q28 20, 28 20" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <!-- Bottom arc -->
+    <path d="M20 36 Q20 28, 20 28" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <!-- Left arc -->
+    <path d="M4 20 Q12 20, 12 20" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+    <!-- Top-right diagonal -->
+    <path d="M29 11 Q24 16, 24 16" stroke="#22c55e" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Bottom-right diagonal -->
+    <path d="M29 29 Q24 24, 24 24" stroke="#22c55e" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Bottom-left diagonal -->
+    <path d="M11 29 Q16 24, 16 24" stroke="#22c55e" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- Top-left diagonal -->
+    <path d="M11 11 Q16 16, 16 16" stroke="#22c55e" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+</svg>

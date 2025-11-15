@@ -4,18 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/admin-favicon.svg">
+  <link rel="alternate icon" type="image/png" href="assets/admin-favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
       margin: 0;
       padding: 20px;
-      background-color: #1a1a1a;
+      background: linear-gradient(135deg, #0a0e0a 0%, #1a1f1a 100%);
       color: #e0e0e0;
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      cursor: default;
     }
 
     .dashboard-container {
       max-width: 1400px;
       margin: 0 auto;
+      padding: 20px;
     }
 
     .dashboard-header {
@@ -23,23 +41,36 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 30px;
-      padding: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 10px;
+      padding: 30px;
+      background: rgba(20, 30, 20, 0.6);
+      border-left: 4px solid #00ff88;
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
     }
 
     .dashboard-header h1 {
       margin: 0;
-      color: white;
-      font-size: 2em;
+      color: #00ff88;
+      font-size: 1.8em;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      text-shadow:
+        0 0 5px rgba(0, 255, 136, 0.3),
+        0 0 10px rgba(0, 255, 136, 0.2);
+      animation: neonPulse 2s ease-in-out infinite;
+      position: relative;
+      display: inline-block;
     }
 
     .admin-badge {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(0, 255, 136, 0.1);
       padding: 8px 16px;
-      border-radius: 20px;
-      color: white;
-      font-weight: bold;
+      border: 1px solid #00ff88;
+      color: #00ff88;
+      font-weight: 500;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      font-size: 0.85em;
     }
 
     .stats-grid {
@@ -50,37 +81,48 @@
     }
 
     .stat-card {
-      background: #2a2a2a;
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 4px solid #667eea;
+      background: rgba(20, 30, 20, 0.4);
+      padding: 24px;
+      border-left: 3px solid #00ff88;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      background: rgba(20, 30, 20, 0.6);
+      transform: translateY(-2px);
     }
 
     .stat-card h3 {
-      margin: 0 0 10px 0;
-      color: #b0b0b0;
-      font-size: 0.9em;
+      margin: 0 0 12px 0;
+      color: #888;
+      font-size: 0.75em;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-weight: 500;
     }
 
     .stat-value {
       font-size: 2.5em;
-      font-weight: bold;
-      color: #667eea;
-      margin: 0;
+      font-weight: 700;
+      color: #00ff88;
+      margin: 0 0 8px 0;
     }
 
     .stat-subtext {
-      font-size: 0.9em;
-      color: #808080;
+      font-size: 0.8em;
+      color: #666;
       margin-top: 5px;
+      font-weight: 400;
     }
 
     .users-table-container {
-      background: #2a2a2a;
-      border-radius: 10px;
-      padding: 20px;
+      background: rgba(20, 30, 20, 0.4);
+      border-left: 3px solid #00ff88;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      padding: 24px;
       overflow-x: auto;
     }
 
@@ -89,26 +131,34 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(0, 255, 136, 0.2);
     }
 
     .table-header h2 {
       margin: 0;
-      color: #e0e0e0;
+      color: #00ff88;
+      font-size: 1.3em;
+      font-weight: 600;
+      letter-spacing: -0.5px;
     }
 
     .refresh-btn {
-      background: #667eea;
-      color: white;
-      border: none;
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      border: 1px solid #00ff88;
       padding: 10px 20px;
-      border-radius: 5px;
       cursor: pointer;
-      font-size: 1em;
-      transition: background 0.3s;
+      font-size: 0.85em;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      border-radius: 4px;
+      transition: all 0.2s ease;
     }
 
     .refresh-btn:hover {
-      background: #5568d3;
+      background: rgba(0, 255, 136, 0.2);
+      transform: translateY(-1px);
     }
 
     .users-table {
@@ -118,138 +168,334 @@
 
     .users-table th,
     .users-table td {
-      padding: 12px;
+      padding: 14px 16px;
       text-align: left;
-      border-bottom: 1px solid #3a3a3a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .users-table th {
-      background: #333;
-      color: #b0b0b0;
+      background: rgba(0, 255, 136, 0.05);
+      color: #888;
       font-weight: 600;
       text-transform: uppercase;
-      font-size: 0.85em;
-      letter-spacing: 1px;
+      font-size: 0.7em;
+      letter-spacing: 1.2px;
     }
 
-    .users-table tr:hover {
-      background: #333;
+    .users-table tbody tr {
+      transition: background 0.2s ease;
+    }
+
+    .users-table tbody tr:hover {
+      background: rgba(0, 255, 136, 0.05);
+    }
+
+    .users-table td {
+      color: #ccc;
+      font-size: 0.9em;
     }
 
     .loading {
       text-align: center;
       padding: 40px;
-      color: #808080;
-      font-size: 1.2em;
+      color: #888;
+      font-size: 1em;
     }
 
     .error {
-      background: #ff4444;
-      color: white;
-      padding: 15px;
-      border-radius: 5px;
+      background: rgba(255, 50, 50, 0.1);
+      color: #ff5555;
+      border-left: 3px solid #ff5555;
+      padding: 16px;
       margin-bottom: 20px;
+      border-radius: 4px;
     }
 
     .time-badge {
-      background: #667eea;
-      color: white;
-      padding: 4px 8px;
-      border-radius: 4px;
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      padding: 4px 10px;
       font-size: 0.85em;
+      border-radius: 3px;
+      font-weight: 500;
     }
 
     .online-indicator {
       display: inline-block;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
+      background: #00ff88;
+      margin-right: 8px;
       border-radius: 50%;
-      background: #4CAF50;
-      margin-right: 5px;
-      animation: pulse 2s infinite;
+      animation: pulse 2s ease-in-out infinite;
     }
 
     .offline-indicator {
       display: inline-block;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
+      background: #444;
+      margin-right: 8px;
       border-radius: 50%;
-      background: #666;
-      margin-right: 5px;
     }
 
     @keyframes pulse {
       0%, 100% {
         opacity: 1;
+        box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4);
       }
       50% {
-        opacity: 0.5;
+        opacity: 0.8;
+        box-shadow: 0 0 0 4px rgba(0, 255, 136, 0);
       }
     }
 
     .session-details {
-      font-size: 0.85em;
-      color: #b0b0b0;
+      font-size: 0.8em;
+      color: #666;
+      margin-top: 4px;
     }
 
     .filters {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 20px;
     }
 
     .filter-input {
-      padding: 10px;
-      border: 1px solid #3a3a3a;
-      border-radius: 5px;
-      background: #333;
-      color: #e0e0e0;
-      font-size: 1em;
+      padding: 10px 14px;
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      background: rgba(0, 0, 0, 0.3);
+      color: #ccc;
+      font-size: 0.9em;
+      font-family: 'JetBrains Mono', monospace;
+      border-radius: 4px;
+      transition: all 0.2s ease;
     }
 
     .filter-input:focus {
       outline: none;
-      border-color: #667eea;
+      border-color: #00ff88;
+      background: rgba(0, 0, 0, 0.5);
     }
 
     .export-btn {
-      background: #4CAF50;
-      color: white;
-      border: none;
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      border: 1px solid #00ff88;
       padding: 10px 20px;
-      border-radius: 5px;
       cursor: pointer;
-      font-size: 1em;
+      font-size: 0.85em;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
       margin-left: 10px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
     }
 
     .export-btn:hover {
-      background: #45a049;
+      background: rgba(0, 255, 136, 0.2);
+      transform: translateY(-1px);
     }
 
     .auth-required {
       text-align: center;
       padding: 60px 20px;
+      border-left: 3px solid #ff5555;
+      background: rgba(255, 50, 50, 0.05);
+      border-radius: 8px;
     }
 
     .auth-required h2 {
-      color: #667eea;
+      color: #ff5555;
       margin-bottom: 20px;
+      font-size: 1.5em;
+      font-weight: 600;
     }
 
     .sign-in-btn {
-      background: #667eea;
-      color: white;
-      border: none;
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      border: 1px solid #00ff88;
       padding: 12px 30px;
-      border-radius: 5px;
       cursor: pointer;
-      font-size: 1.1em;
+      font-size: 0.9em;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
       margin-top: 20px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
     }
 
     .sign-in-btn:hover {
-      background: #5568d3;
+      background: rgba(0, 255, 136, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* Page Views Styles */
+    .page-view-card {
+      background: rgba(20, 30, 20, 0.4);
+      border-left: 3px solid #00ff88;
+      border-radius: 8px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .page-view-card:hover {
+      background: rgba(20, 30, 20, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .page-view-title {
+      color: #00ff88;
+      font-size: 0.95em;
+      font-weight: 600;
+      margin: 0 0 12px 0;
+      word-break: break-word;
+    }
+
+    .page-view-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .page-view-count {
+      color: #00ff88;
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+
+    .page-view-label {
+      color: #888;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page-view-unique {
+      color: #ccc;
+      font-size: 0.85em;
+    }
+
+    .page-view-bar {
+      height: 6px;
+      background: rgba(0, 255, 136, 0.2);
+      border-radius: 3px;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+
+    .page-view-bar-fill {
+      height: 100%;
+      background: #00ff88;
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+
+    /* Matrix Rain Background */
+    #matrixCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    /* CRT Flicker Animation */
+    @keyframes crtFlicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.95; }
+      100% { opacity: 1; }
+    }
+
+    .crt-flicker {
+      animation: crtFlicker 0.15s ease-in-out;
+    }
+
+    /* Neon Pulse Animation */
+    @keyframes neonPulse {
+      0%, 100% {
+        text-shadow:
+          0 0 5px rgba(0, 255, 136, 0.3),
+          0 0 10px rgba(0, 255, 136, 0.2);
+      }
+      50% {
+        text-shadow:
+          0 0 8px rgba(0, 255, 136, 0.5),
+          0 0 15px rgba(0, 255, 136, 0.3);
+      }
+    }
+
+    /* Glitch Animation */
+    @keyframes glitch {
+      0% {
+        transform: translate(0);
+        text-shadow:
+          0 0 10px rgba(0, 255, 136, 0.8),
+          0 0 20px rgba(0, 255, 136, 0.6);
+      }
+      20% {
+        transform: translate(-2px, 2px);
+        text-shadow:
+          2px 0 rgba(255, 0, 0, 0.7),
+          -2px 0 rgba(0, 255, 255, 0.7);
+      }
+      40% {
+        transform: translate(2px, -2px);
+        text-shadow:
+          -2px 0 rgba(255, 0, 0, 0.7),
+          2px 0 rgba(0, 255, 255, 0.7);
+      }
+      60% {
+        transform: translate(-1px, 1px);
+        text-shadow:
+          1px 0 rgba(255, 0, 0, 0.7),
+          -1px 0 rgba(0, 255, 255, 0.7);
+      }
+      80% {
+        transform: translate(1px, -1px);
+        text-shadow:
+          -1px 0 rgba(255, 0, 0, 0.7),
+          1px 0 rgba(0, 255, 255, 0.7);
+      }
+      100% {
+        transform: translate(0);
+        text-shadow:
+          0 0 10px rgba(0, 255, 136, 0.8),
+          0 0 20px rgba(0, 255, 136, 0.6);
+      }
+    }
+
+    .glitch-active {
+      animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Blinking Cursor */
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background-color: #00ff88;
+      margin-left: 4px;
+      animation: cursorBlink 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes cursorBlink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* Normal pointer cursor for clickable elements */
+    button, .refresh-btn, .export-btn, .sign-in-btn, a, input, select {
+      cursor: pointer;
     }
   </style>
 
@@ -262,6 +508,9 @@
   <script src="js/firebase-config.js"></script>
 </head>
 <body>
+  <!-- Matrix Rain Background -->
+  <canvas id="matrixCanvas"></canvas>
+
   <div class="dashboard-container">
     <!-- Auth Required Screen -->
     <div id="authRequired" class="auth-required" style="display: none;">
@@ -273,7 +522,7 @@
     <!-- Dashboard Content -->
     <div id="dashboardContent" style="display: none;">
       <div class="dashboard-header">
-        <h1>User Analytics Dashboard</h1>
+        <h1 id="dashboardTitle"></h1>
         <div class="admin-badge">ADMIN</div>
       </div>
 
@@ -303,6 +552,21 @@
           <h3>Avg Session Time</h3>
           <p class="stat-value" id="avgSessionTime">-</p>
           <p class="stat-subtext">Minutes per session</p>
+        </div>
+      </div>
+
+      <!-- Page Views Section -->
+      <div class="page-views-section" style="margin-bottom: 30px;">
+        <div class="section-header" style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(0, 255, 136, 0.2);">
+          <h2 style="margin: 0; color: #00ff88; font-size: 1.3em; font-weight: 600; letter-spacing: -0.5px;">Most Visited Pages</h2>
+        </div>
+
+        <div id="pageViewsLoading" class="loading">Loading page analytics...</div>
+
+        <div id="pageViewsContent" style="display: none;">
+          <div class="page-views-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px;">
+            <!-- Page view cards will be inserted here -->
+          </div>
         </div>
       </div>
 
@@ -351,8 +615,266 @@
     let allUsers = [];
     let adminDb, adminAuth;
 
+    // Admin emails to exclude from analytics
+    const ADMIN_EMAILS = ['alex.shepherd56@gmail.com', 'admin@example.com'];
+
+    // Sound Effects using Web Audio API
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+    let audioInitialized = false;
+
+    // Initialize audio context on first user interaction
+    function initAudio() {
+      if (!audioInitialized) {
+        audioCtx = new AudioContext();
+        audioInitialized = true;
+
+        // Resume context if suspended
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+    }
+
+    // Typewriter sound effect
+    function playTypeSound() {
+      if (!audioCtx) {
+        try {
+          initAudio();
+        } catch (e) {
+          return;
+        }
+      }
+
+      if (!audioCtx) return;
+
+      try {
+        // Create typewriter key click
+        const bufferSize = audioCtx.sampleRate * 0.015; // 15ms
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+
+        // Generate noise for typewriter click
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
+        }
+
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buffer;
+
+        const gainNode = audioCtx.createGain();
+        const filter = audioCtx.createBiquadFilter();
+
+        filter.type = 'bandpass';
+        filter.frequency.value = 1500;
+        filter.Q.value = 3;
+
+        noise.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.015);
+
+        noise.start(audioCtx.currentTime);
+        noise.stop(audioCtx.currentTime + 0.015);
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
+
+    // Typewriter effect for dashboard title
+    function typewriterEffect(element, text, speed = 80) {
+      let index = 0;
+      element.textContent = '';
+
+      function typeNextChar() {
+        if (index < text.length) {
+          element.textContent += text.charAt(index);
+          playTypeSound();
+          index++;
+          setTimeout(typeNextChar, speed);
+        } else {
+          // Add blinking cursor after typing completes
+          const cursor = document.createElement('span');
+          cursor.className = 'cursor';
+          element.appendChild(cursor);
+
+          // Start random glitch effect
+          startRandomGlitch(element);
+        }
+      }
+
+      typeNextChar();
+    }
+
+    // Random glitch effect that triggers occasionally
+    function startRandomGlitch(element) {
+      setInterval(() => {
+        // 10% chance every 5 seconds
+        if (Math.random() < 0.1) {
+          element.classList.add('glitch-active');
+          setTimeout(() => {
+            element.classList.remove('glitch-active');
+          }, 300);
+        }
+      }, 5000);
+    }
+
+    // Animated counter for statistics
+    function animateCounter(element, target, duration = 1000, suffix = '') {
+      const start = 0;
+      const increment = target / (duration / 16); // 60fps
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + suffix;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + suffix;
+        }
+      }, 16);
+    }
+
+    // Click sound effect
+    function playClickSound() {
+      // Ensure audio is initialized on first click
+      if (!audioCtx) {
+        try {
+          initAudio();
+        } catch (e) {
+          return;
+        }
+      }
+
+      if (!audioCtx) return;
+
+      try {
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        oscillator.frequency.value = 600;
+        oscillator.type = 'square';
+
+        gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+
+        oscillator.start(audioCtx.currentTime);
+        oscillator.stop(audioCtx.currentTime + 0.05);
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
+
+    // Scroll sound effect
+    let lastScrollTime = 0;
+    const SCROLL_SOUND_THROTTLE = 80; // ms between scroll sounds (balanced)
+
+    function playScrollSound(direction) {
+      const now = Date.now();
+      if (now - lastScrollTime < SCROLL_SOUND_THROTTLE) return;
+      lastScrollTime = now;
+
+      // Ensure audio is initialized
+      if (!audioCtx) {
+        try {
+          initAudio();
+        } catch (e) {
+          return;
+        }
+      }
+
+      if (!audioCtx) return;
+
+      try {
+        // Create a sharp click sound using white noise
+        const bufferSize = audioCtx.sampleRate * 0.01; // 10ms of noise
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+
+        // Generate white noise for click
+        for (let i = 0; i < bufferSize; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buffer;
+
+        const gainNode = audioCtx.createGain();
+        const filter = audioCtx.createBiquadFilter();
+
+        // High-pass filter for sharp click
+        filter.type = 'highpass';
+        filter.frequency.value = 2000;
+
+        noise.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        // Very short, sharp envelope
+        gainNode.gain.setValueAtTime(0.015, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.01);
+
+        noise.start(audioCtx.currentTime);
+        noise.stop(audioCtx.currentTime + 0.01);
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
+
+    // Track scroll direction and play sound
+    let lastScrollY = window.scrollY;
+
+    function handleScroll() {
+      // Initialize audio on first scroll
+      ensureAudioOnInteraction({ type: 'scroll' });
+
+      const currentScrollY = window.scrollY;
+      const direction = currentScrollY > lastScrollY ? 'down' : 'up';
+
+      if (Math.abs(currentScrollY - lastScrollY) > 5) { // Play if scrolled more than 5px
+        playScrollSound(direction);
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Add click sound to all interactive elements
+    function addClickSounds() {
+      // Add to all buttons
+      document.querySelectorAll('button, .refresh-btn, .export-btn, .sign-in-btn').forEach(btn => {
+        btn.addEventListener('click', playClickSound);
+      });
+
+      // Add to all inputs on focus
+      document.querySelectorAll('input, select, .filter-input').forEach(input => {
+        input.addEventListener('focus', playClickSound);
+      });
+
+      // Add to table rows
+      document.querySelectorAll('.users-table tbody tr').forEach(row => {
+        row.addEventListener('click', playClickSound);
+      });
+    }
+
     // Check authentication
     document.addEventListener('DOMContentLoaded', () => {
+      // Initialize audio immediately on page load
+      try {
+        initAudio();
+        console.log('[DEBUG] Audio pre-initialized on page load');
+      } catch (e) {
+        console.log('[DEBUG] Audio pre-init failed (will retry on interaction):', e);
+      }
+
       if (typeof firebase === 'undefined') {
         showError('Firebase not loaded');
         return;
@@ -376,10 +898,127 @@
       document.getElementById('dashboardContent').style.display = 'none';
     }
 
+    // Global audio initialization on first interaction
+    function ensureAudioOnInteraction(e) {
+      if (!audioInitialized && !audioCtx) {
+        try {
+          initAudio();
+          audioInitialized = true;
+          console.log('[DEBUG] Audio initialized on user interaction:', e.type);
+
+          // Remove all pending listeners
+          const events = ['mousemove', 'click', 'keydown', 'touchstart', 'scroll'];
+          events.forEach(eventType => {
+            document.removeEventListener(eventType, ensureAudioOnInteraction);
+          });
+        } catch (e) {
+          console.log('Audio initialization failed:', e);
+        }
+      }
+    }
+
     function showDashboard() {
       document.getElementById('authRequired').style.display = 'none';
       document.getElementById('dashboardContent').style.display = 'block';
+
+      const titleElement = document.getElementById('dashboardTitle');
+
+      console.log('[DEBUG] Setting up audio initialization listeners...');
+      console.log('[DEBUG] audioInitialized:', audioInitialized, 'audioCtx:', audioCtx);
+
+      // Resume audio on first mousemove
+      let audioResumed = false;
+      let mouseMoveHandler = (e) => {
+        if (!audioResumed && audioCtx) {
+          console.log('[DEBUG] Mousemove - checking audio state:', audioCtx.state);
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume().then(() => {
+              console.log('[DEBUG] Audio context RESUMED on mousemove');
+              audioResumed = true;
+            });
+          } else {
+            console.log('[DEBUG] Audio context already running:', audioCtx.state);
+            audioResumed = true;
+          }
+          document.removeEventListener('mousemove', mouseMoveHandler);
+        }
+      };
+      document.addEventListener('mousemove', mouseMoveHandler);
+
+      // Backup click listener
+      let clickHandler = (e) => {
+        console.log('[DEBUG] Click detected!');
+        if (!audioInitialized && !audioCtx) {
+          try {
+            initAudio();
+            audioInitialized = true;
+            console.log('[DEBUG] Audio initialized on click');
+            document.removeEventListener('click', clickHandler);
+          } catch (err) {
+            console.log('[DEBUG] Audio init failed:', err);
+          }
+        }
+      };
+      document.addEventListener('click', clickHandler);
+
+      // Start typewriter immediately (sounds will play once audio context is initialized)
+      typewriterEffect(titleElement, 'User Analytics Dashboard', 80);
+
       loadDashboardData();
+      loadPageAnalytics();
+      // Add click sounds to buttons
+      setTimeout(() => addClickSounds(), 100);
+
+      // Start monitoring for new activity
+      startActivityMonitoring();
+    }
+
+    // Monitor for new user activity in real-time
+    let lastActivityCheck = new Date();
+    function startActivityMonitoring() {
+      // Disabled for now due to Firebase permissions - can be re-enabled when needed
+      console.log('[DEBUG] Activity monitoring disabled (requires additional Firebase permissions)');
+
+      /*
+      // Check for new sessions every 30 seconds
+      setInterval(async () => {
+        try {
+          const snapshot = await adminDb.collection('sessions')
+            .where('startTime', '>', lastActivityCheck)
+            .get();
+
+          if (!snapshot.empty) {
+            console.log(`[DEBUG] New activity detected: ${snapshot.size} new session(s)`);
+            playAlertBeep();
+
+            // Update the active users count
+            const activeSnapshot = await adminDb.collection('sessions')
+              .where('isActive', '==', true)
+              .get();
+
+            let activeCount = 0;
+            const adminUserIds = [];
+            const adminUsersSnapshot = await adminDb.collection('users')
+              .where('email', 'in', ADMIN_EMAILS)
+              .get();
+            adminUsersSnapshot.forEach(doc => adminUserIds.push(doc.id));
+
+            activeSnapshot.forEach(doc => {
+              if (!adminUserIds.includes(doc.data().userId)) {
+                activeCount++;
+              }
+            });
+
+            animateCounter(document.getElementById('activeUsers'), activeCount, 500);
+            applyCRTFlicker(document.querySelectorAll('.stat-card')[1]);
+          }
+
+          lastActivityCheck = new Date();
+        } catch (error) {
+          console.error('Error monitoring activity:', error);
+        }
+      }, 30000); // Check every 30 seconds
+      */
     }
 
     async function checkAdminAccess(user) {
@@ -401,6 +1040,8 @@
 
     async function loadDashboardData() {
       console.log('[DEBUG] ========== Starting Dashboard Load ==========');
+      const startTime = performance.now();
+
       document.getElementById('loadingMessage').style.display = 'block';
       document.getElementById('loadingMessage').textContent = 'Loading users...';
       document.getElementById('usersTable').style.display = 'none';
@@ -410,70 +1051,50 @@
         console.log('[DEBUG] Fetching all users...');
         const usersSnapshot = await adminDb.collection('users').get();
         console.log(`[DEBUG] Found ${usersSnapshot.size} users`);
-        allUsers = [];
 
-        let totalSessions = 0;
-        let totalSessionTime = 0;
-        let activeUsersCount = 0;
         const now = new Date();
         const fiveMinutesAgo = new Date(now - 5 * 60 * 1000);
 
-        let userIndex = 0;
-        for (const doc of usersSnapshot.docs) {
-          userIndex++;
-          document.getElementById('loadingMessage').textContent = `Loading user ${userIndex}/${usersSnapshot.size}...`;
-          console.log(`[DEBUG] Processing user ${userIndex}/${usersSnapshot.size}: ${doc.id}`);
-
+        // Process all users in parallel
+        const userPromises = usersSnapshot.docs.map(async (doc) => {
           const userData = doc.data();
+
+          // Skip admin users
+          if (ADMIN_EMAILS.includes(userData.email)) {
+            console.log(`[DEBUG] Skipping admin user: ${userData.email}`);
+            return null;
+          }
 
           // Get sessions for this user
           const sessionsSnapshot = await adminDb.collection('users').doc(doc.id)
             .collection('sessions').get();
 
           const sessionCount = sessionsSnapshot.size;
-          totalSessions += sessionCount;
 
           // Check if user is currently active
           const lastActive = userData.lastActive?.toDate();
           const isActive = lastActive && lastActive > fiveMinutesAgo;
-          if (isActive) activeUsersCount++;
 
           // Calculate total session time
           let userTotalTime = 0;
-          const now = new Date();
-          console.log(`[DEBUG] Processing ${sessionsSnapshot.size} sessions for user ${userData.email}`);
 
           sessionsSnapshot.forEach(sessionDoc => {
             const session = sessionDoc.data();
             let duration = session.duration || 0;
-
-            console.log(`[DEBUG] Session ${sessionDoc.id}:`, {
-              isActive: session.isActive,
-              storedDuration: session.duration,
-              startTime: session.startTime?.toDate(),
-              hasStartTime: !!session.startTime
-            });
 
             // For active sessions, calculate current duration from startTime
             if (session.isActive && session.startTime) {
               const startTime = session.startTime.toDate();
               const currentDuration = Math.floor((now - startTime) / 1000);
               duration = Math.max(duration, currentDuration);
-              console.log(`[DEBUG] Active session - calculated duration: ${currentDuration}s (${Math.floor(currentDuration/60)}m)`);
             }
 
             if (duration > 0) {
               userTotalTime += duration;
-              totalSessionTime += duration;
-              console.log(`[DEBUG] Added ${duration}s to user total. New total: ${userTotalTime}s`);
-            } else {
-              console.log(`[DEBUG] Skipped session with 0 duration`);
             }
           });
 
-          console.log(`[DEBUG] Final user total time: ${userTotalTime}s (${Math.floor(userTotalTime/60)}m)`);
-
-          allUsers.push({
+          return {
             id: doc.id,
             email: userData.email,
             displayName: userData.displayName || 'N/A',
@@ -483,24 +1104,41 @@
             sessionCount: sessionCount,
             createdAt: userData.createdAt?.toDate(),
             isActive: isActive
-          });
-        }
+          };
+        });
+
+        // Wait for all user data to be processed and filter out nulls (admin users)
+        allUsers = (await Promise.all(userPromises)).filter(user => user !== null);
+
+        // Calculate statistics
+        let totalSessions = 0;
+        let totalSessionTime = 0;
+        let activeUsersCount = 0;
+
+        allUsers.forEach(user => {
+          totalSessions += user.sessionCount;
+          totalSessionTime += user.totalTimeSpent;
+          if (user.isActive) activeUsersCount++;
+        });
 
         // Update statistics
+        const endTime = performance.now();
         console.log('[DEBUG] ========== SUMMARY ==========');
         console.log(`[DEBUG] Total users: ${allUsers.length}`);
         console.log(`[DEBUG] Active users: ${activeUsersCount}`);
         console.log(`[DEBUG] Total sessions: ${totalSessions}`);
         console.log(`[DEBUG] Total session time: ${totalSessionTime}s (${Math.floor(totalSessionTime/60)}m)`);
         console.log(`[DEBUG] Average session time: ${totalSessions > 0 ? Math.round(totalSessionTime / totalSessions / 60) : 0}m`);
+        console.log(`[DEBUG] Load time: ${Math.round(endTime - startTime)}ms`);
         console.log('[DEBUG] ==================================');
 
-        document.getElementById('totalUsers').textContent = allUsers.length;
-        document.getElementById('activeUsers').textContent = activeUsersCount;
-        document.getElementById('totalSessions').textContent = totalSessions;
+        // Animate statistics with counter effect
+        animateCounter(document.getElementById('totalUsers'), allUsers.length, 1200);
+        animateCounter(document.getElementById('activeUsers'), activeUsersCount, 1200);
+        animateCounter(document.getElementById('totalSessions'), totalSessions, 1400);
 
         const avgTime = totalSessions > 0 ? Math.round(totalSessionTime / totalSessions / 60) : 0;
-        document.getElementById('avgSessionTime').textContent = avgTime;
+        animateCounter(document.getElementById('avgSessionTime'), avgTime, 1000);
 
         // Sort users by last active (most recent first)
         allUsers.sort((a, b) => {
@@ -514,6 +1152,17 @@
 
         document.getElementById('loadingMessage').style.display = 'none';
         document.getElementById('usersTable').style.display = 'table';
+
+        // Apply CRT flicker effect to stats
+        document.querySelectorAll('.stat-card').forEach(card => {
+          applyCRTFlicker(card);
+        });
+
+        // Play success chime when data loads
+        playSuccessChime();
+
+        // Add click sounds to table rows after they're rendered
+        setTimeout(() => addClickSounds(), 100);
 
       } catch (error) {
         console.error('Error loading dashboard data:', error);
@@ -649,6 +1298,106 @@
       window.URL.revokeObjectURL(url);
     }
 
+    async function loadPageAnalytics() {
+      console.log('[DEBUG] Loading page analytics...');
+      document.getElementById('pageViewsLoading').style.display = 'block';
+      document.getElementById('pageViewsContent').style.display = 'none';
+
+      try {
+        // Get admin user IDs to exclude
+        const adminUserIds = [];
+        const adminUsersSnapshot = await adminDb.collection('users')
+          .where('email', 'in', ADMIN_EMAILS)
+          .get();
+
+        adminUsersSnapshot.forEach(doc => {
+          adminUserIds.push(doc.id);
+        });
+
+        console.log('[DEBUG] Excluding admin user IDs:', adminUserIds);
+
+        // Fetch case analytics
+        const caseAnalyticsSnapshot = await adminDb.collection('caseAnalytics')
+          .orderBy('viewCount', 'desc')
+          .limit(12)
+          .get();
+
+        if (caseAnalyticsSnapshot.empty) {
+          document.getElementById('pageViewsLoading').textContent = 'No page view data yet';
+          return;
+        }
+
+        const pageData = [];
+        let maxViews = 0;
+
+        caseAnalyticsSnapshot.forEach(doc => {
+          const data = doc.data();
+
+          // Filter out admin users from unique viewers
+          let uniqueViewers = data.uniqueViewers || [];
+          const nonAdminViewers = uniqueViewers.filter(uid => !adminUserIds.includes(uid));
+
+          pageData.push({
+            caseId: data.caseId,
+            title: data.title || doc.id,
+            viewCount: data.viewCount || 0,
+            uniqueViewers: nonAdminViewers.length,
+            lastViewed: data.lastViewed?.toDate()
+          });
+          maxViews = Math.max(maxViews, data.viewCount || 0);
+        });
+
+        // Display page views
+        displayPageViews(pageData, maxViews);
+
+        document.getElementById('pageViewsLoading').style.display = 'none';
+        document.getElementById('pageViewsContent').style.display = 'block';
+
+        // Apply CRT flicker to page analytics cards
+        setTimeout(() => {
+          document.querySelectorAll('.page-view-card').forEach(card => {
+            applyCRTFlicker(card);
+          });
+        }, 100);
+
+      } catch (error) {
+        console.error('Error loading page analytics:', error);
+        document.getElementById('pageViewsLoading').textContent = 'Error loading page analytics: ' + error.message;
+      }
+    }
+
+    function displayPageViews(pages, maxViews) {
+      const grid = document.querySelector('.page-views-grid');
+      grid.innerHTML = '';
+
+      pages.forEach(page => {
+        const card = document.createElement('div');
+        card.className = 'page-view-card';
+
+        const percentage = maxViews > 0 ? (page.viewCount / maxViews) * 100 : 0;
+
+        card.innerHTML = `
+          <div class="page-view-label">Case</div>
+          <h3 class="page-view-title">${page.title}</h3>
+          <div class="page-view-stats">
+            <div>
+              <div class="page-view-count">${page.viewCount}</div>
+              <div class="page-view-label">Total Views</div>
+            </div>
+            <div style="text-align: right;">
+              <div class="page-view-unique">${page.uniqueViewers} unique</div>
+              <div class="page-view-label" style="margin-top: 4px;">${page.lastViewed ? 'Last: ' + formatRelativeTime(page.lastViewed) : ''}</div>
+            </div>
+          </div>
+          <div class="page-view-bar">
+            <div class="page-view-bar-fill" style="width: ${percentage}%"></div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
     function showError(message) {
       const errorDiv = document.getElementById('errorMessage');
       errorDiv.textContent = message;
@@ -657,6 +1406,155 @@
         errorDiv.style.display = 'none';
       }, 5000);
     }
+
+    // Matrix Rain Effect
+    function initMatrixRain() {
+      const canvas = document.getElementById('matrixCanvas');
+      const ctx = canvas.getContext('2d');
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+      const fontSize = 14;
+      const columns = canvas.width / fontSize;
+      const drops = [];
+
+      // Initialize drops
+      for (let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+      }
+
+      function draw() {
+        // Fade effect
+        ctx.fillStyle = 'rgba(10, 14, 10, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#00ff88';
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+
+          drops[i]++;
+        }
+      }
+
+      setInterval(draw, 35);
+
+      // Resize handler
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    }
+
+    // Success chime sound (plays when data loads successfully)
+    function playSuccessChime() {
+      if (!audioCtx) {
+        try {
+          initAudio();
+        } catch (e) {
+          return;
+        }
+      }
+      if (!audioCtx) return;
+
+      try {
+        // Create a pleasant upward arpeggio
+        const frequencies = [523.25, 659.25, 783.99]; // C5, E5, G5
+        frequencies.forEach((freq, index) => {
+          setTimeout(() => {
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            oscillator.frequency.value = freq;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.3);
+          }, index * 100);
+        });
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
+
+    // Alert beep sound (for new activity)
+    function playAlertBeep() {
+      if (!audioCtx) {
+        try {
+          initAudio();
+        } catch (e) {
+          return;
+        }
+      }
+      if (!audioCtx) return;
+
+      try {
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        // Double beep
+        oscillator.frequency.value = 880; // A5
+        oscillator.type = 'square';
+
+        gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+
+        oscillator.start(audioCtx.currentTime);
+        oscillator.stop(audioCtx.currentTime + 0.1);
+
+        // Second beep
+        setTimeout(() => {
+          const oscillator2 = audioCtx.createOscillator();
+          const gainNode2 = audioCtx.createGain();
+
+          oscillator2.connect(gainNode2);
+          gainNode2.connect(audioCtx.destination);
+
+          oscillator2.frequency.value = 880;
+          oscillator2.type = 'square';
+
+          gainNode2.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          gainNode2.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+
+          oscillator2.start(audioCtx.currentTime);
+          oscillator2.stop(audioCtx.currentTime + 0.1);
+        }, 150);
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
+
+    // CRT Flicker effect on data refresh
+    function applyCRTFlicker(element) {
+      element.classList.add('crt-flicker');
+      setTimeout(() => {
+        element.classList.remove('crt-flicker');
+      }, 150);
+    }
+
+    // Matrix rain disabled for readability
+    // if (document.readyState === 'loading') {
+    //   document.addEventListener('DOMContentLoaded', initMatrixRain);
+    // } else {
+    //   initMatrixRain();
+    // }
   </script>
 </body>
 </html>
