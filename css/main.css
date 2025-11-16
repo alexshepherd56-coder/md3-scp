@@ -455,6 +455,7 @@ header h1 {
 
 /* Main Section Headings - Past Exams and SCPs Toggle */
 .sidebar-main-heading,
+#osceTimerSection,
 #pastExamsSection,
 #scpsToggle {
   font-size: 16px;
@@ -471,21 +472,26 @@ header h1 {
   text-transform: none;
 }
 
+#osceTimerSection {
+  text-transform: capitalize;
+}
+
 #pastExamsSection {
   text-transform: capitalize;
-  margin-top: 8px;
 }
 
 #scpsToggle {
   margin-top: 4px;
 }
 
+#osceTimerSection:hover,
 #pastExamsSection:hover,
 #scpsToggle:hover {
   background-color: var(--claude-light-accent);
   border-left-color: var(--claude-border);
 }
 
+#osceTimerSection.active,
 #pastExamsSection.active,
 #scpsToggle.active {
   background-color: var(--claude-light-accent);

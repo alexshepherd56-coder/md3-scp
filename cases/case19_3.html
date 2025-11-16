@@ -5,7 +5,8 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'G-LSRR4KW715');
@@ -140,9 +141,13 @@
         const caseId = window.completionTracker.getCurrentCaseId();
         if (caseId) {
           window.completionTracker.toggleCompletion(caseId);
-        }
-      }
-    }// Toggle case flag
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
     function toggleCaseFlag() {
       console.log('toggleCaseFlag() function called');
       console.log('window.flagTracker exists:', !!window.flagTracker);
@@ -151,7 +156,8 @@
         console.error('window.flagTracker is not defined!');
         alert('Flag tracker not initialized. Please refresh the page.');
         return;
-      }
+      
+    }
 
       const caseId = window.flagTracker.getCurrentCaseId();
       console.log('Current case ID:', caseId);
@@ -160,10 +166,12 @@
         console.error('Could not get case ID');
         alert('Could not determine case ID');
         return;
-      }
+      
+    }
 
       console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
       window.flagTracker.toggleCaseFlag(caseId);
+    
     }
 
     // Update case flag button state on page load
@@ -173,12 +181,16 @@
           const caseId = window.flagTracker.getCurrentCaseId();
           if (caseId) {
             window.flagTracker.updateCaseFlagButton(caseId);
-          }
+          
+    }
         }, 100);
-      }
+      
+    }
     });
+    
     }
   </script>
 
+  <script src="../js/case-page-tracker.js"></script>
 </body>
 </html>

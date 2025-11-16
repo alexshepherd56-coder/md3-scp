@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSCE Timer - MD3 SCP</title>
+
+  <link rel="icon" type="image/png" href="../assets/ShepTech logo.png">
+  <link rel="stylesheet" href="../css/main.css?v=20251109-1">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/dark-mode.js"></script>
+
+  <style>
+    /* OSCE Timer specific styles */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: var(--claude-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .osce-container {
+      max-width: 800px;
+      width: 100%;
+      padding: 15px 20px;
+    }
+
+    .osce-header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .osce-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--claude-text);
+      margin: 0;
+    }
+
+    .back-home-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 8px 16px;
+      background: var(--claude-card-bg);
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 100;
+    }
+
+    .back-home-btn:hover {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .osce-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--claude-text);
+      margin-bottom: 10px;
+    }
+
+    .osce-subtitle {
+      font-size: 16px;
+      color: var(--claude-text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .config-section {
+      background: var(--claude-card-bg);
+      border: 1px solid var(--claude-border);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .config-section.hidden {
+      display: none;
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .config-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .config-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .config-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--claude-text);
+    }
+
+    .config-input {
+      padding: 12px;
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      font-size: 16px;
+      background: var(--claude-cream);
+      color: var(--claude-text);
+      transition: all 0.2s ease;
+    }
+
+    .config-input:focus {
+      outline: none;
+      border-color: var(--claude-accent);
+      background: var(--claude-card-bg);
+    }
+
+    .start-button {
+      width: 100%;
+      padding: 16px;
+      background: var(--claude-accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .start-button:hover {
+      background: #0A0A0A;
+      transform: translateY(-1px);
+    }
+
+    .config-section {
+      background: var(--claude-card-bg);
+      border: 1px solid var(--claude-border);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .timer-display {
+      text-align: center;
+      padding: 25px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .timer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .station-info {
+      font-size: 18px;
+      color: var(--claude-text-secondary);
+      font-weight: 500;
+    }
+
+    .stations-progress {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 900px;
+    }
+
+    .station-box {
+      width: 60px;
+      height: 60px;
+      border: 2px solid var(--claude-border);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--claude-text-secondary);
+      background: var(--claude-card-bg);
+      transition: all 0.3s ease;
+    }
+
+    .station-box.active {
+      border-color: var(--claude-accent);
+      background: var(--claude-light-accent);
+      color: var(--claude-accent);
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(217, 119, 87, 0.25);
+    }
+
+    .station-box.completed {
+      border-color: #50C878;
+      background: #50C878;
+      color: white;
+    }
+
+    .station-box-number {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .station-box-label {
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .station-box.completed .station-box-content {
+      display: none;
+    }
+
+    .station-box.completed::after {
+      content: "✓";
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .phase-name {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--claude-text);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .phase-name.reading {
+      color: #4A90E2;
+    }
+
+    .phase-name.station {
+      color: #50C878;
+    }
+
+    .phase-name.transition {
+      color: #F39C12;
+    }
+
+    .timer-circle {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+    }
+
+    .timer-svg {
+      transform: rotate(-90deg);
+    }
+
+    .timer-circle-bg {
+      fill: none;
+      stroke: var(--claude-border);
+      stroke-width: 12;
+    }
+
+    .timer-circle-progress {
+      fill: none;
+      stroke: var(--claude-accent);
+      stroke-width: 12;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear;
+    }
+
+    .timer-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 64px;
+      font-weight: 400;
+      color: var(--claude-text);
+    }
+
+    .control-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .control-btn {
+      padding: 10px 20px;
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      background: var(--claude-card-bg);
+      color: var(--claude-text);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .control-btn:hover {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+      transform: translateY(-1px);
+    }
+
+    .control-btn.danger {
+      background: #E74C3C;
+      color: white;
+      border-color: #E74C3C;
+    }
+
+    .control-btn.danger:hover {
+      background: #C0392B;
+      border-color: #C0392B;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      position: relative;
+      margin-top: 25px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--claude-border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--claude-accent) 0%, #C5654A 100%);
+      transition: width 1s linear;
+      box-shadow: 0 0 10px rgba(217, 119, 87, 0.3);
+    }
+
+    .progress-rabbit {
+      position: absolute;
+      bottom: 20px;
+      left: 0%;
+      font-size: 36px;
+      transition: left 1s linear;
+      transform: translateX(-50%);
+      filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+      z-index: 10;
+    }
+
+    @keyframes hop {
+      0%, 100% { transform: translateX(-50%) translateY(0) scaleX(1); }
+      50% { transform: translateX(-50%) translateY(-10px) scaleX(1.1); }
+    }
+
+    .progress-rabbit.running {
+      animation: hop 0.4s ease-in-out infinite;
+    }
+
+    .completion-message {
+      text-align: center;
+      padding: 80px 30px;
+    }
+
+    .completion-message h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--claude-text);
+      margin-bottom: 20px;
+    }
+
+    .completion-message p {
+      font-size: 18px;
+      color: var(--claude-text-secondary);
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back-home-btn">
+    <span>←</span>
+    <span>Home</span>
+  </a>
+
+  <div class="osce-container">
+    <div class="osce-header">
+      <h1 class="osce-title">OSCE Practice Timer</h1>
+    </div>
+
+    <!-- Configuration Section -->
+    <div class="config-section" id="configSection">
+      <div class="config-grid">
+        <div class="config-item">
+          <label class="config-label" for="readingTime">Reading Time (minutes)</label>
+          <input type="number" id="readingTime" class="config-input" value="3" min="0" max="30" step="0.5">
+        </div>
+
+        <div class="config-item">
+          <label class="config-label" for="stationTime">Station Time (minutes)</label>
+          <input type="number" id="stationTime" class="config-input" value="10" min="1" max="60" step="0.5">
+        </div>
+
+        <div class="config-item">
+          <label class="config-label" for="questionTimeToggle">
+            Question Time Alert
+            <input type="checkbox" id="questionTimeToggle" style="margin-left: 10px;">
+          </label>
+          <input type="number" id="questionTime" class="config-input" value="2" min="0.5" max="30" step="0.5" placeholder="Minutes before end" disabled>
+          <small style="color: var(--claude-text-secondary); font-size: 12px;">Buzzer sounds X minutes before station ends</small>
+        </div>
+
+        <div class="config-item">
+          <label class="config-label" for="transitionTime">Transition Time (seconds)</label>
+          <input type="number" id="transitionTime" class="config-input" value="30" min="0" max="300" step="5">
+        </div>
+
+        <div class="config-item">
+          <label class="config-label" for="numStations">Number of Stations</label>
+          <input type="number" id="numStations" class="config-input" value="6" min="1" max="20">
+        </div>
+      </div>
+
+      <button class="start-button" id="startButton">Start OSCE Timer</button>
+    </div>
+
+    <!-- Timer Display Section -->
+    <div class="config-section hidden" id="timerSection">
+      <div class="timer-display">
+        <!-- Station Info and Phase at top -->
+        <div class="timer-header">
+          <div class="station-info" id="stationInfo">Station 1 of 6</div>
+        </div>
+
+        <!-- Station Progress Boxes -->
+        <div class="stations-progress" id="stationsProgress"></div>
+
+        <!-- Timer Circle (centered) -->
+        <div class="timer-circle">
+          <svg class="timer-svg" width="300" height="300">
+            <circle class="timer-circle-bg" cx="150" cy="150" r="140"></circle>
+            <circle class="timer-circle-progress" id="timerProgress" cx="150" cy="150" r="140"
+                    stroke-dasharray="880" stroke-dashoffset="0"></circle>
+          </svg>
+          <div class="timer-text" id="timerText">3:00</div>
+        </div>
+
+        <!-- Phase Name (centered) -->
+        <div class="phase-name reading" id="phaseName">Reading Time</div>
+
+        <!-- Control Buttons (centered) -->
+        <div class="control-buttons">
+          <button class="control-btn" id="previousButton">← Previous</button>
+          <button class="control-btn" id="pauseButton">Pause</button>
+          <button class="control-btn" id="skipButton">Next →</button>
+          <button class="control-btn danger" id="stopButton">Stop</button>
+        </div>
+
+        <!-- Progress Bar with Rabbit -->
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+          </div>
+          <div class="progress-rabbit running" id="progressRabbit">🐰</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Completion Section -->
+    <div class="config-section hidden" id="completionSection">
+      <div class="completion-message">
+        <h2>🎉 OSCE Session Complete!</h2>
+        <p>Great work! You've completed all stations.</p>
+        <button class="start-button" id="restartButton">Start New Session</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    class OSCETimer {
+      constructor() {
+        this.config = {
+          readingTime: 3,
+          stationTime: 10,
+          transitionTime: 30,
+          numStations: 6,
+          questionTimeEnabled: false,
+          questionTime: 2
+        };
+
+        this.currentStation = 1;
+        this.currentPhase = 'reading'; // 'reading', 'station', 'transition'
+        this.timeRemaining = 0;
+        this.isPaused = false;
+        this.isRunning = false;
+        this.interval = null;
+        this.questionTimeSounded = false; // Track if question time beep has played
+
+        this.audioContext = null;
+        this.initAudioContext();
+        this.initEventListeners();
+        this.setupQuestionTimeToggle();
+      }
+
+      setupQuestionTimeToggle() {
+        const toggle = document.getElementById('questionTimeToggle');
+        const input = document.getElementById('questionTime');
+
+        toggle.addEventListener('change', () => {
+          input.disabled = !toggle.checked;
+        });
+      }
+
+      initAudioContext() {
+        // Create audio context for beeps
+        try {
+          this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        } catch (e) {
+          console.error('Audio context not supported', e);
+        }
+      }
+
+      playBeep(duration = 1.2, frequency = 550) {
+        if (!this.audioContext) return;
+
+        const oscillator = this.audioContext.createOscillator();
+        const gainNode = this.audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(this.audioContext.destination);
+
+        oscillator.frequency.value = frequency;
+        oscillator.type = 'square'; // Square wave for harsher buzzer sound
+
+        // Maximum volume - set to 1.0 (100% volume)
+        gainNode.gain.setValueAtTime(1.0, this.audioContext.currentTime);
+        // Keep volume steady for most of the duration, then quick fade
+        gainNode.gain.setValueAtTime(1.0, this.audioContext.currentTime + duration - 0.05);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + duration);
+
+        oscillator.start(this.audioContext.currentTime);
+        oscillator.stop(this.audioContext.currentTime + duration);
+      }
+
+      playQuestionTimeBeep() {
+        if (!this.audioContext) return;
+
+        // G major arpeggio: G (392 Hz) - B (494 Hz) - D (587 Hz)
+        const beepPattern = [
+          { delay: 0, duration: 0.2, frequency: 392 },    // G
+          { delay: 0.25, duration: 0.2, frequency: 494 }, // B
+          { delay: 0.5, duration: 0.2, frequency: 587 }   // D
+        ];
+
+        beepPattern.forEach(beep => {
+          setTimeout(() => {
+            const oscillator = this.audioContext.createOscillator();
+            const gainNode = this.audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(this.audioContext.destination);
+
+            oscillator.frequency.value = beep.frequency;
+            oscillator.type = 'sine'; // Sine wave for smoother, musical sound
+
+            // Maximum volume - 100%
+            gainNode.gain.setValueAtTime(1.0, this.audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + beep.duration);
+
+            oscillator.start(this.audioContext.currentTime);
+            oscillator.stop(this.audioContext.currentTime + beep.duration);
+          }, beep.delay * 1000);
+        });
+      }
+
+      initEventListeners() {
+        document.getElementById('startButton').addEventListener('click', () => this.startTimer());
+        document.getElementById('pauseButton').addEventListener('click', () => this.togglePause());
+        document.getElementById('skipButton').addEventListener('click', () => this.skipPhase());
+        document.getElementById('previousButton').addEventListener('click', () => this.previousPhase());
+        document.getElementById('stopButton').addEventListener('click', () => this.stopTimer());
+        document.getElementById('restartButton').addEventListener('click', () => this.restart());
+      }
+
+      createStationBoxes() {
+        const container = document.getElementById('stationsProgress');
+        container.innerHTML = '';
+
+        for (let i = 1; i <= this.config.numStations; i++) {
+          const box = document.createElement('div');
+          box.className = 'station-box';
+          box.id = `station-box-${i}`;
+          box.innerHTML = `
+            <div class="station-box-content">
+              <div class="station-box-number">${i}</div>
+              <div class="station-box-label">Station</div>
+            </div>
+          `;
+          container.appendChild(box);
+        }
+      }
+
+      updateStationBoxes() {
+        for (let i = 1; i <= this.config.numStations; i++) {
+          const box = document.getElementById(`station-box-${i}`);
+          if (!box) continue;
+
+          box.classList.remove('active', 'completed');
+
+          if (i < this.currentStation) {
+            // Completed stations (stations before current one)
+            box.classList.add('completed');
+          } else if (i === this.currentStation) {
+            // Current station logic
+            if (this.currentPhase === 'reading' || this.currentPhase === 'station') {
+              // Highlight during reading and station time
+              box.classList.add('active');
+            } else if (this.currentPhase === 'transition') {
+              // Mark as completed after station time (during transition)
+              box.classList.add('completed');
+            }
+          }
+        }
+      }
+
+      startTimer() {
+        // Get configuration
+        this.config.readingTime = parseFloat(document.getElementById('readingTime').value);
+        this.config.stationTime = parseFloat(document.getElementById('stationTime').value);
+        this.config.transitionTime = parseFloat(document.getElementById('transitionTime').value);
+        this.config.numStations = parseInt(document.getElementById('numStations').value);
+        this.config.questionTimeEnabled = document.getElementById('questionTimeToggle').checked;
+        this.config.questionTime = parseFloat(document.getElementById('questionTime').value);
+
+        // Validate
+        if (this.config.stationTime < 0.1 || this.config.numStations < 1) {
+          alert('Please enter valid configuration values');
+          return;
+        }
+
+        // Validate question time
+        if (this.config.questionTimeEnabled && this.config.questionTime >= this.config.stationTime) {
+          alert('Question time must be less than station time');
+          return;
+        }
+
+        // Initialize audio context on user interaction
+        if (this.audioContext && this.audioContext.state === 'suspended') {
+          this.audioContext.resume();
+        }
+
+        // Hide config, show timer
+        document.getElementById('configSection').classList.add('hidden');
+        document.getElementById('timerSection').classList.remove('hidden');
+
+        // Create station boxes
+        this.createStationBoxes();
+
+        // Start first phase
+        this.currentStation = 1;
+        this.currentPhase = 'reading';
+        this.isRunning = true;
+        this.startPhase();
+      }
+
+      startPhase() {
+        // Set time based on phase
+        if (this.currentPhase === 'reading') {
+          this.timeRemaining = this.config.readingTime * 60;
+        } else if (this.currentPhase === 'station') {
+          this.timeRemaining = this.config.stationTime * 60;
+          this.questionTimeSounded = false; // Reset question time flag for new station
+        } else if (this.currentPhase === 'transition') {
+          this.timeRemaining = this.config.transitionTime;
+        }
+
+        // Play beep at start of each phase
+        this.playBeep();
+
+        // Update UI
+        this.updateUI();
+
+        // Start countdown
+        if (this.interval) clearInterval(this.interval);
+        this.interval = setInterval(() => this.tick(), 1000);
+      }
+
+      tick() {
+        if (this.isPaused || !this.isRunning) return;
+
+        this.timeRemaining--;
+
+        // Check for question time alert during station phase
+        if (this.currentPhase === 'station' &&
+            this.config.questionTimeEnabled &&
+            !this.questionTimeSounded) {
+          const questionTimeSeconds = this.config.questionTime * 60;
+          if (this.timeRemaining <= questionTimeSeconds && this.timeRemaining > questionTimeSeconds - 1) {
+            this.playQuestionTimeBeep(); // Use different beep for question time
+            this.questionTimeSounded = true;
+          }
+        }
+
+        if (this.timeRemaining <= 0) {
+          this.nextPhase();
+        }
+
+        this.updateUI();
+      }
+
+      nextPhase() {
+        // Move to next phase
+        if (this.currentPhase === 'reading') {
+          this.currentPhase = 'station';
+          this.startPhase();
+        } else if (this.currentPhase === 'station') {
+          if (this.currentStation >= this.config.numStations) {
+            // All stations complete
+            this.complete();
+          } else {
+            this.currentPhase = 'transition';
+            this.startPhase();
+          }
+        } else if (this.currentPhase === 'transition') {
+          this.currentStation++;
+          this.currentPhase = 'reading';
+          this.startPhase();
+        }
+      }
+
+      skipPhase() {
+        if (!this.isRunning) return;
+        this.timeRemaining = 0;
+        this.nextPhase();
+      }
+
+      previousPhase() {
+        if (!this.isRunning) return;
+
+        // Move to previous phase
+        if (this.currentPhase === 'transition') {
+          this.currentPhase = 'station';
+          this.startPhase();
+        } else if (this.currentPhase === 'station') {
+          this.currentPhase = 'reading';
+          this.startPhase();
+        } else if (this.currentPhase === 'reading') {
+          if (this.currentStation > 1) {
+            // Go back to previous station's transition
+            this.currentStation--;
+            this.currentPhase = 'transition';
+            this.startPhase();
+          } else {
+            // Already at first reading time, can't go back further
+            alert('Already at the beginning of the session');
+          }
+        }
+      }
+
+      togglePause() {
+        this.isPaused = !this.isPaused;
+        const btn = document.getElementById('pauseButton');
+        btn.textContent = this.isPaused ? 'Resume' : 'Pause';
+      }
+
+      stopTimer() {
+        if (!confirm('Are you sure you want to stop the timer?')) return;
+
+        this.isRunning = false;
+        if (this.interval) clearInterval(this.interval);
+
+        // Show config section
+        document.getElementById('configSection').classList.remove('hidden');
+        document.getElementById('timerSection').classList.add('hidden');
+      }
+
+      complete() {
+        this.isRunning = false;
+        if (this.interval) clearInterval(this.interval);
+
+        // Play completion beep (different tone)
+        this.playBeep(1, 1200);
+
+        // Show completion message
+        document.getElementById('timerSection').classList.add('hidden');
+        document.getElementById('completionSection').classList.remove('hidden');
+      }
+
+      restart() {
+        // Reset everything
+        document.getElementById('completionSection').classList.add('hidden');
+        document.getElementById('configSection').classList.remove('hidden');
+      }
+
+      updateUI() {
+        // Update station boxes
+        this.updateStationBoxes();
+
+        // Update station info
+        document.getElementById('stationInfo').textContent =
+          `Station ${this.currentStation} of ${this.config.numStations}`;
+
+        // Update phase name
+        const phaseNameEl = document.getElementById('phaseName');
+        phaseNameEl.className = `phase-name ${this.currentPhase}`;
+
+        if (this.currentPhase === 'reading') {
+          phaseNameEl.textContent = 'Reading Time';
+        } else if (this.currentPhase === 'station') {
+          phaseNameEl.textContent = 'Station Time';
+        } else if (this.currentPhase === 'transition') {
+          phaseNameEl.textContent = 'Transition';
+        }
+
+        // Update timer text
+        const minutes = Math.floor(this.timeRemaining / 60);
+        const seconds = this.timeRemaining % 60;
+        document.getElementById('timerText').textContent =
+          `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+        // Update circular progress (empties as time counts down)
+        const totalTime = this.currentPhase === 'reading' ? this.config.readingTime * 60 :
+                         this.currentPhase === 'station' ? this.config.stationTime * 60 :
+                         this.config.transitionTime;
+        const progress = this.timeRemaining / totalTime; // Reversed: based on remaining time
+        const circumference = 2 * Math.PI * 140; // radius = 140
+        const offset = circumference * (1 - progress);
+        document.getElementById('timerProgress').style.strokeDashoffset = offset;
+
+        // Update overall progress bar
+        const totalPhases = this.config.numStations * 3; // reading + station + transition per station
+        const currentPhaseNum = (this.currentStation - 1) * 3 +
+          (this.currentPhase === 'reading' ? 1 : this.currentPhase === 'station' ? 2 : 3);
+        const overallProgress = (currentPhaseNum / totalPhases) * 100;
+        document.getElementById('progressFill').style.width = `${overallProgress}%`;
+
+        // Update rabbit position
+        const rabbit = document.getElementById('progressRabbit');
+        if (rabbit) {
+          rabbit.style.left = `${overallProgress}%`;
+        }
+      }
+
+      formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+      }
+    }
+
+    // Initialize timer
+    const osceTimer = new OSCETimer();
+  </script>
+</body>
+</html>
