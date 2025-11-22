@@ -11,7 +11,7 @@ class UserAnalytics {
     this.currentPage = null;
     this.activityTimeout = null;
     this.INACTIVITY_THRESHOLD = 2 * 60 * 1000; // 2 minutes of inactivity pauses session
-    this.HEARTBEAT_INTERVAL = 30 * 1000; // Update session every 30 seconds
+    this.HEARTBEAT_INTERVAL = 2 * 60 * 1000; // Update session every 2 minutes (reduced from 30s to save Firestore quota)
     this.heartbeatTimer = null;
     this.activeDuration = 0; // Track only active time in seconds
     this.lastHeartbeatTime = null;
