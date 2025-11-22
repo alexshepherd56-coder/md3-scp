@@ -1086,12 +1086,12 @@
         finishBeer.addEventListener('mouseenter', () => {
           pintEasterEgg.style.display = 'block';
 
-          // Create lots of falling "I ❤️ pints" text
+          // Create lots of falling "Pints" text
           for (let i = 0; i < 50; i++) {
             setTimeout(() => {
               const text = document.createElement('div');
               text.className = 'pint-love-text';
-              text.textContent = 'I ❤️ pints';
+              text.textContent = 'Pints';
               text.style.left = Math.random() * 100 + 'vw';
               text.style.top = '-50px';
               text.style.animationDelay = Math.random() * 0.5 + 's';
