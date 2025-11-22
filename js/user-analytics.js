@@ -10,9 +10,12 @@ class UserAnalytics {
     this.pageViewStart = null;
     this.currentPage = null;
     this.activityTimeout = null;
-    this.INACTIVITY_THRESHOLD = 5 * 60 * 1000; // 5 minutes of inactivity ends session
+    this.INACTIVITY_THRESHOLD = 2 * 60 * 1000; // 2 minutes of inactivity pauses session
     this.HEARTBEAT_INTERVAL = 30 * 1000; // Update session every 30 seconds
     this.heartbeatTimer = null;
+    this.activeDuration = 0; // Track only active time in seconds
+    this.lastHeartbeatTime = null;
+    this.isPaused = false; // Track if session is paused due to inactivity
   }
 
   // Initialize analytics system
@@ -81,8 +84,11 @@ class UserAnalytics {
 
     this.sessionStart = new Date();
     this.lastActivityTime = new Date();
+    this.lastHeartbeatTime = new Date();
     this.pageViewStart = new Date();
     this.currentPage = window.location.pathname;
+    this.activeDuration = 0;
+    this.isPaused = false;
 
     try {
       // Update user's last sign-in and create new session
@@ -131,27 +137,34 @@ class UserAnalytics {
       return;
     }
 
-    const sessionEnd = new Date();
-    const duration = Math.floor((sessionEnd - this.sessionStart) / 1000); // Duration in seconds
+    // Add any remaining active time since last heartbeat
+    if (!this.isPaused && this.lastHeartbeatTime) {
+      const now = new Date();
+      const timeSinceLastHeartbeat = Math.floor((now - this.lastHeartbeatTime) / 1000);
+
+      // Only add time if it's less than the inactivity threshold
+      if (timeSinceLastHeartbeat < (this.INACTIVITY_THRESHOLD / 1000)) {
+        this.activeDuration += timeSinceLastHeartbeat;
+      }
+    }
 
     try {
       const userRef = this.db.collection('users').doc(this.auth.currentUser.uid);
       const sessionRef = userRef.collection('sessions').doc(this.currentSessionId);
 
-      // Update session document
+      // Update session document with ONLY active duration
       await sessionRef.update({
         endTime: firebase.firestore.FieldValue.serverTimestamp(),
-        duration: duration,
+        duration: this.activeDuration,
         isActive: false
       });
 
-      // Update user's total time statistics
-      await userRef.set({
-        totalTimeSpent: firebase.firestore.FieldValue.increment(duration),
+      // Update user's lastActive timestamp when session ends
+      await userRef.update({
         lastActive: firebase.firestore.FieldValue.serverTimestamp()
-      }, { merge: true });
+      });
 
-      console.log('UserAnalytics: Session ended', this.currentSessionId, `Duration: ${duration}s`);
+      console.log('UserAnalytics: Session ended', this.currentSessionId, `Active Duration: ${this.activeDuration}s`);
 
     } catch (error) {
       console.error('UserAnalytics: Error ending session:', error);
@@ -160,6 +173,8 @@ class UserAnalytics {
     this.stopHeartbeat();
     this.currentSessionId = null;
     this.sessionStart = null;
+    this.activeDuration = 0;
+    this.isPaused = false;
   }
 
   // Start heartbeat to periodically update session
@@ -184,21 +199,42 @@ class UserAnalytics {
     if (!this.currentSessionId || !this.auth?.currentUser || !this.db) return;
 
     const now = new Date();
-    const duration = Math.floor((now - this.sessionStart) / 1000);
+
+    // Only increment active duration if user is not paused
+    if (!this.isPaused && this.lastHeartbeatTime) {
+      const timeSinceLastHeartbeat = Math.floor((now - this.lastHeartbeatTime) / 1000);
+
+      // Check if user has been active recently (within inactivity threshold)
+      const timeSinceLastActivity = now - this.lastActivityTime;
+
+      if (timeSinceLastActivity < this.INACTIVITY_THRESHOLD) {
+        // User is active, add the time since last heartbeat
+        this.activeDuration += timeSinceLastHeartbeat;
+        console.log(`UserAnalytics: Added ${timeSinceLastHeartbeat}s active time. Total: ${this.activeDuration}s`);
+      } else {
+        // User became inactive, don't add time
+        console.log('UserAnalytics: User inactive, not adding time');
+      }
+    }
+
+    this.lastHeartbeatTime = now;
 
     try {
       const userRef = this.db.collection('users').doc(this.auth.currentUser.uid);
       const sessionRef = userRef.collection('sessions').doc(this.currentSessionId);
 
       await sessionRef.update({
-        duration: duration,
+        duration: this.activeDuration,
         lastHeartbeat: firebase.firestore.FieldValue.serverTimestamp()
       });
 
-      // Update user's last active time
+      // ALWAYS update lastActive to show user is still on the site (even if paused)
+      // This ensures admin dashboard shows accurate "last seen" times
       await userRef.update({
         lastActive: firebase.firestore.FieldValue.serverTimestamp()
       });
+
+      console.log(`UserAnalytics: Heartbeat updated. Active: ${!this.isPaused}, Duration: ${this.activeDuration}s`);
 
     } catch (error) {
       console.error('UserAnalytics: Error updating session:', error);
@@ -241,6 +277,11 @@ class UserAnalytics {
     const activityEvents = ['mousedown', 'mousemove', 'keydown', 'scroll', 'touchstart'];
 
     const handleActivity = () => {
+      // If session was paused, resume it
+      if (this.isPaused) {
+        this.resumeSession();
+      }
+
       this.lastActivityTime = new Date();
 
       // Reset inactivity timeout
@@ -250,7 +291,6 @@ class UserAnalytics {
 
       // Set new timeout to detect inactivity
       this.activityTimeout = setTimeout(() => {
-        console.log('UserAnalytics: User inactive, pausing session tracking');
         this.handleInactivity();
       }, this.INACTIVITY_THRESHOLD);
     };
@@ -266,21 +306,36 @@ class UserAnalytics {
 
   // Handle user inactivity
   handleInactivity() {
-    // Could pause session tracking here if desired
-    console.log('UserAnalytics: Inactivity detected');
+    console.log('UserAnalytics: Inactivity detected - pausing session tracking');
+    this.isPaused = true;
+    this.stopHeartbeat(); // Stop updating session while inactive
+  }
+
+  // Resume session tracking after activity
+  resumeSession() {
+    if (this.isPaused && this.currentSessionId) {
+      console.log('UserAnalytics: Activity resumed - resuming session tracking');
+      this.isPaused = false;
+      this.lastActivityTime = new Date();
+      this.lastHeartbeatTime = new Date();
+      this.startHeartbeat(); // Resume heartbeat
+    }
   }
 
   // Handle page hidden (tab switched or minimized)
   handlePageHidden() {
-    console.log('UserAnalytics: Page hidden');
-    this.updateSession(); // Save current state
+    console.log('UserAnalytics: Page hidden - pausing session');
+    this.updateSession(); // Save current state before pausing
+    this.isPaused = true;
     this.stopHeartbeat(); // Stop heartbeat to save resources
   }
 
   // Handle page visible again
   handlePageVisible() {
-    console.log('UserAnalytics: Page visible');
+    console.log('UserAnalytics: Page visible - resuming session');
+    this.isPaused = false;
     this.lastActivityTime = new Date();
+    this.lastHeartbeatTime = new Date();
     this.startHeartbeat(); // Resume heartbeat
   }
 
