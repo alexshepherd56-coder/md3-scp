@@ -407,6 +407,18 @@ header h1 {
   margin-top: 72px;
 }
 
+/* Sidebar Footer */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 16px 0;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(10, 37, 64, 0.5);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
 .sidebar h2 {
   font-size: 14px;
   margin: 24px 0 8px 0;
@@ -653,7 +665,7 @@ header h1 {
 
 .welcome-container {
   text-align: center;
-  max-width: 600px;
+  max-width: 900px;
   padding: 40px;
 }
 
@@ -675,6 +687,186 @@ header h1 {
   color: var(--claude-secondary);
   margin: 0;
   letter-spacing: -0.01em;
+}
+
+/* Exam Timeline Styles */
+.exam-timeline-container {
+  margin-top: 48px;
+  padding: 48px 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  border: 1px solid var(--claude-border);
+}
+
+.exam-countdown-top {
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.countdown-text {
+  font-size: 16px;
+  color: var(--claude-text);
+  margin: 0;
+  font-weight: 400;
+}
+
+.countdown-text strong {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--claude-accent);
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.exam-timeline-track {
+  position: relative;
+  height: 10px;
+  background-color: var(--claude-border);
+  border-radius: 5px;
+  margin: 60px 0;
+  overflow: visible;
+}
+
+.timeline-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--claude-accent), var(--claude-primary));
+  border-radius: 5px;
+  width: 25%;
+  transition: width 1s ease-out;
+  animation: progress-pulse 2s ease-in-out infinite;
+}
+
+@keyframes progress-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.running-student {
+  position: absolute;
+  left: 25%;
+  top: -28px;
+  font-size: 36px;
+  transform: translateX(-50%) scaleX(-1);
+  animation: student-run 2s ease-in-out infinite;
+  z-index: 10;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes student-run {
+  0%, 100% {
+    transform: translateX(-50%) scaleX(-1) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) scaleX(-1) translateY(-4px);
+  }
+}
+
+.exam-marker {
+  position: absolute;
+  top: -35px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.marker-pole {
+  width: 2px;
+  height: 70px;
+  background-color: var(--claude-accent);
+  margin: 0 auto 8px auto;
+}
+
+.marker-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--claude-text);
+  margin-bottom: 4px;
+}
+
+.marker-date {
+  font-size: 12px;
+  color: var(--claude-secondary);
+  white-space: nowrap;
+}
+
+.finish-line {
+  position: absolute;
+  right: -20px;
+  top: -32px;
+  text-align: center;
+}
+
+.finish-beer {
+  font-size: 40px;
+  animation: beer-bounce 3s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.finish-beer:hover {
+  transform: scale(1.2);
+}
+
+@keyframes beer-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.encouragement-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--claude-primary);
+  margin-bottom: 32px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Pint Easter Egg */
+.pint-easter-egg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.pint-love-text {
+  position: absolute;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--claude-accent);
+  white-space: nowrap;
+  animation: fall-and-fade 4s linear forwards;
+  opacity: 0.9;
+}
+
+@keyframes fall-and-fade {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 .case-grid {

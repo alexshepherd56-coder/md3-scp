@@ -13,7 +13,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MD3 SCP Cases</title>
+  <title>NDhub</title>
   <!-- Build timestamp: 2025-11-09 -->
 
   <!-- Favicon -->
@@ -79,7 +79,7 @@
             <path d="M11 11 Q16 16, 16 16" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" class="logo-spike"/>
           </g>
         </svg>
-        <span class="mdhub-text">MDhub</span>
+        <span class="mdhub-text">NDhub</span>
       </div>
     </div>
     <div class="search-container">
@@ -235,6 +235,11 @@
       <div class="specialty" data-filter="ortho">Ortho <span class="count">(0)</span></div>
       <div class="specialty" data-filter="vascular">Vascular <span class="count">(0)</span></div>
     </div>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      powered by sheptech ©
+    </div>
   </div>
 
   <div class="main">
@@ -248,8 +253,52 @@
       <div class="welcome-container">
         <h1 class="welcome-greeting" id="welcomeGreeting">Hey there</h1>
         <p class="welcome-subtitle">What would you like to study today?</p>
+
+        <!-- Exam Timeline -->
+        <div class="exam-timeline-container">
+          <!-- Encouragement Text at Top -->
+          <div class="encouragement-text">Good luck, you've got this!</div>
+
+          <!-- Countdown Text -->
+          <div class="exam-countdown-top">
+            <p id="saqCountdown" class="countdown-text"><strong id="saqDays">2</strong> days until SAQ</p>
+            <p id="mcqCountdown" class="countdown-text"><strong id="mcqDays">6</strong> days until MCQ</p>
+          </div>
+
+          <div class="exam-timeline-track">
+            <!-- Running Med Student -->
+            <div class="running-student" id="runningStudent">
+              🏃🏽
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="timeline-progress" id="timelineProgress"></div>
+
+            <!-- SAQ Marker -->
+            <div class="exam-marker saq-marker" style="left: 35%;">
+              <div class="marker-pole"></div>
+              <div class="marker-label">SAQ</div>
+              <div class="marker-date">Mon 24 Nov</div>
+            </div>
+
+            <!-- MCQ Marker -->
+            <div class="exam-marker mcq-marker" style="left: 65%;">
+              <div class="marker-pole"></div>
+              <div class="marker-label">MCQ</div>
+              <div class="marker-date">Fri 28 Nov</div>
+            </div>
+
+            <!-- Finish Beer -->
+            <div class="finish-line">
+              <div class="finish-beer" id="finishBeer">🍺</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Pint Easter Egg Overlay -->
+    <div id="pintEasterEgg" class="pint-easter-egg" style="display: none;"></div>
 
     <!-- Past Exams Section -->
     <div id="pastExamsContent">
@@ -314,6 +363,20 @@
             </div>
           </div>
           <div class="exam-completion-icon" id="examMcq2024CompletionIcon" style="display: none;">✓</div>
+        </div>
+
+        <div class="case-card exam-card-style" data-exam="mcq-2023" onclick="window.location.href='exams/mcq-2023.html'">
+          <div class="exam-card-top">
+            <h3>2023 Summative Exam Dump</h3>
+            <span class="exam-flagged-badge" id="examMcq2023Flagged" style="display: none;"></span>
+          </div>
+          <div class="exam-card-bottom">
+            <div class="exam-attempts-count" id="examMcq2023Attempts">0/92 Questions Attempted</div>
+            <div class="exam-progress-bar">
+              <div class="exam-progress-fill" id="examMcq2023Progress"></div>
+            </div>
+          </div>
+          <div class="exam-completion-icon" id="examMcq2023CompletionIcon" style="display: none;">✓</div>
         </div>
       </div>
 
@@ -738,6 +801,20 @@
           </div>
           <div class="exam-attempts-count" id="examMcq2024Attempts">0/57 Questions Attempted</div>
         </div>
+
+        <div class="exam-item exam-card-style" data-exam="mcq-2023">
+          <div class="exam-card-header">
+            <div class="exam-title-with-badge">
+              <h3>2023 MCQ Exam</h3>
+              <span class="exam-flagged-badge" id="examMcq2023Flagged" style="display: none;"></span>
+            </div>
+            <div class="exam-completion-icon" id="examMcq2023CompletionIcon" style="display: none;">✓</div>
+          </div>
+          <div class="exam-progress-bar">
+            <div class="exam-progress-fill" id="examMcq2023Progress"></div>
+          </div>
+          <div class="exam-attempts-count" id="examMcq2023Attempts">0/92 Questions Attempted</div>
+        </div>
       </div>
     </div>
   </div>
@@ -998,6 +1075,40 @@
           if (window.showWelcomePage) {
             window.showWelcomePage();
           }
+        });
+      }
+
+      // Pint Easter Egg
+      const finishBeer = document.getElementById('finishBeer');
+      const pintEasterEgg = document.getElementById('pintEasterEgg');
+
+      if (finishBeer && pintEasterEgg) {
+        finishBeer.addEventListener('mouseenter', () => {
+          pintEasterEgg.style.display = 'block';
+
+          // Create lots of falling "I ❤️ pints" text
+          for (let i = 0; i < 50; i++) {
+            setTimeout(() => {
+              const text = document.createElement('div');
+              text.className = 'pint-love-text';
+              text.textContent = 'I ❤️ pints';
+              text.style.left = Math.random() * 100 + 'vw';
+              text.style.top = '-50px';
+              text.style.animationDelay = Math.random() * 0.5 + 's';
+              pintEasterEgg.appendChild(text);
+
+              // Remove text after animation completes
+              setTimeout(() => {
+                text.remove();
+              }, 4000);
+            }, i * 50);
+          }
+
+          // Hide overlay after all animations complete
+          setTimeout(() => {
+            pintEasterEgg.style.display = 'none';
+            pintEasterEgg.innerHTML = '';
+          }, 6500);
         });
       }
     });
