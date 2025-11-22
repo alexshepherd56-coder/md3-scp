@@ -1067,9 +1067,24 @@
 
           const sessionCount = sessionsSnapshot.size;
 
-          // Check if user is currently active
+          // Check if user is currently active based on lastActive OR active sessions with recent heartbeats
           const lastActive = userData.lastActive?.toDate();
-          const isActive = lastActive && lastActive > fiveMinutesAgo;
+          let isActive = lastActive && lastActive > fiveMinutesAgo;
+
+          // Also check for active sessions with recent heartbeats (more reliable)
+          if (!isActive) {
+            sessionsSnapshot.forEach(sessionDoc => {
+              const session = sessionDoc.data();
+              if (session.isActive && session.lastHeartbeat) {
+                const lastHeartbeat = session.lastHeartbeat.toDate();
+                const timeSinceHeartbeat = (now - lastHeartbeat) / 1000; // in seconds
+                // Consider active if heartbeat was within last 2 minutes
+                if (timeSinceHeartbeat < 120) {
+                  isActive = true;
+                }
+              }
+            });
+          }
 
           // Calculate total session time
           let userTotalTime = 0;
@@ -1620,6 +1635,16 @@
         });
 
         console.log('[DAU] Chart data ready:', { totalDays: dates.length, dates: dates.slice(0, 5), counts: counts.slice(0, 5), cumulativeCounts: cumulativeCounts.slice(0, 5) });
+
+        // Manual override for today (Nov 22, 2025) due to Firestore quota issues
+        const todayKey = '2025-11-22';
+        const todayIndex = dates.indexOf(todayKey);
+        if (todayIndex !== -1) {
+          console.log('[DAU] Applying manual override for today:', todayKey);
+          counts[todayIndex] = 49; // Manual active users count for today
+          cumulativeCounts[todayIndex] = 87; // Manual total users count for today
+          userDetails[todayIndex] = []; // Clear user details (no hover list for manual data)
+        }
 
         // Create the chart
         createDAUChart(dates, counts, userDetails, cumulativeCounts);
