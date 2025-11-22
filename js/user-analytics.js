@@ -21,6 +21,7 @@ class UserAnalytics {
   // Initialize analytics system
   initialize() {
     console.log('UserAnalytics: Initializing...');
+    console.log('UserAnalytics: Firebase typeof:', typeof firebase);
 
     // Wait for Firebase to be ready
     if (typeof firebase === 'undefined') {
@@ -31,6 +32,9 @@ class UserAnalytics {
     this.auth = window.firebaseAuth || firebase.auth();
     this.db = window.firebaseDb || firebase.firestore();
 
+    console.log('UserAnalytics: Auth:', this.auth ? 'OK' : 'NULL');
+    console.log('UserAnalytics: DB:', this.db ? 'OK' : 'NULL');
+
     if (!this.auth || !this.db) {
       console.warn('UserAnalytics: Firebase auth or db not available');
       return;
@@ -38,15 +42,21 @@ class UserAnalytics {
 
     // Check if user is already signed in (important for page refreshes)
     const currentUser = this.auth.currentUser;
+    console.log('UserAnalytics: Current user:', currentUser ? currentUser.email : 'NONE');
+
     if (currentUser) {
       console.log('UserAnalytics: Found already signed-in user, starting session');
       this.startSession(currentUser);
+    } else {
+      console.log('UserAnalytics: No user signed in yet, waiting for auth state change');
     }
 
     // Listen for auth state changes
     this.auth.onAuthStateChanged((user) => {
+      console.log('UserAnalytics: Auth state changed. User:', user ? user.email : 'NULL');
+
       if (user) {
-        console.log('UserAnalytics: Auth state changed - user signed in');
+        console.log('UserAnalytics: User signed in, currentSessionId:', this.currentSessionId);
         // Only start session if we don't already have one
         if (!this.currentSessionId) {
           console.log('UserAnalytics: No existing session, starting new one');
