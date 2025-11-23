@@ -491,7 +491,11 @@
     <div id="dashboardContent" style="display: none;">
       <div class="dashboard-header">
         <h1 id="dashboardTitle"></h1>
-        <img src="assets/admin-favicon.svg" alt="Admin" class="admin-favicon" id="adminFavicon" style="width: 40px; height: 40px;">
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <button class="refresh-btn" onclick="checkSessionHealth()" title="Check which users don't have session data">🔍 Session Health</button>
+          <button class="refresh-btn" onclick="createRetroactiveSessions()" title="Create sessions for users who don't have any" style="background: rgba(168, 85, 247, 0.1); border-color: #a855f7; color: #a855f7;">🔧 Create Missing Sessions</button>
+          <img src="assets/admin-favicon.svg" alt="Admin" class="admin-favicon" id="adminFavicon" style="width: 40px; height: 40px;">
+        </div>
       </div>
 
       <div id="errorMessage" class="error" style="display: none;"></div>
@@ -537,7 +541,7 @@
                 <span style="display: inline-block; width: 12px; height: 12px; background: #00ff88; border-radius: 50%;"></span>
                 <span style="color: #00ff88; font-size: 1.1em; font-weight: 600;">Daily Active Users</span>
               </div>
-              <span style="color: #666; font-size: 0.85em; font-weight: 400; margin-left: auto;">(Since Nov 6, 2025)</span>
+              <span style="color: #666; font-size: 0.85em; font-weight: 400; margin-left: auto;">(Since Nov 6, 2025 • AEST Timezone)</span>
             </div>
           </div>
 
@@ -620,7 +624,7 @@
           <h2>User Details</h2>
           <div>
             <button class="export-btn" onclick="exportToCSV()">Export CSV</button>
-            <button class="refresh-btn" onclick="loadDashboardData()">Refresh</button>
+            <button class="refresh-btn" onclick="clearAllCaches(); loadDashboardData(true)">Refresh</button>
           </div>
         </div>
 
@@ -660,7 +664,67 @@
     let adminDb, adminAuth;
 
     // Admin emails to exclude from analytics
-    const ADMIN_EMAILS = ['alex.shepherd56@gmail.com', 'admin@example.com'];
+    const ADMIN_EMAILS = ['alex.shepherd56@gmail.com'];
+
+    // Timezone configuration
+    const TIMEZONE_OFFSET_HOURS = 11; // AEST (UTC+11) - Melbourne, Australia
+    const TIMEZONE_NAME = 'AEST';
+
+    // Cache configuration
+    const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+    const CACHE_KEY_DASHBOARD = 'admin_dashboard_cache';
+    const CACHE_KEY_DAU = 'admin_dau_cache';
+    const CACHE_KEY_EXAM = 'admin_exam_cache';
+
+    // Cache helper functions
+    function getCachedData(key) {
+      try {
+        const cached = localStorage.getItem(key);
+        if (!cached) return null;
+
+        const { data, timestamp } = JSON.parse(cached);
+        const age = Date.now() - timestamp;
+
+        if (age < CACHE_DURATION) {
+          console.log(`[CACHE] Using cached data for ${key} (age: ${Math.round(age/1000)}s)`);
+          return data;
+        } else {
+          console.log(`[CACHE] Cache expired for ${key} (age: ${Math.round(age/1000)}s)`);
+          localStorage.removeItem(key);
+          return null;
+        }
+      } catch (error) {
+        console.error('[CACHE] Error reading cache:', error);
+        return null;
+      }
+    }
+
+    function setCachedData(key, data) {
+      try {
+        const cacheObject = {
+          data: data,
+          timestamp: Date.now()
+        };
+        localStorage.setItem(key, JSON.stringify(cacheObject));
+        console.log(`[CACHE] Cached data for ${key}`);
+      } catch (error) {
+        console.error('[CACHE] Error writing cache:', error);
+        // If localStorage is full, clear old caches
+        if (error.name === 'QuotaExceededError') {
+          console.log('[CACHE] Quota exceeded, clearing caches');
+          localStorage.removeItem(CACHE_KEY_DASHBOARD);
+          localStorage.removeItem(CACHE_KEY_DAU);
+          localStorage.removeItem(CACHE_KEY_EXAM);
+        }
+      }
+    }
+
+    function clearAllCaches() {
+      localStorage.removeItem(CACHE_KEY_DASHBOARD);
+      localStorage.removeItem(CACHE_KEY_DAU);
+      localStorage.removeItem(CACHE_KEY_EXAM);
+      console.log('[CACHE] All caches cleared');
+    }
 
     // Sound Effects using Web Audio API
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -1034,7 +1098,31 @@
       // }
     }
 
-    async function loadDashboardData() {
+    function displayCachedDashboardData(cachedData) {
+      const { stats } = cachedData;
+
+      // Animate statistics with counter effect
+      animateCounter(document.getElementById('totalUsers'), stats.totalUsers, 1200);
+      animateCounter(document.getElementById('activeUsers'), stats.activeUsers, 1200);
+      animateCounter(document.getElementById('totalSessions'), stats.totalSessions, 1400);
+      animateCounter(document.getElementById('avgSessionTime'), stats.avgTime, 1000);
+
+      // Display users
+      displayUsers(allUsers);
+
+      document.getElementById('loadingMessage').style.display = 'none';
+      document.getElementById('usersTable').style.display = 'table';
+
+      // Apply CRT flicker effect to stats
+      document.querySelectorAll('.stat-card').forEach(card => {
+        applyCRTFlicker(card);
+      });
+
+      // Add click sounds to table rows after they're rendered
+      setTimeout(() => addClickSounds(), 100);
+    }
+
+    async function loadDashboardData(forceRefresh = false) {
       console.log('[DEBUG] ========== Starting Dashboard Load ==========');
       const startTime = performance.now();
 
@@ -1043,8 +1131,21 @@
       document.getElementById('usersTable').style.display = 'none';
 
       try {
+        // Check cache first (unless force refresh)
+        if (!forceRefresh) {
+          const cachedData = getCachedData(CACHE_KEY_DASHBOARD);
+          if (cachedData) {
+            console.log('[DEBUG] Using cached dashboard data');
+            allUsers = cachedData.users;
+
+            // Display cached data immediately
+            displayCachedDashboardData(cachedData);
+            return;
+          }
+        }
+
         // Fetch all users
-        console.log('[DEBUG] Fetching all users...');
+        console.log('[DEBUG] Fetching all users from Firestore...');
         const usersSnapshot = await adminDb.collection('users').get();
         console.log(`[DEBUG] Found ${usersSnapshot.size} users`);
 
@@ -1195,6 +1296,18 @@
           if (!a.lastActive) return 1;
           if (!b.lastActive) return -1;
           return b.lastActive - a.lastActive;
+        });
+
+        // Cache the data
+        setCachedData(CACHE_KEY_DASHBOARD, {
+          users: allUsers,
+          stats: {
+            totalUsers: allUsers.length,
+            activeUsers: activeUsersCount,
+            totalSessions: totalSessions,
+            avgTime: avgTime
+          },
+          timestamp: Date.now()
         });
 
         // Display users
@@ -1468,15 +1581,23 @@
 
         console.log('[DAU] Admin users to exclude:', adminUserIds);
 
-        // Calculate date range - start from project inception
+        // Calculate date range - start from project inception (using AEST timezone)
         const now = new Date();
-        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
 
-        // Set to project start date: November 6, 2025 (using local date)
-        const startDate = new Date(2025, 10, 6); // Month is 0-indexed, so 10 = November
-        startDate.setHours(0, 0, 0, 0);
+        // Convert UTC to AEST by adding timezone offset
+        const nowAEST = new Date(now.getTime() + (TIMEZONE_OFFSET_HOURS * 60 * 60 * 1000));
+        const todayAEST = new Date(Date.UTC(
+          nowAEST.getUTCFullYear(),
+          nowAEST.getUTCMonth(),
+          nowAEST.getUTCDate(),
+          23, 59, 59, 999
+        ));
 
-        console.log('[DAU] Date range:', startDate.toLocaleDateString(), 'to', today.toLocaleDateString());
+        // Set to project start date: November 6, 2025 (AEST)
+        const startDate = new Date(Date.UTC(2025, 10, 6, 0, 0, 0, 0)); // Month is 0-indexed, so 10 = November
+
+        console.log(`[DAU] Date range (${TIMEZONE_NAME}):`, startDate.toISOString().split('T')[0], 'to', todayAEST.toISOString().split('T')[0]);
+        console.log('[DAU] Current time:', now.toISOString(), `(${TIMEZONE_NAME}: ${nowAEST.toISOString()})`);
 
         // Use the existing allUsers data if available from loadDashboardData
         // Otherwise fetch users fresh
@@ -1547,25 +1668,26 @@
         // Build dauData with the date range from Nov 6, 2025 to today (inclusive)
         const dauData = {};
 
-        // Helper function to get date key in YYYY-MM-DD format (local time)
-        function getLocalDateKey(date) {
-          const year = date.getFullYear();
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          const day = String(date.getDate()).padStart(2, '0');
+        // Helper function to get date key in YYYY-MM-DD format (AEST timezone)
+        function getAESTDateKey(date) {
+          // Convert UTC timestamp to AEST
+          const aestDate = new Date(date.getTime() + (TIMEZONE_OFFSET_HOURS * 60 * 60 * 1000));
+          const year = aestDate.getUTCFullYear();
+          const month = String(aestDate.getUTCMonth() + 1).padStart(2, '0');
+          const day = String(aestDate.getUTCDate()).padStart(2, '0');
           return `${year}-${month}-${day}`;
         }
 
-        // Calculate number of days between start and today
+        // Calculate number of days between start and today (using AEST)
         const msPerDay = 24 * 60 * 60 * 1000;
-        const startDateOnly = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
-        const todayDateOnly = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const startDateOnly = new Date(Date.UTC(startDate.getUTCFullYear(), startDate.getUTCMonth(), startDate.getUTCDate()));
+        const todayDateOnly = new Date(Date.UTC(todayAEST.getUTCFullYear(), todayAEST.getUTCMonth(), todayAEST.getUTCDate()));
         const daysDiff = Math.floor((todayDateOnly - startDateOnly) / msPerDay);
 
-        // Create a bucket for each day including today
+        // Create a bucket for each day including today (using AEST)
         for (let i = 0; i <= daysDiff; i++) {
-          const d = new Date(startDateOnly);
-          d.setDate(d.getDate() + i);
-          const dateKey = getLocalDateKey(d);
+          const d = new Date(startDateOnly.getTime() + (i * msPerDay));
+          const dateKey = getAESTDateKey(d);
           dauData[dateKey] = {
             count: 0,
             users: new Set(),
@@ -1573,13 +1695,13 @@
           };
         }
 
-        console.log('[DAU] Created', Object.keys(dauData).length, 'days from', getLocalDateKey(startDateOnly), 'to', getLocalDateKey(todayDateOnly));
+        console.log('[DAU] Created', Object.keys(dauData).length, 'days from', getAESTDateKey(startDateOnly), 'to', getAESTDateKey(todayDateOnly));
         console.log('[DAU] Date keys:', Object.keys(dauData));
 
-        // Process sessions into daily buckets
+        // Process sessions into daily buckets (converting Firebase UTC timestamps to AEST)
         allSessions.forEach(session => {
 
-          const dateKey = getLocalDateKey(session.date);
+          const dateKey = getAESTDateKey(session.date);
 
           if (dauData[dateKey]) {
             // Add user to this day if not already added
@@ -1635,16 +1757,6 @@
         });
 
         console.log('[DAU] Chart data ready:', { totalDays: dates.length, dates: dates.slice(0, 5), counts: counts.slice(0, 5), cumulativeCounts: cumulativeCounts.slice(0, 5) });
-
-        // Manual override for today (Nov 22, 2025) due to Firestore quota issues
-        const todayKey = '2025-11-22';
-        const todayIndex = dates.indexOf(todayKey);
-        if (todayIndex !== -1) {
-          console.log('[DAU] Applying manual override for today:', todayKey);
-          counts[todayIndex] = 49; // Manual active users count for today
-          cumulativeCounts[todayIndex] = 87; // Manual total users count for today
-          userDetails[todayIndex] = []; // Clear user details (no hover list for manual data)
-        }
 
         // Create the chart
         createDAUChart(dates, counts, userDetails, cumulativeCounts);
@@ -2053,6 +2165,186 @@ Are you absolutely sure you want to continue?`;
       } catch (error) {
         console.error('[RESET-ANALYTICS] Error during reset:', error);
         alert('❌ Error during analytics reset: ' + error.message);
+      }
+    }
+
+    async function checkSessionHealth() {
+      console.log('[SESSION-CHECK] Starting session health diagnostic...');
+
+      try {
+        const usersSnapshot = await adminDb.collection('users').get();
+        const results = {
+          totalUsers: 0,
+          usersWithSessions: 0,
+          usersWithoutSessions: 0,
+          usersWithoutCreatedAt: 0,
+          recentUsersWithoutSessions: 0,
+          oldUsersWithoutSessions: 0,
+          usersMissingData: []
+        };
+
+        const now = new Date();
+        const sevenDaysAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+
+        for (const userDoc of usersSnapshot.docs) {
+          const userData = userDoc.data();
+
+          // Skip admin users
+          if (ADMIN_EMAILS.includes(userData.email)) {
+            continue;
+          }
+
+          results.totalUsers++;
+
+          // Check for createdAt
+          if (!userData.createdAt) {
+            results.usersWithoutCreatedAt++;
+          }
+
+          // Check for sessions
+          const sessionsSnapshot = await adminDb.collection('users')
+            .doc(userDoc.id)
+            .collection('sessions')
+            .get();
+
+          if (sessionsSnapshot.size === 0) {
+            results.usersWithoutSessions++;
+
+            const lastSignIn = userData.lastSignIn?.toDate();
+            const isRecent = lastSignIn && lastSignIn > sevenDaysAgo;
+
+            if (isRecent) {
+              results.recentUsersWithoutSessions++;
+            } else {
+              results.oldUsersWithoutSessions++;
+            }
+
+            results.usersMissingData.push({
+              email: userData.email,
+              displayName: userData.displayName,
+              createdAt: userData.createdAt ? userData.createdAt.toDate().toISOString() : 'MISSING',
+              lastSignIn: userData.lastSignIn ? userData.lastSignIn.toDate().toISOString() : 'NEVER',
+              isRecent: isRecent
+            });
+          } else {
+            results.usersWithSessions++;
+          }
+        }
+
+        // Sort by most recent first
+        results.usersMissingData.sort((a, b) => {
+          if (a.lastSignIn === 'NEVER') return 1;
+          if (b.lastSignIn === 'NEVER') return -1;
+          return new Date(b.lastSignIn) - new Date(a.lastSignIn);
+        });
+
+        console.log('[SESSION-CHECK] ========== RESULTS ==========');
+        console.log('[SESSION-CHECK] Total users (excluding admins):', results.totalUsers);
+        console.log('[SESSION-CHECK] Users WITH sessions:', results.usersWithSessions);
+        console.log('[SESSION-CHECK] Users WITHOUT sessions:', results.usersWithoutSessions);
+        console.log('[SESSION-CHECK]   - Active in last 7 days:', results.recentUsersWithoutSessions);
+        console.log('[SESSION-CHECK]   - Inactive (>7 days):', results.oldUsersWithoutSessions);
+        console.log('[SESSION-CHECK] Users without createdAt:', results.usersWithoutCreatedAt);
+        console.log('[SESSION-CHECK] Users missing session data (sorted by recency):', results.usersMissingData);
+        console.log('[SESSION-CHECK] ====================================');
+
+        const alertMessage = `Session Health Check:\n\nTotal Users: ${results.totalUsers}\nWith Sessions: ${results.usersWithSessions} (${Math.round(results.usersWithSessions/results.totalUsers*100)}%)\nWithout Sessions: ${results.usersWithoutSessions}\n\n⚠️ Recent users without sessions: ${results.recentUsersWithoutSessions}\n(These should have sessions!)\n\nOld inactive users: ${results.oldUsersWithoutSessions}\n\nCheck console for detailed list.`;
+
+        alert(alertMessage);
+
+        return results;
+
+      } catch (error) {
+        console.error('[SESSION-CHECK] Error:', error);
+        alert('Error running session health check: ' + error.message);
+      }
+    }
+
+    async function createRetroactiveSessions() {
+      if (!confirm('⚠️ This will create initial sessions for users who don\'t have any.\n\nThis helps populate the DAU chart with historical data based on lastSignIn timestamps.\n\nContinue?')) {
+        return;
+      }
+
+      console.log('[RETROACTIVE] Starting retroactive session creation...');
+
+      try {
+        const healthCheck = await checkSessionHealth();
+
+        if (!healthCheck || healthCheck.usersMissingData.length === 0) {
+          alert('No users need retroactive sessions!');
+          return;
+        }
+
+        let created = 0;
+        let skipped = 0;
+        let errors = 0;
+
+        for (const user of healthCheck.usersMissingData) {
+          try {
+            // Skip users who never signed in
+            if (user.lastSignIn === 'NEVER') {
+              skipped++;
+              continue;
+            }
+
+            // Find user document
+            const usersSnapshot = await adminDb.collection('users')
+              .where('email', '==', user.email)
+              .limit(1)
+              .get();
+
+            if (usersSnapshot.empty) {
+              console.error('[RETROACTIVE] User not found:', user.email);
+              errors++;
+              continue;
+            }
+
+            const userDoc = usersSnapshot.docs[0];
+            const userData = userDoc.data();
+            const userId = userDoc.id;
+
+            // Create a session based on lastSignIn
+            const lastSignInDate = new Date(user.lastSignIn);
+
+            await adminDb.collection('users').doc(userId).collection('sessions').add({
+              startTime: firebase.firestore.Timestamp.fromDate(lastSignInDate),
+              endTime: firebase.firestore.Timestamp.fromDate(lastSignInDate),
+              duration: 0,
+              pages: [{
+                path: '/',
+                title: 'Home',
+                timestamp: lastSignInDate
+              }],
+              isActive: false,
+              userAgent: 'Retroactive Session Creation',
+              platform: 'Admin Tool',
+              retroactive: true
+            });
+
+            console.log(`[RETROACTIVE] Created session for ${user.email} on ${user.lastSignIn}`);
+            created++;
+
+          } catch (error) {
+            console.error(`[RETROACTIVE] Error creating session for ${user.email}:`, error);
+            errors++;
+          }
+        }
+
+        console.log('[RETROACTIVE] ========== SUMMARY ==========');
+        console.log('[RETROACTIVE] Sessions created:', created);
+        console.log('[RETROACTIVE] Users skipped (never signed in):', skipped);
+        console.log('[RETROACTIVE] Errors:', errors);
+
+        alert(`✅ Retroactive Session Creation Complete!\n\nCreated: ${created} sessions\nSkipped: ${skipped} (never signed in)\nErrors: ${errors}\n\nRefreshing dashboard...`);
+
+        // Clear cache and reload
+        clearAllCaches();
+        loadDashboardData(true);
+        loadDAUChart();
+
+      } catch (error) {
+        console.error('[RETROACTIVE] Error:', error);
+        alert('Error creating retroactive sessions: ' + error.message);
       }
     }
 

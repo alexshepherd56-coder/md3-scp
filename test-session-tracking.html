@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Tracking Test</title>
+  <style>
+    body {
+      font-family: 'Monaco', monospace;
+      background: #0a0e0a;
+      color: #00ff88;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .log {
+      background: rgba(0, 255, 136, 0.1);
+      border-left: 3px solid #00ff88;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 12px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .error {
+      border-left-color: #ff5555;
+      background: rgba(255, 85, 85, 0.1);
+      color: #ff5555;
+    }
+    .success {
+      border-left-color: #00ff88;
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+    }
+    .warning {
+      border-left-color: #ffaa00;
+      background: rgba(255, 170, 0, 0.1);
+      color: #ffaa00;
+    }
+    button {
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid #00ff88;
+      color: #00ff88;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-family: inherit;
+      margin: 5px;
+    }
+    button:hover {
+      background: rgba(0, 255, 136, 0.2);
+    }
+    h1, h2 {
+      color: #00ff88;
+    }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Configuration -->
+  <script src="js/firebase-config.js"></script>
+</head>
+<body>
+  <h1>🔍 Session Tracking Diagnostic Tool</h1>
+  <p>This page tests if session tracking is working correctly.</p>
+
+  <div>
+    <button onclick="runDiagnostics()">Run Full Diagnostics</button>
+    <button onclick="testSessionCreation()">Test Session Creation</button>
+    <button onclick="clearLogs()">Clear Logs</button>
+  </div>
+
+  <h2>Diagnostic Results:</h2>
+  <div id="logs"></div>
+
+  <script>
+    let auth, db;
+
+    function addLog(message, type = 'log') {
+      const logs = document.getElementById('logs');
+      const div = document.createElement('div');
+      div.className = `log ${type}`;
+      div.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      logs.appendChild(div);
+      console.log(message);
+    }
+
+    function clearLogs() {
+      document.getElementById('logs').innerHTML = '';
+    }
+
+    async function runDiagnostics() {
+      clearLogs();
+      addLog('========== STARTING DIAGNOSTICS ==========', 'success');
+
+      // Test 1: Firebase loaded
+      addLog('Test 1: Checking if Firebase is loaded...', 'log');
+      if (typeof firebase === 'undefined') {
+        addLog('❌ FAILED: Firebase SDK not loaded', 'error');
+        return;
+      } else {
+        addLog('✅ PASSED: Firebase SDK loaded', 'success');
+      }
+
+      // Test 2: Firebase configured
+      addLog('Test 2: Checking Firebase configuration...', 'log');
+      try {
+        auth = window.firebaseAuth || firebase.auth();
+        db = window.firebaseDb || firebase.firestore();
+        addLog('✅ PASSED: Firebase Auth and Firestore initialized', 'success');
+      } catch (error) {
+        addLog(`❌ FAILED: ${error.message}`, 'error');
+        return;
+      }
+
+      // Test 3: User authentication
+      addLog('Test 3: Checking user authentication...', 'log');
+      const currentUser = auth.currentUser;
+      if (!currentUser) {
+        addLog('⚠️ WARNING: No user signed in. Please sign in first.', 'warning');
+        addLog('Go to index.html and sign in, then come back here.', 'warning');
+        return;
+      } else {
+        addLog(`✅ PASSED: User signed in as ${currentUser.email}`, 'success');
+      }
+
+      // Test 4: user-analytics.js loaded
+      addLog('Test 4: Checking if user-analytics.js is loaded...', 'log');
+      if (typeof window.userAnalytics === 'undefined') {
+        addLog('❌ FAILED: user-analytics.js not loaded on this page', 'error');
+        addLog('This is expected - we need to load it manually for testing', 'warning');
+      } else {
+        addLog('✅ PASSED: user-analytics.js is loaded', 'success');
+        addLog(`Current session ID: ${window.userAnalytics.currentSessionId || 'NONE'}`, 'log');
+      }
+
+      // Test 5: Check existing sessions
+      addLog('Test 5: Checking existing sessions for current user...', 'log');
+      try {
+        const sessionsSnapshot = await db.collection('users')
+          .doc(currentUser.uid)
+          .collection('sessions')
+          .get();
+
+        addLog(`✅ Found ${sessionsSnapshot.size} existing sessions`, 'success');
+
+        if (sessionsSnapshot.size > 0) {
+          addLog('Most recent sessions:', 'log');
+          const sessions = [];
+          sessionsSnapshot.forEach(doc => {
+            const data = doc.data();
+            sessions.push({
+              id: doc.id,
+              startTime: data.startTime?.toDate().toISOString(),
+              isActive: data.isActive,
+              duration: data.duration
+            });
+          });
+
+          // Sort by startTime
+          sessions.sort((a, b) => new Date(b.startTime) - new Date(a.startTime));
+
+          // Show top 3
+          sessions.slice(0, 3).forEach((session, i) => {
+            addLog(`  ${i + 1}. ${session.startTime} (${session.isActive ? 'ACTIVE' : 'ENDED'}, ${session.duration}s)`, 'log');
+          });
+        }
+
+      } catch (error) {
+        addLog(`❌ FAILED: ${error.message}`, 'error');
+      }
+
+      // Test 6: Test write permissions
+      addLog('Test 6: Testing Firestore write permissions...', 'log');
+      try {
+        const testSessionRef = await db.collection('users')
+          .doc(currentUser.uid)
+          .collection('sessions')
+          .add({
+            startTime: firebase.firestore.FieldValue.serverTimestamp(),
+            testSession: true,
+            diagnostic: true
+          });
+
+        addLog('✅ PASSED: Can create sessions in Firestore', 'success');
+        addLog(`Created test session: ${testSessionRef.id}`, 'log');
+
+        // Clean up test session
+        await testSessionRef.delete();
+        addLog('Test session deleted', 'log');
+
+      } catch (error) {
+        addLog(`❌ FAILED: Cannot create sessions - ${error.message}`, 'error');
+        addLog('Check Firestore security rules!', 'error');
+      }
+
+      addLog('========== DIAGNOSTICS COMPLETE ==========', 'success');
+    }
+
+    async function testSessionCreation() {
+      addLog('========== TESTING SESSION CREATION ==========', 'success');
+
+      if (!auth || !db) {
+        addLog('❌ Firebase not initialized. Run full diagnostics first.', 'error');
+        return;
+      }
+
+      const currentUser = auth.currentUser;
+      if (!currentUser) {
+        addLog('❌ No user signed in', 'error');
+        return;
+      }
+
+      try {
+        addLog(`Creating manual session for ${currentUser.email}...`, 'log');
+
+        const sessionRef = await db.collection('users')
+          .doc(currentUser.uid)
+          .collection('sessions')
+          .add({
+            startTime: firebase.firestore.FieldValue.serverTimestamp(),
+            endTime: null,
+            duration: 0,
+            pages: [{
+              path: '/test-session-tracking.html',
+              title: 'Session Tracking Test',
+              timestamp: new Date()
+            }],
+            isActive: true,
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            manualTest: true
+          });
+
+        addLog(`✅ SUCCESS: Session created with ID: ${sessionRef.id}`, 'success');
+        addLog('Check your admin dashboard - this session should appear!', 'success');
+
+        // Update it after 2 seconds
+        setTimeout(async () => {
+          await sessionRef.update({
+            duration: 5,
+            isActive: false,
+            endTime: firebase.firestore.FieldValue.serverTimestamp()
+          });
+          addLog('Session ended after 5 seconds', 'log');
+        }, 2000);
+
+      } catch (error) {
+        addLog(`❌ FAILED: ${error.message}`, 'error');
+      }
+    }
+
+    // Auto-run diagnostics on load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        addLog('Page loaded. Click "Run Full Diagnostics" to test session tracking.', 'log');
+      }, 500);
+    });
+  </script>
+</body>
+</html>

@@ -40,18 +40,11 @@ class UserAnalytics {
       return;
     }
 
-    // Check if user is already signed in (important for page refreshes)
-    const currentUser = this.auth.currentUser;
-    console.log('UserAnalytics: Current user:', currentUser ? currentUser.email : 'NONE');
+    // IMPORTANT: Use onAuthStateChanged as the ONLY source of truth
+    // Don't check currentUser immediately as it may not be ready yet (race condition)
+    console.log('UserAnalytics: Setting up auth state listener...');
 
-    if (currentUser) {
-      console.log('UserAnalytics: Found already signed-in user, starting session');
-      this.startSession(currentUser);
-    } else {
-      console.log('UserAnalytics: No user signed in yet, waiting for auth state change');
-    }
-
-    // Listen for auth state changes
+    // Listen for auth state changes - this fires immediately with current state
     this.auth.onAuthStateChanged((user) => {
       console.log('UserAnalytics: Auth state changed. User:', user ? user.email : 'NULL');
 
