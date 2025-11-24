@@ -3,10 +3,3 @@
   command = ""
   # Publish from the root directory
   publish = "."
-
-# Redirect all routes to index.html for SPA behavior (optional)
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = false
