@@ -261,8 +261,7 @@
 
           <!-- Countdown Text -->
           <div class="exam-countdown-top">
-            <p id="saqCountdown" class="countdown-text"><strong id="saqDays">2</strong> days until SAQ</p>
-            <p id="mcqCountdown" class="countdown-text"><strong id="mcqDays">6</strong> days until MCQ</p>
+            <p id="mcqCountdown" class="countdown-text" style="text-align: center; width: 100%;"><strong id="mcqDays">2</strong> days until MCQ</p>
           </div>
 
           <div class="exam-timeline-track">
@@ -274,15 +273,8 @@
             <!-- Progress Bar -->
             <div class="timeline-progress" id="timelineProgress"></div>
 
-            <!-- SAQ Marker -->
-            <div class="exam-marker saq-marker" style="left: 35%;">
-              <div class="marker-pole"></div>
-              <div class="marker-label">SAQ</div>
-              <div class="marker-date">Mon 24 Nov</div>
-            </div>
-
             <!-- MCQ Marker -->
-            <div class="exam-marker mcq-marker" style="left: 65%;">
+            <div class="exam-marker mcq-marker" style="left: 100%;">
               <div class="marker-pole"></div>
               <div class="marker-label">MCQ</div>
               <div class="marker-date">Fri 28 Nov</div>
@@ -855,6 +847,9 @@
 
   <!-- Ludicrous Mode -->
   <script src="js/ludicrous-mode.js"></script>
+
+  <!-- Exam Countdown (Real-time updates) -->
+  <script src="js/exam-countdown.js"></script>
 
   <script>
     // Debug: Check if modules loaded

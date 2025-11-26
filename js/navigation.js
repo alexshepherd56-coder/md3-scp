@@ -28,6 +28,11 @@ async function showWelcomePage() {
 
   currentFilter = 'none';
   localStorage.setItem('currentFilter', 'none');
+
+  // Emit event for exam countdown to update
+  if (window.eventBus) {
+    window.eventBus.emit('welcome:shown');
+  }
 }
 
 async function updateWelcomeGreeting() {
@@ -940,52 +945,61 @@ if (mcqExamModal) {
 
 // Update MCQ exam modal with progress info
 function updateMcqExamModal() {
-  const exam = { year: 'mcq-2024', totalQuestions: 57 };
-  const examProgress = JSON.parse(localStorage.getItem(`mcq-2024-progress`) || 'null');
+  const exams = [
+    { year: 'mcq-2024', totalQuestions: 57 },
+    { year: 'mcq-2023', totalQuestions: 92 }
+  ];
 
-  let attemptedCount = 0;
-  let flaggedCount = 0;
+  exams.forEach(exam => {
+    const examProgress = JSON.parse(localStorage.getItem(`${exam.year}-progress`) || 'null');
+    const examCompletion = localStorage.getItem(`${exam.year}-completed`) === 'true';
 
-  if (examProgress && examProgress.questions) {
-    // Count attempted (questions with selected answers) and flagged questions
-    attemptedCount = examProgress.questions.filter(q => q.selectedAnswer !== null && q.selectedAnswer !== undefined).length;
-    flaggedCount = examProgress.questions.filter(q => q.flagged).length;
-  }
+    let attemptedCount = 0;
+    let flaggedCount = 0;
 
-  // Update progress bar
-  const progressBar = document.getElementById('examMcq2024Progress');
-  if (progressBar) {
-    const progressPercent = (attemptedCount / exam.totalQuestions) * 100;
-    progressBar.style.width = `${progressPercent}%`;
-  }
-
-  // Update attempts count
-  const attemptsCount = document.getElementById('examMcq2024Attempts');
-  if (attemptsCount) {
-    attemptsCount.textContent = `${attemptedCount}/${exam.totalQuestions} Questions Attempted`;
-  }
-
-  // Update flagged badge
-  const flaggedBadge = document.getElementById('examMcq2024Flagged');
-  if (flaggedBadge) {
-    if (flaggedCount > 0) {
-      flaggedBadge.textContent = `${flaggedCount} Question${flaggedCount !== 1 ? 's' : ''} Flagged`;
-      flaggedBadge.style.display = 'inline-block';
-    } else {
-      flaggedBadge.style.display = 'none';
+    if (examProgress && examProgress.questions) {
+      // Count attempted (questions with selected answers) and flagged questions
+      attemptedCount = examProgress.questions.filter(q => q.selectedAnswer !== null && q.selectedAnswer !== undefined).length;
+      flaggedCount = examProgress.questions.filter(q => q.flagged).length;
     }
-  }
 
-  // Update completion icon
-  const examCompletion = localStorage.getItem('mcq-2024-completed') === 'true';
-  const completionIcon = document.getElementById('examMcq2024CompletionIcon');
-  if (completionIcon) {
-    if (examCompletion) {
-      completionIcon.style.display = 'flex';
-    } else {
-      completionIcon.style.display = 'none';
+    // Convert exam year to capitalized format for ID (mcq-2024 -> Mcq2024)
+    const examId = exam.year.replace('mcq-', 'Mcq');
+
+    // Update progress bar
+    const progressBar = document.getElementById(`exam${examId}Progress`);
+    if (progressBar) {
+      const progressPercent = (attemptedCount / exam.totalQuestions) * 100;
+      progressBar.style.width = `${progressPercent}%`;
     }
-  }
+
+    // Update attempts count
+    const attemptsCount = document.getElementById(`exam${examId}Attempts`);
+    if (attemptsCount) {
+      attemptsCount.textContent = `${attemptedCount}/${exam.totalQuestions} Questions Attempted`;
+    }
+
+    // Update flagged badge
+    const flaggedBadge = document.getElementById(`exam${examId}Flagged`);
+    if (flaggedBadge) {
+      if (flaggedCount > 0) {
+        flaggedBadge.textContent = `${flaggedCount} Question${flaggedCount !== 1 ? 's' : ''} Flagged`;
+        flaggedBadge.style.display = 'inline-block';
+      } else {
+        flaggedBadge.style.display = 'none';
+      }
+    }
+
+    // Update completion icon
+    const completionIcon = document.getElementById(`exam${examId}CompletionIcon`);
+    if (completionIcon) {
+      if (examCompletion) {
+        completionIcon.style.display = 'flex';
+      } else {
+        completionIcon.style.display = 'none';
+      }
+    }
+  });
 }
 
 // MCQ exam card click no longer needed - exams displayed directly on Past Exams page
@@ -1001,6 +1015,10 @@ function updateMcqExamModal() {
 // Initialize correct content based on URL parameter or saved filter
 document.addEventListener('DOMContentLoaded', () => {
   console.log('[Navigation] DOMContentLoaded - Initializing filter');
+
+  // Update exam progress on initial load
+  updateExamModal();
+  updateMcqExamModal();
 
   // Check for hash first - it takes priority over stored filter
   if (window.location.hash === '#past-exams') {
