@@ -17,7 +17,7 @@
 
     // Calculate days until MCQ exam
     const msPerDay = 1000 * 60 * 60 * 24;
-    const daysUntilMCQ = Math.ceil((MCQ_EXAM_DATE - now) / msPerDay);
+    const daysUntilMCQ = Math.floor((MCQ_EXAM_DATE - now) / msPerDay);
 
     // Update MCQ countdown only
     const mcqDaysElement = document.getElementById('mcqDays');
