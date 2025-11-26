@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 20.3 - The Atopic Child</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 20.3 - The Atopic Child | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 20.3 - The Atopic Child">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 20.3 – The Atopic Child</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine</p>
+
+    <h2>Case</h2>
+    <p>Christina Chang is a 9 month old girl who presents with her Father Eric. He is concerned that the rash on Christina's face [see picture] is getting worse and he thinks that it is itchy because she is often rubbing her face and eyes.</p>
+    <p>They have had to put cotton mittens on her hands because she often scratches herself.</p>
+    <p>He states that he has been told that her rash is because of allergy and asks you what she is allergic to.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Explain atopy and allergy to Christina's father.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Atopy is defined as the ability of an individual to form specific IgE antibodies to one or more common inhaled aeroallergens such as animal dander, pollen, mould or house dust mite. The clinical expression associated with this immune dysregulation may be an atopic disease, which includes:</p>
+        <ul>
+          <li>atopic dermatitis</li>
+          <li>asthma</li>
+          <li>allergic rhinoconjunctivitis.</li>
+        </ul>
+        <p>Although atopy is defined by an excessive production of IgE, this is only one of many immunological changes that characterize the condition, which is associated with a complex dysregulation of the humoral and cellular immune systems. For this to occur, both a genetic predisposition and early life environmental allergen exposure are important. Central to this understanding is that naive T helper lymphocytes respond in a particular way to an allergen by secreting specific cytokines that regulate the production of IgE. Continued allergen exposure initiates the allergy cascade, in which there is an early and late response. This occurs in cells located in the skin, respiratory tract, gastrointestinal tract and the vascular system; the end result in some individuals is an atopic disease.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. In order to further explore the presence of atopic illness, what are the key components of your history and examination of Christina?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The history and examination should cover the following aspects:</p>
+        <ul>
+          <li><strong>Specific symptoms</strong> - Nature, timing (seasonal, perennial, episodic), situational (specific site or circumstance)</li>
+          <li><strong>Severity of symptoms and degree of disability</strong> - Medication required to control symptoms, medical visits and hospitalisation, school absenteeism, interference with sleep, sport or play</li>
+          <li><strong>Use of medication</strong> - Current and past medications, efficacy, compliance, technique of use and side effects</li>
+          <li><strong>Environmental history</strong> - identification of triggers:
+            <ul>
+              <li>exposure to common allergens and non-allergen (e.g. cigarette smoke) triggers should be considered</li>
+              <li>a trigger may be easily identified if the onset of symptoms is acute and occurs soon after exposure, if symptoms occur in a specific geographic location, are seasonal, or occur repeatedly following similar exposures</li>
+              <li>a trigger may be difficult to identify when continuous exposure results in chronic symptoms</li>
+              <li>identification of possible triggers requires knowledge of the likely circumstances of allergen exposure.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>On examination atopic children may have atypical examination findings:</p>
+        <table>
+          <tr>
+            <th>System</th>
+            <th>Findings</th>
+          </tr>
+          <tr>
+            <td>Growth</td>
+            <td>Weight<br>Height</td>
+          </tr>
+          <tr>
+            <td>Facies</td>
+            <td>Facial pallor<br>Allergic shiners - infraorbital dark circles due to venous congestion<br>Dennie-Morgan lines - wrinkles under both eyes<br>Mouth breathing<br>Dental malocclusion - from long-standing upper airway obstruction<br>Sinus tenderness</td>
+          </tr>
+          <tr>
+            <td>Skin</td>
+            <td>Atopic dermatitis<br>White dermatographism - white discoloration of skin following physical pressure<br>Xerosis - dry skin<br>Urticaria and/or angio-oedema</td>
+          </tr>
+          <tr>
+            <td>Nose</td>
+            <td>Horizontal nasal crease<br>Inferior nasal turbinates - pale and swollen<br>Clear nasal discharge</td>
+          </tr>
+          <tr>
+            <td>Respiratory</td>
+            <td>Chest deformity - Harrison sulcus, increase in anteroposterior diameter<br>Respiratory distress<br>Wheeze and/or stridor</td>
+          </tr>
+          <tr>
+            <td>Eyes</td>
+            <td>Conjunctivitis<br>Subcapsular cataracts associated with conjunctivitis</td>
+          </tr>
+          <tr>
+            <td>Ears</td>
+            <td>Tympanic membrane dull and retracted</td>
+          </tr>
+          <tr>
+            <td>Throat</td>
+            <td>Tonsillar enlargement<br>Postpharyngeal secretions and cobblestoning of mucosa</td>
+          </tr>
+          <tr>
+            <td>Cardiovascular</td>
+            <td>Blood pressure</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What are they key allergens that you would enquire about in your assessment of Christina?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Allergens that may trigger symptoms in atopic children</strong></p>
+
+        <p><strong>Inhaled allergens</strong></p>
+        <ul>
+          <li>Animal dander - cat, dog, horse, rabbit</li>
+          <li>Pollen - grass (rye, couch, timothy), weed (plantain), tree (olive, plane)</li>
+          <li>Mould - <em>Alternaria</em>, <em>Aspergillus</em>, <em>Cladosporium</em>, <em>Penicillium</em> spp.</li>
+          <li>House dust mite - <em>Dermatophagoides pteronyssinus</em>, <em>Dermatophagoides farinae</em></li>
+          <li>Cockroach</li>
+        </ul>
+
+        <p><strong>Ingested allergens</strong></p>
+        <ul>
+          <li>Food - cow's milk, egg, nuts, fish, shellfish, soy, wheat, fruit</li>
+          <li>Medication - antibiotics (penicillin) and non-antibiotic medication</li>
+        </ul>
+
+        <p><strong>Miscellaneous</strong></p>
+        <ul>
+          <li>Latex contained in balloons and surgical gloves</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Detail the key clinical features of atopic illness and describe the underlying pathophysiology.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Atopic dermatitis</h3>
+        <p>Atopic dermatitis is a chronic inflammatory skin disorder that is associated with filaggrin deficiency, overproduction of IgE and eosinophils due to a systemic Th2 cytokine response. Histamine, neuropeptides, proinflammatory cytokines, mast cells, eosinophils and antigen-presenting cells are all increased in skin affected by atopic dermatitis. The cardinal features of atopic dermatitis include:</p>
+        <ul>
+          <li>intense pruritus</li>
+          <li>a relapsing course</li>
+          <li>a typical distribution of skin rash</li>
+          <li>a personal or family history of an atopic disease</li>
+          <li>additional features that may be present:
+            <ul>
+              <li>dry skin (xerosis), skin infection, white dermatographism</li>
+              <li>other atopic diseases and atopic facies</li>
+              <li>food allergy and intolerance.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Asthma</h3>
+        <p>Asthma is defined as a chronic inflammatory lung disorder that is usually associated with bronchial hyperactivity and presents as a symptom complex of cough, wheeze and shortness of breath.</p>
+        <p>Although the exact cause of asthma is not known, the two most significant risk factors are a family history and atopy. Specifically, between 60% and 80% of asthmatic children are atopic. Furthermore, sensitization to indoor allergens (house dust mite and cockroach) combined with exposure to high levels of these allergens is an important risk factor associated with symptomatic asthma. The implication is that exposure to indoor allergens may contribute to the development of asthma and that ongoing exposure or intermittent exposure may be a trigger factor for asthma.</p>
+
+        <h3>Allergic Rhinoconjunctivitis</h3>
+        <p>The primary functions of the nose are olfaction and air filtration and humidification. This is achieved by the nasal structure, which ensures that inhaled air is in contact with an extensive and highly vascular mucosal membrane. In sensitized individuals, mucosal contact with inhaled allergens in the nose and conjunctiva elicits IgE-mediated mast cell degranulation and a chronic inflammatory response.</p>
+        <p>The history should determine the specific symptoms, as the presentation is quite variable, with either rhinitis or conjunctival symptoms predominating:</p>
+        <ul>
+          <li>The symptoms of rhinitis are nasal obstruction, itch, sneezing and rhinorrhoea</li>
+          <li>Conjunctival symptoms include itching and an increase in tear fluid.</li>
+        </ul>
+        <p>The timing of symptoms provides important information concerning possible triggers. Symptoms may be seasonal, perennial, a combination of perennial and seasonal or episodic:</p>
+        <ul>
+          <li>Symptoms during spring, summer or autumn indicate seasonal allergic rhinoconjunctivitis, which may be triggered by pollen (grass, weed or tree) or mould</li>
+          <li>Perennial symptoms may be due to indoor allergens (house dust mite, animal dander, cockroach)</li>
+          <li>Episodic symptoms are most often due to exposure to animal dander but may occur in response to other allergens.</li>
+        </ul>
+        <p>Examination of the nose and eyes is important:</p>
+        <ul>
+          <li>Nose: The inferior nasal turbinates being pale and swollen. When severe, the swollen nasal turbinates may extend to the nasal septum and may be mistaken for nasal polyps, which are uncommon in children. Typical findings may not be present.</li>
+          <li>If nasal obstruction is the main symptom, it is important to exclude an anatomical cause</li>
+          <li>Eyes: Conjunctival injection and oedema affect both the bulbar and tarsal conjunctiva and appear as redness and swelling.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Eric mentions that Christina's mother has recently purchased new bedding and a special vacuum cleaner to help stop dust mites, he asks you if you think this will help. What would you explain to him about these and other dust mite reduction methods?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Allergen identification and avoidance remains an important component of management. Avoidance measures may involve considerable parental education, effort and expense. Note that:</p>
+        <ul>
+          <li>with ingested allergens identification and avoidance are particularly important when atopic disease is associated with a food allergy, as this is the only means of therapy</li>
+          <li>with inhalant allergens, methods have been evaluated to reduce exposure to indoor allergens, most importantly the house dust mite. A number of studies in sensitized individuals have demonstrated improvements in atopic dermatitis and allergic rhinitis following house dust mite reduction measures. The benefit of house dust mite avoidance in asthma is much more controversial</li>
+          <li>other indoor allergens (cat, cockroach, mould) and outdoor allergens are less easily avoided and alternative forms of therapy may be required.</li>
+        </ul>
+
+        <p><strong>Methods to reduce house dust mite exposure</strong></p>
+
+        <p><strong>Definitely useful</strong></p>
+        <ul>
+          <li>Encase bedding in impermeable covers (dust mite covers): most important measure, since the bed is the major source</li>
+          <li>Hot water washing of bedding and clothes (\&gt;56°C): will destroy house dust mite and remove allergens</li>
+        </ul>
+
+        <p><strong>Probably useful</strong></p>
+        <ul>
+          <li>Replacement of fitted carpets with smooth flooring</li>
+          <li>Hard-surface cleaning with a damp cloth, at least once a week</li>
+        </ul>
+
+        <p><strong>Possibly useful</strong></p>
+        <ul>
+          <li>Air filtration, ionizers and air conditioning</li>
+        </ul>
+
+        <p><strong>Unlikely to be useful</strong></p>
+        <ul>
+          <li>Acaricides (dust mite sprays) for the carpet and mattress</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Eric mentions that Christina often has a runny nose and mother has hay fever. He asks if they should use the nose spray like her mother does. Explain the use and mechanism of action of the nasal sprays used in the management of allergic rhinitis.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Topical nasal corticosteroids are most effective for nasal obstructive symptoms but also reduce rhinorrhoea, sneezing and conjunctival symptoms. Steroids may take up to a week to work and may require prior use of a decongestant to allow adequate nasal delivery. In general, nasal steroids have been shown to be safe in children but epistaxis may be a problem in some children. This can be reduced by directing the nasal spray away from the nasal septum</p>
+
+        <p><strong>Australian Medicines Handbook:<br>
+        Corticosteroids (intranasal)</strong></p>
+        <p>Beclomethasone<br>
+        Budesonide<br>
+        Fluticasone<br>
+        Mometasone<br>
+        Triamcinolone</p>
+
+        <p><strong>Mode of action:</strong> Produce local anti-inflammatory effects, decrease capillary permeability and mucus production, and produce vasoconstriction in the nasal mucosa.</p>
+
+        <p><strong>Indications:</strong> Allergic rhinitis, Rhinosinusitis, Nasal polyps</p>
+
+        <p><strong>Precautions:</strong> <em>Severe nasal infection</em> (contraindicated), <em>bleeding disorders</em> (intranasal corticosteroids may cause nose bleeding), <em>recent nasal surgery or trauma</em> (intranasal corticosteroids may delay healing)</p>
+
+        <p><strong>Adverse effects:</strong> Systemic adverse effects are rare with nasal products used at recommended doses.</p>
+        <p>Common: nasal stinging, itching, sneezing, sore throat, dry mouth, cough</p>
+        <p>Infrequent: nose bleed</p>
+        <p>Rare: nasal septal perforation, glaucoma, cataract, allergic reactions (urticaria, angioedema, bronchospasm, rash)</p>
+
+        <p><strong>Practice points:</strong> all intranasal corticosteroids have similar efficacy. Onset of action within 3–7 hours; effective on an as-needed basis; optimum effect after several days of regular use. Patients transferred from oral to intranasal corticosteroids may have impaired adrenal function; intranasal corticosteroids have little systemic effect.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Outline the mechanism of action and side effects of the following medications used in the management of allergic illness, antihistamines, sympathomimetics, theophylline, cromolyn, corticosteroids and leukotriene agonists.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><em>Note: Due to the extensive nature of this table, a comprehensive medication reference table from the Australian Medicines Handbook is provided in the source material covering antihistamines (sedating and non-sedating), sympathomimetics, theophylline, cromolyn, corticosteroids (intranasal and inhaled), and leukotriene agonists with their mechanisms of action and detailed side effects.</em></p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

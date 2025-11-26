@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 21.1 - Oesophageal Carcinoma</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 21.1 - Oesophageal Carcinoma | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 21.1 - Oesophageal Carcinoma">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 21.1 – Oesophageal Carcinoma</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Gastroenterology | <strong>Setting:</strong> Outpatient Clinic</p>
+
+    <h2>Case</h2>
+    <p>Mr. David Thompson, a 68-year-old retired builder, presents to the gastroenterology outpatient clinic with a 3-month history of progressive dysphagia. He describes initial difficulty swallowing solid foods, which has now progressed to include soft foods and liquids. He has lost 8 kg during this period and reports a feeling of food "sticking" in his chest. He has a 45-pack-year smoking history and drinks 2-3 standard drinks daily. He has also noticed regurgitation of undigested food and occasional chest discomfort unrelated to exertion.</p>
+
+    <div class="vital-signs">Vital signs: BP 135/80 mmHg, HR 78 bpm, RR 16/min, Temp 36.8°C, SpO2 98% on room air. BMI 21 (previously 24 three months ago)</div>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the key red flag features in Mr. Thompson's presentation that warrant urgent investigation?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Red flag features present in this case include:</p>
+        <ul>
+          <li><strong>Progressive dysphagia:</strong> Starting with solids and progressing to liquids suggests mechanical obstruction</li>
+          <li><strong>Significant unintentional weight loss:</strong> Loss of 8kg over 3 months is substantial and concerning for malignancy</li>
+          <li><strong>Age >55 years:</strong> Increased risk of upper GI malignancy</li>
+          <li><strong>Smoking history:</strong> Major risk factor for oesophageal carcinoma, particularly squamous cell carcinoma</li>
+          <li><strong>Alcohol consumption:</strong> Synergistic effect with smoking in increasing cancer risk</li>
+        </ul>
+        <p>The combination of progressive dysphagia with weight loss in a patient with significant risk factors requires urgent investigation, typically with upper GI endoscopy within 2 weeks (urgent cancer pathway).</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the two main histological types of oesophageal carcinoma, and how do their epidemiology and risk factors differ?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Squamous Cell Carcinoma (SCC):</strong></p>
+        <ul>
+          <li>Historically the most common type worldwide, though incidence is decreasing in Western countries</li>
+          <li>Typically occurs in the upper and middle third of the oesophagus</li>
+          <li>Major risk factors: smoking, alcohol, achalasia, caustic injury, Plummer-Vinson syndrome</li>
+          <li>More common in lower socioeconomic groups</li>
+          <li>Higher incidence in certain geographical areas (e.g., parts of Asia, Iran, South Africa)</li>
+        </ul>
+        <p><strong>Adenocarcinoma:</strong></p>
+        <ul>
+          <li>Rapidly increasing incidence in Western countries, now the most common type in developed nations</li>
+          <li>Typically arises in the lower third of the oesophagus</li>
+          <li>Major risk factors: Barrett's oesophagus (the main precursor), chronic gastro-oesophageal reflux disease (GORD), obesity, smoking</li>
+          <li>More common in Caucasian males</li>
+          <li>Associated with metabolic syndrome</li>
+        </ul>
+        <p>Mr. Thompson's smoking and alcohol history places him at risk for both types, though his symptoms and risk factors are compatible with either histology.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is Barrett's oesophagus and why is it clinically significant?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Barrett's oesophagus is a condition where the normal stratified squamous epithelium of the lower oesophagus is replaced by metaplastic columnar epithelium, typically containing goblet cells (intestinal metaplasia).</p>
+        <p><strong>Pathophysiology:</strong></p>
+        <ul>
+          <li>Develops as a response to chronic acid exposure from GORD</li>
+          <li>The columnar epithelium is more resistant to acid than squamous epithelium</li>
+          <li>Represents an adaptive but pre-malignant change</li>
+        </ul>
+        <p><strong>Clinical Significance:</strong></p>
+        <ul>
+          <li>Main precursor lesion for oesophageal adenocarcinoma</li>
+          <li>Risk of malignant transformation approximately 0.2-0.5% per year</li>
+          <li>Dysplasia in Barrett's significantly increases cancer risk:
+            <ul>
+              <li>Low-grade dysplasia: 0.5-1% annual cancer risk</li>
+              <li>High-grade dysplasia: 7-10% annual cancer risk</li>
+            </ul>
+          </li>
+          <li>Requires surveillance endoscopy with systematic biopsies</li>
+          <li>Surveillance intervals depend on length of Barrett's segment and presence of dysplasia</li>
+        </ul>
+        <p><strong>Management:</strong></p>
+        <ul>
+          <li>PPI therapy to control acid reflux</li>
+          <li>Regular surveillance endoscopy (intervals based on dysplasia grade and segment length)</li>
+          <li>Endoscopic intervention (ablation or resection) for dysplasia</li>
+          <li>Lifestyle modifications: weight loss, smoking cessation, alcohol reduction</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What investigations would you arrange for Mr. Thompson and in what order of priority?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Urgent investigations:</strong></p>
+        <ul>
+          <li><strong>Upper GI endoscopy (OGD) with biopsy:</strong> Gold standard for diagnosis
+            <ul>
+              <li>Direct visualization of the tumour</li>
+              <li>Biopsy for histological confirmation</li>
+              <li>Assessment of location, size, and extent</li>
+              <li>Should be performed within 2 weeks (urgent suspected cancer pathway)</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Staging investigations (if cancer confirmed):</strong></p>
+        <ul>
+          <li><strong>CT chest, abdomen, and pelvis with contrast:</strong> To assess for:
+            <ul>
+              <li>Local invasion</li>
+              <li>Regional lymphadenopathy</li>
+              <li>Distant metastases (liver, lungs, peritoneum)</li>
+            </ul>
+          </li>
+          <li><strong>PET-CT scan:</strong> Increasingly used for:
+            <ul>
+              <li>Detection of distant metastases</li>
+              <li>Assessment of nodal involvement</li>
+              <li>Evaluation of treatment response</li>
+            </ul>
+          </li>
+          <li><strong>Endoscopic ultrasound (EUS):</strong> Most accurate for:
+            <ul>
+              <li>Depth of tumour invasion (T staging)</li>
+              <li>Local lymph node assessment (N staging)</li>
+              <li>May allow FNA of suspicious nodes</li>
+            </ul>
+          </li>
+          <li><strong>Laparoscopy:</strong> May be considered in gastro-oesophageal junction tumours to exclude peritoneal disease</li>
+        </ul>
+        <p><strong>Other investigations:</strong></p>
+        <ul>
+          <li>Full blood count (anaemia from chronic blood loss)</li>
+          <li>Renal and liver function tests</li>
+          <li>Nutritional assessment</li>
+          <li>Pulmonary function tests (if surgery being considered)</li>
+          <li>Cardiology assessment if significant cardiac history</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Outline the TNM staging system for oesophageal cancer and explain its clinical relevance.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The TNM (Tumour, Node, Metastasis) staging system is used to classify the extent of oesophageal cancer:</p>
+        <p><strong>T (Primary Tumour):</strong></p>
+        <ul>
+          <li>Tis: High-grade dysplasia/carcinoma in situ</li>
+          <li>T1a: Invades lamina propria or muscularis mucosae</li>
+          <li>T1b: Invades submucosa</li>
+          <li>T2: Invades muscularis propria</li>
+          <li>T3: Invades adventitia</li>
+          <li>T4a: Invades adjacent structures (pleura, pericardium, diaphragm)</li>
+          <li>T4b: Invades unresectable structures (aorta, vertebral body, trachea)</li>
+        </ul>
+        <p><strong>N (Regional Lymph Nodes):</strong></p>
+        <ul>
+          <li>N0: No regional lymph node metastases</li>
+          <li>N1: 1-2 regional lymph nodes involved</li>
+          <li>N2: 3-6 regional lymph nodes involved</li>
+          <li>N3: ≥7 regional lymph nodes involved</li>
+        </ul>
+        <p><strong>M (Distant Metastasis):</strong></p>
+        <ul>
+          <li>M0: No distant metastases</li>
+          <li>M1: Distant metastases present</li>
+        </ul>
+        <p><strong>Clinical Relevance:</strong></p>
+        <ul>
+          <li><strong>Treatment planning:</strong> Stage determines treatment approach:
+            <ul>
+              <li>Early stage (T1a N0): May be suitable for endoscopic resection</li>
+              <li>Locally advanced (T2-3, N0-1): Neoadjuvant chemotherapy/chemoradiotherapy followed by surgery</li>
+              <li>Advanced disease (T4b or M1): Palliative treatment</li>
+            </ul>
+          </li>
+          <li><strong>Prognosis:</strong> Stage is the most important prognostic factor
+            <ul>
+              <li>Stage I: 5-year survival ~80%</li>
+              <li>Stage II: 5-year survival ~30-40%</li>
+              <li>Stage III: 5-year survival ~10-20%</li>
+              <li>Stage IV: 5-year survival \&lt;5%</li>
+            </ul>
+          </li>
+          <li><strong>MDT discussion:</strong> Staging information is essential for multidisciplinary team decision-making</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. What are the treatment options for oesophageal carcinoma, and how is the treatment approach determined?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Treatment is determined by stage, patient fitness, and tumour histology, discussed in a multidisciplinary team (MDT) meeting.</p>
+        <p><strong>Curative Treatment Options:</strong></p>
+        <p><strong>1. Endoscopic Therapy (Early disease - T1a):</strong></p>
+        <ul>
+          <li>Endoscopic mucosal resection (EMR)</li>
+          <li>Endoscopic submucosal dissection (ESD)</li>
+          <li>Radiofrequency ablation (for Barrett's with dysplasia)</li>
+          <li>Suitable for superficial lesions without lymph node involvement</li>
+        </ul>
+        <p><strong>2. Surgery:</strong></p>
+        <ul>
+          <li><strong>Oesophagectomy:</strong> Main curative surgical option
+            <ul>
+              <li>Ivor-Lewis (right thoracotomy + laparotomy)</li>
+              <li>Three-stage/McKeown (right thoracotomy + laparotomy + neck anastomosis)</li>
+              <li>Transhiatal approach</li>
+              <li>Minimally invasive oesophagectomy increasingly used</li>
+            </ul>
+          </li>
+          <li>Significant morbidity and mortality (perioperative mortality ~3-5%)</li>
+          <li>Requires adequate cardiopulmonary reserve</li>
+        </ul>
+        <p><strong>3. Neoadjuvant Therapy:</strong></p>
+        <ul>
+          <li><strong>Neoadjuvant chemotherapy:</strong> Used for adenocarcinoma (typically ECF or FLOT regimen)</li>
+          <li><strong>Neoadjuvant chemoradiotherapy:</strong> May be used for squamous cell carcinoma</li>
+          <li>Improves survival compared to surgery alone</li>
+          <li>Allows downstaging of tumour</li>
+          <li>Given for locally advanced resectable disease (typically T2-3, N0-1)</li>
+        </ul>
+        <p><strong>4. Definitive Chemoradiotherapy:</strong></p>
+        <ul>
+          <li>For patients unfit for surgery</li>
+          <li>Particularly for squamous cell carcinoma</li>
+          <li>May achieve cure in selected cases</li>
+        </ul>
+        <p><strong>Palliative Treatment Options:</strong></p>
+        <ul>
+          <li><strong>Palliative chemotherapy:</strong> For metastatic disease in fit patients</li>
+          <li><strong>Palliative radiotherapy:</strong> For bleeding, pain, or obstruction</li>
+          <li><strong>Oesophageal stenting:</strong> For dysphagia relief</li>
+          <li><strong>Nutritional support:</strong>
+            <ul>
+              <li>Dietary modification</li>
+              <li>Enteral feeding (nasogastric, nasojejunal, or gastrostomy)</li>
+              <li>Parenteral nutrition if required</li>
+            </ul>
+          </li>
+          <li><strong>Best supportive care:</strong> Including pain management and psychological support</li>
+        </ul>
+        <p><strong>Treatment Decision Factors:</strong></p>
+        <ul>
+          <li>Tumour stage (most important)</li>
+          <li>Patient performance status and comorbidities</li>
+          <li>Nutritional status</li>
+          <li>Patient preference</li>
+          <li>Tumour location and histology</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Mr. Thompson is diagnosed with T3N1M0 adenocarcinoma of the lower oesophagus. What specific nutritional concerns would you address, and what supportive measures might be needed during his treatment?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Nutritional Concerns:</strong></p>
+        <ul>
+          <li><strong>Pre-existing malnutrition:</strong> Already lost 8kg (significant weight loss)</li>
+          <li><strong>Progressive dysphagia:</strong> Limiting oral intake</li>
+          <li><strong>Cancer cachexia:</strong> Increased metabolic demands</li>
+          <li><strong>Treatment-related factors:</strong>
+            <ul>
+              <li>Neoadjuvant chemotherapy: nausea, mucositis, anorexia</li>
+              <li>Surgery: prolonged recovery, altered GI anatomy</li>
+              <li>Radiation: oesophagitis, odynophagia</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Nutritional Assessment:</strong></p>
+        <ul>
+          <li>Detailed dietary history and nutritional screening (e.g., MUST score)</li>
+          <li>Biochemical markers: albumin, prealbumin (though affected by inflammatory response)</li>
+          <li>Body composition assessment</li>
+          <li>Swallowing assessment</li>
+        </ul>
+        <p><strong>Nutritional Support Strategies:</strong></p>
+        <p><strong>Pre-treatment optimization:</strong></p>
+        <ul>
+          <li>Dietitian review and individualized nutritional plan</li>
+          <li>High-calorie, high-protein diet modifications:
+            <ul>
+              <li>Small, frequent meals</li>
+              <li>Soft, moist foods</li>
+              <li>Food fortification</li>
+            </ul>
+          </li>
+          <li>Oral nutritional supplements</li>
+          <li>Consider early enteral feeding if inadequate oral intake:
+            <ul>
+              <li>Nasogastric or nasojejunal feeding</li>
+              <li>Radiologically inserted gastrostomy (RIG) or jejunostomy if prolonged support anticipated</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>During treatment:</strong></p>
+        <ul>
+          <li>Continue nutritional support</li>
+          <li>Manage treatment side effects affecting nutrition</li>
+          <li>Regular weight and nutritional status monitoring</li>
+          <li>Feeding jejunostomy often placed at time of oesophagectomy for post-operative nutrition</li>
+        </ul>
+        <p><strong>Other Supportive Measures:</strong></p>
+        <ul>
+          <li><strong>Smoking cessation:</strong> Critical for surgical outcomes and overall prognosis</li>
+          <li><strong>Alcohol reduction:</strong> Cessation support if needed</li>
+          <li><strong>Psychological support:</strong> Diagnosis of cancer and major surgery
+            <ul>
+              <li>Clinical psychology/psychiatry referral</li>
+              <li>Support groups</li>
+              <li>Information provision</li>
+            </ul>
+          </li>
+          <li><strong>Symptom management:</strong>
+            <ul>
+              <li>Dysphagia management strategies</li>
+              <li>Pain control</li>
+              <li>Anti-emetics for chemotherapy</li>
+              <li>PPI therapy for reflux symptoms</li>
+            </ul>
+          </li>
+          <li><strong>Prehabilitation program:</strong>
+            <ul>
+              <li>Exercise program to improve fitness</li>
+              <li>Respiratory physiotherapy</li>
+              <li>Optimisation of comorbidities</li>
+            </ul>
+          </li>
+          <li><strong>Dental assessment:</strong> Prior to radiotherapy</li>
+          <li><strong>Clinical nurse specialist support:</strong> Coordination of care and patient support</li>
+        </ul>
+        <p>A multidisciplinary approach involving surgeons, oncologists, dietitians, specialist nurses, physiotherapists, and other allied health professionals is essential for optimal outcomes.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

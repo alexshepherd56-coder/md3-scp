@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 22.5 - Meningitis [SDL]</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 22.5 - Meningitis [SDL] | MD3 SCP Cases">
+  <meta name="description" content="Self-directed learning case on meningitis covering clinical presentation, investigations, management, and complications.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 22.5 - Meningitis [SDL]">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Self-directed learning case on meningitis covering clinical presentation, investigations, management, and complications.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 22.5 – Meningitis [SDL]</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Neurology | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Andrew Ghandhi is a 23 year old male who presents with fever and headache. The headache began yesterday and has gradually worsened and is now severe. The patient has photophobia and some neck stiffness. On examination there is evidence of a petechial rash on the trunk and legs. He is febrile with a temperature of 39°C. There is marked neck stiffness and a positive Kernig's sign. There are no focal neurological signs.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is the most likely diagnosis and what is the most likely organism?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Most Likely Diagnosis: Acute Bacterial Meningitis (with Meningococcal Septicaemia)</strong></p>
+
+        <p><strong>Rationale:</strong></p>
+        <ul>
+          <li>Classic triad: Fever, headache, neck stiffness</li>
+          <li>Photophobia</li>
+          <li>Positive Kernig's sign (meningeal irritation)</li>
+          <li><strong>Petechial rash</strong> - highly suggestive of meningococcal disease</li>
+          <li>Acute onset (over 1 day)</li>
+          <li>Young adult (typical age group)</li>
+        </ul>
+
+        <p><strong>Most Likely Organism: Neisseria meningitidis (Meningococcus)</strong></p>
+
+        <p><strong>Rationale for Meningococcus:</strong></p>
+        <ul>
+          <li>Petechial/purpuric rash is CLASSIC for meningococcal disease (though not always present)</li>
+          <li>Most common cause of bacterial meningitis in young adults and adolescents (age 15-24)</li>
+          <li>Acute presentation with rapid progression</li>
+          <li>Can cause both meningitis and septicaemia (often together)</li>
+        </ul>
+
+        <p><strong>Other Common Causes of Bacterial Meningitis (by age group):</strong></p>
+
+        <p><strong>Neonates (\&lt;1 month):</strong></p>
+        <ul>
+          <li>Group B Streptococcus (GBS)</li>
+          <li>E. coli</li>
+          <li>Listeria monocytogenes</li>
+        </ul>
+
+        <p><strong>Infants and children (1 month - 5 years):</strong></p>
+        <ul>
+          <li>Neisseria meningitidis</li>
+          <li>Streptococcus pneumoniae</li>
+          <li>Haemophilus influenzae type B (now rare due to Hib vaccine)</li>
+        </ul>
+
+        <p><strong>Older children and adults (5-50 years):</strong></p>
+        <ul>
+          <li>Neisseria meningitidis (most common)</li>
+          <li>Streptococcus pneumoniae</li>
+        </ul>
+
+        <p><strong>Older adults (\&gt;50 years):</strong></p>
+        <ul>
+          <li>Streptococcus pneumoniae (most common)</li>
+          <li>Neisseria meningitidis</li>
+          <li>Listeria monocytogenes (especially >60 years, immunocompromised)</li>
+        </ul>
+
+        <p><strong>Special circumstances:</strong></p>
+        <ul>
+          <li><strong>Post-neurosurgery/head trauma/CSF shunt:</strong> Staphylococcus aureus, coagulase-negative staphylococci, Gram-negative bacilli</li>
+          <li><strong>Immunocompromised:</strong> Listeria, Gram-negative bacilli, fungi, TB</li>
+          <li><strong>Basilar skull fracture/CSF leak:</strong> Streptococcus pneumoniae</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the key clinical features of meningitis and what signs would you look for on examination?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>CLINICAL FEATURES OF MENINGITIS:</strong></p>
+
+        <p><strong>Classic Triad (present in only ~45% of cases):</strong></p>
+        <ul>
+          <li>Fever</li>
+          <li>Headache</li>
+          <li>Neck stiffness</li>
+        </ul>
+
+        <p><strong>Common Symptoms:</strong></p>
+        <ul>
+          <li><strong>Headache:</strong> Severe, generalized, constant, worsening</li>
+          <li><strong>Fever:</strong> Usually high (but can be absent, especially in elderly/immunocompromised)</li>
+          <li><strong>Neck stiffness/pain:</strong> Pain on neck flexion</li>
+          <li><strong>Photophobia:</strong> Aversion to light</li>
+          <li><strong>Nausea and vomiting</strong></li>
+          <li><strong>Altered mental state:</strong> Confusion, drowsiness, reduced GCS</li>
+          <li><strong>Seizures:</strong> Occur in ~20-30%</li>
+        </ul>
+
+        <p><strong>Features Suggesting Raised Intracranial Pressure:</strong></p>
+        <ul>
+          <li>Reduced level of consciousness</li>
+          <li>Focal neurological signs</li>
+          <li>Papilloedema (late sign)</li>
+          <li>Cushing's triad: Hypertension, bradycardia, irregular respirations (very late, pre-terminal)</li>
+        </ul>
+
+        <p><strong>EXAMINATION FINDINGS:</strong></p>
+
+        <p><strong>1. Meningeal Irritation Signs:</strong></p>
+
+        <p><strong>Neck stiffness (nuchal rigidity):</strong></p>
+        <ul>
+          <li>Resistance and pain on passive neck flexion (chin to chest)</li>
+          <li>Patient unable to touch chin to chest</li>
+          <li>NOTE: Absent in ~30% of bacterial meningitis cases</li>
+          <li>May be absent in elderly, infants, or deeply unconscious patients</li>
+        </ul>
+
+        <p><strong>Kernig's sign:</strong></p>
+        <ul>
+          <li>With patient supine and hip flexed to 90°, attempt to extend knee</li>
+          <li>Positive if pain/resistance on knee extension beyond 135°</li>
+          <li>Sensitivity ~50%</li>
+        </ul>
+
+        <p><strong>Brudzinski's sign:</strong></p>
+        <ul>
+          <li>With patient supine, passive neck flexion causes involuntary flexion of hips and knees</li>
+          <li>Less sensitive than Kernig's</li>
+        </ul>
+
+        <p><strong>NOTE: Meningeal signs are often ABSENT in:</strong></p>
+        <ul>
+          <li>Early disease</li>
+          <li>Very young (infants) or very old (elderly)</li>
+          <li>Immunocompromised</li>
+          <li>Deeply unconscious patients</li>
+        </ul>
+
+        <p><strong>2. Skin Examination:</strong></p>
+
+        <p><strong>Petechial/purpuric rash:</strong></p>
+        <ul>
+          <li>Non-blanching rash (does not fade with pressure - use glass test/tumbler test)</li>
+          <li>Petechiae: Small (\&lt;2mm) red/purple spots</li>
+          <li>Purpura: Larger (\&gt;2mm) bruise-like lesions</li>
+          <li><strong>Highly suggestive of meningococcal disease</strong> (though can occur with other causes of sepsis/DIC)</li>
+          <li>May be absent initially (~30-50% of meningococcal cases don't have rash at presentation)</li>
+          <li>If present, indicates meningococcal septicaemia and is a medical emergency</li>
+        </ul>
+
+        <p><strong>3. Neurological Examination:</strong></p>
+
+        <p><strong>Level of consciousness:</strong></p>
+        <ul>
+          <li>Use GCS (Glasgow Coma Scale)</li>
+          <li>Confusion, drowsiness, stupor, coma</li>
+          <li>Reduced GCS indicates severe disease</li>
+        </ul>
+
+        <p><strong>Focal neurological signs (if present, suggest complications):</strong></p>
+        <ul>
+          <li>Cranial nerve palsies (CN III, VI, VII most common)</li>
+          <li>Hemiparesis</li>
+          <li>Ataxia</li>
+          <li>Suggest: Cerebral infarction, cerebritis, abscess, raised ICP, venous sinus thrombosis</li>
+        </ul>
+
+        <p><strong>Fundoscopy:</strong></p>
+        <ul>
+          <li>Papilloedema (raised ICP) - late sign, often absent</li>
+        </ul>
+
+        <p><strong>Seizures:</strong></p>
+        <ul>
+          <li>Generalized or focal</li>
+          <li>Occur in ~20-30% of bacterial meningitis</li>
+        </ul>
+
+        <p><strong>4. General Examination:</strong></p>
+        <ul>
+          <li><strong>Vital signs:</strong> Fever, tachycardia, hypotension (if septic shock), tachypnea</li>
+          <li><strong>Signs of sepsis:</strong> Hypotension, poor perfusion, mottled skin, oliguria</li>
+          <li><strong>Hydration status</strong></li>
+        </ul>
+
+        <p><strong>FEATURES IN SPECIFIC AGE GROUPS:</strong></p>
+
+        <p><strong>Infants and young children:</strong></p>
+        <ul>
+          <li>May NOT have classic features</li>
+          <li>Fever, irritability, poor feeding, vomiting</li>
+          <li>High-pitched cry</li>
+          <li>Bulging fontanelle (if &lt;18 months and fontanelle still open)</li>
+          <li>Hypotonia or hypertonia</li>
+          <li>Seizures</li>
+          <li>Altered consciousness</li>
+        </ul>
+
+        <p><strong>Elderly:</strong></p>
+        <ul>
+          <li>Often atypical presentation</li>
+          <li>Fever and neck stiffness may be absent</li>
+          <li>Confusion, reduced GCS may be main presenting feature</li>
+          <li>High index of suspicion needed</li>
+        </ul>
+
+        <p><strong>WARNING: Absence of classic features does NOT exclude meningitis!</strong></p>
+        <p>If clinical suspicion, proceed with investigations (especially lumbar puncture) even if examination not典型.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What investigations should be performed urgently and what might the results show?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>URGENT INVESTIGATIONS FOR SUSPECTED MENINGITIS:</strong></p>
+
+        <p><strong>1. LUMBAR PUNCTURE (LP) AND CSF ANALYSIS - GOLD STANDARD</strong></p>
+
+        <p><strong>Indications:</strong></p>
+        <ul>
+          <li>ALL patients with suspected meningitis (if no contraindications)</li>
+        </ul>
+
+        <p><strong>IMPORTANT: Do NOT delay antibiotics for LP!</strong></p>
+        <ul>
+          <li>If LP cannot be done immediately, give antibiotics FIRST, then do LP later</li>
+          <li>Blood cultures should be taken before antibiotics if possible</li>
+          <li>Antibiotics given before LP may reduce sensitivity of CSF culture but CSF cell count, protein, glucose usually remain abnormal for hours/days</li>
+        </ul>
+
+        <p><strong>Contraindications to LP (MUST check before LP):</strong></p>
+        <ul>
+          <li><strong>Signs of raised ICP with risk of herniation:</strong>
+            <ul>
+              <li>Reduced/deteriorating GCS (GCS &lt;9-12)</li>
+              <li>Focal neurological signs</li>
+              <li>Seizures</li>
+              <li>Papilloedema</li>
+              <li>Abnormal posturing</li>
+            </ul>
+          </li>
+          <li><strong>Coagulopathy/thrombocytopenia:</strong> Platelets &lt;50, INR >1.4, on anticoagulation</li>
+          <li><strong>Infection at LP site</strong></li>
+          <li><strong>Cardiorespiratory instability</strong></li>
+        </ul>
+
+        <p><strong>If contraindications present:</strong></p>
+        <ul>
+          <li>Give antibiotics immediately (do NOT delay for LP or CT)</li>
+          <li>Consider CT brain first if focal signs/reduced GCS (to exclude mass lesion/raised ICP)</li>
+          <li>LP can be done later once patient stabilized/CT cleared</li>
+        </ul>
+
+        <p><strong>CSF Analysis - Send for:</strong></p>
+        <ul>
+          <li><strong>Appearance:</strong> Visual inspection (turbid? bloody? xanthochromic?)</li>
+          <li><strong>Cell count and differential:</strong> White cells, red cells</li>
+          <li><strong>Biochemistry:</strong> Protein, glucose (MUST measure paired serum glucose simultaneously for comparison)</li>
+          <li><strong>Microbiology:</strong>
+            <ul>
+              <li>Gram stain (immediate result - can guide initial treatment)</li>
+              <li>Culture and sensitivity</li>
+              <li>Bacterial PCR (especially meningococcus, pneumococcus - rapid, remains positive even after antibiotics)</li>
+            </ul>
+          </li>
+          <li><strong>Consider also (if viral/TB suspected):</strong> Viral PCR (HSV, VZV, enteroviruses), TB culture and PCR, fungal stains/culture</li>
+        </ul>
+
+        <p><strong>CSF FINDINGS IN DIFFERENT TYPES OF MENINGITIS:</strong></p>
+
+        <table>
+          <tr>
+            <th>Parameter</th>
+            <th>Normal</th>
+            <th>Bacterial</th>
+            <th>Viral</th>
+            <th>TB/Fungal</th>
+          </tr>
+          <tr>
+            <td><strong>Appearance</strong></td>
+            <td>Clear, colorless</td>
+            <td>Turbid, cloudy, purulent</td>
+            <td>Clear or slightly turbid</td>
+            <td>Clear or slightly turbid</td>
+          </tr>
+          <tr>
+            <td><strong>Opening pressure</strong></td>
+            <td>10-20 cm H2O</td>
+            <td>Elevated (\&gt;25)</td>
+            <td>Normal or mildly ↑</td>
+            <td>Elevated</td>
+          </tr>
+          <tr>
+            <td><strong>White cell count</strong></td>
+            <td>&lt;5 cells/μL</td>
+            <td><strong>↑↑↑ (100-10,000+)</strong><br>Usually >1000</td>
+            <td>↑ (10-1000)<br>Usually 10-500</td>
+            <td>↑ (10-1000)<br>Usually &lt;500</td>
+          </tr>
+          <tr>
+            <td><strong>Cell type</strong></td>
+            <td>Lymphocytes</td>
+            <td><strong>Neutrophils</strong> (\&gt;80%)</td>
+            <td><strong>Lymphocytes</strong> (\&gt;50%)</td>
+            <td><strong>Lymphocytes</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Protein</strong></td>
+            <td>0.15-0.45 g/L</td>
+            <td><strong>↑↑ (\&gt;1 g/L)</strong><br>Often 1-5</td>
+            <td>Normal or ↑<br>Usually 0.5-1</td>
+            <td>↑↑ (\&gt;1 g/L)</td>
+          </tr>
+          <tr>
+            <td><strong>Glucose</strong></td>
+            <td>>60% of serum glucose<br>(\&gt;2.5 mmol/L)</td>
+            <td><strong>↓↓ (\&lt;40% of serum)<br>Often &lt;2.2</strong></td>
+            <td>Normal<br>(\&gt;60% of serum)</td>
+            <td>↓ (\&lt;50% of serum)</td>
+          </tr>
+          <tr>
+            <td><strong>Gram stain</strong></td>
+            <td>Negative</td>
+            <td>Positive in ~60-90%<br>(depends on organism, prior antibiotics)</td>
+            <td>Negative</td>
+            <td>Negative (or AFB +ve for TB)</td>
+          </tr>
+          <tr>
+            <td><strong>Culture</strong></td>
+            <td>Negative</td>
+            <td>Positive in 70-85%<br>(lower if antibiotics given)</td>
+            <td>Negative for bacteria</td>
+            <td>May be positive (TB/fungi)</td>
+          </tr>
+        </table>
+
+        <p><strong>KEY CSF FEATURES FOR BACTERIAL MENINGITIS:</strong></p>
+        <ul>
+          <li><strong>Turbid/cloudy appearance</strong></li>
+          <li><strong>High WCC (\&gt;1000, usually >500)</strong></li>
+          <li><strong>Neutrophil predominance (\&gt;80%)</strong></li>
+          <li><strong>High protein (\&gt;1 g/L)</strong></li>
+          <li><strong>Low glucose (\&lt;40% serum glucose or &lt;2.2 mmol/L)</strong></li>
+        </ul>
+
+        <p><strong>2. BLOOD TESTS:</strong></p>
+
+        <p><strong>Blood cultures (BEFORE antibiotics if possible):</strong></p>
+        <ul>
+          <li>Positive in ~50-60% of bacterial meningitis</li>
+          <li>May be only positive culture if antibiotics given before LP</li>
+          <li>Take at least 2 sets from different sites</li>
+        </ul>
+
+        <p><strong>Other blood tests:</strong></p>
+        <ul>
+          <li><strong>FBC:</strong> Leukocytosis (bacterial), lymphopenia, thrombocytopenia (if DIC)</li>
+          <li><strong>CRP:</strong> Elevated (non-specific but useful for monitoring)</li>
+          <li><strong>U&Es:</strong> Assess renal function, electrolytes (SIADH common in meningitis - hyponatremia)</li>
+          <li><strong>Glucose:</strong> ESSENTIAL - measure at same time as LP for CSF:serum glucose ratio</li>
+          <li><strong>Coagulation screen:</strong> INR, APTT, fibrinogen (check for DIC; also check before LP)</li>
+          <li><strong>Blood gas:</strong> Lactate (if septic), acid-base status</li>
+          <li><strong>Meningococcal/pneumococcal PCR:</strong> From blood (rapid, remains positive after antibiotics)</li>
+        </ul>
+
+        <p><strong>3. IMAGING:</strong></p>
+
+        <p><strong>CT Brain:</strong></p>
+
+        <p><strong>Indications for CT BEFORE LP:</strong></p>
+        <ul>
+          <li>Focal neurological signs</li>
+          <li>Reduced/deteriorating GCS (GCS &lt;12)</li>
+          <li>New-onset seizures</li>
+          <li>Papilloedema</li>
+          <li>Immunocompromised (higher risk of abscess/mass lesion)</li>
+          <li>History of CNS disease (tumor, stroke, focal infection)</li>
+        </ul>
+
+        <p><strong>IMPORTANT: Do NOT delay antibiotics while waiting for CT!</strong></p>
+        <ul>
+          <li>Give antibiotics FIRST, then CT, then LP</li>
+        </ul>
+
+        <p><strong>CT findings:</strong></p>
+        <ul>
+          <li>Often NORMAL in uncomplicated meningitis</li>
+          <li>May show: Meningeal enhancement (with contrast), cerebral edema, hydrocephalus</li>
+          <li>Complications: Abscess, empyema, infarction, venous sinus thrombosis</li>
+        </ul>
+
+        <p><strong>MRI Brain:</strong></p>
+        <ul>
+          <li>More sensitive than CT</li>
+          <li>Not usually done acutely (too slow)</li>
+          <li>Useful if complications suspected or TB/fungal meningitis</li>
+        </ul>
+
+        <p><strong>4. OTHER INVESTIGATIONS:</strong></p>
+        <ul>
+          <li><strong>Chest X-ray:</strong> Pneumococcal pneumonia (if pneumococcal meningitis suspected)</li>
+          <li><strong>Throat swab:</strong> For meningococcus (if petechial rash)</li>
+        </ul>
+
+        <p><strong>SUMMARY OF INVESTIGATION STRATEGY:</strong></p>
+
+        <p><strong>If patient stable, no contraindications to LP:</strong></p>
+        <ol>
+          <li>Blood cultures</li>
+          <li>Bloods (FBC, CRP, U&E, glucose, coag)</li>
+          <li>Lumbar puncture + CSF analysis</li>
+          <li>Start antibiotics immediately after LP (or before if delay)</li>
+        </ol>
+
+        <p><strong>If contraindications to LP or signs of raised ICP:</strong></p>
+        <ol>
+          <li>Blood cultures</li>
+          <li>Bloods</li>
+          <li><strong>Start antibiotics IMMEDIATELY (do NOT wait for investigations)</strong></li>
+          <li>CT brain (when safe/stable)</li>
+          <li>LP later (if safe after CT)</li>
+        </ol>
+
+        <p><strong>If petechial rash + suspected meningococcal disease:</strong></p>
+        <ol>
+          <li>Give IV/IM antibiotics IMMEDIATELY (benzylpenicillin or ceftriaxone)</li>
+          <li>Resuscitation if shocked</li>
+          <li>Investigations (bloods, LP if safe) can follow</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What is the immediate management of suspected bacterial meningitis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>IMMEDIATE MANAGEMENT OF SUSPECTED BACTERIAL MENINGITIS:</strong></p>
+
+        <p><strong>KEY PRINCIPLE: "Time is brain" - DO NOT DELAY ANTIBIOTICS</strong></p>
+
+        <p><strong>1. INITIAL RESUSCITATION AND ASSESSMENT (ABC approach):</strong></p>
+
+        <p><strong>A - Airway:</strong></p>
+        <ul>
+          <li>Ensure patent airway</li>
+          <li>If GCS &lt;8, consider intubation (protect airway, control ventilation if raised ICP)</li>
+        </ul>
+
+        <p><strong>B - Breathing:</strong></p>
+        <ul>
+          <li>High-flow oxygen (15L via non-rebreather mask)</li>
+          <li>Monitor SpO2</li>
+        </ul>
+
+        <p><strong>C - Circulation:</strong></p>
+        <ul>
+          <li>IV access (at least 2 large bore cannulae)</li>
+          <li>IV fluids if hypotensive/shocked (but cautious if raised ICP suspected - aim euvolemia)</li>
+          <li>Monitor BP, HR, urine output</li>
+          <li>Treat shock aggressively if present (especially meningococcal septicaemia)</li>
+        </ul>
+
+        <p><strong>D - Disability:</strong></p>
+        <ul>
+          <li>GCS assessment</li>
+          <li>Pupils</li>
+          <li>Blood glucose (exclude hypoglycemia)</li>
+        </ul>
+
+        <p><strong>Monitoring:</strong></p>
+        <ul>
+          <li>Continuous: HR, BP, SpO2, ECG</li>
+          <li>Regular: GCS, pupils, temperature</li>
+          <li>Fluid balance</li>
+        </ul>
+
+        <p><strong>2. ANTIBIOTICS - GIVE IMMEDIATELY</strong></p>
+
+        <p><strong>WHEN to give antibiotics:</strong></p>
+        <ul>
+          <li><strong>IMMEDIATELY on suspicion of bacterial meningitis</strong></li>
+          <li>Ideally after blood cultures (and LP if can be done quickly)</li>
+          <li>BUT do NOT delay if LP cannot be done immediately or if contraindications</li>
+          <li><strong>If in community/pre-hospital: Give IM/IV benzylpenicillin or ceftriaxone and transfer urgently to hospital</strong></li>
+        </ul>
+
+        <p><strong>EMPIRICAL ANTIBIOTIC REGIMEN (before organism known):</strong></p>
+
+        <p><strong>Age 3 months - 50 years (immunocompetent):</strong></p>
+        <ul>
+          <li><strong>Ceftriaxone 2g IV 12-hourly</strong> (or cefotaxime 2g IV 6-hourly)</li>
+          <li>Covers: Meningococcus, pneumococcus, H. influenzae</li>
+        </ul>
+
+        <p><strong>Age &lt;3 months OR >50 years OR immunocompromised:</strong></p>
+        <ul>
+          <li><strong>Ceftriaxone 2g IV 12-hourly PLUS</strong></li>
+          <li><strong>Amoxicillin 2g IV 4-hourly</strong> (for Listeria coverage)</li>
+        </ul>
+
+        <p><strong>Post-neurosurgery / CSF shunt / head trauma:</strong></p>
+        <ul>
+          <li><strong>Vancomycin 15-20mg/kg IV 8-12 hourly PLUS</strong></li>
+          <li><strong>Ceftazidime 2g IV 8-hourly</strong> (or meropenem)</li>
+          <li>Covers: Staphylococcus (including MRSA), Pseudomonas, Gram-negatives</li>
+        </ul>
+
+        <p><strong>Penicillin allergy:</strong></p>
+        <ul>
+          <li><strong>Chloramphenicol 25mg/kg IV 6-hourly</strong> (discuss with microbiologist)</li>
+          <li>Or <strong>meropenem</strong> (if not severe penicillin allergy)</li>
+        </ul>
+
+        <p><strong>Duration of treatment:</strong></p>
+        <ul>
+          <li>Meningococcus: 7 days</li>
+          <li>Pneumococcus: 10-14 days</li>
+          <li>H. influenzae: 10 days</li>
+          <li>Listeria: 21 days</li>
+          <li>Gram-negative bacilli: 21 days</li>
+        </ul>
+
+        <p><strong>3. ADJUNCTIVE DEXAMETHASONE:</strong></p>
+
+        <p><strong>Indications:</strong></p>
+        <ul>
+          <li><strong>Give to adults with suspected or confirmed bacterial meningitis</strong></li>
+          <li>Especially if pneumococcal meningitis suspected/confirmed</li>
+        </ul>
+
+        <p><strong>Dose:</strong></p>
+        <ul>
+          <li><strong>Dexamethasone 10mg IV 6-hourly for 4 days</strong></li>
+        </ul>
+
+        <p><strong>Timing:</strong></p>
+        <ul>
+          <li>Give BEFORE or WITH first dose of antibiotics</li>
+          <li>Most benefit if given early</li>
+          <li>If not given with first antibiotic dose, do NOT start if >12 hours after antibiotics</li>
+        </ul>
+
+        <p><strong>Rationale:</strong></p>
+        <ul>
+          <li>Reduces mortality and neurological sequelae (especially hearing loss) in pneumococcal meningitis</li>
+          <li>European Dexamethasone Study showed benefit</li>
+          <li>Works by reducing inflammatory response to bacterial lysis</li>
+        </ul>
+
+        <p><strong>Contraindications:</strong></p>
+        <ul>
+          <li>Septic shock (relative - resuscitate first)</li>
+          <li>Immunocompromised (avoid if possible)</li>
+          <li>TB meningitis (DO NOT give dexamethasone until TB excluded - different steroid regimen for TB)</li>
+        </ul>
+
+        <p><strong>4. SUPPORTIVE CARE:</strong></p>
+
+        <p><strong>Seizure management:</strong></p>
+        <ul>
+          <li>If seizures: IV lorazepam or diazepam</li>
+          <li>If recurrent: Load with phenytoin or levetiracetam</li>
+        </ul>
+
+        <p><strong>Raised ICP management (if suspected):</strong></p>
+        <ul>
+          <li>Nurse head-up 30°</li>
+          <li>Avoid hypotension (maintain adequate cerebral perfusion pressure)</li>
+          <li>Cautious fluid management (avoid fluid overload but ensure adequate perfusion)</li>
+          <li>If severe/refractory raised ICP: Consider intubation, controlled hyperventilation, osmotherapy (mannitol, hypertonic saline), neurosurgical referral</li>
+        </ul>
+
+        <p><strong>Hypotension/shock management (especially meningococcal septicaemia):</strong></p>
+        <ul>
+          <li>Aggressive fluid resuscitation (crystalloids)</li>
+          <li>Inotropes/vasopressors if needed (noradrenaline)</li>
+          <li>May require ICU admission</li>
+        </ul>
+
+        <p><strong>Treat DIC if present:</strong></p>
+        <ul>
+          <li>FFP, platelets, cryoprecipitate as needed</li>
+        </ul>
+
+        <p><strong>5. INFECTION CONTROL:</strong></p>
+
+        <p><strong>Isolation:</strong></p>
+        <ul>
+          <li>Droplet precautions for first 24 hours of appropriate antibiotics (especially if meningococcal)</li>
+        </ul>
+
+        <p><strong>Notify public health:</strong></p>
+        <ul>
+          <li>Meningococcal disease is notifiable</li>
+          <li>Contact tracing required</li>
+        </ul>
+
+        <p><strong>6. CONTACT PROPHYLAXIS (if meningococcal disease confirmed):</strong></p>
+
+        <p><strong>Who needs prophylaxis:</strong></p>
+        <ul>
+          <li><strong>Close contacts:</strong> Household members, intimate contacts (kissing), healthcare workers with direct exposure to respiratory secretions (e.g., intubation, mouth-to-mouth)</li>
+        </ul>
+
+        <p><strong>Regimen:</strong></p>
+        <ul>
+          <li><strong>Ciprofloxacin 500mg PO single dose</strong> (adults)</li>
+          <li>OR <strong>Rifampicin 600mg PO 12-hourly for 2 days</strong> (but ciprofloxacin preferred - single dose, better compliance)</li>
+          <li>Give as soon as possible (ideally within 24 hours of diagnosis)</li>
+        </ul>
+
+        <p><strong>7. ADMIT TO APPROPRIATE LEVEL OF CARE:</strong></p>
+        <ul>
+          <li><strong>HDU/ICU if:</strong> GCS &lt;12, septic shock, seizures, respiratory compromise, severe DIC</li>
+          <li><strong>Otherwise:</strong> Acute medical ward with close monitoring</li>
+        </ul>
+
+        <p><strong>SUMMARY - INITIAL MANAGEMENT CHECKLIST:</strong></p>
+        <ol>
+          <li>ABC assessment and resuscitation</li>
+          <li>Blood cultures + blood tests (glucose essential)</li>
+          <li><strong>IV ANTIBIOTICS IMMEDIATELY</strong> (empirical - ceftriaxone +/- amoxicillin)</li>
+          <li><strong>IV DEXAMETHASONE</strong> (before/with antibiotics)</li>
+          <li>LP (if can be done safely without delay)</li>
+          <li>CT brain (if contraindications to LP)</li>
+          <li>Supportive care (fluids, analgesia, antiemetics, seizure management, ICU if needed)</li>
+          <li>Infection control + notify public health</li>
+          <li>Contact prophylaxis (if meningococcal)</li>
+        </ol>
+
+        <p><strong>TIME-CRITICAL: From suspicion to antibiotics should be &lt;1 hour (ideally &lt;30 minutes)</strong></p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What are the potential complications of bacterial meningitis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>COMPLICATIONS OF BACTERIAL MENINGITIS:</strong></p>
+
+        <p>Complications can be classified as:</p>
+        <ul>
+          <li>Acute (during illness)</li>
+          <li>Long-term sequelae (after recovery)</li>
+        </ul>
+
+        <p><strong>ACUTE COMPLICATIONS:</strong></p>
+
+        <p><strong>1. Neurological Complications:</strong></p>
+
+        <p><strong>Raised Intracranial Pressure (ICP) / Cerebral Edema:</strong></p>
+        <ul>
+          <li>Very common complication</li>
+          <li>Causes: Cerebral edema, hydrocephalus, venous sinus thrombosis</li>
+          <li>Presentation: Reduced GCS, headache, vomiting, papilloedema (late), Cushing's triad</li>
+          <li>Can lead to herniation (tonsillar, uncal, subfalcine) - LIFE-THREATENING</li>
+        </ul>
+
+        <p><strong>Seizures:</strong></p>
+        <ul>
+          <li>Occur in ~20-30% during acute illness</li>
+          <li>Generalized or focal</li>
+          <li>May be due to: Cortical irritation, cerebritis, infarction, hyponatremia</li>
+          <li>Status epilepticus can occur</li>
+        </ul>
+
+        <p><strong>Stroke / Cerebral Infarction:</strong></p>
+        <ul>
+          <li>Due to: Arteritis (inflammation of cerebral vessels), thrombosis, vasospasm</li>
+          <li>Presents with focal neurological deficit</li>
+        </ul>
+
+        <p><strong>Cerebral Venous Sinus Thrombosis:</strong></p>
+        <ul>
+          <li>Thrombosis of dural venous sinuses (sagittal, transverse, etc.)</li>
+          <li>Causes raised ICP, venous infarction</li>
+          <li>May require anticoagulation (controversial)</li>
+        </ul>
+
+        <p><strong>Subdural Effusion / Empyema:</strong></p>
+        <ul>
+          <li>Collection of fluid/pus in subdural space</li>
+          <li>More common in infants</li>
+          <li>May require surgical drainage</li>
+        </ul>
+
+        <p><strong>Cerebral Abscess:</strong></p>
+        <ul>
+          <li>Localized collection of pus in brain parenchyma</li>
+          <li>Suspect if persistent fever, focal signs, not improving with antibiotics</li>
+          <li>Requires prolonged antibiotics +/- surgical drainage</li>
+        </ul>
+
+        <p><strong>Hydrocephalus:</strong></p>
+        <ul>
+          <li>Obstructive (blockage of CSF flow) or communicating (impaired CSF reabsorption)</li>
+          <li>Causes raised ICP</li>
+          <li>May require temporary external ventricular drain or permanent VP shunt</li>
+        </ul>
+
+        <p><strong>Cranial Nerve Palsies:</strong></p>
+        <ul>
+          <li>CN III, IV, VI (eye movement), VII (facial), VIII (hearing - see below)</li>
+          <li>Often resolve but can be permanent</li>
+        </ul>
+
+        <p><strong>2. Systemic / Sepsis-Related Complications:</strong></p>
+
+        <p><strong>Septic Shock:</strong></p>
+        <ul>
+          <li>Especially with meningococcal septicaemia</li>
+          <li>Hypotension, multiorgan failure</li>
+          <li>High mortality</li>
+        </ul>
+
+        <p><strong>Disseminated Intravascular Coagulation (DIC):</strong></p>
+        <ul>
+          <li>Common with meningococcal disease</li>
+          <li>Thrombocytopenia, coagulopathy, bleeding, purpura fulminans</li>
+          <li>Can lead to gangrene and limb loss</li>
+        </ul>
+
+        <p><strong>Acute Respiratory Distress Syndrome (ARDS):</strong></p>
+        <ul>
+          <li>Severe respiratory failure</li>
+          <li>Requires mechanical ventilation</li>
+        </ul>
+
+        <p><strong>Multiorgan Failure:</strong></p>
+        <ul>
+          <li>Renal failure (acute tubular necrosis)</li>
+          <li>Hepatic dysfunction</li>
+          <li>Myocarditis</li>
+        </ul>
+
+        <p><strong>Adrenal Hemorrhage (Waterhouse-Friderichsen Syndrome):</strong></p>
+        <ul>
+          <li>Bilateral adrenal hemorrhage due to DIC</li>
+          <li>Causes adrenal insufficiency, refractory shock</li>
+          <li>Requires hydrocortisone replacement</li>
+          <li>Classic with meningococcal septicaemia</li>
+        </ul>
+
+        <p><strong>SIADH (Syndrome of Inappropriate ADH secretion):</strong></p>
+        <ul>
+          <li>Very common (~30% of bacterial meningitis)</li>
+          <li>Causes hyponatremia</li>
+          <li>Can worsen cerebral edema</li>
+          <li>Requires fluid restriction</li>
+        </ul>
+
+        <p><strong>LONG-TERM SEQUELAE (after recovery):</strong></p>
+
+        <p><strong>1. Sensorineural Hearing Loss:</strong></p>
+        <ul>
+          <li><strong>Most common long-term complication (~10-20% of survivors)</strong></li>
+          <li>Due to damage to VIII nerve or cochlea</li>
+          <li>Can be unilateral or bilateral, partial or complete</li>
+          <li>More common with pneumococcal meningitis</li>
+          <li><strong>ALL patients should have hearing tested after recovery</strong> (audiology assessment)</li>
+          <li>May benefit from hearing aids or cochlear implants</li>
+          <li>Dexamethasone reduces risk</li>
+        </ul>
+
+        <p><strong>2. Cognitive Impairment / Neuropsychological Deficits:</strong></p>
+        <ul>
+          <li>Memory problems, learning difficulties, concentration problems</li>
+          <li>Behavioral changes</li>
+          <li>Particularly important in children (may affect school performance)</li>
+        </ul>
+
+        <p><strong>3. Epilepsy:</strong></p>
+        <ul>
+          <li>~10% develop post-meningitic epilepsy</li>
+          <li>More common if seizures during acute illness or focal complications (infarction, abscess)</li>
+        </ul>
+
+        <p><strong>4. Motor / Sensory Deficits:</strong></p>
+        <ul>
+          <li>Hemiparesis, quadriparesis (if stroke/infarction occurred)</li>
+          <li>Ataxia</li>
+          <li>Visual impairment</li>
+        </ul>
+
+        <p><strong>5. Hydrocephalus:</strong></p>
+        <ul>
+          <li>Can persist and require permanent shunt</li>
+        </ul>
+
+        <p><strong>6. Psychological / Psychiatric:</strong></p>
+        <ul>
+          <li>Post-traumatic stress disorder (PTSD)</li>
+          <li>Depression, anxiety</li>
+        </ul>
+
+        <p><strong>MORTALITY:</strong></p>
+        <ul>
+          <li><strong>Overall mortality of bacterial meningitis: ~5-15%</strong> (with treatment)</li>
+          <li>Varies by organism:
+            <ul>
+              <li>Meningococcus: 5-10%</li>
+              <li>Pneumococcus: 15-25% (higher mortality)</li>
+              <li>Listeria: 15-30%</li>
+            </ul>
+          </li>
+          <li>Mortality much higher without treatment (~70-100%)</li>
+          <li>Poor prognostic factors:
+            <ul>
+              <li>Reduced GCS at presentation (GCS &lt;8)</li>
+              <li>Seizures</li>
+              <li>Focal neurological signs</li>
+              <li>Delay in treatment</li>
+              <li>Extremes of age (very young, elderly)</li>
+              <li>Immunocompromised</li>
+              <li>Pneumococcal etiology</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>LONG-TERM OUTCOMES:</strong></p>
+        <ul>
+          <li>~50% of survivors have some neurological sequelae</li>
+          <li>~20% have significant disability</li>
+          <li>Children may have developmental delays, learning difficulties</li>
+        </ul>
+
+        <p><strong>FOLLOW-UP:</strong></p>
+        <ul>
+          <li><strong>All patients post-meningitis should have:</strong>
+            <ul>
+              <li>Hearing assessment (audiology)</li>
+              <li>Neurology follow-up (if complications)</li>
+              <li>Cognitive/neuropsychological assessment (if indicated)</li>
+              <li>Support and rehabilitation services</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

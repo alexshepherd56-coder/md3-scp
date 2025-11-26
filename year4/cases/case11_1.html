@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 11.1 - Inguinal Hernias</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 11.1 - Inguinal Hernias | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 11.1 - Inguinal Hernias">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 11.1 – Inguinal Hernias</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - General | <strong>Setting:</strong> General practice</p>
+
+    <h2>Case</h2>
+    <p>Martin Foster, aged 25 years, presents complaining of a lump in his groin. He reports that the lump appeared a few weeks after commencing his new job as a furniture removalist.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Outline your differential diagnosis of Martin's lump.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Causes of groin swelling include:</strong></p>
+        <ul>
+          <li><strong>Inguinal hernia</strong></li>
+          <li><strong>Femoral hernia</strong></li>
+          <li><strong>Hydrocele</strong></li>
+          <li>Encysted hydrocele of the cord or of the peritoneovaginal canal</li>
+          <li>Undescended or ectopic testis</li>
+          <li>Lipoma of the cord</li>
+          <li>Epididymal cyst</li>
+          <li>Lymphadenopathy</li>
+          <li>Femoral artery aneurysm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the differences in clinical presentation, anatomy and pathophysiology of direct and indirect inguinal hernias and femoral hernias?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Indirect vs Direct Inguinal Hernia</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Indirect</th>
+              <th>Direct</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Patient's age</td>
+              <td>Any age but usually young</td>
+              <td>Older</td>
+            </tr>
+            <tr>
+              <td>Cause</td>
+              <td>May be congenital</td>
+              <td>Acquired</td>
+            </tr>
+            <tr>
+              <td>Bilateral</td>
+              <td>20%</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>Protrusion on coughing</td>
+              <td>Oblique</td>
+              <td>Straight</td>
+            </tr>
+            <tr>
+              <td>Appearance on standing</td>
+              <td>Does not reach full size immediately</td>
+              <td>Reaches full size immediately</td>
+            </tr>
+            <tr>
+              <td>Reduction on lying down</td>
+              <td>May not reduce immediately</td>
+              <td>May reduce immediately</td>
+            </tr>
+            <tr>
+              <td>Descent into scrotum</td>
+              <td>Common</td>
+              <td>Rare</td>
+            </tr>
+            <tr>
+              <td>Occlusion of internal ring</td>
+              <td>Controls</td>
+              <td>Does not control</td>
+            </tr>
+            <tr>
+              <td>Neck of sac</td>
+              <td>Narrow</td>
+              <td>Wide</td>
+            </tr>
+            <tr>
+              <td>Strangulation</td>
+              <td>Not uncommon</td>
+              <td>Unusual</td>
+            </tr>
+            <tr>
+              <td>Relation to inferior epigastric vessels</td>
+              <td>Lateral</td>
+              <td>Medial</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Key Clinical Points:</strong></p>
+        <ul>
+          <li>An <strong>indirect hernia</strong> that extends beyond the external ring appears <strong>above and medial to the pubic tubercle</strong></li>
+          <li><strong>Inguinal hernias:</strong> A reducible indirect hernia can be completely controlled with a fingertip placed firmly over the internal ring</li>
+          <li><strong>Femoral Hernia:</strong> The upper medial border of a femoral hernia is always <strong>below and lateral to the pubic tubercle</strong>. In a small hernia, a cough impulse is only rarely detected. A larger hernia may be seen to bulge on straining just below the medial part of the inguinal ligament</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Briefly summarise the relations of the layers of the abdominal wall and their reflections in the groin.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Anatomy of the internal inguinal ring, showing sites of herniation from within:</strong></p>
+
+        <p><strong>Key anatomical structures in the groin region:</strong></p>
+        <ul>
+          <li><strong>Inferior epigastric vessels</strong> - important landmark separating direct (medial) from indirect (lateral) hernias</li>
+          <li><strong>Hesselbach's triangle</strong> - site of direct inguinal hernias
+            <ul>
+              <li>Boundaries: inguinal ligament (inferiorly), inferior epigastric vessels (laterally), lateral border of rectus abdominis (medially)</li>
+            </ul>
+          </li>
+          <li><strong>Testicular vessels and Vas deferens</strong> - structures within spermatic cord</li>
+          <li><strong>External iliac artery and vein</strong></li>
+          <li><strong>Inguinal ligament</strong></li>
+          <li><strong>Femoral hernia</strong> - protrudes through femoral canal, below inguinal ligament</li>
+        </ul>
+
+        <p><strong>Processus vaginalis:</strong></p>
+        <ul>
+          <li><strong>Obliterated processus vaginalis</strong> - normal closure prevents indirect hernia</li>
+          <li><strong>Patent processus vaginalis</strong> - allows indirect hernia formation or communicating hydrocele</li>
+          <li><strong>Cavity of tunica vaginalis</strong> - surrounds testis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Outline the treatment of groin hernias.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>General Principles</h3>
+        <p><strong>Adults</strong> with a symptomatic inguinal hernia should be offered surgery. Open mesh repair or laparoscopic repair aims to reduce post-operative pain to a minimum, enabling most procedures to be undertaken as day cases. Inguinal hernias can be controlled by a truss, but this is uncomfortable and is now seldom indicated, as repair using local or regional anaesthetic techniques can be employed in higher-risk patients.</p>
+
+        <p><strong>Children:</strong> The identification of an inguinal hernia in any child is <em>always</em> an indication to operate. In newborns, the procedure must be carried out with some urgency because of the risk of strangulation. In very premature infants, the procedure may need to be done under regional block alone, and where general anaesthesia is used, elective post-operative ventilation may be required. In older children, elective surgery is usually undertaken on a day-case basis, with liberal use of local anaesthetic blocks for post-operative pain relief.</p>
+
+        <h3>Surgical Techniques</h3>
+        <p><strong>Lichtenstein Open Tension-Free Repair</strong> (most common):</p>
+        <ul>
+          <li>Insertion of synthetic mesh underneath the spermatic cord</li>
+          <li>Mesh secured to:
+            <ul>
+              <li>Aponeurotic tissue overlying pubic bone (medially)</li>
+              <li>Inguinal ligament (inferiorly)</li>
+              <li>Internal oblique aponeurosis and conjoint tendon (superiorly)</li>
+            </ul>
+          </li>
+          <li>Laterally, mesh is divided and wrapped around spermatic cord and sutured in place</li>
+        </ul>
+
+        <p><strong>Laparoscopic Hernia Repair</strong> (increasing in popularity):</p>
+        <ul>
+          <li>Uses pre-peritoneal approach</li>
+          <li>Involves excising or reducing hernial sac and inserting mesh</li>
+        </ul>
+
+        <p><strong>Femoral Hernias:</strong></p>
+        <ul>
+          <li>Particularly likely to obstruct and strangulate</li>
+          <li>Surgical intervention indicated</li>
+          <li>Can be repaired under local or general anaesthesia</li>
+        </ul>
+
+        <h3>Management of Complicated Hernia</h3>
+        <ul>
+          <li><strong>Irreducibility</strong></li>
+          <li><strong>Obstruction</strong></li>
+          <li><strong>Strangulation</strong></li>
+        </ul>
+
+        <p><strong>Management approach:</strong></p>
+        <ul>
+          <li>If onset of symptoms was <strong>less than 6 hours</strong> prior to presentation, a gentle attempt to reduce hernia can be made, if patient unable to reduce themselves</li>
+          <li><strong>Urgent operation indicated</strong> for all obstructed hernias, as one can never be certain that strangulation is not present</li>
+          <li>Hernial sac is opened and contents inspected carefully</li>
+          <li>If viable, contents returned to abdominal cavity and hernia repaired</li>
+          <li>If doubt about viability of bowel or omentum, devitalized tissue must be resected before proceeding to repair</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Summarise the key findings of the Cochrane review that compared outcomes of hernia repair comparing mesh versus non-mesh repairs.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Cochrane Review 2018 - Mesh versus Non-Mesh Repairs:</strong></p>
+
+        <p>The authors conclude:</p>
+        <blockquote>
+          <p>"Compared to non-mesh repairs, mesh repairs <strong>probably reduce the rate of hernia recurrence</strong>, and reduce visceral or neurovascular injuries, making mesh repair a common repair approach. Mesh repairs may result in a <strong>reduced length of hospital stay</strong> and <strong>time to return to activities of daily living</strong>, but these results are uncertain due to variation in the results of the studies. Non-mesh repair is <strong>less likely to cause seroma formation</strong> and has been favoured in low-income countries due to low cost and reduced availability of mesh materials. Risk of bias in the included studies was low to moderate and generally handled well by study authors, with attention to details of allocation, blinding, attrition and reporting."</p>
+        </blockquote>
+
+        <p><strong>Summary of Key Points:</strong></p>
+        <ul>
+          <li><strong>Mesh repairs:</strong> Lower recurrence rate, fewer visceral/neurovascular injuries</li>
+          <li><strong>Mesh repairs:</strong> May reduce hospital stay and return to activities (uncertain)</li>
+          <li><strong>Non-mesh repairs:</strong> Less seroma formation, lower cost</li>
+          <li>Study quality was generally good (low to moderate risk of bias)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Summarise the evidence for laparoscopic compared to open hernia repairs.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Cochrane Review - Laparoscopic vs Open Techniques for Inguinal Hernia Repair:</strong></p>
+
+        <h3>Background</h3>
+        <p>Repair of a hernia in the groin (inguinal hernia) is the most frequently performed operation in general surgery. The most common laparoscopic technique is <strong>totally extra peritoneal (TEP) repair</strong>. TEP is different as the peritoneal cavity is not entered and mesh is used to seal the hernia from outside the peritoneum.</p>
+
+        <h3>Study Details</h3>
+        <ul>
+          <li><strong>41 eligible controlled trials</strong></li>
+          <li><strong>7,161 participants</strong> randomized to laparoscopic or open surgery</li>
+          <li>Mean/median follow-up: <strong>6-36 months</strong></li>
+        </ul>
+
+        <h3>Key Findings</h3>
+        <p><strong>Advantages of Laparoscopic Repair:</strong></p>
+        <ul>
+          <li><strong>Faster return to usual activities</strong> - by about 7 days</li>
+          <li><strong>Less persisting pain and numbness</strong> than open surgery</li>
+        </ul>
+
+        <p><strong>Disadvantages of Laparoscopic Repair:</strong></p>
+        <ul>
+          <li><strong>Longer operation times</strong> - approximately 15 minutes longer</li>
+          <li><strong>Higher number of serious complications</strong>:
+            <ul>
+              <li>Visceral injuries (especially bladder)</li>
+              <li>Vascular injuries</li>
+              <li>Nerve or major vascular injuries</li>
+              <li>Bowel obstruction</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Important Note</h3>
+        <p><strong>Using a mesh for repair reduced the risk of recurring hernia rather than the method of placement</strong> (open or laparoscopic surgery).</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. In a table summarise the relative incidence of direct, indirect and femoral hernias in men, women and children.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <thead>
+            <tr>
+              <th>Hernia Type</th>
+              <th>Men</th>
+              <th>Women</th>
+              <th>Children</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Direct</strong></td>
+              <td>Common (indirect 4x more common than direct)</td>
+              <td>Less common</td>
+              <td>Very rare</td>
+            </tr>
+            <tr>
+              <td><strong>Indirect</strong></td>
+              <td>10x more common in males; indirect 4x more common than direct</td>
+              <td>Less common than in men</td>
+              <td>Almost all inguinal hernias are indirect; 90% occur in males</td>
+            </tr>
+            <tr>
+              <td><strong>Femoral</strong></td>
+              <td>Uncommon</td>
+              <td>4x more common in women</td>
+              <td>Rare</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Key Points:</strong></p>
+        <ul>
+          <li>Inguinal hernias are <strong>10x more common in males</strong></li>
+          <li>In men, <strong>indirect hernias are 4x more common than direct</strong></li>
+          <li>Femoral hernias are <strong>4x more common in women</strong></li>
+          <li>In children, <strong>almost all inguinal hernias are indirect</strong>, with 90% occurring in males</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. Briefly describe the following surgical incisions: midline, paramedian, transverse, McBurney, subcostal, Pfannenstiel and kidney transplant incision (donor).</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Midline Incision</h3>
+        <p>Vertical incision through the <strong>linea alba</strong> (relatively avascular midline). Can be upper, lower, or extend the full length of abdomen. Most versatile incision with excellent exposure and minimal risk to vessels/nerves.</p>
+
+        <h3>Paramedian Incision</h3>
+        <p>Vertical incision <strong>parallel to the midline</strong>, approximately 2-3cm lateral to it. Passes through anterior rectus sheath, retracts rectus muscle laterally, then incises posterior sheath and peritoneum. Less commonly used now.</p>
+
+        <h3>Transverse Incision</h3>
+        <p>Horizontal incision across the abdomen. Can be upper (epigastric), middle, or lower (low transverse/suprapubic). Better cosmetic result and less post-op pain than vertical incisions.</p>
+
+        <h3>McBurney Incision</h3>
+        <p>Abdominal incision <strong>parallel to the fibres of the external oblique muscle</strong>, about 1/3 of the distance along a line from ASIS to umbilicus, half the incision being above and the remainder below this point. The skin and subcutaneous fat are incised down to the external oblique muscle, the fibres of which are split; the underlying internal oblique and transversus abdominis muscles are then split and separated. <strong>Used for appendicectomy.</strong></p>
+
+        <h3>Subcostal Incision (Kocher)</h3>
+        <p>Oblique incision <strong>parallel and below the costal margin</strong>, typically on the right (for gallbladder/liver) or left (for spleen). Provides good access to upper abdominal organs.</p>
+
+        <h3>Pfannenstiel Incision</h3>
+        <p>A <strong>curved abdominal incision</strong>, the convexity being directed downward just above the symphysis pubis, passing through skin, superficial fascia, and aponeurosis, exposing the pyramidalis and rectus muscles, which are separated from each other in the midline, the peritoneum being opened vertically. <strong>Commonly used for C-sections and pelvic surgery.</strong> Excellent cosmetic result.</p>
+
+        <h3>Kidney Transplant Incision (Donor)</h3>
+        <p><strong>Donor nephrectomy:</strong> Typically performed laparoscopically now, but open approach uses a <strong>flank incision</strong> (lateral position with kidney rest elevated). May be subcostal or through the bed of the 11th or 12th rib.</p>
+
+        <p><strong>Recipient kidney transplant:</strong> <strong>Curved lower abdominal incision</strong> in the right or left iliac fossa (extraperitoneal approach). Kidney placed in iliac fossa with anastomoses to iliac vessels.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

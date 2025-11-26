@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 4.4 - Ectopic Pregnancy</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 4.4 - Ectopic Pregnancy | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 4.4 - Ectopic Pregnancy">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 4.4 – Ectopic Pregnancy</h1>
+    <p class="meta"><strong>Category:</strong> Endocrine & Reproductive | <strong>Discipline:</strong> Obstetrics & Gynaecology | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Soo Howe, aged 19 years, presents with acute right lower abdominal pain and vaginal bleeding. Her last menstrual period was three weeks ago but was much lighter than usual. As she arrives in the emergency department she collapses and her HR is 110/minute and her blood pressure is 50/-.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is your immediate management of Soo?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>ABCDE Approach - Haemodynamically Unstable Patient with Suspected Ruptured Ectopic:</strong></p>
+
+        <h3>Airway & Breathing</h3>
+        <ul>
+          <li>Patient is breathing but may need airway support</li>
+          <li><strong>Oxygen</strong> by mask or nasal prongs</li>
+        </ul>
+
+        <h3>Circulation - Critical Priority</h3>
+        <p>BP 50/- indicates no perfusion and requires urgent attention:</p>
+        <ul>
+          <li><strong>IV access</strong> - large bore cannulae (14 or 16 gauge) in both arms</li>
+          <li><strong>Warmed IV fluids</strong> - crystalloid 1-2L stat</li>
+          <li><strong>Blood cross match</strong> - 2 units urgently (FBC and group & hold/cross match)</li>
+          <li><strong>Urgent bHCG</strong></li>
+          <li><strong>Urinary catheter</strong> - monitor urine output</li>
+        </ul>
+
+        <h3>Assessment of Bleeding Source</h3>
+        <ul>
+          <li>Check for heavy vaginal bleeding</li>
+          <li><strong>Speculum examination</strong> - ensure no products of conception (POC) in cervical os (this can cause low BP and severe bradycardia)</li>
+          <li><strong>Abdominal examination</strong> - expect tender, rigid abdomen with rebound and guarding (surgical abdomen)</li>
+        </ul>
+
+        <h3>Definitive Management</h3>
+        <ul>
+          <li><strong>If haemodynamically unstable</strong> - immediate <strong>laparotomy</strong></li>
+          <li><strong>If haemodynamically stable</strong> - proceed with <strong>laparoscopy</strong></li>
+        </ul>
+
+        <p><strong>This is a surgical emergency requiring immediate intervention.</strong></p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. List the differential diagnosis of pain in the right lower abdomen in a woman of reproductive age.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Obstetric & Gynaecological Causes</h3>
+        <ul>
+          <li><strong>Ectopic pregnancy</strong> (ruptured or unruptured)</li>
+          <li><strong>Ruptured right ovarian cyst</strong> (functional or pathological)</li>
+          <li><strong>Ovarian torsion</strong> (of enlarged ovary with cyst) - usually accompanied by vomiting</li>
+          <li><strong>Incomplete miscarriage</strong></li>
+          <li><strong>Salpingitis/Pelvic inflammatory disease</strong> - usually febrile and bilateral</li>
+          <li><strong>Endometriosis</strong></li>
+          <li><strong>Ovulatory pain (Mittelschmerz)</strong></li>
+        </ul>
+
+        <h3>Non-Gynaecological Causes</h3>
+        <ul>
+          <li><strong>Appendicitis</strong></li>
+          <li><strong>Meckel's diverticulum</strong></li>
+          <li><strong>Inflammatory bowel disease</strong> (e.g., Crohn's disease)</li>
+          <li><strong>Ureteric colic/renal stones</strong></li>
+          <li><strong>Constipation</strong></li>
+          <li><strong>Urinary tract infection/pyelonephritis</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Outline the management options for an ectopic pregnancy that is 3cm in diameter, bHCG 2500IU, and asymptomatic, diagnosed on ultrasound examination to investigate mild vaginal spotting/bleeding.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Management Options: Medical vs Surgical</strong></p>
+
+        <h3>Medical Management - Methotrexate</h3>
+        <p><strong>Mechanism:</strong> Anti-folate drug that destroys rapidly dividing tissue</p>
+
+        <p><strong>Characteristics:</strong></p>
+        <ul>
+          <li>Takes time (a few weeks)</li>
+          <li>Pain can increase in the first few days</li>
+          <li>Requires regular third-daily bHCG monitoring until levels drop appropriately</li>
+          <li><strong>Patient cannot live far from medical help</strong> - ectopic can still rupture during treatment causing massive blood loss/haemoperitoneum</li>
+        </ul>
+
+        <p><strong>Criteria for Medical Management (generally):</strong></p>
+        <ul>
+          <li>Haemodynamically stable</li>
+          <li>Unruptured ectopic</li>
+          <li>Mass < 3.5-4cm</li>
+          <li>bHCG typically < 5000 IU (some protocols allow up to 5000)</li>
+          <li>No fetal cardiac activity</li>
+          <li>Patient able to comply with follow-up</li>
+        </ul>
+
+        <h3>Surgical Management - Laparoscopic Options</h3>
+
+        <p><strong>1. Salpingostomy (Conservative):</strong></p>
+        <ul>
+          <li>Linear incision in tube with removal of ectopic pregnancy</li>
+          <li>Preserves the fallopian tube</li>
+          <li><strong>Risk:</strong> Incomplete removal of trophoblastic tissue</li>
+          <li>Requires third-daily bHCG monitoring until < 20 IU</li>
+          <li>Risk of persistent ectopic (5-20%)</li>
+        </ul>
+
+        <p><strong>2. Salpingectomy (Radical):</strong></p>
+        <ul>
+          <li>Removal of entire affected fallopian tube</li>
+          <li>Lower risk of persistent trophoblastic tissue</li>
+          <li>Definitive treatment</li>
+          <li>May be preferred if tube is severely damaged or contralateral tube is healthy</li>
+        </ul>
+
+        <h3>Considerations for This Case</h3>
+        <p>With bHCG 2500 IU, 3cm mass, and asymptomatic presentation:</p>
+        <ul>
+          <li><strong>Medical management</strong> is a reasonable option if criteria met and patient can comply</li>
+          <li><strong>Surgical management</strong> may be preferred given the mass is at the upper limit for medical treatment</li>
+          <li>Decision should be individualized based on patient preference, fertility desires, and ability to follow-up</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Create a table for the management of suspected ectopic pregnancy dependant on beta HCG and adnexal mass size.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Management Algorithm for Suspected Ectopic Pregnancy</h3>
+
+        <table>
+          <tr>
+            <th>Clinical Scenario</th>
+            <th>bHCG Level</th>
+            <th>Ultrasound Findings</th>
+            <th>Management</th>
+          </tr>
+          <tr>
+            <td><strong>Haemodynamically Unstable</strong></td>
+            <td>Any level</td>
+            <td>Not required for immediate management</td>
+            <td><strong>Emergency laparoscopy/laparotomy</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Haemodynamically Stable, bHCG Low</strong></td>
+            <td>&lt; 1000-1500 IU/mL</td>
+            <td>Transvaginal ultrasound - no clear findings</td>
+            <td><strong>Repeat bHCG in 48 hours:</strong><br>
+            - Normal rise >60% (remains clinically stable) → Repeat scan when bHCG >1000-1500 IU/mL<br>
+            - Falling levels → Observe (possible miscarriage)<br>
+            - Abnormal rise or plateau → Likely ectopic</td>
+          </tr>
+          <tr>
+            <td><strong>Haemodynamically Stable, bHCG Elevated</strong></td>
+            <td>> 1000-1500 IU/mL</td>
+            <td><strong>Ectopic identified</strong> on transvaginal ultrasound</td>
+            <td><strong>Medical or Surgical:</strong><br>
+            - Consider methotrexate if criteria met<br>
+            - Laparoscopy (salpingostomy or salpingectomy)</td>
+          </tr>
+          <tr>
+            <td><strong>Haemodynamically Stable, bHCG Elevated</strong></td>
+            <td>> 1000-1500 IU/mL</td>
+            <td><strong>Intrauterine pregnancy</strong> confirmed</td>
+            <td><strong>No ectopic</strong> - manage intrauterine pregnancy as appropriate</td>
+          </tr>
+          <tr>
+            <td><strong>Haemodynamically Stable, bHCG Elevated</strong></td>
+            <td>> 1000-1500 IU/mL</td>
+            <td><strong>No intrauterine pregnancy</strong> seen</td>
+            <td><strong>Laparoscopy</strong> - likely ectopic or pregnancy of unknown location</td>
+          </tr>
+        </table>
+
+        <h3>Criteria for Medical Management (Methotrexate)</h3>
+        <table>
+          <tr>
+            <th>Parameter</th>
+            <th>Criteria</th>
+          </tr>
+          <tr>
+            <td><strong>Clinical Status</strong></td>
+            <td>Haemodynamically stable, minimal symptoms</td>
+          </tr>
+          <tr>
+            <td><strong>bHCG Level</strong></td>
+            <td>Generally < 5000 IU/mL (protocols vary)</td>
+          </tr>
+          <tr>
+            <td><strong>Mass Size</strong></td>
+            <td>&lt; 3.5-4 cm diameter</td>
+          </tr>
+          <tr>
+            <td><strong>Fetal Cardiac Activity</strong></td>
+            <td>Absent</td>
+          </tr>
+          <tr>
+            <td><strong>Patient Factors</strong></td>
+            <td>Able to comply with follow-up, lives near medical facility, no contraindications to methotrexate</td>
+          </tr>
+        </table>
+
+        <h3>Surgical Management Decision</h3>
+        <table>
+          <tr>
+            <th>Procedure</th>
+            <th>Indications</th>
+            <th>Advantages</th>
+            <th>Disadvantages</th>
+          </tr>
+          <tr>
+            <td><strong>Salpingostomy</strong></td>
+            <td>Desires future fertility, contralateral tube damaged/absent, unruptured ectopic, tube not severely damaged</td>
+            <td>Preserves tube</td>
+            <td>Risk of persistent ectopic (5-20%), requires bHCG follow-up</td>
+          </tr>
+          <tr>
+            <td><strong>Salpingectomy</strong></td>
+            <td>Ruptured ectopic, severely damaged tube, contralateral tube healthy, recurrent ectopic in same tube</td>
+            <td>Definitive, lower risk of persistent trophoblast</td>
+            <td>Loss of tube</td>
+          </tr>
+        </table>
+
+        <p><strong>Note:</strong> The discriminatory zone (bHCG level above which intrauterine pregnancy should be visible on transvaginal ultrasound) is typically 1000-1500 IU/mL, though this varies by institution.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What advice would you give a woman with an ectopic pregnancy about future management and risk in another pregnancy?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Counselling About Future Pregnancy</h3>
+
+        <h3>Risk of Recurrence</h3>
+        <ul>
+          <li><strong>Having one ectopic pregnancy increases the risk of another ectopic pregnancy</strong></li>
+          <li>Risk of recurrent ectopic: approximately 10-15% (compared to 1-2% in general population)</li>
+          <li>However, majority of women (60-80%) with subsequent pregnancies will have successful intrauterine pregnancies</li>
+        </ul>
+
+        <h3>No Consensus on Best Treatment Method</h3>
+        <ul>
+          <li>There is <strong>no consensus on the best method of treatment from a long-term fertility point of view</strong></li>
+          <li>Both medical and surgical approaches have similar subsequent fertility rates</li>
+          <li>Salpingostomy vs salpingectomy outcomes are similar if contralateral tube is healthy</li>
+        </ul>
+
+        <h3>Early Detection in Future Pregnancies</h3>
+        <p><strong>The following information is useful for diagnosing another early ectopic so it can be treated medically rather than requiring further surgery:</strong></p>
+
+        <p><strong>When to Seek Early Assessment:</strong></p>
+        <ul>
+          <li><strong>If any period of amenorrhoea occurs</strong>, perform a serum quantitative bHCG test</li>
+          <li><strong>If positive</strong>, arrange early transvaginal ultrasound:
+            <ul>
+              <li>At 6 weeks amenorrhoea, OR</li>
+              <li>When bHCG > 1500 IU (discriminatory zone)</li>
+            </ul>
+          </li>
+          <li>This allows visualization of intrauterine sac to confirm normal pregnancy location</li>
+        </ul>
+
+        <h3>General Advice</h3>
+        <ul>
+          <li><strong>Seek early antenatal care</strong> in any future pregnancy</li>
+          <li><strong>Report any symptoms immediately:</strong> abdominal pain, vaginal bleeding, shoulder tip pain, dizziness</li>
+          <li><strong>Early ultrasound</strong> (6-7 weeks) should be arranged to confirm intrauterine pregnancy</li>
+          <li><strong>Serial bHCG monitoring</strong> may be considered if presentation is early and ultrasound non-diagnostic</li>
+        </ul>
+
+        <h3>Emotional Support</h3>
+        <ul>
+          <li>Acknowledge the loss and emotional impact</li>
+          <li>Provide information about support services and counseling</li>
+          <li>Reassure about good chances of successful future pregnancy</li>
+          <li>Encourage to wait for one normal menstrual cycle before trying to conceive (if medically managed, wait until bHCG undetectable)</li>
+        </ul>
+
+        <h3>Follow-Up</h3>
+        <ul>
+          <li><strong>Post-treatment:</strong> Follow bHCG to ensure resolution (medical management) or confirm no persistent trophoblast (salpingostomy)</li>
+          <li><strong>Contraception advice:</strong> If methotrexate used, avoid pregnancy for 3 months; take folic acid when planning pregnancy</li>
+          <li><strong>Review risk factors:</strong> Address modifiable factors (smoking, pelvic infections)</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

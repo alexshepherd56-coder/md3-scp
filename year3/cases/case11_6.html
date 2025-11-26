@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 11.6 - Breast Cancer (Terminal)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 11.6 - Breast Cancer (Terminal) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 11.6 - Breast Cancer (Terminal)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 11.6 – Breast Cancer (Terminal)</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - Breast & Endocrine</p>
+
+    <h2>Case</h2>
+    <p>Lyn Masters is a 69 year old woman who presents to the Emergency Department with severe back pain and weakness in both legs. She has a past history of breast carcinoma 5 years ago, treated with surgery and adjuvant therapy. She notes a 6 month history of progressive fatigue and pain across the pelvis, spine and ribs. X-rays in ED reveal widespread bone metastases. An urgent MRI of the spine reveals multiple bony metastases with impending spinal cord compression at T12, with extension into the spinal canal and cord oedema.</p>
+
+    <h2>Questions</h2>
+    <div class="question">
+      <strong>1. Describe your initial assessment and management of Mrs Masters' likely spinal cord compression.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Recognition of Spinal Cord Compression Emergency</h3>
+        <p>Spinal cord compression is an oncological emergency requiring immediate intervention to prevent irreversible neurological damage.</p>
+
+        <h3>Initial Assessment</h3>
+        <ul>
+          <li><strong>History:</strong> Back pain (present in 95%), leg weakness, sensory changes, bowel/bladder dysfunction</li>
+          <li><strong>Neurological examination:</strong> Motor weakness, sensory level, reflexes, anal tone, saddle anaesthesia</li>
+          <li><strong>Document baseline neurological function:</strong> Critical for monitoring response to treatment</li>
+        </ul>
+
+        <h3>Immediate Management</h3>
+        <ol>
+          <li><strong>Urgent MRI spine:</strong> Gold standard for diagnosis and surgical planning</li>
+          <li><strong>High-dose corticosteroids:</strong>
+            <ul>
+              <li>Dexamethasone 16mg IV/PO immediately</li>
+              <li>Continue 16mg daily in divided doses</li>
+              <li>Reduces spinal cord oedema</li>
+              <li>May improve neurological outcomes</li>
+            </ul>
+          </li>
+          <li><strong>Urgent specialist referrals:</strong>
+            <ul>
+              <li>Neurosurgery/Orthopaedic spine surgery</li>
+              <li>Radiation oncology</li>
+              <li>Medical oncology</li>
+            </ul>
+          </li>
+          <li><strong>Definitive treatment (within 24 hours):</strong>
+            <ul>
+              <li>Surgical decompression and stabilisation (if suitable candidate)</li>
+              <li>Urgent radiotherapy (if surgery not appropriate)</li>
+            </ul>
+          </li>
+          <li><strong>Analgesia:</strong> Adequate pain control with opioids if required</li>
+          <li><strong>Venous thromboembolism prophylaxis:</strong> High risk due to malignancy and immobility</li>
+        </ol>
+
+        <h3>Prognostic Factors</h3>
+        <ul>
+          <li>Pre-treatment neurological status (most important predictor)</li>
+          <li>Speed of onset of symptoms (rapid onset = worse prognosis)</li>
+          <li>Duration of symptoms before treatment</li>
+          <li>Radiosensitivity of primary tumour</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Following emergency treatment of the spinal cord compression, Mrs Masters continues to complain of severe bone pain throughout her spine and pelvis. Discuss the management of metastatic bone pain.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Multimodal Approach to Metastatic Bone Pain</h3>
+
+        <h3>1. Analgesia (WHO Pain Ladder)</h3>
+        <table>
+          <tr>
+            <th>Step</th>
+            <th>Medication</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td>1. Mild pain</td>
+            <td>Paracetamol ± NSAIDs</td>
+            <td>NSAIDs particularly effective for bone pain due to anti-inflammatory effect</td>
+          </tr>
+          <tr>
+            <td>2. Moderate pain</td>
+            <td>Weak opioids (codeine, tramadol)</td>
+            <td>Often combined with step 1 medications</td>
+          </tr>
+          <tr>
+            <td>3. Severe pain</td>
+            <td>Strong opioids (morphine, oxycodone, fentanyl, hydromorphone)</td>
+            <td>
+              • Morphine: Start 5-10mg PO q4h, titrate to effect<br>
+              • Provide breakthrough doses (1/6 of daily dose)<br>
+              • Consider long-acting preparations once stable<br>
+              • Manage side effects: laxatives, anti-emetics
+            </td>
+          </tr>
+        </table>
+
+        <h3>2. Adjuvant Analgesics</h3>
+        <ul>
+          <li><strong>Corticosteroids:</strong> Anti-inflammatory, may reduce pain and improve appetite</li>
+          <li><strong>Neuropathic pain agents:</strong> Gabapentin, pregabalin (if neuropathic component)</li>
+          <li><strong>Antidepressants:</strong> Amitriptyline (low dose for neuropathic pain)</li>
+        </ul>
+
+        <h3>3. Radiotherapy</h3>
+        <ul>
+          <li><strong>External beam radiotherapy:</strong> Very effective for localized bone pain</li>
+          <li>Pain relief in 60-80% of patients</li>
+          <li>Single fraction or short course (5-10 fractions)</li>
+          <li>Can be repeated if needed</li>
+        </ul>
+
+        <h3>4. Bone-Modifying Agents</h3>
+        <ul>
+          <li><strong>Bisphosphonates (e.g., zoledronic acid, pamidronate):</strong>
+            <ul>
+              <li>Inhibit osteoclast activity</li>
+              <li>Reduce skeletal-related events (fractures, cord compression)</li>
+              <li>Provide pain relief in 4-6 weeks</li>
+              <li>Given IV monthly</li>
+              <li>Monitor renal function and calcium levels</li>
+              <li>Risk of osteonecrosis of jaw (ensure dental review before starting)</li>
+            </ul>
+          </li>
+          <li><strong>Denosumab:</strong> Alternative to bisphosphonates, subcutaneous administration</li>
+        </ul>
+
+        <h3>5. Systemic Anti-Cancer Therapy</h3>
+        <ul>
+          <li><strong>Hormone therapy:</strong> For hormone receptor-positive breast cancer</li>
+          <li><strong>Chemotherapy:</strong> May reduce tumour burden and pain</li>
+          <li><strong>Targeted therapy:</strong> HER2-targeted agents if HER2-positive</li>
+        </ul>
+
+        <h3>6. Radioisotopes (Radiopharmaceuticals)</h3>
+        <ul>
+          <li><strong>Strontium-89 or Radium-223:</strong> For widespread bone metastases</li>
+          <li>Targets areas of increased bone turnover</li>
+          <li>Pain relief in 60-80% of patients</li>
+          <li>Effect may last several months</li>
+          <li>Risk of myelosuppression</li>
+        </ul>
+
+        <h3>7. Orthopaedic Intervention</h3>
+        <ul>
+          <li>Surgical stabilisation for impending or actual pathological fractures</li>
+          <li>Prophylactic fixation for high-risk lesions</li>
+        </ul>
+
+        <h3>8. Non-Pharmacological Measures</h3>
+        <ul>
+          <li>Physiotherapy and mobilisation aids</li>
+          <li>Occupational therapy assessment</li>
+          <li>Heat/cold therapy</li>
+          <li>TENS (transcutaneous electrical nerve stimulation)</li>
+          <li>Psychological support</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. When should referral to a palliative care team be considered? What are the benefits of palliative care involvement?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Timing of Palliative Care Referral</h3>
+
+        <h3>Indications for Palliative Care Referral</h3>
+        <ul>
+          <li><strong>Early integration recommended:</strong> Evidence shows improved quality of life and potentially longer survival with early palliative care involvement alongside active treatment</li>
+          <li><strong>Diagnosis of metastatic/incurable cancer:</strong> Particularly with limited life expectancy</li>
+          <li><strong>Significant symptom burden:</strong> Pain, dyspnoea, nausea, fatigue not controlled with standard measures</li>
+          <li><strong>High complexity:</strong> Multiple comorbidities, psychosocial issues, complex family dynamics</li>
+          <li><strong>Frequent hospital admissions:</strong> Recurrent ED presentations or hospital stays</li>
+          <li><strong>Decline in functional status:</strong> Increasing dependency, deteriorating performance status</li>
+          <li><strong>Transition to end-of-life care:</strong> When active treatment is no longer appropriate</li>
+          <li><strong>Patient/family request:</strong> Expressing need for additional support</li>
+          <li><strong>Difficulty with treatment decisions:</strong> Uncertainty about goals of care</li>
+        </ul>
+
+        <h3>Benefits of Palliative Care Involvement</h3>
+
+        <h3>1. Symptom Management</h3>
+        <ul>
+          <li>Expert management of pain and other physical symptoms</li>
+          <li>Access to specialist medications and interventions</li>
+          <li>Management of complex symptom interactions</li>
+          <li>Anticipatory prescribing for crisis situations</li>
+        </ul>
+
+        <h3>2. Psychosocial Support</h3>
+        <ul>
+          <li>Psychological support for patient and family</li>
+          <li>Assistance with coping strategies</li>
+          <li>Spiritual care if desired</li>
+          <li>Bereavement support for family</li>
+        </ul>
+
+        <h3>3. Goals of Care Discussions</h3>
+        <ul>
+          <li>Facilitation of advance care planning</li>
+          <li>Clarification of patient values and preferences</li>
+          <li>Discussion of prognosis and realistic expectations</li>
+          <li>Documentation of advance directives</li>
+          <li>Coordination of care across multiple providers</li>
+        </ul>
+
+        <h3>4. Practical Support</h3>
+        <ul>
+          <li>Assistance with equipment needs (hospital bed, wheelchair, etc.)</li>
+          <li>Coordination of home care services</li>
+          <li>Financial counseling and support</li>
+          <li>Links to community resources</li>
+        </ul>
+
+        <h3>5. End-of-Life Care Planning</h3>
+        <ul>
+          <li>Preferred place of care and death</li>
+          <li>Crisis management plans</li>
+          <li>24/7 on-call support</li>
+          <li>Facilitation of death at home if desired</li>
+          <li>After-hours support to avoid unnecessary ED presentations</li>
+        </ul>
+
+        <h3>6. Improved Outcomes</h3>
+        <ul>
+          <li><strong>Quality of life:</strong> Improved patient and caregiver quality of life</li>
+          <li><strong>Reduced healthcare utilization:</strong> Fewer ED visits and hospitalizations</li>
+          <li><strong>Survival benefit:</strong> Some studies show longer survival with early palliative care</li>
+          <li><strong>Caregiver burden:</strong> Reduced caregiver stress and burden</li>
+          <li><strong>Patient satisfaction:</strong> Higher satisfaction with care</li>
+        </ul>
+
+        <h3>Common Misconceptions to Address</h3>
+        <ul>
+          <li>"Palliative care means giving up" – Palliative care can be provided alongside active treatment</li>
+          <li>"It's only for the last few days of life" – Early involvement has proven benefits</li>
+          <li>"They'll just sedate me" – Goal is comfort, not sedation</li>
+          <li>"No more treatment will be offered" – Palliative care focuses on quality of life; active treatment can continue</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Mrs Masters is troubled by severe constipation. She is on regular morphine for pain, as well as an SSRI antidepressant and an anticholinergic medication for urge incontinence. Discuss the assessment and management of constipation in palliative care patients.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Assessment of Constipation</h3>
+
+        <h3>History</h3>
+        <ul>
+          <li>Bowel pattern: Frequency, consistency, last bowel motion</li>
+          <li>Symptoms: Abdominal pain, bloating, nausea, overflow diarrhoea</li>
+          <li>Straining, sensation of incomplete evacuation</li>
+          <li>Dietary and fluid intake</li>
+          <li>Mobility level</li>
+          <li>Privacy concerns (bedbound patients)</li>
+        </ul>
+
+        <h3>Examination</h3>
+        <ul>
+          <li>Abdominal examination: Distension, palpable stool, masses</li>
+          <li>Rectal examination: Impaction, anal tone, masses</li>
+          <li>Assess for complications: Bowel obstruction, overflow incontinence</li>
+        </ul>
+
+        <h3>Investigations (if indicated)</h3>
+        <ul>
+          <li>Abdominal X-ray: If suspicion of obstruction or severe impaction</li>
+          <li>Bloods: Calcium (hypercalcemia common in malignancy), electrolytes, renal function</li>
+        </ul>
+
+        <h3>Causes of Constipation in This Patient</h3>
+        <table>
+          <tr>
+            <th>Category</th>
+            <th>Specific Factors</th>
+          </tr>
+          <tr>
+            <td><strong>Medications</strong></td>
+            <td>
+              • Opioids (morphine) – most significant<br>
+              • Anticholinergics (for urge incontinence)<br>
+              • SSRI antidepressant<br>
+              • Other: antiemetics, iron supplements
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Disease-related</strong></td>
+            <td>
+              • Hypercalcemia (bone metastases)<br>
+              • Spinal cord compression/neurological deficit<br>
+              • Bowel obstruction (peritoneal disease)<br>
+              • Dehydration
+            </td>
+          </tr>
+          <tr>
+            <td><strong>General factors</strong></td>
+            <td>
+              • Reduced mobility<br>
+              • Poor oral intake<br>
+              • Weakness<br>
+              • Lack of privacy
+            </td>
+          </tr>
+        </table>
+
+        <h3>Management Principles</h3>
+
+        <h3>1. Prevention is Key</h3>
+        <ul>
+          <li><strong>All patients on opioids MUST have prophylactic laxatives</strong></li>
+          <li>Start laxatives when starting opioids</li>
+          <li>Unlike other opioid side effects, tolerance to constipation does not develop</li>
+        </ul>
+
+        <h3>2. Optimize Reversible Factors</h3>
+        <ul>
+          <li>Review medications: Can anticholinergic be ceased/reduced?</li>
+          <li>Encourage fluids if tolerated</li>
+          <li>Increase dietary fiber if appropriate (not in bowel obstruction)</li>
+          <li>Optimize mobility within limitations</li>
+          <li>Ensure privacy and comfortable toileting environment</li>
+          <li>Check and correct hypercalcemia if present</li>
+        </ul>
+
+        <h3>3. Laxative Therapy</h3>
+
+        <h3>First-Line Approach: Combination Therapy</h3>
+        <p><strong>Softener + Stimulant</strong> is most effective for opioid-induced constipation</p>
+
+        <table>
+          <tr>
+            <th>Laxative Type</th>
+            <th>Examples</th>
+            <th>Mechanism</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td><strong>Softeners (osmotic)</strong></td>
+            <td>
+              • Docusate<br>
+              • Macrogol (Movicol)<br>
+              • Lactulose
+            </td>
+            <td>Draw water into stool</td>
+            <td>
+              • Macrogol preferred (more effective, less bloating than lactulose)<br>
+              • Can be used long-term
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Stimulants</strong></td>
+            <td>
+              • Senna<br>
+              • Bisacodyl<br>
+              • Sodium picosulfate
+            </td>
+            <td>Increase peristalsis</td>
+            <td>
+              • Senna most commonly used in palliative care<br>
+              • Can cause cramping<br>
+              • Safe for long-term use in palliative setting
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Combination</strong></td>
+            <td>Co-danthramer, Co-danthrusate</td>
+            <td>Softener + stimulant</td>
+            <td>Convenient single preparation (not available in all countries)</td>
+          </tr>
+          <tr>
+            <td><strong>Specific for opioid-induced</strong></td>
+            <td>
+              • Methylnaltrexone (SC)<br>
+              • Naloxegol (PO)
+            </td>
+            <td>Peripheral opioid antagonist</td>
+            <td>
+              • Expensive, specialist use<br>
+              • For refractory cases<br>
+              • Does not affect analgesia
+            </td>
+          </tr>
+        </table>
+
+        <h3>Suggested Regimen for Mrs Masters</h3>
+        <ol>
+          <li><strong>Macrogol (Movicol) 1-2 sachets daily</strong> (osmotic laxative)</li>
+          <li><strong>Senna 15-30mg nocte</strong> (stimulant laxative)</li>
+          <li>Titrate doses based on response</li>
+          <li>Aim for comfortable bowel motion every 2-3 days (daily not necessary)</li>
+        </ol>
+
+        <h3>4. Management of Impaction</h3>
+        <p>If rectal examination reveals impaction:</p>
+        <ol>
+          <li><strong>High impaction (soft stool):</strong> High-dose oral laxatives (e.g., Movicol 8 sachets over 6 hours)</li>
+          <li><strong>Low impaction (hard stool):</strong>
+            <ul>
+              <li>Glycerine or bisacodyl suppositories</li>
+              <li>Phosphate enema</li>
+              <li>Manual evacuation if necessary (with sedation/analgesia)</li>
+            </ul>
+          </li>
+          <li>Following disimpaction, restart regular laxative regimen at higher doses</li>
+        </ol>
+
+        <h3>5. Rectal Measures</h3>
+        <ul>
+          <li><strong>Suppositories:</strong> Glycerine (lubricant), bisacodyl (stimulant)</li>
+          <li><strong>Enemas:</strong> Phosphate enema, microlax</li>
+          <li>Use if oral laxatives ineffective or patient unable to take oral medications</li>
+        </ul>
+
+        <h3>6. Consider Bowel Obstruction</h3>
+        <p>If constipation not responding to treatment, consider:</p>
+        <ul>
+          <li>Malignant bowel obstruction (peritoneal disease common in advanced cancer)</li>
+          <li>Symptoms: Colicky pain, vomiting, absolute constipation, distension</li>
+          <li>May require different management approach (not high-dose laxatives)</li>
+        </ul>
+
+        <h3>7. Ongoing Management</h3>
+        <ul>
+          <li>Regular monitoring of bowel pattern</li>
+          <li>Adjust laxative doses based on effect</li>
+          <li>Don't wait for constipation to develop – prevention is easier than treatment</li>
+          <li>Patient education about importance of reporting early changes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Several weeks later, Mrs Masters' oncologist recommends ceasing active treatment and focusing on symptom control. The oncologist asks you to discuss referral to palliative care with Mrs Masters. How would you approach this conversation?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Communication Framework for Discussing Palliative Care</h3>
+
+        <h3>Preparation</h3>
+        <ul>
+          <li>Review patient's medical history and current situation</li>
+          <li>Understand oncologist's recommendations and rationale</li>
+          <li>Choose appropriate setting: Private room, adequate time, minimize interruptions</li>
+          <li>Ask if patient wants family present</li>
+          <li>Prepare tissues, have water available</li>
+          <li>Ensure you have time (don't rush this conversation)</li>
+        </ul>
+
+        <h3>SPIKES Protocol for Breaking Bad News</h3>
+
+        <h3>S - SETTING</h3>
+        <ul>
+          <li>Ensure privacy and quiet environment</li>
+          <li>Sit down at patient's level</li>
+          <li>Make eye contact</li>
+          <li>Arrange for no interruptions (turn pager off/give to colleague)</li>
+        </ul>
+
+        <h3>P - PERCEPTION</h3>
+        <p><strong>Assess what the patient knows:</strong></p>
+        <ul>
+          <li>"What is your understanding of your illness at the moment?"</li>
+          <li>"What have the oncologists told you about your cancer?"</li>
+          <li>"How do you think the treatment has been going?"</li>
+          <li>Listen carefully to gauge level of insight</li>
+        </ul>
+
+        <h3>I - INVITATION</h3>
+        <p><strong>Determine how much information the patient wants:</strong></p>
+        <ul>
+          <li>"Would you like me to explain what the oncologist has recommended?"</li>
+          <li>"Are you the kind of person who wants to know all the details, or would you prefer just the main points?"</li>
+          <li>"Is there someone you'd like me to talk to about this with you?"</li>
+          <li>Respect patient autonomy – some patients don't want detailed information</li>
+        </ul>
+
+        <h3>K - KNOWLEDGE</h3>
+        <p><strong>Share information sensitively:</strong></p>
+
+        <h3>Use Warning Shot</h3>
+        <p>"I'm afraid I have some difficult news to share with you..."</p>
+
+        <h3>Be Clear and Direct (but Kind)</h3>
+        <p>"The oncologist has reviewed your recent scans and blood tests. Unfortunately, the cancer is not responding to the chemotherapy and has continued to grow. The oncologist feels that further chemotherapy is unlikely to help and may cause more side effects and reduce your quality of life."</p>
+
+        <h3>Avoid Jargon</h3>
+        <ul>
+          <li>Use plain language</li>
+          <li>Avoid euphemisms that create confusion</li>
+          <li>Don't say "There's nothing more we can do" – there is ALWAYS something we can do for symptom management and support</li>
+        </ul>
+
+        <h3>Introduce Palliative Care Positively</h3>
+        <p>"Although the oncologist is recommending stopping chemotherapy, this doesn't mean we're giving up or that there's nothing we can do. I'd like to arrange for you to meet with our palliative care team. They are specialists in managing symptoms and supporting people living with serious illnesses. Their goal is to help maintain your quality of life and ensure you're as comfortable as possible."</p>
+
+        <h3>Address Common Concerns</h3>
+        <ul>
+          <li>"Palliative care doesn't mean you're dying tomorrow – many people receive palliative care for months or even years"</li>
+          <li>"The team can help with pain control, breathlessness, fatigue, and other symptoms"</li>
+          <li>"They can also provide support for you and your family"</li>
+          <li>"You can still receive treatment for symptoms and complications"</li>
+          <li>"You'll still have your regular doctors – the palliative care team works alongside us"</li>
+        </ul>
+
+        <h3>E - EMOTIONS</h3>
+        <p><strong>Acknowledge and respond to emotional reactions:</strong></p>
+
+        <h3>Allow Silence</h3>
+        <ul>
+          <li>Give patient time to process information</li>
+          <li>Don't rush to fill silence with more information</li>
+          <li>Be comfortable with tears and emotion</li>
+        </ul>
+
+        <h3>Use NURSE Mnemonic for Empathic Responses</h3>
+        <table>
+          <tr>
+            <th>Technique</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td><strong>N</strong>ame the emotion</td>
+            <td>"I can see this news is very upsetting for you"</td>
+          </tr>
+          <tr>
+            <td><strong>U</strong>nderstand</td>
+            <td>"This must be very difficult to hear"</td>
+          </tr>
+          <tr>
+            <td><strong>R</strong>espect</td>
+            <td>"You've shown remarkable strength through all of this treatment"</td>
+          </tr>
+          <tr>
+            <td><strong>S</strong>upport</td>
+            <td>"We're going to support you through this" / "You're not alone"</td>
+          </tr>
+          <tr>
+            <td><strong>E</strong>xplore</td>
+            <td>"Tell me what you're most worried about"</td>
+          </tr>
+        </table>
+
+        <h3>S - STRATEGY and SUMMARY</h3>
+        <p><strong>Develop a plan going forward:</strong></p>
+
+        <h3>Immediate Next Steps</h3>
+        <ol>
+          <li>"I'll arrange for the palliative care team to come and meet with you"</li>
+          <li>"Is there anything causing you discomfort right now that we need to address?"</li>
+          <li>"What questions do you have at this point?"</li>
+        </ol>
+
+        <h3>Offer Ongoing Support</h3>
+        <ul>
+          <li>"We'll continue to see you regularly"</li>
+          <li>"You can call us any time if you have questions or concerns"</li>
+          <li>"Would you like to bring your family in so we can talk together?"</li>
+          <li>"We can meet again in a day or two when you've had time to think about this"</li>
+        </ul>
+
+        <h3>Provide Written Information</h3>
+        <ul>
+          <li>Information about palliative care services</li>
+          <li>Contact numbers</li>
+          <li>Written summary (people remember very little after receiving bad news)</li>
+        </ul>
+
+        <h3>Additional Important Considerations</h3>
+
+        <h3>What NOT to Say</h3>
+        <ul>
+          <li>❌ "There's nothing more we can do" (there's always symptom management and support)</li>
+          <li>❌ "How long have I got?" if asked, avoid specific timeframes – prognosis is uncertain; provide ranges if pressed</li>
+          <li>❌ "Stay positive" / "Think positive thoughts" (invalidates their feelings)</li>
+          <li>❌ "I know how you feel" (you don't)</li>
+          <li>❌ "At least you had 5 good years" (minimizes their loss)</li>
+        </ul>
+
+        <h3>What TO Say</h3>
+        <ul>
+          <li>✓ "I wish things were different"</li>
+          <li>✓ "We'll make sure you're comfortable"</li>
+          <li>✓ "We'll support you and your family through this"</li>
+          <li>✓ "What matters most to you now?"</li>
+          <li>✓ "What are you hoping for?"</li>
+        </ul>
+
+        <h3>Document the Conversation</h3>
+        <ul>
+          <li>Record what was discussed</li>
+          <li>Document patient's understanding and reactions</li>
+          <li>Note who was present</li>
+          <li>Record plan going forward</li>
+          <li>Ensure all team members aware of discussion</li>
+        </ul>
+
+        <h3>Follow-Up</h3>
+        <ul>
+          <li>Arrange early follow-up meeting</li>
+          <li>Facilitate palliative care referral promptly</li>
+          <li>Ensure family/caregivers included in ongoing discussions (with patient consent)</li>
+          <li>Revisit goals of care and advance care planning</li>
+          <li>Address practical issues (financial, family, legal)</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

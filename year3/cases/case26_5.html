@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 26_5 - Osteoporosis</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 26_5 - Osteoporosis | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 26_5 - Osteoporosis">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 26.5 – Osteoporosis</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Rheumatology | <strong>Setting:</strong> Fracture Clinic</p>
+
+    <h2>Case</h2>
+    <p>Mrs. Dorothy Mitchell, a 68-year-old retired librarian, attends the fracture clinic following a recent distal radius (Colles') fracture sustained 3 weeks ago. She tripped over a rug at home and fell onto her outstretched hand. The fracture has been managed in a cast. During review, she mentions this is her second fracture in 18 months - she had a vertebral crush fracture at T12 after lifting a box last year, which caused back pain for several weeks. She experienced menopause at age 49 and never took hormone replacement therapy. She has noticed she has lost about 2 inches in height over the past 5 years and has developed a slight forward stoop. Her mother fractured her hip at age 75. She is generally healthy but takes lansoprazole 30mg OD for reflux symptoms, which she has been on for 5 years. She does not smoke, drinks occasional wine with meals, and her diet is relatively low in dairy products as she finds milk "hard to digest." She takes minimal exercise, mainly short walks to local shops.</p>
+
+    <p><strong>Past Medical History:</strong> GORD (on long-term PPI), hypertension, previous T12 vertebral fracture (18 months ago)<br>
+    <strong>Medications:</strong> Lansoprazole 30mg OD, amlodipine 5mg OD<br>
+    <strong>Social History:</strong> Lives alone, independent with ADLs, non-smoker, minimal alcohol<br>
+    <strong>Family History:</strong> Mother - hip fracture age 75, osteoporosis</p>
+
+    <div class="vital-signs">Vital signs: BP 142/84 mmHg, HR 72 bpm, BMI 21 kg/m². Examination: Right forearm in cast, healing well. Mild thoracic kyphosis, height 158cm (previously ~163cm), tenderness over mid-thoracic spine. Normal cardiovascular, respiratory, and abdominal examination</div>
+
+    <h2>Questions</h2>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q1')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 1:</strong> What is osteoporosis, and what are the main risk factors? What features in this patient's history are concerning for osteoporosis?
+      </button>
+      <div id="q1" class="answer">
+        <p><strong>Definition of osteoporosis:</strong></p>
+        <ul>
+          <li><strong>Osteoporosis:</strong> Systemic skeletal disease characterized by low bone mass and microarchitectural deterioration of bone tissue, leading to increased bone fragility and susceptibility to fracture</li>
+          <li><strong>WHO definition (densitometric):</strong> Bone mineral density (BMD) T-score of ≤-2.5 at the hip or spine (measured by DEXA scan)</li>
+          <li><strong>Clinical definition:</strong> "Fragility fracture" - fracture occurring from mechanical forces that would not ordinarily result in fracture (e.g., fall from standing height or less, or spontaneous fracture)</li>
+          <li>Most common metabolic bone disease</li>
+          <li>Major public health problem - causes significant morbidity, mortality, healthcare costs</li>
+        </ul>
+
+        <p><strong>Classification:</strong></p>
+        <ul>
+          <li><strong>Primary osteoporosis:</strong>
+            <ul>
+              <li>Type I (postmenopausal): Related to estrogen deficiency after menopause; predominantly affects trabecular bone; vertebral and distal radius fractures common</li>
+              <li>Type II (senile/age-related): Occurs in both men and women >70 years; affects cortical and trabecular bone; hip and vertebral fractures common</li>
+            </ul>
+          </li>
+          <li><strong>Secondary osteoporosis:</strong> Due to underlying medical condition or medication (see risk factors below)</li>
+        </ul>
+
+        <p><strong>Risk factors for osteoporosis:</strong></p>
+
+        <p><em>Non-modifiable risk factors:</em></p>
+        <ul>
+          <li><strong>Age:</strong> Risk increases with age (bone mass peaks ~30 years, then declines)</li>
+          <li><strong>Female sex:</strong> Women at higher risk (lower peak bone mass, menopause, longer life expectancy)</li>
+          <li><strong>Ethnicity:</strong> Caucasian and Asian populations at higher risk than African-Caribbean</li>
+          <li><strong>Family history:</strong> Parental history of hip fracture (genetic component)</li>
+          <li><strong>Previous fragility fracture:</strong> Single strongest predictor of future fracture</li>
+          <li><strong>Early menopause (\&lt;45 years):</strong> Prolonged estrogen deficiency</li>
+        </ul>
+
+        <p><em>Modifiable lifestyle risk factors:</em></p>
+        <ul>
+          <li><strong>Low BMI (\&lt;19 kg/m²):</strong> Less mechanical stress on bones, less adipose tissue (which produces estrogen)</li>
+          <li><strong>Smoking:</strong> Toxic to osteoblasts, affects estrogen metabolism</li>
+          <li><strong>Excess alcohol (\&gt;3 units/day):</strong> Toxic to bone, increases fall risk</li>
+          <li><strong>Low calcium intake:</strong> Inadequate substrate for bone mineralization</li>
+          <li><strong>Vitamin D deficiency:</strong> Impairs calcium absorption and bone mineralization</li>
+          <li><strong>Physical inactivity:</strong> Lack of weight-bearing exercise reduces bone formation</li>
+          <li><strong>Falls risk:</strong> Environmental hazards, balance problems, visual impairment, medications causing sedation/postural hypotension</li>
+        </ul>
+
+        <p><em>Medical conditions (secondary osteoporosis):</em></p>
+        <ul>
+          <li><strong>Endocrine:</strong> Hyperthyroidism, hyperparathyroidism, Cushing's syndrome, hypogonadism (in men), diabetes mellitus (type 1)</li>
+          <li><strong>Gastrointestinal:</strong> Coeliac disease, inflammatory bowel disease, chronic liver disease, malabsorption syndromes</li>
+          <li><strong>Rheumatological:</strong> Rheumatoid arthritis, ankylosing spondylitis</li>
+          <li><strong>Chronic kidney disease</strong></li>
+          <li><strong>Malignancy:</strong> Myeloma, metastatic bone disease</li>
+          <li><strong>Prolonged immobilization</strong></li>
+        </ul>
+
+        <p><em>Medications associated with bone loss:</em></p>
+        <ul>
+          <li><strong>Glucocorticoids (most important):</strong> Prednisolone ≥7.5mg/day for ≥3 months - causes rapid bone loss</li>
+          <li><strong>Proton pump inhibitors (PPIs):</strong> Long-term use (especially high dose) may reduce calcium absorption</li>
+          <li>Aromatase inhibitors (breast cancer treatment)</li>
+          <li>Androgen deprivation therapy (prostate cancer)</li>
+          <li>Anticonvulsants (phenytoin, carbamazepine - affect vitamin D metabolism)</li>
+          <li>Depot medroxyprogesterone acetate (contraceptive)</li>
+          <li>Thyroxine (if over-replacement causing suppressed TSH)</li>
+          <li>Heparin (long-term use)</li>
+        </ul>
+
+        <p><strong>Concerning features in this patient (Mrs. Mitchell):</strong></p>
+
+        <p><em>Major red flags:</em></p>
+        <ul>
+          <li><strong>Two fragility fractures:</strong> Colles' fracture from fall from standing height + previous vertebral crush fracture from minimal trauma (lifting a box)
+            <ul>
+              <li>This strongly suggests underlying osteoporosis</li>
+              <li>Previous fracture is the strongest predictor of future fracture</li>
+            </ul>
+          </li>
+          <li><strong>Age 68 years:</strong> Postmenopausal woman in high-risk age group</li>
+          <li><strong>Height loss (2 inches/~5cm):</strong> Suggests vertebral compression fractures (height loss >4cm is significant)</li>
+          <li><strong>Thoracic kyphosis ("forward stoop"):</strong> Typical of multiple vertebral fractures</li>
+        </ul>
+
+        <p><em>Additional risk factors present:</em></p>
+        <ul>
+          <li><strong>Postmenopausal (menopause age 49):</strong> ~19 years of estrogen deficiency</li>
+          <li><strong>Family history:</strong> Mother with hip fracture and osteoporosis (genetic predisposition)</li>
+          <li><strong>Long-term PPI use (5 years):</strong> May contribute to reduced calcium absorption</li>
+          <li><strong>Low dairy intake:</strong> Likely inadequate dietary calcium</li>
+          <li><strong>Minimal exercise:</strong> Lack of weight-bearing exercise</li>
+          <li><strong>Low BMI (21 kg/m²):</strong> On lower end of normal, less mechanical loading</li>
+        </ul>
+
+        <p><strong>Clinical significance:</strong></p>
+        <ul>
+          <li>This patient has a very high probability of having osteoporosis</li>
+          <li>She requires urgent assessment (DEXA scan) and treatment initiation</li>
+          <li>She is at very high risk of future fractures, particularly hip fracture, which carries significant morbidity and mortality</li>
+          <li>Secondary causes should be excluded (though primary osteoporosis most likely given age and menopause)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q2')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 2:</strong> How is osteoporosis diagnosed? What investigations should be performed in this patient, and what would you expect to find?
+      </button>
+      <div id="q2" class="answer">
+        <p><strong>Diagnosis of osteoporosis:</strong></p>
+
+        <p><em>Clinical diagnosis:</em></p>
+        <ul>
+          <li><strong>Fragility fracture in adults >50 years = osteoporosis</strong> (regardless of BMD measurement)
+            <ul>
+              <li>Fragility fracture = fracture from fall from standing height or less, or spontaneous fracture</li>
+              <li>Common sites: vertebrae, hip (neck of femur), distal radius (Colles'), proximal humerus</li>
+            </ul>
+          </li>
+          <li>This patient with 2 fragility fractures has a clinical diagnosis of osteoporosis</li>
+        </ul>
+
+        <p><em>Densitometric diagnosis (DEXA scan):</em></p>
+        <ul>
+          <li><strong>DEXA (Dual-Energy X-ray Absorptiometry):</strong> Gold standard for measuring bone mineral density (BMD)</li>
+          <li>Typically measures BMD at:
+            <ul>
+              <li>Lumbar spine (L1-L4)</li>
+              <li>Hip (femoral neck and total hip)</li>
+            </ul>
+          </li>
+          <li>Results reported as:
+            <ul>
+              <li><strong>T-score:</strong> Number of standard deviations above or below the mean BMD of healthy young adults (age 30)
+                <ul>
+                  <li>Normal: T-score ≥ -1.0</li>
+                  <li>Osteopenia (low bone mass): T-score between -1.0 and -2.5</li>
+                  <li><strong>Osteoporosis: T-score ≤ -2.5</strong></li>
+                  <li>Severe osteoporosis: T-score ≤ -2.5 + fragility fracture</li>
+                </ul>
+              </li>
+              <li><strong>Z-score:</strong> Number of SDs above/below mean for age-matched controls (used in premenopausal women, men &lt;50, children)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Indications for DEXA scanning:</strong></p>
+        <ul>
+          <li><strong>Women ≥65 years, men ≥75 years</strong> (screening high-risk groups)</li>
+          <li><strong>Fragility fracture</strong> (to confirm diagnosis and assess severity)</li>
+          <li><strong>Major risk factors:</strong>
+            <ul>
+              <li>Long-term glucocorticoid use (≥7.5mg prednisolone for ≥3 months)</li>
+              <li>Conditions causing secondary osteoporosis (hyperthyroidism, hyperparathyroidism, malabsorption, etc.)</li>
+              <li>Family history of hip fracture</li>
+              <li>Low BMI (\&lt;19 kg/m²)</li>
+            </ul>
+          </li>
+          <li><strong>Monitoring response to treatment</strong> (repeat DEXA every 2-3 years on treatment)</li>
+        </ul>
+
+        <p><strong>Investigations to perform in this patient:</strong></p>
+
+        <p><em>1. DEXA scan (essential):</em></p>
+        <ul>
+          <li>Although clinical diagnosis of osteoporosis already made (fragility fractures), DEXA still indicated to:
+            <ul>
+              <li>Quantify severity of bone loss</li>
+              <li>Provide baseline for monitoring treatment response</li>
+              <li>Assess fracture risk at different sites</li>
+            </ul>
+          </li>
+          <li><strong>Expected findings:</strong> T-score ≤ -2.5 at spine and/or hip (osteoporosis range), likely severe given 2 fractures</li>
+        </ul>
+
+        <p><em>2. Blood tests (to exclude secondary causes and assess baseline):</em></p>
+        <ul>
+          <li><strong>Full blood count:</strong> Anaemia might suggest myeloma, chronic disease, malabsorption
+            <ul>
+              <li>Expected: Normal (primary osteoporosis)</li>
+            </ul>
+          </li>
+          <li><strong>ESR/CRP:</strong> Elevated in myeloma, inflammatory conditions
+            <ul>
+              <li>Expected: Normal</li>
+            </ul>
+          </li>
+          <li><strong>Bone profile (calcium, phosphate, alkaline phosphatase):</strong>
+            <ul>
+              <li>Primary osteoporosis: All normal</li>
+              <li>Abnormalities suggest secondary causes:
+                <ul>
+                  <li>High calcium: Hyperparathyroidism, malignancy</li>
+                  <li>Low calcium + high ALP: Osteomalacia (vitamin D deficiency)</li>
+                  <li>High ALP alone: Paget's disease, recent fracture (healing), metastases</li>
+                </ul>
+              </li>
+              <li>Expected in this patient: Normal calcium and phosphate; ALP may be slightly elevated (recent fracture healing)</li>
+            </ul>
+          </li>
+          <li><strong>25-hydroxyvitamin D:</strong> Check for vitamin D deficiency (very common, especially in elderly, those with low sun exposure)
+            <ul>
+              <li>Deficiency: &lt;25 nmol/L; insufficiency: 25-50 nmol/L; replete: >50 nmol/L</li>
+              <li>Expected: Likely low/insufficient (inadequate sun exposure, low dairy intake, PPI use may impair absorption)</li>
+            </ul>
+          </li>
+          <li><strong>Renal function (U&Es, creatinine, eGFR):</strong> Baseline before starting bisphosphonates (contraindicated if eGFR &lt;30-35 ml/min); chronic kidney disease causes secondary osteoporosis
+            <ul>
+              <li>Expected: Normal</li>
+            </ul>
+          </li>
+          <li><strong>Thyroid function (TSH, free T4):</strong> Hyperthyroidism causes bone loss
+            <ul>
+              <li>Expected: Normal</li>
+            </ul>
+          </li>
+          <li><strong>Liver function tests:</strong> Chronic liver disease causes secondary osteoporosis
+            <ul>
+              <li>Expected: Normal</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>3. Additional tests if secondary causes suspected:</em></p>
+        <ul>
+          <li><strong>Parathyroid hormone (PTH):</strong> If calcium abnormal (exclude primary hyperparathyroidism)</li>
+          <li><strong>Testosterone, LH, FSH:</strong> In men &lt;70 with osteoporosis (exclude hypogonadism)</li>
+          <li><strong>Coeliac serology (tissue transglutaminase antibodies):</strong> If GI symptoms or unexplained osteoporosis in younger patients</li>
+          <li><strong>Protein electrophoresis, Bence Jones protein:</strong> If suspicion of myeloma (anaemia, high ESR, high calcium, back pain)</li>
+          <li><strong>24-hour urinary calcium:</strong> If recurrent renal stones (exclude hypercalciuria)</li>
+        </ul>
+
+        <p><em>4. Imaging:</em></p>
+        <ul>
+          <li><strong>Spine X-ray (lateral thoracic and lumbar):</strong> Identify vertebral fractures (many are asymptomatic)
+            <ul>
+              <li>Expected: T12 vertebral crush fracture (known), may identify additional asymptomatic vertebral fractures, thoracic kyphosis</li>
+            </ul>
+          </li>
+          <li><strong>X-ray of other fracture sites if not already done</strong></li>
+        </ul>
+
+        <p><strong>Expected investigation results in this patient:</strong></p>
+        <ul>
+          <li><strong>DEXA scan:</strong> T-score ≤ -2.5 (osteoporosis), likely at spine and hip; may show T-score ≤ -3 to -4 (severe) given two fractures</li>
+          <li><strong>Blood tests:</strong>
+            <ul>
+              <li>FBC: Normal</li>
+              <li>Bone profile: Normal calcium and phosphate, possibly mildly elevated ALP (fracture healing)</li>
+              <li>Vitamin D: Low or insufficient (common in elderly, especially with low dairy intake and PPI use)</li>
+              <li>Renal, liver, thyroid function: Normal</li>
+            </ul>
+          </li>
+          <li><strong>Spine X-ray:</strong> T12 crush fracture, possible additional vertebral fractures, thoracic kyphosis</li>
+        </ul>
+
+        <p><strong>Fracture risk assessment tools:</strong></p>
+        <ul>
+          <li><strong>FRAX® (Fracture Risk Assessment Tool):</strong>
+            <ul>
+              <li>WHO-developed calculator estimating 10-year probability of major osteoporotic fracture and hip fracture</li>
+              <li>Uses clinical risk factors +/- BMD</li>
+              <li>Useful for deciding whether to treat patients with osteopenia or without fragility fracture</li>
+              <li>Less relevant for this patient who already has fragility fractures (already meets treatment threshold)</li>
+            </ul>
+          </li>
+          <li><strong>Q-Fracture:</strong> UK-developed tool, similar to FRAX</li>
+        </ul>
+
+        <p><strong>Key points:</strong></p>
+        <ul>
+          <li>Fragility fracture = clinical diagnosis of osteoporosis - treatment should be started regardless of BMD</li>
+          <li>DEXA scan quantifies severity and provides baseline for monitoring</li>
+          <li>Blood tests exclude secondary causes (though most cases are primary)</li>
+          <li>Vitamin D deficiency is very common and should be identified and treated</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q3')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 3:</strong> What are the typical clinical presentations of osteoporotic fractures? What are the complications of vertebral fractures?
+      </button>
+      <div id="q3" class="answer">
+        <p><strong>Clinical presentations of osteoporotic fractures:</strong></p>
+
+        <p><strong>1. Vertebral fractures (most common osteoporotic fracture):</strong></p>
+
+        <p><em>Presentation:</em></p>
+        <ul>
+          <li><strong>Two-thirds are asymptomatic or minimally symptomatic</strong> - discovered incidentally on imaging</li>
+          <li><strong>Symptomatic fractures:</strong>
+            <ul>
+              <li>Sudden onset of severe back pain (often mid-thoracic or thoracolumbar region)</li>
+              <li>Often triggered by minimal trauma (bending, lifting, coughing, sneezing) or spontaneous</li>
+              <li>Pain typically sharp, localized to fracture site initially, then becomes more diffuse</li>
+              <li>Worsened by standing, walking, sitting; relieved by lying flat</li>
+              <li>Usually improves over 6-12 weeks but may have chronic pain</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>Physical signs:</em></p>
+        <ul>
+          <li>Point tenderness over affected vertebra</li>
+          <li><strong>Height loss:</strong> >4cm from peak height is significant; each vertebral fracture causes ~1cm height loss</li>
+          <li><strong>Kyphosis ("dowager's hump"):</strong> Progressive thoracic curvature from multiple thoracic fractures</li>
+          <li>Reduced distance between lower ribs and iliac crest (due to spinal shortening)</li>
+          <li>Neurological deficit is rare (distinguish from traumatic fractures, malignancy)</li>
+        </ul>
+
+        <p><em>Consequences of vertebral fractures:</em></p>
+        <ul>
+          <li><strong>Pain:</strong> Acute (4-6 weeks) and chronic back pain</li>
+          <li><strong>Disability:</strong> Impaired mobility, reduced quality of life</li>
+          <li><strong>Deformity:</strong> Progressive kyphosis</li>
+          <li><strong>Reduced lung capacity:</strong> Restrictive lung defect from spinal deformity; can cause dyspnoea, reduced exercise tolerance</li>
+          <li><strong>Gastrointestinal symptoms:</strong> Early satiety, constipation, abdominal distension (reduced abdominal cavity space)</li>
+          <li><strong>Psychosocial impact:</strong> Depression, loss of self-esteem, social isolation</li>
+          <li><strong>Increased mortality:</strong> Particularly multiple vertebral fractures associated with increased mortality (mechanism unclear - marker of frailty)</li>
+          <li><strong>Cascade effect:</strong> Each vertebral fracture significantly increases risk of further vertebral fractures (altered biomechanics)</li>
+        </ul>
+
+        <p><strong>2. Hip fracture (femoral neck or intertrochanteric fracture):</strong></p>
+
+        <p><em>Presentation:</em></p>
+        <ul>
+          <li>Almost always symptomatic and acute presentation</li>
+          <li>Sudden onset severe hip/groin pain following fall (usually from standing height)</li>
+          <li>Unable to weight-bear on affected leg</li>
+          <li>Requires hospital admission and surgical fixation in majority</li>
+        </ul>
+
+        <p><em>Physical signs:</em></p>
+        <ul>
+          <li>Affected leg shortened and externally rotated (classic for displaced intracapsular fracture)</li>
+          <li>Severe pain on movement of hip</li>
+          <li>Bruising around hip (may develop over hours-days)</li>
+        </ul>
+
+        <p><em>Consequences (most serious osteoporotic fracture):</em></p>
+        <ul>
+          <li><strong>High mortality:</strong> ~20-30% mortality at 1 year post-fracture
+            <ul>
+              <li>Highest in first 6 months</li>
+              <li>Due to complications, comorbidities, loss of independence</li>
+            </ul>
+          </li>
+          <li><strong>Loss of independence:</strong> ~50% never regain pre-fracture mobility; many require long-term care/nursing home</li>
+          <li><strong>Complications:</strong> Pneumonia, pressure sores, VTE, delirium, surgical complications</li>
+          <li><strong>Chronic pain and disability</strong></li>
+          <li><strong>High healthcare costs:</strong> Surgery, prolonged hospitalization, rehabilitation, long-term care</li>
+        </ul>
+
+        <p><strong>3. Distal radius fracture (Colles' fracture):</strong></p>
+
+        <p><em>Presentation:</em></p>
+        <ul>
+          <li>Fall onto outstretched hand (FOOSH injury)</li>
+          <li>Immediate pain, swelling, deformity at wrist</li>
+          <li>Classic "dinner fork" deformity (dorsal displacement and angulation of distal fragment)</li>
+        </ul>
+
+        <p><em>Management and consequences:</em></p>
+        <ul>
+          <li>Usually managed with closed reduction and cast immobilization (or surgery if unstable)</li>
+          <li>Generally good functional recovery</li>
+          <li><strong>Significance:</strong> Often the first osteoporotic fracture (occurs earlier, typically age 60-70); serves as "warning fracture" - indicates high risk of subsequent hip or vertebral fractures
+            <ul>
+              <li>Should prompt osteoporosis assessment and treatment</li>
+            </ul>
+          </li>
+          <li>Possible long-term complications: Carpal tunnel syndrome, reduced grip strength, arthritis, complex regional pain syndrome</li>
+        </ul>
+
+        <p><strong>4. Proximal humerus fracture:</strong></p>
+
+        <p><em>Presentation:</em></p>
+        <ul>
+          <li>Fall onto shoulder or outstretched arm</li>
+          <li>Pain, swelling, bruising around shoulder</li>
+          <li>Reduced range of motion</li>
+        </ul>
+
+        <p><em>Management and consequences:</em></p>
+        <ul>
+          <li>Often managed conservatively with sling, physiotherapy</li>
+          <li>Complications: Frozen shoulder, reduced shoulder function</li>
+        </ul>
+
+        <p><strong>5. Other sites:</strong></p>
+        <ul>
+          <li><strong>Pelvis fractures:</strong> Can occur from minimal trauma; pubic rami fractures common; present with groin/pelvic pain, difficulty mobilizing</li>
+          <li><strong>Proximal femur (below hip):</strong> Less common</li>
+          <li><strong>Ribs:</strong> From minor trauma or coughing</li>
+        </ul>
+
+        <p><strong>General features of osteoporotic (fragility) fractures:</strong></p>
+        <ul>
+          <li>Occur with minimal or no trauma (fall from standing height or less)</li>
+          <li>Occur predominantly in older adults (\&gt;50 years, especially >65 years)</li>
+          <li>More common in postmenopausal women</li>
+          <li>Recurrent fractures common if untreated (fracture begets fracture)</li>
+          <li>May be first presentation of osteoporosis (previously asymptomatic)</li>
+        </ul>
+
+        <p><strong>Specific complications of vertebral fractures (summary):</strong></p>
+
+        <p><em>Physical complications:</em></p>
+        <ul>
+          <li>Acute and chronic pain</li>
+          <li>Height loss (progressive with multiple fractures)</li>
+          <li>Kyphosis ("dowager's hump" - progressive spinal curvature)</li>
+          <li>Restrictive lung disease (reduced FVC from thoracic deformity) → dyspnoea, reduced exercise tolerance</li>
+          <li>GI symptoms: early satiety, reflux (increased intra-abdominal pressure), constipation, bloating</li>
+          <li>Impaired balance and gait</li>
+          <li>Increased risk of falls (due to altered posture and balance)</li>
+          <li>Difficulty with activities of daily living (bending, reaching, dressing)</li>
+        </ul>
+
+        <p><em>Psychosocial complications:</em></p>
+        <ul>
+          <li>Depression and anxiety</li>
+          <li>Reduced quality of life</li>
+          <li>Loss of self-esteem and body image concerns</li>
+          <li>Social isolation (reduced mobility, embarrassment about appearance)</li>
+          <li>Fear of falling and further fractures</li>
+        </ul>
+
+        <p><em>Cascade effect:</em></p>
+        <ul>
+          <li><strong>Each vertebral fracture increases risk of subsequent vertebral fracture by 5-fold</strong></li>
+          <li>Also increases risk of hip and other fractures</li>
+          <li>Altered spinal biomechanics from one fracture increases load on adjacent vertebrae</li>
+        </ul>
+
+        <p><em>Mortality:</em></p>
+        <ul>
+          <li>Increased mortality compared to age-matched controls without fractures</li>
+          <li>Particularly significant with multiple vertebral fractures</li>
+          <li>Mortality less than hip fractures but still clinically significant</li>
+        </ul>
+
+        <p><strong>Clinical implications:</strong></p>
+        <ul>
+          <li>Any fragility fracture should prompt comprehensive osteoporosis assessment and treatment</li>
+          <li>Vertebral fractures often overlooked (many asymptomatic) - should actively look for them (height loss, kyphosis, spine X-rays)</li>
+          <li>Early intervention can prevent subsequent fractures and their devastating consequences</li>
+          <li>Hip fracture prevention is a major public health priority due to high morbidity and mortality</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q4')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 4:</strong> Outline the management of osteoporosis, including lifestyle interventions and pharmacological treatments. What would you recommend for this patient?
+      </button>
+      <div id="q4" class="answer">
+        <p><strong>General principles of osteoporosis management:</strong></p>
+        <ul>
+          <li>Goals: Prevent fractures, maintain bone mass, reduce falls risk, manage pain, maintain function</li>
+          <li>Multimodal approach: Lifestyle + pharmacological + falls prevention</li>
+          <li>Long-term management required (osteoporosis is chronic condition)</li>
+        </ul>
+
+        <p><strong>1. Lifestyle and non-pharmacological interventions (for all patients):</strong></p>
+
+        <p><em>a) Adequate calcium intake:</em></p>
+        <ul>
+          <li><strong>Recommended: 700-1200mg/day</strong> (ideally from diet)</li>
+          <li>Dietary sources: Dairy products (milk, cheese, yogurt - best sources), green leafy vegetables, fortified foods, sardines/salmon with bones, almonds</li>
+          <li>If dietary intake inadequate: Calcium supplementation (e.g., calcium carbonate 500-600mg 1-2 times daily, taken with food for better absorption)</li>
+          <li><strong>Important:</strong> Calcium alone does NOT prevent fractures; must be combined with vitamin D and/or antiresorptive therapy</li>
+        </ul>
+
+        <p><em>b) Vitamin D sufficiency:</em></p>
+        <ul>
+          <li><strong>Recommended serum level: >50 nmol/L</strong> (some guidelines recommend >75 nmol/L for bone health)</li>
+          <li>Sources: Sunlight exposure (15-20 minutes daily on face/arms), fatty fish, egg yolks, fortified foods</li>
+          <li><strong>Supplementation:</strong> 800-2000 IU (20-50 mcg) daily
+            <ul>
+              <li>Higher loading doses if deficient (e.g., 20,000 IU weekly for 8 weeks, then maintenance)</li>
+            </ul>
+          </li>
+          <li>Essential for calcium absorption and bone mineralization</li>
+          <li>Also improves muscle strength and may reduce falls</li>
+        </ul>
+
+        <p><em>c) Weight-bearing and resistance exercise:</em></p>
+        <ul>
+          <li><strong>Weight-bearing exercise:</strong> Walking, jogging, dancing, stair climbing (stimulates bone formation)</li>
+          <li><strong>Resistance training:</strong> Weights, resistance bands (builds muscle and bone strength)</li>
+          <li><strong>Balance and flexibility exercises:</strong> Tai chi, yoga (reduce falls risk)</li>
+          <li><strong>Recommendation:</strong> 30 minutes most days; combination of weight-bearing and resistance exercise</li>
+          <li>Benefits: Increases/maintains bone density, improves muscle strength, balance, coordination; reduces falls risk</li>
+        </ul>
+
+        <p><em>d) Smoking cessation:</em></p>
+        <ul>
+          <li>Smoking toxic to bone cells, reduces estrogen levels, increases fracture risk</li>
+          <li>Offer smoking cessation support</li>
+        </ul>
+
+        <p><em>e) Moderate alcohol intake:</em></p>
+        <ul>
+          <li>Limit to ≤2 units/day (excessive alcohol harmful to bone and increases falls)</li>
+        </ul>
+
+        <p><em>f) Maintain healthy body weight:</em></p>
+        <ul>
+          <li>Avoid being underweight (BMI &lt;19 increases risk)</li>
+          <li>Weight-bearing mechanical load stimulates bone formation</li>
+        </ul>
+
+        <p><em>g) Falls prevention:</em></p>
+        <ul>
+          <li><strong>Home safety assessment:</strong> Remove trip hazards (rugs, clutter), improve lighting, install grab rails (bathroom, stairs), non-slip mats</li>
+          <li><strong>Vision assessment and correction:</strong> Regular eye tests, update glasses</li>
+          <li><strong>Medication review:</strong> Minimize sedatives, optimize management of postural hypotension</li>
+          <li><strong>Footwear:</strong> Well-fitting, non-slip shoes; avoid slippers, high heels</li>
+          <li><strong>Hip protectors:</strong> Padded undergarments (evidence mixed; may be useful in nursing home residents)</li>
+          <li><strong>Balance and strength training:</strong> Physiotherapy-led programs</li>
+        </ul>
+
+        <p><strong>2. Pharmacological treatment:</strong></p>
+
+        <p><em>Indications for pharmacological treatment:</em></p>
+        <ul>
+          <li><strong>Fragility fracture</strong> (vertebral, hip, distal radius, proximal humerus, pelvis) in patient >50 years</li>
+          <li><strong>T-score ≤ -2.5</strong> at spine or hip (without fragility fracture)</li>
+          <li><strong>T-score between -1.0 and -2.5 (osteopenia) + high 10-year fracture risk on FRAX</strong></li>
+          <li><strong>Long-term glucocorticoid use</strong> (≥7.5mg prednisolone ≥3 months) - initiate treatment even with normal BMD</li>
+        </ul>
+
+        <p><em>First-line pharmacological treatment - Bisphosphonates:</em></p>
+
+        <p><strong>Mechanism:</strong> Inhibit osteoclast-mediated bone resorption; reduce bone turnover; increase or stabilize BMD; reduce fracture risk</p>
+
+        <p><strong>Options:</strong></p>
+        <ul>
+          <li><strong>Oral bisphosphonates (most commonly used):</strong>
+            <ul>
+              <li><strong>Alendronate (alendronic acid):</strong> 70mg once weekly (or 10mg daily)
+                <ul>
+                  <li>Reduces vertebral fractures by ~50%, hip fractures by ~50%</li>
+                  <li>First-line for most patients</li>
+                </ul>
+              </li>
+              <li><strong>Risedronate:</strong> 35mg once weekly
+                <ul>
+                  <li>Similar efficacy to alendronate</li>
+                  <li>Alternative if alendronate not tolerated</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Intravenous bisphosphonates (if oral not tolerated/contraindicated):</strong>
+            <ul>
+              <li><strong>Zoledronic acid (zoledronate):</strong> 5mg IV infusion once yearly
+                <ul>
+                  <li>Excellent compliance (once yearly)</li>
+                  <li>Bypasses GI side effects</li>
+                  <li>Reduces vertebral, hip, and non-vertebral fractures</li>
+                  <li>Particularly useful post-hip fracture</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Administration instructions (oral bisphosphonates - VERY IMPORTANT):</strong></p>
+        <ul>
+          <li>Take on empty stomach first thing in the morning</li>
+          <li>Swallow whole with full glass (200ml) of plain water</li>
+          <li>Remain upright (sitting or standing) for 30 minutes after taking</li>
+          <li>Do not eat, drink (except water), or take other medications for 30 minutes</li>
+          <li>Rationale: Very poor oral bioavailability; food/other drinks reduce absorption further; remaining upright prevents esophageal irritation</li>
+        </ul>
+
+        <p><strong>Side effects:</strong></p>
+        <ul>
+          <li>GI: Dyspepsia, esophageal irritation, nausea (common; improved with proper administration)</li>
+          <li>Acute phase reaction (IV): Flu-like symptoms, fever, myalgia (common after first infusion, typically resolves in 1-3 days; advise paracetamol)</li>
+          <li>Hypocalcemia (ensure adequate calcium/vitamin D; correct deficiency before starting)</li>
+          <li>Atypical femoral fractures (rare, \&lt;1%; associated with long-term use >5 years - prodromal thigh pain)</li>
+          <li>Osteonecrosis of jaw (ONJ) - very rare (~0.01%); risk higher with IV bisphosphonates, high doses (cancer treatment), dental procedures, poor dental hygiene
+            <ul>
+              <li>Advise dental check before starting, maintain good oral hygiene</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Contraindications:</strong></p>
+        <ul>
+          <li>eGFR &lt;30-35 ml/min (oral), &lt;35 ml/min (IV)</li>
+          <li>Hypocalcemia (correct before starting)</li>
+          <li>Esophageal abnormalities (stricture, achalasia, inability to stand/sit upright for 30 minutes) - for oral formulations</li>
+        </ul>
+
+        <p><strong>Duration of treatment:</strong></p>
+        <ul>
+          <li>Typically 3-5 years initially</li>
+          <li>Reassess at 5 years: Consider "drug holiday" (pause treatment for 1-2 years) if low fracture risk and stable BMD
+            <ul>
+              <li>Bisphosphonates have long skeletal retention - effects persist after stopping</li>
+            </ul>
+          </li>
+          <li>Continue beyond 5 years if very high fracture risk (previous fragility fracture, very low BMD)</li>
+        </ul>
+
+        <p><em>Second-line/alternative treatments:</em></p>
+
+        <p><strong>Denosumab (Prolia®):</strong></p>
+        <ul>
+          <li><strong>Mechanism:</strong> Monoclonal antibody against RANK ligand; inhibits osteoclast formation and activity</li>
+          <li><strong>Dose:</strong> 60mg subcutaneous injection every 6 months</li>
+          <li><strong>Indications:</strong> Alternative to bisphosphonates if not tolerated/contraindicated; can be used in renal impairment (unlike bisphosphonates)</li>
+          <li><strong>Efficacy:</strong> Reduces vertebral, hip, and non-vertebral fractures</li>
+          <li><strong>Side effects:</strong> Hypocalcemia (ensure adequate calcium/vitamin D), infections (cellulitis), ONJ (rare), atypical fractures (rare)</li>
+          <li><strong>Important:</strong> Rebound increased bone turnover and fracture risk if stopped - must transition to bisphosphonate if discontinuing denosumab</li>
+        </ul>
+
+        <p><strong>Selective Estrogen Receptor Modulators (SERMs) - Raloxifene:</strong></p>
+        <ul>
+          <li><strong>Mechanism:</strong> Estrogen agonist in bone (inhibits resorption), estrogen antagonist in breast</li>
+          <li><strong>Dose:</strong> 60mg daily</li>
+          <li><strong>Indications:</strong> Postmenopausal women; particularly if high breast cancer risk (reduces invasive breast cancer risk)</li>
+          <li><strong>Efficacy:</strong> Reduces vertebral fractures; NO reduction in hip/non-vertebral fractures (less effective than bisphosphonates)</li>
+          <li><strong>Side effects:</strong> Hot flushes, leg cramps, increased VTE risk</li>
+          <li><strong>Contraindications:</strong> VTE history, immobility</li>
+        </ul>
+
+        <p><strong>Anabolic agents (bone-building drugs - specialist use):</strong></p>
+
+        <ul>
+          <li><strong>Teriparatide (recombinant PTH 1-34):</strong>
+            <ul>
+              <li>Mechanism: Stimulates osteoblasts, builds new bone (anabolic)</li>
+              <li>Dose: 20mcg SC daily for maximum 24 months (lifetime limit)</li>
+              <li>Indications: Severe osteoporosis (T-score ≤-3.5 or T-score ≤-2.5 + multiple fractures), failed bisphosphonates, glucocorticoid-induced osteoporosis</li>
+              <li>Most potent treatment for increasing BMD and reducing fractures</li>
+              <li>Expensive; specialist-initiated</li>
+            </ul>
+          </li>
+          <li><strong>Romosozumab (sclerostin inhibitor):</strong> Newer anabolic agent; both stimulates bone formation and reduces resorption; specialist use</li>
+        </ul>
+
+        <p><strong>Hormone Replacement Therapy (HRT):</strong></p>
+        <ul>
+          <li>Reduces bone loss and fractures in postmenopausal women</li>
+          <li>No longer recommended solely for osteoporosis prevention/treatment due to cardiovascular and breast cancer risks</li>
+          <li>May be appropriate in younger postmenopausal women (\&lt;60 years) with menopausal symptoms + osteoporosis</li>
+        </ul>
+
+        <p><strong>3. Monitoring treatment:</strong></p>
+        <ul>
+          <li><strong>DEXA scan:</strong> Repeat every 2-3 years on treatment
+            <ul>
+              <li>Assess response: Stable or increased BMD = good response (reduces fracture risk even without significant BMD increase)</li>
+              <li>Declining BMD despite treatment: Check adherence, investigate secondary causes, consider alternative treatment</li>
+            </ul>
+          </li>
+          <li><strong>Biochemical markers of bone turnover (CTX, P1NP):</strong> Can assess early response but not routinely used</li>
+          <li><strong>Calcium and vitamin D levels:</strong> Ensure maintained in normal range</li>
+          <li><strong>Monitor for side effects, particularly GI symptoms with bisphosphonates</strong></li>
+        </ul>
+
+        <p><strong>Management plan for this patient (Mrs. Mitchell):</strong></p>
+
+        <p><em>Immediate actions:</em></p>
+        <ul>
+          <li><strong>Initiate pharmacological treatment immediately</strong> - she has two fragility fractures = clear indication
+            <ul>
+              <li><strong>First-line: Alendronate 70mg once weekly</strong> (oral bisphosphonate)
+                <ul>
+                  <li>Provide clear instructions on administration (empty stomach, upright 30 mins, etc.)</li>
+                  <li>Alternative: Risedronate 35mg weekly if alendronate not tolerated</li>
+                  <li>IV zoledronate once yearly if oral bisphosphonates not tolerated/contraindicated</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Calcium and vitamin D supplementation:</strong>
+            <ul>
+              <li>Likely vitamin D deficient (check level and replace if low)</li>
+              <li>Start: Calcium 500-600mg + vitamin D 800-2000 IU daily (combined preparation)</li>
+              <li>Counsel on increasing dietary calcium (dairy products)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>Investigations:</em></p>
+        <ul>
+          <li>Arrange DEXA scan (confirm diagnosis, quantify severity, baseline)</li>
+          <li>Blood tests: FBC, bone profile, renal function, LFTs, TFTs, vitamin D, (PTH if calcium abnormal)</li>
+          <li>Spine X-ray (identify extent of vertebral fractures)</li>
+        </ul>
+
+        <p><em>Lifestyle modifications:</em></p>
+        <ul>
+          <li><strong>Increase weight-bearing exercise:</strong> Encourage daily walking, consider physiotherapy referral for supervised exercise program</li>
+          <li><strong>Improve dietary calcium:</strong> Increase dairy intake; consider lactose-free options if lactose intolerance</li>
+          <li><strong>Optimize sunlight exposure</strong> (sensible, skin cancer risk in mind)</li>
+        </ul>
+
+        <p><em>Falls prevention:</em></p>
+        <ul>
+          <li><strong>Home safety assessment:</strong> Remove rug that caused recent fall, improve lighting, install grab rails if needed</li>
+          <li>Vision check (ensure glasses up-to-date)</li>
+          <li>Review medications (ensure no sedatives or drugs causing postural hypotension)</li>
+          <li>Consider physiotherapy for balance and strengthening exercises</li>
+        </ul>
+
+        <p><em>Review PPI:</em></p>
+        <ul>
+          <li>Long-term PPI use (5 years) may contribute to reduced calcium absorption</li>
+          <li>Review indication - consider step-down/discontinuation trial if appropriate, or lowest effective dose</li>
+          <li>If ongoing need, ensure adequate calcium/vitamin D supplementation</li>
+        </ul>
+
+        <p><em>Follow-up:</em></p>
+        <ul>
+          <li>Review in 3 months: Check adherence, tolerability, address any concerns</li>
+          <li>Annual review: Assess for new fractures, symptoms, adherence</li>
+          <li>Repeat DEXA scan in 2-3 years to assess treatment response</li>
+          <li>Reassess at 5 years for duration of bisphosphonate therapy</li>
+        </ul>
+
+        <p><strong>Key counseling points:</strong></p>
+        <ul>
+          <li>Osteoporosis is treatable - treatment can significantly reduce future fracture risk</li>
+          <li>Bisphosphonates reduce vertebral fracture risk by ~50%, hip fractures by ~40-50%</li>
+          <li>Importance of adherence to medication and proper administration technique</li>
+          <li>Treatment is long-term (years), but very effective at preventing devastating hip fractures</li>
+          <li>Lifestyle measures (exercise, calcium, vitamin D) are essential adjuncts to medication</li>
+          <li>Falls prevention crucial - hip fracture prevention saves lives and independence</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q5')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 5:</strong> What are the important considerations for glucocorticoid-induced osteoporosis? How does management differ from primary osteoporosis?
+      </button>
+      <div id="q5" class="answer">
+        <p><strong>Glucocorticoid-induced osteoporosis (GIOP):</strong></p>
+
+        <p><em>Overview:</em></p>
+        <ul>
+          <li><strong>Most common cause of secondary osteoporosis</strong></li>
+          <li>Occurs in patients taking systemic glucocorticoids (oral, IV, IM) - prednisolone, dexamethasone, hydrocortisone</li>
+          <li>Dose-dependent: Risk increases with dose and duration</li>
+          <li><strong>Threshold for concern: ≥7.5mg prednisolone (or equivalent) daily for ≥3 months</strong>
+            <ul>
+              <li>However, bone loss can occur at lower doses and shorter durations</li>
+            </ul>
+          </li>
+          <li>Very common: Up to 50% of patients on long-term glucocorticoids develop fractures</li>
+        </ul>
+
+        <p><strong>Pathophysiology - how glucocorticoids damage bone:</strong></p>
+
+        <p><em>Direct effects on bone cells:</em></p>
+        <ul>
+          <li><strong>Decreased bone formation:</strong> Inhibit osteoblast function and lifespan; reduce osteoblast differentiation from precursors</li>
+          <li><strong>Increased bone resorption:</strong> Increase osteoclast activity and lifespan (via RANKL pathway)</li>
+          <li>Induce osteocyte apoptosis (death of mature bone cells embedded in bone matrix)</li>
+          <li>Net result: Rapid bone loss, particularly trabecular bone (spine affected early)</li>
+        </ul>
+
+        <p><em>Indirect effects:</em></p>
+        <ul>
+          <li><strong>Reduced calcium absorption:</strong> Inhibit intestinal calcium absorption</li>
+          <li><strong>Increased renal calcium excretion:</strong> Causes hypercalciuria</li>
+          <li><strong>Secondary hyperparathyroidism:</strong> Low calcium → increased PTH → increased bone resorption</li>
+          <li><strong>Hypogonadism:</strong> Reduce sex hormone production (testosterone, estrogen)</li>
+          <li><strong>Myopathy and reduced muscle mass:</strong> Muscle weakness → reduced mechanical loading on bone, increased falls risk</li>
+        </ul>
+
+        <p><strong>Time course of bone loss:</strong></p>
+        <ul>
+          <li><strong>Rapid bone loss in first 3-6 months</strong> (most rapid initially, up to 12% per year)</li>
+          <li>Bone loss continues (though slower) with ongoing treatment</li>
+          <li>Partially reversible if glucocorticoids stopped, but fracture risk remains elevated</li>
+        </ul>
+
+        <p><strong>Fracture risk in GIOP:</strong></p>
+        <ul>
+          <li><strong>Fracture risk INCREASED at any given BMD</strong> compared to primary osteoporosis
+            <ul>
+              <li>Bone quality (architecture, collagen structure) is impaired, not just quantity (BMD)</li>
+              <li>Fractures can occur even with "normal" or "osteopenic" BMD</li>
+            </ul>
+          </li>
+          <li><strong>Vertebral fractures most common</strong> (trabecular bone affected earliest and most severely)</li>
+          <li>Also increased risk of hip, rib, and other fractures</li>
+          <li>Dose-response: Higher doses and longer duration → higher fracture risk</li>
+        </ul>
+
+        <p><strong>Risk assessment in GIOP:</strong></p>
+
+        <p><em>Identify patients at high risk:</em></p>
+        <ul>
+          <li>Age >65 years</li>
+          <li>Previous fragility fracture</li>
+          <li>High glucocorticoid dose (≥7.5mg prednisolone daily or equivalent)</li>
+          <li>Prolonged duration of use</li>
+          <li>Low BMD (T-score ≤-1.5)</li>
+          <li>Postmenopausal women or men >50 years</li>
+          <li>Additional risk factors (low BMI, family history, smoking, alcohol)</li>
+          <li>Falls risk</li>
+        </ul>
+
+        <p><em>FRAX tool in GIOP:</em></p>
+        <ul>
+          <li>Can be used but may underestimate fracture risk in GIOP</li>
+          <li>Adjust threshold for intervention (lower threshold in glucocorticoid users)</li>
+        </ul>
+
+        <p><strong>Prevention and management of GIOP - key differences from primary osteoporosis:</strong></p>
+
+        <p><em>1. Lower threshold for intervention:</em></p>
+        <ul>
+          <li><strong>Initiate bone protection in ALL patients starting glucocorticoids ≥7.5mg prednisolone daily for ≥3 months</strong></li>
+          <li>Consider treatment at lower BMD thresholds (e.g., T-score ≤-1.5 rather than ≤-2.5)</li>
+          <li>In some cases, treat even with normal BMD if high fracture risk (age >65, previous fracture, high dose steroids)</li>
+        </ul>
+
+        <p><em>2. Proactive approach - start bone protection EARLY:</em></p>
+        <ul>
+          <li>Don't wait for fracture or DEXA scan before starting treatment</li>
+          <li>Bone loss is most rapid in first 3-6 months - early intervention crucial</li>
+          <li><strong>NICE guidelines (UK): Offer bone protection to adults starting/taking oral glucocorticoids ≥7.5mg daily for ≥3 months if:</strong>
+            <ul>
+              <li>Age ≥70 years (any dose, any duration), OR</li>
+              <li>Previous fragility fracture, OR</li>
+              <li>FRAX 10-year major osteoporotic fracture probability ≥10% (calculate using glucocorticoid option)</li>
+            </ul>
+          </li>
+          <li>Other patients: Arrange DEXA scan and treat based on T-score (≤-1.5)</li>
+        </ul>
+
+        <p><em>3. Pharmacological treatment - bisphosphonates are first-line:</em></p>
+        <ul>
+          <li><strong>Oral bisphosphonates:</strong>
+            <ul>
+              <li><strong>Alendronate 70mg once weekly</strong> (first-line)</li>
+              <li><strong>Risedronate 35mg once weekly</strong> (alternative)</li>
+            </ul>
+          </li>
+          <li><strong>IV bisphosphonates:</strong>
+            <ul>
+              <li><strong>Zoledronate 5mg IV once yearly</strong> (if oral not tolerated)</li>
+            </ul>
+          </li>
+          <li><strong>Evidence:</strong> Bisphosphonates reduce vertebral fracture risk in GIOP by ~30-70%; prevent bone loss</li>
+          <li><strong>Alternative agents:</strong>
+            <ul>
+              <li><strong>Teriparatide (anabolic agent):</strong> May be superior to bisphosphonates in severe GIOP; particularly effective as stimulates bone formation (which is particularly impaired by steroids); specialist use</li>
+              <li><strong>Denosumab:</strong> Alternative if bisphosphonates contraindicated/not tolerated</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>4. Calcium and vitamin D - ESSENTIAL:</em></p>
+        <ul>
+          <li><strong>ALL patients on long-term glucocorticoids should receive calcium and vitamin D supplementation</strong></li>
+          <li>Glucocorticoids reduce calcium absorption and increase excretion → negative calcium balance</li>
+          <li><strong>Dose:</strong>
+            <ul>
+              <li>Calcium: 1000-1200mg daily (diet + supplement to reach target)</li>
+              <li>Vitamin D: 800-2000 IU (20-50 mcg) daily</li>
+            </ul>
+          </li>
+          <li>Usually given as combined calcium + vitamin D preparation</li>
+          <li>Start at same time as glucocorticoids</li>
+        </ul>
+
+        <p><em>5. Minimize glucocorticoid dose and duration:</em></p>
+        <ul>
+          <li><strong>Use lowest effective dose for shortest duration</strong></li>
+          <li>Consider steroid-sparing agents (e.g., methotrexate, azathioprine in inflammatory conditions) to reduce glucocorticoid requirement</li>
+          <li>Consider alternate-day dosing if appropriate for condition</li>
+          <li>Avoid abrupt withdrawal (adrenal suppression risk) - gradual taper</li>
+          <li>Topical, inhaled, intra-articular glucocorticoids have much lower systemic effects (but high-dose inhaled steroids can still cause bone loss)</li>
+        </ul>
+
+        <p><em>6. Lifestyle measures (same as primary osteoporosis):</em></p>
+        <ul>
+          <li>Weight-bearing exercise (also counteracts glucocorticoid-induced myopathy)</li>
+          <li>Smoking cessation</li>
+          <li>Moderate alcohol</li>
+          <li>Falls prevention (particularly important as glucocorticoids cause myopathy, increasing falls risk)</li>
+        </ul>
+
+        <p><em>7. Monitoring:</em></p>
+        <ul>
+          <li><strong>Baseline DEXA scan</strong> when starting long-term glucocorticoids (if not already on treatment based on other criteria)</li>
+          <li>Repeat DEXA every 1-3 years depending on risk</li>
+          <li>Monitor for vertebral fractures (height measurement, symptoms, consider spine X-rays)</li>
+        </ul>
+
+        <p><em>8. Duration of treatment:</em></p>
+        <ul>
+          <li>Continue bone protection for duration of glucocorticoid treatment</li>
+          <li>If glucocorticoids stopped: Continue bone protection for at least 12 months (bone loss partially reversible but fracture risk remains elevated)</li>
+          <li>Reassess fracture risk after stopping glucocorticoids (some may need ongoing treatment if other risk factors present)</li>
+        </ul>
+
+        <p><strong>Summary - key differences GIOP vs. primary osteoporosis:</strong></p>
+
+        <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+          <thead>
+            <tr style="background-color: #f0f0f0;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Aspect</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Primary Osteoporosis</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Glucocorticoid-Induced Osteoporosis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Onset</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Gradual, over years-decades</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Rapid, within 3-6 months of starting steroids</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Bone most affected</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Trabecular and cortical (postmenopausal); cortical > trabecular (senile)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Trabecular bone predominantly (spine affected early)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Fracture risk at given BMD</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Correlates with T-score</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Higher than predicted by T-score (impaired bone quality)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Treatment threshold (T-score)</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">≤-2.5 (or fragility fracture)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">≤-1.5, or even normal BMD if age >65/previous fracture</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Timing of intervention</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">After diagnosis (DEXA or fracture)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Proactive - start with/soon after initiating steroids</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Calcium + vitamin D</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Recommended adjunct</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">ESSENTIAL for all patients (steroids cause calcium wasting)</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Reversibility</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Not reversible (chronic condition)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Partially reversible if steroids stopped; but treatment still needed</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><strong>Prevention focus</strong></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Lifestyle + treat established disease</td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Prevention crucial - minimize dose/duration, start bone protection early</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Clinical scenario - patient starting prednisolone:</strong></p>
+
+        <p><em>Example: 60-year-old woman starting prednisolone 15mg daily for polymyalgia rheumatica</em></p>
+
+        <p><strong>Approach:</strong></p>
+        <ul>
+          <li><strong>Assess fracture risk:</strong> Age, BMI, previous fractures, family history, other risk factors</li>
+          <li><strong>Start calcium + vitamin D immediately</strong> (e.g., Adcal-D3 or equivalent)</li>
+          <li><strong>Initiate bisphosphonate if:</strong>
+            <ul>
+              <li>Age ≥70, OR</li>
+              <li>Previous fragility fracture, OR</li>
+              <li>High fracture risk on FRAX (≥10% major osteoporotic fracture)</li>
+            </ul>
+          </li>
+          <li><strong>If doesn't meet above criteria:</strong> Arrange baseline DEXA scan
+            <ul>
+              <li>If T-score ≤-1.5: Start bisphosphonate</li>
+              <li>If T-score >-1.5: Continue calcium/vitamin D, repeat DEXA in 1-2 years, monitor</li>
+            </ul>
+          </li>
+          <li><strong>Lifestyle advice:</strong> Weight-bearing exercise, falls prevention</li>
+          <li><strong>Optimize steroid regimen:</strong> Use minimum effective dose; consider steroid-sparing agents; taper as soon as possible</li>
+        </ul>
+
+        <p><strong>Key messages:</strong></p>
+        <ul>
+          <li>GIOP is common, serious, but preventable with proactive management</li>
+          <li>Start bone protection early - don't wait for fracture</li>
+          <li>All patients on long-term steroids need calcium + vitamin D as minimum</li>
+          <li>Bisphosphonates are effective and should be offered to high-risk patients</li>
+          <li>Minimize glucocorticoid dose and duration whenever possible</li>
+          <li>Fracture risk is higher at any given BMD in GIOP compared to primary osteoporosis</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 8.1 - Diverticular Disease</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 8.1 - Diverticular Disease | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 8.1 - Diverticular Disease">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 8.1 – Diverticular Disease</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - GIT | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Ellen Cassidy, aged 68 years, presents with acute abdominal pain localised to the left iliac fossae. She has a swinging fever with peak temperatures of 38.9°C and suffered diarrhoea two days ago but since then has been constipated. She had an episode 1 year ago that was similar but milder as symptoms resolved in a day.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What further history and examination would you undertake?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>History (SOCRATES)</h3>
+        <ul>
+          <li><strong>Site, radiation, character</strong> of the abdominal pain, severity</li>
+          <li><strong>Time of onset</strong> (both episodes)</li>
+          <li><strong>Time-intensity relationships</strong></li>
+          <li><strong>Exacerbated by; relieved by</strong></li>
+          <li><strong>Associated features</strong> - appetite, weight change, night sweats, change bowel habits (diarrhoea/constipation; rectal bleeding)</li>
+          <li><strong>Dietary features</strong> (is it related to certain foods?)</li>
+          <li><strong>Routine GIT history</strong> (incl. systems review)</li>
+        </ul>
+
+        <h3>Examination</h3>
+        <ul>
+          <li><strong>Formal GIT system examination</strong>
+            <ul>
+              <li>Fever</li>
+              <li>Characteristic left lower quadrant tenderness</li>
+              <li>Palpable mass?</li>
+              <li>Presence of complications (e.g. perforation/peritonitis; fistula)</li>
+            </ul>
+          </li>
+          <li><strong>Including digital rectal examination</strong></li>
+          <li><strong>Inguinal/femoral, supraclavicular lymph nodes</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What is the difference between diverticulosis and diverticulitis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Diverticulosis (diverticular disease without complication)</h3>
+        <ul>
+          <li><strong>Diverticulae in the colon</strong> - mucosal herniations through the muscular wall</li>
+          <li><strong>Asymptomatic</strong> but may become complicated, then symptoms develop</li>
+        </ul>
+
+        <h3>Diverticulitis</h3>
+        <ul>
+          <li><strong>Inflammation/infection</strong> of one or more diverticulae</li>
+          <li><strong>Including extension into adjacent tissue</strong></li>
+          <li><strong>Initiated by obstruction</strong> of the neck of the diverticulum by a faecolith</li>
+          <li><strong>Obstruction leads to edema</strong> in the colon wall or may be complicated by micro or macro perforation</li>
+          <li><strong>Fever and leukocytosis</strong> are characteristic</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. List the indications for surgery for diverticular disease?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Elective Indications</h3>
+        <ul>
+          <li><strong>Recurrent attacks/increasing severity</strong></li>
+          <li><strong>Younger patient</strong></li>
+          <li><strong>Chronic pain</strong></li>
+          <li><strong>Fistula formation</strong> (colo-vaginal; colo-vesical; colo-cutaneous)</li>
+          <li><strong>Conservative measures not controlling symptoms</strong> (high fibre diet, supplements)</li>
+          <li><strong>Symptoms of recurrent pain and functional changes</strong> in bowel habits become unacceptable for the patient</li>
+          <li><strong>Perforation(s) not confined to pericolic tissues</strong> and controlled by antibiotics</li>
+        </ul>
+
+        <h3>Emergency Indications</h3>
+        <ul>
+          <li><strong>Bleeding</strong></li>
+          <li><strong>Perforation</strong> (macroscopic with generalised peritonitis, or failed conservative management)</li>
+          <li><strong>Obstruction</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Summarise the blood supply of the colon and explain the significance of anastomotic zones for surgeons.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Blood Supply of the Colon</h3>
+
+        <table>
+          <tr>
+            <th>Region</th>
+            <th>Blood Supply</th>
+          </tr>
+          <tr>
+            <td>Caecum, ascending colon, most of transverse colon</td>
+            <td><strong>Superior mesenteric artery</strong> (via ileocolic, middle colic arteries – only minority have right colic artery as well)</td>
+          </tr>
+          <tr>
+            <td>Splenic flexure, descending colon, sigmoid colon</td>
+            <td><strong>Inferior mesenteric artery</strong> (via ascending colic and sigmoid arteries from IMA)</td>
+          </tr>
+          <tr>
+            <td>Superior rectum</td>
+            <td>Final branch of the <strong>inferior mesenteric artery</strong> (superior rectal arteries)</td>
+          </tr>
+          <tr>
+            <td>Middle and inferior rectum</td>
+            <td>Branches of the <strong>internal pudendal arteries</strong> (inferior rectal artery)</td>
+          </tr>
+        </table>
+
+        <h3>Significance of Anastomotic Zones for Surgeons - "Marginal Zones"</h3>
+        <p>Certain parts of the colon (e.g. splenic flexure) are at the junction of two separate blood supply systems and may be relatively poorly perfused. For this reason, <strong>anastomoses in this region would carry a higher risk of ischaemic complications</strong>.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Summarise the principles of colonic motility and list three common organisms in the colon.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Principles of Colonic Motility</h3>
+        <ul>
+          <li><strong>Multiple types of contraction patterns</strong></li>
+          <li><strong>Segmentation contractions and mass contractions</strong> – unique to the colon, characterized by contractions of large segments of the colon, resulting in mass movement of stool</li>
+          <li><strong>Movement of residue through colon occurs at slow rate</strong> (18-48 hours) compared to small bowel (4 hours)</li>
+          <li><strong>Colonic transit accelerated by:</strong> emotional states, diet, disease, infection, medications and bleeding</li>
+        </ul>
+
+        <h3>Three Common Organisms in the Colon</h3>
+        <ul>
+          <li><strong>Bacteroides fragilis</strong></li>
+          <li><strong>Escherichia coli</strong></li>
+          <li><strong>Enterococci</strong> (Strep. faecalis)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. A number of diagnostic investigations can be ordered to investigate the colon. Briefly summarise the following: rigid sigmoidoscopy, fiberoptic sigmoidoscopy, abdominal series x-ray, barium enema, colonoscopy, angiography.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Diagnostic Investigations for the Colon</h3>
+
+        <table>
+          <tr>
+            <th>Investigation</th>
+            <th>Description and Uses</th>
+          </tr>
+          <tr>
+            <td><strong>Abdominal X-ray Series</strong></td>
+            <td>
+              <ul>
+                <li>Supine and erect radiographs</li>
+                <li>Should be obtained on any patient presenting with significant abdominal pain</li>
+                <li><strong>Helpful in detecting:</strong> pneumoperitoneum, small bowel obstruction, large bowel obstruction (volvulus, tumour), renal calculi</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Barium Enema</strong></td>
+            <td>
+              <ul>
+                <li>After colon and rectum prepared, barium contrast medium introduced under mild pressure to fill the entire organ</li>
+                <li><strong>DCBE (Double Contrast Barium Enema):</strong> Air insufflation, with some intraluminal barium remaining, allows sensitive detection of polyps and small lesions</li>
+                <li><strong>Helpful in diagnosing:</strong> tumours, diverticulosis, volvulus, sites of obstruction</li>
+                <li>Less used as colonoscopy widely available and use of CT/oral contrast or CT colonography increases</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Rigid Sigmoidoscopy</strong></td>
+            <td>Now largely replaced by flexible fibre-optic sigmoidoscopy</td>
+          </tr>
+          <tr>
+            <td><strong>Flexible Sigmoidoscopy</strong></td>
+            <td>
+              <ul>
+                <li>Provides higher diagnostic yield and more comfortable for patient</li>
+                <li>Allows visualization of last 30-60cm of large bowel</li>
+                <li>Detects up to 60% of colorectal neoplasms</li>
+                <li>Has a role in screening for neoplasia and/or in centres where colonoscopy not widely practised</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Fibre-optic Colonoscopy</strong></td>
+            <td>
+              <ul>
+                <li>Allows visualization of the entire colon and rectum, plus/minus last few cm of terminal ileum</li>
+                <li><strong>Therapeutic options:</strong> polyp removal, colonic decompression, stricture dilatation, haemorrhage control, foreign body removal</li>
+                <li>Requires thorough bowel preparation and mild sedation</li>
+                <li><strong>Primary diagnostic modality for:</strong> lower GIT bleeding of unknown aetiology, inflammatory bowel disease, stricture, equivocal imaging findings, lower abdominal pain, patients with personal or family history of colorectal polyps and cancer</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Angiography</strong></td>
+            <td>
+              <ul>
+                <li>Useful in detecting the source of moderate or rapid colonic bleeding</li>
+                <li>Not helpful in slow or chronic blood loss</li>
+                <li>Requires radiologic expertise, as usually an emergency procedure</li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+
+        <h3>Other Investigations</h3>
+        <ul>
+          <li><strong>Colonic Transit Studies</strong> - for investigation of motility disorders</li>
+          <li><strong>Small Bowel Series/Enterography</strong> – for investigation of small bowel pathology</li>
+          <li><strong>MRI</strong> – Inflammatory bowel disease, limited indications</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

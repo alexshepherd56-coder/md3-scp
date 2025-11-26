@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2022 SAQ Exam - MD3 SCP</title>
+
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="stylesheet" href="../../css/main.css?v=20251109-1">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/access-control.js"></script>
+
+  <style>
+    /* Exam-specific styles */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .exam-container {
+      display: flex;
+      height: 100vh;
+      background: var(--claude-cream);
+    }
+
+    /* Top header bar */
+    .exam-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--claude-sidebar);
+      border-bottom: 1px solid var(--claude-border);
+      padding: 16px 40px 16px 140px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .exam-title-section {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      flex: 1;
+    }
+
+    .exam-timer {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      color: var(--claude-text);
+      font-weight: 400;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .back-home-btn {
+      position: absolute;
+      left: -124px;
+      padding: 8px 16px;
+      background: var(--claude-card-bg);
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-home-btn:hover {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .exam-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--claude-text);
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .exam-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .flag-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .flag-btn:hover {
+      border-color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.05);
+    }
+
+    .flag-btn.flagged {
+      background: #ff6b6b;
+      border-color: #ff6b6b;
+      color: white;
+    }
+
+    /* Sidebar with question navigation */
+    .exam-sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 100vh;
+      background: var(--claude-sidebar);
+      border-right: 1px solid var(--claude-border);
+      padding: 112px 16px 24px 16px;
+      overflow-y: auto;
+      z-index: 50;
+    }
+
+    .question-nav-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--claude-secondary);
+      margin: 0 0 16px 0;
+    }
+
+    .question-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .question-nav-btn {
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 2px solid var(--claude-border);
+      background: var(--claude-card-bg);
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--claude-text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .question-nav-btn:hover {
+      border-color: #1e3a5f;
+      background: rgba(30, 58, 95, 0.1);
+    }
+
+    .question-nav-btn.active {
+      background: rgba(30, 58, 95, 0.1);
+      color: var(--claude-text);
+      border-color: #1e3a5f;
+    }
+
+    .question-nav-btn.answered {
+      background: #1e3a5f;
+      color: white;
+      border-color: #1e3a5f;
+    }
+
+    .question-nav-btn.answered.active {
+      background: #1e3a5f;
+      color: white;
+      border-color: #1e3a5f;
+    }
+
+    .question-nav-btn .flag-indicator {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      font-size: 18px;
+      display: none;
+    }
+
+    .question-nav-btn.flagged .flag-indicator {
+      display: block;
+    }
+
+    /* Main content area */
+    .exam-content {
+      margin-top: 72px;
+      margin-left: 100px;
+      width: calc(100% - 100px);
+      min-width: calc(100% - 100px);
+      max-width: calc(100% - 100px);
+      height: calc(100vh - 72px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: fixed;
+      right: 0;
+    }
+
+    .question-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px;
+      padding-bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .question-content-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      box-sizing: border-box;
+    }
+
+    .question-content-wrapper > * {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    .question-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .question-number {
+      font-size: 20px;
+      font-weight: 400;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--claude-text);
+    }
+
+    .question-header .flag-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .question-header .flag-btn:hover {
+      border-color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.05);
+    }
+
+    .question-header .flag-btn.flagged {
+      background: #ff6b6b;
+      border-color: #ff6b6b;
+      color: white;
+    }
+
+    .question-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--claude-text);
+      margin-bottom: 16px;
+      padding: 24px;
+      background: var(--claude-card-bg);
+      border: 1px solid var(--claude-border);
+      border-radius: 12px;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .sub-questions {
+      margin-left: 20px;
+      margin-top: 16px;
+      width: 100%;
+    }
+
+    .sub-question {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .sub-question-label {
+      font-weight: 600;
+      color: var(--claude-text);
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .answer-area {
+      margin-top: 0;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .answer-input {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 400px;
+      padding: 16px;
+      border: 1px solid var(--claude-border);
+      border-radius: 12px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--claude-text);
+      background: var(--claude-card-bg);
+      resize: vertical;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .answer-input:focus {
+      outline: none;
+      border-color: var(--claude-accent);
+      box-shadow: 0 0 0 3px rgba(204, 120, 92, 0.1);
+    }
+
+    .question-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 24px 40px;
+      border-top: 1px solid var(--claude-border);
+      background: var(--claude-sidebar);
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .nav-buttons-left {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      padding: 12px 24px;
+      background: var(--claude-card-bg);
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .nav-btn.primary {
+      background: #1e3a5f;
+      color: white;
+      border-color: #1e3a5f;
+    }
+
+    .nav-btn.primary:hover:not(:disabled) {
+      background: #0A2540;
+    }
+
+    .finish-btn {
+      padding: 12px 24px;
+      background: #4CAF50;
+      border: 1.5px solid #4CAF50;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .finish-btn:hover {
+      background: #45a049;
+      border-color: #45a049;
+    }
+    /* Progress Check Modal */
+    .progress-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .progress-modal-content {
+      background: var(--claude-card-bg);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .progress-modal h2 {
+      margin: 0 0 16px 0;
+      font-size: 24px;
+      color: var(--claude-text);
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .progress-modal p {
+      margin: 0 0 24px 0;
+      font-size: 16px;
+      color: var(--claude-secondary);
+      line-height: 1.5;
+    }
+
+    .progress-modal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .progress-modal-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid;
+    }
+
+    .progress-modal-btn.reset {
+      background: white;
+      border-color: var(--claude-border);
+      color: var(--claude-text);
+    }
+
+    .progress-modal-btn.reset:hover {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .progress-modal-btn.continue {
+      background: #1e3a5f;
+      border-color: #1e3a5f;
+      color: white;
+    }
+
+    .progress-modal-btn.continue:hover {
+      background: #0A2540;
+      border-color: #0A2540;
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress Check Modal -->
+  <div class="progress-modal" id="progressModal">
+    <div class="progress-modal-content">
+      <h2>Continue Exam?</h2>
+      <p>Would you like to continue where you left off, or reset and start a new attempt?</p>
+      <div class="progress-modal-buttons">
+        <button class="progress-modal-btn reset" id="resetExamBtn">Reset Exam</button>
+        <button class="progress-modal-btn continue" id="continueExamBtn">Continue Current Attempt</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-container">
+    <!-- Top header bar -->
+    <div class="exam-header">
+      <div class="exam-title-section">
+        <button class="back-home-btn" id="backBtn">
+          <span>←</span> Back
+        </button>
+        <h1 class="exam-title">2022 SAQ Exam</h1>
+      </div>
+
+      <div class="exam-actions">
+        <div class="exam-timer" id="examTimer">00:00:00</div>
+      </div>
+    </div>
+
+    <!-- Sidebar with question navigation -->
+    <div class="exam-sidebar">
+      <div class="question-nav-list" id="questionNavList">
+        <!-- Question buttons will be generated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="exam-content">
+      <div class="question-container" id="questionContainer">
+        <!-- Question content will be loaded here -->
+      </div>
+
+      <div class="question-actions">
+        <div class="nav-buttons-left">
+          <button class="nav-btn" id="prevBtn">← Previous</button>
+          <button class="nav-btn primary" id="nextBtn">Next →</button>
+        </div>
+        <button class="finish-btn" id="finishBtn">Finish</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Use Firebase instances from firebase-config.js
+    let examAuth = null;
+    let examDb = null;
+    let examUser = null;
+
+    // Initialize Firebase by using the already-initialized instances
+    function initFirebase() {
+      try {
+        // Wait for firebase-config.js to load
+        if (window.firebaseAuth && window.firebaseDb) {
+          examAuth = window.firebaseAuth;
+          examDb = window.firebaseDb;
+
+          // Get current user
+          examUser = examAuth.currentUser;
+
+          // Listen for auth state changes
+          examAuth.onAuthStateChanged((user) => {
+            examUser = user;
+            if (user) {
+              console.log('[Exam] User signed in:', user.email);
+              // Load user's exam progress from Firestore
+              loadProgressFromFirestore();
+            } else {
+              console.log('[Exam] User signed out');
+              // Fall back to localStorage
+              loadProgress();
+            }
+          });
+
+          console.log('[Exam] Firebase connected');
+        } else {
+          console.log('[Exam] Firebase not available, using localStorage only');
+        }
+      } catch (error) {
+        console.error('[Exam] Firebase initialization error:', error);
+      }
+    }
+
+    // Exam data - Real questions from 2022 MEDI6003 exam
+    const examData = {
+      title: '2022 SAQ Exam',
+      totalQuestions: 39,
+      questions: [
+        {
+          id: 1,
+          text: 'Graph comparing prevalence of ESKD in Australia between Indigenous and non-Indigenous and based on remoteness in 2017',
+          subQuestions: [
+            'a. What is the epidemiological measure that is used in this graph?',
+            'b. What are 3 trends?',
+            'c. What are 2 underlying reasons for the trends?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 2,
+          text: 'Graph comparing BMI of individuals aged 18 and over from 1995 to 2017/18',
+          subQuestions: [
+            'a. What are 2 changes between the years?',
+            'b. What changed in the normal weight group?',
+            'c. What changed in the obese weight group?',
+            'd. Give 2 population level personal reasons for these changes',
+            'e. What is the modal change in the two groups?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 3,
+          text: 'Outline 3 questions to determine how obesogenic someone\'s home environment is',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 4,
+          text: 'Previous question about eczema and probiotics',
+          subQuestions: [
+            'a. Give the PICO break down of the question',
+            'b. Interpret the pooled relative risk of 0.74'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 5,
+          text: 'Interpret graph on pertussis notification rates in 2018-2020',
+          subQuestions: [
+            'a. Give 3 findings',
+            'b. What changed to pertussis vaccination schedule in 2015?',
+            'c. What clinical feature makes pertussis diagnosis probable?',
+            'd. What makes it confirmed?',
+            'e. What are 2 other changes that occured to reduce severe pertussis?',
+            'f. What is an absolute contraindication to the acellular pertussis vaccine'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 6,
+          text: '4 things to brief a translator on before consult with mother and son who recently immigrated from Ukraine',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 7,
+          text: 'Involuntary admission',
+          subQuestions: [
+            'a. 3 things a doctor must consider about a patient before admitting',
+            'b. 4 rights of involuntary admitted patients',
+            'c. 2 kinds of treatment there needs to be extra consent for despite involuntary admission'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 8,
+          text: '4 situations where it\'s okay to breach confidentiality',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 9,
+          text: 'Define impairment of a doctor and name 3 other types of notifiable conduct',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 10,
+          text: 'Drug seeking behaviour',
+          subQuestions: [
+            'a. 4 kinds of drug seeking behaviour besides anger and aggression',
+            'b. 2 most sought after drugs of dependence',
+            'c. 2 things put in place by practices / GPS to reduce drug seeking behaviour'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 11,
+          text: 'Morbid obese women, what are 4 obesogenic factors in her home',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 12,
+          text: '6 side effects of olanzapine',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 13,
+          text: '7 patient factors that led to wound infection and dehiscence',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 14,
+          text: '4 things to discuss with patient on lithium after relapse to ensure they stay well',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 15,
+          text: 'A child has many findings of bacterial meningitis and CSF microscopy shows gram negative diplococci.',
+          subQuestions: [
+            'a. Give 3 causative organisms for this bacterial meningitis',
+            'b. Give 2 empiric antibiotic treatments'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 16,
+          text: 'Xray of bony lesion on tibia',
+          subQuestions: [
+            'a. Give the 2 xray findings',
+            'b. Most likely diagnosis: osteosarcoma'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 17,
+          text: 'Situation where lady is described as giving the PE',
+          subQuestions: [
+            'a. What is the criteria used to assess probability and what is her probability',
+            'b. What is your next step in investigation',
+            'c. What are 2 imaging tests to diagnose'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 18,
+          text: '4 clinical features of moderate to severe aortic regurg',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 19,
+          text: '4 features of post strep GN (lab and/or clinical) and 4 non glomerular differentials of hematuria in a kid',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 20,
+          text: '4 risk factors for diabetic nephropathy in a diabetic and 4 clinical features',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 21,
+          text: 'Biggest risk factor post splenectomy and 3 things put in place to manage this risk',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 22,
+          text: '5 immediate management points for lady presenting at 29 weeks in contractions 5 minutes apart, closed cervix, in a rural hospital',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 23,
+          text: 'Child had afebrile seizure and signs of increased ICP 3 months after bacterial meningitis.',
+          subQuestions: [
+            'a. What is the diagnosis',
+            'b. 2 long-term sequelae not already mentioned/complications that can occur'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 24,
+          text: 'Man with short memory loss, MMSE 23/30, no loss of attention',
+          subQuestions: [
+            'a. Give 3 investigations',
+            'b. 3 differentials'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 25,
+          text: 'Woman presenting with nightmares and trouble sleeping after car accident 6 months ago',
+          subQuestions: [
+            'a. 4 differentials',
+            'b. 4 questions to clarify provisional diagnosis'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 26,
+          text: '2 types of gallstones',
+          subQuestions: [
+            'a. What type is most common',
+            'b. 4 risk factors for gallstones',
+            'c. 4 complications'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 27,
+          text: '6 differentials for post menopausal bleeding not on HRT',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 28,
+          text: 'Immediate hormonal treatment for menorrhagia and 6 long term treatments',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 29,
+          text: '25yr old male with back pain on background of sickle cell Anemia',
+          subQuestions: [
+            'a. What is the pathophysiology (2marks)?',
+            'b. What are the key goals of management for this admission?(3marks)'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 30,
+          text: '4 causative organisms of acute watery diarrhea in a six month old',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 31,
+          text: 'Patient with Cushings disease due to prolonged corticosteroid intake.',
+          subQuestions: [
+            'a. Two other causes other than iatrogenic',
+            'b. What steroid would you give for treatment?',
+            'c. Tests to confirm provisional diagnosis (2 marks)?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 32,
+          text: 'List the 4 stages of smoking cessation',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 33,
+          text: 'X-Ray and CT of SBO.',
+          subQuestions: [
+            'a. Describe the features on the X-ray and CT',
+            'b. Whats the Dx.'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 34,
+          text: 'Pleuritic chest pain, SOB of 53F with SLE...',
+          subQuestions: [
+            'a. What criteria can be used to gauge her PE?',
+            'b. What probability is she of PE?',
+            'c. What investigation to do next?',
+            'd. What 2 imaging can you do?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 35,
+          text: 'Evidence of benefits of ACE inhibitors in the treatment of heart failure',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 36,
+          text: 'What are 5 clinical features that are suspicious of breast cancer?',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 37,
+          text: 'What are 5 Risk factors for breast cancer aside from FHx, age, gender',
+          subQuestions: [],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 38,
+          text: 'A woman presents with acute minimal haematemesis...',
+          subQuestions: [
+            'a. Why is she tired & odematous?',
+            'b. What 3 aspects of the social history would you inquire about in order to determine the diagnosis?'
+          ],
+          answer: '',
+          flagged: false
+        },
+        {
+          id: 39,
+          text: 'Child with positive gram negative cocci on CSF...3 months later presents with seizure.',
+          subQuestions: [
+            'a. What is your diagnosis (1mark)?',
+            'b. What are two other long term sequale of the condition (2marks)?'
+          ],
+          answer: '',
+          flagged: false
+        }
+      ]
+    };
+
+    // State
+    let currentQuestionIndex = 0;
+    let timerStartTime = null;
+    let timerInterval = null;
+
+    // Timer functions
+    function startTimer() {
+      timerStartTime = Date.now();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+      const elapsed = Date.now() - timerStartTime;
+      const hours = Math.floor(elapsed / 3600000);
+      const minutes = Math.floor((elapsed % 3600000) / 60000);
+      const seconds = Math.floor((elapsed % 60000) / 1000);
+
+      const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      document.getElementById('examTimer').textContent = timeString;
+    }
+
+    // Initialize
+    function initExam() {
+      generateQuestionNav();
+      loadQuestion(0);
+
+      // Start the timer
+      startTimer();
+
+      // Initialize Firebase first
+      initFirebase();
+
+      // If no user is signed in after a short delay, load from localStorage
+      setTimeout(() => {
+        if (!examUser) {
+          loadProgress();
+        }
+      }, 1000);
+    }
+
+    // Generate question navigation buttons
+    function generateQuestionNav() {
+      const navList = document.getElementById('questionNavList');
+      navList.innerHTML = '';
+
+      examData.questions.forEach((q, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'question-nav-btn';
+
+        const questionLabel = document.createElement('span');
+        questionLabel.textContent = `${index + 1}`;
+
+        const flagIndicator = document.createElement('span');
+        flagIndicator.className = 'flag-indicator';
+        flagIndicator.textContent = '🚩';
+
+        btn.appendChild(questionLabel);
+        btn.appendChild(flagIndicator);
+
+        if (q.answer && q.answer.trim()) btn.classList.add('answered');
+        if (q.flagged) btn.classList.add('flagged');
+        if (index === currentQuestionIndex) btn.classList.add('active');
+
+        btn.addEventListener('click', () => loadQuestion(index));
+        navList.appendChild(btn);
+      });
+    }
+
+    // Load question
+    function loadQuestion(index) {
+      if (currentQuestionIndex !== index) {
+        saveCurrentAnswer();
+      }
+
+      currentQuestionIndex = index;
+      const question = examData.questions[index];
+
+      // Build question HTML
+      let html = `
+        <div class="question-content-wrapper">
+          <div class="question-header">
+            <div class="question-number">Question ${index + 1}</div>
+            <button class="flag-btn" id="flagBtn">
+              <span id="flagBtnText">${question.flagged ? 'Flagged' : 'Flag Question'}</span>
+            </button>
+          </div>
+          <div class="question-text">${question.text}`;
+
+      if (question.subQuestions && question.subQuestions.length > 0) {
+        html += '<div class="sub-questions">';
+        question.subQuestions.forEach(sq => {
+          html += `<div class="sub-question">${sq}</div>`;
+        });
+        html += '</div>';
+      }
+
+      html += `</div>
+          <div class="answer-area">
+            <textarea id="answerInput" class="answer-input" placeholder="Type your answer here...">${question.answer || ''}</textarea>
+          </div>
+        </div>`;
+
+      document.getElementById('questionContainer').innerHTML = html;
+
+      // Update flag button
+      const flagBtn = document.getElementById('flagBtn');
+      if (flagBtn) {
+        if (question.flagged) {
+          flagBtn.classList.add('flagged');
+        } else {
+          flagBtn.classList.remove('flagged');
+        }
+
+        // Add event listener to flag button
+        flagBtn.addEventListener('click', () => {
+          examData.questions[currentQuestionIndex].flagged = !examData.questions[currentQuestionIndex].flagged;
+          loadQuestion(currentQuestionIndex);
+        });
+      }
+
+      // Update navigation buttons
+      document.getElementById('prevBtn').disabled = index === 0;
+      document.getElementById('nextBtn').disabled = index === examData.totalQuestions - 1;
+
+      // Auto-save on input
+      document.getElementById('answerInput').addEventListener('input', () => {
+        saveCurrentAnswer();
+        generateQuestionNav();
+      });
+
+      generateQuestionNav();
+      saveProgress();
+    }
+
+    // Save current answer
+    function saveCurrentAnswer() {
+      const answerInput = document.getElementById('answerInput');
+      if (answerInput) {
+        examData.questions[currentQuestionIndex].answer = answerInput.value;
+        saveProgress();
+      }
+    }
+
+    // Save progress to Firestore (if authenticated) or localStorage
+    async function saveProgress() {
+      const progressData = {
+        currentQuestionIndex,
+        questions: examData.questions.map(q => ({
+          id: q.id,
+          answer: q.answer,
+          flagged: q.flagged
+        })),
+        lastUpdated: new Date().toISOString()
+      };
+
+      // Save to localStorage as fallback
+      localStorage.setItem('saq-2022-progress', JSON.stringify(progressData));
+
+      // Save to Firestore if authenticated
+      if (examUser && examDb) {
+        try {
+          await examDb.collection('users')
+            .doc(examUser.uid)
+            .collection('exams')
+            .doc('saq-2022')
+            .set(progressData, { merge: true });
+          console.log('[Exam] Progress saved to Firestore');
+        } catch (error) {
+          console.error('[Exam] Error saving to Firestore:', error);
+        }
+      }
+    }
+
+    // Load progress from Firestore
+    async function loadProgressFromFirestore() {
+      if (!examUser || !examDb) return;
+
+      try {
+        const doc = await examDb.collection('users')
+          .doc(examUser.uid)
+          .collection('exams')
+          .doc('saq-2022')
+          .get();
+
+        if (doc.exists) {
+          const progress = doc.data();
+          currentQuestionIndex = progress.currentQuestionIndex || 0;
+
+          // Restore answers and flags
+          if (progress.questions) {
+            progress.questions.forEach(savedQ => {
+              const question = examData.questions.find(q => q.id === savedQ.id);
+              if (question) {
+                question.answer = savedQ.answer || '';
+                question.flagged = savedQ.flagged || false;
+              }
+            });
+          }
+
+          console.log('[Exam] Progress loaded from Firestore');
+          loadQuestion(currentQuestionIndex);
+        } else {
+          // No Firestore data, check localStorage for migration
+          loadProgress();
+        }
+      } catch (error) {
+        console.error('[Exam] Error loading from Firestore:', error);
+        loadProgress();
+      }
+    }
+
+    // Load progress from localStorage
+    function loadProgress() {
+      const saved = localStorage.getItem('saq-2022-progress');
+      if (saved) {
+        const progress = JSON.parse(saved);
+        currentQuestionIndex = progress.currentQuestionIndex || 0;
+
+        // Restore answers and flags
+        if (progress.questions) {
+          progress.questions.forEach(savedQ => {
+            const question = examData.questions.find(q => q.id === savedQ.id);
+            if (question) {
+              question.answer = savedQ.answer || '';
+              question.flagged = savedQ.flagged || false;
+            }
+          });
+        }
+
+        loadQuestion(currentQuestionIndex);
+      }
+    }
+
+    // Function to return to SAQ Exams modal
+    function returnToExams() {
+      saveCurrentAnswer();
+      window.location.href = '../index.html#past-exams';
+    }
+
+    // Event listeners
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentQuestionIndex > 0) {
+        loadQuestion(currentQuestionIndex - 1);
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentQuestionIndex < examData.totalQuestions - 1) {
+        loadQuestion(currentQuestionIndex + 1);
+      }
+    });
+
+    document.getElementById('finishBtn').addEventListener('click', () => {
+      returnToExams();
+    });
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      returnToExams();
+    });
+
+    // Auto-save every 30 seconds
+    setInterval(saveCurrentAnswer, 30000);
+
+    // Check for existing progress and show modal if needed
+    function checkExistingProgress() {
+      const saved = localStorage.getItem('saq-2022-progress');
+      if (saved) {
+        const progress = JSON.parse(saved);
+        // Check if there's any actual progress (answered questions)
+        const hasProgress = progress.questions && progress.questions.some(q => q.answer && q.answer.trim());
+
+        if (hasProgress) {
+          // Show modal
+          const modal = document.getElementById('progressModal');
+          modal.style.display = 'flex';
+
+          // Handle continue button
+          document.getElementById('continueExamBtn').addEventListener('click', () => {
+            modal.style.display = 'none';
+            initExam();
+          });
+
+          // Handle reset button
+          document.getElementById('resetExamBtn').addEventListener('click', async () => {
+            if (!confirm('Are you sure you want to reset this exam? All progress will be permanently deleted.')) {
+              return;
+            }
+
+            // Clear Firestore first if available
+            if (examUser && examDb) {
+              try {
+                await examDb.collection('users')
+                  .doc(examUser.uid)
+                  .collection('exams')
+                  .doc('saq-2022')
+                  .delete();
+                console.log('[Exam] Progress deleted from Firestore');
+              } catch (error) {
+                console.error('[Exam] Error deleting from Firestore:', error);
+              }
+            }
+
+            // Clear localStorage
+            localStorage.removeItem('saq-2022-progress');
+            localStorage.removeItem('saq-2022-completed');
+
+            // Reset exam data in memory
+            examData.questions.forEach(q => {
+              q.answer = '';
+              q.flagged = false;
+            });
+
+            currentQuestionIndex = 0;
+            elapsedSeconds = 0;
+
+            modal.style.display = 'none';
+
+            // Reinitialize exam with fresh state
+            generateQuestionNav();
+            loadQuestion(0);
+            startTimer();
+          });
+
+          return; // Don't auto-initialize
+        }
+      }
+
+      // No progress found, initialize normally
+      initExam();
+    }
+
+    // Initialize
+    checkExistingProgress();
+  </script>
+</body>
+</html>

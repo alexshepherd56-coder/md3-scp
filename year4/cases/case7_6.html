@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 7.6 - Community Acquired Pneumonia | MD3 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 7.6 - Community Acquired Pneumonia | MD3 SCP Cases">
+  <meta name="description" content="Community acquired pneumonia case study for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://md3-scp.netlify.app/cases/case7_6.html">
+  <meta property="og:title" content="Case 7.6 - Community Acquired Pneumonia">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Community acquired pneumonia case study for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Case 7.6 - Community Acquired Pneumonia">
+  <meta property="twitter:description" content="Community acquired pneumonia case study for medical students.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 7.6 – Community Acquired Pneumonia</h1>
+    <p class="meta"><strong>Category:</strong> Respiratory System | <strong>Discipline:</strong> Medicine | <strong>Setting:</strong> General Practice</p>
+
+    <h2>Case</h2>
+    <p>Maria Abbe, aged 35 years, presents with fever, rigors and feeling unwell. She states that she has lost her appetite and has a headache. She has developed a cough which was short, painful and dry but today has changed and she is now coughing up 'stuff' and has developed pain in the left side of her chest.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What further history and examination would you undertake?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Duration of symptoms</strong></p>
+
+        <p><strong>Other systemic symptoms:</strong> Fever, rigors, shivering, nausea and vomiting, anorexia</p>
+
+        <p><strong>Other respiratory symptoms:</strong> Cough, appearance of sputum, pain history</p>
+
+        <p><strong>Past history:</strong> Intercurrent systemic illness, past history of pneumonia, past or current history of smoking, alcohol use</p>
+
+        <p><strong>Examination of the respiratory system including vital signs:</strong> BP, pulse, temperature, respiratory rate, pulse oximetry</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What investigations would you order?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Chest X-ray:</strong></p>
+        <ul>
+          <li>An x-ray is not essential but confident diagnosis necessitates chest radiography</li>
+          <li>In lobar pneumonia, a homogeneous opacity localised to the affected lobe or segment usually appears within 12-18 hours from the onset of the illness</li>
+          <li>Radiological examination is also helpful if a complication such as parapneumonic effusion, intrapulmonary abscess formation, or empyema is suspected</li>
+        </ul>
+
+        <p><strong>Microbial investigations:</strong></p>
+        <p>Tests ordered should be based on the severity of presenting symptoms.</p>
+        <p>Very unwell patients require more extensive investigations, both to identify the correct organism and therefore facilitate treatment. There may also be public health implications such as Legionnaires Disease. Microbiological investigations include:</p>
+        <ul>
+          <li>Sputum</li>
+          <li>Blood cultures</li>
+          <li>Serology</li>
+          <li>Cold agglutinins</li>
+        </ul>
+
+        <p><strong>Assessment of gas exchange:</strong></p>
+        <ul>
+          <li>Pulse oximetry provides a simple non-invasive method of measuring arterial oxygen saturation (SaO₂), and assists in monitoring response to oxygen therapy</li>
+          <li>An arterial blood gas should be sampled in those with SaO₂ < 92% or with features of severe pneumonia to assess whether the patient has evidence of ventilatory failure or acidosis</li>
+        </ul>
+
+        <p><strong>General blood tests:</strong></p>
+        <ul>
+          <li>The white cell count is often only marginally raised or may even be normal in patients with pneumonia caused by atypical organisms, whereas a neutrophil leucocytosis of more than 15 × 10⁹/l favours a bacterial aetiology</li>
+          <li>A very high (> 20 × 10⁹/l) or low (< 4 × 10⁹/l) white cell count may be seen in severe pneumonia</li>
+          <li>The urea and electrolytes and liver function tests should also be checked</li>
+          <li>The C-reactive protein (CRP) is typically elevated</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Describe how community acquired pneumonia usually presents.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Pneumonia typically presents as an acute illness in which systemic features such as fever, rigors, shivering and vomiting often predominate.</p>
+
+        <p>The appetite is usually lost and headache frequently reported.</p>
+
+        <p>Pulmonary symptoms include cough, which at first is characteristically short, painful and dry, but later accompanied by the expectoration of mucopurulent sputum. Rust-coloured sputum may be seen in patients with <em>Streptococcus pneumoniae</em>, and the occasional patient may report haemoptysis. Pleuritic chest pain may be a presenting feature and on occasion may be referred to the shoulder or anterior abdominal wall.</p>
+
+        <p>Upper abdominal tenderness is sometimes apparent in patients with lower lobe pneumonia or if there is associated hepatitis.</p>
+
+        <p>Less typical presentations may be seen in the very young and the elderly.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. List the common differential diagnosis of pneumonia.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Pulmonary infarction</li>
+          <li>Pulmonary/pleural TB</li>
+          <li>Pulmonary oedema (can be unilateral)</li>
+          <li>Pulmonary eosinophilia</li>
+          <li>Malignancy: bronchoalveolar cell carcinoma</li>
+          <li>Rare disorders: cryptogenic organising pneumonia/bronchiolitis obliterans organising pneumonia (COP/BOOP)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. List the 4 common organisms and the presentation associated with each of these.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+          <tr style="background-color: #f2f2f2;">
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 25%;">Organism</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Clinical features</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;"><strong><em>Streptococcus pneumoniae</em></strong></td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Most common in winter. All age groups but particularly young to middle-aged. Rapid onset, high fever, pleuritic chest pain, herpes labialis, 'rusty' sputum. Bacteraemia is more common in women and patients with diabetes and COPD</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="border: 1px solid #ddd; padding: 8px;"><strong><em>Chlamydia pneumoniae</em></strong></td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Young to middle-aged, large-scale epidemics, or sporadic, often mild, self-limiting disease. Headaches and a longer duration of symptoms before hospital admission. Usually diagnosed on serology</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;"><strong><em>Mycoplasma pneumoniae</em></strong></td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Children and young adults. Common in autumn. Epidemics occur every 3-4 years. Rare complications include haemolytic anaemia, Stevens-Johnson syndrome</td>
+          </tr>
+          <tr style="background-color: #f9f9f9;">
+            <td style="border: 1px solid #ddd; padding: 8px;"><strong><em>Legionella pneumophila</em></strong></td>
+            <td style="border: 1px solid #ddd; padding: 8px;">Middle to old age, recent foreign travel, local epidemics around point source, e.g. cooling tower. A variety of features are said to be more common such as headache, confusion, malaise, myalgia, high fever and diarrhoea. Laboratory results include hyponatraemia, elevated liver enzymes, hypoalbuminaemia and elevated creatine kinase. Chest X-ray appearances may be slow to resolve.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Summarise your approach to the microbiological investigation of a patient with suspected community acquired pneumonia.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>All patients:</strong></p>
+        <ul>
+          <li><strong>Sputum:</strong> Direct smear by Gram and Ziehl-Neelsen stains. Culture and antimicrobial sensitivity testing</li>
+          <li><strong>Blood culture:</strong> Frequently positive in pneumococcal pneumonia</li>
+          <li><strong>Serology:</strong> Acute and convalescent titres to diagnose <em>Mycoplasma</em>, <em>Chlamydia</em>, <em>Legionella</em> and viral infections. Pneumococcal antigen detection in serum</li>
+        </ul>
+
+        <p><strong>Severe community acquired pneumonia:</strong></p>
+        <p>The above tests <em>plus</em> consider:</p>
+        <ul>
+          <li>Tracheal aspirate, induced sputum, bronchoalveolar lavage, protected brush specimen or percutaneous needle aspiration. Direct fluorescent antibody stain for <em>Legionella</em> and viruses</li>
+          <li><strong>Serology:</strong> <em>Legionella</em> antigen in urine. Pneumococcal antigen in sputum and blood. Immediate IgM for <em>Mycoplasma</em></li>
+          <li><strong>Cold agglutinins:</strong> Positive in 50% of patients with <em>Mycoplasma</em></li>
+        </ul>
+
+        <p><strong>Selected patients:</strong></p>
+        <ul>
+          <li><strong>Throat/nasopharyngeal swabs:</strong> Helpful in children or during influenza epidemic</li>
+          <li><strong>Pleural fluid:</strong> Should always be sampled when present in more than trivial amounts, preferably with ultrasound guidance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

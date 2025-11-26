@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2024 MCQ Exam - MD3 SCP</title>
+
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="stylesheet" href="../../css/main.css?v=20251109-1">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/access-control.js"></script>
+
+  <style>
+    /* Exam-specific styles */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .exam-container {
+      display: flex;
+      height: 100vh;
+      background: var(--claude-cream);
+    }
+
+    /* Top header bar */
+    .exam-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--claude-sidebar);
+      border-bottom: 1px solid var(--claude-border);
+      padding: 16px 40px 16px 140px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .exam-title-section {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      flex: 1;
+    }
+
+    .exam-timer {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      color: var(--claude-text);
+      font-weight: 400;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .back-home-btn {
+      position: absolute;
+      left: -124px;
+      padding: 8px 16px;
+      background: var(--claude-card-bg);
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-home-btn:hover {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .exam-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--claude-text);
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .exam-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .flag-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .flag-btn:hover {
+      border-color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.05);
+    }
+
+    .flag-btn.flagged {
+      background: #ff6b6b;
+      border-color: #ff6b6b;
+      color: white;
+    }
+
+    /* Sidebar with question navigation */
+    .exam-sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 100vh;
+      background: var(--claude-sidebar);
+      border-right: 1px solid var(--claude-border);
+      padding: 112px 16px 24px 16px;
+      overflow-y: auto;
+      z-index: 50;
+    }
+
+    .question-nav-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--claude-secondary);
+      margin: 0 0 16px 0;
+    }
+
+    .question-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .question-nav-btn {
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 2px solid var(--claude-border);
+      background: var(--claude-card-bg);
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--claude-text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .question-nav-btn:hover {
+      border-color: #1e3a5f;
+      background: rgba(30, 58, 95, 0.1);
+    }
+
+    .question-nav-btn.active {
+      background: rgba(30, 58, 95, 0.1);
+      color: var(--claude-text);
+      border-color: #1e3a5f;
+    }
+
+    .question-nav-btn.answered {
+      background: #1e3a5f;
+      color: white;
+      border-color: #1e3a5f;
+    }
+
+    .question-nav-btn.answered.active {
+      background: #1e3a5f;
+      color: white;
+      border-color: #1e3a5f;
+    }
+
+    .question-nav-btn .flag-indicator {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      font-size: 18px;
+      display: none;
+    }
+
+    .question-nav-btn.flagged .flag-indicator {
+      display: block;
+    }
+
+    /* Main content area */
+    .exam-content {
+      margin-top: 72px;
+      margin-left: 100px;
+      width: calc(100% - 100px);
+      min-width: calc(100% - 100px);
+      max-width: calc(100% - 100px);
+      height: calc(100vh - 72px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: fixed;
+      right: 0;
+    }
+
+    .question-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 40px;
+      padding-bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .question-content-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      box-sizing: border-box;
+    }
+
+    .question-content-wrapper > * {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    .question-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .question-number {
+      font-size: 20px;
+      font-weight: 400;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--claude-text);
+    }
+
+    .question-header .flag-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .question-header .flag-btn:hover {
+      border-color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.05);
+    }
+
+    .question-header .flag-btn.flagged {
+      background: #ff6b6b;
+      border-color: #ff6b6b;
+      color: white;
+    }
+
+    .question-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--claude-text);
+      margin-bottom: 24px;
+      padding: 24px;
+      background: var(--claude-card-bg);
+      border: 1px solid var(--claude-border);
+      border-radius: 12px;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    /* MCQ Options Styling */
+    .mcq-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+      width: 100%;
+    }
+
+    .mcq-option {
+      padding: 16px 20px;
+      padding-right: 110px;
+      border: 2px solid var(--claude-border);
+      border-radius: 12px;
+      background: var(--claude-card-bg);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--claude-text);
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .mcq-option:hover {
+      border-color: #1e3a5f;
+      background: rgba(30, 58, 95, 0.1);
+    }
+
+    .mcq-option.selected {
+      border-color: #1e3a5f;
+      background: rgba(30, 58, 95, 0.1);
+      color: var(--claude-text);
+    }
+
+    .mcq-option-label {
+      font-weight: 600;
+      min-width: 24px;
+      font-family: var(--font-sans);
+    }
+
+    .mcq-option-check {
+      position: absolute;
+      right: 20px;
+      color: #1e3a5f;
+      font-size: 20px;
+      font-weight: bold;
+      display: none !important;
+    }
+
+    .your-answer-label {
+      position: absolute;
+      right: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font-serif);
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .mcq-option .your-answer-label.show {
+      display: flex;
+    }
+
+    .your-answer-label.correct {
+      color: #4CAF50;
+    }
+
+    .your-answer-label.incorrect {
+      color: #f44336;
+    }
+
+    .mcq-option.correct-highlight {
+      border-color: #4CAF50;
+      background: rgba(76, 175, 80, 0.2);
+      font-weight: 600;
+    }
+
+    .mcq-option.incorrect-highlight {
+      border-color: #f44336;
+      background: rgba(244, 67, 54, 0.1);
+    }
+
+    /* Show Answer Section */
+    .show-answer-section {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--claude-border);
+    }
+
+    .show-answer-btn {
+      padding: 10px 20px;
+      background: var(--claude-card-bg);
+      border: 2px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .show-answer-btn:hover {
+      border-color: #4CAF50;
+      background: rgba(76, 175, 80, 0.1);
+    }
+
+    .correct-answer-display {
+      margin-top: 16px;
+      padding: 16px;
+      background: rgba(76, 175, 80, 0.1);
+      border: 2px solid #4CAF50;
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 15px;
+    }
+
+    .correct-answer-display strong {
+      color: #4CAF50;
+    }
+
+    .question-actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 24px 40px;
+      border-top: 1px solid var(--claude-border);
+      background: var(--claude-sidebar);
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .nav-buttons-left {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      padding: 12px 24px;
+      background: var(--claude-card-bg);
+      border: 1.5px solid var(--claude-border);
+      border-radius: 8px;
+      color: var(--claude-text);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .nav-btn.primary {
+      background: #1e3a5f;
+      color: white;
+      border-color: #1e3a5f;
+    }
+
+    .nav-btn.primary:hover:not(:disabled) {
+      background: #0A2540;
+    }
+
+    .finish-btn {
+      padding: 12px 24px;
+      background: #1e3a5f;
+      border: 1.5px solid #1e3a5f;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .finish-btn:hover {
+      background: #0A2540;
+      border-color: #0A2540;
+    }
+
+    /* Results Modal */
+    .results-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .results-modal.show {
+      display: flex;
+    }
+
+    .results-content {
+      background: var(--claude-card-bg);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .results-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .results-header h2 {
+      color: var(--claude-text);
+      font-size: 32px;
+      margin: 0 0 16px 0;
+    }
+
+    .results-score {
+      font-size: 48px;
+      font-weight: bold;
+      color: #4CAF50;
+      margin: 16px 0;
+    }
+
+    .results-stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 24px 0;
+      padding: 20px;
+      background: var(--claude-bg);
+      border-radius: 12px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--claude-text);
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--claude-muted);
+      margin-top: 4px;
+    }
+
+    .results-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .results-btn {
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid var(--claude-border);
+      background: var(--claude-card-bg);
+      color: var(--claude-text);
+    }
+
+    .results-btn.primary {
+      background: #1e3a5f;
+      border-color: #1e3a5f;
+      color: white;
+    }
+
+    .results-btn.primary:hover {
+      background: #0A2540;
+      border-color: #0A2540;
+    }
+
+    .results-btn:hover {
+      border-color: #1e3a5f;
+      background: rgba(30, 58, 95, 0.1);
+    }
+
+    /* Review Mode */
+    .review-mode-banner {
+      display: none;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--claude-border);
+      border-radius: 0;
+      padding: 8px 20px;
+      margin-bottom: 16px;
+      text-align: left;
+      color: var(--claude-secondary);
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .review-mode-banner.show {
+      display: block;
+    }
+    /* Progress Check Modal */
+    .progress-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10001;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .progress-modal-content {
+      background: var(--claude-card-bg);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .progress-modal h2 {
+      margin: 0 0 16px 0;
+      font-size: 24px;
+      color: var(--claude-text);
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .progress-modal p {
+      margin: 0 0 24px 0;
+      font-size: 16px;
+      color: var(--claude-secondary);
+      line-height: 1.5;
+    }
+
+    .progress-modal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .progress-modal-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid;
+    }
+
+    .progress-modal-btn.reset {
+      background: white;
+      border-color: var(--claude-border);
+      color: var(--claude-text);
+    }
+
+    .progress-modal-btn.reset:hover {
+      background: var(--claude-light-accent);
+      border-color: var(--claude-accent);
+    }
+
+    .progress-modal-btn.continue {
+      background: #1e3a5f;
+      border-color: #1e3a5f;
+      color: white;
+    }
+
+    .progress-modal-btn.continue:hover {
+      background: #0A2540;
+      border-color: #0A2540;
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress Check Modal -->
+  <div class="progress-modal" id="progressModal">
+    <div class="progress-modal-content">
+      <h2>Continue Exam?</h2>
+      <p>Would you like to continue where you left off, or reset and start a new attempt?</p>
+      <div class="progress-modal-buttons">
+        <button class="progress-modal-btn reset" id="resetExamBtn">Reset Exam</button>
+        <button class="progress-modal-btn continue" id="continueExamBtn">Continue Current Attempt</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-container">
+    <!-- Top header bar -->
+    <div class="exam-header">
+      <div class="exam-title-section">
+        <button class="back-home-btn" id="backBtn">
+          <span>←</span> Back
+        </button>
+        <h1 class="exam-title">2024 MCQ Exam</h1>
+      </div>
+
+      <div class="exam-actions">
+        <div class="exam-timer" id="examTimer">00:00:00</div>
+      </div>
+    </div>
+
+    <!-- Sidebar with question navigation -->
+    <div class="exam-sidebar">
+      <div class="question-nav-list" id="questionNavList">
+        <!-- Question buttons will be generated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="exam-content">
+      <div class="review-mode-banner" id="reviewModeBanner">
+        Review Mode
+      </div>
+      <div class="question-container" id="questionContainer">
+        <!-- Question content will be loaded here -->
+      </div>
+
+      <div class="question-actions">
+        <div class="nav-buttons-left">
+          <button class="nav-btn" id="prevBtn">← Previous</button>
+          <button class="nav-btn primary" id="nextBtn">Next →</button>
+        </div>
+        <button class="finish-btn" id="finishBtn">Submit & Review Answers</button>
+        <button class="finish-btn" id="finishReviewBtn" style="display: none;">Finish Review</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Modal -->
+  <div class="results-modal" id="resultsModal">
+    <div class="results-content">
+      <div class="results-header">
+        <h2>Exam Complete!</h2>
+        <div class="results-score" id="resultsScore">0%</div>
+      </div>
+
+      <div class="results-stats">
+        <div class="stat-item">
+          <div class="stat-value" id="correctCount">0</div>
+          <div class="stat-label">Correct</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="incorrectCount">0</div>
+          <div class="stat-label">Incorrect</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="unansweredCount">0</div>
+          <div class="stat-label">Unanswered</div>
+        </div>
+      </div>
+
+      <div class="results-actions">
+        <button class="results-btn primary" id="reviewAnswersBtn">Review Answers</button>
+        <button class="results-btn" id="resetExamBtn">Reset & Try Again</button>
+        <button class="results-btn" id="backToExamsBtn">Back to Exams</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Use Firebase instances from firebase-config.js
+    let examAuth = null;
+    let examDb = null;
+    let examUser = null;
+
+    // Initialize Firebase by using the already-initialized instances
+    function initFirebase() {
+      try {
+        // Wait for firebase-config.js to load
+        if (window.firebaseAuth && window.firebaseDb) {
+          examAuth = window.firebaseAuth;
+          examDb = window.firebaseDb;
+
+          // Get current user
+          examUser = examAuth.currentUser;
+
+          // Listen for auth state changes
+          examAuth.onAuthStateChanged((user) => {
+            examUser = user;
+            if (user) {
+              console.log('[Exam] User signed in:', user.email);
+              // Load user's exam progress from Firestore
+              loadProgressFromFirestore();
+            } else {
+              console.log('[Exam] User signed out');
+              // Fall back to localStorage
+              loadProgress();
+            }
+          });
+
+          console.log('[Exam] Firebase connected');
+        } else {
+          console.log('[Exam] Firebase not available, using localStorage only');
+        }
+      } catch (error) {
+        console.error('[Exam] Firebase initialization error:', error);
+      }
+    }
+
+    // Exam data - Real questions from 2024 Y3 MCQs
+    const examData = {
+      title: '2024 MCQ Exam',
+      totalQuestions: 57,
+      questions: [
+        {
+          id: 1,
+          text: "Post–C‑section GA patient develops rhonchi/rales 12h postop. Prevention?",
+          options: ["Regional anaesthesia", "Premedication (ramantidine)", "NGT suction", "Proper extubation technique"],
+          correctAnswer: 3,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 2,
+          text: "PID picture: CMT, discharge. Empiric abx?",
+          options: ["Doxycycline", "Azithromycin", "Metronidazole", "Clindamycin"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 3,
+          text: "Cancer risk in Barrett's?",
+          options: ["Adenocarcinoma", "Squamous", "Adenosquamous", "Small cell"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 4,
+          text: "20mm isolated thyroid nodule – most likely?",
+          options: ["Papillary", "Medullary", "Follicular", "Anaplastic"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 5,
+          text: "Infant hyperbilirubinaemia + seizures?",
+          options: ["Kernicterus", "IVH", "Meningitis", "Encephalitis"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 6,
+          text: "Dramatic, attention‑seeking, provocative.",
+          options: ["Bipolar", "Histrionic", "Borderline", "Antisocial"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 7,
+          text: "Linear vesicles after gardening.",
+          options: ["Spinal nerve", "Subcutaneous", "Dorsal root ganglion", "Dermis"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 8,
+          text: "Membranous tonsils + lymphadenopathy + HSM.",
+          options: ["ASO titre", "Bone marrow blasts", "Atypical lymphocytes", "CMV serology"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 9,
+          text: "Fixed split S2.",
+          options: ["VSD", "ASD", "Pulmonary stenosis", "Aortic stenosis"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 10,
+          text: "Monitoring for methotrexate?",
+          options: ["Biweekly LFTs", "Quarterly renal", "Chest X‑ray", "Monthly FBC"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 11,
+          text: "Cause of megaloblastic anaemia?",
+          options: ["Crohn's", "Methotrexate", "Alcohol misuse", "Folate deficiency"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 12,
+          text: "RLQ pain + severe acidosis.",
+          options: ["DKA", "Appendicitis", "Mesenteric adenitis", "IBD flare"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 13,
+          text: "Obvious BPH.",
+          options: ["Alpha‑blocker", "TURP", "5‑ARI", "Watchful waiting"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 14,
+          text: "BPH investigation?",
+          options: ["Prostate US", "PSA", "CT pelvis", "MRI"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 15,
+          text: "UC + jaundice + pruritus + large gallbladder.",
+          options: ["Cholangiocarcinoma", "Cholestasis", "Pancreatic cancer", "Periampullary tumour"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 16,
+          text: "80y delirium + UTI.",
+          options: ["Reassure", "Oral abx", "IV abx", "Fluids only"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 17,
+          text: "Hydrops fetalis cause?",
+          options: ["Parvovirus B19", "Rubella", "Toxoplasmosis", "Syphilis"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 18,
+          text: "Post‑hysterectomy fever day 5.",
+          options: ["Pelvic abscess", "Wound infection", "Atelectasis", "UTI"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 19,
+          text: "Post‑oesophagectomy fever <24h.",
+          options: ["Atelectasis", "Pneumonia", "PE", "UTI"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 20,
+          text: "Child rash, no anaphylaxis.",
+          options: ["Refer allergist", "Steroid cream", "Antihistamine", "PO steroids"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 21,
+          text: "Floppy baby + tongue fasciculations.",
+          options: ["SMA", "Botulism", "Myopathy", "Myasthenia"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 22,
+          text: "4‑day fever then rash.",
+          options: ["Erythema infectiosum", "Roseola", "Measles", "Rubella"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 23,
+          text: "Confirm psoriasis?",
+          options: ["HLA‑B27", "RF", "Biopsy", "ANA"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 24,
+          text: "Candidiasis test?",
+          options: ["Clue cells", "Brown agar", "Pseudohyphae", "Gram‑positive cocci"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 25,
+          text: "ACL rupture imaging?",
+          options: ["MRI", "US", "X‑ray", "CT"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 26,
+          text: "Locked knee, medial joint tenderness.",
+          options: ["Meniscus tear", "ACL tear", "MCL sprain", "Plica syndrome"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 27,
+          text: "Unilateral swollen hand, prior podagra.",
+          options: ["Gout", "RA", "CRPS", "Cellulitis"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 28,
+          text: "Absent DP + PT pulses.",
+          options: ["Popliteal occlusion", "Common femoral", "Posterior tibial", "Superficial femoral"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 29,
+          text: "Fibromyalgia next step.",
+          options: ["CBT + amitriptyline", "RF/ANA", "Opioids", "X‑ray"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 30,
+          text: "Hyperpigmentation + hyponatraemia.",
+          options: ["T1DM", "T2DM", "Addison's", "Pancreatic ca"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 31,
+          text: "Mastitis febrile mother.",
+          options: ["Reassure", "Stop feeding", "Flucloxacillin", "Ibuprofen"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 32,
+          text: "Pregnant exposed to shingles.",
+          options: ["Education", "ZIg", "ZIg if seronegative", "Deliver"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 33,
+          text: "Claudication + nocturnal chest pain.",
+          options: ["Unstable angina", "PAD", "AAA", "Aortic stenosis"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 34,
+          text: "Irreducible tender inguinal lump.",
+          options: ["Urgent surgery", "CT", "US", "FNA"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 35,
+          text: "CST high grade.",
+          options: ["Colposcopy + biopsy", "Repeat 6m", "LEEP", "Hysterectomy"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 36,
+          text: "Alcoholic with confusion, ataxia, nystagmus.",
+          options: ["IV thiamine", "Benzodiazepine", "Haloperidol", "IV saline"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 37,
+          text: "Allergic to cats.",
+          options: ["Allergy test", "IDA screen", "CT sinus", "Spirometry"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 38,
+          text: "Pancytopenia.",
+          options: ["Aplastic anaemia", "ITP", "TTP", "CML"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 39,
+          text: "Migraines 6 months + aura.",
+          options: ["Beta‑blocker prophylaxis", "Triptan", "MRI", "Steroids"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 40,
+          text: "Pulmonary oedema HTN crisis.",
+          options: ["IV diuretics", "Nitroprusside", "Beta‑blocker", "CPAP"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 41,
+          text: "Suspected OSA.",
+          options: ["Epworth", "Polysomnography", "Home oximetry", "CT neck"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 42,
+          text: "Pneumonia consolidation cause.",
+          options: ["Bacterial", "Viral", "Aspiration", "Fungal"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 43,
+          text: "Persecutory delusion.",
+          options: ["Persecutory", "Grandiose", "Somatic", "Nihilistic"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 44,
+          text: "Severe bipolar relapse.",
+          options: ["Restart lithium", "SSRI", "ECT only", "Benzo only"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 45,
+          text: "Dysthymia vs MDD.",
+          options: ["Dysthymia", "MDD", "Both", "Neither"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 46,
+          text: "Chocolate cyst future risk.",
+          options: ["Infertility", "Cancer", "Amenorrhoea", "PID"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 47,
+          text: "Primary infertility long cycles.",
+          options: ["PCOS", "Tubal", "Endometriosis", "Ovulatory dysfunction"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 48,
+          text: "Oligomenorrhoea + dyspareunia + cystic ovary.",
+          options: ["PCOS", "Endometrioma", "Dermoid", "Functional"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 49,
+          text: "Pregnant RLQ pain.",
+          options: ["Urgent surgery", "US placenta", "CT abdo", "Observe"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 50,
+          text: "31‑week FH lag.",
+          options: ["Incorrect dates", "IUGR", "Fibroids", "Twins"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 51,
+          text: "VBAC stable at 4cm.",
+          options: ["C‑section", "Induce", "ARM", "Continue labour"],
+          correctAnswer: 3,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 52,
+          text: "CTG normal variability.",
+          options: ["Sinusoidal", "Frequent contractions", "Normal variability", "Late decels"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 53,
+          text: "Irregular heavy periods.",
+          options: ["FSH", "TSH", "Pelvic USS", "HCG"],
+          correctAnswer: 2,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 54,
+          text: "16‑month fever + UTI signs.",
+          options: ["DKA", "Sepsis", "Pylonic stenosis", "UTI"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 55,
+          text: "Amenorrhoea, thin teen.",
+          options: ["Anorexia", "PCOS", "Thyroid", "Pregnancy"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 56,
+          text: "Metabolic acidosis → RLQ pain.",
+          options: ["DKA", "Appendicitis", "Mesenteric", "Intussusception"],
+          correctAnswer: 1,
+          selectedAnswer: null,
+          flagged: false
+        },
+        {
+          id: 57,
+          text: "Rickets XR.",
+          options: ["Metaphyseal cupping", "Lytic lesions", "Sclerosis", "New bone"],
+          correctAnswer: 0,
+          selectedAnswer: null,
+          flagged: false
+        }
+      ]
+    };
+
+    // State
+    let currentQuestionIndex = 0;
+    let timerStartTime = null;
+    let timerInterval = null;
+    let isReviewMode = false;
+    let pausedElapsed = 0;
+
+    // Timer functions
+    function startTimer() {
+      timerStartTime = Date.now() - pausedElapsed;
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function pauseTimer() {
+      if (timerInterval) {
+        pausedElapsed = Date.now() - timerStartTime;
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    function resumeTimer() {
+      if (!timerInterval) {
+        startTimer();
+      }
+    }
+
+    function updateTimer() {
+      const elapsed = Date.now() - timerStartTime;
+      const hours = Math.floor(elapsed / 3600000);
+      const minutes = Math.floor((elapsed % 3600000) / 60000);
+      const seconds = Math.floor((elapsed % 60000) / 1000);
+
+      const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      document.getElementById('examTimer').textContent = timeString;
+    }
+
+    // Initialize
+    function initExam() {
+      generateQuestionNav();
+      loadQuestion(0);
+
+      // Start the timer
+      startTimer();
+
+      // Initialize Firebase first
+      initFirebase();
+
+      // If no user is signed in after a short delay, load from localStorage
+      setTimeout(() => {
+        if (!examUser) {
+          loadProgress();
+        }
+      }, 1000);
+    }
+
+    // Generate question navigation buttons
+    function generateQuestionNav() {
+      const navList = document.getElementById('questionNavList');
+      navList.innerHTML = '';
+
+      examData.questions.forEach((q, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'question-nav-btn';
+
+        // Just show the number
+        btn.textContent = index + 1;
+
+        const flagIndicator = document.createElement('span');
+        flagIndicator.className = 'flag-indicator';
+        flagIndicator.textContent = '🚩';
+
+        btn.appendChild(flagIndicator);
+
+        if (q.selectedAnswer !== null && q.selectedAnswer !== undefined) btn.classList.add('answered');
+        if (q.flagged) btn.classList.add('flagged');
+        if (index === currentQuestionIndex) btn.classList.add('active');
+
+        btn.addEventListener('click', () => loadQuestion(index));
+        navList.appendChild(btn);
+      });
+    }
+
+    // Load question
+    function loadQuestion(index) {
+      if (currentQuestionIndex !== index) {
+        saveCurrentAnswer();
+      }
+
+      currentQuestionIndex = index;
+      const question = examData.questions[index];
+
+      // Build question HTML
+      let html = `
+        <div class="question-content-wrapper">
+          <div class="question-header">
+            <div class="question-number">Question ${index + 1}</div>
+            <button class="flag-btn" id="flagBtn">
+              <span id="flagBtnText">${question.flagged ? 'Flagged' : 'Flag Question'}</span>
+            </button>
+          </div>
+          <div class="question-text">${question.text}</div>
+          <div class="mcq-options">`;
+
+      // Add MCQ options
+      question.options.forEach((option, optIndex) => {
+        const optionLetter = String.fromCharCode(65 + optIndex); // A, B, C, D
+        const isSelected = question.selectedAnswer === optIndex;
+        html += `
+          <div class="mcq-option ${isSelected ? 'selected' : ''}" data-option-index="${optIndex}">
+            <span class="mcq-option-label">${optionLetter}</span>
+            <span>${option}</span>
+            <span class="mcq-option-check">✓</span>
+            <span class="your-answer-label">Your answer</span>
+          </div>`;
+      });
+
+      html += `
+          </div>
+        </div>`;
+
+      document.getElementById('questionContainer').innerHTML = html;
+
+      // Update flag button
+      const flagBtn = document.getElementById('flagBtn');
+      if (flagBtn) {
+        if (question.flagged) {
+          flagBtn.classList.add('flagged');
+        } else {
+          flagBtn.classList.remove('flagged');
+        }
+
+        // Add event listener to flag button
+        flagBtn.addEventListener('click', () => {
+          examData.questions[currentQuestionIndex].flagged = !examData.questions[currentQuestionIndex].flagged;
+          loadQuestion(currentQuestionIndex);
+        });
+      }
+
+      // Add event listeners to MCQ options
+      document.querySelectorAll('.mcq-option').forEach(optionEl => {
+        optionEl.addEventListener('click', () => {
+          const optionIndex = parseInt(optionEl.dataset.optionIndex);
+          selectAnswer(optionIndex);
+        });
+      });
+
+      // Update navigation buttons
+      document.getElementById('prevBtn').disabled = index === 0;
+      document.getElementById('nextBtn').disabled = index === examData.totalQuestions - 1;
+
+      // If in review mode, automatically show the correct answer
+      if (isReviewMode) {
+        const correctIndex = question.correctAnswer;
+        const correctLetter = String.fromCharCode(65 + correctIndex);
+        const correctOption = question.options[correctIndex];
+
+        // Show the correct answer display
+        const correctAnswerDisplay = document.getElementById('correctAnswerDisplay');
+        const correctAnswerText = document.getElementById('correctAnswerText');
+        if (correctAnswerDisplay && correctAnswerText) {
+          correctAnswerText.textContent = `${correctLetter} - ${correctOption}`;
+          correctAnswerDisplay.style.display = 'block';
+        }
+
+        // Highlight correct and incorrect answers
+        document.querySelectorAll('.mcq-option').forEach((optionEl, idx) => {
+          if (idx === correctIndex) {
+            optionEl.classList.add('correct-highlight');
+          } else if (question.selectedAnswer === idx && idx !== correctIndex) {
+            optionEl.classList.add('incorrect-highlight');
+          }
+
+          // Show correct/incorrect label on student's selected answer
+          if (question.selectedAnswer === idx) {
+            const yourAnswerLabel = optionEl.querySelector('.your-answer-label');
+            if (yourAnswerLabel) {
+              if (idx === correctIndex) {
+                // Correct answer
+                yourAnswerLabel.innerHTML = '✓ Correct';
+                yourAnswerLabel.classList.add('correct');
+              } else {
+                // Incorrect answer
+                yourAnswerLabel.innerHTML = '✗ Incorrect';
+                yourAnswerLabel.classList.add('incorrect');
+              }
+              yourAnswerLabel.classList.add('show');
+            }
+          }
+        });
+
+        // Change show answer button text
+        const showAnswerBtn = document.getElementById('showAnswerBtn');
+        if (showAnswerBtn) {
+          showAnswerBtn.textContent = 'Answer Shown';
+          showAnswerBtn.disabled = true;
+          showAnswerBtn.style.opacity = '0.6';
+          showAnswerBtn.style.cursor = 'not-allowed';
+        }
+
+        // Disable clicking on options in review mode
+        document.querySelectorAll('.mcq-option').forEach(optionEl => {
+          optionEl.style.cursor = 'default';
+          optionEl.onclick = null;
+        });
+      }
+
+      generateQuestionNav();
+      saveProgress();
+    }
+
+    // Select an answer
+    function selectAnswer(optionIndex) {
+      const currentSelection = examData.questions[currentQuestionIndex].selectedAnswer;
+
+      // If clicking the same option, unselect it
+      if (currentSelection === optionIndex) {
+        examData.questions[currentQuestionIndex].selectedAnswer = null;
+
+        // Remove selection from all options
+        document.querySelectorAll('.mcq-option').forEach(el => {
+          el.classList.remove('selected');
+        });
+      } else {
+        // Select the new option
+        examData.questions[currentQuestionIndex].selectedAnswer = optionIndex;
+
+        // Update visual selection
+        document.querySelectorAll('.mcq-option').forEach((el, idx) => {
+          if (idx === optionIndex) {
+            el.classList.add('selected');
+          } else {
+            el.classList.remove('selected');
+          }
+        });
+      }
+
+      saveProgress();
+      generateQuestionNav();
+    }
+
+    // Save current answer
+    function saveCurrentAnswer() {
+      // No need to save anything as MCQ selection is handled immediately
+      saveProgress();
+    }
+
+    // Save progress to Firestore (if authenticated) or localStorage
+    async function saveProgress() {
+      const progressData = {
+        currentQuestionIndex,
+        questions: examData.questions.map(q => ({
+          id: q.id,
+          selectedAnswer: q.selectedAnswer,
+          flagged: q.flagged
+        })),
+        lastUpdated: new Date().toISOString()
+      };
+
+      // Save to localStorage as fallback
+      localStorage.setItem('mcq-2024-progress', JSON.stringify(progressData));
+
+      // Save to Firestore if authenticated
+      if (examUser && examDb) {
+        try {
+          await examDb.collection('users')
+            .doc(examUser.uid)
+            .collection('exams')
+            .doc('mcq-2024')
+            .set(progressData, { merge: true });
+          console.log('[Exam] Progress saved to Firestore');
+        } catch (error) {
+          console.error('[Exam] Error saving to Firestore:', error);
+        }
+      }
+    }
+
+    // Load progress from Firestore
+    async function loadProgressFromFirestore() {
+      if (!examUser || !examDb) return;
+
+      try {
+        const doc = await examDb.collection('users')
+          .doc(examUser.uid)
+          .collection('exams')
+          .doc('mcq-2024')
+          .get();
+
+        if (doc.exists) {
+          const progress = doc.data();
+          currentQuestionIndex = progress.currentQuestionIndex || 0;
+
+          // Restore answers and flags
+          if (progress.questions) {
+            progress.questions.forEach(savedQ => {
+              const question = examData.questions.find(q => q.id === savedQ.id);
+              if (question) {
+                question.selectedAnswer = savedQ.selectedAnswer;
+                question.flagged = savedQ.flagged || false;
+              }
+            });
+          }
+
+          console.log('[Exam] Progress loaded from Firestore');
+          loadQuestion(currentQuestionIndex);
+        } else {
+          // No Firestore data, check localStorage for migration
+          loadProgress();
+        }
+      } catch (error) {
+        console.error('[Exam] Error loading from Firestore:', error);
+        loadProgress();
+      }
+    }
+
+    // Load progress from localStorage
+    function loadProgress() {
+      const saved = localStorage.getItem('mcq-2024-progress');
+      if (saved) {
+        const progress = JSON.parse(saved);
+        currentQuestionIndex = progress.currentQuestionIndex || 0;
+
+        // Restore answers and flags
+        if (progress.questions) {
+          progress.questions.forEach(savedQ => {
+            const question = examData.questions.find(q => q.id === savedQ.id);
+            if (question) {
+              question.selectedAnswer = savedQ.selectedAnswer;
+              question.flagged = savedQ.flagged || false;
+            }
+          });
+        }
+
+        loadQuestion(currentQuestionIndex);
+      }
+    }
+
+    // Function to return to exams modal
+    function returnToExams() {
+      saveCurrentAnswer();
+      window.location.href = '../index.html#past-exams';
+    }
+
+    // Calculate and show results
+    function showResults() {
+      saveCurrentAnswer();
+
+      // Calculate statistics
+      let correct = 0;
+      let incorrect = 0;
+      let unanswered = 0;
+
+      examData.questions.forEach(q => {
+        if (q.selectedAnswer === null || q.selectedAnswer === undefined) {
+          unanswered++;
+        } else if (q.selectedAnswer === q.correctAnswer) {
+          correct++;
+        } else {
+          incorrect++;
+        }
+      });
+
+      // Show confirmation if there are unanswered questions
+      if (unanswered > 0) {
+        const confirmMessage = `You have ${unanswered} unanswered question${unanswered > 1 ? 's' : ''}. Are you sure you want to submit?`;
+        if (!confirm(confirmMessage)) {
+          return; // Don't submit if user cancels
+        }
+      }
+
+      const score = Math.round((correct / examData.totalQuestions) * 100);
+
+      // Update modal content
+      document.getElementById('resultsScore').textContent = `Your Score ${correct}/${examData.totalQuestions} (${score}%)`;
+      document.getElementById('correctCount').textContent = correct;
+      document.getElementById('incorrectCount').textContent = incorrect;
+      document.getElementById('unansweredCount').textContent = unanswered;
+
+      // Show modal
+      document.getElementById('resultsModal').classList.add('show');
+    }
+
+    // Enter review mode
+    function enterReviewMode() {
+      isReviewMode = true;
+      document.getElementById('resultsModal').classList.remove('show');
+      document.getElementById('reviewModeBanner').classList.add('show');
+
+      // Pause the timer
+      pauseTimer();
+
+      // Hide submit button and show finish review button
+      document.getElementById('finishBtn').style.display = 'none';
+      document.getElementById('finishReviewBtn').style.display = 'block';
+
+      // Load first question in review mode
+      loadQuestion(0);
+    }
+
+    // Exit review mode
+    function exitReviewMode() {
+      isReviewMode = false;
+      document.getElementById('reviewModeBanner').classList.remove('show');
+      document.getElementById('finishBtn').style.display = 'block';
+      document.getElementById('finishReviewBtn').style.display = 'none';
+
+      // Resume the timer
+      resumeTimer();
+    }
+
+    // Reset exam
+    function resetExam() {
+      if (!confirm('Are you sure you want to reset the exam? All your answers will be lost.')) {
+        return;
+      }
+
+      // Reset all answers
+      examData.questions.forEach(q => {
+        q.selectedAnswer = null;
+        q.flagged = false;
+      });
+
+      // Clear saved progress
+      localStorage.removeItem('mcq-2024-progress');
+
+      // Clear Firestore if user is signed in
+      if (examUser && examDb) {
+        examDb.collection('users')
+          .doc(examUser.uid)
+          .collection('exams')
+          .doc('mcq-2024')
+          .delete()
+          .catch(error => console.error('[Exam] Error deleting from Firestore:', error));
+      }
+
+      // Reset state
+      currentQuestionIndex = 0;
+      isReviewMode = false;
+
+      // Hide modal and banner
+      document.getElementById('resultsModal').classList.remove('show');
+      document.getElementById('reviewModeBanner').classList.remove('show');
+      document.getElementById('finishBtn').style.display = 'block';
+
+      // Reload exam
+      loadQuestion(0);
+      generateQuestionNav();
+    }
+
+    // Event listeners
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentQuestionIndex > 0) {
+        loadQuestion(currentQuestionIndex - 1);
+      }
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentQuestionIndex < examData.totalQuestions - 1) {
+        loadQuestion(currentQuestionIndex + 1);
+      }
+    });
+
+    document.getElementById('finishBtn').addEventListener('click', () => {
+      showResults();
+    });
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      if (isReviewMode) {
+        exitReviewMode();
+        showResults();
+      } else {
+        returnToExams();
+      }
+    });
+
+    // Results modal button listeners
+    document.getElementById('reviewAnswersBtn').addEventListener('click', () => {
+      enterReviewMode();
+    });
+
+    document.getElementById('resetExamBtn').addEventListener('click', () => {
+      resetExam();
+    });
+
+    document.getElementById('backToExamsBtn').addEventListener('click', () => {
+      returnToExams();
+    });
+
+    // Finish review button listener
+    document.getElementById('finishReviewBtn').addEventListener('click', () => {
+      returnToExams();
+    });
+
+    // Auto-save every 30 seconds
+    setInterval(saveCurrentAnswer, 30000);
+
+    // Check for existing progress and show modal if needed
+    function checkExistingProgress() {
+      const saved = localStorage.getItem('mcq-2024-progress');
+      if (saved) {
+        const progress = JSON.parse(saved);
+        // Check if there's any actual progress (selected answers)
+        const hasProgress = progress.questions && progress.questions.some(q => q.selectedAnswer !== null && q.selectedAnswer !== undefined);
+
+        if (hasProgress) {
+          // Show modal
+          const modal = document.getElementById('progressModal');
+          modal.style.display = 'flex';
+
+          // Handle continue button
+          document.getElementById('continueExamBtn').addEventListener('click', () => {
+            modal.style.display = 'none';
+            initExam();
+          });
+
+          // Handle reset button
+          document.getElementById('resetExamBtn').addEventListener('click', async () => {
+            if (!confirm('Are you sure you want to reset this exam? All progress will be permanently deleted.')) {
+              return;
+            }
+
+            // Clear Firestore first if available
+            if (examUser && examDb) {
+              try {
+                await examDb.collection('users')
+                  .doc(examUser.uid)
+                  .collection('exams')
+                  .doc('mcq-2024')
+                  .delete();
+                console.log('[Exam] Progress deleted from Firestore');
+              } catch (error) {
+                console.error('[Exam] Error deleting from Firestore:', error);
+              }
+            }
+
+            // Clear localStorage
+            localStorage.removeItem('mcq-2024-progress');
+            localStorage.removeItem('mcq-2024-completed');
+
+            // Reset exam data in memory
+            examData.questions.forEach(q => {
+              q.selectedAnswer = null;
+              q.flagged = false;
+            });
+
+            currentQuestionIndex = 0;
+            elapsedSeconds = 0;
+
+            modal.style.display = 'none';
+
+            // Reinitialize exam with fresh state
+            generateQuestionNav();
+            loadQuestion(0);
+            startTimer();
+          });
+
+          return; // Don't auto-initialize
+        }
+      }
+
+      // No progress found, initialize normally
+      initExam();
+    }
+
+    // Initialize
+    checkExistingProgress();
+  </script>
+</body>
+</html>

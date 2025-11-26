@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 16.2 - Pyloric Stenosis</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 16.2 - Pyloric Stenosis | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 16.2 - Pyloric Stenosis">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 16.2 – Pyloric Stenosis</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Surgery | <strong>Setting:</strong> Emergency department</p>
+
+    <h2>Case</h2>
+    <p>8 week old Nicholas Schueet, presents with his mother Michelle, to the emergency department. She is very concerned because Nicholas has started to vomit with every feed; it started out as just small possets but has now become much more forceful. She recently changed his formula because she was concerned that it may be the cause.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the key features of history and examination of Nicholas that will assist in determining the diagnosis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>HISTORY:</h3>
+        <ul>
+          <li>was the child generally well and gaining weight before this illness? (inherited disorders)</li>
+          <li>nature of vomitus (bile stained? = malrotation with volvulus, blood stained? ulceration/gastritis/ pyloric stenosis )</li>
+          <li>pattern of vomiting: after each feed? GOR/ PStenosis, forceful (across room) pyloric stenosis?</li>
+          <li>hungry and wanting to feed immediately after vomiting? : Pyloric stenosis</li>
+          <li>distress with vomiting (GOR), or associated pallor, crying, drawing up of legs : (typically intussusception also volvulus)</li>
+          <li>any associated diarrhoea : fluid and frequent ?( gastroenteritis) small stools limited duration and subsequent bloody diarrhoea (intussusception)</li>
+          <li>any associate cough, URTI rash, generally unwell irritable lethargic : AOM, pneumonia, tonsillitis, UTI, appendicitis</li>
+        </ul>
+
+        <h3>EXAMINATION:</h3>
+        <p><strong>General observations:</strong></p>
+        <ul>
+          <li>? unwell looking, pale, decreased alertness and interaction, lethargic, irritable, weight loss, (centile chart), fontantelles sunken, skin turgor, cap return: indicate severity of illness/dehydration</li>
+        </ul>
+
+        <p><strong>Abdomen:</strong></p>
+        <ul>
+          <li>palpable pyloric tumour/visible peristalsis in distended stomach? ( pyloric stenosis)</li>
+          <li>tenderness/distention? ( appendicitis , late intussusception/ volvulus),</li>
+          <li>palpable mass in R or L upper quadrants? (intussusception/tumour)</li>
+          <li>Groin/scrotal mass? inguinal hernia</li>
+        </ul>
+
+        <p><strong>Other:</strong></p>
+        <ul>
+          <li>Ears and throat, chest, rash (vomiting secondary to infection)..</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the key clinical features that assist in the differentiation of a surgical and non-surgical cause of the vomiting?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>SURGICAL cause likely if:</strong></p>
+        <ul>
+          <li>Bile stained vomiting (volvulus)</li>
+          <li>Abdo distention and tenderness in an unwell child (acute abdomen)</li>
+          <li>Irreducible hernia</li>
+          <li>Palpable mass/ visible distention and peristalsis (pyloric stenosis)</li>
+          <li>Pallor, distressed with drawing up legs +/- abdo mass and distention (intussusception)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Outline the clinical features that differentiate physiological gastro-oesophageal reflux (GOR) from pathological GOR Disease.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Physiological:</th>
+            <th>Pathological</th>
+          </tr>
+          <tr>
+            <td>Vomiting/ regurgitation often appears effortless may be mild distress. May be provoked by lying down or sudden movements</td>
+            <td>Severe irritability, Sleep disturbance</td>
+          </tr>
+          <tr>
+            <td>Feeding well</td>
+            <td>Feeding difficulties : feed refusal, severe irritability during or between meals, posturing after meals<br><br>Haematemesis/iron deficiency (oesophagitis)</td>
+          </tr>
+          <tr>
+            <td>Normal weight gain</td>
+            <td>Failure to thrive<br><br><strong>Apneic or cyanotic episodes in young infants, especially occurring with position change after feeding</strong><br><br>Cough, stridor, wheeze Unexplained recurrent pneumonia ( aspiration)</td>
+          </tr>
+          <tr>
+            <td>Usually settles with simple management; posturing upright during feeds and sleep, feed thickeners.</td>
+            <td>Does not settle with simple management. Posturing upright for feeds and sleep, feed thickeners</td>
+          </tr>
+          <tr>
+            <td>Resolves over time usually by 12 months</td>
+            <td>Often continues beyond 12 months</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Describe the anatomical and physiological mechanisms that normally prevent gastric reflux and outline the pathophysiology of gastro-oesophageal reflux.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The physiologic and anatomic factors that prevent the reflux of gastric juice from the stomach into the esophagus include the following:</p>
+        <ul>
+          <li>The main barrier to GOR is the pressure gradient across the lower oesophageal sphincter (LOS) which is formed by the intrinsic LOS (thickened smooth muscle of the lower oesophagus) and the extrinsic striated muscle of the crural diaphragm. Both components work together to generate LOS pressure, which can be measured by intraluminal manometry. The current understanding of LOS function suggests that a LOS pressure of 5-10 mmHg above intragastric pressure is sufficient to maintain an antireflux barrier</li>
+          <li>The lower oesophageal sphincter (LES) must also have a normal length and a normal number of episodes of transient relaxations : relaxation normally occurs with swallowing and without swallowing as a normal in response to gastric distention (gas venting)</li>
+          <li>The gastroesophageal junction must be located in the abdomen so that the diaphragmatic crura can assist the action of the LES, thus functioning as an extrinsic sphincter.</li>
+          <li>Esophagus must be able to neutralize the acid refluxed through the LES. (Mechanical clearance is achieved with esophageal peristalsis. Chemical clearance is achieved with saliva.)</li>
+          <li>The stomach must empty properly.</li>
+        </ul>
+
+        <p>Normal factors promoting reflux in infants are their small stomach capacity, frequent large-volume feedings, short esophageal length, supine positioning, and slow swallowing response to the flow of refluxed material up the esophagus. Infants' individual responses to the stimulus of reflux, particularly the maturity of their self-settling skills, are important factors determining the severity of reflux-related symptoms.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Using a diagnostic algorithm; outline an approach to the assessment and management of infants with gastro-oesophageal reflux.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Diagnostic Algorithm for GOR Management:</strong></p>
+        <ol>
+          <li><strong>3-6 months old with frequent vomiting</strong></li>
+          <li><strong>Co-morbid medical conditions? Red flags?</strong>
+            <ul>
+              <li>Yes → Consider alternate diagnosis</li>
+              <li>No → Continue assessment</li>
+            </ul>
+          </li>
+          <li><strong>Complications of GORD?</strong> (e.g. poor growth, feeding issues, recurrent aspiration, cough or wheeze)
+            <ul>
+              <li>Yes → Refer to paediatrician; continue with management steps</li>
+              <li>No → Continue assessment</li>
+            </ul>
+          </li>
+          <li><strong>See NASPGHAN Guidelines</strong></li>
+          <li><strong>Frequently unsettled behaviour?</strong>
+            <ul>
+              <li>Yes → Advise general measures: Parental reassurance, support and education. Arrange follow-up</li>
+              <li>No → Continue to next step</li>
+            </ul>
+          </li>
+          <li><strong>Likely simple GOR. Parental reassurance, support and education. Advise general measures (as required). Provide GOR factsheet.</strong></li>
+        </ol>
+
+        <p><strong>General Management Steps:</strong></p>
+        <ul>
+          <li><strong>Optimise feeds:</strong> Smaller volumes, more frequent</li>
+          <li><strong>Thickened feeds</strong></li>
+          <li><strong>Left lateral or upright positioning</strong></li>
+          <li>If no improvement: Consider CMPA, particularly if risk factors</li>
+          <li>2 week trial of cow milk exclusion (see text)</li>
+          <li>If symptoms unchanged: Consider 4 week trial of omeprazole</li>
+          <li>If symptoms resolved: Trial off periodically. (Natural history of infant's resolution with time)</li>
+          <li>If symptoms unchanged: Cease omeprazole. Expedite paediatric referral</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Nicholas' clinical history and examination suggest a diagnosis of pyloric stenosis; summarise in a table the clinical features, pathological findings, anatomy and pathophysiology of pyloric stenosis, intussusception and volvulus.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>PYLORIC STENOSIS</h3>
+        <p><strong>CLINICAL FEATURES:</strong></p>
+        <p>Pyloric stenosis most often occurs in neonates and infants aged 1-10 weeks (mean, 5 wks.), with a range of 5 days to 5 months</p>
+        <p>Projectile vomiting typically occurs and is always non-bilious but may have brown discoloration or a coffee-ground appearance from associated gastritis, particularly if emesis has persisted for several days. The vomiting occurs within 30-60 minutes after feeding. The infant remains hungry and usually attempts to feed immediately after vomiting. Weight loss and evidence of dehydration (e.g. decreased tearing and urinary output, with poor skin turgor) are present if vomiting is allowed to continue for more than a few days.</p>
+        <p>Careful examination may reveal an oblong, smooth, hard mass that is 1-2 cm in length (hypertrophied pylorus: commonly referred to as an olive or pyloric tumour,) in the epigastrium just above the umbilicus, either in the midline or just to the right.</p>
+        <p>Observation of the abdomen of the infant with pyloric stenosis after feeding often reveals visible gastric contractions occurring in a wavelike manner from left to right across the abdomen.</p>
+
+        <p><strong>ANATOMY and PATHOPHYSIOLOGY</strong></p>
+        <p>Pyloric stenosis involves hypertrophy of the circular muscle of the pylorus, resulting in narrowing and obstruction. Grossly, the pylorus is enlarged, resembling a tumour approximating the size and shape of an olive (i.e. 2 cm long, 1 cm diameter). Microscopically, the circular muscle hypertrophies, with increased connective tissue in the septa between the muscle bundles. Gastric fluid loss is associated with the loss of H+ and Cl-. This fluid loss is unlike that in conditions caused by vomiting with an open pylorus, which involves losses of gastric, pancreatic, biliary, and intestinal fluid. Hypochloremic, hypokalemic metabolic alkalosis is the characteristic biochemical disturbance observed in pyloric stenosis. Urinary Na+ and HCO3 - losses, which compensate for Cl- losses, perpetuate this alkalosis</p>
+
+        <h3>INTUSSUSCEPTION</h3>
+        <p><strong>CLINICAL FEATURES:</strong></p>
+        <p>Can occur at any age but is most likely in the infant between 3 and 18 months who suddenly develops screaming attacks of pain with vomiting. During each episode of pain the infant becomes pale and may draw up the legs.</p>
+        <p>The spasms of pain tend to last 2-3 minutes and occur at intervals of about 10-20 minutes, although after a while the pain becomes more persistent. Vomiting is an early symptom. The passage of a few loose stools early on represents evacuation of the bowel distal to the obstruction. The small volume and limited duration of loose stools in intussusception helps differentiate it from acute gastroenteritis. Congestion of the intussusceptum may lead to the passage of bloodstained or 'redcurrant' stools. Many infants with intussusception present with little more than pallor, lethargy and vomiting and may have little evidence of abdominal pain. Should these symptoms be ignored, the infant may progress to develop signs of septicaemia or shock.</p>
+        <p>The infant with intussusception looks pale, lethargic, anxious and unwell. A vague mass may be felt in the right or left upper quadrants of the abdomen but, once abdominal distension has developed, the mass becomes obscure and difficult to palpate. The apex of the intussusceptum may be palpable on rectal examination in a few, and the examining glove may be bloodstained. A plain X-ray of the abdomen will often be normal but may show an unusual bowel gas distribution or features of bowel obstruction</p>
+
+        <p><strong>ANATOMY AND PATHOPHYSIOLOGY:</strong></p>
+        <p>In intussusception, the distal ileum (the intussusceptum) telescopes into adjoining distal bowel (the intussuscipiens), resulting in intestinal obstruction. Vascular compromise and subsequent bowel necrosis are the primary concerns with intussusception Intussusception is most often (80%) ileocolic but it may be ileoileal, colocolic, or ileoileocolic.</p>
+        <p>Most infants and toddlers (95%) do not have an identifiable specific lead point. In these idiopathic cases, careful examination may reveal hypertrophied mural lymphoid tissues (Peyer patches), which are due to adenovirus or rotavirus.</p>
+        <p>Specific lead points are more commonly found in children older than 3 years. Meckel diverticulum is the most common lead point, followed by polyps and duplications. Other lead points described include lymphomas, submucosal hemorrhage with Henoch-Schönlein purpura, hemangiomas, and lymphosarcomas. Children with cystic fibrosis (CF) may present with intussusception due to inspissated meconium in the terminal ileum. While generally observed as a complication in older children with CF, neonatal intussusception with meconium plug syndrome associated with CF has been reported.</p>
+
+        <h3>VOLVULUS</h3>
+        <p><strong>CLINICAL FEATURES:</strong></p>
+        <p>In the first month of life, the most typical presentation is of bilious vomiting and sudden onset of abdominal pain. Bilious vomiting is observed 77-100% of the time. In infants of this age, consider such a presentation diagnostic of malrotation with midgut volvulus until proven otherwise. In older children, symptoms can be vague and may include chronic intermittent vomiting and abdominal cramping, failure to thrive, constipation, bloody diarrhoea, and hematemesis</p>
+
+        <p><strong>ANATOMY and PATHOPHYSIOLOGY</strong></p>
+        <p>Volvulus is defined as a complete twisting of a loop of intestine around its mesenteric attachment site. Such twisting can occur at various sites of the GI tract, including the stomach, small intestine, cecum, transverse colon, and sigmoid colon. Midgut volvulus refers to twisting of the entire midgut around the axis of the superior mesenteric artery. It is the most common type of volvulus.</p>
+        <p>Numerous rotational abnormalities have been described that correlate with abnormal embryologic development of the midgut and cause the small bowel and its vascular supply to become suspended from a narrow pedicle, like a bell clapper, which predisposes to midgut volvulus and infarction.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Outline the management principles of intussusception.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>General:</h3>
+        <ol>
+          <li>Vital signs and general assessment including level of dehydration: Will probably need insertion of IV cannulae and appropriate intravenous fluid replacement.</li>
+          <li>IF child appears very unwell or septic suggestive of complications of intussusception: oxygen, and UEC BSL FBP venous blood gas, BC</li>
+        </ol>
+
+        <h3>Specific</h3>
+        <ol>
+          <li>Intussusception can be reduced non-operatively by <strong>gas enema or by hydrostatic reduction under ultrasonographic control</strong>; these techniques are successful in 80-90% of patients. If gas enema facilities are not available, a barium enema under continuous fluoroscopic control is a less effective but satisfactory alternative. Peritonitis and septicaemia, which suggest the presence of dead bowel, are the only contraindications to attempted enema reduction. The success of enema reduction is recognized when there is sudden or rapid flow of gas or barium into the ileum. If partial reduction is achieved, and the child remains in good clinical condition, a further enema should be attempted after several hours (so called 'delayed repeat enema'), and in about half of these patients it will be successful. Recurrence of intussusception occurs in about 9% of children after enema reduction, usually within days. <strong>Surgery is reserved for:</strong>
+            <ul>
+              <li>those in whom enema reduction has failed</li>
+              <li>those who have clinical evidence of necrotic bowel, such as peritonitis and septicaemia</li>
+              <li>those in whom there is evidence of pathological lesions at the lead point.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

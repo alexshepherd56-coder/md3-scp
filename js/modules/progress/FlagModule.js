@@ -42,6 +42,13 @@ class FlagModule {
   }
 
   /**
+   * Get the current year from the window object or default to 'year3'
+   */
+  getCurrentYear() {
+    return window.CURRENT_YEAR || 'year3';
+  }
+
+  /**
    * Handle user sign in
    */
   handleUserSignedIn(user) {
@@ -215,7 +222,8 @@ class FlagModule {
     try {
       console.log('[FlagModule] Syncing question flags with Firestore...');
       const db = this.firebaseService.getDb();
-      const flagsRef = db.collection('users').doc(user.uid).collection('flags');
+      const year = this.getCurrentYear();
+      const flagsRef = db.collection('users').doc(user.uid).collection(year).doc('flags').collection('questions');
       const snapshot = await flagsRef.get();
 
       const firestoreFlags = {};
@@ -271,7 +279,8 @@ class FlagModule {
 
     try {
       const db = this.firebaseService.getDb();
-      const flagRef = db.collection('users').doc(user.uid).collection('flags').doc(flagId);
+      const year = this.getCurrentYear();
+      const flagRef = db.collection('users').doc(user.uid).collection(year).doc('flags').collection('questions').doc(flagId);
 
       if (this.flags[flagId]) {
         await flagRef.set(this.flags[flagId]);
@@ -295,7 +304,8 @@ class FlagModule {
     if (user) {
       try {
         const db = this.firebaseService.getDb();
-        const flagsRef = db.collection('users').doc(user.uid).collection('flags');
+      const year = this.getCurrentYear();
+        const flagsRef = db.collection('users').doc(user.uid).collection(year).doc('flags').collection('questions');
         const snapshot = await flagsRef.get();
 
         const batch = db.batch();
@@ -431,7 +441,8 @@ class FlagModule {
     try {
       console.log('[FlagModule] Syncing case flags with Firestore...');
       const db = this.firebaseService.getDb();
-      const caseFlagsRef = db.collection('users').doc(user.uid).collection('caseFlags');
+      const year = this.getCurrentYear();
+      const caseFlagsRef = db.collection('users').doc(user.uid).collection(year).doc('flags').collection('cases');
       const snapshot = await caseFlagsRef.get();
 
       const firestoreCaseFlags = {};
@@ -480,7 +491,8 @@ class FlagModule {
 
     try {
       const db = this.firebaseService.getDb();
-      const caseFlagRef = db.collection('users').doc(user.uid).collection('caseFlags').doc(caseId);
+      const year = this.getCurrentYear();
+      const caseFlagRef = db.collection('users').doc(user.uid).collection(year).doc('flags').collection('cases').doc(caseId);
 
       if (this.caseFlags[caseId]) {
         await caseFlagRef.set(this.caseFlags[caseId]);
@@ -504,7 +516,8 @@ class FlagModule {
     if (user) {
       try {
         const db = this.firebaseService.getDb();
-        const caseFlagsRef = db.collection('users').doc(user.uid).collection('caseFlags');
+      const year = this.getCurrentYear();
+        const caseFlagsRef = db.collection('users').doc(user.uid).collection(year).doc('flags').collection('cases');
         const snapshot = await caseFlagsRef.get();
 
         const batch = db.batch();

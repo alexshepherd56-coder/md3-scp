@@ -121,6 +121,13 @@ class CompletionModule {
   }
 
   /**
+   * Get the current year from the window object or default to 'year3'
+   */
+  getCurrentYear() {
+    return window.CURRENT_YEAR || 'year3';
+  }
+
+  /**
    * Sync with Firestore
    * Merges localStorage and Firestore data, Firestore takes precedence
    */
@@ -134,7 +141,8 @@ class CompletionModule {
     try {
       console.log('[CompletionModule] Syncing with Firestore...');
       const db = this.firebaseService.getDb();
-      const progressRef = db.collection('users').doc(user.uid).collection('progress');
+      const year = this.getCurrentYear();
+      const progressRef = db.collection('users').doc(user.uid).collection(year).doc('progress').collection('cases');
       const snapshot = await progressRef.get();
 
       const firestoreData = {};
@@ -220,14 +228,17 @@ class CompletionModule {
     if (user) {
       try {
         const db = this.firebaseService.getDb();
+        const year = this.getCurrentYear();
         await db.collection('users')
           .doc(user.uid)
-          .collection('progress')
+          .collection(year)
+          .doc('progress')
+          .collection('cases')
           .doc(caseId)
           .set({
             completedAt: new Date(timestamp)
           });
-        console.log('[CompletionModule] Saved to Firestore:', caseId);
+        console.log(`[CompletionModule] Saved to Firestore (${year}):`, caseId);
       } catch (error) {
         console.error('[CompletionModule] Error saving to Firestore:', error);
         this.eventBus.emit('completion:error', {
@@ -270,12 +281,15 @@ class CompletionModule {
     if (user) {
       try {
         const db = this.firebaseService.getDb();
+        const year = this.getCurrentYear();
         await db.collection('users')
           .doc(user.uid)
-          .collection('progress')
+          .collection(year)
+          .doc('progress')
+          .collection('cases')
           .doc(caseId)
           .delete();
-        console.log('[CompletionModule] Removed from Firestore:', caseId);
+        console.log(`[CompletionModule] Removed from Firestore (${year}):`, caseId);
       } catch (error) {
         console.error('[CompletionModule] Error removing from Firestore:', error);
         this.eventBus.emit('completion:error', {

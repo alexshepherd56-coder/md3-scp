@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 11.5 - Breast Cancer (new diagnosis)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 11.5 - Breast Cancer (new diagnosis) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 11.5 - Breast Cancer (new diagnosis)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 11.5 – Breast Cancer (new diagnosis)</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - Breast & Endocrine | <strong>Setting:</strong> General Practice</p>
+
+    <h2>Case</h2>
+    <p>Rhonda Wong, aged 58 years, presents anxiously for the results of her mammogram. The results report an irregular spiculated mass with microcalcifications that are branching. A follow up ultrasound demonstrated poorly defined margins and heterogeneous internal echoes.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Outline your further assessment and management of Rhonda in terms of history, examinations and investigation.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The most important part of the diagnostic process will be to <strong>gain a tissue diagnosis</strong>, using the most appropriate sampling technique.</p>
+
+        <p><strong>Factors that will influence this are:</strong></p>
+        <ul>
+          <li><strong>Risk factor assessment</strong> for breast cancer</li>
+          <li><strong>General medical history</strong></li>
+          <li><strong>Presence/absence of a palpable lump</strong></li>
+          <li><strong>Examination for evidence of metastasis</strong></li>
+        </ul>
+
+        <p><strong>Next Steps:</strong></p>
+        <ul>
+          <li>Core needle biopsy for histological diagnosis</li>
+          <li>Staging investigations if cancer confirmed</li>
+          <li>Multidisciplinary team discussion for treatment planning</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Briefly describe ductal carcinoma in-situ; infiltrating ductal carcinoma; infiltrating lobular carcinoma; tubular carcinoma; medullary carcinoma; colloid carcinoma; papillary carcinoma; inflammatory carcinoma and Paget's Disease of the nipple.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Carcinoma in Situ (CIS)</h3>
+        <p>Carcinoma in situ refers to the period during which normal epithelial cells undergo apparent malignant transformation but <strong>do not invade through the basement membrane</strong>. There are two forms:</p>
+
+        <p><strong>Lobular Carcinoma in Situ (LCIS):</strong></p>
+        <ul>
+          <li>Not associated with any radiological markers</li>
+          <li>May not be detected early</li>
+          <li>Approximately <strong>10-37%</strong> go on to develop invasive carcinoma</li>
+          <li>Future cancers may be in <strong>either breast</strong> regardless of the site of in-situ changes</li>
+          <li>Approximately <strong>50-65% of future malignancies are of ductal origin</strong></li>
+          <li>LCIS is a <strong>marker of increased risk of diffuse bilateral disease</strong> rather than a true anatomic precursor of lobular cancer</li>
+        </ul>
+
+        <p><strong>Ductal Carcinoma in Situ (DCIS):</strong></p>
+        <ul>
+          <li>Represents all types of CIS that are not identified as lobular</li>
+          <li>Can be further subdivided into:
+            <ul>
+              <li>Comedo (particularly menacing type)</li>
+              <li>Solid</li>
+              <li>Cribriform</li>
+              <li>Micropapillary</li>
+            </ul>
+          </li>
+          <li><strong>Necrosis and microcalcification</strong> are common</li>
+          <li>May be seen on mammography - incidence increasing with earlier diagnosis</li>
+          <li>Approximately <strong>30-50%</strong> go on to develop invasive carcinoma</li>
+          <li>Subsequent malignancies are <strong>ductal in origin</strong>, arise in the <strong>ipsilateral breast</strong> and usually confined to the <strong>same quadrant</strong></li>
+        </ul>
+
+        <p><strong>Ratio:</strong> DCIS to LCIS is 3:1</p>
+
+        <h3>Infiltrating Ductal Carcinoma</h3>
+        <p>This is the <strong>commonest form of cancer of the breast - approximately 80%</strong>. The most common form is of non-descript but highly variable histological type. Sheets, cords, nests and trabeculae of tumour cells may be present all in varying amounts. If the main bulk of tumour is of this type then the presence of more-specific histological features in small amounts does not appear to alter the prognosis.</p>
+
+        <h3>Medullary Carcinoma</h3>
+        <p>This form constitutes about <strong>6%</strong> of the total.</p>
+        <p><strong>Histologically:</strong></p>
+        <ul>
+          <li>Completely circumscribed borders</li>
+          <li>Syncytial sheet-like growth pattern</li>
+          <li>Diffuse infiltrate of lymphocytes</li>
+          <li>Variable number of plasma cells</li>
+          <li>Nearly 50% of these tumours are associated with intraductal carcinoma, usually at the periphery of the main tumour</li>
+        </ul>
+
+        <h3>Colloid (Mucinous) Carcinoma</h3>
+        <p>Largely confined to the <strong>elderly population</strong>, this tumour accounts for approximately <strong>2%</strong> of breast cancers.</p>
+        <p><strong>Histologically:</strong></p>
+        <ul>
+          <li>Large pools of mucin surrounded by variable groups of tumour cells</li>
+          <li>The classical signet ring appearance of mucinous tumours in other sites is NOT seen in breast colloid carcinoma</li>
+        </ul>
+
+        <h3>Tubular Carcinoma</h3>
+        <p><strong>Clinical Features:</strong></p>
+        <ul>
+          <li>Found in younger than average patients, with the <strong>late 50s being the peak age</strong></li>
+          <li>Diagnosis usually made at <strong>mammography</strong></li>
+          <li>Lesion is still small (<strong>less than 1 cm</strong>)</li>
+          <li>Up to <strong>a fifth of breast tumours identified at mammography</strong> may be of this type</li>
+        </ul>
+        <p><strong>Histologically:</strong></p>
+        <ul>
+          <li>Well differentiated</li>
+          <li>Randomly arranged tubular elements in a loose stroma</li>
+        </ul>
+
+        <h3>Papillary Carcinoma</h3>
+        <p>This accounts for <strong>less than 2%</strong> of cases of breast carcinoma and usually presents in the <strong>seventh decade</strong>.</p>
+        <p><strong>Histologically:</strong></p>
+        <ul>
+          <li>Well circumscribed</li>
+          <li>Marked papillary differentiation</li>
+        </ul>
+
+        <h3>Inflammatory Breast Carcinoma</h3>
+        <p>This tumour accounts for <strong>1% or slightly more</strong> of breast carcinomas. It is <strong>rapidly progressive</strong>.</p>
+        <p><strong>Characterised by:</strong></p>
+        <ul>
+          <li>Erythema</li>
+          <li>Peau d'orange</li>
+          <li>Skin ridging</li>
+          <li>With or without a palpable mass</li>
+          <li>Unlike other breast cancers, the <strong>commonest presenting feature is pain</strong></li>
+        </ul>
+        <p><strong>Pathophysiology:</strong></p>
+        <ul>
+          <li>The characteristic appearance of a diffusely enlarged breast is consequent upon the <strong>dissemination of tumour cells through the lymphatics of the dermis</strong></li>
+          <li>If tumour cells remain within superficial lymphatics and blood vessels, then <strong>telangiectatic carcinoma</strong> may arise with numerous purple papules and haemorrhagic, vesicle-like lesions covering the breast</li>
+          <li>Extensive involvement along tissue planes may produce a nodular pattern or, when associated with extensive fibrosis, a diffuse thickened lesion - a <strong>thoracic girdle (carcinoma en cuirasse)</strong></li>
+        </ul>
+
+        <h3>Paget's Disease of the Nipple</h3>
+        <p>This condition presents clinically as a <strong>chronic, eczematoid eruption of the nipple</strong>. Indeed the diagnosis may be confused with eczema although there are distinct differences.</p>
+        <ul>
+          <li>Constitutes approximately <strong>2%</strong> of histological types</li>
+          <li>Almost always associated with an <strong>underlying intraductal or invasive carcinoma</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Summarise the TNM Staging system for breast cancer.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The international TNM classification allows grouping of the disease into clinical stages. Staging allows comparison between groups of patients and also defines those unsuitable for an attempt at surgical removal but who may be suitable for other forms of adjuvant therapy.</p>
+
+        <h3>TNM Classification of Breast Cancer</h3>
+
+        <p><strong>T - Primary Tumour:</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>TNM Stage</th>
+              <th>Pathological Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tis</td>
+              <td>Carcinoma in situ (pre-invasive)<br>Paget's disease (no palpable tumour)</td>
+            </tr>
+            <tr>
+              <td>T0</td>
+              <td>No clinical evidence of primary tumour</td>
+            </tr>
+            <tr>
+              <td>T1</td>
+              <td>Tumour less than 2 cm</td>
+            </tr>
+            <tr>
+              <td>T2</td>
+              <td>Tumour 2-5 cm</td>
+            </tr>
+            <tr>
+              <td>T3</td>
+              <td>Tumour greater than 5 cm</td>
+            </tr>
+            <tr>
+              <td>T4</td>
+              <td>Tumour of any size but with direct extension to chest wall or skin:<br>(a) Fixation to chest wall<br>(b) Oedema, lymphocytic infiltration, ulceration of skin or satellite nodes<br>(c) Both (a) and (b)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>N - Regional Lymph Nodes:</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>TNM Stage</th>
+              <th>Pathological Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>N0</td>
+              <td>No palpable ipsilateral axillary lymph nodes</td>
+            </tr>
+            <tr>
+              <td>N1</td>
+              <td>Palpable nodes not fixed:<br>(a) Inflammatory only<br>(b) Containing tumour</td>
+            </tr>
+            <tr>
+              <td>N2</td>
+              <td>Fixed ipsilateral axillary nodes</td>
+            </tr>
+            <tr>
+              <td>N3</td>
+              <td>Ipsilateral supraclavicular or infraclavicular nodes or oedema of arm</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>M - Distant Metastasis:</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>TNM Stage</th>
+              <th>Pathological Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>M0</td>
+              <td>No evidence of distant metastasis</td>
+            </tr>
+            <tr>
+              <td>M1</td>
+              <td>Evidence of distant metastasis</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Stage and Prognosis According to TNM Classification</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>UICC Stage</th>
+              <th>TNM</th>
+              <th>Category</th>
+              <th>5-year Survival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>I</td>
+              <td>T1, N0, M0</td>
+              <td>Early cancer</td>
+              <td>84%</td>
+            </tr>
+            <tr>
+              <td>II</td>
+              <td>T1, N1, M0<br>T2, N0-1, M0</td>
+              <td>Early cancer</td>
+              <td>71%</td>
+            </tr>
+            <tr>
+              <td>III</td>
+              <td>Any T, N2-3, M0<br>T3, any N, M0</td>
+              <td>LABC (Locally Advanced Breast Cancer)</td>
+              <td>48%</td>
+            </tr>
+            <tr>
+              <td>IV</td>
+              <td>Any T, any N, M1</td>
+              <td>Metastatic</td>
+              <td>18%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Outline the treatment of breast cancer in terms of surgery, chemotherapy, hormone therapy and radiation.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Breast Surgery</h3>
+        <p>The principle of surgery in early breast cancer is to <strong>completely eradicate the primary tumour and any local extension</strong>.</p>
+
+        <p><strong>2 Components:</strong> (1) Breast, (2) Staging of axilla, or if clinically positive, an axillary dissection</p>
+
+        <p><strong>1. BREAST PROCEDURES:</strong></p>
+
+        <p><strong>Total Mastectomy:</strong></p>
+        <ul>
+          <li>Involves complete excision of the breast and nipple with <strong>preservation of the underlying pectoral muscles</strong></li>
+          <li>Used to be standard therapy, but now reserved for:
+            <ul>
+              <li>Large cancers relative to breast size</li>
+              <li>Cancer that involves the nipple or overlying skin</li>
+              <li>Multifocal disease</li>
+              <li>Prior breast irradiation</li>
+              <li>Women who chose not to have breast conservation or breast radiotherapy</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Radical Mastectomy:</strong></p>
+        <ul>
+          <li>Involves excision of the breast together with <strong>pectoralis minor and major</strong></li>
+          <li>Used in locally advanced disease that involves these muscles</li>
+        </ul>
+
+        <p><strong>Breast Conservation Surgery:</strong></p>
+        <ul>
+          <li>Involves complete local excision of the primary breast tumour with <strong>clear margins</strong></li>
+          <li><strong>Whole breast adjuvant radiotherapy must be given post-op</strong></li>
+        </ul>
+
+        <p><strong>2. AXILLA PROCEDURES:</strong></p>
+
+        <p><strong>Axillary Staging - Aims:</strong></p>
+        <ul>
+          <li>Assess nodal status for prognosis</li>
+          <li>Assess nodal status to determine adjuvant systemic therapy</li>
+          <li>Axillary dissection for clinical positive axilla (palpable nodes or pre-op abnormal ultrasound/biopsy/metastases) OR finding of a positive sentinel LN biopsy</li>
+        </ul>
+
+        <h3>Radiotherapy</h3>
+        <ul>
+          <li>Is <strong>indicated following breast conservation surgery</strong>, and reduces the risk of local recurrence</li>
+          <li>The use of radiotherapy after mastectomy is more limited</li>
+        </ul>
+
+        <h3>Adjuvant Systemic Therapy</h3>
+        <p>The aim is to <strong>eradicate micrometastases</strong>.</p>
+        <ul>
+          <li>Adjuvant systemic therapy with <strong>tamoxifen</strong>, with combination <strong>chemotherapy</strong> (most commonly CMF) or, in premenopausal women, <strong>ovarian ablation</strong>, reduces the risk of recurrence and death after treatment for node positive and node negative breast cancer</li>
+        </ul>
+
+        <h3>Ovarian Ablation (in some cases)</h3>
+        <ul>
+          <li>Ovarian ablation in <strong>premenopausal women</strong> is associated with an improvement in recurrence-free and overall survival</li>
+          <li>The benefits are greater in tumours which are <strong>oestrogen receptor positive</strong></li>
+          <li>Ovarian ablation is achieved by:
+            <ul>
+              <li>Surgical oophorectomy</li>
+              <li>Ovarian irradiation</li>
+              <li>Using luteinising hormone releasing hormone (LHRH) analogues e.g. goserelin</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. List the common complications of surgical, chemotherapy, hormonal and radiation therapy in breast cancer and their relative frequency.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>COMPLICATIONS OF SURGERY</h3>
+
+        <p><strong>Mastectomy/Breast Conservation Therapy:</strong></p>
+        <ul>
+          <li>Breast haematoma</li>
+          <li>Wound infection</li>
+          <li>Seroma</li>
+          <li>Psychological effects on body image</li>
+        </ul>
+
+        <p><strong>Axillary Dissection:</strong></p>
+        <ul>
+          <li>Seroma of the axilla</li>
+          <li>Limited shoulder movement</li>
+          <li>Pain and numbness from division of the intercosto-brachial nerve</li>
+          <li>Lymphoedema of the arm</li>
+        </ul>
+
+        <h3>COMPLICATIONS OF RADIOTHERAPY</h3>
+        <ul>
+          <li>Redness and soreness of the field of radiation</li>
+          <li>Lymphoedema after treatment of the axilla</li>
+          <li>Breast-feeding from the affected breast is unlikely</li>
+          <li>Cardiac damage following left breast irradiation</li>
+          <li>Brachial plexus palsy</li>
+          <li>Osteitis of the ribs</li>
+          <li>Shoulder stiffness</li>
+          <li>Pulmonary fibrosis</li>
+        </ul>
+
+        <h3>COMPLICATIONS OF ADJUVANT SYSTEMIC THERAPY</h3>
+
+        <p><strong>Chemotherapy:</strong></p>
+        <ul>
+          <li>Nausea, vomiting, lethargy, alopecia, early menopause, anxiety</li>
+          <li>Mucositis and diarrhoea</li>
+          <li>Febrile neutropenia</li>
+          <li>Cardiac toxicity</li>
+        </ul>
+
+        <p><strong>Tamoxifen:</strong></p>
+        <ul>
+          <li>Hot flushes, vaginal discharge</li>
+          <li>Increased incidence of endometrial cancer in post-menopausal women (protective effect greatly outweighs risk)</li>
+          <li>Increased risk of coronary artery disease, stroke, TIA</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. List the key prognostic factors for breast cancer.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Prognostic Variables Other Than TNM in Breast Cancer:</strong></p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Biological Factors</th>
+              <th>Favourable</th>
+              <th>Unfavourable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Histological type</td>
+              <td>Tubular, colloid, papillary</td>
+              <td>Scirrhous</td>
+            </tr>
+            <tr>
+              <td>Size</td>
+              <td>Small</td>
+              <td>Large</td>
+            </tr>
+            <tr>
+              <td>Grade</td>
+              <td>Low (I)</td>
+              <td>High (III)</td>
+            </tr>
+            <tr>
+              <td>Necrosis</td>
+              <td>Absent</td>
+              <td>Present</td>
+            </tr>
+            <tr>
+              <td>Lymphocytic infiltration</td>
+              <td>Present</td>
+              <td>Absent</td>
+            </tr>
+            <tr>
+              <td>Oestrogen status</td>
+              <td>Positive</td>
+              <td>Negative</td>
+            </tr>
+            <tr>
+              <td>Involved lymph nodes</td>
+              <td>Absent</td>
+              <td>Present</td>
+            </tr>
+            <tr>
+              <td>Proliferative rate</td>
+              <td>Low S phase</td>
+              <td>Aneuploid</td>
+            </tr>
+            <tr>
+              <td>Chromosomal defect</td>
+              <td>-</td>
+              <td>Deletion/alteration 1, 3, 6, 7, 9<br>Shortening of allele on chromosome 11</td>
+            </tr>
+            <tr>
+              <td>Proto-oncogenes</td>
+              <td>-</td>
+              <td>c-erbB/c-H-ras</td>
+            </tr>
+            <tr>
+              <td>Growth factors (GF)</td>
+              <td>-</td>
+              <td>Epidermal GF<br>Transforming GF<br>Platelet-derived GF<br>Fibroblast GF<br>Insulin-like GF</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Key Points:</strong></p>
+        <ul>
+          <li><strong>Most important prognostic factors:</strong> Tumour size, lymph node status, histological grade</li>
+          <li><strong>Oestrogen receptor status:</strong> Important for treatment decisions (hormone therapy)</li>
+          <li><strong>HER2 status:</strong> Predictive for targeted therapy (trastuzumab)</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

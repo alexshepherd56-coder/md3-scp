@@ -12,8 +12,8 @@ class AuthSystem {
   initialize() {
     console.log('auth.js: initialize() called');
 
-    // ALWAYS disable content on page load until authenticated
-    this.disableContent();
+    // Don't disable content - allow free browsing
+    // this.disableContent();
 
     try {
       // Check if Firebase is available and initialized
@@ -22,7 +22,7 @@ class AuthSystem {
         this.auth = null;
         this.db = null;
         this.showUnauthenticatedUI();
-        this.openAuthModal();
+        // Don't auto-open modal - let users browse
         return;
       }
 
@@ -36,7 +36,7 @@ class AuthSystem {
       if (!this.auth || !this.db) {
         console.error('auth.js: Firebase auth or db not available. Please refresh the page.');
         this.showUnauthenticatedUI();
-        this.openAuthModal();
+        // Don't auto-open modal - let users browse
         return;
       }
 
@@ -73,7 +73,7 @@ class AuthSystem {
       this.auth = null;
       this.db = null;
       this.showUnauthenticatedUI();
-      this.openAuthModal();
+      // Don't auto-open modal - let users browse
     }
   }
 
@@ -175,19 +175,15 @@ class AuthSystem {
         document.addEventListener('DOMContentLoaded', () => {
           console.log('DOM now loaded, updating UI');
           this.showUnauthenticatedUI();
-          setTimeout(() => {
-            this.openAuthModal();
-          }, 100);
+          // Don't auto-open modal - let users browse freely
         });
       } else {
         this.showUnauthenticatedUI();
-        // Show auth modal immediately if not signed in
-        setTimeout(() => {
-          this.openAuthModal();
-        }, 100);
+        // Don't auto-open modal - let users browse freely
       }
 
-      this.disableContent();
+      // Don't disable content - allow browsing without authentication
+      // this.disableContent();
     }
   }
 

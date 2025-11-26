@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 6.2 - T1D (Ongoing Management)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 6.2 - T1D (Ongoing Management) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 6.2 - T1D (Ongoing Management)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 6.2 – T1D (Ongoing Management)</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine | <strong>Setting:</strong> Urban General Practice</p>
+
+    <h2>Case</h2>
+    <p>Nick Jonas is 14 years old, he was diagnosed with type 1 diabetes when he was 6 years old. He presents today with his mother for a regular check. Nick's diabetes overall has been well controlled and he is generally very good with his diet and injections.</p>
+    <p>His recent blood test results indicate a HbA1c – 8.0%. [normal range 4-6%]. All other results are normal.</p>
+    <p>Nick is currently on a total of 1.0 unit/kg per day of insulin. [intermediate & rapid acting insulin]</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the key components of your regular assessment of Nick?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Key Components of Regular Assessment:</strong></p>
+        <ul>
+          <li><strong>Emotional well being</strong></li>
+          <li><strong>Monitoring diabetes control and compliance with insulin injections</strong></li>
+          <li><strong>Hypoglycaemic or hyperglycaemic episodes</strong></li>
+          <li><strong>Exercise and diabetes</strong></li>
+          <li><strong>Healthy eating</strong></li>
+          <li><strong>Physical examination for complications of diabetes</strong> (including lipohypertrophy at injection sites, thyroid, coeliac disease as well as for neurological and vascular complications)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. You know from speaking with Nick's mother that over the last few months it has been harder to keep the BSL under control, you note quite a range in his BSL readings from 4-10 mmol/L. Nick's mother suggests that she leave you to talk to Nick on his own. What are the key issues that you would explore with Nick and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Key Issues to Explore with Nick (Adolescent-Specific Considerations):</strong></p>
+
+        <p><strong>Understanding Adolescent Development:</strong></p>
+        <p>Adolescence is a time of major physical and psychological change and increasing independence. However, behaviour and degree of responsibility vary enormously during this period. Body image is very important and peer pressure can lead to denial, self neglect and risk taking behaviour.</p>
+
+        <p><strong>Issues to Explore:</strong></p>
+        <ul>
+          <li><strong>Body image, in particular weight</strong></li>
+          <li><strong>Smoking and alcohol</strong> (risk of hypos)</li>
+          <li><strong>Growth and puberty and changes in insulin requirements</strong></li>
+          <li><strong>In girls, sexual activity, contraception, risk to foetus if poor diabetes control</strong></li>
+          <li><strong>Driver's license</strong> (application needs endocrinologist approval – need HbA1C \&lt;9%)</li>
+        </ul>
+
+        <p><strong>Common Adolescent Challenges with Diabetes:</strong></p>
+        <ul>
+          <li><strong>Poor or variable compliance</strong> with food, injections, and testing can become a problem</li>
+          <li><strong>Faking or fudging of blood glucose levels</strong> - not uncommon as the adolescent tries to 'satisfy' their parents and health professionals by having some reasonable readings in their book. Usually discovered when the blood glucose meter is downloaded or the HbA1c is out of keeping with the recorded blood glucose readings</li>
+          <li><strong>Insulin omission</strong> (forgetting or deliberate) - reasonably common at this age. This is obviously quite serious as it leads to poor control and risk of serious illness with diabetic ketoacidosis</li>
+          <li><strong>Resentment of routines</strong> - some adolescents begin to resent the daily requirements of diabetes management</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Nick has heard it all before and is really 'over having diabetes', taking into consideration the developmental tasks of adolescence, how would you approach this consultation with Nick and how might this influence your management?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Approach to Consultation with Adolescent Patients:</strong></p>
+
+        <p><strong>Key Principles:</strong></p>
+        <ul>
+          <li><strong>Adolescents should be increasingly taking over responsibility for their diabetes care but continue to need help and supervision</strong></li>
+          <li><strong>Education should be directed primarily at the adolescent rather than the parents</strong></li>
+          <li><strong>Additional education about alcohol, sexuality, drugs, smoking and complications is necessary</strong></li>
+          <li><strong>Adolescents should increasingly recognise the importance of good blood glucose control to prevent complications</strong> and may be more willing to have multiple injections</li>
+        </ul>
+
+        <p><strong>Balancing Independence and Support:</strong></p>
+        <p>Parents and adolescents need to continue working as a team with the diabetes through the teenage years. A more subtle "hands off" approach is needed than in childhood. Studies have shown that <strong>handing over total control too early and lack of involvement with diabetes by parents in the teenage years is associated with poorer control and other difficulties, including 'burnout' in adolescents</strong>. Clearly the degree of involvement will be differently negotiated for different families.</p>
+
+        <p><strong>Role of the Diabetes Team:</strong></p>
+        <p>The diabetes team are especially important in working with teenagers and may tend to be listened to more than 'nagging parents'. With greater maturity in later adolescence there is usually improved motivation, interest and compliance with the diabetes management. Some young people with diabetes sail through the teenage years with no major problems.</p>
+
+        <p><strong>Understanding Trust Issues:</strong></p>
+        <p>It can be a difficult time for families as questions over trust and honesty arise. Often these behaviours are limited to diabetes issues and reflect the significant additional stress that diabetes poses for teenagers.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What resources & support are available for teenagers with diabetes?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Resources and Support for Teenagers with Diabetes:</strong></p>
+        <ul>
+          <li><strong>Diabetes centre</strong></li>
+          <li><strong>Diabetes Australia</strong></li>
+          <li><strong>Juvenile Diabetes Research Foundation Australia</strong></li>
+          <li><strong>Diabetes Camps</strong></li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

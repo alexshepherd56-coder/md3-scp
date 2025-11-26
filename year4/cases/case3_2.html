@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 3.2 - Appendicitis</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 3.2 - Appendicitis | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 3.2 - Appendicitis">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 3.2 – Appendicitis</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - General | <strong>Setting:</strong> Hospital</p>
+
+    <h2>Case</h2>
+    <p>Lisa Chan, aged 17 years presents with a 4 hour history of central abdominal pain that has recently localised to right lower abdomen. She feels nauseous but has not vomited. Her bowels have not opened for a day and she feels hot and sweaty.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is your differential diagnosis (list only 5 options)?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Differential Diagnoses for Right Lower Quadrant Pain:</strong></p>
+        <ul>
+          <li><strong>Acute appendicitis</strong></li>
+          <li><strong>Gastroenteritis/mesenteric adenitis/inflammatory bowel disease/Meckel's diverticulitis/acute ileitis</strong></li>
+          <li><strong>Pelvic inflammatory disease (PID)</strong></li>
+          <li><strong>Pyelonephritis/urinary tract infection or stones</strong></li>
+          <li><strong>Hepatitis/cholecystitis</strong></li>
+          <li>Right lower lobe pneumonia</li>
+          <li><strong>Endometriosis/ovulatory pain (Mittelschmerz)/ruptured or haemorrhagic ovarian cyst/ectopic pregnancy</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. If on examination Lisa was found to have a temperature of 37.8° C, halitosis, clinical dehydration, and tenderness (with rebound) over the right iliac fossa, what laboratory investigations would you order to support a diagnosis of acute appendicitis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Laboratory Investigations:</strong></p>
+        <ul>
+          <li><strong>FBC including differential</strong> - elevated WCC with neutrophilia suggests bacterial infection</li>
+          <li><strong>CRP</strong> - inflammatory marker, typically elevated in appendicitis</li>
+          <li><strong>U&E (Urea & Electrolytes)</strong> - assess hydration status and renal function</li>
+          <li><strong>CMP (Comprehensive Metabolic Panel)</strong></li>
+          <li><strong>BHCG (Beta-human chorionic gonadotropin)</strong> - pregnancy test (essential in females of reproductive age to rule out ectopic pregnancy)</li>
+          <li><strong>Urinalysis</strong> - dipstick and MSU (mid-stream urine) to exclude UTI/pyelonephritis</li>
+          <li><strong>Urinary & gynaecological evaluation</strong> (history & examination)</li>
+          <li><strong>Abdominal/pelvic ultrasound</strong> - can visualize appendix if inflamed, also useful to exclude gynaecological causes</li>
+        </ul>
+
+        <p><strong>Clinical Features Present:</strong></p>
+        <ul>
+          <li>Temperature 37.8°C (low-grade fever)</li>
+          <li>Halitosis (bad breath)</li>
+          <li>Clinical dehydration</li>
+          <li>Tenderness with guarding & rebound over right iliac fossa (peritonitis)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is the pathophysiology of acute appendicitis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Pathophysiology of Acute Appendicitis:</strong></p>
+
+        <p><strong>1. Initial Obstruction:</strong></p>
+        <ul>
+          <li><strong>Obstruction of the appendiceal lumen</strong> - being an unpaired midgut structure, pain is characteristically felt in the umbilical region (in the midline)</li>
+          <li><strong>Lymphoid hyperplasia (60% of cases)</strong> is the most common aetiology of luminal obstruction</li>
+          <li><strong>Faecolith (35% of cases)</strong> - hardened stool causing obstruction</li>
+          <li><strong>Viral illnesses</strong> that elicit lymphoid hyperplasia are a frequent prodrome to onset of appendicitis in the young (children)</li>
+        </ul>
+
+        <p><strong>2. Progressive Inflammation:</strong></p>
+        <ul>
+          <li><strong>Oedema and distension</strong> in the appendix itself leads to outflow obstruction, continued inflammation, mucous production</li>
+          <li><strong>Vascular compromise</strong> - compromise of venous then arterial supply leading to ischaemia and possibly necrosis</li>
+          <li><strong>Bacterial proliferation & toxins</strong></li>
+        </ul>
+
+        <p><strong>3. Transmural Spread:</strong></p>
+        <ul>
+          <li><strong>Transmural spread</strong>, serosal inflammation and involvement of parietal peritoneum typically leads to <strong>localized right iliac fossa pain</strong></li>
+          <li>This is the characteristic pain migration from central/periumbilical to RIF</li>
+        </ul>
+
+        <p><strong>4. Potential Complications:</strong></p>
+        <ul>
+          <li>As swelling, infection & ischaemia progress, <strong>gangrene & perforation</strong> is possible</li>
+          <li>Resultant <strong>peritonitis</strong> may or may not be walled off by greater omentum or other adjacent visceral structures</li>
+          <li><strong>Diffuse widespread peritonitis</strong> may occur especially in young patients (who lack well-developed omentum)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What structures are encountered with the following surgical incisions: at McBurney's point, midline (upper and lower) abdominal, Pfannenstiel?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Structures at Risk with Surgical Incisions:</strong></p>
+
+        <h3>McBurney's Point</h3>
+        <p><em>Located 2/3rds down from line drawn from umbilicus to ASIS (anterior superior iliac spine)</em></p>
+        <ul>
+          <li><strong>Intercostal nerves</strong> (but direction of cut avoids this)</li>
+          <li><strong>Inferior epigastric vessels</strong></li>
+        </ul>
+        <p>The oblique incision at McBurney's point is designed to split muscle fibres rather than cut across them, avoiding major nerves and vessels.</p>
+
+        <h3>Midline (Upper and Lower) Abdominal</h3>
+        <ul>
+          <li><strong>Linea alba</strong> - relatively avascular, therefore minimal risk to vessels or nerves</li>
+          <li>This is why midline incisions are preferred for major abdominal surgery - safest approach</li>
+        </ul>
+
+        <h3>Pfannenstiel Incision</h3>
+        <p><em>Transverse suprapubic incision (commonly used for C-sections and pelvic surgery)</em></p>
+        <ul>
+          <li><strong>Inferior epigastric vessels</strong> - must be identified and avoided/ligated</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Discuss the indications for open as compared to laparoscopic appendicectomy and the risks and benefits of each approach.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Open Appendicectomy</h3>
+
+        <p><strong>Benefits:</strong></p>
+        <ul>
+          <li>Direction of incision at McBurney's point avoids inferior epigastric vessels and helps avoid dividing lower intercostal and abdominal wall nerves</li>
+          <li><strong>Relatively cost efficient</strong> - less equipment required</li>
+          <li>Faster in straightforward cases with experienced surgeon</li>
+          <li>May be necessary in cases with significant adhesions or complicated anatomy</li>
+        </ul>
+
+        <p><strong>Risks:</strong></p>
+        <ul>
+          <li>Larger wound, more postoperative pain</li>
+          <li>Higher risk of wound infection</li>
+          <li>Longer recovery time</li>
+          <li>More prominent scarring</li>
+        </ul>
+
+        <h3>Laparoscopic Appendicectomy</h3>
+        <p><strong>Now considered standard of care</strong></p>
+
+        <p><strong>Benefits:</strong></p>
+        <ul>
+          <li><strong>Less chance of wound infection</strong> in routine cases</li>
+          <li><strong>Useful in cases of diagnostic uncertainty</strong> - can visualize entire abdomen and pelvis</li>
+          <li><strong>Less post-operative pain</strong></li>
+          <li><strong>Shorter length of stay</strong> - 1 night in uncomplicated cases vs 2-3 days</li>
+          <li>Better cosmetic outcome (3 small incisions)</li>
+          <li>Faster return to normal activities</li>
+          <li>Better visualization of pelvic organs (especially important in females)</li>
+        </ul>
+
+        <p><strong>Risks:</strong></p>
+        <ul>
+          <li>Possibly <strong>increased risk of abscess formation in perforated cases</strong></li>
+          <li><strong>Increased cost</strong> due to equipment required</li>
+          <li>Requires general anaesthesia and pneumoperitoneum</li>
+          <li>Longer operative time (though improving with experience)</li>
+          <li>Risk of trocar injury to vessels or bowel</li>
+        </ul>
+
+        <h3>Indications</h3>
+        <p>Laparoscopic is now preferred in most cases, especially:</p>
+        <ul>
+          <li>Young females (diagnostic uncertainty for gynae causes)</li>
+          <li>Obese patients</li>
+          <li>Diagnostic uncertainty</li>
+        </ul>
+
+        <p>Open may be preferred in:</p>
+        <ul>
+          <li>Pregnancy (though laparoscopic can be done in 1st/2nd trimester)</li>
+          <li>Known extensive adhesions</li>
+          <li>Haemodynamic instability</li>
+          <li>Resource-limited settings</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Discuss the key steps in the post operative management of a person following an open appendicectomy.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Key Steps in Post-Operative Management:</strong></p>
+
+        <h3>Immediate Post-Operative Care</h3>
+        <ul>
+          <li><strong>IV fluids continued</strong> until patient tolerating oral intake</li>
+          <li><strong>DVT prophylaxis</strong> - low molecular weight heparin, TED stockings</li>
+          <li><strong>Chest physiotherapy</strong> and early mobilization to prevent respiratory complications</li>
+          <li><strong>Analgesia</strong> - regular paracetamol +/- opioids as needed</li>
+        </ul>
+
+        <h3>Antibiotic Management</h3>
+        <ul>
+          <li><strong>Cease IV antibiotics post-op</strong> unless the appendix is perforated or gangrenous or there is an associated abscess</li>
+          <li>If <strong>frank peritoneal perforation and contamination or abscess</strong> found, then antibiotics until patient afebrile and regained GIT function</li>
+          <li>Some will need <strong>3-5 days of antibiotics</strong></li>
+        </ul>
+
+        <h3>Monitoring for Complications</h3>
+        <p><strong>Most common post-op complication is wound infection</strong></p>
+
+        <p>Be aware of rare but important complications:</p>
+        <ul>
+          <li><strong>Abscess</strong> (intra-abdominal, pelvic) - persistent fever, pain, elevated WCC</li>
+          <li><strong>Bleeding</strong></li>
+          <li><strong>Injury to surrounding structures</strong> e.g. bowel and ureter</li>
+          <li><strong>Ileus</strong> may result if there was significant peritoneal contamination</li>
+        </ul>
+
+        <h3>Follow-Up</h3>
+        <ul>
+          <li><strong>Histopathology report must be formally followed up</strong> - beware of coincident appendiceal tumours (rare but important)</li>
+          <li>Wound review at 1 week</li>
+          <li>Return to normal activities as tolerated (usually 2-4 weeks)</li>
+        </ul>
+
+        <h3>Discharge Criteria</h3>
+        <ul>
+          <li>Afebrile</li>
+          <li>Tolerating oral diet</li>
+          <li>Pain controlled on oral analgesia</li>
+          <li>Mobilizing independently</li>
+          <li>No signs of complications</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

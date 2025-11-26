@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 4.2 - Antenatal Care</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 4.2 - Antenatal Care | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 4.2 - Antenatal Care">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 4.2 – Antenatal Care</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Obstetrics & Gynaecology | <strong>Setting:</strong> General Practice</p>
+
+    <h2>Case</h2>
+    <p>Phillipa Wong presents for pregnancy care. She had her last period 8 weeks ago and a chemist pregnancy test was positive. She and her husband have been trying to conceive for 4 months. She complains of nausea and vomiting.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Describe the biochemistry of the pregnancy test and how it is used in diagnosing an abnormal pregnancy. Should Phillipa's home pregnancy test be repeated?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Biochemistry of Pregnancy Test:</strong></p>
+        <p>Urine pregnancy test measures the amount of <strong>beta HCG</strong> (human chorionic gonadotropin) excreted in the urine to a sensitivity of 50 IU/L. Beta HCG is specific to pregnancy - the alpha form comes from other gonadotrophins like LH.</p>
+
+        <p><strong>Timing:</strong></p>
+        <ul>
+          <li>Can be detected before the first missed period (about day 10-12 from conception)</li>
+          <li>Approximately day 24-26 of cycle if perfect 28 day cycle</li>
+        </ul>
+
+        <p><strong>Use in Diagnosing Abnormal Pregnancy:</strong></p>
+        <ul>
+          <li><strong>Quantitative beta HCG</strong> gives a concentration of HCG</li>
+          <li>The level <strong>doubles every 48 hours</strong> in normal pregnancy</li>
+          <li><strong>Falling serial levels</strong> indicate a failed pregnancy</li>
+          <li>Abnormally rising levels may indicate ectopic pregnancy or molar pregnancy</li>
+        </ul>
+
+        <p><strong>Should the test be repeated?</strong></p>
+        <p>Yes, pregnancy should be confirmed by repeat testing to ensure accurate diagnosis and establish a baseline for monitoring.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the signs and symptoms of early pregnancy? List the recommendations for nausea and vomiting in pregnancy.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Signs and Symptoms of Early Pregnancy:</strong></p>
+        <ul>
+          <li>Amenorrhoea (missed period)</li>
+          <li>Nausea and vomiting</li>
+          <li>Breast tenderness and enlargement</li>
+          <li>Increased urinary frequency</li>
+          <li>Pigmentation of areola</li>
+          <li>Fatigue</li>
+        </ul>
+
+        <p><strong>Recommendations for Management of Hyperemesis Gravidarum:</strong></p>
+        <p><em>Presentation ranges from mild to severe</em></p>
+
+        <h3>Initial Assessment</h3>
+        <ul>
+          <li><strong>1st trimester ultrasound</strong> to exclude multiple gestation and molar pregnancy</li>
+          <li>Reassurance that hyperemesis will not harm foetus if hydration maintained</li>
+        </ul>
+
+        <h3>Conservative Management</h3>
+        <ul>
+          <li>Increased rest, leave from work as needed</li>
+          <li>Increased fluid intake</li>
+          <li>Ginger tea and tablets may help</li>
+        </ul>
+
+        <h3>Pharmacological Management</h3>
+        <ul>
+          <li><strong>Vitamin B6 75mg daily</strong></li>
+          <li><strong>Anti-emetic medication</strong> - increase as needed, dopamine antagonists</li>
+          <li><strong>Ondansetron wafers</strong></li>
+        </ul>
+
+        <h3>Hospital Admission Indications</h3>
+        <p>If dehydrated or urinary ketones present:</p>
+        <ul>
+          <li>Admit for intravenous therapy and potassium replacement</li>
+          <li><strong>Thiamine</strong> to prevent Wernicke's encephalopathy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What history and examination would you undertake at a first visit with a pregnant woman?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Comprehensive First Visit History and Examination:</strong></p>
+
+        <h3>Gynaecological History</h3>
+        <ul>
+          <li><strong>Menstrual history</strong></li>
+          <li>Previous contraception</li>
+          <li>Last cervical screening test</li>
+          <li><strong>LMP</strong> (Last Menstrual Period)</li>
+        </ul>
+
+        <h3>Obstetric History</h3>
+        <ul>
+          <li>Number of pregnancies</li>
+          <li>Outcomes of each pregnancy</li>
+          <li>Gestation of each pregnancy</li>
+          <li>Type of delivery</li>
+          <li>Complications</li>
+          <li>Breastfeeding history</li>
+        </ul>
+
+        <h3>Medical History</h3>
+        <ul>
+          <li>Particularly <strong>renal disease, diabetes, or hypertension</strong></li>
+        </ul>
+
+        <h3>Surgical History</h3>
+        <ul>
+          <li>Particularly <strong>gynaecological surgery, appendicectomy</strong></li>
+        </ul>
+
+        <h3>Family History</h3>
+        <ul>
+          <li><strong>Congenital abnormalities</strong> (anything in the family at all)</li>
+          <li>Twinning</li>
+          <li>History of own birth</li>
+        </ul>
+
+        <h3>Medication History</h3>
+        <ul>
+          <li>Over-the-counter medications</li>
+          <li>Prescribed medications</li>
+          <li>Herbal supplements</li>
+          <li>Including anything ceased since discovery of pregnancy</li>
+        </ul>
+
+        <h3>Social History</h3>
+        <ul>
+          <li>Partner and family support</li>
+          <li>Work nature and type</li>
+          <li>Housing</li>
+          <li><strong>Alcohol, smoking, caffeine</strong> use</li>
+        </ul>
+
+        <h3>Ethnic Background</h3>
+        <ul>
+          <li>Asian - higher risk of haemoglobinopathies</li>
+          <li>Horn of Africa - risk of genital mutilation</li>
+        </ul>
+
+        <h3>Other Important Information</h3>
+        <ul>
+          <li><strong>Allergies</strong></li>
+          <li>Vegetarian diet</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Which routine investigations are ordered as part of antenatal care?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Routine Antenatal Investigations by Timing:</strong></p>
+
+        <h3>First Visit (Around 10+ weeks)</h3>
+        <table>
+          <tr>
+            <th>Investigation</th>
+            <th>Purpose</th>
+          </tr>
+          <tr>
+            <td><strong>Blood Group: ABO</strong></td>
+            <td>Identify blood type for potential transfusion needs</td>
+          </tr>
+          <tr>
+            <td><strong>Rhesus factor & Antibody screen</strong></td>
+            <td>Identify Rh negative mothers requiring Anti-D prophylaxis</td>
+          </tr>
+          <tr>
+            <td><strong>FBC/Ferritin</strong></td>
+            <td>Screen for anaemia (especially if heavy menses history)</td>
+          </tr>
+          <tr>
+            <td><strong>Rubella</strong></td>
+            <td>Check immunity status</td>
+          </tr>
+          <tr>
+            <td><strong>TPHA</strong></td>
+            <td>Screen for syphilis</td>
+          </tr>
+          <tr>
+            <td><strong>Hepatitis B and C</strong></td>
+            <td>Screen for chronic hepatitis</td>
+          </tr>
+          <tr>
+            <td><strong>HIV</strong></td>
+            <td>Screen with pre-test counselling</td>
+          </tr>
+          <tr>
+            <td><strong>Vitamin D</strong></td>
+            <td>If dark skinned or little sun exposure</td>
+          </tr>
+          <tr>
+            <td><strong>Urine M/C/S</strong></td>
+            <td>Screen for asymptomatic bacteriuria</td>
+          </tr>
+          <tr>
+            <td><strong>TSH</strong></td>
+            <td>If overt hypothyroidism suspected</td>
+          </tr>
+          <tr>
+            <td><strong>Dating ultrasound</strong></td>
+            <td>If indicated - confirm dates and viability</td>
+          </tr>
+        </table>
+
+        <h3>11-13 Weeks</h3>
+        <ul>
+          <li><strong>Down's syndrome screen</strong> (nuchal translucency + serum PAPP-A and beta HCG)</li>
+        </ul>
+
+        <h3>18-20 Weeks</h3>
+        <ul>
+          <li><strong>Morphology ultrasound</strong> (foetal anomaly scan)</li>
+        </ul>
+
+        <h3>26 Weeks</h3>
+        <ul>
+          <li><strong>75 gram glucose tolerance test (GCT/GTT)</strong></li>
+          <li><strong>FBC</strong></li>
+          <li><strong>Blood group and antibody screen</strong></li>
+        </ul>
+
+        <h3>34 Weeks</h3>
+        <ul>
+          <li><strong>FBC</strong></li>
+          <li><strong>Blood group and antibody screen</strong></li>
+          <li><strong>Vaginal swab for Group B Streptococcus screen</strong></li>
+        </ul>
+
+        <h3>Additional Investigation</h3>
+        <ul>
+          <li><strong>Influenza vaccine</strong> offered at initial visit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Describe the common models of antenatal care in Australia.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Common Models of Antenatal Care in Australia:</strong></p>
+
+        <h3>1. Midwifery-Led Care</h3>
+        <ul>
+          <li>Midwifery care for antenatal care (ANC) and delivery</li>
+          <li>Suitable for low-risk pregnancies</li>
+          <li>Continuity of care with same midwife/team</li>
+        </ul>
+
+        <h3>2. GP-Led Care (Shared Care)</h3>
+        <ul>
+          <li>Usually GP provides antenatal care</li>
+          <li>Delivery occurs in hospital environment (either midwifery or obstetric)</li>
+          <li>Popular model for low-risk pregnancies</li>
+        </ul>
+
+        <h3>3. Obstetrician-Led Care</h3>
+        <ul>
+          <li>ANC and labour provided by Obstetrician & Gynaecologist</li>
+          <li>Indicated for high-risk pregnancies</li>
+          <li>Hospital-based care</li>
+        </ul>
+
+        <h3>4. Multidisciplinary Teams</h3>
+        <ul>
+          <li>ANC provided by multidisciplinary team</li>
+          <li>Labour in hospital under O&G care</li>
+          <li>For complex pregnancies requiring multiple specialties</li>
+        </ul>
+
+        <h3>Routine Low-Risk Antenatal Care Schedule</h3>
+        <p><strong>The Royal Women's Hospital utilises a routine antenatal care schedule of 10 visits.</strong></p>
+
+        <p>This represents a reduced number of content-specific, longer consultations compared with the traditional 14 visits for well women, and is considered best practice in terms of:</p>
+        <ul>
+          <li>Perinatal outcomes</li>
+          <li>Client satisfaction</li>
+          <li>Cost effectiveness</li>
+        </ul>
+
+        <p>However, with reference to flexibility and consumer-centred care, a woman may desire an increased number of visits and should be given this opportunity.</p>
+
+        <h3>Typical Visit Schedule</h3>
+        <table>
+          <tr>
+            <th>Timing</th>
+            <th>Care Provider</th>
+            <th>Key Activities</th>
+          </tr>
+          <tr>
+            <td>10+ weeks</td>
+            <td>Consultant/Registrar & Midwife</td>
+            <td>Initial assessment, booking bloods, dating ultrasound</td>
+          </tr>
+          <tr>
+            <td>16 weeks</td>
+            <td>Midwife/GP</td>
+            <td>Standard check, review results</td>
+          </tr>
+          <tr>
+            <td>20 weeks</td>
+            <td>Midwife/GP</td>
+            <td>Standard check, review morphology ultrasound</td>
+          </tr>
+          <tr>
+            <td>26 weeks</td>
+            <td>Midwife</td>
+            <td>Standard check, GCT, FBE, antibodies, PAC</td>
+          </tr>
+          <tr>
+            <td>30 weeks</td>
+            <td>Midwife/GP</td>
+            <td>Standard check</td>
+          </tr>
+          <tr>
+            <td>33-34 weeks</td>
+            <td>Midwife/GP</td>
+            <td>Standard check (34 weeks if Anti-D needed)</td>
+          </tr>
+          <tr>
+            <td>36 weeks</td>
+            <td>Consultant/Registrar</td>
+            <td>Consultant review, GBS screen</td>
+          </tr>
+          <tr>
+            <td>38 weeks</td>
+            <td>Midwife/GP</td>
+            <td>Standard check</td>
+          </tr>
+          <tr>
+            <td>40 weeks</td>
+            <td>Midwife/GP</td>
+            <td>Standard check, provide CTG/AFI request</td>
+          </tr>
+          <tr>
+            <td>41 weeks</td>
+            <td>Consultant/Registrar</td>
+            <td>Consultant review, CTG/AFI prior to appointment</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Discuss the role of 1st, 2nd and 3rd trimester ultrasound in pregnancy.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Role of Ultrasound Throughout Pregnancy:</strong></p>
+
+        <h3>First Trimester Ultrasound</h3>
+
+        <p><strong>Dating Scan:</strong></p>
+        <ul>
+          <li>Unsure dates</li>
+          <li>Contraceptive use within 3 months</li>
+          <li>Uterine size not proportionate to dates</li>
+        </ul>
+
+        <p><strong>Pregnancy Viability:</strong></p>
+        <ul>
+          <li>Determining viable pregnancy versus miscarriage</li>
+          <li>Incomplete miscarriage</li>
+          <li>Molar pregnancy</li>
+          <li>Ectopic pregnancy</li>
+        </ul>
+
+        <p><strong>First Trimester Screening (11-13 weeks):</strong></p>
+        <ul>
+          <li><strong>Nuchal fold thickness</strong> measurement</li>
+          <li>Screening test for Trisomy 21 (Down syndrome) when combined with serum PAPP-A and beta HCG</li>
+        </ul>
+
+        <h3>Second Trimester Ultrasound (18-20 weeks)</h3>
+        <ul>
+          <li><strong>Foetal anomaly scan</strong> - detailed anatomical survey</li>
+          <li><strong>Placental localization</strong> - identify placenta praevia</li>
+        </ul>
+
+        <h3>Third Trimester and Additional Indications</h3>
+
+        <p><strong>Further scans may be indicated for specific clinical issues:</strong></p>
+
+        <p><strong>Antepartum Haemorrhage (APH):</strong></p>
+        <ul>
+          <li>Identify cause and assess foetal wellbeing</li>
+        </ul>
+
+        <p><strong>Size-Date Discrepancy:</strong></p>
+        <ul>
+          <li>Fundal height is small or large for dates</li>
+        </ul>
+
+        <p><strong>Pregnancy Complications:</strong></p>
+        <ul>
+          <li>Diabetes, renal disease, pre-eclampsia</li>
+          <li>Check foetal welfare including:
+            <ul>
+              <li>Growth parameters</li>
+              <li>Foetal biometry</li>
+              <li>Breathing movements</li>
+              <li>Tone</li>
+              <li>Doppler studies of umbilical artery checking for blood flow</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Multiple Pregnancy:</strong></p>
+        <ul>
+          <li>Serial monitoring of foetal growth in twins and high-risk pregnancies</li>
+        </ul>
+
+        <p><strong>At Term:</strong></p>
+        <ul>
+          <li><strong>Unstable lie</strong> at term</li>
+          <li><strong>Abnormal foetal presentation</strong></li>
+          <li><strong>Placental location</strong> if previous scans show low-lying placenta</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 2.3 - Stable Angina</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 2.3 - Stable Angina | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 2.3 - Stable Angina">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 2.3 – Coronary Artery Disease (Stable Angina)</h1>
+    <p class="meta"><strong>Category:</strong> Cardiovascular | <strong>Discipline:</strong> Medicine | <strong>Setting:</strong> Hospital_Urban</p>
+
+    <h2>Case</h2>
+    <p>Ham Wong, aged 62 years present concerned about recurrent chest pain. The episodes started about three months ago. They were always mild and came on when he played tennis. He felt mild chest discomfort that only in hindsight he feels must have been heart pain. The discomfort always resolved after resting. However, recently the episodes have been more severe and take longer to go away after resting. He was prescribed GTN by his general practitioner, and has been urgently referred to you today for a full cardiac workup.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Outline the types of angina and how they are differentiated?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Stable angina:</strong></p>
+        <ul>
+          <li>Symptom complex caused by transient myocardial ischaemia</li>
+          <li>Occurs when there is an imbalance between myocardial O2 supply and demand, usually due to coronary atheroma</li>
+        </ul>
+
+        <p><strong>Unstable angina:</strong></p>
+        <ul>
+          <li>Clinical syndrome characterised by new onset or rapidly worsening angina with minimal exertion or at rest</li>
+          <li>Part of the spectrum of the acute coronary syndrome, which represents ischaemia with no myocardial damage, ischaemia with minimal myocardial damage or ischaemia with partial thickness myocardial damage or full thickness myocardial damage</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. In dot format summarise the pathogenesis of ischaemic heart disease</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Ischaemia heart disease (AKA coronary artery disease) occurs as the result of numerous risk factors. The major factors are smoking, diabetes, hypercholesterolemia, hypertension and a family history of premature coronary artery disease (female &lt;65, male&lt;55)</li>
+          <li>The clinical presentations follow development of atheromatous plaques:
+            <ol style="list-style-type: upper-roman;">
+              <li>Activated endothelial cells express adhesion molecules and recruit inflammatory cells, especially monocytes</li>
+              <li>Monocytes migrate into the intima of the artery wall and differentiate into macrophages and ingest lipid into foam cells</li>
+              <li>Cytokines and growth factors produced by the activated macrophages induce smooth muscle cell migration into the intima; the migrating smooth muscle cells change from their contractile properties to properties that allow them to repair the damaged intima</li>
+              <li>If the cells are successful, the lipid core is covered by cells to form a stable plaque of atherosclerosis</li>
+              <li>If the cells are not successful, inflammation predominates and the plaque becomes unstable and the fiberous cap thins</li>
+              <li>The plaque becomes susceptible to mechanical stress and the irregular surface becomes a focus for platelet aggregation and thrombus formation</li>
+              <li>The formation of thrombous leads to partial or complete obstruction of the artery lumen.</li>
+            </ol>
+          </li>
+          <li>Once obstruction to the lumen has occurred, there is deficient blood supply to the myocardium.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What further history and examination is required?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Further history must try and ascertain whether this could be a presentation of a myocardial infarction. This includes type and nature of the pain, radiation of the pain, whether there was a change in the pain with the application of the nitrate patch, associated physical symptoms such as breathlessness, light-headedness, nausea, vomiting, sweating, change in the pain with the application of the nitrate patch or a sense of fear or impending doom?</p>
+
+        <p>Exam for signs of sympathetic activation i.e. pallor, sweating and tachycardia, or vagal activation i.e. bradycardia and vomiting.</p>
+
+        <p>Check for pallor and cool peripheries, pulse (character and rate), blood pressure (hypotension), JVP, character of the apex beat, osculate for heart sounds (quiet S1, S3) and osculate the chest for crackles.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What features would suggest the pain was cardiac in nature?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Characteristics of cardiac chest pain include:</p>
+        <ul>
+          <li>Central chest pain</li>
+          <li>Radiation to the neck, jaw, upper or lower arms</li>
+          <li>Dull constricting, choking heavy pain that is sometimes described as breathlessness, squeezing, crushing, burning or aching</li>
+          <li>Cardiac pain is often provoked or worsened by activity, emotion or a heavy meal</li>
+          <li>Often associated with breathlessness and autonomic disturbances such as pallor, sweating, nausea and vomiting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Using a table list the following drugs and their mechanism of action - nitrates, beta blockers, thrombolytics, antiplatelet agents?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <tr>
+            <th>Medication</th>
+            <th>Mechanism of action</th>
+          </tr>
+          <tr>
+            <td>nitrates</td>
+            <td>Vascular smooth muscle relaxation to produce venous and arteriolar dilatation leading to reduced preload and increase myocardial O2 supply</td>
+          </tr>
+          <tr>
+            <td>β-blockers</td>
+            <td>Reduce heart rate, blood pressure and myocardial contractility therefore lowering myocardial demand for O2</td>
+          </tr>
+          <tr>
+            <td>thrombolytics</td>
+            <td>Dissolve blood clots by activating plasminogen thereby restoring coronary patency</td>
+          </tr>
+          <tr>
+            <td>anti-platelet agents<br>• aspirin<br>• IIb/IIIa platelet receptor inhibitors</td>
+            <td>Inhibit platelet aggregation</td>
+          </tr>
+        </table>
+        <p><strong>Note:</strong> lipid lowering therapy (e.g. statin) should also be considered.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. What further investigations would you order?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Blood tests (FBC, EUC, LFT, coagulation screen, ESR, C-reactive protein, serial levels of troponins or if this was not available, CK, CKMB)</li>
+          <li>Serial ECG</li>
+          <li>Chest x-ray</li>
+          <li>Fasting blood Glucose, fasting lipid profiles</li>
+          <li>Echocardiography</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. What are the key principles of management?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The most important concern is that this patient is at risk of death or acute myocardial ischemia and therefore requires admission to hospital.</p>
+
+        <p>The initial management includes bed rest, antiplatelet medications, heparin, and a β-blocker.</p>
+
+        <p>Once the pain has stabilised, further investigations must be undertaken with a stress test.</p>
+
+        <p>If the pain fails to stabilize or there are ECG changes or there have been elevations in the serum markers of myocardial damage or the pre-hospital angina was very serve, an angiogram is indicated.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

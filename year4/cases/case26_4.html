@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 26_4 - Fibromyalgia [SDL]</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 26_4 - Fibromyalgia [SDL] | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 26_4 - Fibromyalgia [SDL]">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 26.4 – Fibromyalgia [SDL]</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Rheumatology | <strong>Setting:</strong> General Practice</p>
+
+    <h2>Case</h2>
+    <p>Miss Sophie Williams, a 34-year-old office administrator, attends her GP surgery for the fifth time in 6 months with persistent widespread pain. She describes aching pain "all over," particularly affecting her neck, shoulders, lower back, hips, and thighs. The pain has been present for over 8 months and is worse in the mornings. She reports extreme fatigue, stating "I feel exhausted all the time, even after a full night's sleep." She has trouble concentrating at work, describing "brain fog" where she forgets things and struggles to focus. She has difficulty sleeping, taking hours to fall asleep and waking frequently during the night feeling unrefreshed. She also reports frequent headaches, IBS symptoms (alternating constipation and diarrhea, abdominal bloating), and feels low in mood. She has tried paracetamol and ibuprofen with minimal relief. She feels frustrated that "no one can find what's wrong" after previous blood tests were normal. She works full-time but has had to reduce her gym attendance due to pain and fatigue, which she used to enjoy.</p>
+
+    <p><strong>Past Medical History:</strong> IBS (diagnosed 3 years ago), migraines, anxiety<br>
+    <strong>Medications:</strong> Mebeverine PRN, sumatriptan PRN, occasional ibuprofen<br>
+    <strong>Social History:</strong> Works full-time in office, lives alone, non-smoker, minimal alcohol<br>
+    <strong>Family History:</strong> Mother has "chronic pain"</p>
+
+    <div class="vital-signs">Vital signs: BP 118/72 mmHg, HR 76 bpm, Temp 36.7°C. Examination: Multiple tender points on palpation (neck, shoulders, elbows, hips, knees), normal joint examination with no swelling or deformity, full range of movement (though patient reports pain), normal neurological examination, no muscle weakness or atrophy</div>
+
+    <h2>Self-Directed Learning Questions</h2>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q1')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 1:</strong> What is fibromyalgia, and what are the current diagnostic criteria? How has the understanding and diagnosis of fibromyalgia evolved?
+      </button>
+      <div id="q1" class="answer">
+        <p><strong>Definition of fibromyalgia:</strong></p>
+        <ul>
+          <li>Fibromyalgia is a <strong>chronic pain syndrome</strong> characterized by widespread musculoskeletal pain, fatigue, sleep disturbance, and cognitive dysfunction ("fibro fog")</li>
+          <li>It is a clinical diagnosis - there are no specific diagnostic tests or biomarkers</li>
+          <li>Considered a disorder of <strong>central pain processing/sensitization</strong> - the nervous system amplifies pain signals</li>
+          <li>More common in women (female:male ratio ~9:1), typically presents age 20-50 years</li>
+          <li>Prevalence ~2-8% in general population</li>
+        </ul>
+
+        <p><strong>Evolution of diagnostic criteria:</strong></p>
+
+        <p><em>1990 ACR criteria (American College of Rheumatology):</em></p>
+        <ul>
+          <li>Required widespread pain (all 4 quadrants of body + axial skeleton) for ≥3 months</li>
+          <li>Required ≥11 of 18 specified tender points on digital palpation</li>
+          <li><strong>Limitations:</strong> Tender point examination was subjective, time-consuming, poorly reproducible; criteria didn't capture other core symptoms (fatigue, cognitive issues, sleep problems); created perception of "tender points" being diagnostic rather than part of spectrum</li>
+        </ul>
+
+        <p><em>2010/2011 ACR criteria (revised, still widely used):</em></p>
+        <ul>
+          <li><strong>Removed tender point examination</strong> (recognized as unreliable)</li>
+          <li>Introduced two key measures:
+            <ul>
+              <li><strong>Widespread Pain Index (WPI):</strong> Number of painful body regions (0-19) from checklist</li>
+              <li><strong>Symptom Severity Scale (SS):</strong> Rates severity (0-3) of:
+                <ul>
+                  <li>Fatigue</li>
+                  <li>Waking unrefreshed</li>
+                  <li>Cognitive symptoms</li>
+                  <li>Plus extent of somatic symptoms (headaches, IBS, numbness, etc.)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Diagnostic criteria:</strong>
+            <ul>
+              <li>WPI ≥7 AND SS score ≥5, OR WPI 3-6 AND SS score ≥9</li>
+              <li>Symptoms present for ≥3 months</li>
+              <li>No other disorder that would explain the pain</li>
+            </ul>
+          </li>
+          <li><strong>Advantages:</strong> Can be used in clinical practice and self-report; captures broader symptom profile; more objective; recognizes fibromyalgia as multi-symptom disorder, not just pain</li>
+        </ul>
+
+        <p><em>2016 revision (fibromyalgia criteria):</em></p>
+        <ul>
+          <li>Generalized pain (defined as pain in ≥4 of 5 regions) required</li>
+          <li>Combined and clarified the WPI and SS score requirements</li>
+          <li>Reinforced that fibromyalgia can coexist with other conditions</li>
+        </ul>
+
+        <p><strong>Key changes in understanding:</strong></p>
+        <ul>
+          <li><strong>From peripheral to central:</strong> Shift from viewing fibromyalgia as muscle/tissue problem to recognizing it as central nervous system disorder (central sensitization, abnormal pain processing)</li>
+          <li><strong>From exclusion to recognition:</strong> Previously a "diagnosis of exclusion"; now recognized as distinct clinical entity that can coexist with other conditions (e.g., RA, lupus)</li>
+          <li><strong>Dimensional rather than binary:</strong> Fibromyalgia exists on a spectrum - "fibromyalgianess" can vary in degree</li>
+          <li><strong>Biopsychosocial model:</strong> Recognition that biological, psychological, and social factors all contribute to development and maintenance</li>
+          <li><strong>Legitimization:</strong> Increasing acceptance as "real" condition (historically dismissed as psychosomatic or malingering)</li>
+        </ul>
+
+        <p><strong>Contemporary understanding - pathophysiology:</strong></p>
+        <ul>
+          <li><strong>Central sensitization:</strong> Enhanced pain processing in CNS - "volume turned up" on pain signals</li>
+          <li>Reduced descending pain inhibition (pain suppression systems don't work properly)</li>
+          <li>Neurotransmitter abnormalities: low serotonin, noradrenaline, dopamine; high substance P (pain transmitter) in CSF</li>
+          <li>Altered brain connectivity and activity on functional imaging</li>
+          <li>Sleep architecture abnormalities (reduced deep sleep, alpha-wave intrusion into sleep)</li>
+          <li>HPA axis dysfunction (stress response abnormalities)</li>
+          <li>Possible genetic predisposition (family clustering, gene polymorphisms in pain pathways)</li>
+        </ul>
+
+        <p><strong>Clinical application:</strong> Diagnosis is clinical, based on characteristic symptom pattern (widespread pain, fatigue, cognitive issues, sleep disturbance) lasting ≥3 months, after excluding other causes. Modern criteria facilitate diagnosis without requiring tender point examination.</p>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q2')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 2:</strong> What clinical features and associated conditions are characteristic of fibromyalgia? What investigations should be performed and why?
+      </button>
+      <div id="q2" class="answer">
+        <p><strong>Core clinical features of fibromyalgia:</strong></p>
+
+        <p><em>1. Widespread chronic pain (cardinal feature):</em></p>
+        <ul>
+          <li>Diffuse, aching, sometimes burning quality</li>
+          <li>Affects multiple sites - often described as "hurting all over"</li>
+          <li>Typically axial (neck, back) and proximal limbs (shoulders, hips)</li>
+          <li>Worse with activity initially, but also worse with prolonged rest/inactivity</li>
+          <li>Variable intensity - fluctuates day-to-day, can have flares</li>
+          <li>Allodynia (pain from normally non-painful stimuli) and hyperalgesia (exaggerated pain response)</li>
+        </ul>
+
+        <p><em>2. Fatigue (present in >90%):</em></p>
+        <ul>
+          <li>Severe, persistent, unrelieved by rest</li>
+          <li>"Exhausted all the time"</li>
+          <li>Not proportional to activity level</li>
+          <li>Can be as debilitating as the pain</li>
+        </ul>
+
+        <p><em>3. Sleep disturbance (present in ~75%):</em></p>
+        <ul>
+          <li>Non-restorative sleep - "wake up more tired than when went to bed"</li>
+          <li>Difficulty falling asleep, frequent waking, early morning waking</li>
+          <li>Sleep architecture abnormalities (reduced slow-wave sleep)</li>
+        </ul>
+
+        <p><em>4. Cognitive dysfunction - "fibro fog" (present in >50%):</em></p>
+        <ul>
+          <li>Difficulty concentrating</li>
+          <li>Memory problems (especially short-term memory)</li>
+          <li>Slower processing speed</li>
+          <li>Word-finding difficulties</li>
+          <li>Feeling "mentally clouded"</li>
+        </ul>
+
+        <p><strong>Associated symptoms (very common):</strong></p>
+        <ul>
+          <li><strong>Headaches:</strong> Tension-type or migraines (in 50-70%)</li>
+          <li><strong>Irritable bowel syndrome:</strong> Abdominal pain, bloating, altered bowel habit (in 40-70%)</li>
+          <li><strong>Paraesthesias:</strong> Numbness, tingling (without objective neurological signs)</li>
+          <li><strong>Temporomandibular joint dysfunction (TMJ):</strong> Jaw pain, clicking</li>
+          <li><strong>Restless legs syndrome</strong></li>
+          <li><strong>Dizziness, balance problems</strong></li>
+          <li><strong>Sensory sensitivities:</strong> Light, noise, temperature, smells</li>
+          <li><strong>Multiple chemical sensitivity</strong></li>
+          <li><strong>Bladder symptoms:</strong> Urgency, frequency (interstitial cystitis overlap)</li>
+        </ul>
+
+        <p><strong>Psychological comorbidities (very common):</strong></p>
+        <ul>
+          <li><strong>Depression (20-80%):</strong> Can be cause, consequence, or comorbid condition</li>
+          <li><strong>Anxiety disorders (up to 60%)</strong></li>
+          <li>Note: While psychological factors are important, fibromyalgia is NOT purely psychological - there are demonstrable biological abnormalities</li>
+        </ul>
+
+        <p><strong>Conditions frequently comorbid with fibromyalgia:</strong></p>
+        <ul>
+          <li>Chronic fatigue syndrome (significant overlap, may be part of same spectrum)</li>
+          <li>Autoimmune rheumatic diseases (lupus, RA, Sjögren's syndrome) - fibromyalgia can coexist</li>
+          <li>Migraine</li>
+          <li>IBS</li>
+          <li>Interstitial cystitis</li>
+          <li>PTSD, history of trauma/abuse (increased prevalence)</li>
+        </ul>
+
+        <p><strong>Investigations in suspected fibromyalgia:</strong></p>
+
+        <p><em>Purpose of investigations:</em></p>
+        <ul>
+          <li><strong>No test confirms fibromyalgia</strong> - diagnosis is clinical</li>
+          <li>Investigations are done to <strong>exclude other conditions</strong> that can mimic fibromyalgia (the "fibromyalgia masqueraders")</li>
+          <li>Reassure patient and clinician that other serious pathology is not present</li>
+          <li>Identify comorbid conditions</li>
+        </ul>
+
+        <p><em>Recommended baseline investigations:</em></p>
+        <ul>
+          <li><strong>Full blood count:</strong> Exclude anaemia (fatigue), infection, haematological disorders</li>
+          <li><strong>Inflammatory markers (ESR, CRP):</strong> Should be normal in fibromyalgia; elevated suggests inflammatory arthritis, PMR, connective tissue disease</li>
+          <li><strong>Thyroid function (TSH, free T4):</strong> Hypothyroidism mimics fibromyalgia (fatigue, pain, cognitive dysfunction)</li>
+          <li><strong>Calcium and vitamin D:</strong> Vitamin D deficiency causes diffuse musculoskeletal pain and fatigue</li>
+          <li><strong>Creatine kinase (CK):</strong> Exclude myositis/myopathy (should be normal in fibromyalgia)</li>
+          <li><strong>Liver and kidney function:</strong> Baseline, exclude other causes of fatigue</li>
+          <li><strong>Glucose/HbA1c:</strong> Diabetes can cause fatigue</li>
+        </ul>
+
+        <p><em>Additional investigations (based on clinical features):</em></p>
+        <ul>
+          <li><strong>Rheumatoid factor, anti-CCP:</strong> If joint symptoms suggest inflammatory arthritis</li>
+          <li><strong>ANA (antinuclear antibodies):</strong> If features suggest SLE or other connective tissue disease
+            <ul>
+              <li><strong>Caution:</strong> Low-titre ANA can be positive in healthy people and fibromyalgia patients; don't over-interpret</li>
+            </ul>
+          </li>
+          <li><strong>Coeliac serology:</strong> If significant GI symptoms</li>
+          <li><strong>Ferritin:</strong> Iron deficiency causes fatigue</li>
+          <li><strong>B12:</strong> Deficiency causes fatigue, paraesthesias, cognitive issues</li>
+          <li><strong>Sleep study (polysomnography):</strong> If obstructive sleep apnoea suspected (snoring, witnessed apnoeas, severe daytime sleepiness)</li>
+        </ul>
+
+        <p><em>Investigations NOT routinely recommended:</em></p>
+        <ul>
+          <li>Extensive autoimmune panels (unless specific clinical features)</li>
+          <li>Lyme serology (unless epidemiological risk and appropriate symptoms)</li>
+          <li>Imaging (X-rays, MRI) - not helpful unless specific joint/neurological concerns</li>
+          <li>EMG/nerve conduction studies - unless true neurological deficits</li>
+        </ul>
+
+        <p><strong>Expected findings in fibromyalgia:</strong></p>
+        <ul>
+          <li>All routine blood tests should be <strong>normal</strong></li>
+          <li>Normal inflammatory markers (CRP, ESR)</li>
+          <li>Normal CK</li>
+          <li>Physical examination: tenderness to palpation, but no objective joint swelling, muscle weakness, or neurological deficits</li>
+        </ul>
+
+        <p><strong>Key clinical points:</strong></p>
+        <ul>
+          <li><strong>"Red flags" requiring further investigation:</strong> Objective weakness, abnormal neurology, joint swelling, elevated inflammatory markers, unexplained weight loss, focal symptoms - these suggest alternative/additional diagnoses</li>
+          <li><strong>Normal investigations support the diagnosis</strong> of fibromyalgia and provide reassurance</li>
+          <li><strong>Avoid excessive testing:</strong> Can reinforce illness beliefs and delay acceptance/treatment</li>
+          <li>Fibromyalgia can coexist with other conditions - finding another diagnosis doesn't exclude fibromyalgia</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q3')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 3:</strong> Outline the non-pharmacological management of fibromyalgia. Why is a multidisciplinary approach important?
+      </button>
+      <div id="q3" class="answer">
+        <p><strong>Overview of non-pharmacological management:</strong></p>
+        <ul>
+          <li>Non-pharmacological approaches are <strong>first-line and essential</strong> in fibromyalgia management</li>
+          <li>Generally more effective than medications for long-term outcomes</li>
+          <li>Require active patient participation and self-management</li>
+          <li>Multidisciplinary approach targeting different aspects of the condition</li>
+        </ul>
+
+        <p><strong>1. Patient education and validation (fundamental first step):</strong></p>
+        <ul>
+          <li><strong>Explanation of condition:</strong>
+            <ul>
+              <li>Fibromyalgia is a real medical condition, not "all in your head"</li>
+              <li>Explain central sensitization/altered pain processing in accessible terms</li>
+              <li>Set realistic expectations - condition is chronic but manageable; focus on improving function and quality of life, not "cure"</li>
+            </ul>
+          </li>
+          <li><strong>Validation of symptoms:</strong> Acknowledge the reality and impact of symptoms; reduces anxiety and improves therapeutic relationship</li>
+          <li><strong>Avoid reinforcing illness behavior:</strong> While validating, also emphasize active self-management and gradual return to activity</li>
+          <li><strong>Written information/resources:</strong> Reliable patient information leaflets, support groups</li>
+        </ul>
+
+        <p><strong>2. Exercise and physical therapy (STRONG evidence - most effective intervention):</strong></p>
+
+        <p><em>Aerobic exercise:</em></p>
+        <ul>
+          <li><strong>Gold standard non-pharmacological treatment</strong></li>
+          <li>Start LOW, go SLOW - begin at very low intensity and duration, gradually increase</li>
+          <li>Types: walking, cycling, swimming, aquatic exercise (warm water particularly beneficial)</li>
+          <li>Goal: 20-30 minutes moderate intensity, 2-3 times/week, building up over weeks-months</li>
+          <li>Benefits: reduces pain, fatigue, depression; improves physical function, sleep, quality of life</li>
+          <li><strong>Challenge:</strong> Initial increase in pain/fatigue (post-exertional malaise) - counsel patients this improves with persistence; pacing is key</li>
+        </ul>
+
+        <p><em>Strengthening exercises:</em></p>
+        <ul>
+          <li>Resistance training 2-3x/week</li>
+          <li>Improves muscle strength, reduces pain, improves function</li>
+        </ul>
+
+        <p><em>Flexibility/stretching exercises:</em></p>
+        <ul>
+          <li>Gentle stretching, yoga, tai chi</li>
+          <li>Improve flexibility, reduce stiffness, promote relaxation</li>
+        </ul>
+
+        <p><em>Physiotherapy:</em></p>
+        <ul>
+          <li>Develop individualized exercise program</li>
+          <li>Education on pacing, posture, body mechanics</li>
+          <li>Hands-on treatments (massage, manual therapy) may provide temporary relief</li>
+        </ul>
+
+        <p><strong>3. Cognitive Behavioral Therapy (CBT) (STRONG evidence):</strong></p>
+        <ul>
+          <li>Addresses maladaptive thoughts, behaviors, and coping strategies</li>
+          <li>Key components:
+            <ul>
+              <li>Cognitive restructuring: Challenge catastrophic thinking, pain beliefs</li>
+              <li>Behavioral activation: Gradual increase in activities despite pain</li>
+              <li>Coping skills training: Develop adaptive pain management strategies</li>
+              <li>Relaxation techniques</li>
+            </ul>
+          </li>
+          <li>Benefits: reduces pain, disability, depression; improves coping and self-efficacy</li>
+          <li>Can be individual or group format</li>
+        </ul>
+
+        <p><strong>4. Sleep hygiene and management:</strong></p>
+        <ul>
+          <li>Regular sleep-wake schedule (same bedtime/wake time daily)</li>
+          <li>Bedroom environment: dark, quiet, cool, comfortable</li>
+          <li>Avoid: caffeine (especially afternoon/evening), alcohol, heavy meals before bed, screens before bed</li>
+          <li>Wind-down routine before bed</li>
+          <li>Limit daytime napping</li>
+          <li>Use bed only for sleep (not TV, work)</li>
+          <li>If can't sleep after 20 minutes, get up and do relaxing activity</li>
+        </ul>
+
+        <p><strong>5. Stress management and relaxation techniques:</strong></p>
+        <ul>
+          <li>Mindfulness meditation (growing evidence for pain reduction)</li>
+          <li>Progressive muscle relaxation</li>
+          <li>Deep breathing exercises</li>
+          <li>Guided imagery</li>
+          <li>Biofeedback</li>
+          <li>Benefits: reduce stress, muscle tension, pain; improve sleep and wellbeing</li>
+        </ul>
+
+        <p><strong>6. Pacing and activity management:</strong></p>
+        <ul>
+          <li>Avoid "boom-bust" cycle (overactivity on good days → flare → prolonged rest → deconditioning)</li>
+          <li>Break activities into manageable chunks with rest breaks</li>
+          <li>Set realistic daily goals</li>
+          <li>Gradual, consistent increase in activity tolerance</li>
+          <li>Energy conservation strategies</li>
+        </ul>
+
+        <p><strong>7. Other interventions with varying evidence:</strong></p>
+        <ul>
+          <li><strong>Acupuncture:</strong> Modest evidence for short-term pain relief; may be worth trying</li>
+          <li><strong>Massage therapy:</strong> Temporary symptom relief, relaxation; not curative</li>
+          <li><strong>Heat therapy:</strong> Warm baths, heating pads - provide temporary relief, muscle relaxation</li>
+          <li><strong>TENS (transcutaneous electrical nerve stimulation):</strong> Mixed evidence; some patients find helpful</li>
+          <li><strong>Dietary modifications:</strong> Limited evidence; some patients report benefit from anti-inflammatory diets, eliminating certain foods (individualized approach)</li>
+        </ul>
+
+        <p><strong>Why multidisciplinary approach is important:</strong></p>
+
+        <p><em>Fibromyalgia is multifaceted:</em></p>
+        <ul>
+          <li>Physical symptoms (pain, fatigue)</li>
+          <li>Psychological factors (depression, anxiety, stress, catastrophizing)</li>
+          <li>Sleep disturbance</li>
+          <li>Functional impairment (work, social, daily activities)</li>
+          <li>No single intervention addresses all aspects</li>
+        </ul>
+
+        <p><em>Multidisciplinary team can include:</em></p>
+        <ul>
+          <li><strong>GP/physician:</strong> Diagnosis, coordination of care, medical management</li>
+          <li><strong>Physiotherapist:</strong> Exercise prescription, physical rehabilitation</li>
+          <li><strong>Occupational therapist:</strong> Activity pacing, energy conservation, work adaptations</li>
+          <li><strong>Clinical psychologist:</strong> CBT, pain management programs, addressing comorbid mental health</li>
+          <li><strong>Pain specialist:</strong> Complex cases, refractory symptoms</li>
+          <li><strong>Rheumatologist:</strong> Diagnosis confirmation, exclude other conditions, complex cases</li>
+          <li><strong>Nurse specialist:</strong> Patient education, self-management support</li>
+          <li><strong>Pharmacist:</strong> Medication management, monitoring</li>
+        </ul>
+
+        <p><em>Benefits of multidisciplinary approach:</em></p>
+        <ul>
+          <li>Addresses condition holistically (biopsychosocial model)</li>
+          <li>Combines complementary interventions synergistically</li>
+          <li>Provides comprehensive support and expertise</li>
+          <li>Validates the complexity of the condition</li>
+          <li>Better outcomes than single-modality treatment</li>
+          <li>Empowers patient self-management</li>
+        </ul>
+
+        <p><em>Practical delivery:</em></p>
+        <ul>
+          <li>Specialist fibromyalgia/chronic pain clinics (ideal but limited availability)</li>
+          <li>Coordinated care in primary care with referrals to specialists as needed</li>
+          <li>Group programs (pain management programs) - cost-effective, peer support</li>
+        </ul>
+
+        <p><strong>Key messages for patients:</strong></p>
+        <ul>
+          <li>Active participation in treatment is essential - "you are your own best treatment"</li>
+          <li>Improvement is gradual - weeks to months, not days</li>
+          <li>Combination of approaches more effective than single treatment</li>
+          <li>Focus on function and quality of life, not complete pain elimination</li>
+          <li>Self-management strategies are lifelong skills</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q4')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 4:</strong> Discuss the pharmacological management of fibromyalgia. What medications have evidence of efficacy, and what are their limitations?
+      </button>
+      <div id="q4" class="answer">
+        <p><strong>Overview of pharmacological management:</strong></p>
+        <ul>
+          <li>Medications are <strong>adjuncts</strong> to non-pharmacological management, not first-line sole treatment</li>
+          <li>Generally provide modest symptom relief (typically 30-50% pain reduction in responders)</li>
+          <li>Only ~30-50% of patients respond to any given medication</li>
+          <li>No single drug is effective for all symptoms or all patients</li>
+          <li>Start low, go slow with dosing; trial for adequate duration before assessing efficacy</li>
+          <li><strong>Important:</strong> Traditional analgesics (paracetamol, NSAIDs, opioids) are largely ineffective in fibromyalgia</li>
+        </ul>
+
+        <p><strong>Medications with STRONG evidence (first-line pharmacological options):</strong></p>
+
+        <p><em>1. Amitriptyline (tricyclic antidepressant):</em></p>
+        <ul>
+          <li><strong>Dose:</strong> 10-25mg at night initially, can increase to 50-75mg (lower than antidepressant doses)</li>
+          <li><strong>Mechanism:</strong> Increases serotonin and noradrenaline (enhances descending pain inhibition); sedative effects improve sleep</li>
+          <li><strong>Evidence:</strong> Reduces pain, improves sleep, fatigue; one of the most studied medications in fibromyalgia</li>
+          <li><strong>Side effects:</strong> Dry mouth, constipation, drowsiness/morning hangover, weight gain, urinary retention, cardiac effects (caution in elderly/cardiac disease)
+            <ul>
+              <li>Often limit use due to side effects</li>
+            </ul>
+          </li>
+          <li><strong>Advantages:</strong> Inexpensive, well-established, helps sleep</li>
+          <li><strong>Contraindications:</strong> Recent MI, arrhythmias, heart block, glaucoma, urinary retention</li>
+        </ul>
+
+        <p><em>2. Duloxetine (SNRI - serotonin-noradrenaline reuptake inhibitor):</em></p>
+        <ul>
+          <li><strong>Dose:</strong> 30mg daily initially, increase to 60mg daily after 1 week (can go up to 120mg)</li>
+          <li><strong>Mechanism:</strong> Enhances serotonin and noradrenaline (descending pain modulation); also treats comorbid depression/anxiety</li>
+          <li><strong>Evidence:</strong> FDA-approved for fibromyalgia; reduces pain, improves function; also effective for comorbid depression</li>
+          <li><strong>Side effects:</strong> Nausea (especially initially - take with food), dry mouth, constipation, dizziness, insomnia, sweating, sexual dysfunction
+            <ul>
+              <li>Withdrawal effects if stopped abruptly - taper gradually</li>
+            </ul>
+          </li>
+          <li><strong>Advantages:</strong> Also treats depression; generally better tolerated than amitriptyline; taken during day</li>
+          <li><strong>Contraindications:</strong> Uncontrolled narrow-angle glaucoma; caution with liver disease</li>
+        </ul>
+
+        <p><em>3. Pregabalin (anticonvulsant, alpha-2-delta ligand):</em></p>
+        <ul>
+          <li><strong>Dose:</strong> 75mg twice daily initially, can increase up to 300mg twice daily (typical effective dose 300-450mg/day in divided doses)</li>
+          <li><strong>Mechanism:</strong> Binds to alpha-2-delta subunit of voltage-gated calcium channels; reduces excitatory neurotransmitter release; modulates pain processing</li>
+          <li><strong>Evidence:</strong> FDA-approved for fibromyalgia; reduces pain, improves sleep, anxiety; multiple RCTs showing efficacy</li>
+          <li><strong>Side effects:</strong> Dizziness, drowsiness, weight gain (common and can be significant), peripheral edema, dry mouth, blurred vision, cognitive impairment/"brain fog"
+            <ul>
+              <li>Weight gain limits long-term use in many patients</li>
+            </ul>
+          </li>
+          <li><strong>Advantages:</strong> Also improves sleep and anxiety; can be effective when other options fail</li>
+          <li><strong>Contraindications:</strong> Caution in renal impairment (dose adjustment needed); potential for misuse (controlled drug in some countries)</li>
+        </ul>
+
+        <p><em>4. Gabapentin (anticonvulsant, similar to pregabalin):</em></p>
+        <ul>
+          <li><strong>Dose:</strong> Start 300mg at night, can increase to 1800-2400mg/day in divided doses</li>
+          <li><strong>Evidence:</strong> Some evidence for efficacy (less robust than pregabalin); often used as alternative to pregabalin</li>
+          <li><strong>Side effects:</strong> Similar to pregabalin (dizziness, drowsiness, weight gain, edema)</li>
+          <li><strong>Advantages:</strong> Cheaper than pregabalin in some settings</li>
+        </ul>
+
+        <p><strong>Medications with MODERATE evidence (second-line options):</strong></p>
+
+        <p><em>Other antidepressants:</em></p>
+        <ul>
+          <li><strong>Milnacipran (SNRI):</strong> FDA-approved for fibromyalgia in US; similar efficacy to duloxetine; not available in all countries</li>
+          <li><strong>Cyclobenzaprine (muscle relaxant, structurally similar to amitriptyline):</strong> 10-30mg at night; improves sleep and pain; very sedating</li>
+          <li><strong>Fluoxetine, paroxetine (SSRIs):</strong> Weaker evidence than SNRIs; may help comorbid depression but less effective for pain than SNRIs/tricyclics</li>
+        </ul>
+
+        <p><strong>Medications with LIMITED/NO evidence or NOT recommended:</strong></p>
+        <ul>
+          <li><strong>Paracetamol:</strong> No good evidence; may provide minor short-term relief; generally ineffective as monotherapy</li>
+          <li><strong>NSAIDs (ibuprofen, naproxen):</strong> Fibromyalgia is not inflammatory condition; NSAIDs largely ineffective; may help if comorbid inflammatory condition or short-term flare</li>
+          <li><strong>Opioids (codeine, tramadol, morphine, etc.):</strong>
+            <ul>
+              <li><strong>NOT recommended</strong> - no evidence of efficacy in fibromyalgia</li>
+              <li>Risks (dependence, tolerance, hyperalgesia, constipation, cognitive effects) outweigh any potential limited benefit</li>
+              <li>Can worsen central sensitization</li>
+              <li>Avoid prescribing opioids for fibromyalgia</li>
+            </ul>
+          </li>
+          <li><strong>Benzodiazepines:</strong> Not recommended - no evidence for pain/fibromyalgia; risk of dependence; may worsen sleep architecture; reserve only for short-term anxiety management if needed</li>
+          <li><strong>Corticosteroids:</strong> No role in fibromyalgia (not inflammatory)</li>
+          <li><strong>Cannabinoids:</strong> Insufficient evidence currently; some patients report benefit but formal trials show limited/no efficacy</li>
+        </ul>
+
+        <p><strong>Practical prescribing approach:</strong></p>
+
+        <p><em>Step 1: Choose initial medication based on:</em></p>
+        <ul>
+          <li><strong>Predominant symptoms:</strong>
+            <ul>
+              <li>Sleep problems prominent: Amitriptyline or pregabalin (nighttime dosing)</li>
+              <li>Comorbid depression/anxiety: Duloxetine</li>
+              <li>Daytime fatigue (want to avoid sedation): Duloxetine</li>
+            </ul>
+          </li>
+          <li><strong>Comorbidities/contraindications:</strong> e.g., avoid amitriptyline in cardiac disease, elderly</li>
+          <li><strong>Patient preference, previous experience</strong></li>
+        </ul>
+
+        <p><em>Step 2: Titrate dose slowly</em></p>
+        <ul>
+          <li>Start low, increase gradually to minimize side effects</li>
+          <li>Allow adequate trial at therapeutic dose (6-8 weeks minimum) before judging efficacy</li>
+        </ul>
+
+        <p><em>Step 3: Assess response</em></p>
+        <ul>
+          <li>Meaningful improvement = ≥30% reduction in pain AND improvement in function/quality of life</li>
+          <li>If effective: continue at minimum effective dose</li>
+          <li>If ineffective or intolerable side effects: taper off and try alternative medication (different class)</li>
+        </ul>
+
+        <p><em>Step 4: Combination therapy (if needed)</em></p>
+        <ul>
+          <li>Can combine medications from different classes (e.g., amitriptyline + duloxetine, or pregabalin + duloxetine)</li>
+          <li>Some evidence for additive benefit, but also increased side effect risk</li>
+          <li>Use lowest effective doses of each</li>
+        </ul>
+
+        <p><strong>Limitations and realistic expectations:</strong></p>
+        <ul>
+          <li><strong>Modest efficacy:</strong> Even in responders, typically only 30-50% symptom reduction; complete pain relief is rare</li>
+          <li><strong>Side effects common:</strong> May limit use or adherence; need to balance benefits vs. side effects</li>
+          <li><strong>Individual variation:</strong> No way to predict who will respond to which medication - trial and error approach necessary</li>
+          <li><strong>Not curative:</strong> Medications manage symptoms; do not address underlying condition</li>
+          <li><strong>Long-term use:</strong> Unclear optimal duration; many patients continue long-term, but periodic reassessment of need is appropriate</li>
+          <li><strong>Cost:</strong> Some medications (especially pregabalin, duloxetine) can be expensive</li>
+        </ul>
+
+        <p><strong>Key messages:</strong></p>
+        <ul>
+          <li>Medications should be part of comprehensive management, not sole treatment</li>
+          <li>Combination of medication + exercise + psychological approaches = best outcomes</li>
+          <li>Set realistic expectations - modest improvement, not cure</li>
+          <li>Avoid opioids and benzodiazepines</li>
+          <li>Regular review to assess ongoing need and manage side effects</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <button class="toggle-answer" onclick="toggleAnswer('q5')">
+        <span class="toggle-icon">+</span>
+        <strong>Question 5:</strong> What is the prognosis of fibromyalgia, and what are the key challenges in managing patients with this condition? How should clinicians approach patients who are frustrated by previous failed treatments?
+      </button>
+      <div id="q5" class="answer">
+        <p><strong>Prognosis of fibromyalgia:</strong></p>
+
+        <p><em>Natural history:</em></p>
+        <ul>
+          <li><strong>Chronic, fluctuating course</strong> - symptoms wax and wane over time with flares and remissions</li>
+          <li>Spontaneous complete remission is uncommon (occurs in \&lt;25% of patients)</li>
+          <li>Many patients show some improvement over time, especially with appropriate management</li>
+          <li>Severity and impact vary widely between individuals</li>
+        </ul>
+
+        <p><em>Functional outcomes:</em></p>
+        <ul>
+          <li><strong>Significant impact on quality of life:</strong> Pain, fatigue, and cognitive dysfunction affect daily activities, work, relationships</li>
+          <li><strong>Work disability:</strong> Higher rates of work disability and sick leave compared to general population; however, many patients continue working (with accommodations)</li>
+          <li><strong>Not progressive or degenerative:</strong> Fibromyalgia does not cause tissue damage, deformity, or organ failure (unlike RA, lupus)</li>
+          <li><strong>Not life-threatening:</strong> Does not shorten life expectancy</li>
+        </ul>
+
+        <p><em>Factors associated with better prognosis:</em></p>
+        <ul>
+          <li>Younger age at diagnosis</li>
+          <li>Higher education level</li>
+          <li>Active coping strategies (vs. passive/catastrophizing)</li>
+          <li>Regular exercise and physical activity</li>
+          <li>Engagement with treatment and self-management</li>
+          <li>Good social support</li>
+          <li>Employment/maintaining work</li>
+          <li>Absence of severe depression or other psychiatric comorbidity</li>
+        </ul>
+
+        <p><em>Factors associated with poorer prognosis:</em></p>
+        <ul>
+          <li>Severe baseline symptoms</li>
+          <li>Long duration before diagnosis</li>
+          <li>Multiple comorbidities (especially psychiatric)</li>
+          <li>History of trauma/abuse</li>
+          <li>Litigation/compensation-seeking</li>
+          <li>Passive coping, catastrophizing</li>
+          <li>Social isolation, poor support</li>
+        </ul>
+
+        <p><strong>Realistic outcome expectations:</strong></p>
+        <ul>
+          <li>Goal is symptom management and functional improvement, not "cure"</li>
+          <li>Most patients can achieve meaningful improvement in symptoms and quality of life with appropriate multimodal treatment</li>
+          <li>Return to pre-fibromyalgia functional level may not be possible for all, but many can work, maintain relationships, and have good quality of life</li>
+          <li>Self-management strategies become lifelong tools</li>
+        </ul>
+
+        <p><strong>Key challenges in managing fibromyalgia patients:</strong></p>
+
+        <p><em>1. Diagnostic challenges:</em></p>
+        <ul>
+          <li>No objective test - relies on clinical assessment</li>
+          <li>Overlap with other conditions (chronic fatigue syndrome, depression, other pain syndromes)</li>
+          <li>Delayed diagnosis common (average 2-7 years from symptom onset) - patients see multiple doctors, undergo extensive testing</li>
+          <li>Persistent stigma and dismissal by some clinicians ("it's all in your head")</li>
+        </ul>
+
+        <p><em>2. Complexity of condition:</em></p>
+        <ul>
+          <li>Multisystem symptoms - pain, fatigue, sleep, cognitive, mood, GI, etc.</li>
+          <li>Comorbidities common - requires management of multiple conditions</li>
+          <li>Heterogeneous presentation - "fibromyalgia" encompasses diverse patients with varying symptoms and severity</li>
+        </ul>
+
+        <p><em>3. Treatment challenges:</em></p>
+        <ul>
+          <li><strong>No single effective treatment</strong> - requires multimodal approach</li>
+          <li>Modest efficacy of available treatments - many patients don't respond to first-line therapies</li>
+          <li>Side effects limit medication use</li>
+          <li>Non-pharmacological treatments (exercise, CBT) require active patient participation, time, and resources - not always available or acceptable to patients</li>
+          <li>Trial-and-error approach necessary - frustrating for patients and clinicians</li>
+        </ul>
+
+        <p><em>4. Patient factors:</em></p>
+        <ul>
+          <li><strong>Illness beliefs and expectations:</strong> Patients seeking "cure" or explanation of exact cause (which we can't provide)</li>
+          <li><strong>Catastrophizing and passive coping:</strong> "Nothing will help," helplessness</li>
+          <li><strong>Secondary gain issues:</strong> Disability benefits, avoidance of work/responsibilities (in minority of patients)</li>
+          <li><strong>Multiple previous failed treatments:</strong> Leads to demoralization, skepticism about new approaches</li>
+          <li><strong>Doctor-shopping:</strong> Seeking the doctor who will "fix" them or provide desired diagnosis/treatment</li>
+        </ul>
+
+        <p><em>5. Healthcare system challenges:</em></p>
+        <ul>
+          <li>Limited access to multidisciplinary services (physiotherapy, psychology, pain clinics)</li>
+          <li>Time constraints in primary care - comprehensive fibromyalgia management is time-intensive</li>
+          <li>Lack of specialist expertise in fibromyalgia</li>
+          <li>Pressure for quick fixes (medication prescriptions) rather than behavioral interventions</li>
+        </ul>
+
+        <p><em>6. Psychosocial challenges:</em></p>
+        <ul>
+          <li>Stigma - "invisible illness," others (family, employers) may not believe or understand</li>
+          <li>Social isolation - reduced ability to participate in activities</li>
+          <li>Relationship strain</li>
+          <li>Financial impact - work disability, healthcare costs</li>
+        </ul>
+
+        <p><strong>Approach to frustrated patients with previous failed treatments:</strong></p>
+
+        <p><em>1. Therapeutic alliance and validation:</em></p>
+        <ul>
+          <li><strong>Listen and validate:</strong> "I believe your symptoms are real and I understand how difficult this has been for you"</li>
+          <li>Acknowledge frustration with previous failed treatments</li>
+          <li>Avoid dismissive language; show empathy and commitment to working with them</li>
+          <li><strong>Continuity of care:</strong> Regular appointments with same clinician builds trust</li>
+        </ul>
+
+        <p><em>2. Review and reframe:</em></p>
+        <ul>
+          <li><strong>Review previous treatments:</strong> What has been tried? At what doses/duration? Why discontinued?
+            <ul>
+              <li>Often medications were tried at inadequate doses or for insufficient duration</li>
+              <li>Or stopped due to side effects that might be manageable with slower titration</li>
+            </ul>
+          </li>
+          <li><strong>Identify any partial responses:</strong> Even small improvements are worth noting and building on</li>
+          <li><strong>Reframe goals:</strong> Shift from seeking "cure" to improving function and quality of life
+            <ul>
+              <li>"We may not eliminate all your pain, but we can work on helping you do more of the things that matter to you"</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>3. Re-educate about condition and management:</em></p>
+        <ul>
+          <li>Explain fibromyalgia in clear, accessible terms (central sensitization, altered pain processing)</li>
+          <li>Emphasize that fibromyalgia is not progressive or damaging - "hurt does not equal harm"</li>
+          <li>Explain why traditional pain medications (NSAIDs, opioids) don't work for fibromyalgia</li>
+          <li>Reinforce importance of active approaches (exercise, pacing, self-management) over passive treatments</li>
+          <li>Set realistic expectations about treatment outcomes (modest improvement, not cure)</li>
+        </ul>
+
+        <p><em>4. Collaborative goal-setting:</em></p>
+        <ul>
+          <li><strong>Ask patient about their priorities:</strong> What would they most like to be able to do? (e.g., return to work, play with grandchildren, sleep better)</li>
+          <li><strong>Set SMART goals:</strong> Specific, Measurable, Achievable, Relevant, Time-bound
+            <ul>
+              <li>E.g., "Walk for 10 minutes 3 times this week" rather than "get rid of pain"</li>
+            </ul>
+          </li>
+          <li>Focus on functional goals (activities) rather than symptom elimination</li>
+          <li>Celebrate small achievements - reinforce progress</li>
+        </ul>
+
+        <p><em>5. Offer fresh approach with evidence-based treatments:</em></p>
+        <ul>
+          <li><strong>Consider medications not yet tried or re-trial with different approach:</strong>
+            <ul>
+              <li>If amitriptyline caused morning hangover, try earlier dosing or lower dose, or switch to duloxetine</li>
+              <li>If pregabalin caused weight gain, try gabapentin with dietary support</li>
+            </ul>
+          </li>
+          <li><strong>Emphasize non-pharmacological approaches:</strong>
+            <ul>
+              <li>Exercise - "best evidence we have"; reassure about initial symptom increase; develop very gradual program</li>
+              <li>Refer to physiotherapy, psychology (CBT), pain management programs if available</li>
+            </ul>
+          </li>
+          <li><strong>Address specific symptoms:</strong>
+            <ul>
+              <li>Sleep - hygiene, medications</li>
+              <li>Mood - treat depression/anxiety</li>
+              <li>IBS - dietary advice, appropriate medications</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><em>6. Address barriers to treatment engagement:</em></p>
+        <ul>
+          <li><strong>Fear-avoidance:</strong> "Exercise will make me worse" - educate about temporary increase, long-term benefit; start very gently</li>
+          <li><strong>Catastrophizing:</strong> Challenge negative thoughts; consider CBT</li>
+          <li><strong>Practical barriers:</strong> Cost, access, time - problem-solve together (e.g., home exercise if can't attend gym)</li>
+        </ul>
+
+        <p><em>7. Manage expectations about timeline:</em></p>
+        <ul>
+          <li>"Improvement takes time - we're looking at weeks to months, not days"</li>
+          <li>"This is a marathon, not a sprint - we'll work on this together over time"</li>
+          <li>Regular review appointments to monitor progress and adjust plan</li>
+        </ul>
+
+        <p><em>8. Avoid interventions that can cause harm:</em></p>
+        <ul>
+          <li><strong>Do NOT prescribe opioids</strong> - explain why they don't work for fibromyalgia and can make things worse</li>
+          <li>Avoid excessive investigations - reinforces illness beliefs and fear</li>
+          <li>Avoid unnecessary referrals to multiple specialists - maintain coordinated care</li>
+        </ul>
+
+        <p><em>9. Provide ongoing support:</em></p>
+        <ul>
+          <li>Regular follow-up (even brief appointments) maintains therapeutic relationship</li>
+          <li>Be accessible for flares/concerns</li>
+          <li>Connect with patient support groups (peer support valuable)</li>
+          <li>Provide written resources, reliable websites</li>
+        </ul>
+
+        <p><strong>Key messages for frustrated patients:</strong></p>
+        <ul>
+          <li>"I believe you and I'm committed to working with you on this"</li>
+          <li>"We have evidence-based treatments that can help, even if previous attempts haven't worked"</li>
+          <li>"You are not alone - fibromyalgia affects millions of people and many improve with the right approach"</li>
+          <li>"You have more control over this condition than you might think - the most powerful treatments require your active participation"</li>
+          <li>"Improvement is possible, even if we can't cure the condition entirely"</li>
+        </ul>
+
+        <p><strong>When to refer to specialist:</strong></p>
+        <ul>
+          <li>Diagnostic uncertainty</li>
+          <li>Refractory symptoms despite appropriate trials of multiple treatments</li>
+          <li>Complex comorbidities</li>
+          <li>Severe functional impairment</li>
+          <li>Access to multidisciplinary pain management program</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 8.2 - Colorectal Polyps & Cancer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 8.2 - Colorectal Polyps & Cancer | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 8.2 - Colorectal Polyps & Cancer">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 8.2 – Colorectal Polyps & Cancer</h1>
+    <p class="meta"><strong>Category:</strong> Surgery | <strong>Discipline:</strong> Surgery - GIT | <strong>Setting:</strong> General Practice</p>
+
+    <h2>Case</h2>
+    <p>Martin Angus, aged 56 years, presents following an episode of rectal bleeding. He feels bad because he has a family history of rectal cancer but was too busy to follow-up on his free colon cancer screen when he received a letter from the Government to have screening done. Now he is really worried he has cancer.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What further history and examination would you undertake?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>History:</strong></p>
+        <ul>
+          <li><strong>Complete GIT history</strong> with particular attention to systemic symptoms (unexplained weight loss, night sweats, change in bowel habits) and more specific details of the bleeding</li>
+          <li><strong>More family history details</strong> regarding colon cancer</li>
+          <li><strong>Colonoscopy history</strong> - previous results and reason for investigation</li>
+        </ul>
+
+        <p><strong>Examination:</strong></p>
+        <ul>
+          <li><strong>Thorough GIT examination</strong> including:
+            <ul>
+              <li>Digital rectal examination (PR)</li>
+              <li>Inguinal/femoral lymph nodes assessment</li>
+              <li>Assessment for hepatomegaly</li>
+              <li>Assessment for ascites</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the risk factors for cancer of the colon and rectum?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Risk Factors for Colorectal Cancer:</strong></p>
+        <ul>
+          <li><strong>Adenoma-Carcinoma sequence</strong> (Fearon/Vogelstein model)</li>
+          <li><strong>Intraluminal chemical carcinogenesis</strong> - unclear whether from direct ingestion and/or biochemical processes of existing substances normally found in the faecal stream</li>
+          <li><strong>Dietary factors:</strong>
+            <ul>
+              <li>Low fibre diet</li>
+              <li>High fat diet</li>
+            </ul>
+          </li>
+          <li><strong>Certain types of polyps:</strong>
+            <ul>
+              <li>Villous adenomas</li>
+              <li>Tubular adenomas</li>
+            </ul>
+          </li>
+          <li><strong>Past history of colon cancer</strong></li>
+          <li><strong>Family history of colon cancer:</strong>
+            <ul>
+              <li>Familial polyposis syndrome</li>
+              <li>Gardner's syndrome</li>
+              <li>Cancer family syndrome (Lynch syndrome)</li>
+            </ul>
+          </li>
+          <li><strong>Smoking</strong></li>
+          <li><strong>Obesity</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What are the screening recommendations in Australia and what is the letter for "poo testing" that Martin is describing?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>National Bowel Cancer Screening Program (NBCSP)</h3>
+
+        <p><strong>What is a Faecal Occult Blood Test (FOBT)?</strong></p>
+        <p>A FOBT is a non-invasive test which detects microscopic amounts of blood in the bowel motion. Blood is released into the bowel motion in a number of bowel conditions, including bowel cancers and their precursors (polyps or adenomas).</p>
+        <p>As blood may only be released into the bowel motions intermittently, samples from at least two separate bowel motions are required to increase the chance of detecting this blood.</p>
+        <p><strong>Important:</strong> FOBTs are not a diagnostic test but are used to identify people who require further investigation.</p>
+
+        <p><strong>Types of FOBT Available:</strong></p>
+        <ul>
+          <li><strong>Guaiac tests</strong> - based on the pseudoperoxidase activity of haem (require dietary restrictions)</li>
+          <li><strong>Immunochemical tests (FIT)</strong> - utilise antibodies against human haemoglobin (no dietary restrictions required)</li>
+        </ul>
+
+        <p><strong>NBCSP Uses Immunochemical FIT Because:</strong></p>
+        <ul>
+          <li>Higher sensitivity than guaiac tests - suitable for biennial screening</li>
+          <li>No dietary or medication restrictions required - more acceptable to the public</li>
+          <li>Can be easily used at home</li>
+          <li>Has potential for automated analysis</li>
+        </ul>
+
+        <p><strong>Accuracy of Immunochemical FITs:</strong></p>
+        <ul>
+          <li>Can detect <strong>60-90% of cancers</strong> and many advanced adenomas under ideal conditions</li>
+          <li>In population screening programs, a person with a positive FIT has:
+            <ul>
+              <li>30-45% chance of having an adenoma</li>
+              <li>3-10% chance of colorectal cancer</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>The Bayer DETECT™ Test Sensitivity:</strong></p>
+        <ul>
+          <li>65.8% to 98.9% for colorectal cancer</li>
+          <li>27.1% to 75.6% for advanced adenomas</li>
+          <li>85% to 95.6% for colorectal cancer and advanced adenomas combined</li>
+          <li>Specificity: 87.4% to 97.9% in asymptomatic people</li>
+        </ul>
+
+        <p><strong>How the Screening Works:</strong></p>
+        <ul>
+          <li>Eligible participants sent test kit by mail</li>
+          <li>Samples collected at home from two different bowel motions</li>
+          <li>Samples posted to central laboratory (Dorevitch Pathology)</li>
+          <li>Results sent to participant and GP (if nominated) within 2 weeks</li>
+          <li><strong>6-8% of tests expected to be positive</strong></li>
+        </ul>
+
+        <p><strong>Follow-up:</strong></p>
+        <ul>
+          <li><strong>Positive result:</strong> Contact GP within 2 weeks for referral to colonoscopy</li>
+          <li><strong>Negative result:</strong> Repeat screening every 2 years; contact doctor immediately if symptoms develop or significant family history discovered</li>
+          <li><strong>Inconclusive result:</strong> Repeat test with replacement kit</li>
+        </ul>
+
+        <p><strong>Colonoscopy Indication:</strong></p>
+        <p>A person with a positive FOBT is 12 to 40 times more likely to have colorectal cancer than somebody with a negative test. The probability that a person with a positive FOBT has some type of neoplastic lesion is 35-50%.</p>
+        <p><strong>It is essential that any positive FOBT (even if just one of the samples is positive) is appropriately investigated.</strong> Colonoscopy is preferred as it allows for biopsy and removal of adenomas.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. How do right colon, left colon and rectal cancers differ in presentation in respect to weight loss, feeling a mass, rectal bleeding, Virchow's node, Blumer's shelf, anaemia and obstruction?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Presentation Differences by Site:</strong></p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Symptom</th>
+              <th>Right Colon</th>
+              <th>Left Colon</th>
+              <th>Rectum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Weight loss</strong></td>
+              <td>+</td>
+              <td>+/0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td><strong>Palpable mass</strong></td>
+              <td>+</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td><strong>Rectal bleeding</strong></td>
+              <td>0</td>
+              <td>+</td>
+              <td>+</td>
+            </tr>
+            <tr>
+              <td><strong>Tympany</strong></td>
+              <td>0</td>
+              <td>0</td>
+              <td>+</td>
+            </tr>
+            <tr>
+              <td><strong>Anaemia</strong></td>
+              <td>+</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td><strong>Obstruction</strong></td>
+              <td>0</td>
+              <td>+</td>
+              <td>+</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Additional Clinical Signs:</strong></p>
+        <ul>
+          <li><strong>Virchow's node</strong> - Left supraclavicular fossa lymphadenopathy - indicates gastric cancer (not typically colorectal)</li>
+          <li><strong>Blumer's shelf</strong> - Palpable metastatic deposit felt on PR examination in pouch of Douglas or retrovesical space - associated with metastatic disease from pancreas/stomach/lung</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Using diagrams, summarise the operative resection for colon cancer located at: caecum, superior aspect of ascending colon, transverse colon, superior aspect of descending colon, descending colon, and rectum.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Operative Resections for Colorectal Cancer:</strong></p>
+
+        <p>The type of resection depends on the location of the tumor and follows the principle of removing the tumor with adequate margins along with its lymphovascular supply.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Tumor Location</th>
+              <th>Operation</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Caecum</strong></td>
+              <td>Right hemicolectomy</td>
+              <td>Resection of terminal ileum, caecum, ascending colon and hepatic flexure with ileocolic, right colic, and right branch of middle colic vessels</td>
+            </tr>
+            <tr>
+              <td><strong>Superior aspect of ascending colon</strong></td>
+              <td>Right hemicolectomy</td>
+              <td>Extended to include hepatic flexure</td>
+            </tr>
+            <tr>
+              <td><strong>Transverse colon</strong></td>
+              <td>Extended right hemicolectomy OR Transverse colectomy</td>
+              <td>Resection of transverse colon with middle colic vessels; may extend to include flexures depending on location</td>
+            </tr>
+            <tr>
+              <td><strong>Superior aspect of descending colon</strong></td>
+              <td>Left hemicolectomy</td>
+              <td>Resection of splenic flexure, descending colon with left colic vessels</td>
+            </tr>
+            <tr>
+              <td><strong>Descending colon</strong></td>
+              <td>Left hemicolectomy</td>
+              <td>Resection of descending colon and upper sigmoid with left colic and sigmoid vessels</td>
+            </tr>
+            <tr>
+              <td><strong>Rectum</strong></td>
+              <td>Anterior resection OR Abdominoperineal resection (APR)</td>
+              <td>Anterior resection for upper/mid rectum with colorectal or coloanal anastomosis. APR for low rectal tumors requiring permanent colostomy</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Key Surgical Principles:</strong></p>
+        <ul>
+          <li>Adequate proximal and distal margins (typically 5cm, but 2cm may be acceptable for rectal cancer)</li>
+          <li>En bloc resection of regional lymph nodes following arterial supply</li>
+          <li>Complete mesocolic/mesorectal excision</li>
+          <li>Restoration of bowel continuity when possible</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Summarise the staging system for colorectal cancer.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>TNM Staging System for Colorectal Cancer</h3>
+
+        <p><strong>Primary Tumour (T):</strong></p>
+        <ul>
+          <li><strong>TX</strong> - Primary tumour cannot be assessed</li>
+          <li><strong>T0</strong> - No evidence of primary tumour</li>
+          <li><strong>Tis</strong> - Carcinoma in situ: intraepithelial tumour or invasion of the lamina propria</li>
+          <li><strong>T1</strong> - Tumour invading the submucosa</li>
+          <li><strong>T2</strong> - Tumour invading the muscularis propria</li>
+          <li><strong>T3</strong> - Tumour invading through the muscularis propria into pericolorectal tissues</li>
+          <li><strong>T4</strong> - Tumour directly invading other organs or structures or penetrating the visceral peritoneum</li>
+        </ul>
+
+        <p><strong>Regional Lymph Nodes (N):</strong></p>
+        <ul>
+          <li><strong>NX</strong> - Regional lymph nodes cannot be assessed</li>
+          <li><strong>N0</strong> - No regional lymph node metastases</li>
+          <li><strong>N1</strong> - Metastases in 1-3 pericolic or perirectal lymph nodes</li>
+          <li><strong>N2</strong> - Metastases in 4 or more regional nodes</li>
+        </ul>
+
+        <p><strong>Distant Metastases (M):</strong></p>
+        <ul>
+          <li><strong>MX</strong> - Presence of distant metastases cannot be assessed</li>
+          <li><strong>M0</strong> - No distant metastases</li>
+          <li><strong>M1</strong> - Distant metastases
+            <ul>
+              <li><strong>M1a</strong> - Metastasis to one site</li>
+              <li><strong>M1b</strong> - Metastases to more than one organ/site or peritoneum</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Clinical Significance:</strong></p>
+        <p>The TNM staging system is essential for:</p>
+        <ul>
+          <li>Determining prognosis</li>
+          <li>Planning treatment (surgical vs adjuvant therapy)</li>
+          <li>Standardizing communication between clinicians</li>
+          <li>Research and clinical trial stratification</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

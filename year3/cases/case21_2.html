@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 21.2 - Gastric Ulcers & Gastric Cancer</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 21.2 - Gastric Ulcers & Gastric Cancer | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 21.2 - Gastric Ulcers & Gastric Cancer">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 21.2 – Gastric Ulcers & Gastric Cancer</h1>
+    <p class="meta"><strong>Category:</strong> Medicine | <strong>Discipline:</strong> Gastroenterology | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Mrs. Linda Chen, a 62-year-old accountant, presents to the emergency department with a 6-week history of epigastric pain and new-onset melaena for the past 2 days. The epigastric pain is worse after eating and is associated with nausea but no vomiting. She has been taking ibuprofen 400mg three times daily for the past 3 months for osteoarthritis in her knees. She denies any previous history of peptic ulcer disease. She has noticed fatigue and feels "washed out". She has lost approximately 4 kg over the past 2 months but attributed this to poor appetite. Her past medical history includes hypertension and type 2 diabetes.</p>
+
+    <div class="vital-signs">Vital signs: BP 110/70 mmHg (lying), 95/65 mmHg (standing), HR 98 bpm, RR 18/min, Temp 36.9°C, SpO2 97% on room air. Pale conjunctivae noted, epigastric tenderness on palpation</div>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is the differential diagnosis for Mrs. Chen's presentation, and what is the most concerning diagnosis that needs to be excluded?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Differential Diagnosis:</strong></p>
+        <ul>
+          <li><strong>Peptic ulcer disease (gastric or duodenal ulcer):</strong> Most likely given NSAID use and melaena
+            <ul>
+              <li>Gastric ulcer: more concerning due to malignancy risk</li>
+              <li>Duodenal ulcer: pain classically relieved by eating (though not always)</li>
+            </ul>
+          </li>
+          <li><strong>Gastric cancer:</strong> MUST be excluded in any patient >55 years with new-onset dyspepsia, especially with:
+            <ul>
+              <li>Weight loss</li>
+              <li>Upper GI bleeding</li>
+              <li>Anaemia</li>
+            </ul>
+          </li>
+          <li><strong>Gastritis:</strong> NSAID-induced or H. pylori-related</li>
+          <li><strong>Gastro-oesophageal reflux disease (GORD):</strong> Though less likely with melaena</li>
+          <li><strong>Other causes of upper GI bleeding:</strong>
+            <ul>
+              <li>Oesophageal varices (no history of liver disease)</li>
+              <li>Mallory-Weiss tear (no history of vomiting)</li>
+              <li>Erosive oesophagitis</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Most Concerning Diagnosis:</strong></p>
+        <p><strong>Gastric cancer</strong> is the most concerning diagnosis that MUST be excluded. Red flag features in this case include:</p>
+        <ul>
+          <li>Age >55 years with new-onset dyspepsia</li>
+          <li>Unintentional weight loss</li>
+          <li>Upper GI bleeding (melaena)</li>
+          <li>Anaemia (suggested by pale conjunctivae and fatigue)</li>
+        </ul>
+        <p>While NSAID use makes peptic ulcer disease very likely, it's crucial to differentiate a benign gastric ulcer from a malignant ulcer (which can account for 3-5% of gastric ulcers). All gastric ulcers should be biopsied and followed up to ensure healing, as malignancy can present as an ulcer.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the major risk factors for peptic ulcer disease and gastric cancer? How do they differ?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Peptic Ulcer Disease Risk Factors:</strong></p>
+        <ul>
+          <li><strong>Helicobacter pylori infection:</strong> Present in ~90% of duodenal ulcers and 70-80% of gastric ulcers</li>
+          <li><strong>NSAIDs/Aspirin use:</strong> Disrupts mucosal protective mechanisms
+            <ul>
+              <li>Risk increases with dose and duration</li>
+              <li>Synergistic effect with H. pylori</li>
+              <li>COX-2 selective NSAIDs have lower but still significant risk</li>
+            </ul>
+          </li>
+          <li><strong>Smoking:</strong> Impairs healing and increases recurrence</li>
+          <li><strong>Alcohol:</strong> High consumption increases risk</li>
+          <li><strong>Corticosteroid use:</strong> Especially when combined with NSAIDs</li>
+          <li><strong>Physiological stress:</strong> Critical illness, burns, head injury (stress ulceration)</li>
+          <li><strong>Zollinger-Ellison syndrome:</strong> Rare, gastrin-secreting tumour</li>
+        </ul>
+        <p><strong>Gastric Cancer Risk Factors:</strong></p>
+        <ul>
+          <li><strong>H. pylori infection:</strong> Most important modifiable risk factor
+            <ul>
+              <li>Causes chronic gastritis → atrophic gastritis → intestinal metaplasia → dysplasia → cancer</li>
+              <li>6-fold increased risk</li>
+              <li>Designated as a Class I carcinogen by WHO</li>
+            </ul>
+          </li>
+          <li><strong>Dietary factors:</strong>
+            <ul>
+              <li>High salt intake</li>
+              <li>Smoked/preserved foods</li>
+              <li>Low fruit and vegetable intake</li>
+              <li>Nitrates and nitrites in processed foods</li>
+            </ul>
+          </li>
+          <li><strong>Smoking:</strong> 1.5-2 fold increased risk</li>
+          <li><strong>Pernicious anaemia/autoimmune gastritis:</strong> Increased risk of gastric cancer</li>
+          <li><strong>Previous gastric surgery:</strong> Increased risk after partial gastrectomy (especially >15 years post-op)</li>
+          <li><strong>Family history:</strong> 2-3 fold increased risk if first-degree relative affected</li>
+          <li><strong>Genetic syndromes:</strong>
+            <ul>
+              <li>Hereditary diffuse gastric cancer (CDH1 mutation)</li>
+              <li>Lynch syndrome</li>
+              <li>Familial adenomatous polyposis (FAP)</li>
+            </ul>
+          </li>
+          <li><strong>Adenomatous polyps:</strong> Particularly if >2cm</li>
+          <li><strong>Chronic atrophic gastritis:</strong> Especially with intestinal metaplasia</li>
+          <li><strong>Ménétrier's disease:</strong> Rare, giant rugal folds</li>
+          <li><strong>Obesity:</strong> Particularly for gastric cardia cancer</li>
+          <li><strong>Lower socioeconomic status:</strong> Associated with higher H. pylori prevalence</li>
+          <li><strong>Geographical factors:</strong> Higher incidence in East Asia, Eastern Europe, South America</li>
+        </ul>
+        <p><strong>Key Differences:</strong></p>
+        <ul>
+          <li>NSAIDs are a major cause of peptic ulcers but are NOT a risk factor for gastric cancer</li>
+          <li>H. pylori is common to both but is the predominant risk factor for gastric cancer</li>
+          <li>Dietary and genetic factors play a larger role in gastric cancer</li>
+          <li>Previous gastric surgery and autoimmune gastritis are specific risk factors for gastric cancer</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is the role of Helicobacter pylori in gastric pathology? How is it diagnosed and treated?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Role of H. pylori in Gastric Pathology:</strong></p>
+        <p>H. pylori is a gram-negative spiral bacterium that colonizes the gastric mucosa and is implicated in several gastric conditions:</p>
+        <ul>
+          <li><strong>Chronic gastritis:</strong> Present in almost all infected individuals</li>
+          <li><strong>Peptic ulcer disease:</strong>
+            <ul>
+              <li>~90% of duodenal ulcers</li>
+              <li>70-80% of gastric ulcers</li>
+            </ul>
+          </li>
+          <li><strong>Gastric cancer:</strong>
+            <ul>
+              <li>Main environmental risk factor for non-cardia gastric adenocarcinoma</li>
+              <li>WHO Class I carcinogen</li>
+              <li>Chronic inflammation → atrophic gastritis → intestinal metaplasia → dysplasia → adenocarcinoma</li>
+            </ul>
+          </li>
+          <li><strong>MALT lymphoma:</strong> Gastric mucosa-associated lymphoid tissue lymphoma
+            <ul>
+              <li>~90% associated with H. pylori</li>
+              <li>May regress with H. pylori eradication in early stages</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Pathophysiology:</strong></p>
+        <ul>
+          <li>Produces urease (breaks down urea to ammonia, neutralizing gastric acid)</li>
+          <li>Produces toxins (CagA, VacA) that damage gastric epithelium</li>
+          <li>Triggers inflammatory response</li>
+          <li>Disrupts acid secretion regulation</li>
+        </ul>
+        <p><strong>Diagnosis of H. pylori:</strong></p>
+        <p><strong>Non-invasive tests (no endoscopy required):</strong></p>
+        <ul>
+          <li><strong>Urea breath test (UBT):</strong>
+            <ul>
+              <li>Gold standard non-invasive test</li>
+              <li>Patient ingests <sup>13</sup>C or <sup>14</sup>C-labelled urea</li>
+              <li>H. pylori urease breaks down urea, releasing labelled CO<sub>2</sub> detected in breath</li>
+              <li>Sensitivity and specificity >95%</li>
+              <li>Cannot be used within 2 weeks of PPI use or 4 weeks of antibiotic use</li>
+            </ul>
+          </li>
+          <li><strong>Stool antigen test:</strong>
+            <ul>
+              <li>Detects H. pylori antigen in stool</li>
+              <li>Good sensitivity and specificity (~90%)</li>
+              <li>Useful for initial diagnosis and confirming eradication</li>
+              <li>Also affected by recent PPI/antibiotic use</li>
+            </ul>
+          </li>
+          <li><strong>Serology (antibody testing):</strong>
+            <ul>
+              <li>Detects IgG antibodies to H. pylori</li>
+              <li>Less accurate than UBT or stool antigen</li>
+              <li>Cannot distinguish active from past infection (antibodies persist after eradication)</li>
+              <li>NOT recommended for confirming eradication</li>
+              <li>Useful in population screening or when patient on PPIs/antibiotics</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Invasive tests (require endoscopy):</strong></p>
+        <ul>
+          <li><strong>Rapid urease test (CLO test):</strong>
+            <ul>
+              <li>Gastric biopsy placed in medium containing urea and pH indicator</li>
+              <li>If H. pylori present, urease activity causes colour change</li>
+              <li>Results within hours</li>
+              <li>Quick and cheap</li>
+            </ul>
+          </li>
+          <li><strong>Histology:</strong>
+            <ul>
+              <li>Direct visualization of H. pylori on stained biopsy specimens</li>
+              <li>Gold standard for diagnosis</li>
+              <li>Also provides information about gastritis, atrophy, metaplasia, dysplasia</li>
+              <li>Special stains (e.g., Giemsa, Warthin-Starry) improve detection</li>
+            </ul>
+          </li>
+          <li><strong>Culture:</strong>
+            <ul>
+              <li>Rarely used (difficult and time-consuming)</li>
+              <li>Allows antibiotic sensitivity testing</li>
+              <li>May be useful in treatment failure</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Treatment (Eradication Therapy):</strong></p>
+        <p><strong>First-line treatment options:</strong></p>
+        <p><strong>1. PAC Therapy (Preferred in areas of low clarithromycin resistance \&lt;15%):</strong></p>
+        <ul>
+          <li>PPI (standard dose, twice daily) +</li>
+          <li>Amoxicillin 1g BD +</li>
+          <li>Clarithromycin 500mg BD</li>
+          <li>Duration: 7-14 days (14 days preferred for better eradication rates)</li>
+        </ul>
+        <p><strong>2. PBMT/Bismuth Quadruple Therapy (Preferred in areas of high clarithromycin resistance or penicillin allergy):</strong></p>
+        <ul>
+          <li>PPI (standard dose, twice daily) +</li>
+          <li>Bismuth subcitrate/subsalicylate +</li>
+          <li>Metronidazole 400-500mg TDS +</li>
+          <li>Tetracycline 500mg QDS</li>
+          <li>Duration: 10-14 days</li>
+        </ul>
+        <p><strong>3. Concomitant Therapy:</strong></p>
+        <ul>
+          <li>PPI (standard dose, twice daily) +</li>
+          <li>Amoxicillin 1g BD +</li>
+          <li>Clarithromycin 500mg BD +</li>
+          <li>Metronidazole 400-500mg BD</li>
+          <li>Duration: 10-14 days</li>
+        </ul>
+        <p><strong>Second-line treatment (if first-line fails):</strong></p>
+        <ul>
+          <li>If PAC used first: use bismuth quadruple therapy</li>
+          <li>If bismuth quadruple used first: use levofloxacin-based triple therapy or PAC</li>
+          <li>Consider culture and sensitivity testing</li>
+        </ul>
+        <p><strong>Confirming Eradication:</strong></p>
+        <ul>
+          <li>Essential to confirm eradication, especially in:
+            <ul>
+              <li>Peptic ulcer disease (particularly with complications)</li>
+              <li>Gastric cancer or pre-malignant lesions</li>
+              <li>MALT lymphoma</li>
+              <li>Persistent symptoms</li>
+            </ul>
+          </li>
+          <li>Test at least 4 weeks after completion of eradication therapy</li>
+          <li>Use UBT or stool antigen test (NOT serology)</li>
+          <li>PPIs should be stopped for at least 2 weeks before testing</li>
+        </ul>
+        <p><strong>Important considerations:</strong></p>
+        <ul>
+          <li>Global antibiotic resistance is increasing, particularly to clarithromycin and metronidazole</li>
+          <li>Eradication rates with standard triple therapy have fallen to 70-80% in many areas</li>
+          <li>Patient adherence is crucial - counsel about importance of completing full course</li>
+          <li>Side effects are common (diarrhoea, nausea, metallic taste)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Mrs. Chen undergoes urgent endoscopy which reveals a 3cm gastric ulcer in the antrum. What specific features would you look for endoscopically to differentiate a benign from malignant ulcer?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Endoscopic Features Suggesting Benign Gastric Ulcer:</strong></p>
+        <ul>
+          <li><strong>Regular, round or oval shape</strong></li>
+          <li><strong>Smooth, well-demarcated margins</strong></li>
+          <li><strong>Ulcer base:</strong>
+            <ul>
+              <li>Clean appearance</li>
+              <li>White/yellow slough or granulation tissue</li>
+              <li>May see visible vessel if recent bleeding</li>
+            </ul>
+          </li>
+          <li><strong>Surrounding mucosa:</strong>
+            <ul>
+              <li>Radiating folds converge towards the ulcer in a regular pattern</li>
+              <li>Mucosa appears normal or shows gastritis</li>
+            </ul>
+          </li>
+          <li><strong>Flexibility:</strong> Normal peristalsis around the ulcer</li>
+          <li><strong>Common locations:</strong> Lesser curve of antrum or body</li>
+        </ul>
+        <p><strong>Endoscopic Features Suggesting Malignant Gastric Ulcer:</strong></p>
+        <ul>
+          <li><strong>Irregular shape:</strong> Asymmetric or irregular borders</li>
+          <li><strong>Raised, rolled, or heaped-up margins</strong></li>
+          <li><strong>Ulcer base:</strong>
+            <ul>
+              <li>Necrotic appearance</li>
+              <li>Irregular or nodular base</li>
+              <li>May show areas of abnormal vascularity</li>
+            </ul>
+          </li>
+          <li><strong>Surrounding mucosa:</strong>
+            <ul>
+              <li>Abnormal-appearing mucosa</li>
+              <li>Nodular or irregular mucosal pattern</li>
+              <li>Absence of normal converging folds or distorted folds</li>
+              <li>Friable mucosa that bleeds easily on contact</li>
+            </ul>
+          </li>
+          <li><strong>Rigidity:</strong> Loss of normal gastric distensibility and peristalsis</li>
+          <li><strong>Large size:</strong> Ulcers >3cm more likely to be malignant</li>
+          <li><strong>Location:</strong> Greater curve ulcers more suspicious for malignancy</li>
+        </ul>
+        <p><strong>Critical Point:</strong></p>
+        <p><strong>BIOPSY IS MANDATORY</strong> for all gastric ulcers because:</p>
+        <ul>
+          <li>Endoscopic appearance alone cannot reliably distinguish benign from malignant ulcers</li>
+          <li>3-5% of gastric ulcers appearing benign endoscopically are malignant on histology</li>
+          <li>Malignant ulcers may have an initially benign appearance</li>
+        </ul>
+        <p><strong>Biopsy Protocol:</strong></p>
+        <ul>
+          <li><strong>Multiple biopsies essential:</strong>
+            <ul>
+              <li>Minimum of 7-10 biopsies recommended</li>
+              <li>Take from all four quadrants of the ulcer margin</li>
+              <li>Include biopsies from the ulcer base</li>
+              <li>Separate biopsies from background mucosa for H. pylori testing</li>
+            </ul>
+          </li>
+          <li><strong>Additional biopsies:</strong> Any suspicious-looking areas in the surrounding mucosa</li>
+        </ul>
+        <p><strong>Follow-up:</strong></p>
+        <ul>
+          <li><strong>All gastric ulcers require repeat endoscopy to document healing</strong>
+            <ul>
+              <li>Usually performed 6-8 weeks after initial diagnosis</li>
+              <li>Repeat biopsies if ulcer not completely healed</li>
+              <li>Non-healing ulcers are highly suspicious for malignancy</li>
+            </ul>
+          </li>
+          <li>Duodenal ulcers do NOT routinely require repeat endoscopy (very rarely malignant)</li>
+        </ul>
+        <p><strong>Systematic Assessment During Endoscopy:</strong></p>
+        <ul>
+          <li>Careful examination of the entire gastric mucosa</li>
+          <li>Document ulcer location, size, and appearance</li>
+          <li>Use of enhanced imaging techniques:
+            <ul>
+              <li>Narrow-band imaging (NBI)</li>
+              <li>Chromoendoscopy</li>
+              <li>May help identify malignancy and guide biopsies</li>
+            </ul>
+          </li>
+          <li>Photography for documentation and comparison at follow-up</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What are the different histological types of gastric cancer, and how do they differ in terms of characteristics and prognosis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Gastric adenocarcinoma accounts for >90% of gastric malignancies. The two main classification systems are:</p>
+        <p><strong>Lauren Classification (most commonly used):</strong></p>
+        <p><strong>1. Intestinal Type (~54% of cases):</strong></p>
+        <ul>
+          <li><strong>Characteristics:</strong>
+            <ul>
+              <li>Well-differentiated with gland-forming structures</li>
+              <li>Resembles intestinal epithelium</li>
+              <li>Often associated with pre-existing atrophic gastritis and intestinal metaplasia</li>
+              <li>Typically affects older patients (\&gt;60 years)</li>
+              <li>More common in males</li>
+            </ul>
+          </li>
+          <li><strong>Epidemiology:</strong>
+            <ul>
+              <li>Incidence declining in Western countries</li>
+              <li>More common in endemic areas (East Asia)</li>
+              <li>Strongly associated with H. pylori infection</li>
+              <li>Environmental factors play major role</li>
+            </ul>
+          </li>
+          <li><strong>Growth pattern:</strong>
+            <ul>
+              <li>Tends to form distinct tumour masses</li>
+              <li>Ulcerating or polypoid appearance</li>
+              <li>Usually in distal stomach (antrum/body)</li>
+            </ul>
+          </li>
+          <li><strong>Prognosis:</strong> Relatively better prognosis than diffuse type</li>
+        </ul>
+        <p><strong>2. Diffuse Type (~32% of cases):</strong></p>
+        <ul>
+          <li><strong>Characteristics:</strong>
+            <ul>
+              <li>Poorly differentiated</li>
+              <li>Individual cells or small groups infiltrate stomach wall</li>
+              <li>Cells often contain mucin (signet-ring cells characteristic)</li>
+              <li>No gland formation</li>
+              <li>Affects younger patients (can occur in 30s-40s)</li>
+              <li>More common in females</li>
+            </ul>
+          </li>
+          <li><strong>Epidemiology:</strong>
+            <ul>
+              <li>Incidence relatively stable or slightly increasing</li>
+              <li>Less strongly associated with H. pylori</li>
+              <li>Genetic factors more important</li>
+              <li>Associated with hereditary diffuse gastric cancer syndrome (CDH1 mutation)</li>
+            </ul>
+          </li>
+          <li><strong>Growth pattern:</strong>
+            <ul>
+              <li>Diffuse infiltration of gastric wall</li>
+              <li>May cause linitis plastica ("leather bottle stomach" - rigid, thickened stomach wall)</li>
+              <li>Can occur anywhere in stomach, proximal stomach more common</li>
+              <li>Often no obvious mass lesion</li>
+            </ul>
+          </li>
+          <li><strong>Prognosis:</strong> Generally worse prognosis
+            <ul>
+              <li>Often diagnosed at more advanced stage</li>
+              <li>More likely to have peritoneal spread</li>
+              <li>Less responsive to chemotherapy</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>3. Mixed/Indeterminate Type (~14% of cases):</strong></p>
+        <ul>
+          <li>Contains features of both intestinal and diffuse types</li>
+          <li>Intermediate prognosis</li>
+        </ul>
+        <p><strong>WHO Classification (also used):</strong></p>
+        <ul>
+          <li>Papillary adenocarcinoma</li>
+          <li>Tubular adenocarcinoma</li>
+          <li>Mucinous adenocarcinoma</li>
+          <li>Signet-ring cell carcinoma</li>
+          <li>Other variants</li>
+        </ul>
+        <p><strong>Other Gastric Malignancies (much less common):</strong></p>
+        <ul>
+          <li><strong>Gastric lymphoma (~4%):</strong>
+            <ul>
+              <li>MALT lymphoma (most common, associated with H. pylori)</li>
+              <li>Diffuse large B-cell lymphoma</li>
+              <li>Better prognosis than adenocarcinoma</li>
+              <li>Early stage MALT may respond to H. pylori eradication</li>
+            </ul>
+          </li>
+          <li><strong>Gastrointestinal stromal tumours (GIST) (~1-3%):</strong>
+            <ul>
+              <li>Arise from interstitial cells of Cajal</li>
+              <li>Often submucosal</li>
+              <li>Treatment: surgical resection ± imatinib (targeted therapy)</li>
+            </ul>
+          </li>
+          <li><strong>Carcinoid tumours/Neuroendocrine tumours:</strong>
+            <ul>
+              <li>Rare</li>
+              <li>Variable behaviour depending on type</li>
+            </ul>
+          </li>
+          <li><strong>Other rare tumours:</strong> Leiomyosarcoma, squamous cell carcinoma, adenosquamous carcinoma</li>
+        </ul>
+        <p><strong>Prognostic Factors:</strong></p>
+        <ul>
+          <li><strong>Stage:</strong> Most important prognostic factor (TNM staging)</li>
+          <li><strong>Histological type:</strong> Diffuse worse than intestinal</li>
+          <li><strong>Grade of differentiation:</strong> Well-differentiated better than poorly differentiated</li>
+          <li><strong>Lymph node involvement:</strong> Number and location of positive nodes</li>
+          <li><strong>Molecular markers:</strong>
+            <ul>
+              <li>HER2 positivity (~15-20%): can be treated with trastuzumab, but still indicates aggressive disease</li>
+              <li>Microsatellite instability (MSI-high): better prognosis, may respond to immunotherapy</li>
+              <li>EBV-positive tumours: may have better prognosis</li>
+            </ul>
+          </li>
+          <li><strong>Location:</strong> Proximal gastric cancers generally have worse prognosis</li>
+          <li><strong>Peritoneal involvement:</strong> Very poor prognosis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. The biopsies confirm a benign gastric ulcer with H. pylori present. Outline your management plan for Mrs. Chen.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Immediate Management (In ED):</strong></p>
+        <ul>
+          <li><strong>Assess haemodynamic status:</strong>
+            <ul>
+              <li>Postural BP drop suggests hypovolaemia</li>
+              <li>IV access and fluid resuscitation if needed</li>
+            </ul>
+          </li>
+          <li><strong>Investigations:</strong>
+            <ul>
+              <li>Full blood count: assess for anaemia, check haemoglobin level</li>
+              <li>Group and save/crossmatch if significant bleeding</li>
+              <li>Coagulation screen</li>
+              <li>Urea and electrolytes (raised urea with normal creatinine suggests upper GI bleeding)</li>
+              <li>Liver function tests</li>
+            </ul>
+          </li>
+          <li><strong>Risk stratification:</strong>
+            <ul>
+              <li>Glasgow-Blatchford Score or Rockall Score to assess need for admission/intervention</li>
+            </ul>
+          </li>
+          <li><strong>Decision on admission vs discharge:</strong>
+            <ul>
+              <li>If stable with minor bleeding: may be suitable for discharge with urgent outpatient follow-up</li>
+              <li>If ongoing bleeding, haemodynamic instability, or high-risk features: admit for observation</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Medical Management:</strong></p>
+        <p><strong>1. H. pylori Eradication Therapy (essential):</strong></p>
+        <ul>
+          <li>First-line: PAC therapy (or alternative as per local guidelines)
+            <ul>
+              <li>PPI (e.g., omeprazole 20mg or lansoprazole 30mg) BD +</li>
+              <li>Amoxicillin 1g BD +</li>
+              <li>Clarithromycin 500mg BD</li>
+              <li>For 14 days</li>
+            </ul>
+          </li>
+          <li>Alternative if penicillin allergy: bismuth quadruple therapy</li>
+        </ul>
+        <p><strong>2. Continued PPI Therapy After Eradication:</strong></p>
+        <ul>
+          <li>Continue PPI for total of 8 weeks for gastric ulcer healing
+            <ul>
+              <li>Can switch to once daily after completing eradication therapy</li>
+              <li>Higher dose or longer duration may be needed for large ulcers</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>3. NSAID Management (critical):</strong></p>
+        <ul>
+          <li><strong>Stop NSAIDs immediately</strong></li>
+          <li>Discuss alternative pain management for osteoarthritis:
+            <ul>
+              <li>Paracetamol (first-line)</li>
+              <li>Topical NSAIDs (e.g., diclofenac gel)</li>
+              <li>Physical therapy, weight loss if applicable</li>
+              <li>Intra-articular injections if needed</li>
+              <li>Consider referral to orthopaedics if conservative management fails</li>
+            </ul>
+          </li>
+          <li>If NSAIDs absolutely necessary in future:
+            <ul>
+              <li>Use lowest effective dose for shortest duration</li>
+              <li>Use COX-2 selective NSAID (lower but not eliminated GI risk)</li>
+              <li>Co-prescribe PPI</li>
+              <li>Ensure H. pylori eradicated</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>4. Lifestyle Advice:</strong></p>
+        <ul>
+          <li>Smoking cessation if applicable (impairs ulcer healing)</li>
+          <li>Reduce alcohol consumption if excessive</li>
+          <li>Stress management</li>
+          <li>Dietary advice: avoid foods that trigger symptoms, no specific "ulcer diet" needed</li>
+        </ul>
+        <p><strong>5. Manage Anaemia:</strong></p>
+        <ul>
+          <li>Oral iron supplementation once bleeding stopped</li>
+          <li>Recheck FBC after treatment</li>
+        </ul>
+        <p><strong>Follow-up and Monitoring:</strong></p>
+        <p><strong>1. Test for H. pylori Eradication (essential):</strong></p>
+        <ul>
+          <li>Perform at least 4 weeks after completing eradication therapy</li>
+          <li>Use urea breath test or stool antigen test</li>
+          <li>Must stop PPI for at least 2 weeks before testing</li>
+          <li>If eradication fails: second-line therapy with different regimen</li>
+        </ul>
+        <p><strong>2. Repeat Endoscopy (mandatory for gastric ulcers):</strong></p>
+        <ul>
+          <li>Repeat OGD in 6-8 weeks to document complete healing</li>
+          <li>Repeat biopsies if:
+            <ul>
+              <li>Ulcer not completely healed</li>
+              <li>Any suspicious features</li>
+              <li>Any change in appearance</li>
+            </ul>
+          </li>
+          <li>Non-healing ulcer is highly suspicious for malignancy</li>
+          <li>Continue PPI until healing confirmed</li>
+        </ul>
+        <p><strong>3. GP Follow-up:</strong></p>
+        <ul>
+          <li>Review symptoms</li>
+          <li>Check compliance with treatment</li>
+          <li>Ensure NSAID cessation</li>
+          <li>Arrange confirmation of eradication testing</li>
+          <li>Monitor for recurrent bleeding or symptoms</li>
+        </ul>
+        <p><strong>Patient Education:</strong></p>
+        <ul>
+          <li>Explain H. pylori and importance of completing full eradication course</li>
+          <li>Warn about potential side effects of eradication therapy</li>
+          <li>Emphasize importance of avoiding NSAIDs</li>
+          <li>Explain need for repeat endoscopy</li>
+          <li>Advise to seek urgent medical attention if:
+            <ul>
+              <li>Vomiting blood</li>
+              <li>Melaena (black stools)</li>
+              <li>Severe abdominal pain</li>
+              <li>Signs of shock (dizziness, palpitations, collapse)</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Long-term Considerations:</strong></p>
+        <ul>
+          <li>After confirmed healing and H. pylori eradication:
+            <ul>
+              <li>Can stop PPI if asymptomatic</li>
+              <li>Ulcer recurrence rate \&lt;5% after successful H. pylori eradication (compared to ~60% without eradication)</li>
+            </ul>
+          </li>
+          <li>If PPI needed long-term:
+            <ul>
+              <li>Use lowest effective dose</li>
+              <li>Be aware of potential long-term risks (though generally small): C. difficile infection, pneumonia, fractures, hypomagnesaemia, B12 deficiency</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. If Mrs. Chen's ulcer had been malignant, what would the staging investigations and treatment approach involve?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Staging Investigations:</strong></p>
+        <p><strong>1. Endoscopic Assessment:</strong></p>
+        <ul>
+          <li>Multiple biopsies for histological confirmation and typing</li>
+          <li>HER2 testing on biopsy specimens (important for treatment decisions)</li>
+          <li>Detailed assessment of tumour location, size, and extent</li>
+          <li>Endoscopic ultrasound (EUS):
+            <ul>
+              <li>Best for T staging (depth of invasion)</li>
+              <li>Assessment of local lymph nodes</li>
+              <li>May allow FNA of suspicious nodes</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>2. Cross-sectional Imaging:</strong></p>
+        <ul>
+          <li><strong>CT chest, abdomen, and pelvis with IV and oral contrast:</strong>
+            <ul>
+              <li>Assessment of primary tumour</li>
+              <li>Locoregional lymph node involvement</li>
+              <li>Distant metastases (liver, lungs, peritoneum, distant nodes)</li>
+              <li>Ascites (suggests peritoneal disease)</li>
+            </ul>
+          </li>
+          <li><strong>PET-CT:</strong>
+            <ul>
+              <li>May help detect occult metastases</li>
+              <li>Less sensitive for diffuse/signet ring cell tumours</li>
+              <li>Useful for assessing treatment response</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>3. Staging Laparoscopy:</strong></p>
+        <ul>
+          <li>Recommended for potentially resectable gastric cancer</li>
+          <li>Detects peritoneal disease not visible on CT (in ~25-30% of cases)</li>
+          <li>Allows:
+            <ul>
+              <li>Direct visualization of peritoneal surfaces</li>
+              <li>Peritoneal washings for cytology</li>
+              <li>Biopsy of suspicious lesions</li>
+            </ul>
+          </li>
+          <li>Can prevent unnecessary laparotomy in patients with occult metastatic disease</li>
+        </ul>
+        <p><strong>4. Other Investigations:</strong></p>
+        <ul>
+          <li>Full blood count (anaemia)</li>
+          <li>Liver and renal function</li>
+          <li>Tumour markers: CEA, CA19-9 (not diagnostic but may be useful for monitoring)</li>
+          <li>Nutritional assessment</li>
+          <li>Assessment of fitness for surgery/chemotherapy:
+            <ul>
+              <li>Cardiopulmonary exercise testing (CPET) if available</li>
+              <li>Pulmonary function tests</li>
+              <li>Cardiac evaluation if indicated</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>TNM Staging (simplified):</strong></p>
+        <ul>
+          <li><strong>T:</strong> Depth of invasion (T1: mucosa/submucosa → T4: invasion of adjacent structures)</li>
+          <li><strong>N:</strong> Regional lymph node involvement (N0 → N3)</li>
+          <li><strong>M:</strong> Distant metastases (M0: none, M1: present)</li>
+        </ul>
+        <p><strong>Treatment Approach (Multidisciplinary Team Decision):</strong></p>
+        <p><strong>Early Gastric Cancer (T1):</strong></p>
+        <ul>
+          <li><strong>Endoscopic resection:</strong> May be possible for selected cases
+            <ul>
+              <li>Endoscopic mucosal resection (EMR) or endoscopic submucosal dissection (ESD)</li>
+              <li>Criteria: small (\&lt;2cm), well-differentiated, no lymphovascular invasion, limited to mucosa</li>
+              <li>More commonly performed in Japan where screening programs detect early cancers</li>
+            </ul>
+          </li>
+          <li><strong>Surgery alone:</strong> For T1b or if not suitable for endoscopic resection</li>
+        </ul>
+        <p><strong>Locally Advanced Resectable Disease (T2-4a, N0-3, M0):</strong></p>
+        <p><strong>Standard approach - Perioperative Chemotherapy:</strong></p>
+        <ul>
+          <li><strong>Neoadjuvant (pre-operative) chemotherapy:</strong>
+            <ul>
+              <li>Typically 3 cycles before surgery</li>
+              <li>Regimens: ECF (Epirubicin, Cisplatin, 5-FU), FLOT (5-FU, Leucovorin, Oxaliplatin, Docetaxel) - FLOT increasingly preferred</li>
+              <li>Aims to downstage tumour and treat micrometastases</li>
+            </ul>
+          </li>
+          <li><strong>Surgery:</strong>
+            <ul>
+              <li>Performed after 3 cycles of chemotherapy</li>
+              <li>Type of surgery depends on location:
+                <ul>
+                  <li>Distal gastrectomy (for antral tumours)</li>
+                  <li>Total gastrectomy (for body/proximal tumours or diffuse type)</li>
+                  <li>Proximal gastrectomy (occasionally for very proximal tumours)</li>
+                </ul>
+              </li>
+              <li>D2 lymphadenectomy (extended lymph node dissection) is standard in specialized centres</li>
+              <li>Minimally invasive surgery increasingly used</li>
+            </ul>
+          </li>
+          <li><strong>Adjuvant (post-operative) chemotherapy:</strong>
+            <ul>
+              <li>3 more cycles after surgery (same regimen)</li>
+              <li>Complete the perioperative treatment course</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Alternative approach - Surgery followed by Adjuvant Chemoradiotherapy:</strong></p>
+        <ul>
+          <li>Used in some centres, particularly in the USA</li>
+          <li>Based on different trial evidence</li>
+        </ul>
+        <p><strong>Locally Advanced Unresectable Disease (T4b):</strong></p>
+        <ul>
+          <li>Chemotherapy ± radiotherapy</li>
+          <li>May become resectable after treatment (downstaging)</li>
+          <li>Primarily palliative intent</li>
+        </ul>
+        <p><strong>Metastatic Disease (M1):</strong></p>
+        <p><strong>Palliative chemotherapy (for fit patients):</strong></p>
+        <ul>
+          <li>First-line regimens:
+            <ul>
+              <li>ECF, FLOT, or other platinum-based combinations</li>
+              <li><strong>If HER2-positive:</strong> Add trastuzumab (targeted therapy) - improves survival</li>
+            </ul>
+          </li>
+          <li>Median survival with chemotherapy ~11 months vs ~4 months without</li>
+          <li>Second-line chemotherapy if disease progression and patient still fit</li>
+          <li>Immunotherapy: Pembrolizumab for MSI-high or PD-L1 positive tumours</li>
+        </ul>
+        <p><strong>Best supportive care:</strong></p>
+        <ul>
+          <li>For patients unfit for chemotherapy</li>
+          <li>Symptom control</li>
+          <li>Nutritional support</li>
+          <li>Palliative care input</li>
+        </ul>
+        <p><strong>Palliative Interventions:</strong></p>
+        <ul>
+          <li>Gastric outlet obstruction: stenting or palliative bypass surgery</li>
+          <li>Bleeding: endoscopic therapy, radiotherapy, or surgery if needed</li>
+          <li>Pain management</li>
+          <li>Nutritional support:
+            <ul>
+              <li>Dietary modification</li>
+              <li>Enteral feeding (jejunostomy)</li>
+              <li>Parenteral nutrition if appropriate</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Prognosis:</strong></p>
+        <ul>
+          <li>Overall 5-year survival for gastric cancer ~20-30% in Western countries</li>
+          <li>Stage-specific survival:
+            <ul>
+              <li>Stage IA: ~90%</li>
+              <li>Stage IB-IIA: 60-80%</li>
+              <li>Stage IIB-III: 20-50%</li>
+              <li>Stage IV: \&lt;5%</li>
+            </ul>
+          </li>
+          <li>Prognosis better in specialist high-volume centres</li>
+          <li>Japan has better outcomes due to earlier detection through screening programs</li>
+        </ul>
+        <p><strong>Supportive Care Throughout:</strong></p>
+        <ul>
+          <li>Dietitian involvement (gastrectomy has major nutritional consequences)</li>
+          <li>Clinical nurse specialist</li>
+          <li>Psychological support</li>
+          <li>Social work support</li>
+          <li>Early palliative care involvement for symptom management</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 6.1 - T1D (New Diagnosis)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 6.1 - T1D (New Diagnosis) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 6.1 - T1D (New Diagnosis)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 6.1 – T1D (New Diagnosis)</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine | <strong>Setting:</strong> Urban Hospital</p>
+
+    <h2>Case</h2>
+    <p>Amelia Bruce is 5 years old, she presents to the Emergency Department with her mother. Amelia has been unwell for several days with a fever and vomiting. This morning her mother became very worried because Amelia has been very sleepy and was difficult to wake. She has been passing lots of urine and drinking "a lot more than usual".</p>
+
+    <p><strong>On Initial assessment:</strong> Alert, Pink, well perfused, looks unwell.<br>
+    Temp: 38°C | RR: 30/min | HR: 130 bpm | BP: 80/50 | SaO2: 95% [RA]</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What are the key components of your history and examination of Amelia and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The diagnosis of DKA is usually straightforward as long as the symptoms are not misdiagnosed for more common conditions such as:</p>
+        <ul>
+          <li>Polyuria for a urinary tract infection</li>
+          <li>Over breathing of metabolic acidosis for a respiratory tract infection or asthma</li>
+          <li>Vomiting and abdominal pain for gastroenteritis or an acute abdomen</li>
+        </ul>
+
+        <p><strong>Key components of the medical history:</strong></p>
+        <ul>
+          <li>Polyuria, polydipsia and nocturia</li>
+          <li>Nocturnal enuresis (in a previously dry child)</li>
+          <li>Abdominal pain and vomiting</li>
+          <li>Recent history of weight loss and fatigue</li>
+        </ul>
+
+        <p><strong>Key components of the clinical examination:</strong></p>
+        <ul>
+          <li>Weight</li>
+          <li>Level of consciousness (GCS) - may be decreased if cerebral oedema is present</li>
+          <li>Level of dehydration (5% etc.)</li>
+          <li>Blood pressure</li>
+          <li>Kussmaul breathing (slow deep breathing due to respiratory compensation)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What immediate investigations would you do and why?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Bedside urinalysis</li>
+          <li>Bedside glucometer</li>
+          <li>Serum blood glucose level</li>
+          <li>Blood gas analysis
+            <ul>
+              <li>Sodium</li>
+              <li>Bicarbonate</li>
+              <li>Potassium</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>Investigation will both aid in diagnosis and determine the severity of DKA.</p>
+
+        <table>
+          <tr>
+            <th>Severity</th>
+            <th>Blood glucose mmol/L</th>
+            <th>Venous pH</th>
+            <th>Bicarbonate mmol/L</th>
+          </tr>
+          <tr>
+            <td>Mild</td>
+            <td>&gt;11</td>
+            <td>&lt;7.3</td>
+            <td>&lt;15</td>
+          </tr>
+          <tr>
+            <td>Moderate</td>
+            <td>&gt;11</td>
+            <td>&lt;7.2</td>
+            <td>&lt;10</td>
+          </tr>
+          <tr>
+            <td>Severe</td>
+            <td>&gt;11</td>
+            <td>&lt;7.1</td>
+            <td>&lt;5</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Amelia's blood sugar level is 15mmol/L, Urinalysis demonstrates glucose +++ and ketones moderate. What are the criteria for diabetic ketoacidosis?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The diagnosis of DKA is demonstrated by hyperglycaemia with ketonaemia or heavy ketonuria, and acidosis.</p>
+
+        <p>Hyperglycaemia is demonstrated by dipstick, while a blood sample is sent to the laboratory for confirmation. A venous blood sample is taken for blood gas analysis. From this a rapid ketone level can be measured in the plasma.</p>
+
+        <table>
+          <tr>
+            <th>Blood ketones (mmol/L)</th>
+            <th>Urine Ketones</th>
+            <th>Interpretation</th>
+          </tr>
+          <tr>
+            <td>&lt;0.6</td>
+            <td>Negative</td>
+            <td>If BGL &lt;5.5 - suggests starvation state. Start fluids</td>
+          </tr>
+          <tr>
+            <td>0.6 - 0.9</td>
+            <td>Trace</td>
+            <td>If BGL &lt;5.5 - suggests starvation state. Start fluids</td>
+          </tr>
+          <tr>
+            <td>1.0 - 2.0</td>
+            <td>Moderate</td>
+            <td>If BGL &gt;10 - increased risk of DKA. Start fluids + insulin</td>
+          </tr>
+          <tr>
+            <td>&gt;2.0</td>
+            <td>Large</td>
+            <td>Emergency - initiate DKA protocol immediately</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Amelia is assessed to be moderately dehydrated at 5%, her biochemistry results are: Na: 134 mmol/L [135-145], K: 4.9 mmol/L [4.5-6.5], Cl: 95 mmol/L [95-110], Urea: 6.8 mmol/L [2.7-6.7], Creatinine 35umol/L [30-60], PaO2: 90mmHg, PaCO2: 25 mmHg [35-45], pH: 7.23, Bicarbonate: 14mmol/L. What is your immediate management plan for Amelia?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>The principles of management are as follows:</strong></p>
+
+        <p><strong>1. Replace the fluid losses</strong> with physiological saline (0.9%), slowly to avoid cerebral oedema.</p>
+
+        <p><strong>2. Replace the electrolyte losses.</strong> Potassium levels need to be monitored with great care. Patients have a total body potassium deficit although initial plasma levels may not be low. Insulin therapy leads to uptake of potassium by the cells with a consequent fall in plasma K+ levels. Potassium is therefore given as soon as insulin is started, unless the patient is anuric or known to have renal failure, in which case wait for serum electrolytes.</p>
+
+        <p><strong>3. Restore the acid-base balance.</strong> A patient with healthy kidneys will rapidly compensate for the metabolic acidosis once the circulating volume is restored. Bicarbonate is seldom necessary and is sometimes associated with paradoxical worsening of cerebral acidosis and hypokalemia. It is only considered in patients with cardiogenic shock, symptomatic hypokalemia or if the pH is below 7.0, and is best given as an isotonic solution.</p>
+
+        <p><strong>4. Replace the deficient insulin.</strong> Modern treatment is with relatively modest doses of insulin, which lower blood glucose by suppressing hepatic glucose output rather than by stimulating peripheral uptake, and are therefore much less likely to produce hypoglycaemia. Soluble insulin is given as an intravenous infusion where facilities for adequate supervision exist (0.05-0.1 u/kg/hr IV).</p>
+
+        <p><strong>5. Monitor fingerprick blood glucose closely.</strong> Hourly measurement is needed in the initial phases of treatment.</p>
+
+        <p><strong>6. Replace the energy losses.</strong> When plasma glucose falls to near-normal values (15 mmol/L), N saline (0.9%) infusion should be replaced with N saline + 5% dextrose containing 20 mmol/L of potassium chloride. The insulin infusion rate is reduced and adjusted according to blood glucose.</p>
+
+        <p><strong>7. Seek the underlying cause.</strong> Physical examination may reveal a source of infection (e.g. a perianal abscess). Two common markers of infection are misleading: fever is unusual even when infection is present, and polymorphonucleocytosis is present even in the absence of infection. Relevant investigations include a chest X-ray, urine and blood cultures, and an ECG (if severe hyperkalemia). If infection is suspected, broad-spectrum antibiotics are started once the appropriate cultures have been taken.</p>
+
+        <h3>Fluid Replacement Protocol</h3>
+        <p><strong>a.</strong> If patient is shocked administer an initial bolus of fluid to correct hypovolaemia. Give bolus of 10ml/kg of normal (0.9%) saline, which may be repeated if necessary. Do not give bolus routinely to avoid cerebral oedema.</p>
+
+        <p><strong>b.</strong> Then determine an hourly rate (Maintenance + Deficit + Ongoing losses) using N saline to correct deficit + maintenance over 48 hr.</p>
+
+        <h3>Calculating Deficit</h3>
+        <p>A child's water deficit in mls can be calculated following an estimation of the degree of dehydration expressed as % of body weight (e.g. a 10kg child who is 5% dehydrated has a water deficit of 500mls). The deficit is replaced slowly - e.g. over 48 hours in DKA.</p>
+
+        <p><strong>Clinical signs of dehydration:</strong></p>
+        <ul>
+          <li>Cool pale peripheries with prolonged capillary return time</li>
+          <li>Decreased skin turgor</li>
+          <li>Deep (acidotic) breathing</li>
+          <li>Increased thirst</li>
+        </ul>
+
+        <p><strong>Categories of dehydration:</strong></p>
+        <ul>
+          <li>Mild/No dehydration (&lt;4%) - No clinical signs</li>
+          <li>Moderate dehydration (4-6%) - Some physical signs</li>
+          <li>Severe dehydration (&gt;7%) - Multiple physical signs present and child may also have acidosis and hypotension</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. You explain to Amelia's mother that she has diabetes, her mother asks what causes diabetes, what would you explain to her mother?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>There are two major factors that contribute to the pathogenesis of diabetes:</strong></p>
+        <ul>
+          <li>Genetic predisposition</li>
+          <li>Environmental triggers or protectors</li>
+        </ul>
+
+        <p>Type 1 diabetes is caused by autoimmune destruction of the beta cells (insulin-producing cells) of the islets of Langerhans. T-cell infiltration of the islets and circulating autoantibodies precede the development of diabetes for months to years. There is an increased frequency of certain HLA types (HLA DR3/DQ2 and DR4/DQ8) in children with diabetes. The HLA genes are located on chromosome 6 and encode HLA molecules on the beta cells.</p>
+
+        <p>Environmental factors that are potential candidates in the initiation of autoimmunity or that might act as progression factors are viruses (particularly enteroviruses) and dietary factors (cereals and cow's milk). However, only congenital rubella is a proven environmental trigger and this is a rare cause of type 1 diabetes. The increase in childhood obesity may also account for an earlier presentation of type 2 diabetes due to insulin resistance and beta cell exhaustion but the extent of this contribution to the increasing incidence of type 2 diabetes is unresolved.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Amelia's blood sugar levels and hydration is stabilised and she is admitted to the children's ward. Following a meeting with the diabetes educator, Amelia's mother is a bit confused about some of the information she has been reading. In particular she asks about 'sick days' - she can't understand why she would need to increase the insulin dose if Amelia is not eating much... "surely you need to decrease it". What would you explain to Amelia's mother?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Sick days can cause:</strong></p>
+
+        <p><strong>1. High blood glucose levels:</strong> These are more common during illness - particularly in viral illnesses with fever (e.g. influenza or a bad cold) or in bacterial illnesses (e.g. tonsillitis or ear infections). The blood glucose levels rise as 'stress' hormones are released to help the body cope with illness; however, these stress hormones work against insulin, and the normal insulin given does not work as well (called insulin resistance). Blood glucose levels will often still be high even if the child's appetite is poor because of continuing release of glucose from the liver.</p>
+
+        <p><strong>2. Low blood glucose levels:</strong> This is likely to occur in stomach and bowel illnesses (gastroenteritis) with nausea, vomiting and especially diarrhoea, but without other general symptoms such as fever. The blood glucose levels are low because the child's appetite is often decreased and the food and drink that is taken is not being well absorbed.</p>
+
+        <p><strong>If, during illness, high blood glucose levels are not treated:</strong></p>
+        <ul>
+          <li>Ketones will develop in the blood (and be found in the blood or urine on testing)</li>
+          <li>The body is likely to become dehydrated (high blood glucose levels drag fluid out of the body into the urine)</li>
+          <li>Risk of DKA (diabetic ketoacidosis)</li>
+        </ul>
+
+        <p><strong>The goals of sick day care are to:</strong></p>
+        <ul>
+          <li>Prevent dehydration</li>
+          <li>Prevent ketoacidosis (high levels of sugar and ketones in the blood)</li>
+          <li>Prevent hypoglycaemia</li>
+        </ul>
+
+        <h3>Understanding Ketones</h3>
+        <p>KETONES are chemicals in the blood which come from the breakdown of fat. The body makes ketones as an alternative energy source to glucose in some situations. When there are ketones in the blood they will also be found in the urine, and thus a urine test can be used to identify ketones.</p>
+
+        <p><strong>Ketones will be produced in diabetes in two situations:</strong></p>
+
+        <p><strong>1. When the body is lacking insulin:</strong> The blood glucose level will be high, but the body cannot use glucose for energy because of the lack of insulin. Thus fat is broken down to form ketones as an alternative energy supply. This can happen during illness, or when insulin doses are too low or have been missed. When the blood glucose is high, ketones in the blood or urine are a warning sign that the body needs more insulin. If ketones continue to build up, the child can become very sick with ketoacidosis.</p>
+
+        <p><strong>2. When supplies of glucose are running low due to fasting or starvation:</strong> This can happen in stomach and bowel illnesses with vomiting and diarrhoea. Blood glucose will be normal or low. In this situation more glucose intake is needed, and if this cannot be taken by mouth occasionally a stay in hospital may be needed. Insulin doses should not be omitted, but may need to be lowered.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Amelia's family are coping well with the insulin injections and the glucometer, and Amelia is discharged home. Later that evening you receive a call from Amelia's father - he informs you that Amelia's blood sugar is 4.2 mmol/l at 6pm, she is okay, but he is not sure what to do. What advice would you give? What recommendations would you make about the next insulin dose?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Typical insulin regimen:</strong></p>
+        <p>Most children start off on a twice daily regime as outlined below:</p>
+        <ul>
+          <li>Before breakfast: a mixture of short-acting insulin and long-acting insulin</li>
+          <li>Before main evening meal: a mixture of short-acting insulin and long-acting insulin</li>
+        </ul>
+
+        <p>In many infants and young children who start on this combination, the short-acting insulin may become unnecessary after a few days or weeks and they may require only a long-acting insulin, especially during the 'honeymoon' phase. Later on a combination will again be needed.</p>
+
+        <p><strong>Advice for Amelia's father:</strong></p>
+        <p>You would advise Amelia's parents that her blood glucose reading is in ideal range (4.2 mmol/L is normal). You would continue on the current dose of insulin and repeat the reading in 4 hours.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. Amelia returns with her parents for follow-up at the new diabetics' clinic, they are coping well. What are the key components of your assessment at a follow-up visit? Amelia's mother asks you about support groups for families, what information would you provide?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Key Components of follow-up:</strong></p>
+        <ul>
+          <li>Coping emotionally with Diabetes</li>
+          <li>Financial costs of Diabetes</li>
+          <li>School and Diabetes</li>
+          <li>Diabetes and sick days</li>
+          <li>Diabetes and exercise</li>
+          <li>Food and healthy eating</li>
+          <li>Monitoring blood glucose levels</li>
+          <li>Adjusting insulin levels</li>
+          <li>Support groups (Diabetes Australia, Juvenile Diabetes Research Foundation)</li>
+          <li>Travelling holidays and camping</li>
+        </ul>
+
+        <p><strong>Support groups for families:</strong></p>
+        <ul>
+          <li><strong>Diabetes Australia</strong> - provides information, resources and support for people with diabetes and their families</li>
+          <li><strong>Juvenile Diabetes Research Foundation (JDRF)</strong> - focused on Type 1 diabetes research and support, with local support groups and resources for families</li>
+        </ul>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

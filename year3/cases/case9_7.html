@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 9.7 - Infections at Birth</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 9.7 - Infections at Birth | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 9.7 - Infections at Birth">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 9.7 – Infections at Birth</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People | <strong>Discipline:</strong> Paediatrics Medicine | <strong>Setting:</strong> Hospital</p>
+
+    <h2>Case</h2>
+    <p>Melissa Chan, aged 36 years, presents for her second antenatal visit. Her blood tests indicate that she is Hep Be Ag positive and Hep Bc Ag negative and Hep Bs Ab negative. She is concerned that her baby may catch hepatitis B.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Outline your management of Melissa and her baby in terms of history, examination, investigation and management.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Melissa is infected with Hepatitis B virus. Since she is HBeAg positive and HBsAb negative she would either be in the early phase of an acute infection or a highly infective carrier. Her baby would be at very high risk of being infected; usually during delivery (around 90% of babies are infected from HBeAg positive mothers).</p>
+
+        <h3>History</h3>
+        <p>In addition to the routine obstetric history, it would be important to ascertain how Melissa became infected with Hepatitis B virus – exchange of body fluids through sexual transmission, injecting drugs, needle stick injuries, blood transfusions, tattoos, acupuncture needles.</p>
+        <p>In addition, a medical history to ascertain symptoms and signs referrable to hepatitis B (flu-like illness, lethargy, loss of appetite, pruritus, nausea, right upper quadrant pain, joint pain, dark urine and yellow sclera) to determine when she was infected, although many infections can be subclinical.</p>
+
+        <h3>Examination</h3>
+        <p>In addition to the routine obstetric and medical examination, particular examination for signs of injecting drug use, tattoos, jaundice, enlarged tender liver or very firm liver if she has chronic hepatitis.</p>
+
+        <h3>Investigations</h3>
+        <p>If Melissa has not had HIV and Hepatitis C serology, those should be performed.</p>
+        <p>With respect to her hepatitis B, the following tests should be done:</p>
+        <ul>
+          <li><strong>FBC</strong> - looking for a lymphocytosis</li>
+          <li><strong>Bilirubin</strong> - reflects degree of liver damage</li>
+          <li><strong>Serum transaminases</strong> - usually levels between 200-2000 U/L</li>
+          <li><strong>Alkaline phosphatase</strong> - rarely exceed twice upper limit of normal</li>
+          <li><strong>Prothrombin time</strong> - prolongation reflects severity of liver damage</li>
+        </ul>
+
+        <h3>Management</h3>
+
+        <p><strong>Mother:</strong></p>
+        <p>Melissa should be informed that she is highly infective and counselled on modes of transmission and prevention of transmission (saliva, blood and sexual transmission - if injecting drug user, referral to a methadone program; otherwise not sharing needles, use needle exchange service, use of condoms). Her sexual partner should be assessed for hepatitis B status and if negative, should be immunised.</p>
+
+        <p><strong>Baby:</strong></p>
+        <p>With respect to the baby, vertical transmission which occurs mainly during delivery, can be prevented in >95% of babies at risk through hepatitis B immune globulin (HBIG), and hepatitis B vaccine (HBV).</p>
+        <ul>
+          <li><strong>HBIG</strong> should be given to the baby as soon after birth as possible and no later than 48 hours</li>
+          <li><strong>Monovalent HBV</strong> should be given at the same time (opposite thigh) as the HBIG. If not possible, should not be delayed beyond the 7th day after birth</li>
+          <li><strong>Three subsequent doses</strong> on multivalent/combination HBV should be repeated at 2, 4 and 6 or 12 months (depending on which vaccine is used)</li>
+          <li><strong>Hepatitis B serology</strong> should be performed on the infant at 12 months of age</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the defence mechanisms that usually protect the foetus and newborn from infection?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>In utero and in the early newborn period, the foetus and baby has an underdeveloped immune system. Defence against infections is mostly provided by the intrauterine environment and passive transfer of maternal antibodies.</p>
+
+        <h3>Intrauterine</h3>
+        <ul>
+          <li>The <strong>placenta</strong> filters out most organisms but not rubella virus, HIV, toxoplasma, CMV and treponema pallidum</li>
+          <li><strong>Amniotic fluid</strong> contains lysosymes and other anti-bacterial agents</li>
+          <li>The <strong>foetal membranes</strong> act as a physical barrier</li>
+          <li>The <strong>cervical mucous plug</strong> is both a physical barrier and contains leukoprotease inhibitors, lysosymes, lactoferrin, and neutrophils</li>
+          <li>There is <strong>passive transfer of maternal antibodies</strong> to the foetus during pregnancy</li>
+        </ul>
+
+        <h3>Newborn</h3>
+        <p>Maternal antibodies present wane after 4-6 months. The following are present in colostrum and breast milk:</p>
+        <ul>
+          <li><strong>Secretary IgA</strong></li>
+          <li><strong>Bifidus factor</strong> promoting growth of lactobacilli</li>
+          <li><strong>Lysozyme</strong></li>
+          <li><strong>Lactoferrin</strong></li>
+          <li><strong>Fibronectin</strong></li>
+          <li><strong>Leucocytes</strong> - neutrophils, macrophages and lymphocytes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Summarise the key features of rubella and the risks of maternal infection in the first trimester. How would you manage a case of suspected maternal exposure to Rubella in the first trimester?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The teratogenic effects of rubella were first noted in 1941 by an Australian ophthalmologist, who recognized several cases of congenital cataract following a large outbreak of rubella. Maternal rubella is now rare in many industrialized countries that have rubella vaccination programmes. However, in many developing countries, congenital rubella syndrome remains a major cause of developmental anomalies, particularly blindness and deafness.</p>
+
+        <h3>Clinical Features</h3>
+        <p>The risk of foetal infection and damage is greatest during the first 8 weeks of pregnancy and damage is rare after 16 weeks. Congenital rubella syndrome may include a number of clinical features, some of which may not present until adolescence or adulthood:</p>
+        <ul>
+          <li>Intrauterine growth restriction</li>
+          <li>Neonatal purpuric rash and hepatosplenomegaly</li>
+          <li>Microcephaly and developmental delay</li>
+          <li><strong>Cardiac:</strong> pulmonary artery hypoplasia, patent ductus arteriosus</li>
+          <li><strong>Eye:</strong> cataract, retinopathy, microphthalmia</li>
+          <li>Deafness - develops later</li>
+          <li>Diabetes mellitus - develops later</li>
+        </ul>
+
+        <h3>Diagnosis</h3>
+        <ul>
+          <li>Isolation of rubella virus from saliva, tears, urine, cerebrospinal fluid (CSF) or tissue during the first 3 months of life</li>
+          <li>Demonstration of specific IgM antibody or persistence of IgG antibody beyond 6 months of age</li>
+        </ul>
+
+        <h3>Management of Suspected Maternal Exposure to Rubella in First Trimester</h3>
+        <p>Congenital rubella is preventable by immunization in childhood. Routine antenatal screening and postpartum immunisation of susceptible women provides additional protection.</p>
+        <ul>
+          <li>If rubella infection or contact is suspected during pregnancy, <strong>investigation to detect or exclude infection</strong> (specific IgM or IgG seroconversion) should be done even in women with known past immunity, as reinfection occasionally occurs</li>
+          <li><strong>Termination of pregnancy</strong> may be recommended after proven infection during the first trimester</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Briefly describe the clinical features and diagnosis of congenital syphilis.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Syphilis is a sexually transmitted infection caused by Treponema pallidum. Congenital syphilis is now a rare disease in most countries but it remains a severe, adverse pregnancy outcome in many less developed countries. Untreated syphilis in pregnancy can cause stillbirth, preterm labour and intrauterine growth restriction. Later in life, a range of neurological disorders can occur, including paretic neurosyphilis; all these manifestations respond poorly to treatment.</p>
+
+        <h3>Clinical Features</h3>
+        <p>At least 50% of infants with congenital syphilis are asymptomatic, so diagnosis may rely on serology. Clinical features typical of congenital syphilis include:</p>
+        <ul>
+          <li>An abnormally bulky placenta - histological examination should be done</li>
+          <li>Hydrops foetalis due to severe anaemia and/or severe liver disease</li>
+          <li>Lymphadenopathy, hepatosplenomegaly, jaundice</li>
+          <li>Osteochondritis with typical radiological changes; arthropathy or pseudoparalysis</li>
+          <li>Rhinitis ('snuffles')</li>
+          <li>Vesiculobullous rash on back, legs, palms and soles, followed by desquamation</li>
+          <li>Condylomata lata - fleshy lesions in moist areas of skin</li>
+        </ul>
+
+        <h3>Diagnosis</h3>
+        <p>The diagnosis is confirmed by serological tests on the mother and infant:</p>
+        <ul>
+          <li>Neonatal IgG antibody titres that are significantly higher than the mother's and/or the presence of specific IgM in the infant</li>
+          <li>A <strong>lumbar puncture</strong> should be performed on the infant</li>
+          <li><strong>Neurosyphilis</strong> is suggested by CSF pleocytosis, raised protein level and positive CSF serology</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Outline using a table the key features of primary and reactivation of CMV infection during pregnancy.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Primary CMV</th>
+              <th>Reactivation CMV</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Infection Status of Mother in Pregnancy</strong></td>
+              <td>
+                <ul>
+                  <li>50% of young women are seronegative (susceptible). In developing countries and lower socioeconomic groups, primary infection occurs at a younger age and fewer women are susceptible</li>
+                  <li>1% of women seroconvert during pregnancy</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>20-30% of seropositive women reactivate latent infection during pregnancy</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Infection of Foetus in Pregnancy</strong></td>
+              <td>
+                <ul>
+                  <li>30% of foetuses of women with primary infection are infected</li>
+                  <li>The risk of congenital CMV infection after primary maternal CMV infection remains elevated for up to 4 years following seroconversion, with the highest risk being in the first 2 years</li>
+                  <li>Infection is transplacental; severe foetal damage is more likely early in gestation</li>
+                  <li>10% of infants infected during primary maternal infection are symptomatic at birth: 90% have significant long-term handicap</li>
+                  <li>90% of infants infected during primary maternal infection are asymptomatic at birth: 10% go on to develop deafness or intellectual handicap</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>2-5% of their infants are infected in utero but significant CMV disease is rare; mild sequelae (unilateral deafness) occur infrequently (\&lt;10%)</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Incidence of Congenital Infection</strong></td>
+              <td>Overall incidence of congenital infection due to primary maternal infection is 1 in 1000</td>
+              <td>Overall incidence of congenital infection is 1-2% - the majority are unaffected</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Outline the key features of congenital toxoplasmosis.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Toxoplasma gondii is a protozoan parasite that infects up to a third of the world's population. Infection is mainly acquired by ingestion of food or water that is contaminated with oocysts shed by cats or by eating undercooked or raw meat containing tissue cysts. Primary infection is usually subclinical but may cause lymphadenopathy or ocular disease. Infection acquired during pregnancy may cause severe damage to the foetus. The risk of foetal infection increases but that of foetal damage decreases with advancing gestation. There is geographical variation in the incidence of congenital infection; in Australia it is estimated to be less than 1 in 1000 births.</p>
+
+        <h3>Clinical Features</h3>
+        <ul>
+          <li>Most congenitally infected infants are asymptomatic at birth</li>
+          <li>Many later develop signs and sometimes symptoms of chorioretinitis (up to 80%, with some visual impairment in about half)</li>
+          <li>Approximately 10% develop neurological sequelae and/or hearing deficit</li>
+        </ul>
+
+        <p><strong>Signs of severe symptomatic congenital toxoplasmosis include:</strong></p>
+        <ul>
+          <li>Anaemia, hepatosplenomegaly, jaundice, lymphadenopathy</li>
+          <li>Thrombocytopenia, petechial rash</li>
+          <li>Central nervous system damage - intracranial calcification, hydrocephalus and microcephaly</li>
+          <li>Neurological and/or visual impairment in most survivors</li>
+        </ul>
+
+        <h3>Diagnosis and Management</h3>
+        <p>Toxoplasmosis during pregnancy is ideally diagnosed by showing seroconversion. More commonly it is suspected because specific IgM is detected in serum by antenatal screening. IgM can remain detectable for many months and, in the absence of symptoms, further testing is needed. Tests for the avidity of IgG antibodies can discriminate between recently acquired and previous infection. If recent infection is confirmed or cannot be excluded, treatment of the mother with spiramycin can reduce the risk of vertical transmission.</p>
+
+        <p>Appropriate management depends on diagnosis of intrauterine infection by amniotic fluid PCR at about 18 weeks gestation. If foetal infection occurs during the first trimester, termination of pregnancy is often recommended. If infection occurs during the second or third trimester, treatment of the mother with a combination of pyrimethamine and a sulphonamide is likely to reduce sequelae of the disease in the newborn.</p>
+
+        <p>Specific IgM in the infant's serum or persistence of IgG beyond the first few months of life are evidence of congenital toxoplasmosis. T. gondii may be detected in tissue by histological examination or PCR, or in CSF by PCR. Treatment of a congenitally infected infant with spiramycin, pyrimethamine and a sulphonamide can reduce progressive damage after birth.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Explain how to prevent congenital varicella infection.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Risk of Foetal Varicella Syndrome</h3>
+        <p>The risk of foetal varicella syndrome in children exposed to varicella-zoster virus (VZV) in utero is:</p>
+        <ul>
+          <li>Around 0.5% after maternal infection at 2-12 weeks of pregnancy</li>
+          <li>1.4% after infection at 12-28 weeks</li>
+          <li>Does not occur after infection from 28 weeks onwards</li>
+          <li>Occurs in around 1.6 per 100,000 births in the population</li>
+          <li>Shingles in the mother does not carry a risk of foetal varicella syndrome</li>
+        </ul>
+
+        <h3>Varicella-Zoster Virus Infection of the Newborn</h3>
+        <p>VZV infection of the newborn results from transmission from a mother with chickenpox to her infant around the time of delivery, in circumstances where the infant lacks the protection of maternal antibodies. The likelihood of such infection depends on the timing of delivery in relation to when the mother develops the chickenpox rash.</p>
+        <ul>
+          <li>If the rash develops more than 7 days before delivery, this generally allows time for the development and transfer of protective maternal antibodies</li>
+          <li>However, since transfer of antibodies from the mother to the infant is limited before around 26-28 weeks of gestation, maternal immunity to VZV does not usually protect preterm infants delivered before 28 weeks gestational age</li>
+          <li>If maternal VZV infection occurs during the week from 5 days before delivery until 2 days afterwards, infection of the infant may be complicated by pneumonia, hepatitis or encephalitis and a high mortality</li>
+          <li>When maternal infection occurs more than 5 days before delivery, infection in the infant is usually mild</li>
+          <li>Infants exposed to varicella after the first few days of life also usually have mild disease, although this is variable and depends on, among other factors, the mother's immune status</li>
+        </ul>
+
+        <h3>Prevention of Infection of the Newborn</h3>
+        <p><strong>Zoster immune globulin (ZIG)</strong> can prevent or modify varicella if given within 4 days (preferably 48 hours) of exposure to:</p>
+        <ul>
+          <li>Pregnant women with no past history of chickenpox who are seronegative or whose immune status is unknown</li>
+          <li>Newborn infants of women who develop varicella within 5 days before or 2 days after delivery</li>
+        </ul>
+        <p><strong>Immunisation of susceptible women of child-bearing age with varicella vaccine</strong> will protect the foetus from the risk of congenital varicella.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. A newborn presents at 5 hours of age with features of respiratory distress, fast breathing, feeding difficulty and a temperature of 37.8°C. How would you investigate for possible pathogens and how would you manage this case if Group B streptococcus was strongly suspected?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Group B streptococcus can cause neonatal sepsis, pneumonia, meningitis and, less frequently, focal infections such as osteomyelitis, septic arthritis or cellulitis.</p>
+
+        <h3>Investigations</h3>
+        <p>Investigations for suspected Group B strep sepsis may include:</p>
+        <ul>
+          <li><strong>Full blood examination</strong> and acute phase reactants such as C reactive protein</li>
+          <li><strong>Culture of blood, CSF or urine</strong> (collected by suprapubic bladder aspiration) - diagnostic for invasive disease</li>
+          <li><strong>Culture of swabs</strong> from orifices and skin - would indicate colonisation and not diagnostic for invasive disease</li>
+          <li><strong>Chest x-ray</strong></li>
+        </ul>
+
+        <h3>Management if Group B Streptococcus was Strongly Suspected</h3>
+        <p><strong>Supportive Care:</strong></p>
+        <p>Monitoring and management of temperature control, fluids and electrolytes, acid base balance, oxygen and nutrition.</p>
+
+        <p><strong>Antibiotic Treatment:</strong></p>
+        <p>High-dose intravenous penicillin plus synergistic gentamicin or cefotaxime should be used until the organism and sensitivities are confirmed, at which time penicillin alone (if organism sensitive) can be used for the duration of treatment.</p>
+      </div>
+    </div>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+</body>
+</html>

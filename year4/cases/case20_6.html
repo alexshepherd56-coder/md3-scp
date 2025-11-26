@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 20.6 - Pneumonia</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 20.6 - Pneumonia | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD3 students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 20.6 - Pneumonia">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+    </div>
+
+    <h1>Case 20.6 – Lower Respiratory Tract Infections - Pneumonia</h1>
+    <p class="meta"><strong>Category:</strong> Children & Young People / Respiratory & ENT Systems | <strong>Discipline:</strong> Paediatrics Medicine | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>Michael Pancirov, is a 6 year old boy who presents with cough, fever and shortness of breath. He has been unwell for a few days with coryzal symptoms and temperature.</p>
+    <p>On arrival: Looks unwell,<br>
+    Temp. 39⁰C, RR 30bpm, with grunting, HR 120 bpm. SaO₂ – 90% [room air].</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. You are concerned that Michael has pneumonia, outline the key clinical features of your history and examination that would support a diagnosis of pneumonia.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Symptoms include:</h3>
+        <ul>
+          <li>Dyspnoea</li>
+          <li>Fever</li>
+          <li>Malaise</li>
+          <li>Cough may be dry or moist (but is not always present)</li>
+          <li>Pleuritic chest pain is often present</li>
+          <li>Neck pain (if apices involved, can be confused with meningism) the diaphragmatic pleural surface is involved</li>
+          <li>Abdominal or shoulder tip pain (if diaphragmatic pleural surface involved)</li>
+        </ul>
+
+        <h3>Signs include:</h3>
+        <ul>
+          <li>Tachypnoea and respiratory distress,</li>
+          <li>Dullness to percussion</li>
+          <li>Auscultation: localized crackles and bronchial breathing</li>
+        </ul>
+        <p>(Of these signs, tachypnoea is the most consistent and reliable, and pneumonia should be suspected in any child with an unexplained tachypnoea.)</p>
+
+        <h3>Signs of complications of pneumonia include those related to:</h3>
+        <ul>
+          <li><strong>Pleural effusion</strong> - shifting of mediastinum or trachea, dullness to percussion (stony dullness with large effusions), reduced or absent breath sounds, and bronchial breathing above the effusion</li>
+          <li><strong>Pneumothorax</strong> - uncommon, shifting of mediastinum or trachea, reduced breath sound</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Outline the clinical features that can assist in differentiating pneumonia due to strep pneumoniae, staphylococcus aureus, haemophilus influenzae B and mycoplasma pneumoniae.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <thead>
+            <tr>
+              <th>Organism</th>
+              <th>Clinical Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Streptococcus pneumoniae</strong></td>
+              <td>
+                <ul>
+                  <li>may be preceded by symptoms suggestive of a mild upper respiratory infection and typical symptoms and signs of pneumonia may then appear.</li>
+                  <li>symptoms are more likely to include fever, tachypnoea and pleuritic chest pain and cough can be absent</li>
+                  <li>signs are more likely to include nasal flaring, grunting, reduced movement of the chest wall on the affected side, dullness to percussion, reduced breath sounds and bronchial breathing over the area involved.</li>
+                  <li>Dullness to percussion may indicate the presence of an empyema. If the upper lobes are involved, neck stiffness may be present and the child may be misdiagnosed as having meningitis.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Staphylococcus aureus</strong></td>
+              <td>
+                <ul>
+                  <li>usually a more severe form. It is more common in younger children, especially those under 2 years of age</li>
+                  <li>important risk factor is a socially disadvantaged or indigenous background.</li>
+                  <li>Child appears more unwell, with a high fever, and is more likely to have pallor, tachypnoea and respiratory distress.</li>
+                  <li>Onset is usually acute and the course more rapid. Chest signs are non-specific</li>
+                  <li>chest X-ray is more likely to show severe involvement. Early in the course of the illness, staphylococcal pneumonia may have radiological features that are similar to other forms of bacterial pneumonia, including lobar consolidation, patchy shadowing and a small pleural effusion. However, within days, more serious findings may be evident, including widespread opacifications, large pleural effusions and displaced intrathoracic structures.</li>
+                  <li>More specific to staphylococcal pneumonia are abscesses, either single or multiple, and large or encysted pleural effusions with thick walls. Air leaks are common and highly specific for staphylococcal pneumonia; they include pneumothorax, pneumomediastinum, pneumopericardium and, in particular, pneumatocoeles. (Pneumatocoeles can also be caused by <em>Escherichia coli</em>, <em>Klebsiella</em> sp., <em>Pseudomonas</em> sp., group A streptococci and pneumococci)</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Haemophilus influenzae B</strong></td>
+              <td>
+                <ul>
+                  <li>Pneumonia due to <em>H. influenzae</em> is now relatively uncommon because of immunization against this organism.</li>
+                  <li>Risk factors: non-immunizes children, age &lt;2y, indigenous race, lower socioeconomic group, male gender and immunodeficiency.</li>
+                  <li>The signs and symptoms and radiological features are not distinguishable from those found in other pneumonias.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Mycoplasma pneumoniae</strong></td>
+              <td>
+                <ul>
+                  <li>The clinical course is often protracted and characterized by the gradual development of fever, malaise, upper respiratory symptoms and cough.</li>
+                  <li>Signs include: widespread sparse fine crackles or coarse crackles, wheeze (commonly presenting children with asthma)</li>
+                  <li>The chest X-ray often shows changes that are more striking than expected for the degree of clinical illness. The findings themselves are usually non-specific but can include perihilar opacification, and consolidation of one or more lobes.</li>
+                  <li>The diagnosis is supported by positive serology.</li>
+                  <li>Co-infection with <em>S. pneumoniae</em> is not uncommon.</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Michael undergoes a CXR – Describe the radiological features of bacterial pneumonia, how does this differ from pneumonia due to mycoplasma pneumoniae and viral pneumonia.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Chest radiography is the most reliable investigation. If the chest radiograph is normal, pneumonia can be considered to be not present at that time, but, if the X-ray is taken very early in the disease process, this does not preclude radiological changes developing later.</p>
+
+        <p>In general, (specificity of these changes is relatively poor)</p>
+        <ul>
+          <li>patchy or peripheral consolidation may be more in keeping with a viral infection</li>
+          <li>lobar opacification is suggestive of bacterial pneumonia</li>
+          <li>more central peribronchial infiltrate may indicate <em>Mycoplasma</em> infection</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What antimicrobial therapy would be commenced if Michael's diagnosis is pneumonia due to strep pneumoniae? How would this therapy differ if the organism was staphylococcus aureus, haemophilus influenzae or mycoplasma pneumoniae?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <table>
+          <thead>
+            <tr>
+              <th>Organism</th>
+              <th>Antibiotic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>S. pneumoniae</strong></td>
+              <td>All strains other than those demonstrated to be penicillin-resistant, use<br>
+              <strong>benzylpenicillin</strong> 1.2 g (child: 30 mg/kg up to 1.2 g) IV, 6-hourly until significant improvement,<br>
+              then <strong>amoxycillin</strong> 1 g (child: 25 mg/kg up to 1 g) orally, 8-hourly for a total treatment duration of 7 days.</td>
+            </tr>
+            <tr>
+              <td><strong>S. aureus</strong></td>
+              <td>For non-MRSA staphylococcal pneumonia, use:<br>
+              <strong>di/flucloxacillin</strong> 2 g (child: 50 mg/kg up to 2 g) IV, 6-hourly<br>
+              OR<br>
+              <strong>cephalothin</strong> 2 g (child: 50 mg/kg up to 2 g) IV, 6-hourly<br>
+              OR<br>
+              <strong>cephazolin</strong> 2 g (child: 50 mg/kg up to 2 g) IV, 8-hourly</td>
+            </tr>
+            <tr>
+              <td><strong>H. influenzae</strong> (type B)</td>
+              <td><strong>First-line therapy</strong><br>
+              <strong>amoxycillin</strong> 1 g (child: 25 mg/kg up to 1 g) orally, 8-hourly<br>
+              OR<br>
+              <strong>benzylpenicillin</strong> 1.2 g (child: 30 mg/kg up to 1.2 g) IV, 6-hourly<br>
+              <strong>Second-line therapy</strong><br>
+              <strong>amoxycillin+clavulanate</strong> 875+125 mg (child: 22.5+3.2 mg/kg up to 875+125 mg) orally, 12-hourly<br>
+              OR<br>
+              <strong>cefotaxime</strong> 1 g (child: 25 mg/kg up to 1 g) IV, 8-hourly<br>
+              OR<br>
+              <strong>ceftriaxone</strong> 1 g (child: 25 mg/kg up to 1 g) IV, daily<br>
+              OR<br>
+              <strong>cefuroxime</strong> 500 mg (child: 10 mg/kg up to 500 mg) orally, 12-hourly</td>
+            </tr>
+            <tr>
+              <td><strong>M. pneumoniae</strong></td>
+              <td><strong>First-line therapy</strong><br>
+              <strong>clarithromycin</strong> 250 mg (child: 7.5 mg/kg up to 250 mg) orally, 12-hourly<br>
+              OR<br>
+              <strong>roxithromycin</strong> 300 mg orally, daily (child: 4 mg/kg up to 150 mg orally, 12-hourly)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Viruses are more commonly the cause of pneumonia in children; outline the risk factors for viral pneumonia.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Risk factors for viral pneumonia include:</p>
+        <ul>
+          <li><strong>Age.</strong> Children under 5 years of age are at greatest risk of viral pneumonia, but the risk remains high throughout the first decade of life</li>
+          <li><strong>Season.</strong> Peak seasonal incidence is in winter</li>
+          <li><strong>Passive smoke exposure.</strong> Maternal smoking increases the risk, especially in the first year of life</li>
+          <li><strong>Poor socioeconomic status.</strong> A risk factor in both the developing and the developed worlds</li>
+          <li><strong>Pre-existing chronic problems.</strong> The risk is increased in chronic chest problems such as cystic fibrosis, chronic post neonatal lung disease, congenital heart disease and HIV infection.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Summarise the main pathogens and clinical features of viral pneumonia in children.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The most important causative viruses are:</p>
+        <ul>
+          <li>parainfluenza viruses</li>
+          <li>influenza viruses</li>
+          <li>respiratory syncytial virus (RSV)</li>
+          <li>adenoviruses</li>
+          <li>human metapneumovirus (HMV)</li>
+          <li>rhinoviruses</li>
+          <li>cytomegalovirus (CMV)</li>
+          <li>measles</li>
+        </ul>
+
+        <p>All of these viruses can cause other respiratory illnesses apart from pneumonia, including acute upper respiratory tract infection, acute laryngotracheitis, bronchitis and bronchiolitis. Symptoms of these illnesses can co-exist with those of pneumonia.</p>
+
+        <p>The radiological features of viral pneumonias are non-specific, but patchy, widespread infiltrates are more characteristic than lobar involvement. Treatment with antiviral agents is rarely indicated in normal children, but supportive measures are commonly required.</p>
+      </div>
+    </div>
+
+    <h2>Suggested Reading</h2>
+    <ul>
+      <li>South M, Isaacs D editors. Practical Paediatrics. 7th edition. Edinburgh: Churchill Livingstone; 2012.</li>
+      <li>Thomson K, Tey D, Marks M, editors. Paediatric Handbook. Staff of the Royal Children's Hospital Melbourne, Australia. 8th edition. Chichester: Wiley-Blackwell; 2009.</li>
+      <li>Therapeutic Guidelines - Antibiotic Guidelines 2014 <a href="https://tgldcdp.tg.org.au/etgAccess" target="_blank">https://tgldcdp.tg.org.au/etgAccess</a></li>
+    </ul>
+
+  
+</div>
+
+<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        
+    }
+      
+    }
+    
+    }
+// Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      
+    }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      
+    }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          
+    }
+        }, 100);
+      
+    }
+    });
+    
+    }
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>
