@@ -343,6 +343,20 @@
       <!-- MCQ Exams -->
       <h2 class="exam-category-title">MCQ</h2>
       <div class="case-grid">
+        <div class="case-card exam-card-style" data-exam="mcq-all-2022-2024" onclick="window.location.href='exams/mcq-all-2022-2024.html'">
+          <div class="exam-card-top">
+            <h3>All MCQs from 2022, 2023 & 2024 with Answers!</h3>
+            <span class="exam-flagged-badge" id="examMcqAll20222024FlaggedCard" style="display: none;"></span>
+          </div>
+          <div class="exam-card-bottom">
+            <div class="exam-attempts-count" id="examMcqAll20222024AttemptsCard">0/176 Questions Attempted</div>
+            <div class="exam-progress-bar">
+              <div class="exam-progress-fill" id="examMcqAll20222024ProgressCard"></div>
+            </div>
+          </div>
+          <div class="exam-completion-icon" id="examMcqAll20222024CompletionIconCard" style="display: none;">✓</div>
+        </div>
+
         <div class="case-card exam-card-style" data-exam="mcq-2024" onclick="window.location.href='exams/mcq-2024.html'">
           <div class="exam-card-top">
             <h3>2024 Summative Exam Dump</h3>
@@ -780,6 +794,20 @@
       <span class="close-btn" id="closeMcqModal">&times;</span>
       <h2 style="font-family: Georgia, 'Times New Roman', serif; font-weight: 400;">MCQ Exams</h2>
       <div class="exam-list">
+        <div class="exam-item exam-card-style" data-exam="mcq-all-2022-2024">
+          <div class="exam-card-header">
+            <div class="exam-title-with-badge">
+              <h3>All MCQs from 2022, 2023 & 2024 with Answers!</h3>
+              <span class="exam-flagged-badge" id="examMcqAll20222024Flagged" style="display: none;"></span>
+            </div>
+            <div class="exam-completion-icon" id="examMcqAll20222024CompletionIcon" style="display: none;">✓</div>
+          </div>
+          <div class="exam-progress-bar">
+            <div class="exam-progress-fill" id="examMcqAll20222024Progress"></div>
+          </div>
+          <div class="exam-attempts-count" id="examMcqAll20222024Attempts">0/176 Questions Attempted</div>
+        </div>
+
         <div class="exam-item exam-card-style" data-exam="mcq-2024">
           <div class="exam-card-header">
             <div class="exam-title-with-badge">
@@ -1107,6 +1135,85 @@
         });
       }
     });
+  </script>
+
+  <!-- MCQ Exam Progress Tracker -->
+  <script>
+    // Update MCQ exam progress from localStorage
+    function updateMCQExamProgress() {
+      const exams = [
+        { id: 'mcq-all-2022-2024', totalQuestions: 176 },
+        { id: 'mcq-2024', totalQuestions: 57 },
+        { id: 'mcq-2023', totalQuestions: 92 }
+      ];
+
+      exams.forEach(exam => {
+        const progressKey = `${exam.id}-progress`;
+        const saved = localStorage.getItem(progressKey);
+
+        if (saved) {
+          try {
+            const progress = JSON.parse(saved);
+            const questions = progress.questions || [];
+
+            // Count answered and flagged questions
+            let answered = 0;
+            let flagged = 0;
+
+            questions.forEach(q => {
+              if (q.selectedAnswer !== null && q.selectedAnswer !== undefined) {
+                answered++;
+              }
+              if (q.flagged) {
+                flagged++;
+              }
+            });
+
+            const percentage = Math.round((answered / exam.totalQuestions) * 100);
+
+            // Update all instances (card and modal)
+            const updateElements = (suffix) => {
+              const attemptsEl = document.getElementById(`exam${toCamelCase(exam.id)}Attempts${suffix}`);
+              const progressEl = document.getElementById(`exam${toCamelCase(exam.id)}Progress${suffix}`);
+              const flaggedEl = document.getElementById(`exam${toCamelCase(exam.id)}Flagged${suffix}`);
+
+              if (attemptsEl) {
+                attemptsEl.textContent = `${answered}/${exam.totalQuestions} Questions Attempted`;
+              }
+              if (progressEl) {
+                progressEl.style.width = `${percentage}%`;
+              }
+              if (flaggedEl && flagged > 0) {
+                flaggedEl.textContent = `${flagged} flagged`;
+                flaggedEl.style.display = 'inline-block';
+              }
+            };
+
+            // Update both card and modal versions
+            updateElements('');
+            updateElements('Card');
+          } catch (error) {
+            console.error(`Error updating progress for ${exam.id}:`, error);
+          }
+        }
+      });
+    }
+
+    // Helper function to convert hyphenated to camelCase
+    function toCamelCase(str) {
+      return str.split('-').map((word, index) => {
+        if (index === 0) return 'Mcq';
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }).join('');
+    }
+
+    // Update on page load and when returning to the page
+    document.addEventListener('DOMContentLoaded', updateMCQExamProgress);
+    window.addEventListener('focus', updateMCQExamProgress);
+    window.addEventListener('pageshow', updateMCQExamProgress);
+
+    // Update every 2 seconds while page is visible
+    setInterval(updateMCQExamProgress, 2000);
   </script>
 
 </body>
