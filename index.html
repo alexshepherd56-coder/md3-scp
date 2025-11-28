@@ -248,42 +248,20 @@
       <input type="text" id="mobileSearchInput" class="search-bar" placeholder="Search for anything (e.g. Nephrotic Syndrome)">
     </div>
 
+    <!-- Snowfall Canvas (outside welcomePage so it's always available) -->
+    <canvas id="snowfallCanvas" style="display: none;"></canvas>
+
     <!-- Welcome Page -->
     <div id="welcomePage" style="display: none;">
       <div class="welcome-container">
         <h1 class="welcome-greeting" id="welcomeGreeting">Hey there</h1>
         <p class="welcome-subtitle">What would you like to study today?</p>
 
-        <!-- Exam Timeline -->
-        <div class="exam-timeline-container">
-          <!-- Encouragement Text at Top -->
-          <div class="encouragement-text">Good luck, you've got this!</div>
-
-          <!-- Countdown Text -->
-          <div class="exam-countdown-top">
-            <p id="mcqCountdown" class="countdown-text" style="text-align: center; width: 100%;"><strong id="mcqDays">2</strong> days until MCQ</p>
-          </div>
-
-          <div class="exam-timeline-track">
-            <!-- Running Med Student -->
-            <div class="running-student" id="runningStudent">
-              🏃🏽
-            </div>
-
-            <!-- Progress Bar -->
-            <div class="timeline-progress" id="timelineProgress"></div>
-
-            <!-- MCQ Marker -->
-            <div class="exam-marker mcq-marker" style="left: 100%;">
-              <div class="marker-pole"></div>
-              <div class="marker-label">MCQ</div>
-              <div class="marker-date">Fri 28 Nov</div>
-            </div>
-
-            <!-- Finish Beer -->
-            <div class="finish-line">
-              <div class="finish-beer" id="finishBeer">🍺</div>
-            </div>
+        <!-- Holiday Message Section -->
+        <div class="holiday-section">
+          <h2 class="holiday-message">Enjoy the Holidays</h2>
+          <div class="santa-container">
+            <span class="santa-emoji">🎅🏻</span>
           </div>
         </div>
       </div>
@@ -878,6 +856,9 @@
 
   <!-- Exam Countdown (Real-time updates) -->
   <script src="js/exam-countdown.js"></script>
+
+  <!-- Snowfall Animation -->
+  <script src="js/snowfall.js"></script>
 
   <script>
     // Debug: Check if modules loaded

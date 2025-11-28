@@ -753,6 +753,69 @@ header h1 {
   letter-spacing: -0.01em;
 }
 
+/* Holiday Message Styles */
+.holiday-section {
+  margin-top: 60px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  border: 1px solid var(--claude-border);
+}
+
+.holiday-message {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--claude-text);
+  margin: 0 0 30px 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.santa-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.santa-emoji {
+  font-size: 120px;
+  line-height: 1;
+  animation: gentle-bounce 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Snowfall Canvas */
+#snowfallCanvas {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 72px);
+  pointer-events: none;
+  z-index: 999;
+  background: transparent;
+}
+
+#welcomePage {
+  position: relative;
+}
+
+#welcomePage .welcome-container {
+  position: relative;
+  z-index: 10;
+}
+
 /* Exam Timeline Styles */
 .exam-timeline-container {
   margin-top: 48px;
@@ -1820,6 +1883,20 @@ button.toggle:hover {
 
   .welcome-container {
     padding: 20px;
+  }
+
+  /* Holiday message mobile adjustments */
+  .holiday-section {
+    margin-top: 40px;
+    padding: 24px;
+  }
+
+  .holiday-message {
+    font-size: 28px;
+  }
+
+  .santa-emoji {
+    font-size: 80px;
   }
 
   /* Mobile search - show at top of main content */
