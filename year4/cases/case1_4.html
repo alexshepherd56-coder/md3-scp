@@ -5,32 +5,29 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);
-    }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-LSRR4KW715');
   </script>
 
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Case 1.4 - Hyperlipidaemia (Acquired)</title>
+  <title>Case 1.4 - Introduction to Airway Management | MD4 SCP Cases</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
   <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="Case 1.4 - Hyperlipidaemia (Acquired) | MD3 SCP Cases">
-  <meta name="description" content="Medical case study for MD3 students.">
+  <meta name="title" content="Case 1.4 - Introduction to Airway Management | MD4 SCP Cases">
+  <meta name="description" content="Anaesthesia case study on airway management for medical students.">
 
   <!-- Open Graph / Facebook -->
   <meta property="fb:app_id" content="your_facebook_app_id">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Case 1.4 - Hyperlipidaemia (Acquired)">
-  <meta property="og:site_name" content="MD3 SCP Cases">
-  <meta property="og:description" content="Medical case study for MD3 students.">
+  <meta property="og:title" content="Case 1.4 - Introduction to Airway Management">
+  <meta property="og:site_name" content="MD4 SCP Cases">
+  <meta property="og:description" content="Anaesthesia case study on airway management for medical students.">
   <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
   <link rel="stylesheet" href="../../css/case.css">
 
@@ -43,257 +40,247 @@
   <div class="container">
     <div class="case-header">
       <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <button id="caseFlagButton" class="case-flag-button" onclick="toggleCaseFlag()">Flag Case</button>
     </div>
 
-    <h1>Case 1.4 – Hyperlipidaemia (Acquired)</h1>
-    <p class="meta"><strong>Category:</strong> Cardiovascular | <strong>Discipline:</strong> General practice | <strong>Setting:</strong> Urban Community</p>
+    <h1>Case 1.4 – Introduction to Airway Management</h1>
+    <p class="meta"><strong>Category:</strong> Clinical Skills | <strong>Discipline:</strong> Anaesthesia | <strong>Setting:</strong> Hospital Ward</p>
 
     <h2>Case</h2>
-    <p>Herbert Chapper, aged 45 years, presents the results of his blood tests. Hehad a shoulder injury at work two weeks ago, and you had suggested he have some blood tests as part of a general health review. His father died of an acute myocardial infarction at 58 years. Herbert is a poor attendee to the practice, but did have his cholesterol levels tested 8 years ago. At that time they were normal. However, since then, Herbert has put on a lot of weight.</p>
+    <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+      <div style="flex: 1;">
+        <p>Judy is a 60 year old female who presents for a right hemicolectomy on tomorrow's list.</p>
 
-    <p><strong>His blood results are as follows:</strong><br>
-    Cholesterol 7.0 mmol/l (3.9-5.5)<br>
-    Triglycerides 2.0 mmol/l (0.5-1.7)<br>
-    LDL 4.5 mmol/l (2.1-4.0)<br>
-    HDL 0.7 mmol/l (\&gt;1.0)</p>
+        <p>A routine colonoscopy found a large caecal polypoid mass. CT chest and abdomen have not shown evidence of any metastases.</p>
+
+        <p>Her medical history includes mild asthma and elevated body mass index (BMI). Her height is 170cm, her weight 87kg, and she is of typical gynaecoid ("pear-shaped") appearance. She uses a salbutamol inhaler prn.</p>
+      </div>
+      <div style="flex: 0 0 auto;">
+        <img src="../../assets/cases/year4/case1_4_patient_photo.png" alt="Patient Judy" style="max-width: 200px; border-radius: 8px;">
+      </div>
+    </div>
 
     <h2>Questions</h2>
 
     <div class="question">
-      <strong>1. Summarise Herbert's test results.</strong><br>
+      <strong>1. What anaesthetic issues are there to consider arising from this scenario?</strong><br>
       <button class="toggle">Show Answer</button>
       <div class="answer">
-        <p>Herbert has an elevated total cholesterol – hypercholesterolaemia, of which the main contributor is his LDL cholesterol which is also elevated.</p>
-        <p>He also had elevated triglycerides – hypertriglycerideaemia.</p>
-      </div>
-    </div>
-
-    <div class="question">
-      <strong>2. List the common causes of abnormal lipid profiles.</strong><br>
-      <button class="toggle">Show Answer</button>
-      <div class="answer">
-        <p>Primary causes: Familial hypercholesterolaemia,<br>
-        Secondary causes: More common than primary causes:</p>
         <ul>
-          <li>Dietary</li>
-          <li>Alcohol</li>
-          <li>Type 2 DM</li>
-          <li>Hypothyroidism</li>
-          <li>Medication (steroids, contraceptives, beta-blockers)</li>
-          <li>Nephrotic syndrome</li>
-        </ul>
-
-        <p>Polygenic hypercholesterolaemia is the most common cause of mild to moderate increase in LDL-C</p>
-
-        <p>Familial hypercholesterolaemia (FH) causes moderate to severe hypercholesterolaemia with a prevalence of at least 0.2% in most populations. It is usually due to an autosomal dominantly inherited mutation of the LDL receptor gene, but a similar syndrome can arise with defects in the ligand-binding domain of apolipoprotein B100 or a sterol-sensitive protease known as NARC-1. Most patients with these abnormalities exhibit LDL levels that are approximately twice as high as in unaffected subjects of the same age and gender.</p>
-      </div>
-    </div>
-
-    <div class="question">
-      <strong>3. How is hyperlipidaemia classified and how do the different classifications correspond to CHD risk?</strong><br>
-      <button class="toggle">Show Answer</button>
-      <div class="answer">
-        <p><strong>CLASSIFICATION OF HYPERLIPIDAEMIA</strong></p>
-        <table>
-          <tr>
-            <th>Disease</th>
-            <th>Elevated lipid results</th>
-            <th>Elevated lipoprotein</th>
-            <th>CHD risk</th>
-            <th>Pancreatitis risk</th>
-          </tr>
-          <tr>
-            <td>Predominant hypercholesterolaemia(mostly polygenic)</td>
-            <td>TC ± TG</td>
-            <td>LDL ± VLDL</td>
-            <td>+</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Familial hypercholesterolaemia (LDL receptor defect, defective Apo B100, defective NARC-1 protease)</td>
-            <td>TC ± TG</td>
-            <td>LDL ± VLDL</td>
-            <td>+++</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Hyperalphalipoproteinaemia</td>
-            <td>TC</td>
-            <td>HDL</td>
-            <td>- -</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Predominant hypertriglycerideaemia (mostly polygenic)</td>
-            <td>TG</td>
-            <td>VLDL ± LDL</td>
-            <td>Variable</td>
-            <td>+</td>
-          </tr>
-          <tr>
-            <td>Lipoprotein lipase deficiency</td>
-            <td>TG > TC</td>
-            <td>Chylo</td>
-            <td>?</td>
-            <td>+++</td>
-          </tr>
-          <tr>
-            <td>Familial hypertriglycerideaemia</td>
-            <td>TG + TC</td>
-            <td>VLDL + Chylo</td>
-            <td>?</td>
-            <td>++</td>
-          </tr>
-          <tr>
-            <td>Mixed hyperlipidaemia (mostly polygenic)</td>
-            <td>TC + TG</td>
-            <td>VLDL + LDL</td>
-            <td>Variable</td>
-            <td>+</td>
-          </tr>
-          <tr>
-            <td>Familial combined hyperlipidaemia*</td>
-            <td>TC and/or TG</td>
-            <td>LDL and VLDL</td>
-            <td>++</td>
-            <td>+</td>
-          </tr>
-          <tr>
-            <td>Dysbetalipoproteinaemia*</td>
-            <td>TC and/or TG</td>
-            <td>IDL</td>
-            <td>++ +</td>
-            <td>+</td>
-          </tr>
-        </table>
-        <p>* Familial combined hyperlipidaemia and dysbetalipoproteinaemia may also present as predominant hypercholesterolaemia or predominant hypertriglyceridaemia. (Chylo = chylomicrons; CHD = coronary heart disease; TC = total cholesterol; TG = triglycerides)</p>
-      </div>
-    </div>
-
-    <div class="question">
-      <strong>4. What further history and examination would you undertake?</strong><br>
-      <button class="toggle">Show Answer</button>
-      <div class="answer">
-        <p><strong>History:</strong></p>
-        <ul>
-          <li>Explore other risk factors for cardiovascular disease smoking, diet, exercise, alcohol intake, diabetes.</li>
-          <li>Explore past history of cardiovascular events – AMI, CVA, peripheral vascular disease.</li>
-          <li>Explore possible secondary causes thyroid disease, liver disease, renal disease, medications.</li>
-          <li>Family history of cardiovascular disease, diabetes, lipid abnormalities.</li>
-        </ul>
-
-        <p><strong>Examination:</strong></p>
-        <ul>
-          <li>BP, PR, RR</li>
-          <li>Weight, BMI</li>
-          <li>CVS – signs of heart failure, peripheral vascular disease</li>
-          <li>Fundi</li>
-          <li>Abdomen – organomegaly.</li>
-          <li>Other signs of hyperlipidaemia</li>
+          <li>Optimization of asthma</li>
+          <li>Elevated BMI</li>
+          <li>Procedure requires PPV and will be of approx 3hours duration</li>
+          <li>Post-operative analgesia in presence of laparotomy wound and bowel rehabilitation</li>
         </ul>
       </div>
     </div>
 
     <div class="question">
-      <strong>5. How would you manage his dyslipidaemia in terms of non-pharmacological and pharmacological approaches?</strong><br>
+      <strong>2. Outline the components of the pre-operative assessment that will help you manage these issues.</strong><br>
       <button class="toggle">Show Answer</button>
       <div class="answer">
-        <p><strong>Non-pharmacological treatment</strong></p>
-        <p>Patients with lipid abnormalities should receive medical advice and, if necessary, dietary counselling to:</p>
+        <p>In addition to the usual information (detailed in case 1.1):</p>
         <ul>
-          <li>reduce intake of saturated and trans-unsaturated fat to less than 7-10% of total energy</li>
-          <li>reduce the intake of cholesterol to less than 250 mg/day</li>
-          <li>replace sources of saturated fat and cholesterol with alternative foods such as lean meat, low-fat dairy products, polyunsaturated spreads and low glycaemic index carbohydrates</li>
-          <li>reduce energy-dense foods such as fats and soft drinks, whilst increasing activity and exercise to achieve stable or negative energy balance (i.e. weight maintenance or weight loss)</li>
-          <li>increase consumption of cardioprotective and nutrient-dense foods such as vegetables, unrefined carbohydrates, fish, pulses, legumes, fruit etc.</li>
-          <li>adjust alcohol consumption, reducing intake if excessive or if associated with hypertension, hypertriglyceridaemia or central obesity</li>
-          <li>achieve additional benefits with supplementary intake of foods containing lipid-lowering nutrients such as n-3 fatty acids, dietary fibre and plant sterols</li>
+          <li><strong>(i)</strong> Exclude any clinical manifestation of the presenting complaint such as bowel obstruction or severe anaemia (usually an asymptomatic presentation)</li>
+          <li><strong>(ii) Asthma:</strong> assess severity of disease and treatment history</li>
+          <li><strong>(iii) Obesity:</strong> relevant to risk of difficult airway management, ease of venous access, monitoring, patient positioning and pressure area care</li>
         </ul>
-
-        <p><strong>Pharmacological Management</strong></p>
-        <p>In Herbert's situation he would require patient education regarding weight loss and dietary measures; referral for further review by a dietitian would also be beneficial. As Herbert has a significant family history of CVD and is a poor attender, it would be beneficial to commence him on medication in light of his predominate hypercholestrolaemia a statin would be the first line therapy, with a plan to adding a further medication if this was unsuccessful in lowering his cholesterol</p>
       </div>
     </div>
 
     <div class="question">
-      <strong>6. Summarise the evidence base behind treating hypercholesterolaemia with statins</strong><br>
+      <strong>3. Why is Airway assessment important? How will you do this?</strong><br>
       <button class="toggle">Show Answer</button>
       <div class="answer">
-        <p><strong>HMGCoA reductase inhibitors (statins)</strong></p>
-        <p>Statins inhibit cholesterol synthesis, thereby up-regulating activity of the LDL receptor. This increases clearance of LDL and its precursor, IDL, thereby causing a secondary reduction in LDL synthesis. As a result, statins reduce LDL-C by up to 60%, reduce TG by up to 40% and increase HDL-C by up to 10%. They also reduce the concentration of intermediate metabolites such as isoprenes, which may lead to other effects such as suppression of the inflammatory response. There is clear evidence of protection against stroke, and total and coronary mortality, as well as a reduction in cardiovascular events in high-risk patients</p>
-
-        <p><strong>BENEFITS OF TREATING PATIENTS WITH HYPERCHOLESTEROLAEMIA WITH STATINS</strong></p>
-        <p>'Meta-analysis of major RCTs involving over 90 000 subjects receiving statins for an average of 5 years showed reduced coronary mortality of 19% (95% confidence interval 15-24%), stroke 17% (12-22%) and total mortality 12% (9-16%) per 1 mmol/l reduction in LDL-C.'</p>
-        <p>• Baigent C, et al. Lancet 2005; 366:1267-1278.</p>
+        <p>Airway assessment is critical prior to rendering a patient unconscious and apnoeic.</p>
+        <p>See case 1.1 for detailed airway assessment components.</p>
       </div>
     </div>
 
     <div class="question">
-      <strong>7. How would your management change if Herbert was 87 years old?</strong><br>
+      <strong>4. How do you manage patients with asthma and other reactive airways disease perioperatively?</strong><br>
       <button class="toggle">Show Answer</button>
       <div class="answer">
-        <p><strong>MANAGEMENT OF HYPERLIPIDAEMIA IN THE ELDERLY</strong></p>
+        <p><strong>(i) Assessment of severity of disease, recent stability and current status:</strong></p>
+        <p>ie. when diagnosed, symptoms and triggers, frequency of episodes, last episode, "Are you as good as you can be?"</p>
+
+        <p><strong>(ii) Treatment history:</strong></p>
+        <p>ie. regular treatment and compliance, use of steroids, last steroid therapy, hospitalization/ICU admission/ventilation, peak flow monitoring</p>
+        <p>Regular or recent oral steroid therapy may necessitate steroid supplementation in the perioperative period.</p>
+
+        <p><strong>(iii) Management goals:</strong></p>
         <ul>
-          <li><strong>Prevalence of atherosclerotic cardiovascular disease:</strong> greatest in old age.</li>
-          <li><strong>Associated cardiovascular risk:</strong> lipid levels become less predictive, as do other risk factors apart from age itself.</li>
-          <li><strong>Benefit of statin therapy:</strong> maintained up to the age of 80 years but evidence is lacking beyond this.</li>
-          <li><strong>Life expectancy and statin therapy:</strong> lives saved by intervention are associated with shorter life expectancy than in younger patients, and so the impact of statins on quality-adjusted life years is smaller in old age.</li>
+          <li><strong>Optimize pre-op:</strong> may include increasing usual therapy or adding pulse oral steroid therapy</li>
+          <li><strong>Continue regular therapy</strong></li>
+          <li><strong>Prevent triggers for exacerbation</strong> such as unnecessary airway manipulation and exposure to airway irritants (some volatile agents)</li>
+          <li><strong>Aggressive post-operative chest physiotherapy and mobilization</strong></li>
         </ul>
 
-        <p>In light of the evidence you would probably be less likely to commence Herbert on a statin, and may persist more with non-pharmacological methods. Not only is there less evidence of benefit in the elderly, they are also more likely to experience muscle related side effects , myalgia, myositis and possibly rhabdomyolysis from the statins and abnormalities of liver function, especially if they are taking other medications.</p>
+        <p>Liaise with Respiratory Physician as indicated.</p>
+        <p>Applies to COAD with reversible component.</p>
       </div>
     </div>
 
-  
-</div>
+    <div class="question">
+      <strong>5. Outline the anatomy of the airway from the mouth to the trachea, including the sensory innervation of the key areas.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>The airway begins with the entry points to the oral and nasal cavities and extends to the trachea. Beyond these cavities, it is divided into the oropharynx, the nasopharynx and the hypopharynx, before becoming the larynx and trachea.</p>
 
-<!-- JavaScript -->  <script src="../../js/firebase-config.js"></script>
+        <h3>Anatomy of the Larynx</h3>
+        <p>The larynx is a cylindrical structure composed of 3 unpaired (thyroid, cricoid and epiglottis) and 3 paired cartilages (arytenoid, corniculate and cuneiform). These are held together by ligaments and muscle. The functions of the larynx are to protect the entry to the trachea and enable phonation.</p>
+
+        <h3>Innervation</h3>
+        <p><strong>Upper airway:</strong></p>
+        <ul>
+          <li><strong>CN V1</strong> - anterior ethmoidal nerve to anterior nasal mucous membranes</li>
+          <li><strong>CN V2</strong> - sphenopalatine and palatine nerves to posterior nasal mucous membranes, hard and soft palate</li>
+          <li><strong>CN V3</strong> - lingual nerve to anterior 2/3 of tongue</li>
+        </ul>
+
+        <p><strong>Lower Airway:</strong></p>
+        <ul>
+          <li><strong>CN IX</strong> - glossopharyngeal nerve to the soft palate, pharynx, tonsils, vallecula</li>
+          <li><strong>CN X</strong> - superior laryngeal nerve to epiglottis and the vocal cords</li>
+          <li><strong>CN X</strong> - recurrent laryngeal nerve to larynx below the vocal cords and trachea</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. How do you prepare for airway management in an elective general anaesthetic case?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Airway Management is necessarily the anaesthetist's field of expertise. Following administration of drugs that render a patient apnoeic and unable to protect his/her own airway, it is critical to provide him/her with oxygenation and airway protection.</p>
+
+        <p><strong>It is critical to remember that providing oxygenation to the patient is the aim</strong>, and the means by which this is achieved should always be of secondary concern. (It is very easy to become distracted by the goal of intubation when bag and mask ventilation will allow oxygenation.)</p>
+
+        <p><strong>Elective airway management for general anaesthesia must take place under ideal conditions including:</strong></p>
+        <ul>
+          <li>Appropriately trained assistant present</li>
+          <li>Adjustable trolley</li>
+          <li>Standard monitoring equipment: SpO₂, NIBP, ECG, oxygen and CO₂ analyser, breathing system disconnect/ventilation failure alarm, anti-hypoxia device</li>
+          <li>Suction</li>
+          <li>Access to equipment as listed below</li>
+          <li>Established venous access (with few exceptions)</li>
+          <li>Optimal head position "sniffing the morning air"</li>
+          <li>Preoxygenation of patient</li>
+        </ul>
+
+        <p>Essential to preparation is a clear plan that is communicated to all involved. All team members should take universal precautions for the prevention of disease transmission.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. What equipment is available to assist with airway management? Outline how you would manage an airway using basic equipment.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Equipment available:</strong></p>
+        <ul>
+          <li>Oxygen/Gas delivery system</li>
+          <li>Cuff syringe</li>
+          <li>Face masks</li>
+          <li>Devices to maintain a patent airway without endotracheal intubation: oral and nasopharyngeal airways, laryngeal mask airways (LMA)</li>
+          <li>Endotracheal tubes (ETT)</li>
+          <li>Laryngoscopes and blades</li>
+          <li>Accessory devices: bougie, stylet and Magill forceps</li>
+          <li>Advanced airway devices: video laryngoscopes, fibreoptic bronchoscopes and other supraglottic airways</li>
+          <li>Cricothyroidotomy kit</li>
+        </ul>
+
+        <p>Students should familiarize themselves with the appearance and use of this equipment in the operating theatres.</p>
+
+        <p><strong>Key points:</strong></p>
+        <ul>
+          <li>Standard Adult ETT sizes: male 8.0, female 7.0</li>
+          <li>Standard adult LMA sizes: male 4-5, female 3-4</li>
+          <li>Standard adult laryngoscope blade: Macintosh 3</li>
+          <li>Nasal airway/intubation is contraindicated in patients with a bleeding diathesis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. What are the indications for endotracheal intubation? What other options exist for airway management during operative procedures?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Indications for endotracheal intubation:</strong></p>
+        <ul>
+          <li>Protection of the respiratory tract from aspiration</li>
+          <li>Requirement for PPV</li>
+          <li>Long duration of surgery</li>
+          <li>Secure the airway in various surgical positions, or when surgery is in close proximity to the airway</li>
+          <li>Control PaCO₂</li>
+          <li>Require tracheobronchial toilet</li>
+          <li>Lung isolation</li>
+          <li>Respiratory failure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>9. Outline the procedure of endotracheal intubation. Include an outline of the complications associated with endotracheal intubation.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Following intravenous induction, unconsciousness and apnoea is confirmed in the patient before beginning face mask ventilation. This will continue until enough time has elapsed for the muscle relaxant to take effect and provide optimal intubating conditions. During this time, the patient is ventilated with 100% O₂ and volatile agent to maintain anaesthesia.</p>
+
+        <p>The laryngoscope is taken with the left hand, passed down the right hand side of the patient's oral cavity to sweep the tongue to the left. Simultaneously, pressure is applied toward the patient's toes to expose the larynx.</p>
+
+        <p>Once the optimum view is obtained, the ETT is taken with the right hand and passed between the vocal cords up to the indicator line on the ETT. The cuff is then inflated and the circuit connected to the ETT. Cuff volume should be the minimum volume that prevents audible leak at ventilation pressures between 25 to 30cm H₂O for adults.</p>
+
+        <h3>Confirmation of correct ETT placement</h3>
+        <ul>
+          <li>Visualise ETT pass through the vocal cords</li>
+          <li>Observe chest rise and fall with bag ventilation</li>
+          <li>Confirm appropriate end-tidal CO₂ wave-form</li>
+          <li>Confirm bilateral and equal breaths sounds on chest auscultation</li>
+          <li>Check peak inspiratory pressures</li>
+        </ul>
+
+        <p>Note length of ETT at teeth and secure ETT.</p>
+
+        <h3>Potential Complications of Endotracheal Intubation</h3>
+        <ul>
+          <li><strong>Malpositioning:</strong> oesophageal or endobronchial intubation, unintentional extubation</li>
+          <li><strong>Airway Trauma:</strong> dental damage, lacerations, sore throat, vocal cord injury/granuloma, nerve palsies</li>
+          <li><strong>Physiologic Responses:</strong> hypertension, tachycardia, laryngospasm, raised intracranial and intraocular pressure</li>
+          <li><strong>ETT malfunction:</strong> cuff tear or herniation</li>
+          <li><strong>Cuff injury:</strong> tracheal mucosal ulceration/ischaemia</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../../js/firebase-config.js"></script>
   <script src="../../js/dark-mode.js"></script>
-  <script src="../../js/auth.js"></script>
-  <script src="../../js/user-analytics.js"></script>
-  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/access-control.js"></script>
   <script src="../../js/completion-tracker.js"></script>
-  <script src="../../js/flag-tracker.js"></script>
   <script src="../../js/case-interactions.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
 
   <script>
-    // Toggle case completion
-    function toggleCaseCompletion() {
-      if (window.completionTracker) {
-        const caseId = window.completionTracker.getCurrentCaseId();
-        if (caseId) {
-          window.completionTracker.toggleCompletion(caseId);
-        
-    }
-      
-    }
-    
-    }
-// Toggle case flag
+
+
+    // Toggle answer visibility
+    document.querySelectorAll('.toggle').forEach(button => {
+      button.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        this.textContent = answer.style.display === 'block' ? 'Hide Answer' : 'Show Answer';
+      });
+    });
+
+    // Toggle case flag
     function toggleCaseFlag() {
-      console.log('toggleCaseFlag() function called');
-      console.log('window.flagTracker exists:', !!window.flagTracker);
-
-      if (!window.flagTracker) {
-        console.error('window.flagTracker is not defined!');
-        alert('Flag tracker not initialized. Please refresh the page.');
-        return;
-      
-    }
-
       const caseId = window.flagTracker.getCurrentCaseId();
-      console.log('Current case ID:', caseId);
-
       if (!caseId) {
         console.error('Could not get case ID');
         alert('Could not determine case ID');
         return;
-      
-    }
-
-      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      }
       window.flagTracker.toggleCaseFlag(caseId);
-    
     }
 
     // Update case flag button state on page load
@@ -303,14 +290,10 @@
           const caseId = window.flagTracker.getCurrentCaseId();
           if (caseId) {
             window.flagTracker.updateCaseFlagButton(caseId);
-          
-    }
+          }
         }, 100);
-      
-    }
+      }
     });
-    
-    }
   </script>
 
   <script src="../../js/case-page-tracker.js"></script>

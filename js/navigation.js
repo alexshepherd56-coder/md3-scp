@@ -264,13 +264,16 @@ groupHeaders.forEach(group => {
       showFlaggedCasesOnly();
       return;
     } else if (groupName === 'all') {
+      // Show all cases (all specialties)
       filters = ['cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og', 'git', 'general', 'breast', 'ortho', 'vascular'];
       saveCurrentFilter('all');
     } else if (groupName === 'medicine') {
-      filters = ['cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'];
+      // Show all medicine cases (for Year 4, this includes all cases since Week 1 is Anaesthesia/General)
+      filters = ['general', 'cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'];
       saveCurrentFilter('medicine');
     } else if (groupName === 'surgery') {
-      filters = ['git', 'general', 'breast', 'ortho'];
+      // Show all surgery cases
+      filters = ['git', 'general', 'breast', 'ortho', 'vascular'];
       saveCurrentFilter('surgery');
     }
 
@@ -370,25 +373,37 @@ function showFlaggedCasesOnly() {
 
 // === Auto Count Script ===
 function updateCounts() {
-  const allSpecialties = document.querySelectorAll('.specialty');
+  // Count all case cards by their specialty classes
+  const allCaseCards = document.querySelectorAll('#scpsMainContent .case-card');
   const groupTotals = { all: 0, medicine: 0, surgery: 0 };
 
-  allSpecialties.forEach(spec => {
-    const filter = spec.dataset.filter;
-    const count = document.querySelectorAll('.case-card.' + filter).length;
-    spec.querySelector('.count').textContent = `(${count})`;
+  // Define which specialties belong to which groups
+  const medicineSpecialties = ['general', 'cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'];
+  const surgerySpecialties = ['git', 'general', 'breast', 'ortho', 'vascular'];
 
-    groupTotals.all += count;
-    if (['cardiology','psychiatry','paediatrics','neurology','gastroenterology','endocrinology','renal','respiratory','rheumatology','haematology','og'].includes(filter)) {
-      groupTotals.medicine += count;
-    } else if (['git','general','breast','ortho','vascular'].includes(filter)) {
-      groupTotals.surgery += count;
+  allCaseCards.forEach(card => {
+    groupTotals.all += 1;
+
+    // Check if card belongs to medicine or surgery
+    const isMedicine = medicineSpecialties.some(spec => card.classList.contains(spec));
+    const isSurgery = surgerySpecialties.some(spec => card.classList.contains(spec));
+
+    if (isMedicine) {
+      groupTotals.medicine += 1;
+    }
+    if (isSurgery) {
+      groupTotals.surgery += 1;
     }
   });
 
-  document.querySelector('h2[data-group="all"] .count').textContent = `(${groupTotals.all})`;
-  document.querySelector('h2[data-group="medicine"] .count').textContent = `(${groupTotals.medicine})`;
-  document.querySelector('h2[data-group="surgery"] .count').textContent = `(${groupTotals.surgery})`;
+  // Update the counts in the sidebar
+  const allCountElement = document.querySelector('h2[data-group="all"] .count');
+  const medicineCountElement = document.querySelector('h2[data-group="medicine"] .count');
+  const surgeryCountElement = document.querySelector('h2[data-group="surgery"] .count');
+
+  if (allCountElement) allCountElement.textContent = `(${groupTotals.all})`;
+  if (medicineCountElement) medicineCountElement.textContent = `(${groupTotals.medicine})`;
+  if (surgeryCountElement) surgeryCountElement.textContent = `(${groupTotals.surgery})`;
 }
 
 // === Progress Bar Update Script ===

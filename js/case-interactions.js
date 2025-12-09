@@ -4,11 +4,15 @@
 function goBack(event) {
   event.preventDefault();
 
-  // Get saved filter
-  let filter = localStorage.getItem('currentFilter') || 'all';
+  // Get saved filter - if none exists or is 'none', default to 'all'
+  const storedFilter = localStorage.getItem('currentFilter');
+  console.log('[goBack] Stored filter from localStorage:', storedFilter);
 
-  // If filter is 'none' (welcome page), default to 'all' instead
+  let filter = storedFilter || 'all';
+
+  // If filter is 'none' (welcome page was showing), default to 'all' to show cases
   if (filter === 'none') {
+    console.log('[goBack] Filter was none, changing to all');
     filter = 'all';
   }
 
@@ -16,7 +20,10 @@ function goBack(event) {
   const mainScrollPosition = localStorage.getItem('mainScrollPosition') || '0';
   const sidebarScrollPosition = localStorage.getItem('sidebarScrollPosition') || '0';
 
+  console.log('[goBack] Navigating to index with filter:', filter, 'scroll:', mainScrollPosition, 'sidebarScroll:', sidebarScrollPosition);
+
   // Navigate back to index with filter and scroll positions
+  // This will show the filtered view (e.g., All SCPs, Medicine, etc.) instead of welcome page
   window.location.href = `../index.html?filter=${filter}&scroll=${mainScrollPosition}&sidebarScroll=${sidebarScrollPosition}`;
 }
 
