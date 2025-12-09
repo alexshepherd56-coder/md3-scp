@@ -7,1194 +7,894 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-LSRR4KW715');
   </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NDhub</title>
-  <!-- Build timestamp: 2025-11-09 -->
+  <title>NDhub - Year Selection</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/ShepTech logo.png">
   <link rel="apple-touch-icon" href="assets/ShepTech logo.png">
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="MD3 SCP Cases">
-  <meta name="description" content="Comprehensive collection of medical student practice cases covering Medicine, Surgery, Psychiatry, and Paediatrics.">
+  <meta name="title" content="NDhub - Medical Student SCP Cases">
+  <meta name="description" content="Comprehensive collection of medical student practice cases for Year 3 and Year 4 covering Medicine, Surgery, Psychiatry, and Paediatrics.">
 
   <!-- Open Graph / Facebook -->
-  <meta property="fb:app_id" content="your_facebook_app_id">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://md3-scp.netlify.app/">
-  <meta property="og:title" content="MD3 SCP Cases">
-  <meta property="og:site_name" content="MD3 SCP Cases">
-  <meta property="og:description" content="Comprehensive collection of medical student practice cases covering Medicine, Surgery, Psychiatry, and Paediatrics.">
+  <meta property="og:title" content="NDhub - Medical Student SCP Cases">
+  <meta property="og:description" content="Comprehensive collection of medical student practice cases for Year 3 and Year 4.">
   <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="MD3 SCP Cases Logo">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://md3-scp.netlify.app/">
-  <meta property="twitter:title" content="MD3 SCP Cases">
-  <meta property="twitter:description" content="Comprehensive collection of medical student practice cases covering Medicine, Surgery, Psychiatry, and Paediatrics.">
-  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <meta property="twitter:title" content="NDhub - Medical Student SCP Cases">
+  <meta property="twitter:description" content="Comprehensive collection of medical student practice cases.">
 
-  <link rel="stylesheet" href="css/main.css?v=20251109-1">
+  <link rel="stylesheet" href="css/main.css?v=20251126-1">
 
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #fafafa;
+      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .year-selector-container {
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-height: 100vh;
+    }
+
+    .logo-section {
+      margin-bottom: 25px;
+    }
+
+    .main-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+      animation: spinOnce 1s ease-out;
+    }
+
+    .site-title {
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+
+    .site-subtitle {
+      font-size: 1rem;
+      color: #5a6c7d;
+      font-weight: 300;
+    }
+
+    .auth-section {
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      position: relative;
+    }
+
+    #signedOutView,
+    #signedInView {
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #signedOutView.hidden,
+    #signedInView.hidden {
+      display: none;
+    }
+
+    .auth-button {
+      background: #D97757;
+      color: white;
+      border: none;
+      padding: 10px 30px;
+      font-size: 0.95rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(217, 119, 87, 0.3);
+    }
+
+    .auth-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(217, 119, 87, 0.4);
+      background: #c66847;
+    }
+
+    .user-welcome {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .user-email {
+      color: #5a6c7d;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .signout-btn {
+      background: transparent;
+      color: #D97757;
+      border: 2px solid #D97757;
+      padding: 8px 25px;
+      font-size: 0.9rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .signout-btn:hover {
+      background: #D97757;
+      color: white;
+    }
+
+    .year-selection-title {
+      font-size: 1.5rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .year-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 20px;
+    }
+
+    .year-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 25px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .year-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: #D97757;
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .year-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .year-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .year-number {
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: #D97757;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .year-card:hover .year-number {
+      transform: scale(1.1);
+      color: #c66847;
+    }
+
+    .year-title {
+      font-size: 1.4rem;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .year-description {
+      color: #5a6c7d;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .year-stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #e8ecef;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #D97757;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #5a6c7d;
+      margin-top: 3px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: #5a6c7d;
+      font-size: 0.85rem;
+      animation: fadeIn 1.5s ease-out 1s both;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes spinOnce {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .locked-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .year-card.locked {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .year-card.locked:hover {
+      transform: none;
+    }
+
+    .year-card.locked .locked-overlay {
+      opacity: 1;
+    }
+
+    .lock-icon {
+      font-size: 3rem;
+      color: #95a5a6;
+    }
+
+    @media (max-width: 768px) {
+      .site-title {
+        font-size: 2.2rem;
+      }
+
+      .site-subtitle {
+        font-size: 1rem;
+      }
+
+      .main-logo {
+        width: 90px;
+        height: 90px;
+      }
+
+      .logo-section {
+        margin-bottom: 35px;
+      }
+
+      .year-number {
+        font-size: 3.5rem;
+      }
+
+      .year-title {
+        font-size: 1.5rem;
+      }
+
+      .year-cards {
+        gap: 25px;
+        grid-template-columns: 1fr;
+      }
+
+      .year-card {
+        padding: 40px 25px;
+      }
+
+      .auth-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+
+      .year-selection-title {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+      }
+
+      .footer {
+        margin-top: 40px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+
+      .site-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+      }
+
+      .site-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .main-logo {
+        width: 70px;
+        height: 70px;
+      }
+
+      .logo-section {
+        margin-bottom: 25px;
+      }
+
+      .year-number {
+        font-size: 3rem;
+      }
+
+      .year-title {
+        font-size: 1.3rem;
+      }
+
+      .year-card {
+        padding: 30px 20px;
+      }
+
+      .stat-number {
+        font-size: 1.3rem;
+      }
+
+      .stat-label {
+        font-size: 0.75rem;
+      }
+
+      .auth-button {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+      }
+
+      .year-selection-title {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+      }
+
+      .year-description {
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        margin-top: 30px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Auth Modal Styles - Use smooth animation */
+    .auth-modal {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .auth-modal.show {
+      opacity: 1;
+    }
+
+    .auth-modal-content {
+      transform: translateY(20px);
+      opacity: 0;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    }
+
+    .auth-modal.show .auth-modal-content {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+
+    .auth-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid #e8ecef;
+      margin-bottom: 25px;
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 15px 20px;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: #5a6c7d;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: Georgia, 'Times New Roman', serif;
+      margin-bottom: -2px;
+    }
+
+    .auth-tab:hover {
+      color: #D97757;
+    }
+
+    .auth-tab.active {
+      color: #D97757;
+      border-bottom-color: #D97757;
+      font-weight: 600;
+    }
+
+    .auth-form {
+      margin-top: 0;
+    }
+
+    .auth-form input {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: 2px solid #e8ecef;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      transition: border-color 0.3s ease;
+    }
+
+    .auth-form input:focus {
+      outline: none;
+      border-color: #D97757;
+    }
+
+    .auth-submit-button {
+      width: 100%;
+      background: #D97757;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-family: Georgia, 'Times New Roman', serif;
+      transition: all 0.3s ease;
+    }
+
+    .auth-submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(217, 119, 87, 0.3);
+      background: #c66847;
+    }
+
+    .auth-link {
+      text-align: center;
+      margin-top: 20px;
+      color: #D97757;
+      cursor: pointer;
+    }
+
+    .auth-link a {
+      color: #D97757;
+      text-decoration: none;
+    }
+
+    .auth-link a:hover {
+      text-decoration: underline;
+    }
+
+    .auth-divider {
+      text-align: center;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .auth-divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background: #e8ecef;
+    }
+
+    .auth-divider span {
+      background: white;
+      padding: 0 15px;
+      position: relative;
+      color: #5a6c7d;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <div class="header-left">
-      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
-      <div class="logo-container">
-        <svg class="claude-logo" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Claude-style geometric pattern -->
-          <g class="logo-animation-group">
-            <!-- Center circle -->
-            <circle cx="20" cy="20" r="6" fill="#0A0A0A"/>
-            <!-- Top arc -->
-            <path d="M20 4 Q20 12, 20 12" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" class="logo-spike"/>
-            <!-- Right arc -->
-            <path d="M36 20 Q28 20, 28 20" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" class="logo-spike"/>
-            <!-- Bottom arc -->
-            <path d="M20 36 Q20 28, 20 28" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" class="logo-spike"/>
-            <!-- Left arc -->
-            <path d="M4 20 Q12 20, 12 20" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" class="logo-spike"/>
-            <!-- Top-right diagonal -->
-            <path d="M29 11 Q24 16, 24 16" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" class="logo-spike"/>
-            <!-- Bottom-right diagonal -->
-            <path d="M29 29 Q24 24, 24 24" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" class="logo-spike"/>
-            <!-- Bottom-left diagonal -->
-            <path d="M11 29 Q16 24, 16 24" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" class="logo-spike"/>
-            <!-- Top-left diagonal -->
-            <path d="M11 11 Q16 16, 16 16" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" class="logo-spike"/>
-          </g>
-        </svg>
-        <span class="mdhub-text">NDhub</span>
+  <div class="year-selector-container">
+    <div class="logo-section">
+      <svg class="main-logo" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="logo-animation-group">
+          <circle cx="60" cy="60" r="18" fill="#D97757"/>
+          <path d="M60 12 Q60 36, 60 36" stroke="#D97757" stroke-width="12" stroke-linecap="round"/>
+          <path d="M108 60 Q84 60, 84 60" stroke="#D97757" stroke-width="12" stroke-linecap="round"/>
+          <path d="M60 108 Q60 84, 60 84" stroke="#D97757" stroke-width="12" stroke-linecap="round"/>
+          <path d="M12 60 Q36 60, 36 60" stroke="#D97757" stroke-width="12" stroke-linecap="round"/>
+          <path d="M87 33 Q72 48, 72 48" stroke="#D97757" stroke-width="10.5" stroke-linecap="round"/>
+          <path d="M87 87 Q72 72, 72 72" stroke="#D97757" stroke-width="10.5" stroke-linecap="round"/>
+          <path d="M33 87 Q48 72, 48 72" stroke="#D97757" stroke-width="10.5" stroke-linecap="round"/>
+          <path d="M33 33 Q48 48, 48 48" stroke="#D97757" stroke-width="10.5" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <h1 class="site-title">NDhub</h1>
+    </div>
+
+    <div class="auth-section" id="authSection">
+      <div id="signedOutView" class="hidden">
+        <button class="auth-button" id="authButton">Sign In or Create Account</button>
+      </div>
+      <div id="signedInView" class="hidden">
+        <p class="user-welcome" id="userWelcome">Welcome back!</p>
+        <button class="signout-btn" id="signoutButton">Sign Out</button>
       </div>
     </div>
-    <div class="search-container">
-      <input type="text" id="searchInput" class="search-bar" placeholder="Search for anything (e.g. Nephrotic Syndrome)">
-    </div>
-    <div class="header-right">
-      <div id="userProfile" class="user-profile" style="display: none;">
-        <div class="user-initial-circle" id="userInitialCircle"></div>
-        <div class="user-dropdown" id="userDropdown">
-          <div class="user-dropdown-header">
-            <div class="dropdown-user-name" id="dropdownUserName"></div>
-            <div class="dropdown-user-email" id="dropdownUserEmail"></div>
+
+    <div id="yearSelection">
+      <div class="year-cards">
+        <a href="year3/index.html" class="year-card">
+          <div class="year-number">3</div>
+          <h3 class="year-title">Year 3</h3>
+          <ul class="year-description" style="list-style: none; padding: 0; text-align: left; margin: 0 auto; max-width: 250px;">
+            <li style="margin-bottom: 8px;">✓ All SCPs</li>
+            <li style="margin-bottom: 8px;">✓ All SCP Question Answers</li>
+            <li style="margin-bottom: 8px;">✓ 5 Past Exams</li>
+          </ul>
+          <div class="year-stats">
+            <div class="stat">
+              <div class="stat-number">177</div>
+              <div class="stat-label">Cases</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">5</div>
+              <div class="stat-label">Past Exams</div>
+            </div>
           </div>
-          <button class="dropdown-signout-btn" id="dropdownSignOut">Sign Out</button>
-          <div class="dark-mode-toggle-container">
-            <span class="dark-mode-label">Dark Mode</span>
-            <label class="toggle-switch">
-              <input type="checkbox" id="darkModeToggle">
-              <span class="toggle-slider"></span>
-            </label>
+        </a>
+
+        <a href="year4/index.html" class="year-card">
+          <div class="year-number">4</div>
+          <h3 class="year-title">Year 4</h3>
+          <ul class="year-description" style="list-style: none; padding: 0; text-align: left; margin: 0 auto; max-width: 250px;">
+            <li style="margin-bottom: 8px;">✓ All SCPs</li>
+            <li style="margin-bottom: 8px;">✓ All SCP Question Answers</li>
+            <li style="margin-bottom: 8px;">✓ 0 Past Exams</li>
+          </ul>
+          <div class="year-stats">
+            <div class="stat">
+              <div class="stat-number">Coming</div>
+              <div class="stat-label">Soon</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">-</div>
+              <div class="stat-label">Past Exams</div>
+            </div>
           </div>
-          <div class="dark-mode-toggle-container">
-            <span class="dark-mode-label">Ludicrous Mode</span>
-            <label class="toggle-switch">
-              <input type="checkbox" id="ludicrousModeToggle">
-              <span class="toggle-slider ludicrous-slider"></span>
-            </label>
-          </div>
-        </div>
+        </a>
       </div>
-      <button id="authButton" class="auth-button">Sign In</button>
     </div>
-  </header>
+
+    <div class="footer">
+      Powered by Sheptech ©
+    </div>
+  </div>
 
   <!-- Authentication Modal -->
   <div id="authModal" class="auth-modal">
-    <div class="auth-hologram-container">
-      <div class="hologram-logo">
-        <svg class="hologram-image" width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Claude-style geometric pattern -->
-          <g class="logo-animation-group">
-            <!-- Center circle -->
-            <circle cx="60" cy="60" r="18" fill="#0A0A0A"/>
-            <!-- Top arc -->
-            <path d="M60 12 Q60 36, 60 36" stroke="#0A0A0A" stroke-width="12" stroke-linecap="round" class="logo-spike"/>
-            <!-- Right arc -->
-            <path d="M108 60 Q84 60, 84 60" stroke="#0A0A0A" stroke-width="12" stroke-linecap="round" class="logo-spike"/>
-            <!-- Bottom arc -->
-            <path d="M60 108 Q60 84, 60 84" stroke="#0A0A0A" stroke-width="12" stroke-linecap="round" class="logo-spike"/>
-            <!-- Left arc -->
-            <path d="M12 60 Q36 60, 36 60" stroke="#0A0A0A" stroke-width="12" stroke-linecap="round" class="logo-spike"/>
-            <!-- Top-right diagonal -->
-            <path d="M87 33 Q72 48, 72 48" stroke="#0A0A0A" stroke-width="10.5" stroke-linecap="round" class="logo-spike"/>
-            <!-- Bottom-right diagonal -->
-            <path d="M87 87 Q72 72, 72 72" stroke="#0A0A0A" stroke-width="10.5" stroke-linecap="round" class="logo-spike"/>
-            <!-- Bottom-left diagonal -->
-            <path d="M33 87 Q48 72, 48 72" stroke="#0A0A0A" stroke-width="10.5" stroke-linecap="round" class="logo-spike"/>
-            <!-- Top-left diagonal -->
-            <path d="M33 33 Q48 48, 48 48" stroke="#0A0A0A" stroke-width="10.5" stroke-linecap="round" class="logo-spike"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-    <h1 class="auth-hero-text">EVERY Y3 SCP</h1>
     <div class="auth-modal-content">
-      <button class="auth-modal-close" id="authModalClose" onclick="window.authSystem.closeAuthModal()">&times;</button>
+      <span class="auth-modal-close" id="authModalClose">&times;</span>
 
-      <h2 id="authModalTitle">Sign In</h2>
-      <p id="authModalSubtitle" class="auth-subtitle" style="display: none;"></p>
+      <!-- Value Proposition -->
+      <h2 style="text-align: center; font-size: 2rem; color: #2c3e50; margin-bottom: 10px; font-weight: 600;">Free for now!</h2>
 
-      <div id="authError" class="auth-error" style="display: none;"></div>
+      <!-- Tab Navigation -->
+      <div class="auth-tabs" id="authTabs">
+        <button class="auth-tab" id="signUpTab" data-tab="signup">Create Account</button>
+        <button class="auth-tab" id="signInTab" data-tab="signin">Sign In</button>
+      </div>
+
+      <div id="authError" style="display: none; color: #e74c3c; margin: 15px 0; padding: 10px; background: #fadbd8; border-radius: 5px;"></div>
+
+      <!-- Sign Up Form (Default) -->
+      <form id="signUpForm" class="auth-form">
+        <p style="margin-bottom: 20px; color: #5a6c7d; font-size: 0.95rem; text-align: center; line-height: 1.8;">
+          <span style="color: #27ae60; font-weight: 600;">✓</span> All SCPs<br>
+          <span style="color: #27ae60; font-weight: 600;">✓</span> All Past Exams<br>
+          <span style="color: #27ae60; font-weight: 600;">✓</span> All Past OSCEs<br>
+          <span style="color: #27ae60; font-weight: 600;">✓</span> Progress Tracking
+        </p>
+        <input type="text" id="signUpName" placeholder="Full Name" required>
+        <input type="email" id="signUpEmail" placeholder="Email" required>
+        <input type="password" id="signUpPassword" placeholder="Password (min 6 characters)" required>
+        <button type="submit" class="auth-submit-button">Create Account</button>
+      </form>
 
       <!-- Sign In Form -->
-      <form id="signInForm" class="auth-form">
+      <form id="signInForm" class="auth-form" style="display: none;">
+        <p style="margin-bottom: 20px; color: #5a6c7d; font-size: 0.95rem;">Welcome back! Sign in to access your saved progress</p>
         <input type="email" id="signInEmail" placeholder="Email" required>
         <input type="password" id="signInPassword" placeholder="Password" required>
         <button type="submit" class="auth-submit-button">Sign In</button>
-        <div class="auth-divider">
-          <span>or</span>
-        </div>
-        <button type="button" class="auth-signup-button" id="showSignUp">Create New Account</button>
-        <p class="auth-link">
-          <a href="#" id="showForgotPassword">Forgot password?</a>
-        </p>
-      </form>
-
-      <!-- Sign Up Form -->
-      <form id="signUpForm" class="auth-form" style="display: none;">
-        <input type="email" id="signUpEmail" placeholder="Email" required>
-        <input type="text" id="signUpName" placeholder="Full Name" required>
-        <input type="password" id="signUpPassword" placeholder="Password (min 6 characters)" required>
-        <button type="submit" class="auth-submit-button">Sign Up</button>
-        <p class="auth-link">
-          Already have an account? <a href="#" id="showSignIn">Sign in</a>
-        </p>
+        <p class="auth-link" id="showForgotPassword" style="margin-top: 15px;">Forgot password?</p>
       </form>
 
       <!-- Forgot Password Form -->
       <form id="forgotPasswordForm" class="auth-form" style="display: none;">
-        <p class="auth-description">Enter your email to receive a password reset link</p>
+        <p style="margin-bottom: 15px; color: #5a6c7d;">Enter your email to receive a password reset link</p>
         <input type="email" id="forgotPasswordEmail" placeholder="Email" required>
         <button type="submit" class="auth-submit-button">Send Reset Link</button>
-        <p class="auth-link">
-          <a href="#" id="backToSignIn">Back to sign in</a>
-        </p>
+        <p class="auth-link" id="backToSignIn" style="margin-top: 15px;">Back to sign in</p>
       </form>
     </div>
   </div>
 
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-  <div class="sidebar">
-    <h2 id="pastExamsSection" class="sidebar-main-heading">
-      <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-      </svg>
-      past exams
-    </h2>
-
-    <h2 id="scpsToggle" class="sidebar-main-heading" style="cursor: pointer; user-select: none;">
-      <span class="scps-toggle-content">
-        <svg class="sidebar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-        </svg>
-        SCPs
-      </span>
-      <span id="scpsToggleIcon" class="chevron-icon">›</span>
-    </h2>
-
-    <div id="scpsContent" style="max-height: none; overflow: visible; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; opacity: 1;">
-      <h2 id="flaggedCasesSection" data-group="flagged" style="display: none;">Flagged Cases <span class="count" id="flaggedCasesCount">(0)</span></h2>
-
-      <h2 data-group="all" class="active">All SCPs <span class="count">(0)</span></h2>
-
-      <h2 data-group="medicine">Medicine <span class="count">(0)</span></h2>
-      <div class="specialty" data-filter="cardiology">Cardiology <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="psychiatry">Psychiatry <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="paediatrics">Paediatrics <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="neurology">Neurology <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="gastroenterology">Gastroenterology <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="endocrinology">Endocrinology <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="renal">Renal <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="respiratory">Respiratory <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="rheumatology">Rheumatology <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="haematology">Haematology <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="og">O&amp;G <span class="count">(0)</span></div>
-
-      <h2 data-group="surgery">Surgery <span class="count">(0)</span></h2>
-      <div class="specialty" data-filter="git">GIT <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="general">General <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="breast">Breast &amp; Endocrine <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="ortho">Ortho <span class="count">(0)</span></div>
-      <div class="specialty" data-filter="vascular">Vascular <span class="count">(0)</span></div>
-    </div>
-
-    <!-- Sidebar Footer -->
-    <div class="sidebar-footer">
-      powered by sheptech ©
-    </div>
-  </div>
-
-  <div class="main">
-    <!-- Mobile Search -->
-    <div class="mobile-search">
-      <input type="text" id="mobileSearchInput" class="search-bar" placeholder="Search for anything (e.g. Nephrotic Syndrome)">
-    </div>
-
-    <!-- Snowfall Canvas (outside welcomePage so it's always available) -->
-    <canvas id="snowfallCanvas" style="display: none;"></canvas>
-
-    <!-- Welcome Page -->
-    <div id="welcomePage" style="display: none;">
-      <div class="welcome-container">
-        <h1 class="welcome-greeting" id="welcomeGreeting">Hey there</h1>
-        <p class="welcome-subtitle">What would you like to study today?</p>
-
-        <!-- Holiday Message Section -->
-        <div class="holiday-section">
-          <h2 class="holiday-message">Enjoy the Holidays</h2>
-          <div class="santa-container">
-            <span class="santa-emoji">🎅🏻</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pint Easter Egg Overlay -->
-    <div id="pintEasterEgg" class="pint-easter-egg" style="display: none;"></div>
-
-    <!-- Past Exams Section -->
-    <div id="pastExamsContent">
-      <!-- SAQ Exams -->
-      <h2 class="exam-category-title">SAQ</h2>
-      <div class="case-grid">
-        <div class="case-card exam-card-style" data-exam="2024" onclick="window.location.href='exams/saq-2024.html'">
-          <div class="exam-card-top">
-            <h3>2024 Summative Exam Dump</h3>
-            <span class="exam-flagged-badge" id="exam2024Flagged" style="display: none;"></span>
-          </div>
-          <div class="exam-card-bottom">
-            <div class="exam-attempts-count" id="exam2024Attempts">0/35 Questions Attempted</div>
-            <div class="exam-progress-bar">
-              <div class="exam-progress-fill" id="exam2024Progress"></div>
-            </div>
-          </div>
-          <div class="exam-completion-icon" id="exam2024CompletionIcon" style="display: none;">✓</div>
-        </div>
-
-        <div class="case-card exam-card-style" data-exam="2023" onclick="window.location.href='exams/saq-2023.html'">
-          <div class="exam-card-top">
-            <h3>2023 Summative Exam Dump</h3>
-            <span class="exam-flagged-badge" id="exam2023Flagged" style="display: none;"></span>
-          </div>
-          <div class="exam-card-bottom">
-            <div class="exam-attempts-count" id="exam2023Attempts">0/36 Questions Attempted</div>
-            <div class="exam-progress-bar">
-              <div class="exam-progress-fill" id="exam2023Progress"></div>
-            </div>
-          </div>
-          <div class="exam-completion-icon" id="exam2023CompletionIcon" style="display: none;">✓</div>
-        </div>
-
-        <div class="case-card exam-card-style" data-exam="2022" onclick="window.location.href='exams/saq-2022.html'">
-          <div class="exam-card-top">
-            <h3>2022 Summative Exam Dump</h3>
-            <span class="exam-flagged-badge" id="exam2022Flagged" style="display: none;"></span>
-          </div>
-          <div class="exam-card-bottom">
-            <div class="exam-attempts-count" id="exam2022Attempts">0/39 Questions Attempted</div>
-            <div class="exam-progress-bar">
-              <div class="exam-progress-fill" id="exam2022Progress"></div>
-            </div>
-          </div>
-          <div class="exam-completion-icon" id="exam2022CompletionIcon" style="display: none;">✓</div>
-        </div>
-      </div>
-
-      <!-- MCQ Exams -->
-      <h2 class="exam-category-title">MCQ</h2>
-      <div class="case-grid">
-        <div class="case-card exam-card-style" data-exam="mcq-all-2022-2024" onclick="window.location.href='exams/mcq-all-2022-2024.html'">
-          <div class="exam-card-top">
-            <h3>All MCQs from 2022, 2023 & 2024 with Answers!</h3>
-            <span class="exam-flagged-badge" id="examMcqAll20222024FlaggedCard" style="display: none;"></span>
-          </div>
-          <div class="exam-card-bottom">
-            <div class="exam-attempts-count" id="examMcqAll20222024AttemptsCard">0/176 Questions Attempted</div>
-            <div class="exam-progress-bar">
-              <div class="exam-progress-fill" id="examMcqAll20222024ProgressCard"></div>
-            </div>
-          </div>
-          <div class="exam-completion-icon" id="examMcqAll20222024CompletionIconCard" style="display: none;">✓</div>
-        </div>
-
-        <div class="case-card exam-card-style" data-exam="mcq-2024" onclick="window.location.href='exams/mcq-2024.html'">
-          <div class="exam-card-top">
-            <h3>2024 Summative Exam Dump</h3>
-            <span class="exam-flagged-badge" id="examMcq2024Flagged" style="display: none;"></span>
-          </div>
-          <div class="exam-card-bottom">
-            <div class="exam-attempts-count" id="examMcq2024Attempts">0/57 Questions Attempted</div>
-            <div class="exam-progress-bar">
-              <div class="exam-progress-fill" id="examMcq2024Progress"></div>
-            </div>
-          </div>
-          <div class="exam-completion-icon" id="examMcq2024CompletionIcon" style="display: none;">✓</div>
-        </div>
-
-        <div class="case-card exam-card-style" data-exam="mcq-2023" onclick="window.location.href='exams/mcq-2023.html'">
-          <div class="exam-card-top">
-            <h3>2023 Summative Exam Dump</h3>
-            <span class="exam-flagged-badge" id="examMcq2023Flagged" style="display: none;"></span>
-          </div>
-          <div class="exam-card-bottom">
-            <div class="exam-attempts-count" id="examMcq2023Attempts">0/92 Questions Attempted</div>
-            <div class="exam-progress-bar">
-              <div class="exam-progress-fill" id="examMcq2023Progress"></div>
-            </div>
-          </div>
-          <div class="exam-completion-icon" id="examMcq2023CompletionIcon" style="display: none;">✓</div>
-        </div>
-      </div>
-
-      <!-- OSCE Exams -->
-      <h2 class="exam-category-title">OSCE</h2>
-      <div class="case-grid">
-        <div class="case-card exam-card-style" onclick="window.location.href='exams/osce-timer.html'">
-          <div class="exam-card-top">
-            <h3>OSCE Timer</h3>
-          </div>
-          <div class="exam-card-bottom">
-            <div class="exam-attempts-count">Customisable Practice Timer</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SCPs Content -->
-    <div id="scpsMainContent">
-    <!-- Week 1 - Cardiology -->
-    <div class="week" data-specialties="cardiology">Week 1 - Cardiology</div>
-    <div class="case-grid">
-<a href="cases/case1_1.html" class="case-card cardiology"><h3>1.1 Hypertension</h3></a>
-<a href="cases/case1_2.html" class="case-card cardiology"><h3>1.2 Chest Pain (SDL)</h3></a>
-<a href="cases/case1_3.html" class="case-card cardiology"><h3>1.3 Heart Failure</h3></a>
-<a href="cases/case1_4.html" class="case-card cardiology"><h3>1.4 Hyperlipidaemia (Acquired)</h3></a>
-<a href="cases/case1_5.html" class="case-card cardiology"><h3>1.5 Obesity</h3></a>
-<a href="cases/case1_6.html" class="case-card cardiology"><h3>1.6 Smoking Cessation (SDL)</h3></a>
-    </div>
-
-    <!-- Week 2 - Cardiology -->
-    <div class="week" data-specialties="cardiology">Week 2 - Cardiology</div>
-    <div class="case-grid">
-<a href="cases/case2_1.html" class="case-card cardiology"><h3>2.1 Cardiomyopathy (Hypertrophic)</h3></a>
-<a href="cases/case2_2.html" class="case-card cardiology"><h3>2.2 Cardiomyopathy (Dilated) [SDL]</h3></a>
-<a href="cases/case2_3.html" class="case-card cardiology"><h3>2.3 Stable Angina</h3></a>
-<a href="cases/case2_4.html" class="case-card cardiology"><h3>2.4 Unstable Angina</h3></a>
-<a href="cases/case2_5.html" class="case-card cardiology"><h3>2.5 Myocardial Infarction</h3></a>
-<a href="cases/case2_6.html" class="case-card cardiology"><h3>2.6 Hyperlipidaemia (Congenital) [SDL]</h3></a>
-    </div>
-
-    <!-- Week 3 - General Surgery -->
-    <div class="week" data-specialties="general">Week 3 - General Surgery</div>
-    <div class="case-grid">
-      <a href="cases/case3_1.html" class="case-card general"><h3>3.1 Peri-Operative Management</h3></a>
-      <a href="cases/case3_2.html" class="case-card general"><h3>3.2 Appendicitis</h3></a>
-      <a href="cases/case3_3.html" class="case-card general"><h3>3.3 Surgical Wound Management [SDL]</h3></a>
-      <a href="cases/case3_4.html" class="case-card general"><h3>3.4 Post Operative Fever [SDL]</h3></a>
-      <a href="cases/case3_5.html" class="case-card general"><h3>3.5 Pancreatitis</h3></a>
-      <a href="cases/case3_6.html" class="case-card general"><h3>3.6 Cholecystitis & Biliary Colic</h3></a>
-      <a href="cases/case3_7.html" class="case-card general"><h3>3.7 Choledocolethiasis & Cholecystectomy [SDL]</h3></a>
-    </div>
-
-    <!-- Week 4 - O&G -->
-    <div class="week" data-specialties="og">Week 4 - O&amp;G</div>
-    <div class="case-grid">
-      <a href="cases/case4_1.html" class="case-card og"><h3>4.1 Pre-Conception Care</h3></a>
-      <a href="cases/case4_2.html" class="case-card og"><h3>4.2 Antenatal Care</h3></a>
-      <a href="cases/case4_3.html" class="case-card og"><h3>4.3 Bleeding in Early Pregnancy</h3></a>
-      <a href="cases/case4_4.html" class="case-card og"><h3>4.4 Ectopic Pregnancy</h3></a>
-      <a href="cases/case4_5.html" class="case-card og"><h3>4.5 Vulvovaginitis (Adolescence) [SDL]</h3></a>
-      <a href="cases/case4_6.html" class="case-card og"><h3>4.6 Dysmenorrhea & Menorrhagia (Adolescence)</h3></a>
-      <a href="cases/case4_7.html" class="case-card og"><h3>4.7 Contraception (Adolescence)</h3></a>
-    </div>
-
-    <!-- Week 5 - Psychiatry -->
-    <div class="week" data-specialties="psychiatry">Week 5 - Psychiatry</div>
-    <div class="case-grid">
-      <a href="cases/case5_1.html" class="case-card psychiatry"><h3>5.1 Self Harm & Suicide [SDL]</h3></a>
-      <a href="cases/case5_2.html" class="case-card psychiatry"><h3>5.2 Anxiety Disorders</h3></a>
-      <a href="cases/case5_3.html" class="case-card psychiatry"><h3>5.3 Depression</h3></a>
-      <a href="cases/case5_4.html" class="case-card psychiatry"><h3>5.4 Bipolar Disorder</h3></a>
-    </div>
-
-    <!-- Week 6 - Paediatrics -->
-    <div class="week" data-specialties="paediatrics">Week 6 - Paediatrics</div>
-    <div class="case-grid">
-      <a href="cases/case6_1.html" class="case-card paediatrics"><h3>6.1 T1D (New Diagnosis)</h3></a>
-      <a href="cases/case6_2.html" class="case-card paediatrics"><h3>6.2 T1D (Ongoing Management)</h3></a>
-      <a href="cases/case6_3.html" class="case-card paediatrics"><h3>6.3 Cystic Fibrosis</h3></a>
-      <a href="cases/case6_4.html" class="case-card paediatrics"><h3>6.4 Growth (Short Stature)</h3></a>
-    </div>
-
-    <!-- Week 7 - Respiratory -->
-    <div class="week" data-specialties="respiratory">Week 7 - Respiratory</div>
-    <div class="case-grid">
-      <a href="cases/case7_1.html" class="case-card respiratory"><h3>7.1 Asthma Exacerbation</h3></a>
-      <a href="cases/case7_2.html" class="case-card respiratory"><h3>7.2 Severe Asthma</h3></a>
-      <a href="cases/case7_3.html" class="case-card respiratory"><h3>7.3 COPD</h3></a>
-      <a href="cases/case7_4.html" class="case-card respiratory"><h3>7.4 Bronchiectasis [SDL]</h3></a>
-      <a href="cases/case7_5.html" class="case-card respiratory"><h3>7.5 Cystic Fibrosis [SDL]</h3></a>
-      <a href="cases/case7_6.html" class="case-card respiratory"><h3>7.6 Community Acquired Pneumonia</h3></a>
-    </div>
-
-    <!-- Week 8 - GIT Surgery -->
-    <div class="week" data-specialties="git">Week 8 - GIT Surgery</div>
-    <div class="case-grid">
-      <a href="cases/case8_1.html" class="case-card git"><h3>8.1 Diverticular Disease</h3></a>
-      <a href="cases/case8_2.html" class="case-card git"><h3>8.2 Colorectal Polyps & Cancer</h3></a>
-      <a href="cases/case8_3.html" class="case-card git"><h3>8.3 IBD (UC & Chrons)</h3></a>
-      <a href="cases/case8_4.html" class="case-card git"><h3>8.4 LBO [SDL]</h3></a>
-      <a href="cases/case8_5.html" class="case-card git"><h3>8.5 Internal & External Haemorrhoids</h3></a>
-      <a href="cases/case8_6.html" class="case-card git"><h3>8.6 Perianal Access & Fistula</h3></a>
-      <a href="cases/case8_7.html" class="case-card git"><h3>8.7 Anal Fissures, Cancers and STIs [SDL]</h3></a>
-    </div>
-
-    <!-- Week 9 - Paediatrics -->
-    <div class="week" data-specialties="paediatrics">Week 9 - Paediatrics</div>
-    <div class="case-grid">
-      <a href="cases/case9_1.html" class="case-card paediatrics"><h3>9.1 Asthma (ED)</h3></a>
-      <a href="cases/case9_2.html" class="case-card paediatrics"><h3>9.2 Poisoning & Envenomation</h3></a>
-      <a href="cases/case9_3.html" class="case-card paediatrics"><h3>9.3 DDH</h3></a>
-      <a href="cases/case9_4.html" class="case-card paediatrics"><h3>9.4 Common Surgical Conditions in Kids</h3></a>
-      <a href="cases/case9_6.html" class="case-card paediatrics"><h3>9.6 Neonatal Resuscitation</h3></a>
-      <a href="cases/case9_7.html" class="case-card paediatrics"><h3>9.7 Infections at Birth</h3></a>
-    </div>
-
-    <!-- Week 10 - Respiratory -->
-    <div class="week" data-specialties="respiratory">Week 10 - Respiratory</div>
-    <div class="case-grid">
-      <a href="cases/case10_1.html" class="case-card respiratory"><h3>10.1 Obstructive Sleep Apnoea</h3></a>
-      <a href="cases/case10_2.html" class="case-card respiratory"><h3>10.2 Pneumonia [SDL]</h3></a>
-      <a href="cases/case10_3.html" class="case-card respiratory"><h3>10.3 Tuberculosis [SDL]</h3></a>
-      <a href="cases/case10_4.html" class="case-card respiratory"><h3>10.4 Bronchial Cancer</h3></a>
-      <a href="cases/case10_5.html" class="case-card respiratory"><h3>10.5 Interstitial Lung Disease & Sarcoidosis</h3></a>
-      <a href="cases/case10_6.html" class="case-card respiratory"><h3>10.6 Pulmonary Embolism</h3></a>
-    </div>
-
-    <!-- Week 11 - General Surgery & Breast -->
-    <div class="week" data-specialties="general breast">Week 11 - General Surgery & Breast</div>
-    <div class="case-grid">
-      <a href="cases/case11_1.html" class="case-card general"><h3>11.1 Inguinal Hernias</h3></a>
-      <a href="cases/case11_2.html" class="case-card general"><h3>11.2 Umbilical Hernias</h3></a>
-      <a href="cases/case11_3.html" class="case-card breast"><h3>11.3 Breast Cancers [SDL]</h3></a>
-      <a href="cases/case11_4.html" class="case-card breast"><h3>11.4 Benign Breast Conditions</h3></a>
-      <a href="cases/case11_5.html" class="case-card breast"><h3>11.5 Breast Cancer (new diagnosis)</h3></a>
-      <a href="cases/case11_6.html" class="case-card breast"><h3>11.6 Breast Cancer (Terminal)</h3></a>
-      <a href="cases/case11_7.html" class="case-card general"><h3>11.7 Electrolyte Management [SDL]</h3></a>
-    </div>
-
-    <!-- Week 12 - Paediatrics -->
-    <div class="week" data-specialties="paediatrics">Week 12 - Paediatrics</div>
-    <div class="case-grid">
-      <a href="cases/case12_1.html" class="case-card paediatrics"><h3>12.1 Febrile Seizures</h3></a>
-      <a href="cases/case12_2.html" class="case-card paediatrics"><h3>12.2 Afebrile Seizures (Epilepsy)</h3></a>
-      <a href="cases/case12_3.html" class="case-card paediatrics"><h3>12.3 Headache (Migraine)</h3></a>
-      <a href="cases/case12_4.html" class="case-card paediatrics"><h3>12.4 Hydrocephalus</h3></a>
-      <a href="cases/case12_5.html" class="case-card paediatrics"><h3>12.5 Neural Tube Defects</h3></a>
-      <a href="cases/case12_6.html" class="case-card paediatrics"><h3>12.6 Developmental Delay (Cerebral Palsy)</h3></a>
-    </div>
-
-    <!-- Week 13 - O&G -->
-    <div class="week" data-specialties="og">Week 13 - O&amp;G</div>
-    <div class="case-grid">
-      <a href="cases/case13_1.html" class="case-card og"><h3>13.1 Normal Vs Abnormal Labour</h3></a>
-      <a href="cases/case13_2.html" class="case-card og"><h3>13.2 Labour (Obstetric Emergencies)</h3></a>
-      <a href="cases/case13_3.html" class="case-card og"><h3>13.3 Analgesia in Birth & Cesarian</h3></a>
-      <a href="cases/case13_4.html" class="case-card og"><h3>13.4 Prematurity & Neonatal Resusitation</h3></a>
-    </div>
-
-    <!-- Week 14 - Renal -->
-    <div class="week" data-specialties="renal">Week 14 - Renal</div>
-    <div class="case-grid">
-      <a href="cases/case14_1.html" class="case-card renal"><h3>14.1 UTI</h3></a>
-      <a href="cases/case14_2.html" class="case-card renal"><h3>14.2 Renal Calculi</h3></a>
-      <a href="cases/case14_3.html" class="case-card renal"><h3>14.3 Nephrotic Syndrome (Glomerulonephritis)</h3></a>
-      <a href="cases/case14_4.html" class="case-card renal"><h3>14.4 Diabetic Nephropathy [SDL]</h3></a>
-      <a href="cases/case14_5.html" class="case-card renal"><h3>14.5 Haematuria [SDL]</h3></a>
-      <a href="cases/case14_6.html" class="case-card renal"><h3>14.6 Prostate Cancer</h3></a>
-    </div>
-
-    <!-- Week 15 - Psychiatry -->
-    <div class="week" data-specialties="psychiatry">Week 15 - Psychiatry</div>
-    <div class="case-grid">
-      <a href="cases/case15_1.html" class="case-card psychiatry"><h3>15.1 Alcohol Abuse</h3></a>
-      <a href="cases/case15_2.html" class="case-card psychiatry"><h3>15.2 Substance Abuse</h3></a>
-      <a href="cases/case15_3.html" class="case-card psychiatry"><h3>15.3 Dementia</h3></a>
-      <a href="cases/case15_4.html" class="case-card psychiatry"><h3>15.4 Delirium [SDL]</h3></a>
-      <a href="cases/case15_5.html" class="case-card psychiatry"><h3>15.5 Personality Disorders</h3></a>
-    </div>
-
-    <!-- Week 16 - Paediatrics -->
-    <div class="week" data-specialties="paediatrics">Week 16 - Paediatrics</div>
-    <div class="case-grid">
-      <a href="cases/case16_1.html" class="case-card paediatrics"><h3>16.1 Noonan Syndrome</h3></a>
-      <a href="cases/case16_2.html" class="case-card paediatrics"><h3>16.2 Pyloric Stenosis</h3></a>
-      <a href="cases/case16_3.html" class="case-card paediatrics"><h3>16.3 Acute Diarrhoea</h3></a>
-      <a href="cases/case16_4.html" class="case-card paediatrics"><h3>16.4 Chronic Diarrhoea & Malabsorption</h3></a>
-      <a href="cases/case16_5.html" class="case-card paediatrics"><h3>16.5 Febrile Child & Vaccination</h3></a>
-      <a href="cases/case16_6.html" class="case-card paediatrics"><h3>16.6 Teething [SDL]</h3></a>
-    </div>
-
-    <!-- Week 17 - Endocrinology -->
-    <div class="week" data-specialties="endocrinology">Week 17 - Endocrinology</div>
-    <div class="case-grid">
-      <a href="cases/case17_1.html" class="case-card endocrinology"><h3>17.1 Primary Hypothyroidism</h3></a>
-      <a href="cases/case17_2.html" class="case-card endocrinology"><h3>17.2 Graves Disease</h3></a>
-      <a href="cases/case17_3.html" class="case-card endocrinology"><h3>17.3 Thyroid Mass [SDL]</h3></a>
-      <a href="cases/case17_4.html" class="case-card endocrinology"><h3>17.4 Cushing's Disease [SDL]</h3></a>
-      <a href="cases/case17_5.html" class="case-card endocrinology"><h3>17.5 Adrenal Insufficiency</h3></a>
-      <a href="cases/case17_6.html" class="case-card endocrinology"><h3>17.6 Calcium Metabolism Disorders</h3></a>
-    </div>
-
-    <!-- Week 18 - O&G -->
-    <div class="week" data-specialties="og">Week 18 - O&amp;G</div>
-    <div class="case-grid">
-      <a href="cases/case18_1.html" class="case-card og"><h3>18.1 Menorrhagia</h3></a>
-      <a href="cases/case18_2.html" class="case-card og"><h3>18.2 Post-Menopausal Bleeding</h3></a>
-      <a href="cases/case18_3.html" class="case-card og"><h3>18.3 Acute Pelvic Pain (Benign Ovarian Disease)</h3></a>
-      <a href="cases/case18_4.html" class="case-card og"><h3>18.4 Endometriosis</h3></a>
-      <a href="cases/case18_5.html" class="case-card og"><h3>18.5 Premalignant Disease of the Cervix</h3></a>
-    </div>
-
-    <!-- Week 19 - Ortho Surgery -->
-    <div class="week" data-specialties="ortho">Week 19 - Ortho Surgery</div>
-    <div class="case-grid">
-      <a href="cases/case19_1.html" class="case-card ortho"><h3>19.1 Osteoarthritis</h3></a>
-      <a href="cases/case19_2.html" class="case-card ortho"><h3>19.2 Septic Arthritis</h3></a>
-      <a href="cases/case19_3.html" class="case-card ortho"><h3>19.3 Bony Lumps</h3></a>
-      <a href="cases/case19_4.html" class="case-card ortho"><h3>19.4 Gout</h3></a>
-      <a href="cases/case19_5.html" class="case-card ortho"><h3>19.5 Knee Injuries</h3></a>
-      <a href="cases/case19_6.html" class="case-card ortho"><h3>19.6 Paediatric Fractures</h3></a>
-    </div>
-
-    <!-- Week 20 - Paediatrics -->
-    <div class="week" data-specialties="paediatrics">Week 20 - Paediatrics</div>
-    <div class="case-grid">
-      <a href="cases/case20_1.html" class="case-card paediatrics"><h3>20.1 Child with Cough</h3></a>
-      <a href="cases/case20_2.html" class="case-card paediatrics"><h3>20.2 Child with Wheeze</h3></a>
-      <a href="cases/case20_3.html" class="case-card paediatrics"><h3>20.3 The Atopic Child</h3></a>
-      <a href="cases/case20_4.html" class="case-card paediatrics"><h3>20.4 Asthma (Acute Exacerbation)</h3></a>
-      <a href="cases/case20_5.html" class="case-card paediatrics"><h3>20.5 Child with Stridor</h3></a>
-      <a href="cases/case20_6.html" class="case-card paediatrics"><h3>20.6 Pneumonia</h3></a>
-    </div>
-
-    <!-- Week 21 - Gastroenterology -->
-    <div class="week" data-specialties="gastroenterology">Week 21 - Gastroenterology</div>
-    <div class="case-grid">
-      <a href="cases/case21_1.html" class="case-card gastroenterology"><h3>21.1 Oesophageal Carcinoma</h3></a>
-      <a href="cases/case21_2.html" class="case-card gastroenterology"><h3>21.2 Gastric Ulcers & Gastric Cancer</h3></a>
-      <a href="cases/case21_3.html" class="case-card gastroenterology"><h3>21.3 Coeliac [SDL]</h3></a>
-      <a href="cases/case21_4.html" class="case-card gastroenterology"><h3>21.4 Constipation [SDL]</h3></a>
-      <a href="cases/case21_5.html" class="case-card gastroenterology"><h3>21.5 IBS</h3></a>
-    </div>
-
-    <!-- Week 22 - Neurology -->
-    <div class="week" data-specialties="neurology">Week 22 - Neurology</div>
-    <div class="case-grid">
-      <a href="cases/case22_1.html" class="case-card neurology"><h3>22.1 Stroke & TIA</h3></a>
-      <a href="cases/case22_2.html" class="case-card neurology"><h3>22.2 Multiple Sclerosis</h3></a>
-      <a href="cases/case22_3.html" class="case-card neurology"><h3>22.3 Alzheimers</h3></a>
-      <a href="cases/case22_4.html" class="case-card neurology"><h3>22.4 Parkinsons & MND</h3></a>
-      <a href="cases/case22_5.html" class="case-card neurology"><h3>22.5 Meningitis [SDL]</h3></a>
-      <a href="cases/case22_6.html" class="case-card neurology"><h3>22.6 Creutzfeldt-Jacob Disease [SDL]</h3></a>
-      <a href="cases/case22_7.html" class="case-card neurology"><h3>22.7 Intracranial Tumours & Hydrocephalus [SDL]</h3></a>
-    </div>
-
-    <!-- Week 23 - Paediatrics -->
-    <div class="week" data-specialties="paediatrics">Week 23 - Paediatrics</div>
-    <div class="case-grid">
-      <a href="cases/case23_1.html" class="case-card paediatrics"><h3>23.1 Congenital Heart Disease (Acyanotic)</h3></a>
-      <a href="cases/case23_2.html" class="case-card paediatrics"><h3>23.2 Congenital Heart Disease (Cyanotic)</h3></a>
-      <a href="cases/case23_3.html" class="case-card paediatrics"><h3>23.3 Nasolacrimal Duct Blockage</h3></a>
-      <a href="cases/case23_4.html" class="case-card paediatrics"><h3>23.4 Strabismus</h3></a>
-      <a href="cases/case23_5.html" class="case-card paediatrics"><h3>23.5 Laryngomalacia</h3></a>
-    </div>
-
-    <!-- Week 24 - O&G -->
-    <div class="week" data-specialties="og">Week 24 - O&amp;G</div>
-    <div class="case-grid">
-      <a href="cases/case24_2.html" class="case-card og"><h3>24.2 Secondary Amenorrhoea</h3></a>
-      <a href="cases/case24_3.html" class="case-card og"><h3>24.3 PCOS</h3></a>
-      <a href="cases/case24_4.html" class="case-card og"><h3>24.4 Infertility</h3></a>
-      <a href="cases/case24_5.html" class="case-card og"><h3>24.5 Primary Amenorrhoea [SDL]</h3></a>
-      <a href="cases/case24_6.html" class="case-card og"><h3>24.6 Hirsutism [SDL]</h3></a>
-      <a href="cases/case24_7.html" class="case-card og"><h3>24.7 Pre-Menstrual Syndrome & Dysphoric Disorder</h3></a>
-    </div>
-
-    <!-- Week 25 - Psychiatry -->
-    <div class="week" data-specialties="psychiatry">Week 25 - Psychiatry</div>
-    <div class="case-grid">
-      <a href="cases/case25_1.html" class="case-card psychiatry"><h3>25.1 Borderline Personality Disorder</h3></a>
-      <a href="cases/case25_2.html" class="case-card psychiatry"><h3>25.2 Substance Abuse</h3></a>
-      <a href="cases/case25_3.html" class="case-card psychiatry"><h3>25.3 Drug Seeking Patient</h3></a>
-      <a href="cases/case25_4.html" class="case-card psychiatry"><h3>25.4 PTSD</h3></a>
-    </div>
-
-    <!-- Week 26 - Rheumatology -->
-    <div class="week" data-specialties="rheumatology">Week 26 - Rheumatology</div>
-    <div class="case-grid">
-      <a href="cases/case26_1.html" class="case-card rheumatology"><h3>26.1 Rheumatoid Arthritis</h3></a>
-      <a href="cases/case26_2.html" class="case-card rheumatology"><h3>26.2 Ankylosing Spondylitis</h3></a>
-      <a href="cases/case26_3.html" class="case-card rheumatology"><h3>26.3 Polymyalgia Rheumatica & Temporal Arteritis</h3></a>
-      <a href="cases/case26_4.html" class="case-card rheumatology"><h3>26.4 Fibromyalgia [SDL]</h3></a>
-      <a href="cases/case26_5.html" class="case-card rheumatology"><h3>26.5 Osteoperosis</h3></a>
-      <a href="cases/case26_6.html" class="case-card rheumatology"><h3>26.6 Paget's Disease (bone)</h3></a>
-    </div>
-
-    <!-- Week 27 - Vascular Surgery -->
-    <div class="week" data-specialties="vascular">Week 27 - Vascular Surgery</div>
-    <div class="case-grid">
-      <a href="cases/case27_1.html" class="case-card vascular"><h3>27.1 AAA</h3></a>
-      <a href="cases/case27_2.html" class="case-card vascular"><h3>27.2 Lower Limb Arterial Disease</h3></a>
-      <a href="cases/case27_3.html" class="case-card vascular"><h3>27.3 Carotid Artery Disease [SDL]</h3></a>
-      <a href="cases/case27_4.html" class="case-card vascular"><h3>27.4 Varicose Veins</h3></a>
-      <a href="cases/case27_5.html" class="case-card vascular"><h3>27.5 Chronic Venous Insufficiency</h3></a>
-    </div>
-
-    <!-- Week 28 - Paediatrics -->
-    <div class="week" data-specialties="paediatrics">Week 28 - Paediatrics</div>
-    <div class="case-grid">
-      <a href="cases/case28_1.html" class="case-card paediatrics"><h3>28.1 UTI</h3></a>
-      <a href="cases/case28_2.html" class="case-card paediatrics"><h3>28.2 Glomerulonephritis</h3></a>
-      <a href="cases/case28_3.html" class="case-card paediatrics"><h3>28.3 Nephrotic Syndrome</h3></a>
-      <a href="cases/case28_4.html" class="case-card paediatrics"><h3>28.4 Anaemia (Nutritional)</h3></a>
-      <a href="cases/case28_5.html" class="case-card paediatrics"><h3>28.5 Purpuric Rash</h3></a>
-      <a href="cases/case28_6.html" class="case-card paediatrics"><h3>28.6 Acute Lymphoblastic Leukaemia</h3></a>
-    </div>
-
-    <!-- Week 29 - O&G -->
-    <div class="week" data-specialties="og">Week 29 - O&amp;G</div>
-    <div class="case-grid">
-      <a href="cases/case29_1.html" class="case-card og"><h3>29.1 Urinary Stress Incontinence</h3></a>
-      <a href="cases/case29_2.html" class="case-card og"><h3>29.2 Urinary Urge Incontinence</h3></a>
-      <a href="cases/case29_3.html" class="case-card og"><h3>29.3 Uterine Prolapse</h3></a>
-      <a href="cases/case29_4.html" class="case-card og"><h3>29.4 Perimenopause & Menopause</h3></a>
-      <a href="cases/case29_5.html" class="case-card og"><h3>29.5 Menopause</h3></a>
-      <a href="cases/case29_6.html" class="case-card og"><h3>29.6 Candidiasis [SDL]</h3></a>
-      <a href="cases/case29_7.html" class="case-card og"><h3>29.7 Genital Herpes [SDL]</h3></a>
-      <a href="cases/case29_8.html" class="case-card og"><h3>29.8 Unplanned Pregnancy [SDL]</h3></a>
-    </div>
-
-    <!-- Week 30 - Haematology -->
-    <div class="week" data-specialties="haematology">Week 30 - Haematology</div>
-    <div class="case-grid">
-      <a href="cases/case30_1.html" class="case-card haematology"><h3>30.1 Microcytic Anaemia</h3></a>
-      <a href="cases/case30_2.html" class="case-card haematology"><h3>30.2 Macrocytic Anaemia</h3></a>
-      <a href="cases/case30_3.html" class="case-card haematology"><h3>30.3 Aplastic Anaemia [SDL]</h3></a>
-      <a href="cases/case30_4.html" class="case-card haematology"><h3>30.4 Haemolytic Anaemia [SDL]</h3></a>
-      <a href="cases/case30_5.html" class="case-card haematology"><h3>30.5 Myelofibrosis</h3></a>
-      <a href="cases/case30_6.html" class="case-card haematology"><h3>30.6 Thrombocytopaenia</h3></a>
-    </div>
-    </div>
-    <!-- End SCPs Main Content -->
-  </div>
-
-  <!-- Ludicrous Mode Vortex Overlay -->
-  <div id="ludicrousVortex" class="ludicrous-vortex" style="display: none;">
-    <div class="vortex-spiral"></div>
-    <div class="vortex-spiral vortex-spiral-2"></div>
-    <div class="vortex-spiral vortex-spiral-3"></div>
-    <img src="assets/ShepTech logo.png" alt="Sheep" class="vortex-sheep">
-  </div>
-
-  <!-- SAQ Exam Modal -->
-  <div id="saqExamModal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close-btn" id="closeSaqModal">&times;</span>
-      <h2>SAQ Exams</h2>
-      <div class="exam-list">
-        <div class="exam-item exam-card-style" data-exam="2024">
-          <div class="exam-card-header">
-            <div class="exam-title-with-badge">
-              <h3>2024 SAQ Exam</h3>
-              <span class="exam-flagged-badge" id="exam2024Flagged" style="display: none;"></span>
-            </div>
-            <div class="exam-completion-icon" id="exam2024CompletionIcon" style="display: none;">✓</div>
-          </div>
-          <div class="exam-progress-bar">
-            <div class="exam-progress-fill" id="exam2024Progress"></div>
-          </div>
-          <div class="exam-attempts-count" id="exam2024Attempts">0/35 Questions Attempted</div>
-        </div>
-
-        <div class="exam-item exam-card-style" data-exam="2023">
-          <div class="exam-card-header">
-            <div class="exam-title-with-badge">
-              <h3>2023 SAQ Exam</h3>
-              <span class="exam-flagged-badge" id="exam2023Flagged" style="display: none;"></span>
-            </div>
-            <div class="exam-completion-icon" id="exam2023CompletionIcon" style="display: none;">✓</div>
-          </div>
-          <div class="exam-progress-bar">
-            <div class="exam-progress-fill" id="exam2023Progress"></div>
-          </div>
-          <div class="exam-attempts-count" id="exam2023Attempts">0/36 Questions Attempted</div>
-        </div>
-
-        <div class="exam-item exam-card-style" data-exam="2022">
-          <div class="exam-card-header">
-            <div class="exam-title-with-badge">
-              <h3>2022 SAQ Exam</h3>
-              <span class="exam-flagged-badge" id="exam2022Flagged" style="display: none;"></span>
-            </div>
-            <div class="exam-completion-icon" id="exam2022CompletionIcon" style="display: none;">✓</div>
-          </div>
-          <div class="exam-progress-bar">
-            <div class="exam-progress-fill" id="exam2022Progress"></div>
-          </div>
-          <div class="exam-attempts-count" id="exam2022Attempts">0/39 Questions Attempted</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MCQ Exam Modal -->
-  <div id="mcqExamModal" class="modal" style="display: none;">
-    <div class="modal-content">
-      <span class="close-btn" id="closeMcqModal">&times;</span>
-      <h2 style="font-family: Georgia, 'Times New Roman', serif; font-weight: 400;">MCQ Exams</h2>
-      <div class="exam-list">
-        <div class="exam-item exam-card-style" data-exam="mcq-all-2022-2024">
-          <div class="exam-card-header">
-            <div class="exam-title-with-badge">
-              <h3>All MCQs from 2022, 2023 & 2024 with Answers!</h3>
-              <span class="exam-flagged-badge" id="examMcqAll20222024Flagged" style="display: none;"></span>
-            </div>
-            <div class="exam-completion-icon" id="examMcqAll20222024CompletionIcon" style="display: none;">✓</div>
-          </div>
-          <div class="exam-progress-bar">
-            <div class="exam-progress-fill" id="examMcqAll20222024Progress"></div>
-          </div>
-          <div class="exam-attempts-count" id="examMcqAll20222024Attempts">0/176 Questions Attempted</div>
-        </div>
-
-        <div class="exam-item exam-card-style" data-exam="mcq-2024">
-          <div class="exam-card-header">
-            <div class="exam-title-with-badge">
-              <h3>2024 MCQ Exam</h3>
-              <span class="exam-flagged-badge" id="examMcq2024Flagged" style="display: none;"></span>
-            </div>
-            <div class="exam-completion-icon" id="examMcq2024CompletionIcon" style="display: none;">✓</div>
-          </div>
-          <div class="exam-progress-bar">
-            <div class="exam-progress-fill" id="examMcq2024Progress"></div>
-          </div>
-          <div class="exam-attempts-count" id="examMcq2024Attempts">0/57 Questions Attempted</div>
-        </div>
-
-        <div class="exam-item exam-card-style" data-exam="mcq-2023">
-          <div class="exam-card-header">
-            <div class="exam-title-with-badge">
-              <h3>2023 MCQ Exam</h3>
-              <span class="exam-flagged-badge" id="examMcq2023Flagged" style="display: none;"></span>
-            </div>
-            <div class="exam-completion-icon" id="examMcq2023CompletionIcon" style="display: none;">✓</div>
-          </div>
-          <div class="exam-progress-bar">
-            <div class="exam-progress-fill" id="examMcq2023Progress"></div>
-          </div>
-          <div class="exam-attempts-count" id="examMcq2023Attempts">0/92 Questions Attempted</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- JavaScript - Updated 2025-11-09 (Fixed module load order) -->
+  <!-- Load Firebase Config and Auth -->
   <script src="js/firebase-config.js"></script>
-
-  <!-- Core Services (Event-driven architecture) -->
-  <script src="js/core/EventBus.js?v=20251123"></script>
-  <script src="js/core/FirebaseService.js?v=20251123"></script>
-
-  <!-- Auth (Old system - will be migrated in future) -->
-  <script src="js/auth.js?v=20251123"></script>
-  <script src="js/auth-ui.js?v=20251123"></script>
-
-  <!-- User Analytics Tracking -->
-  <script src="js/user-analytics.js?v=20251123"></script>
-  <script src="js/analytics-integration.js?v=20251123"></script>
-
-  <!-- Completion Tracking (New modular system) - MUST load before App.js -->
-  <script src="js/modules/progress/CompletionModule.js"></script>
-  <script src="js/modules/progress/CompletionUI.js"></script>
-  <!-- OLD: <script src="js/completion-tracker.js"></script> -->
-
-  <!-- Flag Tracking (New modular system) - MUST load before App.js -->
-  <script src="js/modules/progress/FlagModule.js"></script>
-  <script src="js/modules/progress/FlagUI.js"></script>
-  <!-- OLD: <script src="js/flag-tracker.js"></script> -->
-
-  <!-- App Coordinator - MUST load AFTER all modules -->
-  <script src="js/core/App.js"></script>
-
-  <!-- Navigation (Old system - will be migrated in future) -->
-  <script src="js/navigation.js"></script>
-
-  <!-- Dark Mode -->
-  <script src="js/dark-mode.js"></script>
-
-  <!-- Ludicrous Mode -->
-  <script src="js/ludicrous-mode.js"></script>
-
-  <!-- Exam Countdown (Real-time updates) -->
-  <script src="js/exam-countdown.js"></script>
-
-  <!-- Snowfall Animation -->
-  <script src="js/snowfall.js"></script>
+  <script src="js/core/EventBus.js"></script>
+  <script src="js/core/FirebaseService.js"></script>
+  <script src="js/auth.js"></script>
 
   <script>
-    // Debug: Check if modules loaded
-    console.log('[DEBUG] Checking module availability...');
-    console.log('[DEBUG] window.CompletionModule:', typeof window.CompletionModule);
-    console.log('[DEBUG] window.FlagModule:', typeof window.FlagModule);
-    console.log('[DEBUG] window.app:', typeof window.app);
+    // Auth state observer
+    firebase.auth().onAuthStateChanged((user) => {
+      const signedOutView = document.getElementById('signedOutView');
+      const signedInView = document.getElementById('signedInView');
+      const userWelcome = document.getElementById('userWelcome');
 
-    setTimeout(() => {
-      if (window.app) {
-        console.log('[DEBUG] app.initialized:', window.app.initialized);
-        console.log('[DEBUG] app.modules:', Object.keys(window.app.modules || {}));
-      }
-    }, 1000);
+      if (user) {
+        // User is signed in
+        signedOutView.classList.add('hidden');
+        signedInView.classList.remove('hidden');
 
-    // Update UI elements - let the modules handle most of the work
-    function updateMainPageUI() {
-      console.log('[MainPage] Updating UI...');
-
-      // Update flagged cases sidebar count
-      if (window.app && window.app.getModule) {
-        const flagModule = window.app.getModule('flag');
-        if (flagModule) {
-          const count = flagModule.getFlaggedCaseCount();
-          console.log('[MainPage] Flagged case count:', count);
-
-          const countElement = document.getElementById('flaggedCasesCount');
-          if (countElement) {
-            countElement.textContent = `(${count})`;
-          }
-
-          const flaggedSection = document.getElementById('flaggedCasesSection');
-          if (flaggedSection) {
-            console.log('[MainPage] Setting flagged section display to:', count > 0 ? 'block' : 'none');
-            flaggedSection.style.display = count > 0 ? 'block' : 'none';
-          } else {
-            console.error('[MainPage] Could not find flaggedCasesSection element!');
-          }
-        } else {
-          console.warn('[MainPage] Flag module not found');
-        }
-      } else if (window.flagTracker) {
-        // Fallback to old system
-        const count = window.flagTracker.getFlaggedCaseCount();
-        const countElement = document.getElementById('flaggedCasesCount');
-        if (countElement) {
-          countElement.textContent = `(${count})`;
-        }
-
-        const flaggedSection = document.getElementById('flaggedCasesSection');
-        if (flaggedSection) {
-          flaggedSection.style.display = count > 0 ? 'block' : 'none';
-        }
-      }
-    }
-
-    // Register event listeners immediately (before DOMContentLoaded)
-    // This ensures we catch the flag:initialized event
-    if (window.eventBus) {
-      console.log('[MainPage] Registering event listeners early');
-
-      // Listen for app ready to start periodic updates
-      window.eventBus.on('app:ready', () => {
-        console.log('[MainPage] App ready, starting periodic UI updates');
-        setInterval(updateMainPageUI, 2000);
-      });
-
-      // Listen for flag events to update immediately
-      window.eventBus.on('flag:case-flagged', () => {
-        console.log('[MainPage] Case flagged, updating UI');
-        updateMainPageUI();
-      });
-
-      window.eventBus.on('flag:case-unflagged', () => {
-        console.log('[MainPage] Case unflagged, updating UI');
-        updateMainPageUI();
-      });
-
-      // Listen for flag module initialization to show existing flags
-      window.eventBus.on('flag:initialized', () => {
-        console.log('[MainPage] Flags initialized, updating UI');
-        updateMainPageUI();
-      });
-
-      window.eventBus.on('flag:loaded-from-local', () => {
-        console.log('[MainPage] Flags loaded from localStorage, updating UI');
-        updateMainPageUI();
-      });
-    } else {
-      // Fallback: register on DOMContentLoaded
-      document.addEventListener('DOMContentLoaded', () => {
-        console.log('[MainPage] No eventBus, using fallback with app events');
-
-        if (window.app) {
-          window.app.on('app:ready', () => {
-            setInterval(updateMainPageUI, 2000);
-          });
-          window.app.on('flag:case-flagged', updateMainPageUI);
-          window.app.on('flag:case-unflagged', updateMainPageUI);
-          window.app.on('flag:initialized', updateMainPageUI);
-          window.app.on('flag:loaded-from-local', updateMainPageUI);
-        } else {
-          setTimeout(updateMainPageUI, 500);
-          setInterval(updateMainPageUI, 2000);
-        }
-      });
-    }
-
-    // SCPs Toggle Functionality with Beautiful Animations
-    // Track state globally so other functions can update it
-    window.scpsState = {
-      isExpanded: true // Start expanded
-    };
-
-    window.collapseScps = function() {
-      console.log('Collapsing SCPs...');
-      window.scpsState.isExpanded = false;
-      const scpsContent = document.getElementById('scpsContent');
-      const scpsToggleIcon = document.getElementById('scpsToggleIcon');
-      if (scpsContent) {
-        scpsContent.style.maxHeight = '0';
-        scpsContent.style.opacity = '0';
-        scpsContent.style.overflow = 'hidden';
-      }
-      if (scpsToggleIcon) {
-        scpsToggleIcon.style.transform = 'rotate(0deg)';
-        scpsToggleIcon.textContent = '›';
-      }
-    };
-
-    window.expandScps = function() {
-      console.log('Expanding SCPs...');
-      window.scpsState.isExpanded = true;
-      const scpsContent = document.getElementById('scpsContent');
-      const scpsToggleIcon = document.getElementById('scpsToggleIcon');
-      if (scpsContent) {
-        scpsContent.style.maxHeight = 'none';
-        scpsContent.style.opacity = '1';
-        scpsContent.style.overflow = 'visible';
-      }
-      if (scpsToggleIcon) {
-        scpsToggleIcon.style.transform = 'rotate(90deg)';
-        scpsToggleIcon.textContent = '›';
-      }
-
-      // Navigate to "All SCPs" when expanding
-      setTimeout(() => {
-        const allScpsHeading = document.querySelector('[data-group="all"]');
-        if (allScpsHeading) {
-          allScpsHeading.click();
-        }
-      }, 100);
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const scpsToggle = document.getElementById('scpsToggle');
-
-      // SCPs toggle click handler
-      if (scpsToggle) {
-        scpsToggle.addEventListener('click', (e) => {
-          console.log('SCPs toggle clicked, isExpanded:', window.scpsState.isExpanded);
-          e.preventDefault();
-          if (window.scpsState.isExpanded) {
-            window.collapseScps();
-          } else {
-            window.expandScps();
-          }
-        });
-      }
-
-      // Past Exams click handler is now in navigation.js
-
-      // Add transition to toggle icon
-      if (scpsToggleIcon) {
-        scpsToggleIcon.style.display = 'inline-block';
-        scpsToggleIcon.style.transition = 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-        scpsToggleIcon.style.marginLeft = '8px';
-      }
-
-      // Highlight SCPs toggle when any SCP section is active
-      function updateScpsActiveState() {
-        const scpsToggle = document.getElementById('scpsToggle');
-        const pastExamsSection = document.getElementById('pastExamsSection');
-        const activeHeading = document.querySelector('.sidebar h2.active, .sidebar .specialty.active');
-
-        // Don't update if Past Exams is active
-        if (pastExamsSection && pastExamsSection.classList.contains('active')) {
-          if (scpsToggle) scpsToggle.classList.remove('active');
-          return;
-        }
-
-        if (scpsToggle) {
-          // Add active class if any SCP-related section is active
-          if (activeHeading && activeHeading !== pastExamsSection) {
-            scpsToggle.classList.add('active');
-          } else {
-            scpsToggle.classList.remove('active');
-          }
-        }
-      }
-
-      // Run on page load
-      updateScpsActiveState();
-
-      // Listen for clicks on sidebar items to update active state
-      document.querySelectorAll('.sidebar h2, .sidebar .specialty').forEach(item => {
-        item.addEventListener('click', () => {
-          setTimeout(updateScpsActiveState, 100);
-        });
-      });
-
-      // Logo and MDhub click handlers - return to welcome page
-      const logoContainer = document.querySelector('.logo-container');
-      if (logoContainer) {
-        logoContainer.style.cursor = 'pointer';
-        logoContainer.addEventListener('click', () => {
-          console.log('[Logo] Clicked - returning to welcome page');
-          if (window.showWelcomePage) {
-            window.showWelcomePage();
-          }
-        });
-      }
-
-      // Pint Easter Egg
-      const finishBeer = document.getElementById('finishBeer');
-      const pintEasterEgg = document.getElementById('pintEasterEgg');
-
-      if (finishBeer && pintEasterEgg) {
-        finishBeer.addEventListener('mouseenter', () => {
-          pintEasterEgg.style.display = 'block';
-
-          // Create lots of falling "Pints" text
-          for (let i = 0; i < 50; i++) {
-            setTimeout(() => {
-              const text = document.createElement('div');
-              text.className = 'pint-love-text';
-              text.textContent = 'Pints';
-              text.style.left = Math.random() * 100 + 'vw';
-              text.style.top = '-50px';
-              text.style.animationDelay = Math.random() * 0.5 + 's';
-              pintEasterEgg.appendChild(text);
-
-              // Remove text after animation completes
-              setTimeout(() => {
-                text.remove();
-              }, 4000);
-            }, i * 50);
-          }
-
-          // Hide overlay after all animations complete
-          setTimeout(() => {
-            pintEasterEgg.style.display = 'none';
-            pintEasterEgg.innerHTML = '';
-          }, 6500);
-        });
+        // Get user's display name or email
+        const displayName = user.displayName || user.email.split('@')[0];
+        userWelcome.textContent = `Welcome back, ${displayName}!`;
+      } else {
+        // User is signed out - still show year selection
+        signedOutView.classList.remove('hidden');
+        signedInView.classList.add('hidden');
       }
     });
-  </script>
 
-  <!-- MCQ Exam Progress Tracker -->
-  <script>
-    // Update MCQ exam progress from localStorage
-    function updateMCQExamProgress() {
-      const exams = [
-        { id: 'mcq-all-2022-2024', totalQuestions: 176 },
-        { id: 'mcq-2024', totalQuestions: 57 },
-        { id: 'mcq-2023', totalQuestions: 92 }
-      ];
+    // Auth modal controls
+    const authModal = document.getElementById('authModal');
+    const authButton = document.getElementById('authButton');
+    const authModalClose = document.getElementById('authModalClose');
+    const signInForm = document.getElementById('signInForm');
+    const signUpForm = document.getElementById('signUpForm');
+    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+    const authError = document.getElementById('authError');
 
-      exams.forEach(exam => {
-        const progressKey = `${exam.id}-progress`;
-        const saved = localStorage.getItem(progressKey);
+    // Show modal with smooth animation
+    authButton.addEventListener('click', () => {
+      authModal.style.display = 'block';
+      setTimeout(() => {
+        authModal.classList.add('show');
+      }, 10);
+    });
 
-        if (saved) {
-          try {
-            const progress = JSON.parse(saved);
-            const questions = progress.questions || [];
+    // Close modal with smooth animation
+    const closeModal = () => {
+      authModal.classList.remove('show');
+      setTimeout(() => {
+        authModal.style.display = 'none';
+      }, 300);
+    };
 
-            // Count answered and flagged questions
-            let answered = 0;
-            let flagged = 0;
+    authModalClose.addEventListener('click', closeModal);
 
-            questions.forEach(q => {
-              if (q.selectedAnswer !== null && q.selectedAnswer !== undefined) {
-                answered++;
-              }
-              if (q.flagged) {
-                flagged++;
-              }
-            });
+    // Close modal on outside click
+    window.addEventListener('click', (e) => {
+      if (e.target === authModal) {
+        closeModal();
+      }
+    });
 
-            const percentage = Math.round((answered / exam.totalQuestions) * 100);
+    // Tab switching
+    const signUpTab = document.getElementById('signUpTab');
+    const signInTab = document.getElementById('signInTab');
+    const authTabs = document.getElementById('authTabs');
 
-            // Update all instances (card and modal)
-            const updateElements = (suffix) => {
-              const attemptsEl = document.getElementById(`exam${toCamelCase(exam.id)}Attempts${suffix}`);
-              const progressEl = document.getElementById(`exam${toCamelCase(exam.id)}Progress${suffix}`);
-              const flaggedEl = document.getElementById(`exam${toCamelCase(exam.id)}Flagged${suffix}`);
-
-              if (attemptsEl) {
-                attemptsEl.textContent = `${answered}/${exam.totalQuestions} Questions Attempted`;
-              }
-              if (progressEl) {
-                progressEl.style.width = `${percentage}%`;
-              }
-              if (flaggedEl && flagged > 0) {
-                flaggedEl.textContent = `${flagged} flagged`;
-                flaggedEl.style.display = 'inline-block';
-              }
-            };
-
-            // Update both card and modal versions
-            updateElements('');
-            updateElements('Card');
-          } catch (error) {
-            console.error(`Error updating progress for ${exam.id}:`, error);
-          }
-        }
-      });
+    function switchToSignUp() {
+      signInForm.style.display = 'none';
+      signUpForm.style.display = 'block';
+      forgotPasswordForm.style.display = 'none';
+      authTabs.style.display = 'flex';
+      signUpTab.classList.add('active');
+      signInTab.classList.remove('active');
+      authError.style.display = 'none';
     }
 
-    // Helper function to convert hyphenated to camelCase
-    function toCamelCase(str) {
-      return str.split('-').map((word, index) => {
-        if (index === 0) return 'Mcq';
-        return word.charAt(0).toUpperCase() + word.slice(1);
-      }).join('');
+    function switchToSignIn() {
+      signInForm.style.display = 'block';
+      signUpForm.style.display = 'none';
+      forgotPasswordForm.style.display = 'none';
+      authTabs.style.display = 'flex';
+      signInTab.classList.add('active');
+      signUpTab.classList.remove('active');
+      authError.style.display = 'none';
     }
 
-    // Update on page load and when returning to the page
-    document.addEventListener('DOMContentLoaded', updateMCQExamProgress);
-    window.addEventListener('focus', updateMCQExamProgress);
-    window.addEventListener('pageshow', updateMCQExamProgress);
+    signUpTab.addEventListener('click', switchToSignUp);
+    signInTab.addEventListener('click', switchToSignIn);
 
-    // Update every 2 seconds while page is visible
-    setInterval(updateMCQExamProgress, 2000);
+    // Initialize with Sign Up tab active
+    switchToSignUp();
+
+    document.getElementById('showForgotPassword').addEventListener('click', (e) => {
+      e.preventDefault();
+      signInForm.style.display = 'none';
+      signUpForm.style.display = 'none';
+      forgotPasswordForm.style.display = 'block';
+      authTabs.style.display = 'none';
+      authError.style.display = 'none';
+    });
+
+    document.getElementById('backToSignIn').addEventListener('click', (e) => {
+      e.preventDefault();
+      switchToSignIn();
+    });
+
+    // Sign In
+    signInForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('signInEmail').value;
+      const password = document.getElementById('signInPassword').value;
+
+      try {
+        await firebase.auth().signInWithEmailAndPassword(email, password);
+        closeModal();
+        authError.style.display = 'none';
+      } catch (error) {
+        authError.textContent = error.message;
+        authError.style.display = 'block';
+      }
+    });
+
+    // Sign Up
+    signUpForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('signUpEmail').value;
+      const name = document.getElementById('signUpName').value;
+      const password = document.getElementById('signUpPassword').value;
+
+      try {
+        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        await userCredential.user.updateProfile({ displayName: name });
+        closeModal();
+        authError.style.display = 'none';
+      } catch (error) {
+        authError.textContent = error.message;
+        authError.style.display = 'block';
+      }
+    });
+
+    // Forgot Password
+    forgotPasswordForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('forgotPasswordEmail').value;
+
+      try {
+        await firebase.auth().sendPasswordResetEmail(email);
+        authError.style.display = 'block';
+        authError.style.background = '#d4edda';
+        authError.style.color = '#155724';
+        authError.textContent = 'Password reset email sent! Check your inbox.';
+        setTimeout(() => {
+          authError.style.display = 'none';
+          document.getElementById('backToSignIn').click();
+        }, 3000);
+      } catch (error) {
+        authError.style.display = 'block';
+        authError.style.background = '#fadbd8';
+        authError.style.color = '#e74c3c';
+        authError.textContent = error.message;
+      }
+    });
+
+    // Sign Out
+    document.getElementById('signoutButton').addEventListener('click', async () => {
+      try {
+        await firebase.auth().signOut();
+      } catch (error) {
+        console.error('Error signing out:', error);
+      }
+    });
   </script>
 
 </body>
