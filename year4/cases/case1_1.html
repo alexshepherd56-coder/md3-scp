@@ -248,19 +248,14 @@
   <script src="../../js/flag-tracker.js"></script>
 
   <script>
-
-
-    // Toggle answer visibility
-    document.querySelectorAll('.toggle').forEach(button => {
-      button.addEventListener('click', function() {
-        const answer = this.nextElementSibling;
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-        this.textContent = answer.style.display === 'block' ? 'Hide Answer' : 'Show Answer';
-      });
-    });
-
     // Toggle case flag
     function toggleCaseFlag() {
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
       const caseId = window.flagTracker.getCurrentCaseId();
       if (!caseId) {
         console.error('Could not get case ID');
