@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 2.4 - Monitoring (Standard & Invasive) | MD4 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 2.4 - Monitoring (Standard & Invasive) | MD4 SCP Cases">
+  <meta name="description" content="Anaesthesia case study on standard and invasive monitoring for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://md3-scp.netlify.app/year4/cases/case2_4.html">
+  <meta property="og:title" content="Case 2.4 - Monitoring (Standard & Invasive)">
+  <meta property="og:site_name" content="MD4 SCP Cases">
+  <meta property="og:description" content="Anaesthesia case study on standard and invasive monitoring for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Case 2.4 - Monitoring (Standard & Invasive)">
+  <meta property="twitter:description" content="Anaesthesia case study on standard and invasive monitoring for medical students.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 2.4 – Monitoring: Standard & Invasive</h1>
+    <p class="meta"><strong>Category:</strong> Clinical Skills | <strong>Discipline:</strong> Anaesthesia | <strong>Setting:</strong> Operating Theatre</p>
+
+    <h2>Case</h2>
+    <p>You have on your routine day-stay list for knee arthroscopy a morbidly-obese 40 year-old lady. She weighs 135kg and is 155cm tall. Unfortunately, there is no BP cuff that is both narrow enough for her quite short arms, and long enough to adequately appose the Velcro on the cuff; it keeps on "popping off" every time the automated BP machine inflates.</p>
+
+    <p><strong>You ask the nurse to assemble the equipment you need to insert an intra-arterial line to allow you to measure the BP.</strong></p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is the minimum routine monitoring that is required for a patient undergoing general anaesthesia? What other (optional, or additional) monitoring tools are available?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>See ANZCA PS18. Basically:</p>
+
+        <h3>Minimum Required Monitoring:</h3>
+        <ul>
+          <li><strong>SpO₂</strong> (pulse oximetry)</li>
+          <li><strong>ETCO₂</strong> (end-tidal carbon dioxide)</li>
+          <li><strong>ECG</strong></li>
+          <li><strong>NIBP</strong> (non-invasive blood pressure)</li>
+          <li><strong>Oxygen</strong> concentration</li>
+          <li><strong>Volatile agent</strong> concentration</li>
+          <li><strong>Respiratory mechanics</strong></li>
+        </ul>
+
+        <h3>Additional Monitoring Available:</h3>
+        <ul>
+          <li><strong>Temperature</strong></li>
+          <li><strong>Neurological</strong> (BIS or Entropy)</li>
+          <li><strong>Invasive arterial pressure</strong></li>
+          <li><strong>Central venous pressure</strong></li>
+          <li><strong>Pulmonary artery pressure</strong></li>
+          <li><strong>Cardiac output monitoring</strong></li>
+          <li><strong>Neuromuscular function</strong> (train-of-four)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the indications for invasive arterial pressure monitoring? Describe how this is performed.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>A. Absolute Indications:</h3>
+        <ul>
+          <li>Non-pulsatile arterial flow eg Cardiopulmonary Bypass; Left Ventricular Assist Device</li>
+        </ul>
+
+        <h3>B. Relative Indications:</h3>
+        <ul>
+          <li><strong>i.</strong> Likely major BP swings or haemodynamic instability. Need for vasoactive drug infusion.</li>
+          <li><strong>ii.</strong> Inability to measure reliably non-invasively eg the patient in this case, or Atrial fibrillation, or very slow heart rate</li>
+          <li><strong>iii.</strong> Very prolonged surgery where there is a small risk of radial nerve damage from repeated cuff inflation</li>
+          <li><strong>iv.</strong> Surgery on both arms (can often use the leg unless obese)</li>
+          <li><strong>v.</strong> Need for repeated blood sampling especially arterial blood gases</li>
+        </ul>
+
+        <h3>How it is performed:</h3>
+        <p>Needs:</p>
+        <ul>
+          <li>A <strong>catheter in an artery</strong> (usually radial or femoral)</li>
+          <li><strong>Fluid-filled column</strong> (non-compliant tubing filled with saline)</li>
+          <li>A <strong>transducer</strong> attached to a fast-flush device (transducer converts one form of energy to another, in this case mechanical to an electrical signal; the fast-flush device is a bag of saline in a pressure bag inflated to greater than the systolic pressure)</li>
+          <li>A means of <strong>processing and displaying the signal</strong> (a monitor)</li>
+        </ul>
+
+        <h3>Requirements for accurate pressure reading:</h3>
+        <ul>
+          <li>A short cannula</li>
+          <li>Rigid tubing as short as possible between the patient and the transducer as free of air bubbles as possible</li>
+          <li>A transducer with as high a natural resonant frequency as possible (in practice, this is determined by the manufacturer)</li>
+          <li><strong>Proper Zeroing</strong> ie the monitor needs to know what is the atmospheric pressure above which the BP is being measured</li>
+          <li>The transducer must be at an appropriate level compared to the patient eg heart-height or circle of Willis height</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What other invasive haemodynamic pressures can be monitored in the OR? What is Central venous pressure, what can affect it? Describe the waveform seen in a normal person.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Other pressures measured include:</h3>
+        <ul>
+          <li>Central Venous (CVP)</li>
+          <li>Pulmonary Artery pressure and PA occlusion pressure ("Wedge pressure")</li>
+          <li>Intracranial (ICP)</li>
+          <li>Occasionally others like coronary sinus, internal carotid artery back-pressure</li>
+        </ul>
+
+        <h3>CVP (Central Venous Pressure):</h3>
+        <p><strong>CVP is the next most commonly-measured.</strong> It is the pressure in the right atrium or vena cava and is measured via a catheter inserted into a great vein (usually internal jugular or subclavian). It is a reflection of the volume in the circulation as a whole.</p>
+
+        <h3>It can be affected by:</h3>
+        <ul>
+          <li><strong>1. Intravascular volume</strong> (as 90% of volume is in the venous system)</li>
+          <li><strong>2. Venous tone</strong> (ie venoconstriction will increase CVP)</li>
+          <li><strong>3. Intra-thoracic pressure</strong> (so will be affected by positive-pressure ventilation)</li>
+          <li><strong>4. Right heart function</strong> (Tricuspid valve and right ventricle)</li>
+        </ul>
+
+        <p><strong>Note that it is not affected by left-ventricular function</strong> and so is not a good indicator of LV loading conditions.</p>
+
+        <p>There is no one "normal" CVP, rather a range that provides the best loading conditions in an individual. If BP is low, a trial of intravenous volume and re-assessment of CVP after that volume load is often useful.</p>
+
+        <p><strong>General guide:</strong> if CVP <10, room for volume; CVP>12, probably "full" but may be worth a trial of volume (particularly with regard to those variables above that can affect CVP).</p>
+
+        <p><strong>Bottom line is not to treat the numbers, but to use the numbers as one more piece of information to enable an informed management decision.</strong></p>
+
+        <p>CVP is often used, however, as a surrogate for LA pressure – there are many, many fallacies in this argument – however, using CVP as a guide to filling the heart after cardiac and major surgery is often very helpful.</p>
+
+        <h3>CVP waveform:</h3>
+        <p>Normally <strong>a, c and v waves</strong> and <strong>x and y descents.</strong></p>
+        <ul>
+          <li><strong>A wave</strong> from atrial contraction</li>
+          <li><strong>C wave</strong> from TV closure</li>
+          <li><strong>V wave</strong> from atrial filling in systole</li>
+          <li><strong>X descent</strong> from movement of TV during RV systole</li>
+          <li><strong>Y descent</strong> from rapid emptying of RA when TV opens</li>
+        </ul>
+
+        <p>Abnormal patterns can be used to diagnose cardiac abnormalities eg V-wave (superimposed over c and v) with tricuspid regurgitation; large a wave with complete heart block.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. What are some indications for, and complications of, central venous catheterisation?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Indications for central Venous line placement:</h3>
+        <ul>
+          <li>a. No other venous access possible</li>
+          <li>b. To monitor CVP eg major surgery or major blood or fluid shifts possible</li>
+          <li>c. To allow infusion of irritant substances eg catecholamines; potassium solutions; vancomycin; TPN</li>
+          <li>d. For long-term venous access</li>
+          <li>e. For temporary or permanent haemodialysis access</li>
+          <li>f. To allow pulmonary artery catheterisation</li>
+          <li>g. To allow transvenous cardiac pacing</li>
+        </ul>
+
+        <h3>Complications of central lines:</h3>
+        <ul>
+          <li><strong>a. Damage to other structures</strong> – artery (carotid, subclavian); pleura and lung; thoracic duct; vagus; recurrent laryngeal nerve; pericardial tamponade</li>
+          <li><strong>b. Arrhythmias</strong> either from guide-wire insertion or the catheter itself</li>
+          <li><strong>c. Infection.</strong> Minimise by use of: full aseptic insertion technique + antibiotic impregnated catheter + dedicated central-line team + dressing change only when indicated not routinely + access line only when necessary + prep with 2% Chlorhexidine in alcohol (not in operating rooms). Usually S aureus but can be anything also fungi.</li>
+          <li><strong>d. Thrombosis</strong></li>
+          <li><strong>e. Air embolus.</strong> Ensure lines only opened when patient supine</li>
+          <li><strong>f. Catheter embolus</strong> (Not with modern catheter-over-guidewire systems)</li>
+          <li><strong>g. Misinterpretation of the data</strong></li>
+          <li><strong>h. Patient harm due to inattention while inserting the line</strong></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/access-control.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+
+  <script>
+    // Toggle case flag
+    function toggleCaseFlag() {
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

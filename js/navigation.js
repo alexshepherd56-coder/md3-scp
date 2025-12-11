@@ -265,15 +265,15 @@ groupHeaders.forEach(group => {
       return;
     } else if (groupName === 'all') {
       // Show all cases (all specialties)
-      filters = ['cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og', 'git', 'general', 'breast', 'ortho', 'vascular'];
+      filters = ['cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og', 'git', 'general', 'breast', 'ortho', 'vascular', 'medicine', 'surgery'];
       saveCurrentFilter('all');
     } else if (groupName === 'medicine') {
       // Show all medicine cases (for Year 4, this includes all cases since Week 1 is Anaesthesia/General)
-      filters = ['general', 'cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'];
+      filters = ['general', 'medicine', 'cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'];
       saveCurrentFilter('medicine');
     } else if (groupName === 'surgery') {
       // Show all surgery cases
-      filters = ['git', 'general', 'breast', 'ortho', 'vascular'];
+      filters = ['git', 'breast', 'ortho', 'vascular', 'surgery'];
       saveCurrentFilter('surgery');
     }
 
@@ -378,8 +378,8 @@ function updateCounts() {
   const groupTotals = { all: 0, medicine: 0, surgery: 0 };
 
   // Define which specialties belong to which groups
-  const medicineSpecialties = ['general', 'cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'];
-  const surgerySpecialties = ['git', 'general', 'breast', 'ortho', 'vascular'];
+  const medicineSpecialties = ['general', 'medicine', 'cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'];
+  const surgerySpecialties = ['git', 'breast', 'ortho', 'vascular', 'surgery'];
 
   allCaseCards.forEach(card => {
     groupTotals.all += 1;
@@ -423,9 +423,9 @@ function updateSidebarProgress() {
 
   // Define group filters
   const groupFilters = {
-    all: ['cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og', 'git', 'general', 'breast', 'ortho', 'vascular'],
-    medicine: ['cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'],
-    surgery: ['git', 'general', 'breast', 'ortho', 'vascular']
+    all: ['cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og', 'git', 'general', 'breast', 'ortho', 'vascular', 'medicine', 'surgery'],
+    medicine: ['general', 'medicine', 'cardiology', 'psychiatry', 'paediatrics', 'neurology', 'gastroenterology', 'endocrinology', 'renal', 'respiratory', 'rheumatology', 'haematology', 'og'],
+    surgery: ['git', 'breast', 'ortho', 'vascular', 'surgery']
   };
 
   // Update group progress bars

@@ -4,9 +4,9 @@
 class CompletionTracker {
   constructor() {
     this.completedCases = {};
-    this.db = null;
-    this.auth = null;
+    this.firebaseService = null;
     this.listeners = [];
+    this.authUnsubscribe = null;
   }
 
   // Initialize the tracker
@@ -17,43 +17,58 @@ class CompletionTracker {
     // Update UI on page load
     this.updateAllUI();
 
-    // Try to initialize Firebase, but gracefully handle if it's not available (e.g., file:// protocol)
-    try {
-      this.db = firebase.firestore();
-      this.auth = firebase.auth();
-
-      let isInitialAuth = true;
-
-      // Listen for auth changes
-      this.auth.onAuthStateChanged((user) => {
-        if (isInitialAuth) {
-          // First auth state check - user is already signed in or not
-          isInitialAuth = false;
-          if (user) {
-            // User already signed in - load from Firestore
-            this.syncWithFirestore();
-          }
-          // If no user, keep localStorage data (already loaded above)
-        } else {
-          // Subsequent auth changes - user signing in/out
-          if (user) {
-            // User just signed in - clear localStorage and load from Firestore
-            this.completedCases = {};
-            localStorage.removeItem('scp_completedCases');
-            this.syncWithFirestore();
-          } else {
-            // User just signed out - clear all data
-            this.completedCases = {};
-            localStorage.removeItem('scp_completedCases');
-            this.updateAllUI();
-          }
-        }
+    // Use FirebaseService singleton for Firebase access
+    if (window.firebaseService && window.firebaseService.isReady()) {
+      this.setupFirebaseSync();
+    } else if (window.firebaseService) {
+      // Wait for Firebase to be ready
+      window.firebaseService.onReady(() => {
+        this.setupFirebaseSync();
       });
-    } catch (error) {
-      console.warn('Firebase not available (this is normal when opening files directly). Using localStorage only.', error.message);
-      this.db = null;
-      this.auth = null;
+    } else {
+      console.warn('[CompletionTracker] FirebaseService not available. Using localStorage only.');
     }
+  }
+
+  // Setup Firebase synchronization
+  setupFirebaseSync() {
+    this.firebaseService = window.firebaseService;
+    let isInitialAuth = true;
+
+    // Listen for auth changes
+    this.authUnsubscribe = this.firebaseService.getAuth().onAuthStateChanged((user) => {
+      if (isInitialAuth) {
+        // First auth state check - user is already signed in or not
+        isInitialAuth = false;
+        if (user) {
+          // User already signed in - load from Firestore
+          this.syncWithFirestore();
+        }
+        // If no user, keep localStorage data (already loaded above)
+      } else {
+        // Subsequent auth changes - user signing in/out
+        if (user) {
+          // User just signed in - clear localStorage and load from Firestore
+          this.completedCases = {};
+          localStorage.removeItem('scp_completedCases');
+          this.syncWithFirestore();
+        } else {
+          // User just signed out - clear all data
+          this.completedCases = {};
+          localStorage.removeItem('scp_completedCases');
+          this.updateAllUI();
+        }
+      }
+    });
+  }
+
+  // Cleanup method to remove event listeners
+  cleanup() {
+    if (this.authUnsubscribe) {
+      this.authUnsubscribe();
+      this.authUnsubscribe = null;
+    }
+    this.listeners = [];
   }
 
   // Load completed cases from localStorage
@@ -80,13 +95,15 @@ class CompletionTracker {
 
   // Sync with Firestore
   async syncWithFirestore() {
-    if (!this.db || !this.auth) return;
-    const user = this.auth.currentUser;
+    if (!this.firebaseService || !this.firebaseService.isReady()) return;
+
+    const db = this.firebaseService.getDb();
+    const user = this.firebaseService.getCurrentUser();
     if (!user) return;
 
     try {
       // Load from Firestore
-      const progressRef = this.db.collection('users').doc(user.uid).collection('progress');
+      const progressRef = db.collection('users').doc(user.uid).collection('progress');
       const snapshot = await progressRef.get();
 
       const firestoreData = {};
@@ -99,7 +116,7 @@ class CompletionTracker {
       const merged = { ...this.completedCases, ...firestoreData };
 
       // Update Firestore with any cases that were in localStorage but not in Firestore
-      const batch = this.db.batch();
+      const batch = db.batch();
       let hasUpdates = false;
 
       for (const [caseId, timestamp] of Object.entries(this.completedCases)) {
@@ -122,14 +139,20 @@ class CompletionTracker {
       this.saveToLocalStorage();
       this.updateAllUI();
 
-      console.log('Synced with Firestore successfully');
+      console.log('[CompletionTracker] Synced with Firestore successfully');
     } catch (error) {
-      console.error('Error syncing with Firestore:', error);
+      console.error('[CompletionTracker] Error syncing with Firestore:', error);
     }
   }
 
   // Mark a case as completed
   async markCompleted(caseId) {
+    // Validate input
+    if (!caseId) {
+      console.warn('[CompletionTracker] Cannot mark completed: missing caseId');
+      return;
+    }
+
     const timestamp = new Date().toISOString();
     this.completedCases[caseId] = timestamp;
 
@@ -141,10 +164,11 @@ class CompletionTracker {
     this.notifyListeners('completed', caseId);
 
     // Save to Firestore if authenticated (async, doesn't block UI)
-    if (this.db && this.auth) {
-      const user = this.auth.currentUser;
+    if (this.firebaseService && this.firebaseService.isReady()) {
+      const db = this.firebaseService.getDb();
+      const user = this.firebaseService.getCurrentUser();
       if (user) {
-        this.db.collection('users')
+        db.collection('users')
           .doc(user.uid)
           .collection('progress')
           .doc(caseId)
@@ -152,7 +176,7 @@ class CompletionTracker {
             completedAt: new Date(timestamp)
           })
           .catch(error => {
-            console.error('Error saving to Firestore:', error);
+            console.error('[CompletionTracker] Error saving to Firestore:', error);
           });
       }
     }
@@ -160,6 +184,12 @@ class CompletionTracker {
 
   // Mark a case as not completed
   async markIncomplete(caseId) {
+    // Validate input
+    if (!caseId) {
+      console.warn('[CompletionTracker] Cannot mark incomplete: missing caseId');
+      return;
+    }
+
     delete this.completedCases[caseId];
 
     // Remove from localStorage
@@ -170,16 +200,17 @@ class CompletionTracker {
     this.notifyListeners('incomplete', caseId);
 
     // Remove from Firestore if authenticated (async, doesn't block UI)
-    if (this.db && this.auth) {
-      const user = this.auth.currentUser;
+    if (this.firebaseService && this.firebaseService.isReady()) {
+      const db = this.firebaseService.getDb();
+      const user = this.firebaseService.getCurrentUser();
       if (user) {
-        this.db.collection('users')
+        db.collection('users')
           .doc(user.uid)
           .collection('progress')
           .doc(caseId)
           .delete()
           .catch(error => {
-            console.error('Error deleting from Firestore:', error);
+            console.error('[CompletionTracker] Error deleting from Firestore:', error);
           });
       }
     }
@@ -267,7 +298,20 @@ class CompletionTracker {
   getCurrentCaseId() {
     const path = window.location.pathname;
     const match = path.match(/case(\d+_\d+)/);
-    return match ? match[1] : null;
+    if (!match) return null;
+
+    // Determine year from path or window.CURRENT_YEAR
+    let year = window.CURRENT_YEAR || 'year3'; // default to year3 for backwards compatibility
+
+    // Override with path-based detection if available
+    if (path.includes('/year3/')) {
+      year = 'year3';
+    } else if (path.includes('/year4/')) {
+      year = 'year4';
+    }
+
+    // Return year-prefixed case ID (e.g., "year4_2_1" instead of just "2_1")
+    return `${year}_${match[1]}`;
   }
 
   // Update all UI elements
@@ -375,8 +419,8 @@ class CompletionTracker {
         this.saveToLocalStorage();
 
         // Sync to Firestore if authenticated
-        if (this.auth) {
-          const user = this.auth.currentUser;
+        if (this.firebaseService && this.firebaseService.isReady()) {
+          const user = this.firebaseService.getCurrentUser();
           if (user) {
             await this.syncWithFirestore();
           }
@@ -398,21 +442,22 @@ class CompletionTracker {
       this.saveToLocalStorage();
 
       // Clear from Firestore if authenticated
-      if (this.db && this.auth) {
-        const user = this.auth.currentUser;
+      if (this.firebaseService && this.firebaseService.isReady()) {
+        const db = this.firebaseService.getDb();
+        const user = this.firebaseService.getCurrentUser();
         if (user) {
           try {
-            const progressRef = this.db.collection('users').doc(user.uid).collection('progress');
+            const progressRef = db.collection('users').doc(user.uid).collection('progress');
             const snapshot = await progressRef.get();
 
-            const batch = this.db.batch();
+            const batch = db.batch();
             snapshot.forEach(doc => {
               batch.delete(doc.ref);
             });
 
             await batch.commit();
           } catch (error) {
-            console.error('Error clearing Firestore data:', error);
+            console.error('[CompletionTracker] Error clearing Firestore data:', error);
           }
         }
       }
@@ -442,24 +487,16 @@ class CompletionTracker {
 // Initialize completion tracker globally
 window.completionTracker = new CompletionTracker();
 
-// Initialize when DOM and Firebase are ready
+// Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  let attempts = 0;
-  const maxAttempts = 50; // 5 seconds max wait
+  // Initialize immediately - it will wait for FirebaseService internally
+  window.completionTracker.initialize();
+  console.log('[CompletionTracker] Initialization started');
+});
 
-  // Wait for Firebase to be initialized
-  const checkFirebase = setInterval(() => {
-    attempts++;
-
-    if (typeof firebase !== 'undefined' && firebase.auth && firebase.firestore) {
-      clearInterval(checkFirebase);
-      window.completionTracker.initialize();
-      console.log('Completion tracker initialized with Firebase');
-    } else if (attempts >= maxAttempts) {
-      // Timeout - initialize without Firebase
-      clearInterval(checkFirebase);
-      window.completionTracker.initialize();
-      console.warn('Completion tracker initialized without Firebase (timeout)');
-    }
-  }, 100);
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => {
+  if (window.completionTracker) {
+    window.completionTracker.cleanup();
+  }
 });

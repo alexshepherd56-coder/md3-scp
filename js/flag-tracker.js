@@ -6,6 +6,7 @@ class FlagTracker {
     this.flags = {};
     this.caseFlags = {};
     this.initialized = false;
+    this.firebaseService = null;
   }
 
   // Initialize the flag tracker
@@ -16,21 +17,52 @@ class FlagTracker {
     this.loadFromLocalStorage();
     this.loadCaseFlagsFromLocalStorage();
 
-    // If user is signed in, sync with Firestore
-    if (window.authSystem && window.authSystem.isSignedIn()) {
-      this.syncWithFirestore();
-      this.syncCaseFlagsWithFirestore();
+    // Use FirebaseService singleton
+    if (window.firebaseService && window.firebaseService.isReady()) {
+      this.firebaseService = window.firebaseService;
+      const user = this.firebaseService.getCurrentUser();
+      if (user) {
+        this.syncWithFirestore();
+        this.syncCaseFlagsWithFirestore();
+      }
+    } else if (window.firebaseService) {
+      window.firebaseService.onReady(() => {
+        this.firebaseService = window.firebaseService;
+        const user = this.firebaseService.getCurrentUser();
+        if (user) {
+          this.syncWithFirestore();
+          this.syncCaseFlagsWithFirestore();
+        }
+      });
     }
 
     this.initialized = true;
-    console.log('Flag tracker initialized');
+    console.log('[FlagTracker] Initialized');
+  }
+
+  // Cleanup method
+  cleanup() {
+    this.firebaseService = null;
   }
 
   // Get current case ID from URL
   getCurrentCaseId() {
     const path = window.location.pathname;
     const match = path.match(/case(\d+_\d+)/);
-    return match ? match[1] : null;
+    if (!match) return null;
+
+    // Determine year from path or window.CURRENT_YEAR
+    let year = window.CURRENT_YEAR || 'year3'; // default to year3 for backwards compatibility
+
+    // Override with path-based detection if available
+    if (path.includes('/year3/')) {
+      year = 'year3';
+    } else if (path.includes('/year4/')) {
+      year = 'year4';
+    }
+
+    // Return year-prefixed case ID (e.g., "year4_2_1" instead of just "2_1")
+    return `${year}_${match[1]}`;
   }
 
   // Create a unique flag ID for a question
@@ -52,29 +84,38 @@ class FlagTracker {
 
   // Toggle flag for a question
   toggleFlag(caseId, questionNumber, questionText) {
+    // Validate inputs
+    if (!caseId || questionNumber === undefined) {
+      console.warn('[FlagTracker] Cannot toggle flag: missing caseId or questionNumber');
+      return false;
+    }
+
     const flagId = this.createFlagId(caseId, questionNumber);
 
     if (this.flags[flagId]) {
       // Remove flag
       delete this.flags[flagId];
-      console.log(`Removed flag: ${flagId}`);
+      console.log(`[FlagTracker] Removed flag: ${flagId}`);
     } else {
       // Add flag
       this.flags[flagId] = {
         caseId: caseId,
         questionNumber: questionNumber,
-        questionText: questionText,
+        questionText: questionText || '',
         flaggedAt: new Date().toISOString()
       };
-      console.log(`Added flag: ${flagId}`);
+      console.log(`[FlagTracker] Added flag: ${flagId}`);
     }
 
     // Save to localStorage
     this.saveToLocalStorage();
 
     // Sync with Firestore if user is signed in
-    if (window.authSystem && window.authSystem.isSignedIn()) {
-      this.syncFlagToFirestore(flagId);
+    if (this.firebaseService && this.firebaseService.isReady()) {
+      const user = this.firebaseService.getCurrentUser();
+      if (user) {
+        this.syncFlagToFirestore(flagId);
+      }
     }
 
     // Update UI
@@ -137,15 +178,15 @@ class FlagTracker {
 
   // Sync all flags with Firestore
   async syncWithFirestore() {
-    if (!window.authSystem || !window.authSystem.isSignedIn()) {
+    if (!this.firebaseService || !this.firebaseService.isReady()) {
       return;
     }
 
-    const user = window.authSystem.getCurrentUser();
+    const user = this.firebaseService.getCurrentUser();
     if (!user) return;
 
     try {
-      const db = firebase.firestore();
+      const db = this.firebaseService.getDb();
       const flagsRef = db.collection('users').doc(user.uid).collection('flags');
 
       // Get all flags from Firestore
@@ -178,23 +219,23 @@ class FlagTracker {
       // Save merged data to localStorage
       this.saveToLocalStorage();
 
-      console.log('Flags synced with Firestore');
+      console.log('[FlagTracker] Flags synced with Firestore');
     } catch (error) {
-      console.error('Error syncing flags with Firestore:', error);
+      console.error('[FlagTracker] Error syncing flags with Firestore:', error);
     }
   }
 
   // Sync a single flag to Firestore
   async syncFlagToFirestore(flagId) {
-    if (!window.authSystem || !window.authSystem.isSignedIn()) {
+    if (!this.firebaseService || !this.firebaseService.isReady()) {
       return;
     }
 
-    const user = window.authSystem.getCurrentUser();
+    const user = this.firebaseService.getCurrentUser();
     if (!user) return;
 
     try {
-      const db = firebase.firestore();
+      const db = this.firebaseService.getDb();
       const flagRef = db.collection('users').doc(user.uid).collection('flags').doc(flagId);
 
       if (this.flags[flagId]) {
@@ -205,7 +246,7 @@ class FlagTracker {
         await flagRef.delete();
       }
     } catch (error) {
-      console.error('Error syncing flag to Firestore:', error);
+      console.error('[FlagTracker] Error syncing flag to Firestore:', error);
     }
   }
 
@@ -257,8 +298,11 @@ class FlagTracker {
       this.saveToLocalStorage();
 
       // Clear from Firestore if signed in
-      if (window.authSystem && window.authSystem.isSignedIn()) {
-        this.clearFirestoreFlags();
+      if (this.firebaseService && this.firebaseService.isReady()) {
+        const user = this.firebaseService.getCurrentUser();
+        if (user) {
+          this.clearFirestoreFlags();
+        }
       }
 
       // Update UI
@@ -271,15 +315,15 @@ class FlagTracker {
 
   // Clear all flags from Firestore
   async clearFirestoreFlags() {
-    if (!window.authSystem || !window.authSystem.isSignedIn()) {
+    if (!this.firebaseService || !this.firebaseService.isReady()) {
       return;
     }
 
-    const user = window.authSystem.getCurrentUser();
+    const user = this.firebaseService.getCurrentUser();
     if (!user) return;
 
     try {
-      const db = firebase.firestore();
+      const db = this.firebaseService.getDb();
       const flagsRef = db.collection('users').doc(user.uid).collection('flags');
       const snapshot = await flagsRef.get();
 
@@ -289,9 +333,9 @@ class FlagTracker {
       });
 
       await batch.commit();
-      console.log('Cleared all flags from Firestore');
+      console.log('[FlagTracker] Cleared all flags from Firestore');
     } catch (error) {
-      console.error('Error clearing flags from Firestore:', error);
+      console.error('[FlagTracker] Error clearing flags from Firestore:', error);
     }
   }
 
@@ -299,24 +343,22 @@ class FlagTracker {
 
   // Toggle flag for an entire case
   toggleCaseFlag(caseId) {
-    console.log('toggleCaseFlag called with caseId:', caseId);
-    console.log('Current caseFlags:', this.caseFlags);
-
+    // Validate input
     if (!caseId) {
-      console.error('toggleCaseFlag: No caseId provided');
+      console.warn('[FlagTracker] toggleCaseFlag: No caseId provided');
       return false;
     }
 
     if (this.caseFlags[caseId]) {
       // Remove flag
       delete this.caseFlags[caseId];
-      console.log(`Removed case flag: ${caseId}`);
+      console.log(`[FlagTracker] Removed case flag: ${caseId}`);
     } else {
       // Add flag
       this.caseFlags[caseId] = {
         flaggedAt: new Date().toISOString()
       };
-      console.log(`Added case flag: ${caseId}`);
+      console.log(`[FlagTracker] Added case flag: ${caseId}`);
     }
 
     // Update UI immediately (before async operations)
@@ -327,11 +369,13 @@ class FlagTracker {
     this.saveCaseFlagsToLocalStorage();
 
     // Sync with Firestore if user is signed in (async - don't wait)
-    if (window.authSystem && window.authSystem.isSignedIn()) {
-      this.syncCaseFlagToFirestore(caseId);
+    if (this.firebaseService && this.firebaseService.isReady()) {
+      const user = this.firebaseService.getCurrentUser();
+      if (user) {
+        this.syncCaseFlagToFirestore(caseId);
+      }
     }
 
-    console.log('Flag toggled, current state:', this.isCaseFlagged(caseId));
     return this.isCaseFlagged(caseId);
   }
 
@@ -378,15 +422,15 @@ class FlagTracker {
 
   // Sync case flags with Firestore
   async syncCaseFlagsWithFirestore() {
-    if (!window.authSystem || !window.authSystem.isSignedIn()) {
+    if (!this.firebaseService || !this.firebaseService.isReady()) {
       return;
     }
 
-    const user = window.authSystem.getCurrentUser();
+    const user = this.firebaseService.getCurrentUser();
     if (!user) return;
 
     try {
-      const db = firebase.firestore();
+      const db = this.firebaseService.getDb();
       const caseFlagsRef = db.collection('users').doc(user.uid).collection('caseFlags');
 
       // Get all case flags from Firestore
@@ -419,23 +463,23 @@ class FlagTracker {
       // Save merged data to localStorage
       this.saveCaseFlagsToLocalStorage();
 
-      console.log('Case flags synced with Firestore');
+      console.log('[FlagTracker] Case flags synced with Firestore');
     } catch (error) {
-      console.error('Error syncing case flags with Firestore:', error);
+      console.error('[FlagTracker] Error syncing case flags with Firestore:', error);
     }
   }
 
   // Sync a single case flag to Firestore
   async syncCaseFlagToFirestore(caseId) {
-    if (!window.authSystem || !window.authSystem.isSignedIn()) {
+    if (!this.firebaseService || !this.firebaseService.isReady()) {
       return;
     }
 
-    const user = window.authSystem.getCurrentUser();
+    const user = this.firebaseService.getCurrentUser();
     if (!user) return;
 
     try {
-      const db = firebase.firestore();
+      const db = this.firebaseService.getDb();
       const caseFlagRef = db.collection('users').doc(user.uid).collection('caseFlags').doc(caseId);
 
       if (this.caseFlags[caseId]) {
@@ -446,7 +490,7 @@ class FlagTracker {
         await caseFlagRef.delete();
       }
     } catch (error) {
-      console.error('Error syncing case flag to Firestore:', error);
+      console.error('[FlagTracker] Error syncing case flag to Firestore:', error);
     }
   }
 
@@ -530,4 +574,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.flagTracker.initialize();
   // Add flag indicators to case cards
   window.flagTracker.updateAllCaseFlagIndicators();
+});
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => {
+  if (window.flagTracker) {
+    window.flagTracker.cleanup();
+  }
 });

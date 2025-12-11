@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 2.1 - Fluid and Electrolyte Balance | MD4 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 2.1 - Fluid and Electrolyte Balance | MD4 SCP Cases">
+  <meta name="description" content="Anaesthesia case study on fluid and electrolyte balance for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://md3-scp.netlify.app/year4/cases/case2_1.html">
+  <meta property="og:title" content="Case 2.1 - Fluid and Electrolyte Balance">
+  <meta property="og:site_name" content="MD4 SCP Cases">
+  <meta property="og:description" content="Anaesthesia case study on fluid and electrolyte balance for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Case 2.1 - Fluid and Electrolyte Balance">
+  <meta property="twitter:description" content="Anaesthesia case study on fluid and electrolyte balance for medical students.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 2.1 – Fluid and Electrolyte Balance</h1>
+    <p class="meta"><strong>Category:</strong> Clinical Skills | <strong>Discipline:</strong> Anaesthesia | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+      <div style="flex: 1;">
+        <p>Timothy Mooney, a previously well 20 year old develops a small bowel obstruction due to a band adhesion and has severe vomiting for several days before presentation. His past medical history includes an Appendicectomy at age 10 years.</p>
+
+        <p>He is scheduled for laparotomy as he shows signs of bowel ischaemia.</p>
+      </div>
+      <div style="flex: 0 0 auto;">
+        <img src="../../assets/cases/year4/Case2_1_Patient.png" alt="Patient Timothy" style="max-width: 200px; border-radius: 8px;">
+      </div>
+    </div>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. You are the intern in the Emergency department; Timothy requires fluid resuscitation prior to theatre. How is the amount of fluid a patient requires calculated?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>In general, fluid requirement is:</p>
+        <ul>
+          <li><strong>i. Preexisting deficit</strong> (see question 2), PLUS</li>
+          <li><strong>ii. Ongoing losses</strong> PLUS</li>
+          <li><strong>iii. Maintenance requirements</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. How would you assess Timothy's fluid deficit?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Assessment of deficit. Two things to consider – <strong>Total Body Water</strong> and <strong>Blood Volume</strong>.</p>
+
+        <h3>Fluid compartments. For 70 kg young adult male:</h3>
+        <ul>
+          <li><strong>TBW (Total Body Water)</strong> 60% = 42 litres</li>
+          <li><strong>ECF (Extracellular Fluid)</strong> 20% = 14 litres</li>
+          <li><strong>Blood Vol</strong> 70ml/kg = approx 5 litres. Remember Blood is only around 60% water (depends on haematocrit)</li>
+        </ul>
+
+        <p>For female and the elderly, less H₂O, more fat, less Blood Volume say 60mls/kg</p>
+        <p>Infants higher, say 70% H₂O and 85mls/kg</p>
+
+        <h3>Water Deficit:</h3>
+        <ul>
+          <li><strong>Mild dehydration.</strong> Est 3% or 30ml/kg. Thirst; tachycardia; concentrated urine</li>
+          <li><strong>Moderate.</strong> Est 6% or 60ml/kg. Tachycardia, reduced (slow) skin turgor; slow capillary refill; oliguria; lethargy; postural hypotension; dry mucosae (beware mouth-breathing); depressed fontanelle</li>
+          <li><strong>Severe.</strong> Est 10% or 100ml/kg. Obtunded; "shut-down"; anuric; hypotensive, tachycardic; "tenting" skin turgor; parched mucosae; absent tears</li>
+        </ul>
+
+        <h3>Blood loss:</h3>
+        <ul>
+          <li><strong>10%.</strong> You give this at the blood bank. Effects depend on other comorbidities and medications.</li>
+          <li><strong>20%.</strong> Tachycardia, postural hypotension, oliguria. Thirst.</li>
+          <li><strong>40%.</strong> Shock. Anuria Obtundation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Outline how maintenance fluid requirements are calculated?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Maintenance:</h3>
+        <p><strong>Water.</strong> 30-40ml/kg/day. Less if elderly, hypothermic, paralysed, hypothyroid. More if febrile, active, burns (special case), children (see below)</p>
+
+        <p><strong>Electrolytes.</strong> Na and K. 1-2mEq/kg/day. Sick people with increased ADH are prone to develop Hyponatraemia due to water retention. Avoid large volumes of hypotonic fluids, but conversely large volumes of isotonic fluids tend to cause oedema.</p>
+
+        <h3>Children:</h3>
+        <p>General rule of thumb. 100ml/kg/day for first 10kg; 50 ml/kg/day for next 10 kg and 20ml/kg/day after that.</p>
+        <p>Eg 30kg 9yo: 10kg×100mls + 10kg×50mls + 10 kg× 20 mls = 1,700 mls/day.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. How is the type of fluid determined?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>What Fluid? General rule: Give what is being lost. Care with diarrhoea!</strong></p>
+
+        <ul>
+          <li><strong>Gastric fluid:</strong> eg vomiting, pyloric stenosis. NaCl plus HCl plus KCL. Replace with equal volume of isotonic NaCl (not the time to go into metabolic alkalosis, paradoxical aciduria, role of hypokalaemia in perpetuation of met alkalosis, etc)</li>
+          <li><strong>Small bowel distal to Ligament of Trietz.</strong> Eg fistula. Fluid rich in HCO₃ from pancreas. Replace with Hartmanns Solution.</li>
+          <li><strong>Large Bowel.</strong> Eg diarrhoea. More akin to Hypotonic saline with added Potassium eg 4%Dextrose with 0.18%Saline</li>
+          <li><strong>Polyuria.</strong> Often this occurs in the setting of recovery from severe illness and is simply clearing a salt and water load due to resuscitation. If pathological (eg Diabetes insipidus, or polyuric phase of acute renal failure) easy to measure electrolyte content of the urine and replace with appropriate fluids.</li>
+          <li><strong>Sweat.</strong> Aldosterone affects sodium content but in unacclimatised, high Na so replace with isotonic saline initially.</li>
+          <li><strong>Burns.</strong> Various protocols. Lose enormous amount of water, electrolytes and albumin.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. The surgical registrar asks you to organise a 'blood group & hold' why would this be necessary? Timothy asks you if it is likely that he will need a blood transfusion</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>A 'blood group & hold' is ordered when there is a possibility of blood transfusion during surgery, but it is not certain that transfusion will be required. This ensures that if blood is needed urgently, the patient's blood type is already known and compatible blood can be quickly cross-matched and provided.</p>
+
+        <p>For Timothy's laparotomy for bowel ischaemia, there is potential for significant blood loss during the procedure, so having his blood type on file is a sensible precaution.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Outline the clinical situations where a blood transfusion might be necessary for Timothy?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Transfusion Triggers depend on patient's co-morbidities, and expected blood loss. In general, a <strong>healthy adult will tolerate a Hb of 70-80g/l provided there is no ongoing bleeding.</strong> A patient with impairment of another aspect of Oxygen delivery (oxygenation or cardiac output) will require a higher Hb. Patients with coronary artery disease tolerate anaemia less well than other patients. The severely traumatised patient requires empirical blood and blood product transfusion, often prior to the availability of formal testing.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Timothy appears concerned about the risks of having a blood transfusion, particularly contracting as serious infection. What would you explain to him about the risks and complications of blood transfusion?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Complications of Blood Transfusion are:</p>
+
+        <h3>i. Those that can occur with ANY unit:</h3>
+        <ul>
+          <li>Acute Haemolytic reaction (ABO mismatch)</li>
+          <li>Alloimmunisation (rH)</li>
+          <li>Immune modulation</li>
+          <li>Disease transmission (HCV, HIV, bacteria, others)</li>
+          <li>TRALI</li>
+          <li>Delayed (immune) haemolytic reaction</li>
+        </ul>
+
+        <h3>ii. Those specific to massive transfusion (greater than one blood volume in a 24 hour period):</h3>
+        <ul>
+          <li>Platelet and coagulation factor depletion, especially the so-called labile factors 2,7,9 and 10</li>
+          <li>Hypothermia</li>
+          <li>Hyperkalaemia</li>
+          <li>Hypocalcaemia rarely (citrate toxicity)</li>
+          <li>Hyperbilirubinaemia down the track</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/access-control.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+
+  <script>
+    // Toggle case flag
+    function toggleCaseFlag() {
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 2.3 - Malignant Hyperthermia | MD4 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 2.3 - Malignant Hyperthermia | MD4 SCP Cases">
+  <meta name="description" content="Anaesthesia case study on malignant hyperthermia for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://md3-scp.netlify.app/year4/cases/case2_3.html">
+  <meta property="og:title" content="Case 2.3 - Malignant Hyperthermia">
+  <meta property="og:site_name" content="MD4 SCP Cases">
+  <meta property="og:description" content="Anaesthesia case study on malignant hyperthermia for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Case 2.3 - Malignant Hyperthermia">
+  <meta property="twitter:description" content="Anaesthesia case study on malignant hyperthermia for medical students.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 2.3 – Anaesthetic Emergencies: Malignant Hyperthermia</h1>
+    <p class="meta"><strong>Category:</strong> Clinical Skills | <strong>Discipline:</strong> Anaesthesia | <strong>Setting:</strong> Operating Theatre</p>
+
+    <h2>Case</h2>
+    <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+      <div style="flex: 1;">
+        <p>Chandler Ackroyd a 16 year old boy has a lengthy operation for a post-nasal space angiofibroma. In the recovery room a large neck haematoma develops and he is returned to the operating room for exploration.</p>
+
+        <p>He is given Suxamethonium to facilitate reintubation and the wound is reopened. Over the next ½ hour his urine becomes dark reddish-black, CO₂ rises to 75mmHg and he develops multifocal VEBs on the ECG.</p>
+
+        <p><strong>His temperature is measured - it is 39.5°C. Malignant Hyperthermia is diagnosed and appropriate treatment instituted.</strong></p>
+
+        <p>He survives and returns to OR one week later for a planned second-stage procedure.</p>
+      </div>
+      <div style="flex: 0 0 auto;">
+        <img src="../../assets/cases/year4/Case2_3_Patient.png" alt="Patient Chandler" style="max-width: 200px; border-radius: 8px;">
+      </div>
+    </div>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is malignant hyperthermia (MH)? Outline the pathophysiology of MH, including changes at a cellular level?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>MH is a <strong>rare pharmacogenetic disorder</strong> manifest when a susceptible individual (MHS) is exposed to a triggering agent. Characterised by:</p>
+        <ul>
+          <li>Hypermetabolic state</li>
+          <li>Skeletal muscle rigidity</li>
+          <li>Pyrexia</li>
+          <li>Respiratory and metabolic acidosis</li>
+          <li>Hyperkalaemia</li>
+          <li>Arrhythmias</li>
+          <li>Rapid death in some cases</li>
+        </ul>
+
+        <p>Incidence approx <strong>1/60,000 with suxamethonium; 1/250,000 with volatiles.</strong> Children more common – 50% of cases <15years old.</p>
+
+        <h3>Pathogenesis:</h3>
+        <p>Involves <strong>sarcolemmal defect in skeletal muscle only,</strong> such that Ryanodine receptor when triggered leads to <strong>massive release of Ca from sarcoplasmic reticulum.</strong> ATP-dependent membrane pumps then attempt to return this Ca to the SR, leading to sustained glycolytic and aerobic metabolism. Return of Ca is incomplete, leading to <strong>sustained contraction and rigidity.</strong> Eventually oxidation and phosphorylation are uncoupled, anaerobic metabolism occurs, and severe mixed acidosis occurs.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What diseases are associated with MH susceptibility?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Genetic component:</h3>
+        <ul>
+          <li><strong>Central core disease</strong> and <strong>mitochondrial myopathies</strong> - good evidence</li>
+          <li>Poor evidence for DMD and other myopathies, and for patients who have had NMS or severe heat stroke</li>
+        </ul>
+
+        <h3>Triggering agents include:</h3>
+        <ul>
+          <li><strong>All Volatile anaesthetic agents</strong></li>
+          <li><strong>Suxamethonium</strong></li>
+          <li><strong>Ca-channel blockers</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Describe the clinical presentation and describe the principles of management.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Clinical presentation:</h3>
+        <p>Initially:</p>
+        <ul>
+          <li>Rise in ET cO₂ and rapid exhaustion of soda-lime</li>
+          <li>Tachycardia</li>
+          <li>?Masseter spasm after Suxamethonium?</li>
+        </ul>
+
+        <p>Leading on to:</p>
+        <ul>
+          <li>Hyperthermia</li>
+          <li>Hyperkalaemia</li>
+          <li>Acidosis</li>
+          <li>Hypoxaemia</li>
+          <li>Later dark urine (myoglobin)</li>
+          <li>VEB's</li>
+          <li>CK rise</li>
+          <li>Death</li>
+        </ul>
+
+        <h3>Management:</h3>
+        <p><strong>Requires several people. First step is to suspect it.</strong></p>
+
+        <ul>
+          <li><strong>Stop all triggers.</strong> Stop the surgery if possible.</li>
+          <li><strong>Ventilate</strong> with high minute volumes from a non-triggering source.</li>
+          <li><strong>Give Dantrolene</strong> 2.5mg/kg initial dose and repeat every 10-15 minutes until biochemical changes are reversed. <strong>Dantrolene is the only specific treatment</strong> and all hospitals should have access to an initial dose.</li>
+          <li><strong>Treat arrhythmias and hyperkalaemia</strong> in conventional ways but avoid Ca-channel blockers.</li>
+          <li><strong>Cooling</strong> with tepid sponging, fanning, cold iv fluids</li>
+          <li><strong>Paralysis</strong></li>
+          <li><strong>Monitoring in ICU</strong> with management of rhabdomyolysis if necessary</li>
+          <li><strong>Referral of patient and relatives</strong> for testing after recovery</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Chandler's parents are very concerned that this could happen again with his next Anaesthetic. Explain the how the possible malignant hyperthermia syndrome patient can be tested and managed for subsequent anaesthetics.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h3>Testing:</h3>
+        <p>Currently in flux between IVCT and DNA testing.</p>
+
+        <ul>
+          <li><strong>IVCT very reliable</strong> – index case should certainly be confirmed this way. Open Quadriceps biopsy then test in bath with caffeine and/or Halothane and measure contraction developed.</li>
+          <li><strong>DNA testing:</strong> Too many variants of RYR1 gene at present for reliable DNA testing – up to 20% may be missed.</li>
+        </ul>
+
+        <h3>Management for subsequent anaesthetics:</h3>
+        <ul>
+          <li>Avoid all triggering agents (volatile anaesthetics and suxamethonium)</li>
+          <li>Use non-triggering anaesthetic techniques (e.g., total intravenous anaesthesia with propofol)</li>
+          <li>Ensure Dantrolene is immediately available</li>
+          <li>Extended monitoring post-operatively</li>
+          <li>Patient should wear a medic-alert bracelet</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/access-control.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+
+  <script>
+    // Toggle case flag
+    function toggleCaseFlag() {
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>
