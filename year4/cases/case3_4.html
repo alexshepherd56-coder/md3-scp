@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 3.4 - Post Operative Monitoring | MD4 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 3.4 - Post Operative Monitoring | MD4 SCP Cases">
+  <meta name="description" content="Anaesthesia case study on post-operative monitoring and location of care for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://md3-scp.netlify.app/year4/cases/case3_4.html">
+  <meta property="og:title" content="Case 3.4 - Post Operative Monitoring">
+  <meta property="og:site_name" content="MD4 SCP Cases">
+  <meta property="og:description" content="Anaesthesia case study on post-operative monitoring and location of care for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:title" content="Case 3.4 - Post Operative Monitoring">
+  <meta property="twitter:description" content="Anaesthesia case study on post-operative monitoring and location of care for medical students.">
+  <meta property="twitter:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <div class="case-actions">
+      </div>
+    </div>
+
+    <h1>Case 3.4 – Post Operative Monitoring_Location of Care</h1>
+    <p class="meta"><strong>Category:</strong> Clinical Skills | <strong>Discipline:</strong> <span class="Medicine">Medicine</span>, <span class="Anaesthesia">Anaesthesia</span> | <strong>Setting:</strong> Recovery</p>
+
+    <h2>Case</h2>
+    <p>Sally is a 56 year old registered nurse. She has just undergone revision of her gastric fundoplication. Unfortunately, the procedure had to be converted from laparoscopic approach to open approach due to bleeding and technical difficulties.</p>
+
+    <p>She was extubated and transferred to recovery with PCA morphine for analgesia. The recovery room nurse asks you to review her because she requiring high-flow oxygen to maintain oxygen saturations of 92% and appears quite drowsy.</p>
+
+    <p>She weighs 96kg and is 160cm tall. She is lying supine with head elevation of 15 degrees. Other medical history includes: gastro-oesophageal reflux disease with oesophageal ulceration and Barrett's oesophagus, hypertension, type 2 diabetes and obstructive sleep apnoea.</p>
+
+    <p><strong>You review the anaesthetic record and discover:</strong></p>
+    <ul>
+      <li>that she had a grade 3 Cormack and Lehane view at laryngoscopy, and a bougie was used to facilitate intubation</li>
+      <li>analgesia intraoperatively was morphine 12mg</li>
+      <li>suxamethonium followed by rocuronium was used for muscle relaxation during the 2 hour case</li>
+    </ul>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Describe your initial approach to this patient's care.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Students should recognize the suboptimal oxygenation described in this scenario, particularly in light of the patients' difficult airway and multiple co-morbidities.</p>
+
+        <p>Review the patient to make a comprehensive assessment including attention to ABC, in addition to history, examination and relevant investigations.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What issues are identified that require consideration in her ongoing management?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h4>Patient:</h4>
+        <ul>
+          <li>Hypoxaemia in PACU (*recognize suboptimal oxygenation)</li>
+          <li>Pre-existing obesity, OSA predisposing to upper airway obstruction and possible central contributors to disordered ventilation</li>
+          <li>Semirecumbent position contributing to reduction in FRC</li>
+          <li>Difficult intubation</li>
+        </ul>
+
+        <h4>Surgery:</h4>
+        <ul>
+          <li>Upper GI surgery (laparoscopic, then open) with consequent impairment of respiratory mechanics (ie. diaphragmatic splinting, reduction of FRC, basal atelectasis)</li>
+        </ul>
+
+        <h4>Anaesthetic:</h4>
+        <ul>
+          <li>Opioid-dependent analgesic regime, absence of multimodal approach</li>
+          <li>Muscle relaxant used → potential for residual NMJ blockade impairing respiratory effort</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What are the potential causes of hypoxaemia in the post-operative setting? Highlight the causes relevant to Sally and outline a management plan to address these.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Classification of the causes of hypoxaemia can be described in 5 functional categories. In the perioperative setting, the cause of hypoxaemia is commonly multifactorial.</p>
+
+        <h4>Reduced FiO2</h4>
+        <ul>
+          <li>effective outcome of diffusion hypoxia with N2O (reduced alveolar FiO2)</li>
+          <li>failure to connect oxygen tubing to supply with transfer</li>
+          <li>(*diffusion hypoxia: N2O washout can decrease alveolar O2 fraction)</li>
+        </ul>
+
+        <h4>Hypoventilation</h4>
+        <ul>
+          <li>airway obstruction: oropharyngeal, laryngospasm, bronchospasm, foreign body</li>
+          <li>impaired ventilatory drive: respiratory depressant drugs eg. opioids, anaesthetic agents, residual NMJ blockade, OSA, intracranial pathology</li>
+          <li>restriction of diaphragmatic excursion: pain (especially upper GI and thoracic surgery/trauma), obesity, abdominal distension</li>
+          <li>presence of air or fluid in the pleural cavity: PTX, HTX, pleural effusion</li>
+        </ul>
+
+        <h4>Ventilation-Perfusion Abnormalities</h4>
+        <ul>
+          <li>decreased FRC and may be exceeded by closing volume</li>
+          <li>cardiac output and PA pressure may be reduced</li>
+          <li>areas with high V/Q ratio represent physiological deadspace</li>
+          <li>areas with low V/Q ratio increase venous admixture</li>
+        </ul>
+
+        <h4>Shunt</h4>
+        <ul>
+          <li>refers to blood that enters to arterial system without going passing through ventilated areas of blood (physiological and pathological)</li>
+          <li>*of minimal relevance to post-op setting except in patients with intracardiac shunts or pulmonary A-V shunts</li>
+        </ul>
+
+        <h4>Impaired Diffusion</h4>
+        <ul>
+          <li>pulmonary interstitial oedema: impaired LVF, excess IV fluid infusion, post-obstructive pulmonary oedema, TRALI, pulmonary contusion</li>
+        </ul>
+
+        <h4>Relevant to Sally:</h4>
+        <p><strong>- hypoventilation:</strong></p>
+        <ul>
+          <li>○ maximize FiO2</li>
+          <li>○ airway obstruction – jaw thrust</li>
+          <li>○ sit upright to optimize resp mechanics</li>
+          <li>○ opioids - consider trial of naloxone</li>
+          <li>○ non-opioid analgesia ie. paracetamol, NSAIDs to opioid-spare</li>
+          <li>○ NMJ blockade – reversal dose +/- repeat dose</li>
+        </ul>
+
+        <p><strong>- V/Q abnormality</strong></p>
+        <ul>
+          <li>○ optimise ventilatory effort</li>
+          <li>○ encourage deep breathing and coughing → chest physio in PACU</li>
+          <li>○ ensure adequate cardiac output and PA pressure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. How does obesity impact on perioperative management? How is obesity categorized?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <h4>Issues for consideration:</h4>
+        <ul>
+          <li>Presence of associated co-morbidities eg. hypertension, IHD, DM, OSA</li>
+          <li>Special load-bearing equipment required ie. operating tables, trolleys</li>
+          <li>Manual handling issues</li>
+          <li>Poor venous access</li>
+          <li>Monitoring issues ie NIBP</li>
+          <li>Difficult airway management</li>
+          <li>Ventilation</li>
+          <li>Altered pharmacokinetics/dynamics</li>
+          <li>Positioning and pressure area care</li>
+          <li>DVT prophylaxis</li>
+          <li>Post-operative location of care</li>
+        </ul>
+
+        <h4>Body Mass Index (BMI)</h4>
+        <p>Body Mass Index (BMI) is a derived figure that adjusts a patient's weight according to their height to give a meaningful and comparable indicator of body habitus.</p>
+
+        <p><strong>BMI = weight (kg)/height (metres squared)</strong></p>
+
+        <table>
+          <tr><th>BMI</th><th>Descriptor</th></tr>
+          <tr><td>&lt;20</td><td>Underweight</td></tr>
+          <tr><td>20-24.9</td><td>Ideal</td></tr>
+          <tr><td>25-29.9</td><td>Overweight</td></tr>
+          <tr><td>30-39.9</td><td>Obese</td></tr>
+          <tr><td>40-49.9</td><td>Morbidly obese</td></tr>
+          <tr><td>50-59.9</td><td>Super obese</td></tr>
+        </table>
+
+        <p>Sally's BMI is 37.5.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What is obstructive sleep apnoea and how does it influence perioperative management?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Disorders of sleep and respiratory control are common in obese patients. These fall into 2 main categories that may co-exist:</p>
+        <ul>
+          <li>(i) obstructive sleep apnoea (OSA)</li>
+          <li>(ii) obesity hypoventilation syndrome (OHS).</li>
+        </ul>
+
+        <h4>OSA</h4>
+        <p>OSA is characterized by intermittent airway obstruction, reduced tidal volume (hypopnea) and apnoea during sleep. These changes result in nocturnal periods of hypoxaemia and hypercarbia and episodes are terminated by sudden arousal.</p>
+
+        <p><strong>Clinical features include:</strong></p>
+        <ul>
+          <li>Snoring</li>
+          <li>Nocturnal apnoeas</li>
+          <li>Daytime somnolence</li>
+          <li>Morning headache</li>
+          <li>Mood disturbance</li>
+          <li>Hypertension: systemic and pulmonary</li>
+          <li>Cor pulmonale</li>
+          <li>*blunting of response to hypoxaemia and hypercarbia</li>
+        </ul>
+
+        <h4>OHS</h4>
+        <p>OHS is characterized by reduced central respiratory drive and hypercarbia in the awake state. Prevalence rises with increasing BMI, and it is associated with the same cardiovascular changes as in OSA.</p>
+
+        <h4>Perioperative Management:</h4>
+        <p>* increased risk of perioperative respiratory depression</p>
+        <ul>
+          <li>(i) Preoperative assessment and management</li>
+          <li>(ii) Perioperative use of CPAP and higher level monitoring</li>
+          <li>(iii) Maximal opioid sparing approach to analgesia (think regional technique, multimodal analgesia)</li>
+          <li>(iv) Care with other sedatives</li>
+          <li>(v) Supplemental oxygen as indicated</li>
+          <li>(vi) Optimise respiratory function</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. What is the appropriate location of care following discharge from recovery for this woman?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Given Sally's condition and potential for deterioration, she requires a greater level of nursing and medical supervision than the general ward can provide. She should be transferred to a high dependency level bed in HDU/ICU.</p>
+
+        <p>She should wear her CPAP mask when sleeping and supplementary oxygen (as standard with her PCA morphine). Appropriate multimodal analgesia and aggressive physiotherapy are indicated.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/access-control.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+
+  <script>
+    // Toggle case flag
+    function toggleCaseFlag() {
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>
