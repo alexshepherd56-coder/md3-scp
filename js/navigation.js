@@ -171,6 +171,9 @@ function saveCurrentFilter(filter) {
 const specialties = document.querySelectorAll('.specialty');
 const weekSections = document.querySelectorAll('.week');
 
+console.log('[Navigation Debug] Specialties found:', specialties.length);
+console.log('[Navigation Debug] Week sections found:', weekSections.length);
+
 function applyFilterBySpecialty(filter) {
   // Only filter case-cards inside scpsMainContent
   document.querySelectorAll('#scpsMainContent .case-card').forEach(card => {
@@ -201,8 +204,10 @@ function applyFilterBySpecialty(filter) {
   }
 }
 
-specialties.forEach(spec => {
+specialties.forEach((spec, index) => {
+  console.log(`[Navigation Debug] Attaching click listener to specialty ${index}:`, spec.dataset.filter);
   spec.addEventListener('click', () => {
+    console.log('[Navigation Debug] Specialty clicked:', spec.dataset.filter);
     // Hide welcome page
     hideWelcomePage();
 
@@ -238,8 +243,12 @@ specialties.forEach(spec => {
 
 // === Group Filters ===
 const groupHeaders = document.querySelectorAll('h2[data-group]');
-groupHeaders.forEach(group => {
+console.log('[Navigation Debug] Group headers found:', groupHeaders.length);
+
+groupHeaders.forEach((group, index) => {
+  console.log(`[Navigation Debug] Attaching click listener to group ${index}:`, group.dataset.group);
   group.addEventListener('click', () => {
+    console.log('[Navigation Debug] Group header clicked:', group.dataset.group);
     // Hide welcome page
     hideWelcomePage();
 
@@ -1052,15 +1061,72 @@ document.addEventListener('DOMContentLoaded', () => {
   // Check for filter parameter in URL - only use URL param, ignore stored filter
   const urlParams = new URLSearchParams(window.location.search);
   const filterParam = urlParams.get('filter');
-  // Always default to 'none' (welcome page) unless URL explicitly has a filter
-  const initialFilter = filterParam || 'none';
 
-  console.log('[Navigation] Initial filter:', initialFilter, 'from URL:', filterParam);
+  // Check localStorage for stored filter (used when coming back from a case)
+  const storedFilter = localStorage.getItem('currentFilter');
+
+  // Use URL param if present, otherwise use stored filter, otherwise default to 'none'
+  const initialFilter = filterParam || storedFilter || 'none';
+
+  console.log('[Navigation] Initial filter:', initialFilter, 'from URL:', filterParam, 'from storage:', storedFilter);
 
   // Apply the initial filter
   if (initialFilter === 'none') {
     // Show welcome page
     showWelcomePage();
+  } else if (initialFilter.startsWith('weekly-')) {
+    // Handle weekly resources filter
+    const resourceId = initialFilter.replace('weekly-', '');
+    console.log('[Navigation] Restoring weekly resource:', resourceId);
+
+    // Hide welcome page and other content
+    hideWelcomePage();
+    if (document.getElementById('pastExamsContent')) {
+      document.getElementById('pastExamsContent').style.display = 'none';
+    }
+    if (document.getElementById('scpsMainContent')) {
+      document.getElementById('scpsMainContent').style.display = 'none';
+    }
+
+    // Show weekly resources content
+    const weeklyResourcesMainContent = document.getElementById('weeklyResourcesMainContent');
+    if (weeklyResourcesMainContent) {
+      weeklyResourcesMainContent.style.display = 'block';
+    }
+
+    // Hide all weekly resource content divs
+    const w1Content = document.getElementById('w1-anaesthesia-content');
+    const w2Content = document.getElementById('w2-anaesthesia-content');
+    if (w1Content) w1Content.style.display = 'none';
+    if (w2Content) w2Content.style.display = 'none';
+
+    // Show the selected weekly resource content
+    const selectedContent = document.getElementById(resourceId + '-content');
+    if (selectedContent) {
+      selectedContent.style.display = 'block';
+    }
+
+    // Expand weekly resources dropdown
+    const weeklyResourcesToggle = document.getElementById('weeklyResourcesToggle');
+    if (weeklyResourcesToggle && window.expandWeeklyResources) {
+      window.expandWeeklyResources();
+      weeklyResourcesToggle.classList.add('active');
+    }
+
+    // Set active state on the weekly resource item
+    const weeklyResourceItem = document.querySelector(`[data-weekly-resource="${resourceId}"]`);
+    if (weeklyResourceItem) {
+      weeklyResourceItem.classList.add('active');
+    }
+
+    // Ensure SCPs is collapsed and not active
+    if (window.collapseScps) {
+      window.collapseScps();
+    }
+    const scpsToggle = document.getElementById('scpsToggle');
+    if (scpsToggle) {
+      scpsToggle.classList.remove('active');
+    }
   } else if (initialFilter === 'all' || initialFilter === 'medicine' || initialFilter === 'surgery' || initialFilter === 'flagged') {
     // Click on group header
     const targetGroup = document.querySelector(`h2[data-group="${initialFilter}"]`);

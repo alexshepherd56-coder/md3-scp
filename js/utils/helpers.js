@@ -125,6 +125,58 @@ function removeLocalStorage(key) {
   }
 }
 
+/**
+ * Migrate localStorage completion data to Firestore
+ * Centralized migration function to avoid duplication
+ * @param {string} userId - User ID
+ * @param {object} firebaseService - Firebase service instance
+ * @returns {Promise<{success: boolean, migratedCount: number}>}
+ */
+async function migrateLocalStorageToFirestore(userId, firebaseService) {
+  try {
+    if (!userId || !firebaseService || !firebaseService.isReady()) {
+      console.warn('[Helpers] Cannot migrate: invalid parameters');
+      return { success: false, migratedCount: 0 };
+    }
+
+    const localData = localStorage.getItem('scp_completedCases');
+    if (!localData) {
+      return { success: true, migratedCount: 0 };
+    }
+
+    const completedCases = JSON.parse(localData);
+    const db = firebaseService.getDb();
+    const userProgressRef = db.collection('users').doc(userId).collection('progress');
+
+    // Check if user already has data in Firestore
+    const existingData = await userProgressRef.limit(1).get();
+
+    // Only migrate if Firestore is empty
+    if (existingData.empty && Object.keys(completedCases).length > 0) {
+      const batch = db.batch();
+
+      for (const [caseId, timestamp] of Object.entries(completedCases)) {
+        const docRef = userProgressRef.doc(caseId);
+        batch.set(docRef, {
+          completedAt: new Date(timestamp),
+          migratedFromLocalStorage: true
+        });
+      }
+
+      await batch.commit();
+      const migratedCount = Object.keys(completedCases).length;
+      console.log(`[Helpers] Migrated ${migratedCount} cases from localStorage to Firestore`);
+
+      return { success: true, migratedCount };
+    }
+
+    return { success: true, migratedCount: 0 };
+  } catch (error) {
+    console.error('[Helpers] Error migrating localStorage data:', error);
+    return { success: false, migratedCount: 0, error: error.message };
+  }
+}
+
 // Export functions for use in modules
 if (typeof window !== 'undefined') {
   window.helpers = {
@@ -135,6 +187,7 @@ if (typeof window !== 'undefined') {
     throttle,
     getLocalStorage,
     setLocalStorage,
-    removeLocalStorage
+    removeLocalStorage,
+    migrateLocalStorageToFirestore
   };
 }

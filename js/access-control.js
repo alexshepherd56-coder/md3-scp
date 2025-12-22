@@ -189,92 +189,35 @@
     return false;
   }
 
-  // Lock restricted exams on index page
-  function lockRestrictedExams() {
-    if (isUserAuthenticated()) return;
+  // Unlock all exams when user is authenticated
+  function unlockAllExams() {
+    console.log('unlockAllExams called');
 
-    // Lock SAQ exams
-    const saqExams = ['2023', '2022'];
-    saqExams.forEach(year => {
-      const examCard = document.querySelector(`.case-card[data-exam="${year}"]`);
-      if (examCard) {
-        examCard.classList.add('locked-exam');
-        examCard.onclick = function(e) {
-          e.stopPropagation();
-          showAuthGate('Create an account to access all past exams and track your progress');
-          return false;
-        };
+    // Remove all lock overlays
+    const lockOverlays = document.querySelectorAll('.lock-overlay');
+    console.log('Found lock overlays:', lockOverlays.length);
+    lockOverlays.forEach(overlay => overlay.remove());
 
-        // Add lock overlay
-        if (!examCard.querySelector('.lock-overlay')) {
-          const lockOverlay = document.createElement('div');
-          lockOverlay.className = 'lock-overlay';
-          lockOverlay.innerHTML = `
-            <div class="lock-content">
-              <div class="lock-icon">🔒</div>
-              <div class="lock-text">Sign in to access</div>
-            </div>
-          `;
+    // Remove locked-exam class and remove event listeners
+    const lockedExams = document.querySelectorAll('.locked-exam');
+    console.log('Found locked exams:', lockedExams.length);
+    lockedExams.forEach(examCard => {
+      console.log('Unlocking exam:', examCard.getAttribute('data-exam'));
+      examCard.classList.remove('locked-exam');
 
-          // Make lock badge clickable to open auth modal
-          const lockContent = lockOverlay.querySelector('.lock-content');
-          lockContent.onclick = function(e) {
-            e.stopPropagation();
-            const authModal = document.getElementById('authModal');
-            if (authModal) {
-              authModal.style.display = 'block';
-              // Switch to sign up tab
-              const signUpTab = document.getElementById('signUpTab');
-              if (signUpTab) {
-                signUpTab.click();
-              }
-            }
-          };
-
-          examCard.appendChild(lockOverlay);
-        }
+      // Remove the event listener if it exists
+      if (examCard._lockHandler) {
+        console.log('Removing lock handler');
+        examCard.removeEventListener('click', examCard._lockHandler, true);
+        delete examCard._lockHandler;
       }
     });
+  }
 
-    // Lock MCQ exam
-    const mcqExamCard = document.querySelector(`.case-card[data-exam="mcq-2023"]`);
-    if (mcqExamCard) {
-      mcqExamCard.classList.add('locked-exam');
-      mcqExamCard.onclick = function(e) {
-        e.stopPropagation();
-        showAuthGate('Create an account to access all past exams and track your progress');
-        return false;
-      };
-
-      // Add lock overlay
-      if (!mcqExamCard.querySelector('.lock-overlay')) {
-        const lockOverlay = document.createElement('div');
-        lockOverlay.className = 'lock-overlay';
-        lockOverlay.innerHTML = `
-          <div class="lock-content">
-            <div class="lock-icon">🔒</div>
-            <div class="lock-text">Sign in to access</div>
-          </div>
-        `;
-
-        // Make lock badge clickable to open auth modal
-        const lockContent = lockOverlay.querySelector('.lock-content');
-        lockContent.onclick = function(e) {
-          e.stopPropagation();
-          const authModal = document.getElementById('authModal');
-          if (authModal) {
-            authModal.style.display = 'block';
-            // Switch to sign up tab
-            const signUpTab = document.getElementById('signUpTab');
-            if (signUpTab) {
-              signUpTab.click();
-            }
-          }
-        };
-
-        mcqExamCard.appendChild(lockOverlay);
-      }
-    }
+  // Lock restricted exams on index page
+  function lockRestrictedExams() {
+    // Locks removed - all exams are now accessible to everyone
+    return;
   }
 
   // Track question progress in exam
@@ -370,17 +313,23 @@
 
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', () => {
+    console.log('access-control.js loaded, pathname:', window.location.pathname);
+
     // Check if on exam index page
     if (window.location.pathname.includes('/year3/index.html') ||
         window.location.pathname.includes('/year4/index.html') ||
-        window.location.pathname.endsWith('/year3/') ||
-        window.location.pathname.endsWith('/year4/')) {
+        window.location.pathname.includes('/year3/') ||
+        window.location.pathname.includes('/year4/')) {
+      console.log('On year page, calling lockRestrictedExams');
       lockRestrictedExams();
 
       // Re-lock when auth state changes
       firebase.auth().onAuthStateChanged(() => {
+        console.log('Auth state changed, calling lockRestrictedExams again');
         lockRestrictedExams();
       });
+    } else {
+      console.log('Not on year page, skipping lock check');
     }
 
     // Check if on exam page

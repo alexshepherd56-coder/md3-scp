@@ -90,8 +90,10 @@ class AuthModule {
 
       if (result.success) {
         console.log('[AuthModule] Sign in successful');
-        // Migrate localStorage data if exists
-        await this.migrateLocalStorageData(result.user.uid);
+        // Migrate localStorage data if exists using centralized helper
+        if (window.helpers && window.helpers.migrateLocalStorageToFirestore) {
+          await window.helpers.migrateLocalStorageToFirestore(result.user.uid, this.firebase);
+        }
         return { success: true, user: result.user };
       } else {
         console.error('[AuthModule] Sign in failed:', result.error);
@@ -129,8 +131,10 @@ class AuthModule {
           subscriptionStatus: 'free'
         });
 
-        // Migrate localStorage data if exists
-        await this.migrateLocalStorageData(user.uid);
+        // Migrate localStorage data if exists using centralized helper
+        if (window.helpers && window.helpers.migrateLocalStorageToFirestore) {
+          await window.helpers.migrateLocalStorageToFirestore(user.uid, this.firebase);
+        }
 
         console.log('[AuthModule] Sign up successful');
         return { success: true, user };
@@ -187,41 +191,6 @@ class AuthModule {
       console.error('[AuthModule] Password reset error:', error);
       this.eventBus.emit('auth:error', { type: 'password-reset', error: error.message });
       return { success: false, error: error.message };
-    }
-  }
-
-  /**
-   * Migrate localStorage data to Firestore (for existing users)
-   */
-  async migrateLocalStorageData(userId) {
-    try {
-      const localData = localStorage.getItem('scp_completedCases');
-      if (!localData) return;
-
-      const completedCases = JSON.parse(localData);
-      const db = this.firebase.getDb();
-      const userProgressRef = db.collection('users').doc(userId).collection('progress');
-
-      // Check if user already has data in Firestore
-      const existingData = await userProgressRef.limit(1).get();
-
-      // Only migrate if Firestore is empty
-      if (existingData.empty && Object.keys(completedCases).length > 0) {
-        const batch = db.batch();
-
-        for (const [caseId, timestamp] of Object.entries(completedCases)) {
-          const docRef = userProgressRef.doc(caseId);
-          batch.set(docRef, {
-            completedAt: new Date(timestamp),
-            migratedFromLocalStorage: true
-          });
-        }
-
-        await batch.commit();
-        console.log('[AuthModule] Migrated localStorage data to Firestore');
-      }
-    } catch (error) {
-      console.error('[AuthModule] Error migrating localStorage data:', error);
     }
   }
 

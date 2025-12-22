@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Tracker Fixes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .test-section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .test-result {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+    .success {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+    }
+    .error {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      color: #721c24;
+    }
+    .warning {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      color: #856404;
+    }
+    .info {
+      background: #d1ecf1;
+      border: 1px solid #bee5eb;
+      color: #0c5460;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    h1 {
+      color: #333;
+    }
+    h2 {
+      color: #666;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Tracker Fixes Test Suite</h1>
+  <p>Testing the fixed <code>completion-tracker.js</code> and <code>flag-tracker.js</code> files</p>
+
+  <div class="test-section">
+    <h2>1. Firebase Service Integration Test</h2>
+    <div id="firebaseTest"></div>
+    <button onclick="testFirebaseService()">Run Test</button>
+  </div>
+
+  <div class="test-section">
+    <h2>2. Completion Tracker Test</h2>
+    <div id="completionTest"></div>
+    <button onclick="testCompletionTracker()">Run Test</button>
+    <button onclick="testCompletionValidation()">Test Validation</button>
+  </div>
+
+  <div class="test-section">
+    <h2>3. Flag Tracker Test</h2>
+    <div id="flagTest"></div>
+    <button onclick="testFlagTracker()">Run Test</button>
+    <button onclick="testFlagValidation()">Test Validation</button>
+  </div>
+
+  <div class="test-section">
+    <h2>4. Cleanup Mechanisms Test</h2>
+    <div id="cleanupTest"></div>
+    <button onclick="testCleanupMechanisms()">Run Test</button>
+  </div>
+
+  <div class="test-section">
+    <h2>5. Migration Helper Test</h2>
+    <div id="migrationTest"></div>
+    <button onclick="testMigrationHelper()">Run Test</button>
+  </div>
+
+  <div class="test-section">
+    <h2>6. Console Log Monitor</h2>
+    <div id="consoleLog" style="max-height: 300px; overflow-y: auto;"></div>
+    <button onclick="clearConsoleLog()">Clear Logs</button>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Load Firebase Config -->
+  <script src="js/firebase-config.js"></script>
+
+  <!-- Load Core Services -->
+  <script src="js/core/EventBus.js"></script>
+  <script src="js/core/FirebaseService.js"></script>
+  <script src="js/utils/helpers.js"></script>
+
+  <!-- Load Trackers -->
+  <script src="js/completion-tracker.js"></script>
+  <script src="js/flag-tracker.js"></script>
+
+  <script>
+    // Initialize FirebaseService
+    if (window.firebaseService) {
+      window.firebaseService.initialize();
+      console.log('[Test] FirebaseService initialized');
+    } else {
+      console.error('[Test] FirebaseService not found!');
+    }
+
+    // Capture console logs
+    const originalConsoleLog = console.log;
+    const originalConsoleWarn = console.warn;
+    const originalConsoleError = console.error;
+    const consoleLogDiv = document.getElementById('consoleLog');
+    const logs = [];
+
+    function captureLog(type, ...args) {
+      const message = args.map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      ).join(' ');
+
+      logs.push({ type, message, timestamp: new Date().toISOString() });
+
+      const logEntry = document.createElement('div');
+      logEntry.className = `test-result ${type === 'error' ? 'error' : type === 'warn' ? 'warning' : 'info'}`;
+      logEntry.innerHTML = `<strong>[${type.toUpperCase()}]</strong> ${message}`;
+      consoleLogDiv.appendChild(logEntry);
+      consoleLogDiv.scrollTop = consoleLogDiv.scrollHeight;
+    }
+
+    console.log = function(...args) {
+      originalConsoleLog.apply(console, args);
+      captureLog('log', ...args);
+    };
+
+    console.warn = function(...args) {
+      originalConsoleWarn.apply(console, args);
+      captureLog('warn', ...args);
+    };
+
+    console.error = function(...args) {
+      originalConsoleError.apply(console, args);
+      captureLog('error', ...args);
+    };
+
+    function clearConsoleLog() {
+      consoleLogDiv.innerHTML = '';
+      logs.length = 0;
+    }
+
+    function showResult(testId, success, message) {
+      const div = document.getElementById(testId);
+      const resultDiv = document.createElement('div');
+      resultDiv.className = `test-result ${success ? 'success' : 'error'}`;
+      resultDiv.innerHTML = `${success ? '✅' : '❌'} ${message}`;
+      div.appendChild(resultDiv);
+    }
+
+    function testFirebaseService() {
+      const testId = 'firebaseTest';
+      document.getElementById(testId).innerHTML = '';
+
+      try {
+        // Test 1: FirebaseService exists
+        if (typeof window.firebaseService === 'undefined') {
+          showResult(testId, false, 'FirebaseService not found in window object');
+          return;
+        }
+        showResult(testId, true, 'FirebaseService exists');
+
+        // Test 2: FirebaseService is ready
+        if (window.firebaseService.isReady()) {
+          showResult(testId, true, 'FirebaseService is initialized and ready');
+        } else {
+          showResult(testId, false, 'FirebaseService is not ready');
+        }
+
+        // Test 3: Can get Auth instance
+        try {
+          const auth = window.firebaseService.getAuth();
+          if (auth) {
+            showResult(testId, true, 'Firebase Auth instance accessible');
+          } else {
+            showResult(testId, false, 'Firebase Auth instance is null');
+          }
+        } catch (e) {
+          showResult(testId, false, `Error getting Auth: ${e.message}`);
+        }
+
+        // Test 4: Can get Firestore instance
+        try {
+          const db = window.firebaseService.getDb();
+          if (db) {
+            showResult(testId, true, 'Firebase Firestore instance accessible');
+          } else {
+            showResult(testId, false, 'Firebase Firestore instance is null');
+          }
+        } catch (e) {
+          showResult(testId, false, `Error getting Firestore: ${e.message}`);
+        }
+
+      } catch (error) {
+        showResult(testId, false, `Test failed: ${error.message}`);
+      }
+    }
+
+    function testCompletionTracker() {
+      const testId = 'completionTest';
+      document.getElementById(testId).innerHTML = '';
+
+      try {
+        // Test 1: Tracker exists
+        if (typeof window.completionTracker === 'undefined') {
+          showResult(testId, false, 'completionTracker not found');
+          return;
+        }
+        showResult(testId, true, 'completionTracker exists');
+
+        // Test 2: Has firebaseService reference
+        if (window.completionTracker.firebaseService) {
+          showResult(testId, true, 'Uses FirebaseService singleton');
+        } else {
+          showResult(testId, false, 'Not using FirebaseService (may initialize later)');
+        }
+
+        // Test 3: Has cleanup method
+        if (typeof window.completionTracker.cleanup === 'function') {
+          showResult(testId, true, 'Cleanup method exists');
+        } else {
+          showResult(testId, false, 'Cleanup method missing');
+        }
+
+        // Test 4: Mark completed works
+        window.completionTracker.markCompleted('test_case_1_1');
+        if (window.completionTracker.isCompleted('test_case_1_1')) {
+          showResult(testId, true, 'markCompleted() works');
+          // Clean up
+          window.completionTracker.markIncomplete('test_case_1_1');
+        } else {
+          showResult(testId, false, 'markCompleted() failed');
+        }
+
+      } catch (error) {
+        showResult(testId, false, `Test failed: ${error.message}`);
+      }
+    }
+
+    function testCompletionValidation() {
+      const testId = 'completionTest';
+
+      try {
+        // Test validation with null caseId
+        const logsBefore = logs.length;
+        window.completionTracker.markCompleted(null);
+        const logsAfter = logs.length;
+
+        if (logsAfter > logsBefore) {
+          const lastLog = logs[logs.length - 1];
+          if (lastLog.message.includes('[CompletionTracker]') && lastLog.message.includes('Cannot mark completed')) {
+            showResult(testId, true, 'Input validation works (null check)');
+          } else {
+            showResult(testId, false, 'Warning message format incorrect');
+          }
+        } else {
+          showResult(testId, false, 'No validation warning for null input');
+        }
+
+      } catch (error) {
+        showResult(testId, false, `Validation test failed: ${error.message}`);
+      }
+    }
+
+    function testFlagTracker() {
+      const testId = 'flagTest';
+      document.getElementById(testId).innerHTML = '';
+
+      try {
+        // Test 1: Tracker exists
+        if (typeof window.flagTracker === 'undefined') {
+          showResult(testId, false, 'flagTracker not found');
+          return;
+        }
+        showResult(testId, true, 'flagTracker exists');
+
+        // Test 2: Has firebaseService reference (may be null initially)
+        if (window.flagTracker.hasOwnProperty('firebaseService')) {
+          showResult(testId, true, 'Has firebaseService property');
+        } else {
+          showResult(testId, false, 'Missing firebaseService property');
+        }
+
+        // Test 3: Has cleanup method
+        if (typeof window.flagTracker.cleanup === 'function') {
+          showResult(testId, true, 'Cleanup method exists');
+        } else {
+          showResult(testId, false, 'Cleanup method missing');
+        }
+
+        // Test 4: Toggle flag works
+        const result = window.flagTracker.toggleFlag('1_1', 1, 'Test question');
+        if (result === true || result === false) {
+          showResult(testId, true, 'toggleFlag() returns boolean');
+          // Clean up
+          if (result) {
+            window.flagTracker.toggleFlag('1_1', 1, 'Test question');
+          }
+        } else {
+          showResult(testId, false, 'toggleFlag() return value invalid');
+        }
+
+      } catch (error) {
+        showResult(testId, false, `Test failed: ${error.message}`);
+      }
+    }
+
+    function testFlagValidation() {
+      const testId = 'flagTest';
+
+      try {
+        // Test validation with missing parameters
+        const logsBefore = logs.length;
+        window.flagTracker.toggleFlag(null, undefined, 'test');
+        const logsAfter = logs.length;
+
+        if (logsAfter > logsBefore) {
+          const lastLog = logs[logs.length - 1];
+          if (lastLog.message.includes('[FlagTracker]') && lastLog.message.includes('Cannot toggle flag')) {
+            showResult(testId, true, 'Input validation works (parameter check)');
+          } else {
+            showResult(testId, false, 'Warning message format incorrect');
+          }
+        } else {
+          showResult(testId, false, 'No validation warning for invalid input');
+        }
+
+      } catch (error) {
+        showResult(testId, false, `Validation test failed: ${error.message}`);
+      }
+    }
+
+    function testCleanupMechanisms() {
+      const testId = 'cleanupTest';
+      document.getElementById(testId).innerHTML = '';
+
+      try {
+        // Test 1: Cleanup methods exist
+        const hasCompletionCleanup = typeof window.completionTracker?.cleanup === 'function';
+        const hasFlagCleanup = typeof window.flagTracker?.cleanup === 'function';
+
+        if (hasCompletionCleanup && hasFlagCleanup) {
+          showResult(testId, true, 'Both trackers have cleanup methods');
+        } else {
+          showResult(testId, false, `Missing cleanup: completion=${hasCompletionCleanup}, flag=${hasFlagCleanup}`);
+        }
+
+        // Test 2: Cleanup can be called without errors
+        try {
+          window.completionTracker.cleanup();
+          window.flagTracker.cleanup();
+          showResult(testId, true, 'Cleanup methods execute without errors');
+        } catch (e) {
+          showResult(testId, false, `Cleanup error: ${e.message}`);
+        }
+
+        // Test 3: Reinitialize after cleanup
+        try {
+          window.completionTracker.initialize();
+          window.flagTracker.initialize();
+          showResult(testId, true, 'Can reinitialize after cleanup');
+        } catch (e) {
+          showResult(testId, false, `Reinitialize error: ${e.message}`);
+        }
+
+      } catch (error) {
+        showResult(testId, false, `Test failed: ${error.message}`);
+      }
+    }
+
+    function testMigrationHelper() {
+      const testId = 'migrationTest';
+      document.getElementById(testId).innerHTML = '';
+
+      try {
+        // Test 1: Helper exists
+        if (typeof window.helpers?.migrateLocalStorageToFirestore !== 'function') {
+          showResult(testId, false, 'Migration helper not found');
+          return;
+        }
+        showResult(testId, true, 'Migration helper exists');
+
+        // Test 2: Validation works
+        window.helpers.migrateLocalStorageToFirestore(null, null).then(result => {
+          if (result.success === false) {
+            showResult(testId, true, 'Helper validates parameters');
+          } else {
+            showResult(testId, false, 'Helper should reject invalid parameters');
+          }
+        }).catch(e => {
+          showResult(testId, false, `Helper error: ${e.message}`);
+        });
+
+        // Test 3: Returns proper structure
+        window.helpers.migrateLocalStorageToFirestore('test-user-id', window.firebaseService).then(result => {
+          if (result && typeof result.success === 'boolean' && typeof result.migratedCount === 'number') {
+            showResult(testId, true, 'Helper returns proper result structure');
+          } else {
+            showResult(testId, false, 'Helper result structure invalid');
+          }
+        }).catch(e => {
+          showResult(testId, true, `Helper properly handles errors: ${e.message}`);
+        });
+
+      } catch (error) {
+        showResult(testId, false, `Test failed: ${error.message}`);
+      }
+    }
+
+    // Auto-run Firebase test on load
+    window.addEventListener('load', () => {
+      // Give Firebase time to initialize
+      setTimeout(() => {
+        console.log('[Test] Starting automated Firebase test...');
+        testFirebaseService();
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

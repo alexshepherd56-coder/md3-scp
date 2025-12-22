@@ -140,8 +140,82 @@ class App {
       console.warn('[App] FlagModule not found in window object');
     }
 
-    // For now, other modules will initialize themselves
-    // Once refactored, they'll register here
+    // Initialize NavigationModule (coordinates view switching)
+    if (window.NavigationModule) {
+      console.log('[App] Initializing NavigationModule...');
+      try {
+        this.modules.navigation = new window.NavigationModule(this);
+        await this.modules.navigation.initialize();
+      } catch (error) {
+        console.error('[App] Error initializing NavigationModule:', error);
+      }
+    }
+
+    // Initialize SCPs feature modules
+    if (window.ScpsModule) {
+      console.log('[App] Initializing ScpsModule...');
+      try {
+        this.modules.scps = new window.ScpsModule(this);
+        await this.modules.scps.initialize();
+
+        if (window.ScpsUI) {
+          console.log('[App] Initializing ScpsUI...');
+          this.modules.scpsUI = new window.ScpsUI(this);
+          this.modules.scpsUI.initialize(this.modules.scps);
+        }
+      } catch (error) {
+        console.error('[App] Error initializing SCPs modules:', error);
+      }
+    }
+
+    // Initialize Exams feature modules
+    if (window.ExamsModule) {
+      console.log('[App] Initializing ExamsModule...');
+      try {
+        this.modules.exams = new window.ExamsModule(this);
+        await this.modules.exams.initialize();
+
+        if (window.ExamsUI) {
+          console.log('[App] Initializing ExamsUI...');
+          this.modules.examsUI = new window.ExamsUI(this);
+          this.modules.examsUI.initialize(this.modules.exams);
+        }
+      } catch (error) {
+        console.error('[App] Error initializing Exams modules:', error);
+      }
+    }
+
+    // Initialize Weekly Resources feature modules
+    if (window.WeeklyResourcesModule) {
+      console.log('[App] Initializing WeeklyResourcesModule...');
+      try {
+        this.modules.resources = new window.WeeklyResourcesModule(this);
+        await this.modules.resources.initialize();
+
+        if (window.WeeklyResourcesUI) {
+          console.log('[App] Initializing WeeklyResourcesUI...');
+          this.modules.resourcesUI = new window.WeeklyResourcesUI(this);
+          this.modules.resourcesUI.initialize(this.modules.resources);
+        }
+      } catch (error) {
+        console.error('[App] Error initializing Weekly Resources modules:', error);
+      }
+    }
+
+    // Initialize view after all modules are loaded (only if no user interaction yet)
+    if (this.modules.navigation) {
+      console.log('[App] Initializing view from navigation module...');
+      // Use longer delay to ensure all modules are fully ready
+      // and user hasn't clicked anything yet
+      setTimeout(() => {
+        // Only initialize if user hasn't interacted yet
+        if (!window._userInteracted) {
+          this.modules.navigation.initializeView();
+        } else {
+          console.log('[App] Skipping initializeView - user already interacted');
+        }
+      }, 300);
+    }
 
     console.log('[App] Modules initialized');
   }

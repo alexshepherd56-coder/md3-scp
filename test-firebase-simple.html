@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Firebase Test</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .result {
+      padding: 10px;
+      margin: 10px 0;
+      background: white;
+      border-left: 4px solid #007bff;
+    }
+    .success { border-color: #28a745; color: #28a745; }
+    .error { border-color: #dc3545; color: #dc3545; }
+    h1 { color: #333; }
+  </style>
+</head>
+<body>
+  <h1>🔥 Firebase Initialization Diagnostic</h1>
+  <div id="results"></div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    const results = document.getElementById('results');
+
+    function log(message, isSuccess = true) {
+      const div = document.createElement('div');
+      div.className = `result ${isSuccess ? 'success' : 'error'}`;
+      div.textContent = message;
+      results.appendChild(div);
+      console.log(message);
+    }
+
+    // Step 1: Check if Firebase SDK is loaded
+    log(`Step 1: Firebase global object exists? ${typeof firebase !== 'undefined' ? '✅ YES' : '❌ NO'}`, typeof firebase !== 'undefined');
+
+    if (typeof firebase !== 'undefined') {
+      log(`   - firebase.auth exists? ${typeof firebase.auth === 'function' ? '✅ YES' : '❌ NO'}`, typeof firebase.auth === 'function');
+      log(`   - firebase.firestore exists? ${typeof firebase.firestore === 'function' ? '✅ YES' : '❌ NO'}`, typeof firebase.firestore === 'function');
+      log(`   - firebase.initializeApp exists? ${typeof firebase.initializeApp === 'function' ? '✅ YES' : '❌ NO'}`, typeof firebase.initializeApp === 'function');
+    }
+  </script>
+
+  <!-- Load Firebase Config -->
+  <script src="js/firebase-config.js"></script>
+
+  <script>
+    // Step 2: Check firebase-config.js results
+    log(`\nStep 2: After firebase-config.js loaded:`);
+    log(`   - window.firebaseApp exists? ${window.firebaseApp ? '✅ YES' : '❌ NO'}`, !!window.firebaseApp);
+    log(`   - window.firebaseAuth exists? ${window.firebaseAuth ? '✅ YES' : '❌ NO'}`, !!window.firebaseAuth);
+    log(`   - window.firebaseDb exists? ${window.firebaseDb ? '✅ YES' : '❌ NO'}`, !!window.firebaseDb);
+  </script>
+
+  <!-- Load Core Services -->
+  <script src="js/core/EventBus.js"></script>
+  <script src="js/core/FirebaseService.js"></script>
+
+  <script>
+    // Step 3: Check FirebaseService
+    log(`\nStep 3: After FirebaseService loaded:`);
+    log(`   - window.firebaseService exists? ${window.firebaseService ? '✅ YES' : '❌ NO'}`, !!window.firebaseService);
+
+    if (window.firebaseService) {
+      log(`   - firebaseService.initialize is a function? ${typeof window.firebaseService.initialize === 'function' ? '✅ YES' : '❌ NO'}`, typeof window.firebaseService.initialize === 'function');
+    }
+
+    // Step 4: Initialize FirebaseService
+    log(`\nStep 4: Calling firebaseService.initialize():`);
+
+    if (window.firebaseService) {
+      const result = window.firebaseService.initialize();
+      log(`   - initialize() returned: ${result}`, result !== false);
+
+      // Step 5: Check if ready
+      setTimeout(() => {
+        log(`\nStep 5: Checking if FirebaseService is ready:`);
+        log(`   - isReady() = ${window.firebaseService.isReady()}`, window.firebaseService.isReady());
+        log(`   - initialized = ${window.firebaseService.initialized}`, window.firebaseService.initialized);
+        log(`   - auth = ${window.firebaseService.auth ? '✅ exists' : '❌ null'}`, !!window.firebaseService.auth);
+        log(`   - db = ${window.firebaseService.db ? '✅ exists' : '❌ null'}`, !!window.firebaseService.db);
+
+        if (window.firebaseService.auth) {
+          log(`\n✅ SUCCESS! Firebase is fully initialized and ready!`, true);
+        } else {
+          log(`\n❌ PROBLEM: FirebaseService initialized but auth/db are null`, false);
+        }
+      }, 100);
+    } else {
+      log(`   - ❌ Cannot initialize - firebaseService not found`, false);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Analytics</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #1a1a1a;
+      color: #0f0;
+    }
+    .status { margin: 10px 0; padding: 10px; background: #2a2a2a; }
+    .ok { color: #0f0; }
+    .error { color: #f00; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+  </style>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Configuration -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/user-analytics.js"></script>
+</head>
+<body>
+  <h1>Analytics System Test</h1>
+
+  <div id="output"></div>
+
+  <button onclick="runTests()">Run Tests</button>
+  <button onclick="checkSessions()">Check My Sessions</button>
+  <button onclick="createTestSession()">Create Test Session</button>
+
+  <script>
+    const output = document.getElementById('output');
+
+    function log(message, isError = false) {
+      const div = document.createElement('div');
+      div.className = 'status ' + (isError ? 'error' : 'ok');
+      div.textContent = message;
+      output.appendChild(div);
+      console.log(message);
+    }
+
+    async function runTests() {
+      output.innerHTML = '';
+      log('=== Starting Analytics Tests ===');
+
+      // Test 1: Firebase loaded
+      if (typeof firebase !== 'undefined') {
+        log('✓ Firebase SDK loaded');
+      } else {
+        log('✗ Firebase SDK NOT loaded', true);
+        return;
+      }
+
+      // Test 2: Firebase initialized
+      if (window.firebaseAuth && window.firebaseDb) {
+        log('✓ Firebase initialized');
+      } else {
+        log('✗ Firebase NOT initialized', true);
+        return;
+      }
+
+      // Test 3: User signed in
+      const user = firebase.auth().currentUser;
+      if (user) {
+        log(`✓ User signed in: ${user.email}`);
+      } else {
+        log('✗ No user signed in', true);
+        log('Please sign in first at http://localhost:8080/index.html');
+        return;
+      }
+
+      // Test 4: UserAnalytics exists
+      if (window.userAnalytics) {
+        log('✓ UserAnalytics object exists');
+      } else {
+        log('✗ UserAnalytics NOT loaded', true);
+        return;
+      }
+
+      // Test 5: Check if analytics is initialized
+      if (window.userAnalytics.auth && window.userAnalytics.db) {
+        log('✓ UserAnalytics initialized');
+      } else {
+        log('✗ UserAnalytics NOT initialized', true);
+        return;
+      }
+
+      // Test 6: Check current session
+      if (window.userAnalytics.currentSessionId) {
+        log(`✓ Active session: ${window.userAnalytics.currentSessionId}`);
+      } else {
+        log('✗ No active session ID', true);
+      }
+
+      // Test 7: Check sessions in Firestore
+      await checkSessions();
+
+      log('=== Tests Complete ===');
+    }
+
+    async function checkSessions() {
+      const user = firebase.auth().currentUser;
+      if (!user) {
+        log('Please sign in first', true);
+        return;
+      }
+
+      log('Checking Firestore for sessions...');
+
+      try {
+        const sessionsSnap = await firebase.firestore()
+          .collection('users').doc(user.uid)
+          .collection('sessions').get();
+
+        log(`Found ${sessionsSnap.size} sessions in Firestore`);
+
+        sessionsSnap.forEach((doc, index) => {
+          const session = doc.data();
+          log(`Session ${index + 1}: ${doc.id}`);
+          log(`  - Active: ${session.isActive}`);
+          log(`  - Duration: ${session.duration || 0}s`);
+          log(`  - Start: ${session.startTime?.toDate()}`);
+          console.log('Full session data:', session);
+        });
+
+        if (sessionsSnap.empty) {
+          log('⚠️ No sessions found! Analytics may not be working.', true);
+        }
+      } catch (error) {
+        log(`Error checking sessions: ${error.message}`, true);
+        console.error(error);
+      }
+    }
+
+    async function createTestSession() {
+      const user = firebase.auth().currentUser;
+      if (!user) {
+        log('Please sign in first', true);
+        return;
+      }
+
+      log('Manually creating a test session...');
+
+      try {
+        if (window.userAnalytics.startSession) {
+          await window.userAnalytics.startSession(user);
+          log('✓ Test session created!');
+          setTimeout(() => checkSessions(), 1000);
+        } else {
+          log('startSession method not found', true);
+        }
+      } catch (error) {
+        log(`Error creating session: ${error.message}`, true);
+        console.error(error);
+      }
+    }
+
+    // Auto-run tests when page loads (if user is signed in)
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        if (firebase.auth().currentUser) {
+          runTests();
+        } else {
+          log('Please sign in at http://localhost:8080/index.html first', true);
+          log('Then come back here and click "Run Tests"', true);
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
