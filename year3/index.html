@@ -121,7 +121,7 @@
       <span class="auth-modal-close" id="authModalClose">&times;</span>
 
       <!-- Value Proposition -->
-      <h2 style="text-align: center; font-size: 2rem; color: #2c3e50; margin-bottom: 10px; font-weight: 600;">Free for 1 Month</h2>
+      <h2 style="text-align: center; font-size: 2rem; color: #2c3e50; margin-bottom: 10px; font-weight: 600;">Free for now!</h2>
 
       <!-- Tab Navigation -->
       <div class="auth-tabs" id="authTabs">
@@ -134,7 +134,6 @@
       <!-- Sign Up Form (Default) -->
       <form id="signUpForm" class="auth-form">
         <p style="margin-bottom: 20px; color: #5a6c7d; font-size: 0.95rem; text-align: center; line-height: 1.8;">
-          If you enjoy the trial, NDhub is $29 for unlimited access to:<br>
           <span style="color: #27ae60; font-weight: 600;">✓</span> All SCPs<br>
           <span style="color: #27ae60; font-weight: 600;">✓</span> All Past Exams<br>
           <span style="color: #27ae60; font-weight: 600;">✓</span> All Past OSCEs<br>
@@ -224,49 +223,25 @@
       <input type="text" id="mobileSearchInput" class="search-bar" placeholder="Search for anything (e.g. Nephrotic Syndrome)">
     </div>
 
+    <!-- Snowfall Canvas (outside welcomePage so it's always available) -->
+    <canvas id="snowfallCanvas" style="display: none;"></canvas>
+
     <!-- Welcome Page -->
     <div id="welcomePage" style="display: none;">
       <div class="welcome-container">
         <h1 class="welcome-greeting" id="welcomeGreeting">Hey there</h1>
         <p class="welcome-subtitle">What would you like to study today?</p>
 
-        <!-- Exam Timeline -->
-        <div class="exam-timeline-container">
-          <!-- Encouragement Text at Top -->
-          <div class="encouragement-text">Good luck, you've got this!</div>
-
-          <!-- Countdown Text -->
-          <div class="exam-countdown-top">
-            <p id="mcqCountdown" class="countdown-text" style="text-align: center; width: 100%;"><strong id="mcqDays">2</strong> days until MCQ</p>
-          </div>
-
-          <div class="exam-timeline-track">
-            <!-- Running Med Student -->
-            <div class="running-student" id="runningStudent">
-              🏃🏽
-            </div>
-
-            <!-- Progress Bar -->
-            <div class="timeline-progress" id="timelineProgress"></div>
-
-            <!-- MCQ Marker -->
-            <div class="exam-marker mcq-marker" style="left: 100%;">
-              <div class="marker-pole"></div>
-              <div class="marker-label">MCQ</div>
-              <div class="marker-date">Fri 28 Nov</div>
-            </div>
-
-            <!-- Finish Beer -->
-            <div class="finish-line">
-              <div class="finish-beer" id="finishBeer">🍺</div>
-            </div>
+        <!-- Holiday Message Section -->
+        <div class="holiday-section">
+          <h2 class="holiday-message">Enjoy the Holidays</h2>
+          <div class="santa-container">
+            <span class="santa-emoji">🎅🏻</span>
           </div>
         </div>
+
       </div>
     </div>
-
-    <!-- Pint Easter Egg Overlay -->
-    <div id="pintEasterEgg" class="pint-easter-egg" style="display: none;"></div>
 
     <!-- Past Exams Section -->
     <div id="pastExamsContent">
@@ -818,7 +793,7 @@
   <script src="../js/core/App.js"></script>
 
   <!-- Navigation (Old system - will be migrated in future) -->
-  <script src="../js/navigation.js"></script>
+  <script src="../js/navigation.js?v=20251222"></script>
 
   <!-- Dark Mode -->
   <script src="../js/dark-mode.js"></script>
@@ -828,6 +803,9 @@
 
   <!-- Exam Countdown (Real-time updates) -->
   <script src="../js/exam-countdown.js"></script>
+
+  <!-- Snowfall Animation -->
+  <script src="../js/snowfall.js"></script>
 
   <script>
     // Set the current year for progress tracking
