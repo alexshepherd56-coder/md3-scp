@@ -481,6 +481,7 @@ header h1 {
   font-weight: 400;
   letter-spacing: 0.5px;
   flex-shrink: 0;
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
 .sidebar h2 {
@@ -625,6 +626,7 @@ header h1 {
   color: var(--claude-secondary);
   margin-top: 4px;
   font-weight: 500;
+  pointer-events: none;
 }
 
 .completion-bar {
@@ -633,6 +635,7 @@ header h1 {
   border-radius: 3px;
   overflow: hidden;
   margin-top: 3px;
+  pointer-events: none;
 }
 
 .completion-bar-fill {
@@ -640,6 +643,7 @@ header h1 {
   background-color: #4CAF50;
   border-radius: 3px;
   transition: width 0.4s ease;
+  pointer-events: none;
 }
 
 /* Hide total count for subspecialties */
@@ -1319,6 +1323,26 @@ a.case-card {
 #saqExamModal h2 {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
+}
+
+/* Learning Objectives Modal - Fullscreen */
+#learningObjectivesModal .modal-content {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  padding: 40px 60px;
+  box-shadow: none;
+}
+
+/* LO Questions Modal - Fullscreen */
+#loQuestionsModal .modal-content {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  padding: 40px 60px;
+  box-shadow: none;
 }
 
 @keyframes modalFadeIn {
