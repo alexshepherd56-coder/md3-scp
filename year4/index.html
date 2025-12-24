@@ -85,6 +85,11 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+
+  <!-- Quill.js Rich Text Editor -->
+  <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
 </head>
 <body>
 
@@ -292,20 +297,74 @@
       <input type="text" id="mobileSearchInput" class="search-bar" placeholder="Search for anything (e.g. Nephrotic Syndrome)">
     </div>
 
-    <!-- Snowfall Canvas (outside welcomePage so it's always available) -->
-    <canvas id="snowfallCanvas" style="display: none;"></canvas>
-
     <!-- Welcome Page -->
     <div id="welcomePage" style="display: none;">
       <div class="welcome-container">
         <h1 class="welcome-greeting" id="welcomeGreeting">Hey there</h1>
-        <p class="welcome-subtitle">What would you like to study today?</p>
 
-        <!-- Holiday Message Section -->
-        <div class="holiday-section">
-          <h2 class="holiday-message">Enjoy the Holidays</h2>
-          <div class="santa-container">
-            <span class="santa-emoji">🎅🏻</span>
+        <!-- Flagged Topics Reminder -->
+        <div id="flaggedTopicsReminder" style="display: none;">
+          <div class="flagged-topics-main-header">
+            <h3>📌 Topics to Review</h3>
+          </div>
+
+          <div class="flagged-topics-grid">
+            <!-- Column 1: Flagged LOs -->
+            <div class="flagged-column">
+              <div class="flagged-column-header">
+                <div class="flagged-column-title-section">
+                  <h4>Flagged LOs</h4>
+                  <span class="flagged-column-count" id="flaggedLOsCount">0</span>
+                </div>
+                <select class="column-sort-dropdown" id="sortLOs">
+                  <option value="recent">Recent</option>
+                  <option value="oldest">Oldest</option>
+                  <option value="week-asc">Week ↑</option>
+                  <option value="week-desc">Week ↓</option>
+                </select>
+              </div>
+              <div class="flagged-column-list" id="flaggedLOsList">
+                <!-- Populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Column 2: Flagged SCPs (entire cases) -->
+            <div class="flagged-column">
+              <div class="flagged-column-header">
+                <div class="flagged-column-title-section">
+                  <h4>Flagged SCPs</h4>
+                  <span class="flagged-column-count" id="flaggedSCPsCount">0</span>
+                </div>
+                <select class="column-sort-dropdown" id="sortSCPs">
+                  <option value="recent">Recent</option>
+                  <option value="oldest">Oldest</option>
+                  <option value="week-asc">Week ↑</option>
+                  <option value="week-desc">Week ↓</option>
+                </select>
+              </div>
+              <div class="flagged-column-list" id="flaggedSCPsList">
+                <!-- Populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Column 3: Flagged SCP Questions -->
+            <div class="flagged-column">
+              <div class="flagged-column-header">
+                <div class="flagged-column-title-section">
+                  <h4>Flagged SCP Questions</h4>
+                  <span class="flagged-column-count" id="flaggedQuestionsCount">0</span>
+                </div>
+                <select class="column-sort-dropdown" id="sortQuestions">
+                  <option value="recent">Recent</option>
+                  <option value="oldest">Oldest</option>
+                  <option value="week-asc">Week ↑</option>
+                  <option value="week-desc">Week ↓</option>
+                </select>
+              </div>
+              <div class="flagged-column-list" id="flaggedQuestionsList">
+                <!-- Populated by JavaScript -->
+              </div>
+            </div>
           </div>
         </div>
 
@@ -2069,10 +2128,16 @@
                 flag.classList.remove('flagged');
                 item.classList.remove('flagged');
                 localStorage.setItem(`${objectiveId}-flagged`, 'false');
+                localStorage.removeItem(`${objectiveId}-text`);
+                localStorage.removeItem(`${objectiveId}-flagged-timestamp`);
               } else {
                 flag.classList.add('flagged');
                 item.classList.add('flagged');
                 localStorage.setItem(`${objectiveId}-flagged`, 'true');
+                // Store the LO text and timestamp for display in flagged topics
+                const loText = text.textContent.trim();
+                localStorage.setItem(`${objectiveId}-text`, loText);
+                localStorage.setItem(`${objectiveId}-flagged-timestamp`, new Date().toISOString());
               }
               updateProgress();
             });
@@ -2449,6 +2514,255 @@
           border-color: #1e3a5f;
         }
 
+        /* ==================== QUILL EDITOR STYLING ==================== */
+
+        .lo-quill-toolbar {
+          background: var(--claude-card-bg);
+          border: 1px solid var(--claude-border);
+          border-radius: 12px 12px 0 0;
+          padding: 8px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 4px;
+          align-items: center;
+        }
+
+        .lo-quill-toolbar .ql-formats {
+          margin-right: 8px;
+        }
+
+        .lo-quill-editor {
+          min-height: 400px;
+          background: var(--claude-card-bg);
+          border: 1px solid var(--claude-border);
+          border-top: none;
+          border-radius: 0 0 12px 12px;
+          font-size: 15px;
+          line-height: 1.7;
+          transition: border-color 0.2s ease;
+        }
+
+        .lo-quill-editor.ql-container {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+          border: 1px solid var(--claude-border);
+          border-top: none;
+          border-radius: 0 0 12px 12px;
+        }
+
+        .lo-quill-editor .ql-editor {
+          min-height: 400px;
+          font-family: inherit;
+          font-size: 15px;
+          line-height: 1.7;
+          color: var(--claude-text);
+          padding: 16px;
+        }
+
+        .lo-quill-editor .ql-editor.ql-blank::before {
+          color: var(--claude-secondary);
+          font-style: normal;
+        }
+
+        /* Focus state */
+        .lo-quill-editor.ql-container.ql-snow:focus-within {
+          border-color: #1e3a5f;
+        }
+
+        .lo-quill-toolbar.ql-snow {
+          border: 1px solid var(--claude-border);
+          border-bottom: none;
+          border-radius: 12px 12px 0 0;
+        }
+
+        /* ==================== IMAGE UPLOAD STYLING ==================== */
+
+        .lo-image-upload-container {
+          margin-top: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .lo-image-thumbnails {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          min-height: 0;
+          transition: all 0.3s ease;
+        }
+
+        /* Show background only when thumbnails exist */
+        .lo-image-thumbnails:has(.lo-thumbnail) {
+          min-height: 120px;
+          padding: 12px;
+          background: var(--claude-light-accent);
+          border-radius: 8px;
+          border: 1px solid var(--claude-border);
+        }
+
+        .lo-thumbnail {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          border-radius: 8px;
+          overflow: hidden;
+          border: 2px solid var(--claude-border);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          background: var(--claude-card-bg);
+        }
+
+        .lo-thumbnail:hover {
+          border-color: #1e3a5f;
+          transform: scale(1.05);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .lo-thumbnail img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .lo-thumbnail-remove {
+          position: absolute;
+          top: 4px;
+          right: 4px;
+          width: 24px;
+          height: 24px;
+          background: rgba(255, 59, 48, 0.95);
+          border: none;
+          border-radius: 50%;
+          color: white;
+          font-size: 16px;
+          line-height: 1;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+          font-weight: bold;
+          padding: 0;
+        }
+
+        .lo-thumbnail:hover .lo-thumbnail-remove {
+          opacity: 1;
+        }
+
+        .lo-thumbnail-remove:hover {
+          background: rgba(255, 59, 48, 1);
+          transform: scale(1.1);
+        }
+
+        .lo-image-upload-zone {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .lo-upload-dropzone {
+          flex: 1;
+          min-height: 120px;
+          border: 2px dashed var(--claude-border);
+          border-radius: 12px;
+          background: var(--claude-card-bg);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          padding: 20px;
+        }
+
+        .lo-upload-dropzone:hover {
+          border-color: #1e3a5f;
+          background: var(--claude-light-accent);
+        }
+
+        .lo-upload-dropzone.drag-over {
+          border-color: #1e3a5f;
+          background: var(--claude-light-accent);
+          border-style: solid;
+          border-width: 3px;
+        }
+
+        .lo-upload-icon {
+          fill: var(--claude-secondary);
+          margin-bottom: 8px;
+        }
+
+        .lo-upload-text {
+          color: var(--claude-text);
+          font-size: 14px;
+          font-weight: 500;
+          margin: 0 0 4px 0;
+        }
+
+        .lo-upload-limit {
+          color: var(--claude-secondary);
+          font-size: 12px;
+          margin: 0;
+        }
+
+        /* ==================== IMAGE MODAL (FULL-SIZE VIEW) ==================== */
+
+        .lo-image-modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.9);
+          z-index: 10000;
+          cursor: pointer;
+          animation: fadeIn 0.2s ease;
+        }
+
+        .lo-image-modal.active {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .lo-image-modal img {
+          max-width: 90vw;
+          max-height: 90vh;
+          object-fit: contain;
+          border-radius: 8px;
+          cursor: default;
+        }
+
+        .lo-image-modal-close {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.2);
+          border: none;
+          border-radius: 50%;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.2s ease;
+          font-weight: bold;
+        }
+
+        .lo-image-modal-close:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
         .lo-answer-container {
           position: relative;
           min-height: 400px;
@@ -2629,7 +2943,59 @@
             <div class="lo-answer-section">
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Your Answer:</div>
-                <textarea class="lo-student-answer" placeholder="Type your answer here..."></textarea>
+
+                <!-- Quill toolbar -->
+                <div id="toolbar-w1-q1" class="lo-quill-toolbar">
+                  <select class="ql-font">
+                    <option value="" selected>Sans Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Monospace</option>
+                  </select>
+                  <select class="ql-size">
+                    <option value="small">Small</option>
+                    <option value="" selected>Normal</option>
+                    <option value="large">Large</option>
+                    <option value="huge">Huge</option>
+                  </select>
+                  <button class="ql-bold"></button>
+                  <button class="ql-italic"></button>
+                  <button class="ql-underline"></button>
+                  <select class="ql-color"></select>
+                  <select class="ql-background"></select>
+                  <button class="ql-list" value="ordered"></button>
+                  <button class="ql-list" value="bullet"></button>
+                  <select class="ql-align">
+                    <option value="" selected></option>
+                    <option value="center"></option>
+                    <option value="right"></option>
+                    <option value="justify"></option>
+                  </select>
+                </div>
+
+                <!-- Quill editor container -->
+                <div id="editor-w1-q1" class="lo-quill-editor"></div>
+
+                <!-- Image upload zone -->
+                <div class="lo-image-upload-container">
+                  <!-- Thumbnails appear here -->
+                  <div class="lo-image-thumbnails" id="thumbnails-w1-q1"></div>
+
+                  <!-- Upload drop zone -->
+                  <div class="lo-image-upload-zone" id="upload-zone-w1-q1">
+                    <input type="file"
+                           id="file-input-w1-q1"
+                           accept="image/png,image/jpeg,image/jpg,image/gif"
+                           multiple
+                           style="display: none;">
+                    <div class="lo-upload-dropzone">
+                      <svg class="lo-upload-icon" width="48" height="48" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                      </svg>
+                      <p class="lo-upload-text">Drag & drop images or click to upload</p>
+                      <p class="lo-upload-limit">Max 5MB • PNG, JPG, JPEG, GIF</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Model Answer:</div>
@@ -2678,7 +3044,56 @@
             <div class="lo-answer-section">
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Your Answer:</div>
-                <textarea class="lo-student-answer" placeholder="Type your answer here..."></textarea>
+
+                <!-- Quill toolbar -->
+                <div id="toolbar-w1-q2" class="lo-quill-toolbar">
+                  <select class="ql-font">
+                    <option value="" selected>Sans Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Monospace</option>
+                  </select>
+                  <select class="ql-size">
+                    <option value="small">Small</option>
+                    <option value="" selected>Normal</option>
+                    <option value="large">Large</option>
+                    <option value="huge">Huge</option>
+                  </select>
+                  <button class="ql-bold"></button>
+                  <button class="ql-italic"></button>
+                  <button class="ql-underline"></button>
+                  <select class="ql-color"></select>
+                  <select class="ql-background"></select>
+                  <button class="ql-list" value="ordered"></button>
+                  <button class="ql-list" value="bullet"></button>
+                  <select class="ql-align">
+                    <option value="" selected></option>
+                    <option value="center"></option>
+                    <option value="right"></option>
+                    <option value="justify"></option>
+                  </select>
+                </div>
+
+                <!-- Quill editor container -->
+                <div id="editor-w1-q2" class="lo-quill-editor"></div>
+
+                <!-- Image upload zone -->
+                <div class="lo-image-upload-container">
+                  <div class="lo-image-thumbnails" id="thumbnails-w1-q2"></div>
+                  <div class="lo-image-upload-zone" id="upload-zone-w1-q2">
+                    <input type="file"
+                           id="file-input-w1-q2"
+                           accept="image/png,image/jpeg,image/jpg,image/gif"
+                           multiple
+                           style="display: none;">
+                    <div class="lo-upload-dropzone">
+                      <svg class="lo-upload-icon" width="48" height="48" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                      </svg>
+                      <p class="lo-upload-text">Drag & drop images or click to upload</p>
+                      <p class="lo-upload-limit">Max 5MB • PNG, JPG, JPEG, GIF</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Model Answer:</div>
@@ -2714,7 +3129,56 @@
             <div class="lo-answer-section">
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Your Answer:</div>
-                <textarea class="lo-student-answer" placeholder="Type your answer here..."></textarea>
+
+                <!-- Quill toolbar -->
+                <div id="toolbar-w1-q3" class="lo-quill-toolbar">
+                  <select class="ql-font">
+                    <option value="" selected>Sans Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Monospace</option>
+                  </select>
+                  <select class="ql-size">
+                    <option value="small">Small</option>
+                    <option value="" selected>Normal</option>
+                    <option value="large">Large</option>
+                    <option value="huge">Huge</option>
+                  </select>
+                  <button class="ql-bold"></button>
+                  <button class="ql-italic"></button>
+                  <button class="ql-underline"></button>
+                  <select class="ql-color"></select>
+                  <select class="ql-background"></select>
+                  <button class="ql-list" value="ordered"></button>
+                  <button class="ql-list" value="bullet"></button>
+                  <select class="ql-align">
+                    <option value="" selected></option>
+                    <option value="center"></option>
+                    <option value="right"></option>
+                    <option value="justify"></option>
+                  </select>
+                </div>
+
+                <!-- Quill editor container -->
+                <div id="editor-w1-q3" class="lo-quill-editor"></div>
+
+                <!-- Image upload zone -->
+                <div class="lo-image-upload-container">
+                  <div class="lo-image-thumbnails" id="thumbnails-w1-q3"></div>
+                  <div class="lo-image-upload-zone" id="upload-zone-w1-q3">
+                    <input type="file"
+                           id="file-input-w1-q3"
+                           accept="image/png,image/jpeg,image/jpg,image/gif"
+                           multiple
+                           style="display: none;">
+                    <div class="lo-upload-dropzone">
+                      <svg class="lo-upload-icon" width="48" height="48" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                      </svg>
+                      <p class="lo-upload-text">Drag & drop images or click to upload</p>
+                      <p class="lo-upload-limit">Max 5MB • PNG, JPG, JPEG, GIF</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Model Answer:</div>
@@ -2749,7 +3213,56 @@
             <div class="lo-answer-section">
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Your Answer:</div>
-                <textarea class="lo-student-answer" placeholder="Type your answer here..."></textarea>
+
+                <!-- Quill toolbar -->
+                <div id="toolbar-w1-q4" class="lo-quill-toolbar">
+                  <select class="ql-font">
+                    <option value="" selected>Sans Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Monospace</option>
+                  </select>
+                  <select class="ql-size">
+                    <option value="small">Small</option>
+                    <option value="" selected>Normal</option>
+                    <option value="large">Large</option>
+                    <option value="huge">Huge</option>
+                  </select>
+                  <button class="ql-bold"></button>
+                  <button class="ql-italic"></button>
+                  <button class="ql-underline"></button>
+                  <select class="ql-color"></select>
+                  <select class="ql-background"></select>
+                  <button class="ql-list" value="ordered"></button>
+                  <button class="ql-list" value="bullet"></button>
+                  <select class="ql-align">
+                    <option value="" selected></option>
+                    <option value="center"></option>
+                    <option value="right"></option>
+                    <option value="justify"></option>
+                  </select>
+                </div>
+
+                <!-- Quill editor container -->
+                <div id="editor-w1-q4" class="lo-quill-editor"></div>
+
+                <!-- Image upload zone -->
+                <div class="lo-image-upload-container">
+                  <div class="lo-image-thumbnails" id="thumbnails-w1-q4"></div>
+                  <div class="lo-image-upload-zone" id="upload-zone-w1-q4">
+                    <input type="file"
+                           id="file-input-w1-q4"
+                           accept="image/png,image/jpeg,image/jpg,image/gif"
+                           multiple
+                           style="display: none;">
+                    <div class="lo-upload-dropzone">
+                      <svg class="lo-upload-icon" width="48" height="48" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                      </svg>
+                      <p class="lo-upload-text">Drag & drop images or click to upload</p>
+                      <p class="lo-upload-limit">Max 5MB • PNG, JPG, JPEG, GIF</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Model Answer:</div>
@@ -2788,7 +3301,56 @@
             <div class="lo-answer-section">
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Your Answer:</div>
-                <textarea class="lo-student-answer" placeholder="Type your answer here..."></textarea>
+
+                <!-- Quill toolbar -->
+                <div id="toolbar-w1-q5" class="lo-quill-toolbar">
+                  <select class="ql-font">
+                    <option value="" selected>Sans Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Monospace</option>
+                  </select>
+                  <select class="ql-size">
+                    <option value="small">Small</option>
+                    <option value="" selected>Normal</option>
+                    <option value="large">Large</option>
+                    <option value="huge">Huge</option>
+                  </select>
+                  <button class="ql-bold"></button>
+                  <button class="ql-italic"></button>
+                  <button class="ql-underline"></button>
+                  <select class="ql-color"></select>
+                  <select class="ql-background"></select>
+                  <button class="ql-list" value="ordered"></button>
+                  <button class="ql-list" value="bullet"></button>
+                  <select class="ql-align">
+                    <option value="" selected></option>
+                    <option value="center"></option>
+                    <option value="right"></option>
+                    <option value="justify"></option>
+                  </select>
+                </div>
+
+                <!-- Quill editor container -->
+                <div id="editor-w1-q5" class="lo-quill-editor"></div>
+
+                <!-- Image upload zone -->
+                <div class="lo-image-upload-container">
+                  <div class="lo-image-thumbnails" id="thumbnails-w1-q5"></div>
+                  <div class="lo-image-upload-zone" id="upload-zone-w1-q5">
+                    <input type="file"
+                           id="file-input-w1-q5"
+                           accept="image/png,image/jpeg,image/jpg,image/gif"
+                           multiple
+                           style="display: none;">
+                    <div class="lo-upload-dropzone">
+                      <svg class="lo-upload-icon" width="48" height="48" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                      </svg>
+                      <p class="lo-upload-text">Drag & drop images or click to upload</p>
+                      <p class="lo-upload-limit">Max 5MB • PNG, JPG, JPEG, GIF</p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="lo-answer-box">
                 <div class="lo-answer-label">Model Answer:</div>
@@ -2881,30 +3443,33 @@
             const savedAnswer = localStorage.getItem(`${questionId}-answer`);
             const isFlagged = localStorage.getItem(`${questionId}-flagged`) === 'true';
 
-            if (savedAnswer) {
+            if (savedAnswer && studentAnswer) {
               studentAnswer.value = savedAnswer;
               if (navBtn) navBtn.classList.add('attempted');
             }
 
-            if (isFlagged) {
+            if (isFlagged && flagBtn) {
               flagBtn.classList.add('flagged');
               if (navBtn) navBtn.classList.add('flagged');
             }
 
             // Save answer as user types and mark as attempted
-            studentAnswer.addEventListener('input', () => {
-              localStorage.setItem(`${questionId}-answer`, studentAnswer.value);
-              if (studentAnswer.value.trim().length > 0) {
-                if (navBtn) navBtn.classList.add('attempted');
-              } else {
-                if (navBtn) navBtn.classList.remove('attempted');
-              }
-              updateProgress();
-            });
+            if (studentAnswer) {
+              studentAnswer.addEventListener('input', () => {
+                localStorage.setItem(`${questionId}-answer`, studentAnswer.value);
+                if (studentAnswer.value.trim().length > 0) {
+                  if (navBtn) navBtn.classList.add('attempted');
+                } else {
+                  if (navBtn) navBtn.classList.remove('attempted');
+                }
+                updateProgress();
+              });
+            }
 
             // Flag button handler
-            flagBtn.addEventListener('click', () => {
-              const currentlyFlagged = flagBtn.classList.contains('flagged');
+            if (flagBtn) {
+              flagBtn.addEventListener('click', () => {
+                const currentlyFlagged = flagBtn.classList.contains('flagged');
 
               if (currentlyFlagged) {
                 flagBtn.classList.remove('flagged');
@@ -2916,20 +3481,23 @@
                 localStorage.setItem(`${questionId}-flagged`, 'true');
               }
               updateProgress();
-            });
+              });
+            }
 
             // Toggle answer button
-            toggleBtn.addEventListener('click', () => {
-              const flashcard = content.querySelector('.lo-flashcard');
-              const isFlipped = flashcard.classList.contains('flipped');
-              if (isFlipped) {
-                flashcard.classList.remove('flipped');
-                toggleBtn.textContent = 'Show ChatGPT Answer';
-              } else {
-                flashcard.classList.add('flipped');
-                toggleBtn.textContent = 'Hide ChatGPT Answer';
-              }
-            });
+            if (toggleBtn) {
+              toggleBtn.addEventListener('click', () => {
+                const flashcard = content.querySelector('.lo-flashcard');
+                const isFlipped = flashcard.classList.contains('flipped');
+                if (isFlipped) {
+                  flashcard.classList.remove('flipped');
+                  toggleBtn.textContent = 'Show ChatGPT Answer';
+                } else {
+                  flashcard.classList.add('flipped');
+                  toggleBtn.textContent = 'Hide ChatGPT Answer';
+                }
+              });
+            }
           });
 
           // Update progress
@@ -3033,9 +3601,6 @@
 
   <!-- Exam Countdown (Real-time updates) -->
   <script src="../js/exam-countdown.js"></script>
-
-  <!-- Snowfall Animation -->
-  <script src="../js/snowfall.js"></script>
 
   <script>
     // Set the current year for progress tracking
@@ -3595,6 +4160,497 @@
       // Close handled internally within modal
     });
   </script>
+
+  <!-- LO Questions Module Scripts -->
+  <script src="../js/modules/loQuestions/ImageUploadManager.js"></script>
+  <script src="../js/modules/loQuestions/LOQuestionsModule.js"></script>
+
+  <script>
+    // Initialize LO Questions Module when DOM is ready
+    (function() {
+      // Wait for Firebase and other services to be ready
+      const initializeLOQuestionsModule = () => {
+        // Check if Quill is loaded
+        if (typeof Quill === 'undefined') {
+          console.error('[LO Questions] Quill.js not loaded, retrying...');
+          setTimeout(initializeLOQuestionsModule, 100);
+          return;
+        }
+
+        // Initialize with or without Firebase
+        const hasFirebaseService = window.firebaseService && typeof window.firebaseService.getCurrentUser === 'function';
+
+        if (hasFirebaseService) {
+          // Initialize with Firebase
+          window.loQuestionsModule = new LOQuestionsModule(
+            {
+              firebaseService: window.firebaseService,
+              eventBus: window.eventBus
+            },
+            {
+              moduleId: 'w1-questions',
+              questionIds: ['w1-q1', 'w1-q2', 'w1-q3', 'w1-q4', 'w1-q5'],
+              year: 'year4',
+              autoSaveDelay: 2000
+            }
+          );
+        } else {
+          // Initialize without Firebase (localStorage only)
+          console.warn('[LO Questions] FirebaseService not available, initializing without auth');
+          window.loQuestionsModule = new LOQuestionsModule(
+            {},
+            {
+              moduleId: 'w1-questions',
+              questionIds: ['w1-q1', 'w1-q2', 'w1-q3', 'w1-q4', 'w1-q5'],
+              year: 'year4',
+              autoSaveDelay: 2000
+            }
+          );
+        }
+
+        // Initialize the module
+        window.loQuestionsModule.initialize();
+      };
+
+      // Start initialization when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeLOQuestionsModule);
+      } else {
+        // DOM already loaded
+        initializeLOQuestionsModule();
+      }
+    })();
+
+    // Flagged Topics Reminder System - 3 Columns (LOs, Cases, Questions)
+    (function() {
+      console.log('[FlaggedTopics] Initializing...');
+
+      // Sort preferences
+      let sortPrefs = {
+        los: 'recent',
+        scps: 'recent',
+        questions: 'recent'
+      };
+
+      // Escape HTML to prevent XSS
+      function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      // Format date as relative time
+      function formatRelativeDate(dateString) {
+        if (!dateString) return 'Unknown';
+
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffMs = now - date;
+        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        const diffWeeks = Math.floor(diffDays / 7);
+        const diffMonths = Math.floor(diffDays / 30);
+
+        if (diffDays === 0) return 'Flagged today';
+        if (diffDays === 1) return 'Flagged yesterday';
+        if (diffDays < 7) return `Flagged ${diffDays} days ago`;
+        if (diffWeeks < 4) return `Flagged ${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago`;
+        return `Flagged ${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago`;
+      }
+
+      // Sort items based on preference
+      function sortItems(items, sortBy) {
+        return [...items].sort((a, b) => {
+          switch (sortBy) {
+            case 'recent':
+              return new Date(b.flaggedAt || 0) - new Date(a.flaggedAt || 0);
+            case 'oldest':
+              return new Date(a.flaggedAt || 0) - new Date(b.flaggedAt || 0);
+            case 'week-asc':
+              return (a.week || 0) - (b.week || 0);
+            case 'week-desc':
+              return (b.week || 0) - (a.week || 0);
+            default:
+              return 0;
+          }
+        });
+      }
+
+      // Build case metadata map from DOM
+      function buildCaseMetadata() {
+        const caseMetadata = {};
+        const caseCards = document.querySelectorAll('.case-card[href*="case"]');
+
+        caseCards.forEach(card => {
+          const href = card.getAttribute('href');
+          const match = href ? href.match(/case(\d+_\d+)\.html/) : null;
+
+          if (match) {
+            const weekNum = parseInt(match[1].split('_')[0]);
+            const caseNum = match[1].split('_')[1];
+            const caseId = `year4_${match[1]}`;
+            const title = card.querySelector('h3')?.textContent || '';
+            caseMetadata[caseId] = {
+              id: caseId,
+              title: title,
+              href: href,
+              week: weekNum,
+              caseNum: caseNum
+            };
+          }
+        });
+
+        console.log('[FlaggedTopics] Built metadata for', Object.keys(caseMetadata).length, 'cases');
+        return caseMetadata;
+      }
+
+      // Week topics mapping
+      const WEEK_TOPICS = {
+        1: 'Anaesthesia',
+        2: 'Anaesthesia',
+        3: 'Anaesthetics',
+        4: 'Anaesthetics',
+        5: 'Intensive Care',
+        6: 'Intensive Care',
+        7: 'Emergency Medicine',
+        8: 'Emergency Medicine',
+        9: 'Emergency Medicine',
+        10: 'Emergency Medicine',
+        11: 'Emergency Paediatrics',
+        12: 'Emergency Medicine',
+        13: 'Medicine',
+        14: 'Surgery',
+        15: 'Endocrinology',
+        16: 'Hepatology',
+        17: 'Medicine',
+        18: 'Paediatrics and Child Health',
+        19: 'Dermatology',
+        20: 'Medicine',
+        21: 'Ophthalmology',
+        22: 'Ophthalmology',
+        23: 'Neurosurgery',
+        24: 'Psychiatry'
+      };
+
+      // Get all flagged LOs from localStorage
+      function getFlaggedLOs() {
+        const flaggedLOs = [];
+        const seenIds = new Set(); // Track which IDs we've already processed
+
+        // Scan localStorage for flagged LOs
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+
+          // Match pattern like "w1-obj-3-flagged" or similar
+          const objMatch = key && key.match(/^(w(\d+)-.*?-(\d+))-flagged$/);
+
+          if (objMatch && localStorage.getItem(key) === 'true') {
+            const objectiveId = objMatch[1]; // e.g., "w1-obj-3"
+            const week = parseInt(objMatch[2]); // e.g., 1
+            const loNumber = objMatch[3]; // e.g., "3"
+
+            // Skip if we've already processed this ID
+            if (seenIds.has(objectiveId)) {
+              console.log('[FlaggedTopics] Skipping duplicate:', objectiveId, 'from key:', key);
+              continue;
+            }
+            seenIds.add(objectiveId);
+
+            console.log('[FlaggedTopics] Found flagged LO:', objectiveId);
+
+            // Try to find the actual LO element in the DOM to get its text
+            // Try multiple selectors since LOs might be in different formats
+            let loElement = document.querySelector(`[data-objective-id="${objectiveId}"]`);
+            console.log('[FlaggedTopics] Direct query result:', loElement);
+
+            // If not found, try searching in all learning objective items
+            if (!loElement) {
+              const allLOs = document.querySelectorAll('.learning-objective-item');
+              console.log('[FlaggedTopics] Total LO items found:', allLOs.length);
+              for (const el of allLOs) {
+                if (el.getAttribute('data-objective-id') === objectiveId) {
+                  loElement = el;
+                  console.log('[FlaggedTopics] Found LO element by iteration');
+                  break;
+                }
+              }
+            }
+
+            let loText = '';
+
+            // First try to get the text from localStorage (saved when flagged)
+            const savedText = localStorage.getItem(`${objectiveId}-text`);
+            if (savedText) {
+              loText = savedText;
+              console.log('[FlaggedTopics] LO text from localStorage:', loText.substring(0, 50) + '...');
+            } else if (loElement) {
+              // Fallback: try to get from DOM if element is available
+              const textElement = loElement.querySelector('.objective-text');
+              loText = textElement ? textElement.textContent.trim() : '';
+              if (loText) {
+                // Save to localStorage for future use (fixes missing text on subsequent renders)
+                localStorage.setItem(`${objectiveId}-text`, loText);
+                console.log('[FlaggedTopics] LO text from DOM (saved to localStorage):', loText.substring(0, 50) + '...');
+              } else {
+                console.log('[FlaggedTopics] LO text from DOM was empty');
+              }
+            }
+
+            // If still no text, use a descriptive fallback
+            if (!loText) {
+              console.warn('[FlaggedTopics] Could not find LO text for:', objectiveId);
+              loText = `Learning Objective ${loNumber} - Click to view details`;
+            }
+
+            // Get timestamp
+            const timestamp = localStorage.getItem(`${objectiveId}-flagged-timestamp`) || new Date().toISOString();
+
+            // Use the week topics mapping for the title
+            const weekTopic = WEEK_TOPICS[week] || 'Learning Objective';
+
+            flaggedLOs.push({
+              id: objectiveId,
+              title: `W${week} - ${weekTopic}`,
+              preview: loText,
+              week: week,
+              loNumber: loNumber,
+              flaggedAt: timestamp,
+              href: '#' // Will handle modal opening separately
+            });
+          }
+        }
+
+        console.log('[FlaggedTopics] Total flagged LOs found:', flaggedLOs.length);
+        console.log('[FlaggedTopics] First LO before return:', flaggedLOs[0]);
+        return flaggedLOs;
+      }
+
+      // Get all flagged cases (entire cases, not individual questions)
+      function getFlaggedCases() {
+        const flaggedCases = [];
+
+        if (window.flagTracker && typeof window.flagTracker.getAllFlaggedCases === 'function') {
+          const cases = window.flagTracker.getAllFlaggedCases();
+          const caseMetadata = buildCaseMetadata();
+
+          cases.forEach(flaggedCase => {
+            const caseInfo = caseMetadata[flaggedCase.caseId] || {};
+
+            flaggedCases.push({
+              id: flaggedCase.caseId,
+              title: caseInfo.title || `Case ${flaggedCase.caseId}`,
+              week: caseInfo.week || 0,
+              caseNum: caseInfo.caseNum || '',
+              flaggedAt: flaggedCase.flaggedAt,
+              href: caseInfo.href || '#'
+            });
+          });
+        }
+
+        return flaggedCases;
+      }
+
+      // Get all flagged questions (individual questions within cases)
+      function getFlaggedQuestions() {
+        const flaggedQuestions = [];
+
+        if (window.flagTracker && typeof window.flagTracker.getAllFlags === 'function') {
+          const questions = window.flagTracker.getAllFlags();
+          const caseMetadata = buildCaseMetadata();
+
+          questions.forEach(flag => {
+            const caseInfo = caseMetadata[flag.caseId] || {};
+
+            flaggedQuestions.push({
+              id: `${flag.caseId}_q${flag.questionNumber}`,
+              title: caseInfo.title || `Case ${flag.caseId}`,
+              caseNum: `${caseInfo.week}.${caseInfo.caseNum}`,
+              questionNum: flag.questionNumber,
+              preview: flag.questionText || '',
+              week: caseInfo.week || 0,
+              flaggedAt: flag.flaggedAt,
+              href: caseInfo.href || '#'
+            });
+          });
+        } else if (window.app && window.app.getModule) {
+          const flagModule = window.app.getModule('flag');
+          if (flagModule && typeof flagModule.getAllFlags === 'function') {
+            const questions = flagModule.getAllFlags();
+            const caseMetadata = buildCaseMetadata();
+
+            questions.forEach(flag => {
+              const caseInfo = caseMetadata[flag.caseId] || {};
+
+              flaggedQuestions.push({
+                id: `${flag.caseId}_q${flag.questionNumber}`,
+                title: caseInfo.title || `Case ${flag.caseId}`,
+                caseNum: `${caseInfo.week}.${caseInfo.caseNum}`,
+                questionNum: flag.questionNumber,
+                preview: flag.questionText || '',
+                week: caseInfo.week || 0,
+                flaggedAt: flag.flaggedAt,
+                href: caseInfo.href || '#'
+              });
+            });
+          }
+        }
+
+        return flaggedQuestions;
+      }
+
+      // Update all three columns
+      let isUpdating = false;
+      function updateFlaggedTopics() {
+        if (isUpdating) {
+          console.log('[FlaggedTopics] Already updating, skipping...');
+          return;
+        }
+        isUpdating = true;
+        console.log('[FlaggedTopics] Updating display...');
+
+        const reminderContainer = document.getElementById('flaggedTopicsReminder');
+        const losListEl = document.getElementById('flaggedLOsList');
+        const scpsListEl = document.getElementById('flaggedSCPsList');
+        const questionsListEl = document.getElementById('flaggedQuestionsList');
+
+        const losCountEl = document.getElementById('flaggedLOsCount');
+        const scpsCountEl = document.getElementById('flaggedSCPsCount');
+        const questionsCountEl = document.getElementById('flaggedQuestionsCount');
+
+        if (!reminderContainer || !losListEl || !scpsListEl || !questionsListEl) {
+          console.warn('[FlaggedTopics] Container elements not found');
+          isUpdating = false;
+          return;
+        }
+
+        // Get all flagged items
+        const flaggedLOs = getFlaggedLOs();
+        const flaggedCases = getFlaggedCases();
+        const flaggedQuestions = getFlaggedQuestions();
+
+        const totalCount = flaggedLOs.length + flaggedCases.length + flaggedQuestions.length;
+
+        console.log('[FlaggedTopics] Found:', flaggedLOs.length, 'LOs,', flaggedCases.length, 'Cases,', flaggedQuestions.length, 'Questions');
+
+        if (totalCount === 0) {
+          reminderContainer.style.display = 'none';
+          isUpdating = false;
+          return;
+        }
+
+        // Update counts
+        losCountEl.textContent = flaggedLOs.length;
+        scpsCountEl.textContent = flaggedCases.length;
+        questionsCountEl.textContent = flaggedQuestions.length;
+
+        // Sort each list
+        const sortedLOs = sortItems(flaggedLOs, sortPrefs.los);
+        const sortedCases = sortItems(flaggedCases, sortPrefs.scps);
+        const sortedQuestions = sortItems(flaggedQuestions, sortPrefs.questions);
+
+        // Debug: Log preview data
+        console.log('[FlaggedTopics] Sample LO data:', sortedLOs[0]);
+
+        // Build HTML for LOs
+        losListEl.innerHTML = sortedLOs.map(lo => `
+          <a href="${escapeHtml(lo.href)}" class="flagged-item-tile" data-objective-id="${escapeHtml(lo.id)}">
+            <div class="flagged-item-title">${escapeHtml(lo.title)}</div>
+            ${lo.preview ? `<div class="flagged-item-preview">${escapeHtml(lo.preview)}</div>` : ''}
+            <div class="flagged-item-date">${formatRelativeDate(lo.flaggedAt)}</div>
+          </a>
+        `).join('') || '<div style="padding: 16px; text-align: center; color: #999;">No flagged LOs</div>';
+
+        // Build HTML for Cases
+        scpsListEl.innerHTML = sortedCases.map(scp => `
+          <a href="${escapeHtml(scp.href)}" class="flagged-item-tile">
+            <div class="flagged-item-title">${escapeHtml(scp.title)}</div>
+            <div class="flagged-item-date">${formatRelativeDate(scp.flaggedAt)}</div>
+          </a>
+        `).join('') || '<div style="padding: 16px; text-align: center; color: #999;">No flagged cases</div>';
+
+        // Build HTML for Questions
+        questionsListEl.innerHTML = sortedQuestions.map(q => `
+          <a href="${escapeHtml(q.href)}" class="flagged-item-tile">
+            <div class="flagged-item-title">${escapeHtml(q.caseNum)} ${escapeHtml(q.title)}</div>
+            ${q.preview ? `<div class="flagged-item-preview">Q${q.questionNum}: ${escapeHtml(q.preview)}</div>` : ''}
+            <div class="flagged-item-date">${formatRelativeDate(q.flaggedAt)}</div>
+          </a>
+        `).join('') || '<div style="padding: 16px; text-align: center; color: #999;">No flagged questions</div>';
+
+        // Show the reminder
+        reminderContainer.style.display = 'block';
+        console.log('[FlaggedTopics] Display updated');
+        isUpdating = false;
+      }
+
+      // Initialize on DOM ready
+      function initializeFlaggedTopics() {
+        console.log('[FlaggedTopics] DOM ready, initializing...');
+
+        // Initial update
+        setTimeout(() => {
+          updateFlaggedTopics();
+        }, 500);
+
+        // Sort dropdown event listeners
+        const sortLOsEl = document.getElementById('sortLOs');
+        const sortSCPsEl = document.getElementById('sortSCPs');
+        const sortQuestionsEl = document.getElementById('sortQuestions');
+
+        if (sortLOsEl) {
+          sortLOsEl.addEventListener('change', (e) => {
+            sortPrefs.los = e.target.value;
+            updateFlaggedTopics();
+          });
+        }
+
+        if (sortSCPsEl) {
+          sortSCPsEl.addEventListener('change', (e) => {
+            sortPrefs.scps = e.target.value;
+            updateFlaggedTopics();
+          });
+        }
+
+        if (sortQuestionsEl) {
+          sortQuestionsEl.addEventListener('change', (e) => {
+            sortPrefs.questions = e.target.value;
+            updateFlaggedTopics();
+          });
+        }
+
+        // Listen for flag events
+        if (window.eventBus) {
+          window.eventBus.on('flag:question-flagged', updateFlaggedTopics);
+          window.eventBus.on('flag:question-unflagged', updateFlaggedTopics);
+          window.eventBus.on('flag:case-flagged', updateFlaggedTopics);
+          window.eventBus.on('flag:case-unflagged', updateFlaggedTopics);
+          window.eventBus.on('flag:initialized', updateFlaggedTopics);
+          window.eventBus.on('flag:loaded-from-local', updateFlaggedTopics);
+        } else if (window.app) {
+          window.app.on('flag:question-flagged', updateFlaggedTopics);
+          window.app.on('flag:question-unflagged', updateFlaggedTopics);
+          window.app.on('flag:case-flagged', updateFlaggedTopics);
+          window.app.on('flag:case-unflagged', updateFlaggedTopics);
+          window.app.on('flag:initialized', updateFlaggedTopics);
+          window.app.on('flag:loaded-from-local', updateFlaggedTopics);
+        }
+
+        // Periodic update as fallback to catch LO flags
+        setInterval(updateFlaggedTopics, 5000);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeFlaggedTopics);
+      } else {
+        initializeFlaggedTopics();
+      }
+    })();
+  </script>
+
+  <!-- Image Modal for Full-Size View -->
+  <div id="lo-image-modal" class="lo-image-modal">
+    <button class="lo-image-modal-close">×</button>
+    <img id="lo-image-modal-img" src="" alt="Full size image">
+  </div>
 
 </body>
   <script>

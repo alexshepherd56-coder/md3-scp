@@ -38,6 +38,11 @@ service cloud.firestore {
       match /featureUsage/{usageId} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
       }
+
+      // LO Questions data (rich text and images metadata)
+      match /year4/loQuestions/questions/{questionId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
     }
 
     // Allow authenticated users to read all user profiles (for admin dashboard)
