@@ -1,0 +1,265 @@
+---
+id: "2.2"
+title: "Cardiomyopathy (Dilated) [SDL]"
+category: "Cardiovascular"
+discipline: "Medicine"
+setting: "Emergency Department"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+Michael Frank, aged 68 years, presents feeling fatigued and acutely breathless and unwell. He experienced an inferior myocardial infarction 5 years ago, and underwent insertion of a coronary stent. However, he then had a second inferio-lateral infarct 3 years ago and required further stenting. An echocardiogram following his most recent infarct suggested early features of dilated cardiomyopathy.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="What further history and examination is required?"
+>
+
+Acute onset of breathlessness may be:
+        
+
+          - Cardiovascular
+
+          - Respiratory
+
+          - Metabolic
+
+        
+
+        
+
+A detailed history of the onset of the problem is imperative. Given this man's history, consideration and exclusion of another myocardial infarction with acute heart failure is imperative. The other priorities to exclude as soon as possible include acute pulmonary oedema and pulmonary embolus.
+        
+
+**Features that must be sought on history include:**
+        
+
+          - **Pain or discomfort:** Type of pain, location, radiation, previous experience with this pain?
+
+          - **Cough:** Productive, non-productive, or blood-stained
+
+          - Sweating
+
+          - Light-headedness
+
+          - Fevers
+
+          - Nausea and vomiting
+
+          - Lower limb oedema
+
+          - Calf discomfort
+
+          - Recent travel
+
+          - Recent change in medications
+
+        
+
+        
+
+**Physical examination:**
+        
+
+Must start with general inspection of the patient and a rapid assessment of the degree of distress they are experiencing.
+        
+
+          - Degree of agitation
+
+          - Breathlessness including orthopnoea
+
+          - Pallor (peripheral/central cyanosis)
+
+          - Prostration
+
+          - Pulse and blood pressure
+
+          - JVP
+
+          - Heart sounds
+
+          - Auscultation of the chest
+
+          - Examination of lower limb or sacral oedema
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="What initial investigations would you order?"
+>
+
+The initial investigations include:
+        
+
+          - **Blood tests:** FBC, EUC, TFT, cardiac enzymes
+
+          - **Chest x-ray**
+
+          - **ECG**
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="What are the main causes of dilated cardiomyopathy?"
+>
+
+**Main causes of dilated cardiomyopathy:**
+        
+
+          - **Inherited:** Single gene mutations
+
+          - **Alcohol**
+
+          - **Inherited muscular dystrophies**
+
+          - **Autoimmune to viral myocarditis**
+
+        
+
+        
+
+**Important note:** Ischaemic cardiomyopathy must be excluded before dilated cardiomyopathy can be diagnosed.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={4}
+  question="Discuss the value of an echocardiogram in this setting compared to plain imaging or CT?"
+>
+
+**Echocardiography:**
+        
+
+Two-dimensional echocardiography allows a non-invasive, well-tolerated method of examining both the **structure and function** of the heart.
+        
+
+**Advantages over plain imaging:**
+        
+
+          - Plain imaging (chest x-ray) only shows structure
+
+          - Echocardiography shows both structure and function
+
+          - Can assess:
+            
+
+              - Ventricular function and ejection fraction
+
+              - Wall motion abnormalities
+
+              - Valve function
+
+              - Chamber sizes
+
+              - Pericardial effusions
+
+            
+
+          
+
+        
+
+        
+
+Echocardiography is the gold standard for assessing cardiac structure and function in suspected cardiomyopathy.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={5}
+  question="Discuss the value of a heart assessment, such as proposed by the National Heart Foundation in the routine population?"
+>
+
+Two strategies are suggested to prevent heart disease in healthy, but at-risk populations:
+        
+
+**Strategy 1: Population approach**
+        
+
+          - Risk factors of the whole population may be considered through public health messages on diet, smoking and exercise
+
+        
+
+        
+
+**Strategy 2: High-risk approach**
+        
+
+          - Target populations are identified and high-risk individuals are targeted for treatment strategies
+
+        
+
+        
+
+**The National Heart Foundation and the Cardiac Society of Australia and New Zealand have identified these high-risk groups as people with:**
+        
+
+          - Pre-existing vascular disease
+
+          - Diabetes
+
+          - Renal disease
+
+          - Aboriginal and Torres Strait Islanders
+
+          - Familial hypercholesterolaemia
+
+          - A positive family history of heart disease
+
+          - Metabolic disorder with central adiposity
+
+        
+
+        
+
+In this second group, correction of risk factors is considered paramount in order to prevent vascular events.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={6}
+  question="What risk factors should have been sought and treated in a male with ischaemic heart disease?"
+>
+
+- Past history or current history of smoking
+
+          - Knowledge of a family history
+
+          - Hypercholesterolaemia or hyperlipidaemia
+
+          - Hypertension
+
+          - Diabetes (type 1 or type 2)
+
+          - Physical inactivity
+
+          - Obesity
+
+          - Other dietary factors including a diet that is low in fresh fruit, vegetables and polyunsaturated fatty acids
+
+          - Alcohol intake
+
+          - Past history of clotting disturbances
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={7}
+  question="What is the current evidence base behind the role of coronary stenting?"
+>
+
+**Coronary stenting:**
+        
+
+Coronary stents allow complete dilation of the artery and reduce the risk in the short term and longer term for re-occlusion of the artery which may occur if an angioplasty alone is performed. This is especially effective when stenting is combined with long-term use of aspirin and/or other platelet receptor inhibitors.
+
+</CaseQuestion>

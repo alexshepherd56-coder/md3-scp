@@ -1,0 +1,389 @@
+---
+id: "3.6"
+title: "Cholecystitis & Biliary Colic"
+category: "Surgery"
+discipline: "Surgery - General"
+setting: "Emergency Department"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+<strong>Patient:</strong> Annette Everley, 42 years old</p>
+    <p><strong>Presentation:</strong> Acute right upper abdominal pain, screaming for pain relief</p>
+    <p><strong>Vital Signs:</strong> Temperature 37.2°C</p>
+    <p><strong>Physical Examination:</strong> Marked right upper quadrant (RUQ) tenderness
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="Complete Blood Count (CBC)"
+>
+
+<h3>Laboratory Tests</h3>
+
+        
+
+**1. Complete Blood Count (CBC)**
+        
+
+          - **White Blood Cell Count:**
+            
+
+              - Elevated (> 12,000) in acute cholecystitis
+
+              - Normal in biliary colic
+
+              - Markedly elevated with left shift in cholangitis or perforation
+
+            
+
+          
+
+          - **Hemoglobin/Hematocrit:** Rule out anemia from peptic ulcer bleeding
+
+        
+
+        
+
+**2. Liver Function Tests (LFTs)**
+        
+
+          - **Bilirubin (total and direct):**
+            
+
+              - Elevated in cholangitis and choledocholithiasis
+
+              - Mildly elevated or normal in cholecystitis (unless Mirizzi syndrome)
+
+              - Markedly elevated in hepatitis
+
+            
+
+          
+
+          - **Alkaline Phosphatase (ALP) and Gamma-GT:**
+            
+
+              - Elevated in biliary obstruction (cholangitis, choledocholithiasis)
+
+              - Pattern: cholestatic (high ALP, GGT) vs hepatocellular (high transaminases)
+
+            
+
+          
+
+          - **Transaminases (AST, ALT):**
+            
+
+              - Mildly elevated in cholecystitis
+
+              - Moderately elevated in choledocholithiasis (transient spike)
+
+              - Markedly elevated (> 1000) in acute hepatitis
+
+            
+
+          
+
+          - **Albumin:** Assess synthetic liver function and nutritional status
+
+        
+
+        
+
+**3. Pancreatic Enzymes**
+        
+
+          - **Lipase/Amylase:** Elevated in pancreatitis (gallstone pancreatitis is common with choledocholithiasis)
+
+        
+
+        
+
+**4. Inflammatory Markers**
+        
+
+          - **C-Reactive Protein (CRP):** Elevated in cholecystitis, helps assess inflammation severity
+
+        
+
+        
+
+**5. Blood Cultures**
+        
+
+          - If sepsis or cholangitis suspected (fever, rigors, hypotension)
+
+          - Obtain before starting antibiotics
+
+        
+
+        
+
+**6. Coagulation Profile**
+        
+
+          - **PT/INR:** May be prolonged in cholestasis (vitamin K malabsorption) or liver disease
+
+          - Important if surgery planned
+
+        
+
+        
+
+**7. Basic Metabolic Panel**
+        
+
+          - Assess renal function, electrolytes (especially if vomiting)
+
+          - Glucose (diabetes is risk factor for gallstones)
+
+        
+
+        
+
+**8. Urinalysis**
+        
+
+          - Rule out urinary tract infection or pyelonephritis
+
+          - Check for bilirubin (suggests conjugated hyperbilirubinemia)
+
+        
+
+        <h3>Imaging Studies</h3>
+
+        
+
+**1. Right Upper Quadrant Ultrasound (First-line imaging)**
+        
+
+          - **Advantages:**
+            
+
+              - Non-invasive, no radiation, rapid, bedside availability
+
+              - High sensitivity (95%) and specificity (95%) for gallstones
+
+              - Excellent for evaluating gallbladder wall, pericholecystic fluid
+
+            
+
+          
+
+          - **Findings in Acute Cholecystitis:**
+            
+
+              - Gallstones (may see impacted stone in gallbladder neck or cystic duct)
+
+              - Gallbladder wall thickening (> 3-4 mm)
+
+              - Pericholecystic fluid
+
+              - Sonographic Murphy's sign (maximal tenderness over gallbladder with ultrasound probe)
+
+              - Gallbladder distension (> 10 cm length or > 5 cm width)
+
+            
+
+          
+
+          - **Findings in Biliary Colic:**
+            
+
+              - Gallstones present
+
+              - No wall thickening, no pericholecystic fluid
+
+              - No sonographic Murphy's sign
+
+            
+
+          
+
+          - **Limitations:**
+            
+
+              - Limited visualization of common bile duct (CBD) stones (sensitivity 50-75%)
+
+              - Operator-dependent
+
+              - Difficult in obese patients or with overlying bowel gas
+
+            
+
+          
+
+        
+
+        
+
+**2. HIDA Scan (Hepatobiliary Iminodiacetic Acid Scintigraphy)**
+        
+
+          - **Indication:** If ultrasound equivocal but high clinical suspicion for acute cholecystitis
+
+          - **Technique:** IV radiotracer is taken up by hepatocytes and excreted into bile
+
+          - **Interpretation:**
+            
+
+              - Non-visualization of gallbladder suggests cystic duct obstruction (acute cholecystitis)
+
+              - Sensitivity 95%, specificity 90% for acute cholecystitis
+
+            
+
+          
+
+          - **Limitations:** Time-consuming (up to 4 hours), requires fasting, false positives in critically ill or TPN patients
+
+        
+
+        
+
+**3. CT Abdomen/Pelvis with IV Contrast**
+        
+
+          - **Indications:**
+            
+
+              - Unclear diagnosis or suspicion of complications
+
+              - Evaluate for perforation, abscess, emphysematous cholecystitis
+
+              - Assess other differential diagnoses (pancreatitis, appendicitis, bowel pathology)
+
+            
+
+          
+
+          - **Findings in cholecystitis:**
+            
+
+              - Gallbladder wall thickening and enhancement
+
+              - Pericholecystic fat stranding and fluid
+
+              - Gallbladder distension
+
+            
+
+          
+
+          - **Advantages:** Comprehensive evaluation of abdomen, identifies complications
+
+          - **Limitations:** Radiation exposure, less sensitive than ultrasound for gallstones (30% are radiolucent)
+
+        
+
+        
+
+**4. Magnetic Resonance Cholangiopancreatography (MRCP)**
+        
+
+          - **Indications:**
+            
+
+              - Suspected choledocholithiasis (elevated bilirubin, dilated CBD on ultrasound)
+
+              - Evaluate biliary anatomy before surgery
+
+              - Alternative to ERCP when therapeutic intervention not needed
+
+            
+
+          
+
+          - **Advantages:**
+            
+
+              - Non-invasive, excellent visualization of biliary tree and pancreatic duct
+
+              - High sensitivity (90-95%) for CBD stones
+
+            
+
+          
+
+          - **Limitations:** Expensive, time-consuming, limited availability
+
+        
+
+        
+
+**5. Endoscopic Retrograde Cholangiopancreatography (ERCP)**
+        
+
+          - **Indications:**
+            
+
+              - Therapeutic intervention for known or highly suspected choledocholithiasis
+
+              - Cholangitis requiring urgent biliary drainage
+
+              - Gallstone pancreatitis with persistent obstruction
+
+            
+
+          
+
+          - **Procedure:** Endoscopic sphincterotomy and stone extraction, biliary stent placement
+
+          - **Risks:** Pancreatitis (5%), bleeding, perforation, infection
+
+          - **Note:** Both diagnostic and therapeutic
+
+        
+
+        
+
+**6. Endoscopic Ultrasound (EUS)**
+        
+
+          - **Indication:** High sensitivity for small CBD stones when MRCP inconclusive
+
+          - **Advantage:** Can combine diagnosis with therapeutic ERCP in same session
+
+        
+
+        
+
+**7. Plain Abdominal X-ray**
+        
+
+          - **Limited utility:** Only 10-15% of gallstones are radiopaque
+
+          - **May show:** Porcelain gallbladder (calcified wall), emphysematous cholecystitis (gas in gallbladder wall), pneumoperitoneum if perforated
+
+          - Useful to rule out other causes (bowel obstruction, perforation)
+
+        
+
+        <h3>Recommended Imaging Algorithm</h3>
+        
+
+          - **First-line:** RUQ Ultrasound - for suspected biliary pathology
+
+          - **If ultrasound positive for cholecystitis:** Proceed to surgical consultation
+
+          - **If ultrasound equivocal:** Consider HIDA scan
+
+          - **If concern for CBD stones:** Check CBD diameter on ultrasound
+            
+
+              - If dilated (> 6 mm) or LFTs suggest obstruction: MRCP or ERCP
+
+            
+
+          
+
+          - **If unclear diagnosis or concern for complications:** CT abdomen/pelvis
+
+</CaseQuestion>

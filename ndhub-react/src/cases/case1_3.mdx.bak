@@ -1,0 +1,404 @@
+---
+id: "1.3"
+title: "Heart Failure"
+category: "Cardiovascular"
+discipline: "General practice"
+setting: "Urban Community"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+Milik Alkeri is a 56 year old Aboriginal male from the Dharruk people. He presents breathless and distressed. He states that for a few days he has been increasingly fighting for his breath and having difficulty sleeping at night. However, now he is breathless at rest.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="Outline the causes of acute dyspnoea."
+>
+
+**SOME CAUSES OF DYSPNOEA**
+        <table>
+          <tr>
+            <th>System</th>
+            <th>Acute dyspnoea at rest</th>
+            <th>Chronic exertional dyspnoea</th>
+          </tr>
+          <tr>
+            <td>Cardiovascular system</td>
+            <td>
+              *Acute pulmonary oedema<br>
+              Acute coronary syndrome
+            </td>
+            <td>
+              *Chronic congestive cardiac failure<br>
+              Myocardial ischaemia
+            </td>
+          </tr>
+          <tr>
+            <td>Respiratory system</td>
+            <td>
+              * Acute severe asthma<br>
+              * Acute exacerbation of chronic obstructive pulmonary disease<br>
+              * Pneumothorax<br>
+              * Pneumonia<br>
+              * Pulmonary embolus<br>
+              Acute respiratory distress syndrome<br>
+              Inhaled foreign body (especially in the child)<br>
+              Lobar collapse<br>
+              Laryngeal oedema (e.g. anaphylaxis)
+            </td>
+            <td>
+              * Chronic obstructive pulmonary disease<br>
+              * Chronic asthma<br>
+              Chronic pulmonary thromboembolism<br>
+              Bronchial carcinoma<br>
+              Interstitial lung diseases: sarcoidosis, fibrosing alveolitis, extrinsic allergic alveolitis, pneumoconiosis<br>
+              Lymphatic carcinomatosis (may cause intolerable dyspnoea)<br>
+              Large pleural effusion(s)
+            </td>
+          </tr>
+          <tr>
+            <td>Others</td>
+            <td>
+              Metabolic acidosis (e.g. diabetic ketoacidosis, lactic acidosis, uraemia, overdose of salicylates, ethylene glycol poisoning)<br>
+              Hyperventilation
+            </td>
+            <td>
+              Severe anaemia<br>
+              Obesity
+            </td>
+          </tr>
+        </table>
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="List the different types of heart failure and describe their underlying pathophysiology."
+>
+
+**TYPES OF HEART FAILURE**
+        
+
+Heart failure can be described or classified in several ways.
+
+        
+
+**Left, right and biventricular heart failure**
+        
+
+The left side of the heart is a term for the functional unit of the left atrium and left ventricle, together with the mitral and aortic valves; the right heart comprises the right atrium, right ventricle, tricuspid and pulmonary valves.
+        
+
+          - **Left-sided heart failure.** There is a reduction in the left ventricular output and/or an increase in the left atrial or pulmonary venous pressure. An acute increase in left atrial pressure may cause pulmonary congestion or pulmonary oedema; a more gradual increase in left atrial pressure, as occurs with mitral stenosis, may lead to reflex pulmonary vasoconstriction, which protects the patient from pulmonary oedema at the cost of increasing pulmonary hypertension.
+
+          - **Right-sided heart failure.** There is a reduction in right ventricular output for any given right atrial pressure. Causes of isolated right heart failure include chronic lung disease (cor pulmonale), multiple pulmonary emboli and pulmonary valvular stenosis.
+
+          - **Biventricular heart failure.** Failure of the left and right heart may develop because the disease process (e.g. dilated cardiomyopathy or ischaemic heart disease) affects both ventricles, or because disease of the left heart leads to chronic elevation of the left atrial pressure, pulmonary hypertension and right heart failure.
+
+        
+
+        
+
+**Forward and backward heart failure**
+        
+
+In some patients with heart failure the predominant problem is an inadequate cardiac output (forward failure), whilst other patients may have a normal or near-normal cardiac output with marked salt and water retention causing pulmonary and systemic venous congestion (backward failure).
+
+        
+
+**Diastolic and systolic dysfunction**
+        
+
+Heart failure may develop as a result of impaired myocardial contraction (systolic dysfunction) but can also be due to poor ventricular filling and high filling pressures caused by abnormal ventricular relaxation (diastolic dysfunction, 30 to 50% occurs in the setting of normal left ventricular ejection fraction, Traditionally called diastolic heart failure, evidence for subtle abnormalities of systolic contraction means 'heart failure with normal ejection fraction' (HFNEF) is the preferred term). The latter is commonly found in patients with left ventricular hypertrophy and occurs in many forms of heart disease, notably hypertension and ischaemic heart disease. Systolic and diastolic dysfunctions often coexist, particularly in patients with coronary artery disease.
+
+        
+
+**High-output failure**
+        
+
+Conditions that are associated with a very high cardiac output (e.g. a large arteriovenous shunt, beri-beri, severe anaemia or thyrotoxicosis) can occasionally cause heart failure. In such cases, additional causes of heart failure are often present.
+
+        
+
+**Acute and chronic heart failure**
+        
+
+Heart failure may develop suddenly, as in myocardial infarction, or gradually, as in progressive valvular heart disease. When there is gradual impairment of cardiac function, a variety of compensatory changes may take place.
+        
+
+The phrase 'compensated heart failure' is sometimes used to describe a patient with impaired cardiac function in whom adaptive changes have prevented the development of overt heart failure. A minor event, such as an intercurrent infection or development of atrial fibrillation, may precipitate overt or acute heart failure in this type of patient. Acute left heart failure occurs either de novo or as an acute decompensated episode on a background of chronic heart failure, i.e. acute-on-chronic heart failure.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="What further clinical assessment would you undertake on this patient (history and examination)?"
+>
+
+**History**
+        
+
+The New York Heart Association functional classification should be documented initially and with each review to monitor progress. Their classification of CHF symptoms is:
+        
+
+          - Class I – asymptomatic left ventricular dysfunction
+
+          - Class II – symptoms with normal activities
+
+          - Class III – symptoms with less than normal activities
+
+          - Class IV – symptoms at rest
+
+        
+
+        
+
+          - Assess degree of dyspnoea and the progression from onset.
+
+          - Enquire about orthopnoea, paroxysmal nocturnal dysponoea
+
+          - Associated symptoms – fatigue, weakness, cough, syncope, chest pain, palpitations
+
+          - Current medical problems – hypertension, diabetes, ischaemic heart disease, peripheral vascular disease, hyperlipidaemia.
+
+          - Past medical history – valvular disease, rheumatic fever.
+
+          - Family history – heart disease, cardiomyopathy
+
+          - Social – smoking, alcohol, medications.
+
+        
+
+        
+
+**Examination**
+        
+
+          - Assess degree of respiratory distress, presence of cyanosis, pallor, sweating/
+
+          - BP, PR, RR, temperature
+
+          - CVS examination – signs of underlying cardiac disease e.g. enlarged left ventricle, underlying valvular disease e.g. murmur. Presence of a third heart sound.
+
+          - Assess signs of heart failure (fluid retention) – JVP, Lungs - basal inspiratory crackles, ankle & sacral oedema, ascites, hepatomegaly.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={4}
+  question="What investigations would you order and why?"
+>
+
+Initial investigations include chest X-ray, electrocardiogram (ECG), blood tests (including electrolytes, renal function, liver enzymes, full blood count, thyroid function, iron studies, autoimmune screen) and a transthoracic echocardiogram – this is the key investigation in management of heart failure. Chest X-ray will identify cardiomegaly and pulmonary congestion, while the ECG will identify arrthythmia, tachycardia and evidence of previous myocardial infarction (q-waves).
+        
+
+Blood results identify causes and aggravating factors such as anaemia or thyroid dysfunction. Measurement of the plasma brain natriureticpeptide (BNP), which is released by ventricular myocardium in response to pressure or volume stress, may help 'rule out' CHF. A BNP \&lt;100 pg/ mL makes the diagnosis of CHF very unlikely
+        
+
+In all newly diagnosed CHF patients, assessment of CAD should be considered, as this represents a potentially reversible cause of CHF. This makes a critical difference in the management of patients with heart failure because if there is significant coronary artery disease and the patient is revascularised, this will improve ventricular function and prognosis
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={5}
+  question="What features on chest X-ray would suggest a diagnosis of heart failure?"
+>
+
+**The chest X-ray in left heart failure**
+        
+
+A rise in pulmonary venous pressure from left-sided cardiac failure first shows on the chest X-ray as an abnormal distension of the upper lobe pulmonary veins (with the patient in the erect position). The vascularity of the lung fields becomes more prominent, and the right and left pulmonary arteries dilate. Subsequently, interstitial oedema causes thickened interlobular septa and dilated lymphatics. These are evident as horizontal lines in the costophrenic angles (septal or 'Kerley B' lines). More advanced changes due to alveolar oedema cause a hazy opacification spreading from the hilar regions, and pleural effusions.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={6}
+  question="Following history and examination, describe the emergency management of Milik in this scenario?"
+>
+
+This needs urgent treatment: Call an ambulance to arrange emergency transfer to hospital. In your GP surgery, do as much as you can with what you have available. Generally you would be to request patient to sit, provide oxygen (10-15 lit/min), administer nitrates (sublingual) if systolic blood pressure is above 100 mmHg, repeated three times, every 5 minutes, maximum 3 times
+        
+
+▶ Topical nitrite is not part of treatment of acute heart failure any more
+
+        
+
+**Management of acute pulmonary oedema in Emergency Department**
+        
+
+Acute heart failure (AHF) is a clinical syndrome characterised by the rapid onset and progression of breathlessness and exhaustion. There is usually fluid overload. Acute heart failure typically occurs as 'acute decompensated heart failure' (ADHF) either secondary to chronic heart failure (CHF) or de novo. The more severe presentations of acute heart failure are acute pulmonary oedema (APO).
+        
+
+          - **Posture:** Patient supported in sitting up position. Supine position if unconscious or in cardiogenic shock
+
+          - **Oxygen:** If stable 5-10 L/min, if not stable 10-15 L/min
+
+          - **Glyceryl trinitrate** (sublingual, IV), provided systolic blood pressure above 100mmHg
+
+          - **Frusemide** 20-80 mg IV, repeated 20 minutes later if necessary
+
+          - **Assessment for NIV** (Non Invasive Ventilation), CPAP (commencing with 10cm of water pressure) or BiPAP (commencing with 10 cm of water pressure of IPAP and 4cm of water pressure of EPAP)
+
+        
+
+        
+
+The patient should initially be kept on strict bed rest with continuous monitoring, including cardiac rhythm, blood pressure and pulse oximetry.
+        
+
+Intravenous opiates may be cautiously used when patients are in extremis. They reduce sympathetically mediated peripheral vasoconstriction but run the risk of respiratory depression and exacerbation of hypoxia and hypercapnia.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={7}
+  question="What general measures are used in the management of chronic heart failure and why?"
+>
+
+**Education**
+        
+
+          - Explanation of nature of disease, treatment and self-help strategies
+
+        
+
+        
+
+**Diet**
+        
+
+          - Good general nutrition and weight reduction for the obese
+
+          - Avoidance of high-salt foods and added salt, especially for patients with severe congestive heart failure
+
+        
+
+        
+
+**Alcohol**
+        
+
+          - Moderate or eliminate alcohol consumption. Alcohol-induced cardiomyopathy requires abstinence
+
+        
+
+        
+
+**Smoking** – Cease
+
+        
+
+**Exercise**
+        
+
+          - Regular moderate aerobic exercise within limits of symptoms
+
+        
+
+        
+
+**Vaccination**
+        
+
+          - Influenza and pneumococcal vaccination should be considered
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={8}
+  question="Review and describe the evidence for the clinical benefits of ACE Inhibitors, Angiotensin receptor blockers and beta blockers in the management of chronic heart failure."
+>
+
+**Angiotensin-converting enzyme (ACE) inhibitors and Angiotensin Receptor Blockers (ARB)**
+
+        
+
+Angiotensin converting enzyme inhibitors are indicated in all classes of CHF, including asymptomatic patients with LV dysfunction and following MI. They improve mortality, reduce hospitalisation and improve symptoms.
+
+        
+
+Angiotensin receptor blockers have been shown to have similar improvements in mortality, hospitalisations and symptoms compared to ACEIs. They should be considered in patients intolerant of ACEIs due to cough.
+
+        
+
+The development of these drugs has been a major advance in the treatment of heart failure. They interrupt the vicious circle of neurohormonal activation that is characteristic of moderate and severe heart failure by preventing the conversion of angiotensin I to angiotensin II, thereby preventing salt and water retention, peripheral arterial and venous vasoconstriction, and activation of the sympathetic nervous system. They also prevent the undesirable activation of the renin-angiotensin system caused by diuretic therapy.
+
+        
+
+The major benefit of ACE inhibitor therapy in heart failure is a reduction in after load; however, there may also be an advantageous reduction in preload and a modest increase in the plasma potassium concentration. Treating heart failure, with a combination of a loop diuretic and an ACE inhibitor therefore has many potential advantages.
+
+        
+
+Clinical trials have shown that in moderate and severe heart failure, ACE inhibitors can produce a substantial improvement in effort tolerance and in mortality. ACE inhibitors can also improve outcome and prevent the onset of overt heart failure in patients with poor residual left ventricular function following myocardial infarction.
+
+        
+
+**ACE INHIBITORS AND TREATMENT OF CHRONIC HEART FAILURE**
+        
+
+'ACE inhibitors in chronic heart failure due to ventricular dysfunction reduce mortality and readmission rates with average NNTB for 1 year to prevent one death = 16 and for the combined endpoint of death or readmission = 10.'
+        
+
+          - Garg R, Yusuf S, for the Collaborative Group on ACE inhibitor trials. JAMA 1995;273:1450-1456.
+
+          - Acute infarction Ramipril Efficacy (AIRE) Study Investigators. Lancet 1993; 342:821-828.
+
+        
+
+        
+
+**ACE INHIBITORS AND PREVENTION OF THE DEVELOPMENT OF HEART FAILURE**
+        
+
+'ACE inhibitors can delay the development of symptomatic heart failure and reduce the frequency of cardiovascular events (death, myocardial infarction, hospitalisation) in patients with asymptomatic left ventricular systolic dysfunction. NNTB for 2 years to prevent one death = 17.'
+        
+
+          - SOLVD Investigators. N Engl J Med 1992; 327:685-691.
+
+          - Flather M, et al. Circulation 1997; 96:1-706.
+
+        
+
+        
+
+**Beta-adrenoceptor antagonists (β-blockers)**
+
+        
+
+Beta blockers are indicated in all patients with CHF. They improve both mortality and morbidity. Beta blockers with a proven mortality benefit include Carvedilol, bisoprolol, nebivolol and extended release metoprolol.
+
+        
+
+These drugs may help to counteract the deleterious effects of enhanced sympathetic stimulation and reduce the risk of arrhythmias and sudden death. When initiated in standard doses they may precipitate acute-onchronic heart failure, but when given in small incremental doses (e.g. bisoprolol started at a dose of 1.25 mg daily, and increased gradually over a 12-week period to a target maintenance dose of 10 mg daily) under carefully monitored conditions, they can increase ejection fraction, improve symptoms, reduce the frequency of hospitalisation and reduce mortality in patients with chronic heart failure
+
+        
+
+**β-BLOCKERS AND TREATMENT OF CHRONIC HEART FAILURE**
+        
+
+'Adding oral β-blockers gradually in small incremental doses to standard therapy including ACE inhibitors in people with heart failure reduces the rate of death or hospital admission. NNTB for 1 year to prevent one death = 21.'
+        
+
+          - Lechat P, et al. Circulation 1998; 98:1184-1191.
+
+          - McMurray JJV. Heart 1999; 82:14-22.
+
+          - Shibola MC, et al. Br J Heart Fail 2002; 4:11 720.
+
+        
+
+        
+
+**Aldosterone antagonists:**
+        
+
+Spironolactone has been shown to have a mortality benefit in patients with Class III/IV CHF
+
+</CaseQuestion>

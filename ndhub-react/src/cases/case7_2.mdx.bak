@@ -1,0 +1,353 @@
+---
+id: "7.2"
+title: "Severe Asthma | MD3 SCP Cases"
+category: "Respiratory System"
+discipline: "Medicine"
+setting: "Emergency Department"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+Adam Henshaw, aged 48 years, presents via ambulance from work. He is pale and unwell and short of breath. On examination his respiratory rate is 26/minute, his heart rate is 120/min. and he has difficulty speaking. The ambulance officers tell you he has a history of asthma and his PEF is 33% of predicted.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="What are the features of acute severe asthma?"
+>
+
+Acute severe asthma is a medical emergency that requires prompt recognition and treatment. The following features indicate severe asthma:
+
+        
+
+**Clinical Features:**
+        
+
+          - **Peak Expiratory Flow (PEF):** 33-50% of predicted or best
+
+          - **Respiratory Rate:** ≥25 breaths per minute
+
+          - **Heart Rate:** ≥110 beats per minute
+
+          - **Speech:** Inability to complete sentences in one breath
+
+        
+
+        
+
+**Life-Threatening Features (require immediate ICU assessment):**
+        
+
+          - **PEF:** \&lt;33% of predicted or best
+
+          - **SpO₂:** \&lt;92% on room air
+
+          - **Silent chest, cyanosis, or feeble respiratory effort**
+
+          - **Bradycardia, dysrhythmia, or hypotension**
+
+          - **Exhaustion, confusion, or reduced consciousness**
+
+        
+
+        
+
+**Near-Fatal Asthma:**
+        
+
+          - Raised PaCO₂ and/or requiring mechanical ventilation with raised inflation pressures
+
+        
+
+        
+
+*Note: The absence of any of these features does not exclude a diagnosis of severe asthma. Clinical judgment is essential.*
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="Summarise your approach to the management of acute severe asthma."
+>
+
+Management of acute severe asthma requires immediate intervention with a structured approach:
+
+        
+
+**Immediate Management (First Hour):**
+
+        
+
+**1. Oxygen Therapy:**
+        
+
+          - High-flow oxygen via face mask to maintain SpO₂ 94-98%
+
+          - Do not withhold oxygen for fear of hypercapnia
+
+        
+
+        
+
+**2. Bronchodilators:**
+        
+
+          - **β₂-agonist:** Salbutamol 5mg via oxygen-driven nebuliser, repeat every 15-20 minutes or consider continuous nebulisation
+
+          - **Anticholinergic:** Ipratropium bromide 0.5mg mixed with salbutamol nebulisers (repeat 4-6 hourly)
+
+        
+
+        
+
+**3. Corticosteroids:**
+        
+
+          - Prednisolone 40-50mg PO immediately
+
+          - Or hydrocortisone 100mg IV if unable to take oral medication
+
+          - Continue for at least 5 days
+
+        
+
+        
+
+**4. Monitoring:**
+        
+
+          - Continuous SpO₂ monitoring
+
+          - Peak flow before and after treatment
+
+          - Heart rate, respiratory rate, blood pressure
+
+          - Arterial blood gas if SpO₂ \&lt;92% or other features of life-threatening asthma
+
+        
+
+        
+
+**Second-Line Treatments (if not responding):**
+        
+
+          - **Magnesium Sulphate:** 1.2-2g IV infusion over 20 minutes
+
+          - **Aminophylline:** Loading dose 5mg/kg IV over 20 minutes (if not on oral theophylline), then infusion
+
+          - **ICU referral:** For consideration of intubation and mechanical ventilation
+
+        
+
+        
+
+**Subsequent Management:**
+        
+
+          - Continue high-dose inhaled bronchodilators via nebuliser or spacer
+
+          - Continue oral prednisolone
+
+          - Monitor PEF and clinical features closely
+
+          - Chest X-ray to exclude pneumothorax, pneumonia, or other complications
+
+        
+
+        
+
+**Criteria for Hospital Admission:**
+        
+
+          - Any feature of life-threatening asthma
+
+          - PEF \&lt;75% of predicted or best after initial treatment
+
+          - Previous near-fatal asthma or brittle asthma
+
+          - Presentation at night
+
+          - Pregnancy
+
+          - Recent hospital admission or ED attendance
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="What are the indications for ventilation?"
+>
+
+Mechanical ventilation is indicated in acute severe asthma when medical management fails and the patient develops life-threatening features. The decision to intubate should be made early by experienced clinicians.
+
+        
+
+**Absolute Indications:**
+        
+
+          - **Respiratory arrest**
+
+          - **Cardiac arrest**
+
+          - **Severe hypoxemia:** Despite maximal oxygen therapy
+
+          - **Reduced level of consciousness:** Drowsiness, confusion, or coma
+
+          - **Respiratory exhaustion:** Unable to maintain respiratory effort
+
+        
+
+        
+
+**Relative Indications:**
+        
+
+          - **Rising PaCO₂:** Especially with acidosis (pH &lt;7.2)
+
+          - **Hypoxemia:** PaO₂ &lt;8 kPa (60 mmHg) despite high-flow oxygen
+
+          - **Deteriorating PEF:** Despite aggressive treatment
+
+          - **Physical exhaustion:** Patient unable to speak or becoming drowsy
+
+          - **Haemodynamic instability:** Hypotension or arrhythmias
+
+        
+
+        
+
+**Important Considerations:**
+        
+
+          - A normal or rising PaCO₂ in acute asthma is a concerning sign and may indicate impending respiratory failure
+
+          - Intubation and mechanical ventilation in severe asthma is difficult and carries significant risks including:
+            
+
+              - Barotrauma and pneumothorax
+
+              - Hypotension due to dynamic hyperinflation
+
+              - Difficulty achieving adequate ventilation due to high airway resistance
+
+            
+
+          
+
+          - Use of non-invasive ventilation (NIV) is generally not recommended in acute severe asthma
+
+          - Senior anaesthetic and intensive care input should be sought early
+
+        
+
+        
+
+**Ventilation Strategy:**
+        
+
+          - Use low tidal volumes (6-8 ml/kg)
+
+          - Allow permissive hypercapnia
+
+          - Prolonged expiratory time to prevent air trapping
+
+          - Monitor for complications including pneumothorax
+
+          - Continue aggressive medical therapy including bronchodilators and steroids
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={4}
+  question="What is the evidence for long-acting β₂-agonists?"
+>
+
+Long-acting β₂-agonists (LABAs) play an important role in the management of chronic asthma, but should never be used as monotherapy.
+
+        
+
+**Evidence for Efficacy:**
+        
+
+          - **Symptom Control:** Multiple randomized controlled trials have shown that LABAs improve asthma symptoms, reduce nocturnal awakenings, and decrease the need for rescue bronchodilator use
+
+          - **Lung Function:** LABAs produce significant improvements in FEV₁ and peak expiratory flow compared to placebo
+
+          - **Exacerbation Reduction:** When combined with inhaled corticosteroids (ICS), LABAs reduce the frequency of asthma exacerbations
+
+          - **Quality of Life:** Improvement in asthma-related quality of life scores
+
+        
+
+        
+
+**Types of LABAs:**
+        
+
+          - **Salmeterol:** Duration of action ~12 hours, twice daily dosing
+
+          - **Formoterol:** Duration of action ~12 hours, twice daily dosing, faster onset of action than salmeterol
+
+          - **Vilanterol:** Duration of action ~24 hours, once daily dosing
+
+        
+
+        
+
+**Combination Therapy:**
+        
+
+          - LABAs should ALWAYS be prescribed in combination with ICS, never as monotherapy
+
+          - Combination ICS/LABA inhalers are preferred to ensure adherence
+
+          - Examples: Seretide (fluticasone/salmeterol), Symbicort (budesonide/formoterol), Relvar (fluticasone furoate/vilanterol)
+
+        
+
+        
+
+**Safety Concerns:**
+        
+
+          - Early studies raised concerns about increased asthma-related deaths with LABA monotherapy
+
+          - These concerns led to black box warnings in some countries
+
+          - Subsequent evidence shows that when combined with ICS, LABAs are safe and reduce exacerbations
+
+          - The key principle is: **Never prescribe LABAs without ICS**
+
+        
+
+        
+
+**Place in Therapy (Step-wise Approach):**
+        
+
+          - **Step 3:** Add LABA to low-moderate dose ICS if not controlled on ICS alone
+
+          - If no response to LABA after 4 weeks, consider stopping and increasing ICS dose or adding leukotriene receptor antagonist
+
+          - If good response but still not controlled, continue LABA and increase ICS dose
+
+        
+
+        
+
+**MART Therapy (Maintenance and Reliever Therapy):**
+        
+
+          - Budesonide/formoterol can be used as both maintenance and reliever therapy
+
+          - Evidence shows this approach reduces exacerbations and improves symptom control
+
+          - Allows for flexible dosing in response to symptoms
+
+</CaseQuestion>

@@ -1,0 +1,101 @@
+---
+id: "6.3"
+title: "Cystic Fibrosis"
+category: "Children & Young People"
+discipline: "Paediatrics Medicine"
+setting: "Rural Hospital"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+You are the intern covering the neonatal nursery. Georgie Taylor is 12 hours old. The nursing staff have asked you to review her because she has not passed meconium. She has not been feeding very well and has just vomited. On assessment you note that Georgie has a distended abdomen.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="You are concerned that Georgie may have a bowel obstruction, and you organise for an abdominal x-ray to be done. What are the features seen on the abdominal radiograph?"
+>
+
+**X-ray shows:**
+        
+
+          - **Distended loops of intestine with thickened bowel wall**
+
+        
+
+        
+
+**Other X-ray signs include:**
+        
+
+          - A large amount of meconium mixed with swallowed air producing the so-called **'ground-glass' sign** typical of meconium ileus. This is a characteristic feature but often absent.
+
+          - **Calcification, free air or very large air-fluid levels** suggesting bowel perforation.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="The radiologist reports that the findings are consistent with meconium ileus. You speak with the surgeon who explains that Georgie will need to be transferred to the 'children's hospital' and that he will come and speak with parents. The surgeon explains the condition and the likelihood that Georgie has cystic fibrosis. Her father asks what this is and how did Georgie 'get it'? What would you explain to the parents about Cystic Fibrosis?"
+>
+
+**What is Cystic Fibrosis?**
+        
+
+Cystic fibrosis is the most common life-threatening autosomal recessive disorder in Australians, affecting approximately 1 in every 2500 births. It is caused by a defect in the cystic fibrosis transmembrane conductance regulator gene (CFTR). The CFTR gene encodes a protein for a cyclic adenosine monophosphate (cAMP)-regulated chloride channel present on many epithelial cells, including those of the conducting airways, gut and genital tract. The commonest mutation, Δ508, accounts for approximately 70% of mutant alleles and more than 1300 mutations have been described.
+
+        
+
+**How is it inherited?**
+        
+
+Cystic Fibrosis (CF) is an inherited recessive genetic condition. Amongst people of Caucasian ancestry 1 in 25 are genetic carriers for CF, usually without knowing it.
+
+        
+
+If a baby is born with CF, it means that both parents are genetic carriers for CF. However, even if they are genetic carriers, there is no guarantee that the child will be born with CF.
+
+        
+
+**If two people are genetic carriers for CF and they have a child there is (with every pregnancy):**
+        
+
+          - A **1 out of 4 (25%) chance** that the child will have CF
+
+          - A **2 out of 4 (50%) chance** that the child will be a genetic carrier for CF
+
+          - A **1 out of 4 (25%) chance** that the child will not have CF and will not be a genetic carrier for CF
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="Explain the current newborn screening testing that is performed for cystic fibrosis and outline the limitations of this test."
+>
+
+**Newborn Screening for Cystic Fibrosis:**
+        
+
+In Australia all babies are screened at birth for Cystic Fibrosis. A small blood sample is taken about three days after birth and if this test proves to be positive genetic testing of the CFTR gene will be done. Finally a sweat test will be carried out to measure the amount of salt in the sweat and it is with this test that a diagnosis will be made.
+
+        
+
+**Limitations:**
+        
+
+While newborn testing picks up almost all babies with CF (about 95%) **the test will miss some**. A sweat test should be arranged if there are phenotypic features suggestive of cystic fibrosis.
+
+        
+
+**Sweat Test:**
+        
+
+The diagnosis is confirmed with a sweat test (pilocarpine iontophoresis) at 6-10 weeks. An elevated sweat chloride and sweat sodium is diagnostic.
+
+</CaseQuestion>

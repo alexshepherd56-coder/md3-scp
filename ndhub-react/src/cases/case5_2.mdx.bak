@@ -1,0 +1,145 @@
+---
+id: "5.2"
+title: "Anxiety Disorders | MD3 SCP Cases"
+category: "Mental health and human behaviour"
+discipline: "Psychiatry"
+setting: "General Practice"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+Ahn Ming, aged 23 years presents with her mother. Her mother states that Ahn has become withdrawn and refuses to leave the house. It took a lot of trouble to get her to attend to see you today. Ahn states that if she tries to leave the house she feels like she is going to die and have a heart attack. She states that 6 months earlier she went to a party and on the way home a group of males followed her and yelled names at her. Whilst they did not actually hit or hurt her she was very frightened. Before this time, she had attended University and had been planning to look for a job, but now she was fearful of leaving her home.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="What further history and examination and investigations would you undertake in this case? What are the differential diagnoses you will be considering during your assessment?"
+>
+
+Symptoms of Anxiety Disorder include: **Psychological** (apprehension, irritability, worry, poor concentration, fear of impending disaster, depersonalisation) and **Somatic** (palpitations, tremor, fatigue, dizziness, sweating, diarrhoea, frequency, chest pain, breathlessness, initial insomnia, headache) symptoms of sympathetic arousal.
+
+        
+
+The broad categories of anxiety disorders are divided into three main subtypes: phobic, paroxysmal (panic) and generalised. Obsessive compulsive disorder is also an anxiety disorder, although different from these and is studied separately. The nature and prominence of the somatic symptoms often lead the patient to present initially to medical services with physical complaints. Anxiety may be stress-related and phobic anxiety may follow an unpleasant incident. Patients often also have depression.
+
+        
+
+**Differential Diagnosis of Anxiety includes:**
+        
+
+          - Normal response to threat
+
+          - Adjustment disorder
+
+          - Panic disorder
+
+          - Generalised anxiety disorder
+
+          - Phobic disorder
+
+        
+
+        
+
+**Note:** Depression can present with anxiety/panic, particularly early on
+
+        
+
+**Medical causes of anxiety include:**
+        
+
+          - Hyperthyroidism
+
+          - Paroxysmal arrhythmias
+
+          - Phaeochromocytoma
+
+          - Alcohol, benzodiazepine withdrawal
+
+          - Hypoglycaemia
+
+          - Temporal lobe epilepsy
+
+        
+
+        
+
+**From Ahn:**
+        
+
+          - What was she like earlier in life (shy or outgoing). We know she's a 'worrier', which is a vulnerability factor for anxiety and depression
+
+          - What has been the impact of the incident after the party?
+
+          - Has she had anxiety symptoms in past? (ask about early attachment/separation, social phobia, school) How influenced by alcohol or other substances?
+
+          - Has happened previously?
+
+          - How is her physical health? Any evidence of conditions listed above, also asthma (and excess use of 'puffers')?
+
+          - Is there evidence of a preceding depression?
+
+          - Has she had any unusual experiences (that would indicate an early psychosis)? Is she still afraid for her safety? Why?
+
+          - How's her relationship with her mother? Does she encourage her becoming independent?
+
+          - What is she generally like at her best?
+
+          - How did she get on at uni? Has she friends from school? uni? elsewhere?
+
+          - Does she have any concerns about going to work?
+
+          - Who is there she can talk to? Support her?
+
+          - What does she make of all of this? What is the meaning for her?
+
+          - What does she want to do about this? What are her plans for now and future?
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="Define the following terms: phobia; panic attack; generalised anxiety, agoraphobia, obsession, compulsion. What questions would you ask Ahn to clarify if she has these symptoms?"
+>
+
+**Phobia:** an abnormal or excessive fear of an object or situation, which leads to avoidance of it.
+
+        
+
+**Panic attack:** attacks of severe anxiety, not restricted to any particular situation or circumstances and is therefore unpredictable. Somatic symptoms e.g. chest pain and palpitations are common. The symptoms are in part due to involuntary hyperventilation. Patients often fear they are suffering from a serious illness, e.g. heart attack or CVA and may seek emergency medical attention.
+
+        
+
+**Generalised anxiety:** chronic anxiety associated with uncontrollable worry. Somatic symptoms of muscle tension and bowel disturbance often lead to a medical presentation.
+
+        
+
+**Obsessions:** unwanted, intrusive, inappropriate thoughts, images or impulses that cause marked anxiety and distress e.g., recurrent thoughts that one's hands are contaminated/dirty after shaking hands.
+
+        
+
+**Compulsions:** repetitive behaviours (e.g., washing hands, checking, tidying up) or mental acts (eg, counting, repeating words silently) with object of reducing anxiety. These behaviours are excessive or not logically related to what they are intended to prevent. Mostly, compulsions are performed to reduce the distress accompanying an obsession (eg, repeated washing of hands as response to thoughts of contamination). The most common involve washing, cleaning, counting, checking and ordering. Obsessions and compulsions are the key symptoms of obsessive-compulsive disorder (OCD).
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="What is the most likely diagnosis/es in Ahn's case? How did you arrive at this conclusion?"
+>
+
+Panic disorder with agoraphobia is the most likely (she has all the characteristic symptoms)
+        
+
+She may have underlying GAD, depression, social phobia or be naturally shy.
+
+        
+
+The events at the party may be sufficiently severe to evoke a post-traumatic response or to reinforce any of the above. She may also have a psychotic episode and be misperceiving some of the events, and substance use would have to be ruled out. Social anxiety may have led her to misperceive the interaction but all this needs further enquiry. She is also at a life transition/may be moving away from her mother, which may be creating separation issues.
+
+</CaseQuestion>

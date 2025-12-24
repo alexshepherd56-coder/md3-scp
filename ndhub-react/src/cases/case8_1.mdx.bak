@@ -1,0 +1,196 @@
+---
+id: "8.1"
+title: "Diverticular Disease"
+category: "Surgery"
+discipline: "Surgery - GIT"
+setting: "Emergency Department"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+Ellen Cassidy, aged 68 years, presents with acute abdominal pain localised to the left iliac fossae. She has a swinging fever with peak temperatures of 38.9°C and suffered diarrhoea two days ago but since then has been constipated. She had an episode 1 year ago that was similar but milder as symptoms resolved in a day.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="What further history and examination would you undertake?"
+>
+
+<h3>History (SOCRATES)</h3>
+        
+
+          - **Site, radiation, character** of the abdominal pain, severity
+
+          - **Time of onset** (both episodes)
+
+          - **Time-intensity relationships**
+
+          - **Exacerbated by; relieved by**
+
+          - **Associated features** - appetite, weight change, night sweats, change bowel habits (diarrhoea/constipation; rectal bleeding)
+
+          - **Dietary features** (is it related to certain foods?)
+
+          - **Routine GIT history** (incl. systems review)
+
+        
+
+        <h3>Examination</h3>
+        
+
+          - **Formal GIT system examination**
+            
+
+              - Fever
+
+              - Characteristic left lower quadrant tenderness
+
+              - Palpable mass?
+
+              - Presence of complications (e.g. perforation/peritonitis; fistula)
+
+            
+
+          
+
+          - **Including digital rectal examination**
+
+          - **Inguinal/femoral, supraclavicular lymph nodes**
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="What is the difference between diverticulosis and diverticulitis?"
+>
+
+<h3>Diverticulosis (diverticular disease without complication)</h3>
+        
+
+          - **Diverticulae in the colon** - mucosal herniations through the muscular wall
+
+          - **Asymptomatic** but may become complicated, then symptoms develop
+
+        
+
+        <h3>Diverticulitis</h3>
+        
+
+          - **Inflammation/infection** of one or more diverticulae
+
+          - **Including extension into adjacent tissue**
+
+          - **Initiated by obstruction** of the neck of the diverticulum by a faecolith
+
+          - **Obstruction leads to edema** in the colon wall or may be complicated by micro or macro perforation
+
+          - **Fever and leukocytosis** are characteristic
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="List the indications for surgery for diverticular disease?"
+>
+
+<h3>Elective Indications</h3>
+        
+
+          - **Recurrent attacks/increasing severity**
+
+          - **Younger patient**
+
+          - **Chronic pain**
+
+          - **Fistula formation** (colo-vaginal; colo-vesical; colo-cutaneous)
+
+          - **Conservative measures not controlling symptoms** (high fibre diet, supplements)
+
+          - **Symptoms of recurrent pain and functional changes** in bowel habits become unacceptable for the patient
+
+          - **Perforation(s) not confined to pericolic tissues** and controlled by antibiotics
+
+        
+
+        <h3>Emergency Indications</h3>
+        
+
+          - **Bleeding**
+
+          - **Perforation** (macroscopic with generalised peritonitis, or failed conservative management)
+
+          - **Obstruction**
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={4}
+  question="Summarise the blood supply of the colon and explain the significance of anastomotic zones for surgeons."
+>
+
+<h3>Blood Supply of the Colon</h3>
+
+        <table>
+          <tr>
+            <th>Region</th>
+            <th>Blood Supply</th>
+          </tr>
+          <tr>
+            <td>Caecum, ascending colon, most of transverse colon</td>
+            <td>**Superior mesenteric artery** (via ileocolic, middle colic arteries – only minority have right colic artery as well)</td>
+          </tr>
+          <tr>
+            <td>Splenic flexure, descending colon, sigmoid colon</td>
+            <td>**Inferior mesenteric artery** (via ascending colic and sigmoid arteries from IMA)</td>
+          </tr>
+          <tr>
+            <td>Superior rectum</td>
+            <td>Final branch of the **inferior mesenteric artery** (superior rectal arteries)</td>
+          </tr>
+          <tr>
+            <td>Middle and inferior rectum</td>
+            <td>Branches of the **internal pudendal arteries** (inferior rectal artery)</td>
+          </tr>
+        </table>
+
+        <h3>Significance of Anastomotic Zones for Surgeons - "Marginal Zones"</h3>
+        
+
+Certain parts of the colon (e.g. splenic flexure) are at the junction of two separate blood supply systems and may be relatively poorly perfused. For this reason, **anastomoses in this region would carry a higher risk of ischaemic complications**.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={5}
+  question="Summarise the principles of colonic motility and list three common organisms in the colon."
+>
+
+<h3>Principles of Colonic Motility</h3>
+        
+
+          - **Multiple types of contraction patterns**
+
+          - **Segmentation contractions and mass contractions** – unique to the colon, characterized by contractions of large segments of the colon, resulting in mass movement of stool
+
+          - **Movement of residue through colon occurs at slow rate** (18-48 hours) compared to small bowel (4 hours)
+
+          - **Colonic transit accelerated by:** emotional states, diet, disease, infection, medications and bleeding
+
+        
+
+        <h3>Three Common Organisms in the Colon</h3>
+        
+
+          - **Bacteroides fragilis**
+
+          - **Escherichia coli**
+
+          - **Enterococci** (Strep. faecalis)
+
+</CaseQuestion>
