@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 1.2 - Pre-operative Assessment (High Risk)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 1.2 - Pre-operative Assessment (High Risk) | MD3 SCP Cases">
+  <meta name="description" content="Medical case study for MD4 students - High risk pre-operative assessment for AAA surgery.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 1.2 - Pre-operative Assessment (High Risk)">
+  <meta property="og:site_name" content="MD3 SCP Cases">
+  <meta property="og:description" content="Medical case study for MD4 students - High risk pre-operative assessment for AAA surgery.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <button id="caseFlagButton" class="case-flag-button" onclick="toggleCaseFlag()">Flag Case</button>
+    </div>
+
+    <h1>Case 1.2 – Pre-operative Assessment (High Risk)</h1>
+    <p class="meta"><strong>Category:</strong> Clinical Skills | <strong>Discipline:</strong> Anaesthesia | <strong>Setting:</strong> Pre-operative assessment clinic</p>
+
+    <h2>Case</h2>
+    <p>You are asked by your consultant to arrange preoperative workup for a 75 year old man who is booked for open Abdominal Aortic Aneurysm resection and graft. The consultant wants to get the surgery done as soon as possible, as the aneurysm measures 8cm in diameter and is a little tender to palpation – he is concerned about imminent rupture.</p>
+
+    <p>The patient is an ex-smoker of 30 pack-years; he has hypertension treated with Ramipril and Metoprolol; Type 2 diabetes for 14 years, currently treated with insulin, protaphane 22 units in the morning and 12 units at dinner time; he says he is quite active but on questioning, his only real activity is a 1km round-trip level walk to the TAB 4 days a week, after which he feels quite tired and normally has a sleep; he denies any symptoms suggestive of ischaemic heart disease.</p>
+
+    <p>His blood tests done yesterday by the surgeon show normal FBC; K of 5.5, Urea 10.0 mmol/l and Creatinine 140 micromol/l.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Over and above those issues pertinent to all patients, what are the particular preoperative issues for this man?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li><strong>High risk surgery</strong> (major vascular. Other high-risk includes thoracic, upper abdominal)</li>
+          <li><strong>High-risk patient</strong> (multiple co-morbidities, poor functional reserve)</li>
+          <li><strong>Urgent surgery</strong> (as distinct from emergent) - a tender 8cm AAA is a condition at great risk of rupture and sudden death. There is time for preop evaluation of cardiac risk but not over weeks, more like a day or 2, and the testing should be arranged as an inpatient</li>
+          <li><strong>Coronary artery disease risk</strong> - He is at high risk of having coronary artery disease</li>
+          <li><strong>Renal function</strong> - His Renal function is abnormal and there is considerable risk to it during and after the proposed surgery</li>
+          <li><strong>Diabetes</strong> - Needs special consideration</li>
+          <li><strong>Respiratory function</strong> - He has a long smoking history and his respiratory function will be an important determinant of post-op recovery after this major upper abdominal surgery</li>
+          <li><strong>Analgesia options</strong> - Discussion of analgesia options is important at the preoperative assessment by the anaesthetist, perhaps not so much by the surgical team members</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Discuss a plan for preoperative cardiac evaluation, given that this is a patient undergoing high-risk surgery who has limited functional reserve.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>A slow walk 1km after which he is exhausted suggests 4 METS of activity – quite limited. Unless emergency surgery, he should have more extensive workup even in the absence of other symptoms. DM2 is associated with "silent" myocardial ischaemia and RBBB and Beta-blockade make resting and stress ECG uninterpretable.</p>
+
+        <p><strong>Options for assessment:</strong></p>
+        <ul>
+          <li>Aim is to assess risk of perioperative adverse cardiac event (AMI, CCF, death) and to monitor appropriately</li>
+          <li>To do this, assess coronary circulation, and myocardial function – preferably myocardial function while myocardium is being stressed</li>
+          <li>If good functional reserve, no symptoms, normal resting ECG, reasonable to proceed</li>
+          <li>Otherwise, either <strong>Dipyridamole-Sestamibi Scan</strong> or <strong>Dobutamine Stress Echo</strong></li>
+          <li>DSE gives more assessment of cardiac function; the jury seems to be out</li>
+          <li>Coronary angio as a screening tool - risks outweigh benefit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. What is the current role of preoperative beta-blockade in a patient like this?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>A number of small studies and one larger (POISE) over the last 10 years or so of periop beta blockers and high-risk patients. Inconsistent results for various reasons, largely methodological.</p>
+
+        <p>This man is already on Metoprolol, well beta-blocked with HR 52/min. He should remain on it up to and including the morning of surgery.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Discuss some possible options for his perioperative diabetes management.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>Management of Ramipril:</strong></p>
+        <ul>
+          <li>His Ramipril should be withheld – certainly on the morning of surgery and probably from now, at least until renal artery stenosis can be excluded</li>
+          <li>It may be contributing to his impaired renal function</li>
+          <li>Advice from a nephrologist should be obtained, as well as to warn the team of the possibility of post-op renal failure</li>
+        </ul>
+
+        <p><strong>Possible causes of renal impairment:</strong></p>
+        <ul>
+          <li>Vascular disease</li>
+          <li>Diabetes</li>
+          <li>Hypertension</li>
+          <li>Others</li>
+        </ul>
+
+        <p><strong>Renal protection measures:</strong></p>
+        <ul>
+          <li>Meticulous attention to haemodynamics intra and post operatively</li>
+          <li>Avoidance of nephrotoxins, eg IV contrast, aminoglycosides, NSAIDs</li>
+          <li>Avoidance of preop dehydration by giving IV fluids while fasting</li>
+        </ul>
+
+        <p><strong>Diabetes management options:</strong></p>
+        <ul>
+          <li><strong>Aims:</strong> prevent hypoglycaemia, and prevent complications of hyperglycaemia. In DM1, prevent ketoacidosis. Not a risk in DM2</li>
+          <li>Conflicting evidence of benefits of "tight" (4-6) vs "conventional" (5-10) glucose control</li>
+          <li><strong>For DM2 (simplest):</strong> No insulin morning of surgery, also no oral hypoglycaemics. Check BGL intraop and if necessary run infusion of soluble insulin to keep BGL &lt; 8 or so. If insulin is given, also need IV of 5% Dextrose available</li>
+          <li><strong>For DM1:</strong> Need some insulin otherwise get ketoacidosis. Either ½ normal am dose, given as soluble insulin, along with 5% D infusion, or run Glucose/Insulin +/-Potassium infusion – there are institutional protocols</li>
+          <li>If in doubt call patient's endocrinologist</li>
+          <li><strong>Important:</strong> Always stop Metformin 1-2 days preop especially with fasting</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/user-analytics.js"></script>
+  <script src="../../js/analytics-integration.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+  <script src="../../js/text-markup.js"></script>
+
+  <script>
+    // Toggle case completion
+    function toggleCaseCompletion() {
+      if (window.completionTracker) {
+        const caseId = window.completionTracker.getCurrentCaseId();
+        if (caseId) {
+          window.completionTracker.toggleCompletion(caseId);
+        }
+      }
+    }
+
+    // Toggle case flag
+    function toggleCaseFlag() {
+      console.log('toggleCaseFlag() function called');
+      console.log('window.flagTracker exists:', !!window.flagTracker);
+
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      console.log('Current case ID:', caseId);
+
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      console.log('Calling window.flagTracker.toggleCaseFlag with caseId:', caseId);
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

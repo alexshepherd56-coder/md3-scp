@@ -1,0 +1,664 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #F9F6F1;
+  color: #0A0A0A;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+/* Dark mode overrides */
+.dark body {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+
+/* Dropdown fade-in animation */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Text selection styling */
+::selection {
+  background-color: rgba(217, 119, 87, 0.3);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(217, 119, 87, 0.3);
+  color: inherit;
+}
+
+/* Ensure text is selectable in modal */
+.select-text {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+.select-text * {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+/* View Transitions */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.2s ease-out forwards;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Text Markup Styles */
+.text-highlight {
+  padding: 1px 2px;
+  margin: -1px -2px;
+  border-radius: 3px;
+  transition: filter 0.15s ease;
+}
+
+.text-highlight:hover {
+  filter: brightness(0.95);
+}
+
+.text-underline {
+  text-decoration: underline;
+  text-decoration-color: #D97757;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.text-underline:hover {
+  text-decoration-color: #C5654A;
+}
+
+/* Dark mode markup adjustments */
+.dark .text-highlight {
+  filter: brightness(0.85);
+}
+
+.dark .text-highlight:hover {
+  filter: brightness(0.8);
+}
+
+.dark .text-underline:hover {
+  text-decoration-color: #e88a6d;
+}
+
+/* ========================================
+   TIPTAP RICH TEXT EDITOR
+   ======================================== */
+
+/* Container */
+.tiptap-editor-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Toolbar */
+.tiptap-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+  padding: 4px 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  flex-wrap: wrap;
+}
+
+.dark .tiptap-toolbar {
+  background: transparent;
+  border-color: transparent;
+}
+
+/* Toolbar buttons */
+.tiptap-toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #4B535A;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tiptap-toolbar-btn:hover {
+  background: #E8E3D9;
+  color: #0A0A0A;
+}
+
+.tiptap-toolbar-btn.is-active {
+  background: #D97757;
+  color: white;
+}
+
+.tiptap-toolbar-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dark .tiptap-toolbar-btn {
+  color: #9ca3af;
+}
+
+.dark .tiptap-toolbar-btn:hover {
+  background: #374151;
+  color: #f9fafb;
+}
+
+.dark .tiptap-toolbar-btn.is-active {
+  background: #D97757;
+  color: white;
+}
+
+/* Toolbar divider */
+.tiptap-toolbar-divider {
+  width: 1px;
+  height: 20px;
+  background: #E8E3D9;
+  margin: 0 6px;
+}
+
+.dark .tiptap-toolbar-divider {
+  background: #444;
+}
+
+/* Editor wrapper */
+.tiptap-editor-wrapper {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: background 0.2s ease;
+}
+
+.tiptap-editor-wrapper:focus-within {
+  background: rgba(217, 119, 87, 0.03);
+}
+
+.tiptap-editor-wrapper.is-dragging {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.dark .tiptap-editor-wrapper {
+  background: transparent;
+}
+
+.dark .tiptap-editor-wrapper:focus-within {
+  background: rgba(217, 119, 87, 0.08);
+}
+
+.dark .tiptap-editor-wrapper.is-dragging {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+/* Editor content */
+.tiptap-content {
+  min-height: 1.7em;
+  padding: 8px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #0A0A0A;
+  outline: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.tiptap-content:focus {
+  border-bottom-color: rgba(217, 119, 87, 0.3);
+}
+
+.dark .tiptap-content {
+  color: #f5f5f5;
+}
+
+.dark .tiptap-content:focus {
+  border-bottom-color: rgba(217, 119, 87, 0.4);
+}
+
+/* Placeholder */
+.tiptap-content p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #b0b0b0;
+  pointer-events: none;
+  float: left;
+  height: 0;
+}
+
+/* Typography */
+.tiptap-content p {
+  margin: 0 0 0.75em 0;
+}
+
+.tiptap-content p:last-child {
+  margin-bottom: 0;
+}
+
+.tiptap-content strong {
+  font-weight: 600;
+}
+
+.tiptap-content em {
+  font-style: italic;
+}
+
+.tiptap-content u {
+  text-decoration: underline;
+  text-decoration-color: #D97757;
+  text-underline-offset: 3px;
+}
+
+.tiptap-content ul {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+  list-style-type: disc;
+}
+
+.tiptap-content ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+  list-style-type: decimal;
+}
+
+.tiptap-content li {
+  margin: 0.25em 0;
+  display: list-item;
+}
+
+.tiptap-content li p {
+  margin: 0;
+}
+
+/* Images */
+.tiptap-content .tiptap-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: outline 0.15s ease;
+}
+
+.tiptap-content .tiptap-image:hover {
+  outline: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.tiptap-content .tiptap-image.ProseMirror-selectednode {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Selection */
+.tiptap-content ::selection {
+  background: rgba(217, 119, 87, 0.3);
+}
+
+/* Bubble Menu */
+.bubble-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  background: white;
+  border: 1px solid #E8E3D9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .bubble-menu {
+  background: #1e1e1e;
+  border-color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bubble-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #4B535A;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bubble-menu-btn:hover {
+  background: #F0F0F0;
+  color: #0A0A0A;
+}
+
+.bubble-menu-btn.is-active {
+  background: #D97757;
+  color: white;
+}
+
+.dark .bubble-menu-btn {
+  color: #9ca3af;
+}
+
+.dark .bubble-menu-btn:hover {
+  background: #374151;
+  color: #f9fafb;
+}
+
+.dark .bubble-menu-btn.is-active {
+  background: #D97757;
+  color: white;
+}
+
+.bubble-menu-divider {
+  width: 1px;
+  height: 16px;
+  background: #E8E3D9;
+  margin: 0 4px;
+}
+
+.dark .bubble-menu-divider {
+  background: #444;
+}
+
+/* Tiptap highlight */
+.tiptap-highlight {
+  background-color: #fff176;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* ========================================
+   LO NOTES EDITOR (Drawer)
+   ======================================== */
+
+.lo-notes-editor .tiptap-editor-wrapper {
+  padding: 16px;
+  min-height: 200px;
+}
+
+.lo-notes-editor .tiptap-content {
+  min-height: 180px;
+}
+
+.lo-notes-editor .tiptap-content p.is-editor-empty:first-child::before {
+  color: #9ca3af;
+}
+
+.dark .lo-notes-editor .tiptap-content p.is-editor-empty:first-child::before {
+  color: #6b7280;
+}
+
+/* ========================================
+   INLINE TEXT ANNOTATIONS (MS Word Style)
+   ======================================== */
+
+/* Annotated text styling */
+.text-annotation {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(102, 126, 234, 0.15) 0%, rgba(102, 126, 234, 0.15) 100%);
+  border-bottom: 2px solid #667eea;
+  padding: 1px 0;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.text-annotation:hover {
+  background: linear-gradient(to bottom, rgba(102, 126, 234, 0.25) 0%, rgba(102, 126, 234, 0.25) 100%);
+}
+
+/* Annotation bubble icon */
+.annotation-bubble-icon {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #667eea;
+  color: white;
+  border-radius: 4px 4px 4px 0;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.15s ease, background 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.annotation-bubble-icon:hover {
+  transform: scale(1.1);
+  background: #5a6fd6;
+}
+
+.annotation-bubble-icon svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* Inline annotation popover */
+.inline-annotation-wrapper {
+  position: relative;
+  display: inline;
+}
+
+.inline-annotation-popover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  width: 280px;
+  background: white;
+  border: 1px solid #E8E3D9;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  animation: popoverFadeIn 0.2s ease;
+}
+
+.dark .inline-annotation-popover {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inline-annotation-popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #E8E3D9;
+}
+
+.dark .inline-annotation-popover-header {
+  border-color: #333;
+}
+
+.inline-annotation-popover-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0A0A0A;
+}
+
+.dark .inline-annotation-popover-title {
+  color: white;
+}
+
+.inline-annotation-popover-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #4B535A;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.inline-annotation-popover-btn:hover {
+  background: #F0F0F0;
+}
+
+.dark .inline-annotation-popover-btn {
+  color: #9ca3af;
+}
+
+.dark .inline-annotation-popover-btn:hover {
+  background: #333;
+}
+
+.inline-annotation-popover-text {
+  padding: 12px;
+  font-size: 13px;
+  color: #667eea;
+  font-style: italic;
+  background: #F9F6F1;
+  border-bottom: 1px solid #E8E3D9;
+}
+
+.dark .inline-annotation-popover-text {
+  background: #252525;
+  border-color: #333;
+}
+
+.inline-annotation-textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0A0A0A;
+  background: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+}
+
+.dark .inline-annotation-textarea {
+  color: #f5f5f5;
+}
+
+.inline-annotation-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.inline-annotation-popover-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 12px;
+  border-top: 1px solid #E8E3D9;
+  background: #F9F6F1;
+  border-radius: 0 0 12px 12px;
+}
+
+.dark .inline-annotation-popover-footer {
+  background: #252525;
+  border-color: #333;
+}
+
+.inline-annotation-save-btn {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  background: #667eea;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.inline-annotation-save-btn:hover {
+  background: #5a6fd6;
+}
+
+/* Annotation Badge Animation */
+@keyframes annotationPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.annotation-badge-new {
+  animation: annotationPulse 0.3s ease;
+}

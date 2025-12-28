@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 1.3 - Day of Surgery Care | MD4 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 1.3 - Day of Surgery Care | MD4 SCP Cases">
+  <meta name="description" content="Anaesthesia case study on balanced general anaesthesia for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 1.3 - Day of Surgery Care">
+  <meta property="og:site_name" content="MD4 SCP Cases">
+  <meta property="og:description" content="Anaesthesia case study on balanced general anaesthesia for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <button id="caseFlagButton" class="case-flag-button" onclick="toggleCaseFlag()">Flag Case</button>
+    </div>
+
+    <h1>Case 1.3 – Day of Surgery Care (Balanced General Anaesthesia)</h1>
+    <p class="meta"><strong>Category:</strong> Clinical Skills | <strong>Discipline:</strong> Anaesthesia | <strong>Setting:</strong> Pre-operative assessment clinic</p>
+
+    <h2>Case</h2>
+    <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+      <div style="flex: 1;">
+        <p>Lisa Graham, aged 36 years, is booked for a laparoscopic cholecystectomy. She has documented cholelithiasis, and was hospitalized 6 weeks ago with acute cholecystitis and pancreatitis.</p>
+
+        <p>Lisa has been told she will need a general anaesthetic and is concerned about what this entails. She experienced severe nausea, vomiting and muscle pain following emergency surgery for a ruptured appendix 2 years ago.</p>
+      </div>
+      <div style="flex: 0 0 auto;">
+        <img src="../../assets/cases/year4/case1_3_patient_margaret.png" alt="Patient Lisa Graham" style="max-width: 200px; border-radius: 8px;">
+      </div>
+    </div>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. What is general anaesthesia?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>General anaesthesia is a temporarily induced state of depressed consciousness designed to facilitate surgery or other painful procedures.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What are the components of "balanced general anaesthesia"?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Balanced anaesthesia refers to the technique of combining drugs from the hypnotic, analgesic and muscle relaxant classes to provide the optimal conditions (of depressed conscious state, amnesia, pain relief and muscle relaxation) required for the proposed surgery or intervention in a given individual patient.</p>
+
+        <p><strong>In order to choose this combination, the anaesthetist will take into account:</strong></p>
+        <ul>
+          <li>Patient factors ie. High aspiration risk requiring secured airway with ETT</li>
+          <li>Surgical factors: ie. Requirement for muscle relaxation and IPPV to facilitate pneumoperitoneum during laparoscopic cases</li>
+          <li>Anaesthetic factors ie. Duration of drug action, mode of metabolism etc</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Outline the pharmacology of the common agents used to provide balanced general anaesthesia.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Intelligent use of drugs providing the elements for balanced anaesthesia requires an understanding of mechanism of action, dose, pharmacokinetics, adverse reactions/toxicity and drug interactions.</p>
+
+        <p><strong>The main drug classes are:</strong></p>
+        <ul>
+          <li>Inhalational anaesthetics</li>
+          <li>Intravenous anaesthetics</li>
+          <li>Analgesics</li>
+          <li>Neuromuscular junction Blockers</li>
+        </ul>
+
+        <h3>HYPNOTICS - INHALATIONAL ANAESTHETICS</h3>
+        <ul>
+          <li>Produce generalised suppression of consciousness historically known as hypnosis</li>
+          <li>Mechanism of action incompletely understood</li>
+          <li><strong>Advantages:</strong> gradual induction via inhaled route with maintenance of spontaneous respiration, reliable maintenance, minimal metabolism in the body</li>
+          <li><strong>Disadvantages:</strong> pungent/irritant, malignant hyperthermia triggers</li>
+        </ul>
+
+        <p><strong>MAC (Minimum Alveolar Concentration)</strong> - the concentration of agent in 100% oxygen at 1 atm that abolishes motor response to a standardised noxious stimulus in 50% of patients. This is a comparative measure of potency for inhalational agents.</p>
+
+        <p><strong>Factors that influence MAC:</strong></p>
+        <table>
+          <tr><th>Increase MAC</th><th>Decrease MAC</th></tr>
+          <tr><td>Children<br>Hyperthermia<br>Hypernatraemia<br>Chronic alcoholism</td><td>Extremes of age<br>Hypothermia<br>Hyponatraemia<br>Opioids / Other drugs</td></tr>
+        </table>
+
+        <p>MAC awake = 0.33MAC (50% of patients will regain consciousness/follow simple commands)</p>
+
+        <table>
+          <tr><th>Inhalation Agent</th><th>MAC (%)</th><th>Features</th></tr>
+          <tr><td>Isoflurane</td><td>1.15</td><td>Bronchodilator</td></tr>
+          <tr><td>Sevoflurane</td><td>1.7</td><td>Pleasant smell, non-irritant</td></tr>
+          <tr><td>Desflurane</td><td>6</td><td>Rapid onset/offset, irritant, SNS stimulant</td></tr>
+          <tr><td>Nitrous oxide</td><td>104</td><td>Potent analgesic, implicated in PONV, dilutional hypoxia</td></tr>
+        </table>
+
+        <h3>INTRAVENOUS ANAESTHETICS</h3>
+        <ul>
+          <li>Produce generalized suppression of consciousness</li>
+          <li>Convenience of rapid onset via intravenous route</li>
+          <li><strong>Advantages:</strong> rapid onset and offset of anaesthesia, can be adapted for maintenance of anaesthesia</li>
+        </ul>
+
+        <table>
+          <tr><th></th><th>Propofol</th><th>Thiopentone</th><th>Ketamine</th></tr>
+          <tr><td><strong>Mechanism</strong></td><td>GABA mediated inhibition of CNS</td><td>GABA mediated inhibition of CNS</td><td>NMDA R antagonist</td></tr>
+          <tr><td><strong>IV Induction Dose</strong></td><td>2-3mg/kg</td><td>3-5mg/kg</td><td>1-2mg/kg</td></tr>
+          <tr><td><strong>Features</strong></td><td>Pain on injection<br>Excitatory Phenomena</td><td>Venous Irritant<br>PPTE Porphyria</td><td>CVS stability<br>Potent Analgesic<br>Dissociative Anaesthetic<br>Hallucinations</td></tr>
+        </table>
+
+        <h3>BENZODIAZEPINES</h3>
+        <ul>
+          <li>Sedative, anxiolytic, amnestic and antiepileptic via enhancement of GABA transmission in the CNS</li>
+          <li>Negative attributes of this class, such as sleep disruption and addiction potential, should confine their use to specific circumstances only</li>
+        </ul>
+
+        <p><strong>Midazolam:</strong></p>
+        <ul>
+          <li>Water soluble, short-acting BZD</li>
+          <li>Sedative dose 0.05-0.1mg/kg</li>
+          <li>t½ 1-4hrs</li>
+          <li>Active metabolites</li>
+        </ul>
+
+        <h3>ANALGESICS - OPIOIDS</h3>
+        <ul>
+          <li>Agonists at endogenous mu opioid receptors to provoke analgesia</li>
+          <li>Other mu opioid receptor mediated responses include: sedation, respiratory and cough reflex suppression, miosis, pruritis, nausea and vomiting, decreased GI motility, urinary retention, tolerance and dependence</li>
+          <li>Potential side effects via non-opioid receptor actions: central SNS suppression, histamine release, allergy</li>
+          <li>Numerous formulations for use via numerous routes ie. intravenous, neuraxial, subcutaneous, oral, transdermal and more</li>
+        </ul>
+
+        <table>
+          <tr><th>Drug</th><th>Morphine</th><th>Fentanyl</th><th>Alfentanil</th></tr>
+          <tr><td><strong>Features</strong></td><td>Potent Analgesia</td><td>Potent Analgesia</td><td>Potent Analgesia</td></tr>
+          <tr><td><strong>Dose</strong></td><td>0.1-0.15 mg/kg</td><td>2-4mcg/kg induction dose</td><td>10-20mcg/kg induction dose</td></tr>
+          <tr><td><strong>Half Life</strong></td><td>2-4hrs adults</td><td>3-4hrs</td><td>1-1.5hrs</td></tr>
+          <tr><td><strong>Onset</strong></td><td>10-15 min</td><td>2-5min</td><td>90sec</td></tr>
+          <tr><td><strong>Duration</strong></td><td>3-4hrs</td><td>30-60min</td><td>5-10min</td></tr>
+          <tr><td><strong>Metabolites</strong></td><td>Active and toxic metabolites</td><td>No active metabolites</td><td>Active metabolites</td></tr>
+        </table>
+
+        <h3>NON-OPIOIDS</h3>
+        <p><strong>Tramadol:</strong></p>
+        <ul>
+          <li>Multimodal moderate potency analgesic agent</li>
+          <li>Combined action: ⅓ mu opioid receptor agonist, ⅔ monoamine (5HT and NA) uptake inhibition</li>
+          <li>Oral and IV formulation - 100mg IV approximates the analgesic action of 10mg morphine parenterally</li>
+          <li>Dose 50-100mg q6h maximum 400mg per 24hrs</li>
+          <li>Active metabolite</li>
+          <li>Side effects: nausea and vomiting, sedation, dysphoria, lowered seizure threshold, dizziness and postural hypotension</li>
+          <li>Drug interactions: TCA's, SSRI's, MAOI's, CBZ, ondansetron</li>
+        </ul>
+
+        <p><strong>NSAIDS:</strong></p>
+        <ul>
+          <li>Wide range of chemical classes</li>
+          <li>Unifying mechanism: cyclo-oxygenase inhibition, thereby preventing genesis of inflammatory mediators (eg prostaglandins)</li>
+          <li>Group adverse reactions: gastric erosion, nephrotoxicity, platelet function inhibition, bronchospasm, headache, confusion, sedation, hepatotoxicity, tocolysis, closure of PDA and hypersensitivity reactions</li>
+        </ul>
+
+        <p><strong>PARACETAMOL:</strong></p>
+        <ul>
+          <li>Simple analgesic and antipyretic</li>
+          <li>Safe and well tolerated</li>
+          <li>Dose adults 10-30mg/kg (1gm) q6h maximum 4gm per 24hrs</li>
+          <li>Dose children 10-20mg/kg q4h maximum 90mg/kg per 24hrs</li>
+          <li>Adverse reactions: GI upset, hypersensitivity reactions, hepatotoxicity in overdose</li>
+        </ul>
+
+        <h3>MUSCLE RELAXANTS/NEUROMUSCULAR JUNCTION BLOCKERS</h3>
+        <ul>
+          <li>Competitive antagonists at the NMJ that temporarily disable muscle contraction</li>
+          <li>Depolarising and non-depolarising types - describes action at muscle end-plate</li>
+          <li>Will render patient unable to spontaneously breathe or protect airway</li>
+          <li>Must not be administered to a conscious patient</li>
+        </ul>
+
+        <p><strong>Suxamethonium:</strong></p>
+        <ul>
+          <li>The only depolarising NMJB</li>
+          <li>Stored at 4 degrees to maintain activity</li>
+          <li>Intubating dose 1-2 mg/kg</li>
+          <li>Rapid onset 45-60secs</li>
+          <li>Short duration 5-10min</li>
+          <li>These properties make it ideal for use in patients where rapid airway control is required (ie. aspiration risk) or rapid recovery of spontaneous respiration is required (ie. difficult airway scenario)</li>
+          <li><strong>Adverse reactions:</strong> hyperkalaemia, post-op myalgia, raised intracranial and intraocular pressure, malignant arrhythmias, prolonged apnoea, anaphylaxis, bradycardia, malignant hyperthermia, masseter spasm</li>
+          <li><strong>Contraindications/precautions:</strong> malignant hyperthermia history, burns/denervation injury/myopathies/muscular dystrophies, plasma cholinesterase deficiency/sux apnoea, renal impairment/hyperK⁺</li>
+        </ul>
+
+        <p><strong>Non-Depolarizing NMJB's:</strong></p>
+        <ul>
+          <li>Competitive antagonists at the NMJ</li>
+          <li>Short, intermediate and long acting agents with various properties</li>
+        </ul>
+
+        <table>
+          <tr><th></th><th>Rocuronium</th><th>Vecuronium</th><th>Cisatracurium</th></tr>
+          <tr><td><strong>Dose Intubating Dose</strong></td><td>0.6mg/kg</td><td>0.1mg/kg</td><td>0.2mg/kg</td></tr>
+          <tr><td><strong>Onset</strong></td><td>60 sec</td><td>2-3 min</td><td>2-3min</td></tr>
+          <tr><td><strong>Duration</strong></td><td>35min</td><td>30-35min</td><td>60-90 min</td></tr>
+          <tr><td><strong>Features</strong></td><td></td><td></td><td>Organ-independent metabolism</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Provide Lisa with a likely explanation for the experience she had with her appendicectomy?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Lisa likely had a rapid sequence induction using suxamethonium as the urgency of the clinical situation dictated that her surgery could not be delayed 6 hours of fasting time. She may also have been nauseated or vomiting prior to induction. Suxamethonium use is associated with post-operative myalgia, particularly in young females.</p>
+
+        <p>Other contributors to post-operative nausea and vomiting (PONV) could have included:</p>
+        <ul>
+          <li>Use of volatile agent</li>
+          <li>N₂O</li>
+          <li>Opioids</li>
+          <li>Tramadol</li>
+          <li>Post-operative ileus</li>
+          <li>Sepsis and dehydration</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/access-control.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+  <script src="../../js/text-markup.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+
+  <script>
+    // Toggle case flag
+    function toggleCaseFlag() {
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>
