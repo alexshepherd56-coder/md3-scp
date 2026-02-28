@@ -29,6 +29,21 @@ service cloud.firestore {
         allow read, write: if request.auth != null && request.auth.uid == userId;
       }
 
+      // Question flag tracking subcollection
+      match /questionFlags/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Annotations subcollection (notes and inline annotations)
+      match /annotations/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // Text markup subcollection (highlights and underlines)
+      match /markups/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
       // Session tracking subcollection
       match /sessions/{sessionId} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
@@ -36,6 +51,11 @@ service cloud.firestore {
 
       // Feature usage tracking subcollection
       match /featureUsage/{usageId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+
+      // LO Questions data (rich text and images metadata)
+      match /year4/loQuestions/questions/{questionId} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
       }
     }

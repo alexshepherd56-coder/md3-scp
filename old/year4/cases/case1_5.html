@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSRR4KW715"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LSRR4KW715');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case 1.5 - Emergency Anaesthesia | MD4 SCP Cases</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/ShepTech logo.png">
+  <link rel="apple-touch-icon" href="../../assets/ShepTech logo.png">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Case 1.5 - Emergency Anaesthesia | MD4 SCP Cases">
+  <meta name="description" content="Anaesthesia case study on emergency airway management for medical students.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="fb:app_id" content="your_facebook_app_id">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case 1.5 - Emergency Anaesthesia">
+  <meta property="og:site_name" content="MD4 SCP Cases">
+  <meta property="og:description" content="Anaesthesia case study on emergency airway management for medical students.">
+  <meta property="og:image" content="https://md3-scp.netlify.app/assets/ShepTech%20logo.png">
+  <link rel="stylesheet" href="../../css/case.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="case-header">
+      <a href="#" class="back-link" onclick="goBack(event)">← Back to Cases</a>
+      <button id="caseFlagButton" class="case-flag-button" onclick="toggleCaseFlag()">Flag Case</button>
+    </div>
+
+    <h1>Case 1.5 – Emergency Anaesthesia (Airway Management)</h1>
+    <p class="meta"><strong>Category:</strong> Clinical Skills | <strong>Discipline:</strong> Anaesthesia | <strong>Setting:</strong> Emergency Department</p>
+
+    <h2>Case</h2>
+    <p>The orthopaedic registrar calls to book a 25 year old male for an Open Reduction Internal Fixation (ORIF) of a compound fracture of right distal tibia and fibula sustained in a motorbike accident (MBA). He is concerned that the vascular supply is compromised as distal pulses are weak. The patient also has facial lacerations including to his upper lip that require a compound scrub and repair. Both leg and facial wounds are heavily soiled and the surgeon would like to proceed as soon as possible.</p>
+
+    <p>The patient had been drinking alcohol prior to the accident and had a blood alcohol content of 0.07 on presentation 1 hour ago. He is not known to have any past medical history, states no known allergies and is a current smoker.</p>
+
+    <p>The orthopaedic registrar has since cleared his cervical spine of injury and removed the hard collar.</p>
+
+    <p>He has had a total of 20mg of morphine over the past 1.5 hours.</p>
+
+    <h2>Questions</h2>
+
+    <div class="question">
+      <strong>1. Describe your approach to preparing this patient for a general anaesthetic.</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>Owing to the nature of this patient's injuries, his surgery cannot be delayed to allow appropriate fasting (and sobering up) time to elapse. Prompt exploration of the wound may restore the vascular supply and prevent ischaemic damage to the distal tissue. Expediting debridement of soiled and devitalized tissues is key to minimizing infection risk.</p>
+
+        <p>The anaesthetist should perform the usual pre-anaesthetic assessment including history, examination and review of investigations. In urgent trauma cases, the Advanced Trauma Life Support (ATLS) system provides a comprehensive framework for simultaneous diagnosis and management. The anaesthetist should review the workup undertaken so far by the Emergency Medicine team.</p>
+
+        <h3>Primary Survey as per ATLS Guidelines</h3>
+        <ul>
+          <li>Airway maintenance with cervical spine protection</li>
+          <li>Breathing and ventilation</li>
+          <li>Circulation with haemorrhage control</li>
+          <li>Disability: Neurologic status</li>
+          <li>Exposure/Environmental Control: completely undress patient but prevent hypothermia</li>
+        </ul>
+
+        <h3>Secondary Survey</h3>
+        <p><strong>History:</strong></p>
+        <ul>
+          <li>Allergies</li>
+          <li>Medications currently used</li>
+          <li>Past illness/Pregnancy</li>
+          <li>Last meal</li>
+          <li>Events/Environment related to injury</li>
+        </ul>
+
+        <p><strong>Physical Examination:</strong> head to toe examination including logroll, perineal region PRE +/- PVE "fingers and tubes in every orifice"</p>
+
+        <p><strong>Investigations:</strong> ECG and trauma series of x-rays + further imaging, ABG's, pregnancy test, toxicology screen as indicated</p>
+
+        <h3>Additional information relevant to the anaesthetist:</h3>
+        <p><strong>History of presenting complaint:</strong></p>
+        <ul>
+          <li><strong>(1) Nature of MBA:</strong> speed, combatant (eg. car, tree), point of impact (eg. thrown onto road), protective clothing (eg. presence of helmet, leathers), state on scene and in transit</li>
+          <li><strong>(2) Alcohol and other intoxicant intake</strong> including quantity and time frame</li>
+          <li><strong>(3) Background medical, surgical and anaesthetic history,</strong> smoking, alcohol use, medication, allergies and fasting status</li>
+        </ul>
+
+        <p><strong>Examination - Special attention to:</strong></p>
+        <ul>
+          <li><strong>(1) General status:</strong> distressed, intoxicated, altered conscious state, co-operative, hydration, observations, ability to consent</li>
+          <li><strong>(2) Airway assessment:</strong> Perioral and other facial lacerations hint at cervical spinal trauma, intra-oral trauma including broken teeth, tongue or mucosal lacerations which add to airway difficulties (unstable cervical spine, aspiration of tooth fragments, stomach full of swallowed blood, swollen tongue)</li>
+          <li><strong>(3) Potential occult injuries</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. What features of the case contribute to his aspiration risk?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Alcohol intoxication</li>
+          <li>Not fasted</li>
+          <li>Trauma, pain</li>
+          <li>Blood in airway</li>
+          <li>Recent opioid administration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. You suspect this will be a difficult airway to manage. What features on history and examination may indicate that this is a "difficult airway"?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>His airway management will be difficult because of:</p>
+        <ul>
+          <li>High aspiration risk</li>
+          <li>Perioral lacerations may limit mouth opening or impede mask seal</li>
+          <li>Potential blood in airway, intraoral lacerations or swelling</li>
+        </ul>
+
+        <p>The patient's background risk of airway difficulty must be taken into account with the usual assessment of indicators such as Mallampatti score etc.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. How will you prepare?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p><strong>To optimize the patient's preparation:</strong></p>
+        <ul>
+          <li>Explain the procedure and allay anxiety</li>
+          <li>Prokinetic agent to empty stomach</li>
+          <li>Ensure optimal positioning</li>
+        </ul>
+
+        <p>Equipment required includes an anaesthetic delivery system, suction and monitoring, an appropriately sized face mask, size 3 and 4 Mackintosh laryngoscope blades with a light source handle, a variety of sizes of cuffed endotracheal tubes, a stylet and bougie and 10 ml cuff syringe. The difficult intubation trolley should be in the room to allow access to airway devices, such as Guedel airways, LMA's, bronchoscopes and alternate laryngoscope blades. All equipment must be checked for function and within easy reach as once your assistant applies cricoid pressure, he/she cannot leave to fetch other equipment.</p>
+
+        <p>In the case of a suspected difficult airway, the plan for management should be clearly communicated to the operating theatre team. Your assistant should be clear on your initial plan (Plan A) for management and the fallback positions if this fails (Plans B and C etc).</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. What are the principles of a rapid sequence induction?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>This patient will require a rapid sequence induction for endotracheal intubation.</p>
+
+        <p><strong>The principles of this are:</strong></p>
+        <ul>
+          <li>Preoxygenation</li>
+          <li>Optimal patient position</li>
+          <li>Application of cricoid pressure on induction</li>
+          <li>Rapid intubation to secure the airway</li>
+          <li>Avoidance of bag-mask ventilation</li>
+          <li>Use of short-acting agents that allow return of spontaneous ventilation in an acceptable time frame if ventilation and airway control is not possible</li>
+        </ul>
+
+        <p>If the larynx is unable to be intubated despite appropriate manoeuvres, bag and mask ventilation should be instituted and a decision taken whether to awaken the patient or maintain anaesthesia. Many algorithms exist to assist with this decision making process, including this from the Difficult Airway Society.</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Outline an appropriate plan in the event of a failed intubation. What are the principles of failed intubation planning?</strong><br>
+      <button class="toggle">Show Answer</button>
+      <div class="answer">
+        <p>If the larynx is unable to be intubated despite appropriate manoeuvres, bag and mask ventilation should be instituted and a decision taken whether to awaken the patient or maintain anaesthesia.</p>
+
+        <p><strong>The Difficult Airway Society provides the following algorithm for failed intubation management:</strong></p>
+
+        <div style="margin: 20px 0;">
+          <img src="../../assets/cases/year4/case1_5_failed_Intubation_algorithm.png" alt="Failed Intubation Algorithm" style="max-width: 800px; display: block; margin: 0 auto;">
+        </div>
+
+        <p><strong>Key principles of failed intubation planning:</strong></p>
+        <ul>
+          <li><strong>Plan A:</strong> Initial tracheal intubation plan - Direct laryngoscopy</li>
+          <li><strong>Plan B:</strong> Secondary tracheal intubation plan - ILMA™ or LMA™, followed by confirmation via fibreoptic tracheal intubation through ILMA™ or LMA™</li>
+          <li><strong>Plan C:</strong> Maintenance of oxygenation, ventilation, postponement of surgery and awakening - Revert to face mask, Oxygenate & ventilate, leading to either Postpone surgery/Awaken patient or continue to Plan D</li>
+          <li><strong>Plan D:</strong> Rescue techniques for "can't intubate, can't ventilate" situation - LMA™ (if not already attempted), which may lead to either Awaken patient or proceed to Cannula cricothyroidotomy or Surgical cricothyroidotomy</li>
+        </ul>
+
+        <p>The algorithm emphasizes that at each stage, oxygenation is the priority. If one plan fails, move to the next plan. The ultimate rescue is a surgical airway (cricothyroidotomy) if all other measures fail and the patient cannot be oxygenated.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="../../js/firebase-config.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/access-control.js"></script>
+  <script src="../../js/completion-tracker.js"></script>
+  <script src="../../js/case-interactions.js"></script>
+  <script src="../../js/text-markup.js"></script>
+  <script src="../../js/flag-tracker.js"></script>
+
+  <script>
+    // Toggle case flag
+    function toggleCaseFlag() {
+      if (!window.flagTracker) {
+        console.error('window.flagTracker is not defined!');
+        alert('Flag tracker not initialized. Please refresh the page.');
+        return;
+      }
+
+      const caseId = window.flagTracker.getCurrentCaseId();
+      if (!caseId) {
+        console.error('Could not get case ID');
+        alert('Could not determine case ID');
+        return;
+      }
+
+      window.flagTracker.toggleCaseFlag(caseId);
+    }
+
+    // Update case flag button state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.flagTracker) {
+        setTimeout(() => {
+          const caseId = window.flagTracker.getCurrentCaseId();
+          if (caseId) {
+            window.flagTracker.updateCaseFlagButton(caseId);
+          }
+        }, 100);
+      }
+    });
+  </script>
+
+  <script src="../../js/case-page-tracker.js"></script>
+</body>
+</html>

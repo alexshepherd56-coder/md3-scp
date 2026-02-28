@@ -1,0 +1,136 @@
+---
+id: "2.4"
+title: "Coronary Artery Disease (Unstable Angina)"
+category: "Cardiovascular"
+discipline: "Medicine"
+setting: "Emergency Department"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+Martin Angus, aged 54 years, presents with worsening angina. Previously he experienced one episode a month that was rapidly relieved with nitrates. However, he has experienced three episodes in the past week. The most recent episode of chest pain started 1 hour ago and came on at rest. Although relieved by nitrates, he still feels unwell.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="What elements of the history cause most concern?"
+>
+
+- Changes in the frequency of angina
+
+          - Angina occurring at rest
+
+          - Ongoing sensation of feeling unwell despite taking nitrates, which previously have relieved pain well
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="What further history and examination is warranted?"
+>
+
+Further history must try and ascertain whether this could be a presentation of a myocardial infarction. This includes:
+        
+
+          - Type and nature of the pain, radiation of the pain
+
+          - Whether there was a change in the pain with the application of the nitrate
+
+          - Associated physical symptoms such as breathlessness, light-headedness, nausea, vomiting, sweating
+
+          - A sense of fear or impending doom
+
+        
+
+        
+
+**Physical examination:**
+        
+
+          - Signs of sympathetic activation: pallor, sweating and tachycardia
+
+          - Signs of vagal activation: bradycardia and vomiting
+
+          - Pallor and cool peripheries
+
+          - Pulse (character and rate)
+
+          - Blood pressure (hypotension)
+
+          - JVP
+
+          - Character of the apex beat
+
+          - Auscultate for heart sounds (quiet S1, S3)
+
+          - Auscultate the chest for crackles
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="What investigations would you order?"
+>
+
+- Blood tests (FBC, EUC, LFT, coagulation screen, ESR, C-reactive protein, serial levels of troponins or if this was not available, CK, CKMB)
+
+          - Serial ECG
+
+          - Chest x-ray
+
+          - Fasting blood glucose, fasting lipid profiles
+
+          - Echocardiography
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={4}
+  question="What is the economic impact of cardiovascular disease in Australia?"
+>
+
+Despite improvements in survival, cardiovascular disease remains one of the most common causes of mortality and morbidity in Australia.
+        
+
+**National Heart Foundation figures (2004):**
+        
+
+          - CVS disease accounts for 36% of all deaths in Australia
+
+          - Responsible for the death of one Australian every ten minutes
+
+          - More than 3.5 million Australians are currently diagnosed with heart disease
+
+          - Prevents 1.4 million people from living a full life because of disability caused by the disease
+
+        
+
+        
+
+**Australian Bureau of Statistics data (2000-01):**
+        
+
+          - Cardiovascular disease is the most expensive health condition
+
+          - Costs 11% or 5.4 billion dollars of the total allocated health system expenditure
+
+          - Predicted to increase as the incidence increases with age and the number of older Australians increases
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={5}
+  question="What interventions have been demonstrated to improve mortality in asymptomatic individuals with risk factors?"
+>
+
+- Moderate to high levels of physical activity
+
+          - Cessation of smoking and modification of risk factors (e.g. diabetes, lipid profile, hypertension)
+
+</CaseQuestion>

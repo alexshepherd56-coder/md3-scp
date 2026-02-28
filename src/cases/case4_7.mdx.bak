@@ -1,0 +1,297 @@
+---
+id: "4.7"
+title: "Contraception (Adolescence)"
+category: "Endocrine & Reproductive Systems"
+discipline: "Obstetrics & Gynaecology"
+setting: "General Practice"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+Monica Wentworth aged 15 years presents requesting the oral contraceptive pill. She has been in a relationship with her boyfriend for 4 months and in the past two weeks she has commenced sexual relations. She has not used a condom and is worried she may be pregnant. She wants a reliable contraceptive so she doesn't become pregnant. She has told her mother and states that her mother supports her request for contraception and to access the oral contraceptive pill.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="What further history, examination and investigations would you undertake in this situation?"
+>
+
+<h3>History</h3>
+        
+
+A full history should be conducted but focusing upon:
+        
+
+          - **The relationship** - Is it mutual and caring?
+
+          - **Past medical and family history** - If known, hereditary thrombophilia, breast cancer
+
+          - **Previous sexual encounters** (if any)
+
+          - **Partner's risk of STI** - Including HIV, Hep B, etc.
+
+          - **Childhood vaccinations** - Has HPV vaccination been given?
+
+          - **Menstrual history** - Menarche, cycle length, menstrual flow, irregular bleeding, vaginal discharge
+
+          - **Other relevant symptoms** - Any headaches, migraines
+
+          - **Smoking history**
+
+        
+
+        <h3>Discussion Should Include</h3>
+        
+
+          - Safe sexual practices
+
+          - STIs and HIV
+
+          - "Double Dutch" - condoms and OCP together
+
+          - Instructions on OCP usage, side effects, "golden rules"
+
+          - Emergency contraception (morning after pill)
+
+          - Follow up
+
+        
+
+        <h3>Examination</h3>
+        
+
+Requires STI screening but does **not** require PV or speculum examination. Patient will usually NOT want you to do anything invasive at this visit.
+
+        <h3>Investigations</h3>
+        
+
+          - **Pregnancy test** - Serum bHCG or early morning urine
+
+          - **STI screening** - First pass urine for Chlamydia and gonococcus (PCR) or self-collected vaginal swab
+
+          - **Baseline HIV** (offered) and Hep B
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="What screening for disease is warranted?"
+>
+
+<h3>Investigations</h3>
+        
+
+          - **Pregnancy test** - Serum bHCG or early morning urine
+
+          - **STI screening** - First pass urine for Chlamydia and gonococcus (PCR) or self-collected vaginal swab
+
+          - **Baseline HIV** (offered) and Hepatitis B
+
+        
+
+        <h3>Vaccinations</h3>
+        
+
+          - **HPV vaccination** should be offered (not as effective after intercourse but does have some reduction in abnormalities)
+
+        
+
+        <h3>Cervical Screening</h3>
+        
+
+**Cervical Screening test - from age 25.** In current recommendations, routine cervical screening is not recommended in young women, except for women who experience first sexual activity at a young age &lt;14 years, and who had not received the HPV vaccine before sexual debut, to consider a single HPV test between age 20-24 on an individual basis.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="List the contraceptive options available for Monica and in a table list their respective mechanism of action, Pearl Index, advantages and disadvantages."
+>
+
+**Contraceptive Options for Teenagers:**
+
+        <table>
+          <thead>
+            <tr>
+              <th>Type of Contraception</th>
+              <th>Mode of Action</th>
+              <th>Pearl Index</th>
+              <th>Advantages</th>
+              <th>Disadvantages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>**Condoms**</td>
+              <td>Barrier</td>
+              <td>3</td>
+              <td>
+                
+
+                  - Available
+
+                  - No health risks
+
+                  - Protects against STI
+
+                
+
+              </td>
+              <td>
+                
+
+                  - Relatively easy to use but need practice and training
+
+                  - Requires motivation
+
+                  - Rare rubber allergies
+
+                  - Can fall off
+
+                  - Need to be used for every sexual event
+
+                
+
+              </td>
+            </tr>
+            <tr>
+              <td>**Combined Oral Contraceptive Pill (OCP)**</td>
+              <td>Hormonal control - prevents ovulation in majority of women, changes cervical mucous, develops hostile endometrium for implantation</td>
+              <td>0.1</td>
+              <td>
+                
+
+                  - Convenient
+
+                  - Allows spontaneity
+
+                  - May reduce acne
+
+                  - Reduces menstrual flow and pain to point of amenorrhoea
+
+                
+
+              </td>
+              <td>
+                
+
+                  - Requires daily taking of OCP
+
+                  - Long term health issues with smoking and DVT
+
+                  - Reduction in effectiveness with NVD
+
+                  - Warn of breakthrough bleeding
+
+                
+
+              </td>
+            </tr>
+            <tr>
+              <td>**Sub-dermal Progesterone Implant**</td>
+              <td>Progesterone effects - hostile endometrium and cervical mucous</td>
+              <td>0.1</td>
+              <td>
+                
+
+                  - Provides contraception for 3 years
+
+                  - No motivation required after insertion
+
+                  - Immediate return to previous fertility state on removal
+
+                
+
+              </td>
+              <td>
+                
+
+                  - Requires procedure to insert
+
+                  - Requires procedure to withdraw
+
+                
+
+              </td>
+            </tr>
+            <tr>
+              <td>**Depo-Provera**</td>
+              <td>Progesterone effects - hostile endometrium and cervical mucous, may stop ovulation</td>
+              <td>0.3</td>
+              <td>
+                
+
+                  - No pills
+
+                  - Reliable
+
+                  - Minimal motivation required
+
+                  - May induce amenorrhoea
+
+                
+
+              </td>
+              <td>
+                
+
+                  - Injection 3 monthly
+
+                  - May cause irregular cycle
+
+                  - 3 kg weight gain maximum
+
+                  - Not immediately reversible
+
+                
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+
+**Note:** The Pearl Index is the number of contraceptive failures per 100 woman-years of use. Lower numbers indicate greater effectiveness.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={4}
+  question="What does Australian law state about prescribing contraceptives to teenagers?"
+>
+
+<h3>Legal Capacity to Consent</h3>
+        
+
+The age that a young person acquires the legal capacity to give consent has been considered by the High Court of Australia and gave the following précis:
+
+        
+
+**"Achieves a sufficient understanding and IQ to enable him or her to understand fully what is proposed"**
+        
+
+**14 years and above.**
+
+        <h3>Practitioner Considerations</h3>
+        
+
+This then leaves the practitioner to balance IQ, knowledge, maturity and nature and seriousness of the treatment. The law is unclear on contraceptive advice and prescribing but the following applies:
+
+        
+
+          - Patient is capable of understanding advice
+
+          - Unable to be persuaded to talk to parents/guardians
+
+          - Likely to engage in sexual activity regardless of contraception
+
+          - The treatment is required for their wellbeing (physical and mental) and is clearly in their best interests
+
+</CaseQuestion>

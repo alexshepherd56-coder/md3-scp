@@ -1,0 +1,334 @@
+---
+id: "1.6"
+title: "Smoking Cessation (SDL)"
+category: "Cardiovascular"
+discipline: "General practice"
+setting: "Urban Community"
+---
+
+import CaseQuestion from '@/components/cases/CaseQuestion';
+
+
+**Category:** {frontmatter.category} | **Discipline:** {frontmatter.discipline} | **Setting:** {frontmatter.setting}
+
+## Case
+
+David Chen is a 55-year-old man who presents to his GP for a routine check-up. He has been smoking 20 cigarettes per day for the past 35 years. He has tried to quit several times in the past but has been unsuccessful. His wife has been encouraging him to quit, especially since his brother was recently diagnosed with lung cancer. David says he's now ready to seriously attempt to stop smoking.
+
+## Questions
+
+<CaseQuestion
+  number={1}
+  question="What are the health consequences of smoking?"
+>
+
+Smoking is the leading preventable cause of death and disease. Health consequences include:
+        
+
+**Cardiovascular disease:**
+        
+
+          - Coronary heart disease (2-4 times increased risk)
+
+          - Stroke (2-4 times increased risk)
+
+          - Peripheral vascular disease
+
+          - Aortic aneurysm
+
+          - Increased risk of sudden cardiac death
+
+        
+
+        
+
+**Respiratory disease:**
+        
+
+          - Chronic obstructive pulmonary disease (COPD) - 90% caused by smoking
+
+          - Chronic bronchitis
+
+          - Emphysema
+
+          - Increased respiratory infections
+
+          - Exacerbation of asthma
+
+        
+
+        
+
+**Cancer:**
+        
+
+          - Lung cancer (85-90% caused by smoking, 20-30 times increased risk)
+
+          - Other cancers: oral, pharyngeal, laryngeal, oesophageal, bladder, kidney, pancreatic, stomach, cervical, leukaemia
+
+        
+
+        
+
+**Other effects:**
+        
+
+          - Peptic ulcer disease
+
+          - Osteoporosis and fractures
+
+          - Impaired wound healing
+
+          - Erectile dysfunction
+
+          - Age-related macular degeneration
+
+          - Premature aging of skin
+
+          - Reduced fertility
+
+          - Complications in pregnancy (miscarriage, low birth weight, premature birth)
+
+          - Passive smoking effects on others
+
+        
+
+        
+
+**Mortality:** Smokers die on average 10 years earlier than non-smokers. Up to half of all long-term smokers will die from smoking-related diseases.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={2}
+  question="What are the health benefits of smoking cessation?"
+>
+
+The benefits of quitting smoking begin almost immediately and continue to increase over time:
+        
+
+**Timeline of benefits:**
+        <table>
+          <tr><th>Time after quitting</th><th>Health benefits</th></tr>
+          <tr><td>20 minutes</td><td>Heart rate and blood pressure drop</td></tr>
+          <tr><td>12 hours</td><td>Carbon monoxide level in blood returns to normal</td></tr>
+          <tr><td>2-12 weeks</td><td>Circulation improves, lung function increases</td></tr>
+          <tr><td>1-9 months</td><td>Coughing and shortness of breath decrease, cilia regain normal function</td></tr>
+          <tr><td>1 year</td><td>Risk of coronary heart disease is half that of a continuing smoker</td></tr>
+          <tr><td>5 years</td><td>Stroke risk reduced to that of a non-smoker. Risk of cancers of mouth, throat, oesophagus and bladder cut in half</td></tr>
+          <tr><td>10 years</td><td>Lung cancer death rate about half that of a continuing smoker. Risk of cancers of larynx and pancreas decreases</td></tr>
+          <tr><td>15 years</td><td>Risk of coronary heart disease returns to that of a non-smoker</td></tr>
+        </table>
+        
+
+**Other benefits:**
+        
+
+          - Improved sense of taste and smell
+
+          - Whiter teeth, fresher breath
+
+          - Better skin appearance
+
+          - Increased energy and fitness
+
+          - Significant cost savings
+
+          - Better outcomes if surgery needed
+
+          - Protection of family/others from passive smoking
+
+        
+
+        
+
+**Important message:** It's never too late to quit - even patients with existing smoking-related disease benefit from cessation.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={3}
+  question="What are the components of nicotine dependence and withdrawal?"
+>
+
+**Nicotine dependence:**
+        
+
+Nicotine is highly addictive. It acts on nicotinic acetylcholine receptors in the brain, causing:
+        
+
+          - Release of dopamine → pleasure and reward
+
+          - Increased alertness and concentration
+
+          - Appetite suppression
+
+          - Stress relief (perceived)
+
+        
+
+        
+
+Dependence has three components:
+        
+
+          - **Physical dependence:** Tolerance develops, withdrawal symptoms occur when stopping
+
+          - **Psychological dependence:** Smoking associated with certain activities, emotions, stress relief
+
+          - **Social/behavioural factors:** Habitual actions, social situations
+
+        
+
+        
+
+**Assessment of dependence - Fagerström Test:**
+        
+
+          - Time to first cigarette after waking (within 5 minutes = highly dependent)
+
+          - Number of cigarettes per day
+
+          - Difficulty refraining from smoking in forbidden places
+
+        
+
+        
+
+**Nicotine withdrawal symptoms:**
+        
+
+          - Cravings for nicotine (strongest symptom)
+
+          - Irritability, frustration, anger
+
+          - Anxiety and restlessness
+
+          - Difficulty concentrating
+
+          - Increased appetite and weight gain
+
+          - Depressed mood
+
+          - Sleep disturbance
+
+          - Headache
+
+        
+
+        
+
+Withdrawal symptoms typically peak in the first week and gradually decrease over 2-4 weeks, though cravings can persist longer.
+
+</CaseQuestion>
+
+<CaseQuestion
+  number={4}
+  question="Describe the \"5 A's\" approach to smoking cessation counselling."
+>
+
+The "5 A's" is an evidence-based framework for smoking cessation counselling:
+        
+
+**1. ASK about tobacco use**
+        
+
+          - Systematically ask all patients about smoking status at every visit
+
+          - Document smoking status in medical records
+
+          - Assess: current smoker, ex-smoker, never smoker
+
+        
+
+        
+
+**2. ADVISE to quit**
+        
+
+          - Provide clear, strong, personalised advice to quit
+
+          - "The best thing you can do for your health is to stop smoking"
+
+          - Link to current health problems or concerns
+
+          - Be non-judgmental and supportive
+
+        
+
+        
+
+**3. ASSESS willingness to make a quit attempt**
+        
+
+          - Determine readiness to quit (stages of change model)
+
+          - If ready to quit → proceed to Assist
+
+          - If not ready → use motivational interviewing, discuss barriers, provide information
+
+          - Assess level of dependence
+
+        
+
+        
+
+**4. ASSIST in quit attempt**
+        
+
+          - Help patient develop a quit plan:
+            
+
+              - Set a quit date (within 2 weeks)
+
+              - Tell family/friends for support
+
+              - Remove cigarettes and triggers from environment
+
+              - Anticipate challenges (withdrawal, triggers)
+
+            
+
+          
+
+          - Provide practical counseling:
+            
+
+              - Avoid triggers
+
+              - Develop coping strategies
+
+              - Encourage alcohol reduction (often associated with smoking)
+
+            
+
+          
+
+          - Recommend pharmacotherapy (see next question)
+
+          - Provide self-help materials
+
+          - Refer to Quitline or cessation programs if appropriate
+
+        
+
+        
+
+**5. ARRANGE follow-up**
+        
+
+          - Schedule follow-up contact (phone or in person) within first week after quit date
+
+          - Assess progress, address problems, provide encouragement
+
+          - Continue follow-up as needed
+
+          - If relapse occurs → review what happened, learn from experience, encourage another quit attempt
+
+        
+
+        
+
+**Additional approach - "Ask, Advise, Help":** A simplified version emphasizing brief intervention in every consultation.
+
+</CaseQuestion>
